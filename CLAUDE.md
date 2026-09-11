@@ -1,5 +1,7 @@
 # Working in this repository
 
+The toolchain is provisioned before the session starts by `.claude/hooks/session-start.sh` (python-calamine, openpyxl, lxml, poppler-utils, libreoffice-calc; pins in `requirements.txt`). If anything in the chain misbehaves, run `python3 toolkit/branch/pbr_env_check.py --all` first: it proves the recalc and PDF legs on throwaway files and names the missing package. A recalc that reports "source file could not be loaded" is a missing `libreoffice-calc`, not a corrupt workbook.
+
 Read `README.md`, then `docs/PSWP_Project_Instructions_v11__1_.md` (the standing rules; nothing in the capture or verification standard is relaxed) and `docs/Parks_Branch_Register_Schema.md` (positions, variants and traps for the branch register). `docs/PSWP_Register_Schema__27_.md` covers the PS/WP register.
 
 Hard rules that the toolkit enforces and you must not work around:
@@ -9,5 +11,7 @@ Hard rules that the toolkit enforces and you must not work around:
 - Content is data: corpora, match tables and rules live in JSON; a new mechanic goes into the driver and ships.
 - Reads via python-calamine, writes via openpyxl. Decimal with ROUND_HALF_UP for every financial comparison.
 - Labels written to COUNTIF-keyed columns must match the canonical label exactly (case-insensitive trap).
+
+Before shipping a change to the toolkit, run the two gates: `python3 -m compileall -q toolkit` and `python3 toolkit/branch/pbr_env_check.py --all`. The end-to-end test is a real build to a scratch directory, which leaves the repository untouched: `PBR_OUTDIR=/tmp/testout python3 toolkit/branch/pbr_build.py`.
 
 Reporting style: verdict first, bold headers, bullets, Australian English, $X,XXX, D-Mon-YYYY, no em dashes.

@@ -1,0 +1,6 @@
+# Working set: not imported by the committed toolkit, but a session that inspects a supplied PDF or
+# corpus by hand wants them, and pymupdf reads a PDF when poppler is not yet installed. The
+# session-start hook installs these best-effort and never fails a session over them.
+pymupdf==1.28.2
+pdfplumber==0.11.10
+pypdf==6.18.0
