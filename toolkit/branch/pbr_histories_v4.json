@@ -1,25 +1,93 @@
 {
- "version": "branch v4 (11-Sep-2026)",
+ "version": "branch v5 (11-Sep-2026)",
  "dir": "data/inputs_2026-09-11/creditor_histories",
- "pulled": "11-Sep-2026 12:34 to 12:49",
+ "pulled": "11-Sep-2026 12:34 to 13:16",
  "tool": "TechOne Ledger Accounts Transactions Table export, Default Ledger Type = AP, Ledger Name = APLEDGER, one creditor account per file (no extraction tool)",
  "match_rule": "AP register line reference equals the history Reference; the history Transaction Amount (incl GST) is within 2c of the document net ex GST x 1.1 (all register lines on the Document Unique ID); the history Date is within 120 days of the register Doc Date; exactly one creditor code satisfies all three. Tier 1 where the history line carries an 11-digit ABN, else Tier 2 (rule 8).",
  "histories": [
-  {"file": "Ledger_Accounts_Transactions_Table__20260911T123621.463.xlsx", "code": "GLA009", "label": "Glascott Landscape and Civil Pty Limited", "abn": "97001281572",
-   "label_basis": "Sighted invoices 012191, 012197 (branch v2) and 012313 (branch v4): payment account name Glascott Landscape and Civil Pty Limited; letterhead prints Technigro ABN 97 001 281 572, which is the ABN on this APLEDGER record."},
-  {"file": "Ledger_Accounts_Transactions_Table__20260911T123710.455.xlsx", "code": "ECO031", "label": "ETSol Pty Ltd t/a Eco Technology Solutions", "abn": "96644313002",
-   "label_basis": "Sighted invoice 11913 (branch v4) letterhead, ABN 96 644 313 002 as on this APLEDGER record."},
-  {"file": "Ledger_Accounts_Transactions_Table__20260911T123456.500.xlsx", "code": "HAR073", "label": "Harpley Services Pty Ltd", "abn": "22162601694",
-   "label_basis": "PS_WP v127 Creditor_Lines HAR073 (5-Aug-2026 pull, F26) and 200+ sighted invoices; this pull extends the history to 31-Aug-2026."},
-  {"file": "Ledger_Accounts_Transactions_Table__20260911T124121.753.xlsx", "code": "PRO066", "label": "Provac Australia Pty Ltd", "abn": "24130227164",
-   "label_basis": "Sighted invoice INV-00042754 (branch v4) letterhead, ABN 24 130 227 164; the same label is on one PS_WP v127 register line."},
-  {"file": "Ledger_Accounts_Transactions_Table__20260911T124520.464.xlsx", "code": "HER025", "label": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust", "abn": "32416129034",
-   "label_basis": "Sighted invoice INV-47435 (branch v4) letterhead, ABN 32 416 129 034 as on this APLEDGER record."},
-  {"file": "Ledger_Accounts_Transactions_Table__20260911T124548.567.xlsx", "code": "SAV012", "label": "Savco Vegetation Services Pty Ltd", "abn": "78161366749",
-   "label_basis": "Sighted invoice SV007924 (branch v4) letterhead, ABN 78161366749 as on this APLEDGER record."},
-  {"file": "Ledger_Accounts_Transactions_Table__20260911T124702.679.xlsx", "code": "TRE010", "label": "Treescape Australasia Pty Ltd", "abn": "20117830118",
-   "label_basis": "Branch v2 sighted invoice (Batch mixed_1, Treescape template) and the register label; ABN 20 117 830 118 as on this APLEDGER record."},
-  {"file": "Ledger_Accounts_Transactions_Table__20260911T124902.687.xlsx", "code": "VIN003", "label": "Vinton Tree Services", "abn": "84008552538",
-   "label_basis": "Named as Vinton Tree Services in Council recode journals on 49 branch register lines (branch v1, Tier 2); ABN 84 008 552 538 from this APLEDGER record. Legal entity suffix to be confirmed from the first sighted invoice."}
+  {
+   "file": "Ledger_Accounts_Transactions_Table__20260911T123621.463.xlsx",
+   "code": "GLA009",
+   "label": "Glascott Landscape and Civil Pty Limited",
+   "abn": "97001281572",
+   "label_basis": "Sighted invoices 012191, 012197 (branch v2) and 012313 (branch v4): payment account name Glascott Landscape and Civil Pty Limited; letterhead prints Technigro ABN 97 001 281 572, which is the ABN on this APLEDGER record."
+  },
+  {
+   "file": "Ledger_Accounts_Transactions_Table__20260911T123710.455.xlsx",
+   "code": "ECO031",
+   "label": "ETSol Pty Ltd t/a Eco Technology Solutions",
+   "abn": "96644313002",
+   "label_basis": "Sighted invoice 11913 (branch v4) letterhead, ABN 96 644 313 002 as on this APLEDGER record."
+  },
+  {
+   "file": "Ledger_Accounts_Transactions_Table__20260911T123456.500.xlsx",
+   "code": "HAR073",
+   "label": "Harpley Services Pty Ltd",
+   "abn": "22162601694",
+   "label_basis": "PS_WP v127 Creditor_Lines HAR073 (5-Aug-2026 pull, F26) and 200+ sighted invoices; this pull extends the history to 31-Aug-2026."
+  },
+  {
+   "file": "Ledger_Accounts_Transactions_Table__20260911T124121.753.xlsx",
+   "code": "PRO066",
+   "label": "Provac Australia Pty Ltd",
+   "abn": "24130227164",
+   "label_basis": "Sighted invoice INV-00042754 (branch v4) letterhead, ABN 24 130 227 164; the same label is on one PS_WP v127 register line."
+  },
+  {
+   "file": "Ledger_Accounts_Transactions_Table__20260911T124520.464.xlsx",
+   "code": "HER025",
+   "label": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+   "abn": "32416129034",
+   "label_basis": "Sighted invoice INV-47435 (branch v4) letterhead, ABN 32 416 129 034 as on this APLEDGER record."
+  },
+  {
+   "file": "Ledger_Accounts_Transactions_Table__20260911T124548.567.xlsx",
+   "code": "SAV012",
+   "label": "Savco Vegetation Services Pty Ltd",
+   "abn": "78161366749",
+   "label_basis": "Sighted invoice SV007924 (branch v4) letterhead, ABN 78161366749 as on this APLEDGER record."
+  },
+  {
+   "file": "Ledger_Accounts_Transactions_Table__20260911T124702.679.xlsx",
+   "code": "TRE010",
+   "label": "Treescape Australasia Pty Ltd",
+   "abn": "20117830118",
+   "label_basis": "Branch v2 sighted invoice (Batch mixed_1, Treescape template) and the register label; ABN 20 117 830 118 as on this APLEDGER record."
+  },
+  {
+   "file": "Ledger_Accounts_Transactions_Table__20260911T124902.687.xlsx",
+   "code": "VIN003",
+   "label": "Vinton Tree Services",
+   "abn": "84008552538",
+   "label_basis": "Named as Vinton Tree Services in Council recode journals on 49 branch register lines (branch v1, Tier 2); ABN 84 008 552 538 from this APLEDGER record. Legal entity suffix to be confirmed from the first sighted invoice."
+  },
+  {
+   "file": "Ledger_Accounts_Transactions_Table_-_2026-09-11T131309.344.xlsx",
+   "code": "BUR044",
+   "label": "Burly Holdings",
+   "abn": "38674292196",
+   "label_basis": "Sighted invoice 2122 (branch v5, Batch attach_2) letterhead and bank account name Burly Holdings, ABN 38 674 292 196 as on this APLEDGER record."
+  },
+  {
+   "file": "Ledger_Accounts_Transactions_Table_-_2026-09-11T131452.425.xlsx",
+   "code": "CER006",
+   "label": "Certified Mowing Pty Ltd",
+   "abn": "22161469325",
+   "label_basis": "Sighted invoices INV-0711 and INV-0722 (branch v5, Batch attach_2) letterhead, ABN 22 161 469 325 as on this APLEDGER record."
+  },
+  {
+   "file": "Ledger_Accounts_Transactions_Table_-_2026-09-11T131456.313.xlsx",
+   "code": "COA030",
+   "label": "Coast2Coast Grounds and Gardens",
+   "abn": "24488420203",
+   "label_basis": "Sighted invoices INV-11824 and INV-11833 (branch v5) and INV-11834/INV-11835 (branch v3) letterhead, ABN 24 488 420 203 as on this APLEDGER record; the vendor number COA030 is printed on the invoice face."
+  },
+  {
+   "file": "Ledger_Accounts_Transactions_Table_-_2026-09-11T131623.953.xlsx",
+   "code": "THE289",
+   "label": "The Trustee for Flavell-Dau Family Trust (t/a F82 Landscaping)",
+   "abn": "47220358629",
+   "label_basis": "Sighted invoice INV-0339 (branch v5) and the branch v3 Flavell-Dau captures; the payment block prints F82 Landscaping, kept in the label so every line of the series carries one label (COUNTIF). ABN 47 220 358 629 as on this APLEDGER record and on PS_WP v127 Creditor_Lines THE289."
+  }
  ]
 }

@@ -1,0 +1,233 @@
+[
+ {
+  "invoice": "2122",
+  "vendor": "Burly Holdings",
+  "abn": "38 674 292 196",
+  "subtotal": 5790.0,
+  "incl": 6369.0,
+  "variant": "standard",
+  "target": [
+   "9adda644-73126-PK000366-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "9adda644-73126-PK000366-01",
+    "section": "Park Maintenance",
+    "na": "73126",
+    "pk": "PK000366",
+    "amount": 5790.0,
+    "contractor": "Unidentified (FY2026/27 branch-wide, not yet cleared)",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "2122",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Landscape Maintenance as per Fixed Fee #3097.2, job address 58 Third Avenue Marsden, attention Brett Morton; printed PK000366 matches the charge.",
+  "follow_up": null,
+  "source_file": "C00310036.pdf"
+ },
+ {
+  "invoice": "INV-0711",
+  "vendor": "Certified Mowing Pty Ltd",
+  "abn": "22 161 469 325",
+  "subtotal": 3419.4,
+  "incl": 3761.34,
+  "variant": "standard",
+  "target": [
+   "ab2123d8-73126-PK000397-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "ab2123d8-73126-PK000397-01",
+    "section": "Park Maintenance",
+    "na": "73126",
+    "pk": "PK000397",
+    "amount": 3419.4,
+    "contractor": "Unidentified (FY2026/27 branch-wide, not yet cleared)",
+    "narr": "25/26 - Mowing for Zone 3"
+   }
+  ],
+  "evid": "INV-0711",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "MZ3 Grass Cutting High Growth Round 1; printed PK000397 matches the charge.",
+  "follow_up": null,
+  "source_file": "C00311803.pdf"
+ },
+ {
+  "invoice": "INV-11824",
+  "vendor": "Coast2Coast Grounds and Gardens",
+  "abn": "24 488 420 203",
+  "subtotal": 4143.74,
+  "incl": 4558.12,
+  "variant": "check 2 split-posting (each register line ties its own printed line(s) by LineKey)",
+  "target": [
+   "487f6f8d-73126-PK000513-01",
+   "487f6f8d-73126-PK000427-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "487f6f8d-73126-PK000427-01",
+    "section": "Park Maintenance",
+    "na": "73126",
+    "pk": "PK000427",
+    "amount": 4068.69,
+    "contractor": "Unidentified (FY2026/27 branch-wide, not yet cleared)",
+    "narr": "24/25"
+   },
+   {
+    "linekey": "487f6f8d-73126-PK000513-01",
+    "section": "No section (NA - Not Applicable)",
+    "na": "73126",
+    "pk": "PK000513",
+    "amount": 75.05,
+    "contractor": "Unidentified (FY2026/27 branch-wide, not yet cleared)",
+    "narr": "24/25"
+   }
+  ],
+  "evid": "INV-11824",
+  "evid_note": null,
+  "line_map": [
+   [
+    "487f6f8d-73126-PK000513-01",
+    "FUEL LEVY"
+   ],
+   [
+    "487f6f8d-73126-PK000427-01",
+    "."
+   ]
+  ],
+  "coding_verdict": "Review",
+  "coding_note": "Fuel levy computed on the GST-inclusive line amount: the invoice prints \"$4,475.56 x 0.2477 = $1108.59 x 0.0677 = $75.05\", but $4,475.56 is the GST-inclusive figure for work of $4,068.69 ex GST. On the ex-GST base the levy is $68.23, so $6.82 ex GST ($7.50 incl) is over-claimed. The same supplier used the ex-GST base correctly on INV-11833 in the same month under the same contract. Printed line amounts on this layout are GST inclusive; the fuel levy leg posts to PK000513 service 20821 (Section NA), the mowing fuel levy leg resolved at v3.",
+  "follow_up": "Raise the $6.82 ex GST fuel levy over-claim with the PAR/336E/2024 contract administrator and ask Coast2Coast to compute the levy on the ex-GST work value on every claim; verify the 0.2477 fuel component and 0.0677 escalation against the current Brisbane diesel TGP band before the next payment.",
+  "source_file": "C00313458.pdf"
+ },
+ {
+  "invoice": "INV-0339",
+  "vendor": "The Trustee for Flavell-Dau Family Trust",
+  "abn": "47 220 358 629",
+  "subtotal": 4388.0,
+  "incl": 4826.8,
+  "variant": "standard",
+  "target": [
+   "66c8ad9b-73123-PK000022-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "66c8ad9b-73123-PK000022-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000022",
+    "amount": 4388.0,
+    "contractor": "Unidentified (FY2026/27 section-wide, not yet identified)",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-0339",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Kimberley Park shelter roof repairs; printed PK000022 matches the charge.",
+  "follow_up": null,
+  "source_file": "C00313632.pdf"
+ },
+ {
+  "invoice": "INV-11833",
+  "vendor": "Coast2Coast Grounds and Gardens",
+  "abn": "24 488 420 203",
+  "subtotal": 60798.99,
+  "incl": 66878.89,
+  "variant": "check 2 split-posting (each register line ties its own printed line(s) by LineKey)",
+  "target": [
+   "0d0ad8f3-73126-PK000513-01",
+   "0d0ad8f3-73126-PK000427-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "0d0ad8f3-73126-PK000427-01",
+    "section": "Park Maintenance",
+    "na": "73126",
+    "pk": "PK000427",
+    "amount": 59796.25,
+    "contractor": "Unidentified (FY2026/27 branch-wide, not yet cleared)",
+    "narr": "26/27"
+   },
+   {
+    "linekey": "0d0ad8f3-73126-PK000513-01",
+    "section": "No section (NA - Not Applicable)",
+    "na": "73126",
+    "pk": "PK000513",
+    "amount": 1002.74,
+    "contractor": "Unidentified (FY2026/27 branch-wide, not yet cleared)",
+    "narr": "26/27"
+   }
+  ],
+  "evid": "INV-11833",
+  "evid_note": null,
+  "line_map": [
+   [
+    "0d0ad8f3-73126-PK000513-01",
+    "FUEL LEVY"
+   ],
+   [
+    "0d0ad8f3-73126-PK000427-01",
+    "."
+   ]
+  ],
+  "coding_verdict": "Correct",
+  "coding_note": "Fuel levy computed correctly on the ex-GST work value ($59,796.25 x 0.2477 x 0.0677 = $1,002.74). Printed line amounts on this layout are GST inclusive; ex GST is the printed amount divided by 1.1. The fuel levy leg posts to PK000513 service 20821 (Section NA), the mowing fuel levy leg resolved at v3.",
+  "follow_up": null,
+  "source_file": "C00315793.pdf"
+ },
+ {
+  "invoice": "INV-0722",
+  "vendor": "Certified Mowing Pty Ltd",
+  "abn": "22 161 469 325",
+  "subtotal": 49002.91,
+  "incl": 53903.2,
+  "variant": "check 2 split-posting (each register line ties its own printed line(s) by LineKey)",
+  "target": [
+   "dcbb744a-73126-PK000042-01",
+   "dcbb744a-73126-PK000397-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "dcbb744a-73126-PK000042-01",
+    "section": "Park Maintenance",
+    "na": "73126",
+    "pk": "PK000042",
+    "amount": 2929.97,
+    "contractor": "Unidentified (FY2026/27 branch-wide, not yet cleared)",
+    "narr": "25/26 - Mowing for Zone 3"
+   },
+   {
+    "linekey": "dcbb744a-73126-PK000397-01",
+    "section": "Park Maintenance",
+    "na": "73126",
+    "pk": "PK000397",
+    "amount": 46072.94,
+    "contractor": "Unidentified (FY2026/27 branch-wide, not yet cleared)",
+    "narr": "25/26 - Mowing for Zone 3"
+   }
+  ],
+  "evid": "INV-0722",
+  "evid_note": null,
+  "line_map": [
+   [
+    "dcbb744a-73126-PK000042-01",
+    "PK00042\\b"
+   ],
+   [
+    "dcbb744a-73126-PK000397-01",
+    "PK000397"
+   ]
+  ],
+  "coding_verdict": "Correct",
+  "coding_note": "Main roads line prints the PK as \"PK00042\" (five digits) and is charged to PK000042 Contract Roads Mowing - Main Roads; normalised on join with the printed form recorded (rule 13). The invoice also prints \"NOTE: this invoice includes Partial deletion MZ3-016 sqm-164, -$4.26\".",
+  "follow_up": "Ask Certified Mowing to print the six-digit PK; no financial effect.",
+  "source_file": "C00316104.pdf"
+ }
+]

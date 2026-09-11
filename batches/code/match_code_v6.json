@@ -1,0 +1,618 @@
+[
+ {
+  "invoice": "INV-8060",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 579.75,
+  "incl": 637.73,
+  "variant": "standard",
+  "target": [
+   "373cdc00-73123-PK000023-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "373cdc00-73123-PK000023-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000023",
+    "amount": 579.75,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8060",
+  "evid_note": null,
+  "coding_verdict": "Correct",
+  "coding_note": null,
+  "follow_up": null,
+  "docfile": "1245393"
+ },
+ {
+  "invoice": "INV-8061",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 463.94,
+  "incl": 510.33,
+  "variant": "standard",
+  "target": [
+   "2edd75e0-73123-PK000023-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "2edd75e0-73123-PK000023-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000023",
+    "amount": 463.94,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8061",
+  "evid_note": null,
+  "coding_verdict": "Correct",
+  "coding_note": null,
+  "follow_up": null,
+  "docfile": "1245390"
+ },
+ {
+  "invoice": "INV-8107",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 519.06,
+  "incl": 570.97,
+  "variant": "standard",
+  "target": [
+   "8ac7d5ab-73123-PK000023-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "8ac7d5ab-73123-PK000023-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000023",
+    "amount": 519.06,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8107",
+  "evid_note": null,
+  "coding_verdict": "Correct",
+  "coding_note": null,
+  "follow_up": null,
+  "docfile": "1247938"
+ },
+ {
+  "invoice": "INV-8191",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 542.93,
+  "incl": 597.22,
+  "variant": "standard",
+  "target": [
+   "9a7455f9-73123-PK000023-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "9a7455f9-73123-PK000023-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000023",
+    "amount": 542.93,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8191",
+  "evid_note": null,
+  "coding_verdict": "Correct",
+  "coding_note": null,
+  "follow_up": null,
+  "docfile": "1250652"
+ },
+ {
+  "invoice": "INV-8405",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 524.6,
+  "incl": 577.06,
+  "variant": "standard",
+  "target": [
+   "28402375-73123-PK000023-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "28402375-73123-PK000023-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000023",
+    "amount": 524.6,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8405",
+  "evid_note": null,
+  "coding_verdict": "Correct",
+  "coding_note": null,
+  "follow_up": null,
+  "docfile": "1252964"
+ },
+ {
+  "invoice": "INV-8439",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 432.0,
+  "incl": 475.2,
+  "variant": "standard",
+  "target": [
+   "bdae2a74-73123-PK000023-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "bdae2a74-73123-PK000023-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000023",
+    "amount": 432.0,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8439",
+  "evid_note": null,
+  "coding_verdict": "Correct",
+  "coding_note": null,
+  "follow_up": null,
+  "docfile": "1254315"
+ },
+ {
+  "invoice": "INV-8456",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 454.25,
+  "incl": 499.68,
+  "variant": "standard",
+  "target": [
+   "0c70e7f8-73123-PK000023-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "0c70e7f8-73123-PK000023-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000023",
+    "amount": 454.25,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8456",
+  "evid_note": null,
+  "coding_verdict": "Correct",
+  "coding_note": null,
+  "follow_up": null,
+  "docfile": "1254321"
+ },
+ {
+  "invoice": "INV-8486",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 4391.64,
+  "incl": 4830.8,
+  "variant": "standard",
+  "target": [
+   "c50026b9-73123-PK000411-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "c50026b9-73123-PK000411-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000411",
+    "amount": 4391.64,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8486",
+  "evid_note": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Division 7 operational playground inspections billed against purchase order 717527 with no Account row printed; charged to PK000411. 44 inspections at $99.81.",
+  "follow_up": null,
+  "docfile": "1256040"
+ },
+ {
+  "invoice": "INV-8502",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 556.17,
+  "incl": 611.79,
+  "variant": "standard",
+  "target": [
+   "76024adf-73123-PK000388-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "76024adf-73123-PK000388-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000388",
+    "amount": 556.17,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8502",
+  "evid_note": null,
+  "coding_verdict": "Review",
+  "coding_note": "Printed Account PK000338 against a ledger charge to PK000388 (Playground Maintenance & Repairs, Village Green Logan Village); PK000338 is not a WO Task in the FY2026/27 branch SE2. Same printed-PK pattern as PS & WP Open Item PSWP-83 (INV-8068).",
+  "follow_up": "Confirm with Park Services which PK the Village Green playground works belong to, and ask Play Force to correct the Account field; the printed and charged PKs differ by one digit.",
+  "docfile": "1256045"
+ },
+ {
+  "invoice": "INV-8548",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 3593.16,
+  "incl": 3952.48,
+  "variant": "standard",
+  "target": [
+   "3209a0c6-73123-PK000411-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "3209a0c6-73123-PK000411-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000411",
+    "amount": 3593.16,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8548",
+  "evid_note": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Division 8 operational playground inspections billed against purchase order 717527 with no Account row printed; charged to PK000411. 36 inspections at $99.81.",
+  "follow_up": null,
+  "docfile": "1256897"
+ },
+ {
+  "invoice": "INV-8563",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 4518.3,
+  "incl": 4970.13,
+  "variant": "standard",
+  "target": [
+   "a5a40a37-73123-PK000023-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "a5a40a37-73123-PK000023-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000023",
+    "amount": 4518.3,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8563",
+  "evid_note": null,
+  "coding_verdict": "Correct",
+  "coding_note": null,
+  "follow_up": null,
+  "docfile": "1256906"
+ },
+ {
+  "invoice": "INV-8564",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 4556.0,
+  "incl": 5011.6,
+  "variant": "standard",
+  "target": [
+   "629d7e71-73123-PK000510-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "629d7e71-73123-PK000510-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000510",
+    "amount": 4556.0,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8564",
+  "evid_note": null,
+  "coding_verdict": "Review",
+  "coding_note": "Account prints the literal word \"undefined\" (no PK on the invoice face) and the only description is \"as per Quote 692442\"; the quote is not in the binder. Charged to PK000510. Capture report findings F4 and F5.",
+  "follow_up": "Obtain Quote 692442 and confirm the scope and PK before the next claim; ask Play Force to populate the Account field.",
+  "docfile": "1256903"
+ },
+ {
+  "invoice": "INV-8589",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 558.78,
+  "incl": 614.66,
+  "variant": "standard",
+  "target": [
+   "775683c2-73123-PK000441-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "775683c2-73123-PK000441-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000441",
+    "amount": 558.78,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8589",
+  "evid_note": null,
+  "coding_verdict": "Correct",
+  "coding_note": null,
+  "follow_up": null,
+  "docfile": "1257778"
+ },
+ {
+  "invoice": "INV-8594",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 551.3,
+  "incl": 606.43,
+  "variant": "standard",
+  "target": [
+   "e1ab5bf8-73123-PK000023-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "e1ab5bf8-73123-PK000023-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000023",
+    "amount": 551.3,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8594",
+  "evid_note": null,
+  "coding_verdict": "Correct",
+  "coding_note": null,
+  "follow_up": null,
+  "docfile": "1257781"
+ },
+ {
+  "invoice": "INV-8624",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 5500.0,
+  "incl": 6050.0,
+  "variant": "standard",
+  "target": [
+   "e914c1c9-73123-PK000391-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "e914c1c9-73123-PK000391-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000391",
+    "amount": 5500.0,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Quote 70150"
+   }
+  ],
+  "evid": "INV-8624",
+  "evid_note": null,
+  "coding_verdict": "Correct",
+  "coding_note": null,
+  "follow_up": null,
+  "docfile": "1258910"
+ },
+ {
+  "invoice": "INV-8671",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 432.0,
+  "incl": 475.2,
+  "variant": "standard",
+  "target": [
+   "e8c762c7-73123-PK000023-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "e8c762c7-73123-PK000023-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000023",
+    "amount": 432.0,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8671",
+  "evid_note": null,
+  "coding_verdict": "Correct",
+  "coding_note": null,
+  "follow_up": null,
+  "docfile": "1258974"
+ },
+ {
+  "invoice": "INV-8722",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 496.17,
+  "incl": 545.79,
+  "variant": "standard",
+  "target": [
+   "c476fa3a-73123-PK000470-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "c476fa3a-73123-PK000470-01",
+    "section": "Water Parks",
+    "na": "73123",
+    "pk": "PK000470",
+    "amount": 496.17,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8722",
+  "evid_note": null,
+  "coding_verdict": "Correct",
+  "coding_note": null,
+  "follow_up": null,
+  "docfile": "1259326"
+ },
+ {
+  "invoice": "INV-8723",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 471.39,
+  "incl": 518.53,
+  "variant": "standard",
+  "target": [
+   "7c18fc3f-73123-PK000388-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "7c18fc3f-73123-PK000388-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000388",
+    "amount": 471.39,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8723",
+  "evid_note": null,
+  "coding_verdict": "Correct",
+  "coding_note": null,
+  "follow_up": null,
+  "docfile": "1259354"
+ },
+ {
+  "invoice": "INV-8730",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 432.65,
+  "incl": 475.92,
+  "variant": "standard",
+  "target": [
+   "aa703b6e-73123-PK000388-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "aa703b6e-73123-PK000388-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000388",
+    "amount": 432.65,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8730",
+  "evid_note": null,
+  "coding_verdict": "Correct",
+  "coding_note": null,
+  "follow_up": null,
+  "docfile": "1259356"
+ },
+ {
+  "invoice": "INV-8733",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 441.04,
+  "incl": 485.14,
+  "variant": "standard",
+  "target": [
+   "25ed4e82-73123-PK000023-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "25ed4e82-73123-PK000023-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000023",
+    "amount": 441.04,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8733",
+  "evid_note": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Account prints the literal word \"undefined\" (no PK on the invoice face); the work-order row names 3922122 MTN Hanlon Park, Tanah Merah, consistent with the charge to PK000023 Playground Maintenance & Repairs. Capture report finding F4.",
+  "follow_up": "Ask Play Force to populate the Account field on maintenance invoices; no financial effect.",
+  "docfile": "1259659"
+ },
+ {
+  "invoice": "INV-8752",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 2822.54,
+  "incl": 3104.79,
+  "variant": "standard",
+  "target": [
+   "ca817ed2-73123-PK000023-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "ca817ed2-73123-PK000023-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000023",
+    "amount": 2822.54,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8752",
+  "evid_note": null,
+  "coding_verdict": "Correct",
+  "coding_note": null,
+  "follow_up": null,
+  "docfile": "1259687"
+ },
+ {
+  "invoice": "INV-8760",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 534.87,
+  "incl": 588.36,
+  "variant": "standard",
+  "target": [
+   "4a74b25c-73123-PK000023-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "4a74b25c-73123-PK000023-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000023",
+    "amount": 534.87,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8760",
+  "evid_note": null,
+  "coding_verdict": "Correct",
+  "coding_note": null,
+  "follow_up": null,
+  "docfile": "1259681"
+ }
+]

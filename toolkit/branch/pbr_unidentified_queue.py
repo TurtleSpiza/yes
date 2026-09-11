@@ -14,7 +14,15 @@ from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill, Alignment
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
-REG = sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, 'registers', 'Parks_Branch_Transaction_Register_FY2627_v4.xlsx')
+def latest_register():
+    import glob
+    reg = sorted(glob.glob(os.path.join(ROOT, 'registers', 'Parks_Branch_Transaction_Register_FY2627_v*.xlsx')),
+                 key=lambda p: int(re.search(r'_v(\d+)\.xlsx$', p).group(1)))
+    assert reg, 'no branch register shipped'
+    return reg[-1]
+
+
+REG = sys.argv[1] if len(sys.argv) > 1 else latest_register()
 OUT = sys.argv[2] if len(sys.argv) > 2 else os.path.join(ROOT, 'reports')
 D = lambda x: Decimal(str(x)).quantize(Decimal('0.01'), ROUND_HALF_UP)
 

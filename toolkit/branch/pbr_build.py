@@ -14,7 +14,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import pbr_stage
 
-VER = 'v4'
+VER = 'v5'
 OUTNAME = f'Parks_Branch_Transaction_Register_FY2627_{VER}.xlsx'
 CLTOK = re.compile(r'\{CL:(\d+):(\d+)\}')
 SCRATCH = os.path.join(pbr_stage.ROOT, 'cache', 'scratch')
@@ -298,7 +298,8 @@ def build(stage):
     for k_, hh in enumerate(HISTS, 7):
         ho.row([os.path.basename(hh['path']), f'Creditor_Lines (APLEDGER {hh["code"]} {hh["label"]}, {hh["n"]:,} lines {hh["first"].strftime("%d-%b-%Y")} to {hh["last"].strftime("%d-%b-%Y")}, verbatim); md5 {hh["md5"]}; Data_Acquisition F{k_}.'])
     for m_ in stage.get('attach_files', []):
-        ho.row([m_['file'], f'Evidence_Invoices / Evidence_Invoice_Lines / Register green block (Batch attach_1, corpus_attach_1_v6.json with page text retained); md5 {m_["md5"]}; the PDF itself is not embedded (rule 15).'])
+        ho.row([m_['file'], f'Evidence_Invoices / Evidence_Invoice_Lines / Register green block (Batch {m_.get("batch", "attach_1")}, corpus_{m_.get("batch", "attach_1")}_v6.json with page text retained); md5 {m_["md5"]}; the PDF itself is not embedded (rule 15).'])
+    ho.row(['code.pdf (66 pages, binder not supplied)', 'Evidence_Invoices / Evidence_Invoice_Lines / Register green block (Batch code): supplied corpus corpus_code.json md5 e256555fc9d22d46a9cce80f8e7bbe3b, prepared to corpus_code_v6.json with page text rebuilt from the retained layout rows and the rule 19.2 per-vendor verbatim check run against an independent source (Data_Acquisition).'])
     ho.blank()
     ho.row(['Next steps (priority order, detail on Open_Items)', ''], 'blue')
     top = sorted(unid_by_sec.items(), key=lambda kv: -kv[1][1])[:3]
@@ -756,7 +757,7 @@ def build(stage):
                   'Consolidated invoices 1026099 ($565,345.00) and 1026231 ($576,921.08) are Council-wide, 47 to 48 sites; Parks carries only Logan Garden Park (NMI QB10790446 8) at $2,752.17 and $2,822.55. Captured in full under rule 16 (all site rows); register ties by LineKey to the Parks site row.',
                   'Sighted invoices, PARTIAL-SCOPE variant.'))
     items.append(('Case-variant contractor label', 'Housekeeping', 'Vendor_Series', None, None,
-                  '"LCC internal billing (Plant & Fleet / Workshop)" and "... / workshop)" are both carried from v127. Vendor_Series groups them; canonicalise in both registers at the next housekeeping build. Same trap on ABN strings at v4: Treescape Australasia carries "20 117 830 118" (APLEDGER TRE010) and "20-117-830-118 (printed with hyphens)" (branch v2 capture) on different lines; column M should hold the grouped form on every line, the green block the printed form.',
+                  '"LCC internal billing (Plant & Fleet / Workshop)" and "... / workshop)" are both carried from v127. Vendor_Series groups them; canonicalise in both registers at the next housekeeping build. Same trap on ABN strings at v4 and v5: Treescape Australasia carries "20 117 830 118" (APLEDGER TRE010) against "20-117-830-118 (printed with hyphens)" (branch v2 capture), and Coast2Coast carries "24 488 420 203" (APLEDGER COA030 and the v5 capture) against "24488420203 (printed ungrouped)" (branch v3 capture). Column M should hold the grouped form on every line and the green block the printed form; canonicalise in both registers at the next housekeeping build.',
                   'COUNTIF case-insensitivity trap.'))
     _hm = stage['hist_matches']; _inh = ident_rows
     if _inh:
@@ -770,11 +771,21 @@ def build(stage):
     if stage['hist_ambiguous']:
         items.append(('Ambiguous history references', 'Note', 'Branch', len(stage['hist_ambiguous']), None,
                       'References where more than one creditor history ties by amount and date, left unidentified: ' + '; '.join(f'{r_} ({", ".join(c_)})' for r_, c_ in stage['hist_ambiguous'][:20]) + '.', 'Match rule, Method 12.0.'))
-    _pk = [r for r in sighted if str(r['V'][126] or '').startswith('11-Sep-2026, branch v4') and r['V'][104] not in (None, '(not printed)') and str(r['V'][104]).replace(' ', '') != str(r['V'][17])]
+    _pk = [r for r in sighted if re.match(r'11-Sep-2026, branch v[45]', str(r['V'][126] or '')) and r['V'][104] not in (None, '(not printed)', 'undefined (as printed)') and str(r['V'][104]).replace(' ', '') != str(r['V'][17])]
     if _pk:
-        items.append(('Printed PK differs from PK charged (Batch attach_1)', 'Housekeeping', 'Park Maintenance / Cemeteries / Trees', len(_pk), sum(D(r['V'][20]) for r in _pk),
-                      '; '.join(f'{r["V"][88]} prints {r["V"][104]}, charged {r["V"][17]}' for r in _pk) + '. In each case the invoice text supports the PK charged (coding note on the line); ask the supplier to quote the charged WO Task. No financial effect.',
-                      'Sighted invoices, Batch attach_1.'))
+        items.append(('Printed PK differs from PK charged (sighted invoices, branch v4 and v5)', 'Housekeeping', '; '.join(sorted({sec_names[str(r['V'][2])] for r in _pk})), len(_pk), sum(D(r['V'][20]) for r in _pk),
+                      '; '.join(f'{r["V"][88]} prints {r["V"][104]}, charged {r["V"][17]}' for r in _pk) + '. The invoice text supports the PK charged in each case except Play Force INV-8502, where the printed PK000338 is not a WO Task in this register (see the coding note on that line). Ask each supplier to quote the charged WO Task. No financial effect.',
+                      'Sighted invoices, Batches attach_1, attach_2 and code.'))
+    _undef = [r for r in sighted if str(r['V'][104]) == 'undefined (as printed)']
+    if _undef:
+        items.append(('Supplier invoice prints no PK ("undefined")', 'Housekeeping', 'Park Services', len(_undef), sum(D(r['V'][20]) for r in _undef),
+                      'Play Force invoices ' + ', '.join(str(r['V'][88]) for r in _undef) + ' print the literal word "undefined" in the Account field, so the invoice face carries no PK; the work-order row names the park and the charge follows it. '
+                      'On INV-8564 the only description is "as per Quote 692442" and the quote is not in the binder. Ask Play Force to populate the Account field and obtain quote 692442.',
+                      'Sighted invoices, Batch code (capture report findings F4 and F5).'))
+    items.append(('Coast2Coast fuel levy computed on a GST-inclusive base', 'Review', 'Park Maintenance / Section NA', 1, 6.82,
+                  'INV-11824 prints "$4,475.56 x 0.2477 = $1108.59 x 0.0677 = $75.05", but $4,475.56 is the GST-inclusive figure for work of $4,068.69 ex GST; on the ex-GST base the levy is $68.23, so $6.82 ex GST ($7.50 incl) is over-claimed. '
+                  'INV-11833, same supplier, same contract PAR/336E/2024, same month, uses the ex-GST base correctly ($59,796.25 x 0.2477 x 0.0677 = $1,002.74). Raise with the contract administrator, and verify the 0.2477 fuel component and 0.0677 escalation against the current Brisbane diesel TGP band before the next payment.',
+                  'Sighted invoices INV-11824 and INV-11833 (Batch attach_2); the levy legs post to PK000513 service 20821.'))
     for k, it in enumerate(items, 1):
         oi.row([f'B-{k:03d}'] + list(it), money_cols=(6,))
     cited = collections.Counter()
@@ -915,7 +926,13 @@ def build(stage):
     for k_, hh in enumerate(HISTS, 7):
         lines.append(f'F{k_} | 11-Sep-2026 | {os.path.basename(hh["path"])} | md5 {hh["md5"]} | TechOne Ledger Accounts Transactions Table export, APLEDGER creditor history {hh["code"]} ({hh["label"]}, ABN {hh["abn"]}), no extraction tool | {hh["n"]:,} lines {hh["first"].strftime("%d-%b-%Y")} to {hh["last"].strftime("%d-%b-%Y")}, export total row ${D(hh["total"][10]):,} | {hh["params"]} | label basis: {hh["label_basis"]}')
     for k_, m_ in enumerate(stage.get('attach_files', []), 7 + len(HISTS)):
-        lines.append(f'F{k_} | 11-Sep-2026 | {m_["file"]} | md5 {m_["md5"]} | TechOne attachment PDF (EzeScan Server21 export, {m_["pages"]} page(s)); parsed by parse_attach1.py, pdftotext -layout, page text retained in corpus_attach_1_v6.json; gate GREEN; the PDF is not embedded (rule 15) | Batch attach_1')
+        b_ = m_.get('batch', 'attach_1')
+        lines.append(f'F{k_} | 11-Sep-2026 | {m_["file"]} | md5 {m_["md5"]} | TechOne attachment PDF (EzeScan Server21 export, {m_["pages"]} page(s)); parsed by parse_{b_}.py, pdftotext -layout, page text retained in corpus_{b_}_v6.json; gate GREEN; the PDF is not embedded (rule 15) | Batch {b_}')
+    _fid = json.load(open(os.path.join(pbr_stage.ROOT, 'batches', 'code', 'corpus_code_v6.json')))['manifest']
+    lines.append(f'F{7 + len(HISTS) + len(stage.get("attach_files", []))} | 11-Sep-2026 | corpus_code.json | md5 {_fid.get("supplied_corpus_md5")} | Supplied extraction corpus for code.pdf (66 pages, binder not supplied). Extraction tool as declared: {_fid.get("extraction_tool")}. '
+                 f'Prepared by prep_code_corpus.py (page text rebuilt from the retained layout rows; findings restated as text; pk_refs restricted to PK000000 form, dropping the payment-block bank account) and gated GREEN in container. '
+                 f'Rule 19.2 per-vendor verbatim check against an independent source: {_fid["fidelity_check"]["verdict"]}, {_fid["fidelity_check"]["template_rows"]} fixed template rows from {_fid["fidelity_check"]["source"]} present verbatim in all {_fid["fidelity_check"]["documents_tested"]} documents, terms page identical as an ordered sequence. '
+                 f'Scope of that check: {_fid["fidelity_check"]["scope"]} | Batch code')
     lines.append(f'Rule 12 screen at v4: every md5 above was screened against the PS & WP v127 Data_Acquisition and this register\'s inputs; none had been received before. HAR073 re-pull audited against the v127 embedded history (5-Aug-2026 pull, F26 there): {stage.get("hist_audit")}.')
     lines.append('Gaps and priority queue (branch): 1. APLEDGER creditor histories for the remaining unidentified supplier series (Open_Items B-001 onward; the queue with one invoice to sight per series is reports/Unidentified_Contractors_v4.md). 2. Sight one invoice per newly identified creditor series to confirm nature (rule 17). 3. 26SLACT P12 for the non-PS/WP sections, to pair the P1 EOY reversals. 4. 27SLACT P4 whole-branch pull when P4 closes, same criteria. 5. Document Line Tables for the recode sets that do not net in scope.')
     for t_ in lines:

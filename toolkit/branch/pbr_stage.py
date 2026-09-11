@@ -21,7 +21,7 @@ HIST = json.load(open(os.path.join(HERE, 'pbr_histories_v4.json')))  # APLEDGER 
 HIST_COLS = ['Reference', 'GST Date', 'Discount Date', 'On Hold', 'Has Note', 'Date', 'Description (Document Type)', 'Details', 'Outstanding', 'Applied',
              'Transaction Amount', 'Due Date', 'Ageing Date', 'Period', 'Ageing', 'Source', 'Units', 'Discount', 'Has Attachment', 'Payment Details', 'ABN',
              'Billing System', 'Work Order', 'Work Order Transaction Number', 'Work System']
-BATCHES = ('mixed_1', 'mixed_new_26_27', 'attach_1')
+BATCHES = ('mixed_1', 'mixed_new_26_27', 'attach_1', 'attach_2', 'code')
 NCOL = 148  # 146 PS/WP columns + 147 Src Note + 148 Register provenance
 
 def D(x):
@@ -228,7 +228,10 @@ def main(dry=False):
         cj = json.load(open(os.path.join(ROOT, 'batches', batch, f'corpus_{batch}_v6.json')))
         assert cj['manifest'].get('gate') == 'GREEN', (batch, cj['manifest'].get('gate'))
         for sf in cj['manifest']['source_files']:
-            assert sf['md5'] not in da127, ('rule 12: source file already received', batch, sf)
+            # a supplied corpus may name a binder that was not itself supplied; then the corpus md5 is what is screened
+            h_ = sf.get('md5') or cj['manifest'].get('supplied_corpus_md5')
+            assert h_, ('rule 12: no md5 to screen', batch, sf)
+            assert h_ not in da127, ('rule 12: source file already received', batch, sf)
     say('gate rule 12: no history or source-file md5 previously received')
     # HAR073 re-pull audit against the v127 embedded history (rule 12: a re-sighting is audited, not re-captured)
     hist_audit = {}
@@ -647,7 +650,7 @@ def main(dry=False):
         V = r['V']; x = L['data'][r['lidx']]
         if V[10] != 'AP' or V[88] or V[27] == 'Sighted invoice line':
             continue
-        prior = str(V[12] or '')
+        prior = str(V[12] or ''); prior_abn = V[13]
         if not (V[29] == 3 or weak.search(prior) or V[27] == 'Vendor inference (unconfirmed)'):
             continue
         ref = clean_num_text(x[3]).strip()
@@ -664,8 +667,13 @@ def main(dry=False):
             V[33] = 'Partial'
         V[34] = f'Sight the invoice (Document File {docfile}) to confirm nature under rule 17. Port this identification to PS_WP v128.'
         r['meta']['ident_v4'] = H[hm[0]]['code']
-        if not re.search(r'Unidentified|series-inferred|confirm\)', prior, re.I):
-            hist_conflicts.append((V[1], prior, H[hm[0]]['code'], amt_ := D(V[20])))
+        # a conflict is a DIFFERENT vendor, not the same one under a fuller or shorter name: test the ABN first,
+        # then containment of the canonical name (v127 carries trading-name suffixes the APLEDGER label does not).
+        nm = lambda x: re.sub(r'[^a-z0-9]', '', str(x).lower())
+        same_abn = bool(abn) and re.sub(r'\D', '', str(prior_abn or '')) == re.sub(r'\D', '', str(abn))
+        same_name = nm(H[hm[0]]['label']) in nm(prior) or nm(prior.split(' (')[0]) in nm(H[hm[0]]['label'])
+        if not re.search(r'Unidentified|series-inferred|confirm\)', prior, re.I) and not (same_abn or same_name):
+            hist_conflicts.append((V[1], prior, H[hm[0]]['code'], D(V[20])))
         hist_matches.append(dict(lk=V[1], k=hm[0], i=hm[1], code=H[hm[0]]['code'], inherited=True, prior=prior, amount=D(V[20]), sec=str(V[2])))
     say(f'APLEDGER history identifications: {len(hist_matches)} lines ({sum(1 for m in hist_matches if m["inherited"])} inherited), '
         f'{sum(m["amount"] for m in hist_matches):,} ex GST; label conflicts {len(hist_conflicts)}; ambiguous references {len(hist_ambiguous)}')
@@ -752,7 +760,10 @@ def main(dry=False):
         coll = {k: s for k, s in vals.items() if len(s) > 1}
         if coll:
             say(f'case-variant labels in col {c}: {sorted(map(sorted, coll.values()))}')
-    attach_files = json.load(open(os.path.join(ROOT, 'batches', 'attach_1', 'corpus_attach_1_v6.json')))['manifest']['source_files']
+    attach_files = []
+    for b in ('attach_1', 'attach_2'):
+        for sf in json.load(open(os.path.join(ROOT, 'batches', b, f'corpus_{b}_v6.json')))['manifest']['source_files']:
+            attach_files.append(dict(sf, batch=b))
     stage = dict(rows=rows, L=L, se2=se2, led_md5=led_md5, v127_md5=md5(V127), inherit_n=len(inherit), hist=H, attach_files=attach_files, hist_matches=hist_matches,
                  hist_conflicts=hist_conflicts, hist_ambiguous=hist_ambiguous, hist_audit=hist_audit,
                  unmatched_v=[(n, r) for n, r in unmatched_v], v2new=v2new, theme_v2=theme_v2, theme_v3=theme_v3,
