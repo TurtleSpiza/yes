@@ -7,7 +7,7 @@ is nothing of the kind. This runs each leg of the chain on a throwaway file and 
 
 Checks
   1  Python version
-  2  hard imports: python_calamine, openpyxl, lxml
+  2  hard imports: python_calamine, openpyxl, lxml, cffi (_cffi_backend, see requirements.txt)
   3  toolkit modules import and their rule and manifest JSON parses
   4  openpyxl write -> LibreOffice convert-route recalc -> calamine read, with a live formula
   5  poppler: pdfinfo counts the page of a probe PDF built here and pdftotext -layout reads its text
@@ -37,7 +37,8 @@ def check_python():
 
 
 def check_imports():
-    for mod, why in (('python_calamine', 'workbook reads'), ('openpyxl', 'workbook writes'), ('lxml', 'v127 formula recovery')):
+    for mod, why in (('python_calamine', 'workbook reads'), ('openpyxl', 'workbook writes'), ('lxml', 'v127 formula recovery'),
+                     ('_cffi_backend', 'cffi; without it any cryptography import panics the interpreter')):
         try:
             m = importlib.import_module(mod)
             rec(mod, True, f'{getattr(m, "__version__", "installed")} ({why})')
@@ -46,8 +47,8 @@ def check_imports():
     for mod in ('pymupdf', 'pdfplumber', 'pypdf'):
         try:
             importlib.import_module(mod); rec(mod, True, 'installed (optional)', hard=False)
-        except Exception:
-            rec(mod, False, 'not installed (optional, only for ad hoc PDF inspection)', FIX_PIP, hard=False)
+        except BaseException as e:  # BaseException: a pyo3 panic from a broken cryptography is not an Exception
+            rec(mod, False, f'not importable (optional, only for ad hoc PDF inspection): {type(e).__name__}', FIX_PIP, hard=False)
 
 
 def check_toolkit():

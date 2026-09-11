@@ -15,8 +15,8 @@ Both registers follow the same column map (PS/WP schema, 146 columns; the branch
 - `toolkit/pswp/` the PS/WP toolkit (`pswp_build_batch.py` and companions, `lo_recalc.sh`).
 - `toolkit/branch/` the branch register toolkit: `pbr_stage.py` (load, inherit, identify from creditor histories, classify, capture), `pbr_build.py` (write, recalc, verify, ship), `pbr_capture.py` (rule 16/17 capture from a gated corpus), `pbr_rules_v1.json` (classification rules as data), `pbr_histories_v4.json` (APLEDGER creditor histories as data: file, code, label, ABN), `parse_mixed1.py`, `parse_mixed_new.py`, `parse_attach1.py` and `parse_attach2.py` (raw-text invoice parsers), `prep_code_corpus.py` (prepares and fidelity-checks a supplied third-party corpus), `pbr_unidentified_queue.py` and `pbr_journal_pull_report.py` (the identification queue and journal pull list reports).
 - `batches/` per batch: the Copilot v5 corpus and report as received, the raw-text v6 corpus (page text retained, gate GREEN), the match table, capture report or hold record.
-- `docs/` project instructions, PS/WP schema and history, the invoice extraction prompt (v6 is current; v5 is retained because two batches were extracted under it), branch schema.
-- `data/inputs_2026-09-11/` the 27SLACT ledger export and four SE2 exports the branch register was built from; `creditor_histories/` the thirteen APLEDGER creditor history exports (v4 to v6); `journal_pulls/` the TechOne Document Line Table exports embedded on Journal_Sources.
+- `docs/` project instructions, PS/WP schema and history, the invoice extraction prompt (v6 is current; v5 is retained because two held batches were extracted under it), branch schema.
+- `data/inputs_2026-09-11/` the 27SLACT ledger export and four SE2 exports the branch register was built from; `creditor_histories/` the seventeen APLEDGER creditor history exports (v4 to v6); `journal_pulls/` the TechOne Document Line Table exports embedded on Journal_Sources.
 - `reports/` derived reports regenerated from the shipped register: `Unidentified_Contractors_v6.md/.xlsx`, the identification queue with one invoice to sight per supplier series; `Journal_Pull_v6.md/.xlsx`, the rule 21 journal pull list, one row per TechOne document file.
 - `cache/` scratch (calamine pickles, recalc output). Not committed.
 
@@ -30,6 +30,7 @@ installs what the chain needs, then proves it:
 | `python-calamine` | every workbook read (rule 19.8) |
 | `openpyxl` | every workbook write |
 | `lxml` | recovers rule 17 formula text from the v127 sheet XML |
+| `cffi` | supplies `_cffi_backend` to the container's Debian cryptography; without it any cryptography import (pdfplumber makes one) panics the interpreter and takes the env check down |
 | `poppler-utils` | `pdftotext -layout` and `pdfinfo`, the raw-text invoice route |
 | `libreoffice-calc` | the convert-route recalc |
 
@@ -46,7 +47,7 @@ python3 toolkit/branch/pbr_env_check.py --all
 
 It writes a workbook with a live formula, recalculates it through LibreOffice, reads it back with
 calamine, round-trips a probe PDF through poppler, imports every toolkit module and byte-compiles the
-toolkit. Sixteen checks, under two seconds, and it names the fix for whatever fails. **`libreoffice-core`
+toolkit. Seventeen checks, under two seconds, and it names the fix for whatever fails. **`libreoffice-core`
 alone is not enough**: without the Calc component every conversion fails with "source file could not be
 loaded", which reads like a corrupt workbook and is not.
 
@@ -76,9 +77,11 @@ TechOne Document Line Table exports are the evidence route for a journal that ca
 
 ## State at v6 (11-Sep-2026)
 
-Register total $4,910,566.68 across 6,683 lines, tied to the ledger export and all four SE2 views; 92 of 92 controls TRUE. 260 sighted lines over 253 invoices. Thirteen APLEDGER creditor histories embedded (21,351 lines) identify 886 lines, $1,851,484.74 ex GST, at Tier 1. Confirmed $3,395,636.55; Partial $970,221.82; Pending evidence $544,708.31. Contractor unidentified $440,592.98; the queue with one invoice to sight per series is `reports/Unidentified_Contractors_v6.md` (503 lines, 105 series).
+Register total $4,910,566.68 across 6,683 lines, tied to the ledger export and all four SE2 views; 93 of 93 controls TRUE. 260 sighted lines over 253 invoices. Seventeen APLEDGER creditor histories embedded (44,410 lines on Creditor_Lines) identify $1,231,762.13 ex GST at Tier 1. Confirmed $3,395,636.55; Partial $1,051,927.10; Pending evidence $463,003.03. Contractor unidentified $358,887.70; the queue with one invoice to sight per series is `reports/Unidentified_Contractors_v6.md` (340 lines, 91 series).
 
-v6 adds the first journal batch: three TechOne Document Line Tables embedded verbatim on the new `Journal_Sources` sheet (92 legs) and one re-pull audited against the PS & WP v127 embed and not re-captured. Those pulls answered the blank narrations on GJ080153 (the June 2026 Plant & Fleet accrual reversal) and Open Item B-012 for GJ080309, which also raised B-030: $51,091.59 of plant hire re-posted to PK000068 that the original GJ080188 legs assign to PK000435 and PK000396 on their plant references. Batches mix22 (40 invoices) and attach_3 (8 TechOne attachments) were captured; batches binder11111 and mix222 are held on pages carrying no line record (P3), which cannot be repaired downstream. Other open items: the PS_WP port (B-022, B-026), printed-versus-charged PKs (B-027, B-028), the Coast2Coast fuel levy over-claim (B-029), the partial journal pull on document file 1252466 (B-031) and a fuel levy coded to the cleaning account (B-032).
+v6 is the merge of two sessions' work on this register. From this branch: the first journal batch, with three TechOne Document Line Tables embedded verbatim on the new `Journal_Sources` sheet (92 legs) and one re-pull audited against the PS & WP v127 embed and not re-captured. Those pulls answered the blank narrations on GJ080153 (the June 2026 Plant & Fleet accrual reversal) and Open Item B-012 for GJ080309, which also raised B-030: $51,091.59 of plant hire re-posted to PK000068 that the original GJ080188 legs assign to PK000435 and PK000396 on their plant references. Batches mix22 (40 invoices) and attach_3 (8 TechOne attachments) were captured; batches binder11111 and mix222 are held on pages carrying no line record (P3), which cannot be repaired downstream. From `claude/new-session-w6zxj2`: five more APLEDGER creditor histories at v6 (NUW001, LEV002, GRE083, WAT088 there, MPD001 here), the session-start toolchain hook and the environment self-test.
+
+Other open items: the PS_WP port (B-022, B-026), printed-versus-charged PKs (B-027, B-028), the Coast2Coast fuel levy over-claim (B-029), the partial journal pull on document file 1252466 (B-031) and a fuel levy coded to the cleaning account (B-032).
 
 ## The extraction prompt
 
