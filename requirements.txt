@@ -1,0 +1,20 @@
+# Hard requirements for the LCC Parks register toolkits: the build chain cannot run without these.
+# Versions are the ones the v5 build was produced and verified on (11-Sep-2026).
+#
+#   python-calamine  every workbook READ (rule 19.8: a second openpyxl open of the register costs
+#                    about 52 seconds against about 4 for calamine)
+#   openpyxl         every workbook WRITE (write-only mode; it writes no cached values, which is why
+#                    an unrecalculated file cannot pass verify)
+#   lxml             streams the v127 sheet XML to recover rule 17 formula text, which calamine
+#                    cannot return because it reads values only
+python-calamine==0.8.2
+openpyxl==3.1.5
+lxml==6.1.3
+
+# System packages (not pip). The session-start hook installs them; see .claude/hooks/session-start.sh
+#   poppler-utils     pdftotext -layout and pdfinfo, the raw-text invoice route
+#   libreoffice-calc  soffice convert-route recalc. libreoffice-core ALONE IS NOT ENOUGH: without the
+#                     Calc component every conversion fails with "source file could not be loaded",
+#                     which reads like a corrupt workbook and is not.
+#
+# Optional working set: requirements-optional.txt

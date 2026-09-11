@@ -20,9 +20,39 @@ Both registers follow the same column map (PS/WP schema, 146 columns; the branch
 - `reports/` derived reports regenerated from the shipped register: `Unidentified_Contractors_v5.md/.xlsx`, the identification queue with one invoice to sight per supplier series; `Journal_Pull_v5.md/.xlsx`, the rule 21 journal pull list, one row per TechOne document file.
 - `cache/` scratch (calamine pickles, recalc output). Not committed.
 
+## Session setup
+
+Every web session provisions itself. `.claude/hooks/session-start.sh` runs before the session starts and
+installs what the chain needs, then proves it:
+
+| Dependency | Why |
+|---|---|
+| `python-calamine` | every workbook read (rule 19.8) |
+| `openpyxl` | every workbook write |
+| `lxml` | recovers rule 17 formula text from the v127 sheet XML |
+| `poppler-utils` | `pdftotext -layout` and `pdfinfo`, the raw-text invoice route |
+| `libreoffice-calc` | the convert-route recalc |
+
+Pins are in `requirements.txt`, with an optional PDF-inspection set in `requirements-optional.txt` that
+never blocks a session. The hook is idempotent: about four seconds on a warm container, and it installs
+system packages only when they are absent. It exports `PYTHONPATH` for the two toolkit directories, so
+`import pbr_stage` works from anywhere.
+
+Verify the chain at any time, and after changing any dependency:
+
+```
+python3 toolkit/branch/pbr_env_check.py --all
+```
+
+It writes a workbook with a live formula, recalculates it through LibreOffice, reads it back with
+calamine, round-trips a probe PDF through poppler, imports every toolkit module and byte-compiles the
+toolkit. Sixteen checks, under two seconds, and it names the fix for whatever fails. **`libreoffice-core`
+alone is not enough**: without the Calc component every conversion fails with "source file could not be
+loaded", which reads like a corrupt workbook and is not.
+
 ## Rebuilding the branch register
 
-Requirements: Python 3.11 or 3.12, `python-calamine`, `openpyxl`, `lxml`, `pandas`, LibreOffice with the Calc component (`libreoffice-calc`, not only `libreoffice-core`) and `pdftotext` (`poppler-utils`).
+Requirements are installed by the session hook above; `python3 toolkit/branch/pbr_env_check.py --all` confirms them.
 
 ```
 pip install python-calamine openpyxl lxml pandas
