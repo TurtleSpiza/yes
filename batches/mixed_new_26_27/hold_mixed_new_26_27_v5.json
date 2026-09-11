@@ -1,0 +1,22 @@
+{
+ "batch": "mixed_new_26_27",
+ "corpus": "corpus_mixed_new_26_27_v5.json",
+ "corpus_md5": "f0498116df731fc5ef29e866400be810",
+ "report_md5": "92f733b5bae4a42eeb3cd147de452335",
+ "received": "11-Sep-2026",
+ "tool": "PSWP Extraction Prompt v5, Runtime B (chat-only text layer)",
+ "declared_gate": "AMBER",
+ "repair_gate": "RED (P1 on all 36 documents, zero priced lines; P3 on all 75 pages)",
+ "decision": "HELD, not built (rule 19.2). Same failure mode as mixed_1 v5: headers and totals only. Upload Mixed new 26-27.pdf for the raw-text route (parse_mixed1.py templates cover Levai, Austspray, Guru/Xero; new templates needed for Origin consolidated, Q Power, Play Force, Weis, Pool Shop, Sea-Crete, Higgins, Elemental, Coast2Coast, Kachel, Harpley, Flavell-Dau).",
+ "documents": 36,
+ "unique": 35,
+ "unique_ex_gst": 1809918.46,
+ "rule12_duplicates": [
+  "Sea-Crete 7558 already sighted (inherited v127 capture)",
+  "Austspray 158853 already sighted at branch v2"
+ ],
+ "buildable_unique": 33,
+ "buildable_ex_gst": 1699780.48,
+ "register_match": "31 exact by reference and subtotal; Coast2Coast INV-11834 and INV-11835 are SUM-TIE across a Park Maintenance mowing line and a Section NA service 20821 line each (84,771.30 = 83,373.19 + 1,398.11; 92,383.04 = 90,859.39 + 1,523.65), which resolves Open Item B-013: 20821 is the road-reserve share of the mowing zones; Origin 1026099/1026231 ($1,142,266.08) are Council-wide consolidated invoices whose Parks share posts per site sub-account (v127 precedent 658 sub-account invoices): PARTIAL-SCOPE variant, line capture is mandatory.",
+ "scope_note": "26 of 33 documents are Park Services/Water Parks; capture belongs in the PS/WP register (v128) then inherits into the branch register, or in the branch register with a port back; decide before the build."
+}

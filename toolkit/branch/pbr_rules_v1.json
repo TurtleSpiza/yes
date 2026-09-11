@@ -1,0 +1,388 @@
+{
+ "version": "branch v1 (11-Sep-2026)",
+ "section_names": {
+  "4090110": "Management",
+  "4090210": "Depots",
+  "4090220": "Natural Areas",
+  "4090230": "Park Maintenance",
+  "4090240": "Park Services",
+  "4090250": "Trees",
+  "4090260": "Water Parks",
+  "4090270": "Cemeteries",
+  "4090310": "Planning, Design & Capital Delivery",
+  "NA": "No section (NA - Not Applicable)"
+ },
+ "theme_map_v2_extension": [
+  [
+   "Contract mowing",
+   "T1 Grounds & asset maintenance"
+  ],
+  [
+   "Contract landscape maintenance",
+   "T1 Grounds & asset maintenance"
+  ],
+  [
+   "Signage & park furniture",
+   "T1 Grounds & asset maintenance"
+  ],
+  [
+   "Telecommunications",
+   "T4 Utilities"
+  ],
+  [
+   "Internal tip & spoil fees",
+   "T6 Internal charges"
+  ],
+  [
+   "Internal IT charges",
+   "T6 Internal charges"
+  ],
+  [
+   "Fleet running costs",
+   "T7 Fleet & travel"
+  ],
+  [
+   "Contract fuel levy",
+   "T7 Fleet & travel"
+  ],
+  [
+   "Horticultural & landscape supplies",
+   "T8 Materials & equipment"
+  ],
+  [
+   "Construction materials",
+   "T8 Materials & equipment"
+  ],
+  [
+   "Postage & advertising",
+   "T8 Materials & equipment"
+  ],
+  [
+   "IT equipment & software",
+   "T8 Materials & equipment"
+  ],
+  [
+   "Illegal dumping & rubbish removal",
+   "T10 Waste collection"
+  ],
+  [
+   "Refund of contributions",
+   "T13 Recoveries, claims & offsets"
+  ],
+  [
+   "Uniforms & safety equipment",
+   "T14 People, training & corporate"
+  ],
+  [
+   "Staff medical & pre-employment",
+   "T14 People, training & corporate"
+  ],
+  [
+   "Workplace health & safety",
+   "T14 People, training & corporate"
+  ],
+  [
+   "Training, conferences & memberships",
+   "T14 People, training & corporate"
+  ],
+  [
+   "Hospitality & catering",
+   "T14 People, training & corporate"
+  ],
+  [
+   "Consultancy & professional services",
+   "T14 People, training & corporate"
+  ],
+  [
+   "Tree operations",
+   "T15 Trees & natural areas"
+  ],
+  [
+   "Natural areas & bushland works",
+   "T15 Trees & natural areas"
+  ],
+  [
+   "Cemetery operations",
+   "T16 Cemeteries"
+  ]
+ ],
+ "theme_map_v3_extension": [
+  [
+   "Trees & arboriculture",
+   "10 Trees & natural areas",
+   "Work theme (branch v1 extension)"
+  ],
+  [
+   "Bushland, weeds & fire",
+   "10 Trees & natural areas",
+   "Work theme (branch v1 extension)"
+  ],
+  [
+   "Cemetery operations",
+   "11 Cemeteries",
+   "Work theme (branch v1 extension)"
+  ],
+  [
+   "Staff, training & corporate",
+   "12 People & corporate",
+   "Work theme (branch v1 extension)"
+  ],
+  [
+   "Refunds & recoveries",
+   "13 Refunds & recoveries",
+   "Work theme (branch v1 extension)"
+  ]
+ ],
+ "contract_nas": [
+  "73111",
+  "73123",
+  "73126",
+  "73128",
+  "73211",
+  "73212"
+ ],
+ "na_category": {
+  "72111": "Minor equipment",
+  "72112": "Horticultural & landscape supplies",
+  "72113": "Uniforms & safety equipment",
+  "72114": "Uniforms & safety equipment",
+  "72212": "Construction materials",
+  "72214": "Construction materials",
+  "72221": "Signage & park furniture",
+  "72222": "Signage & park furniture",
+  "72231": "Horticultural & landscape supplies",
+  "72249": "Horticultural & landscape supplies",
+  "72311": "Minor equipment",
+  "72315": "Parks maintenance (contract/reactive)",
+  "73115": "Staff medical & pre-employment",
+  "73121": "Cleaning & sanitary",
+  "73122": "Waste collection",
+  "73124": "Security & access",
+  "73125": "Workplace health & safety",
+  "73127": "Electrical & data services",
+  "73140": "Staff medical & pre-employment",
+  "73311": "Gas supply",
+  "73312": "Electricity supply",
+  "73313": "Telecommunications",
+  "73412": "Refund of contributions",
+  "73422": "Internal rates & levies",
+  "73511": "Hospitality & catering",
+  "73512": "Hospitality & catering",
+  "73531": "Travel",
+  "73532": "Travel",
+  "73533": "Travel",
+  "73534": "Travel",
+  "73535": "Vehicle tolls",
+  "73541": "Training, conferences & memberships",
+  "73542": "Training, conferences & memberships",
+  "73544": "Training, conferences & memberships",
+  "73545": "Training, conferences & memberships",
+  "73552": "Postage & advertising",
+  "73563": "Printing & stationery",
+  "73564": "IT equipment & software",
+  "73565": "Postage & advertising",
+  "73601": "Consultancy & professional services",
+  "73603": "Consultancy & professional services",
+  "73605": "Consultancy & professional services",
+  "73607": "Consultancy & professional services",
+  "73609": "Consultancy & professional services",
+  "74173": "Uniforms & safety equipment",
+  "74181": "Fleet running costs",
+  "74183": "Fleet running costs",
+  "74184": "Fleet running costs",
+  "74187": "Fleet running costs",
+  "74189": "Contract fuel levy",
+  "7B111": "Internal rates & levies",
+  "7B112": "Internal rates & levies",
+  "7B113": "Internal rates & levies",
+  "7B114": "Internal rates & levies",
+  "7B115": "Internal rates & levies",
+  "7B121": "Waste collection",
+  "7B122": "Internal tip & spoil fees",
+  "7B123": "Other fees & charges",
+  "7B213": "Staff medical & pre-employment",
+  "7B214": "Internal workshop billing",
+  "7B219": "Internal workshop billing",
+  "7B411": "Internal IT charges",
+  "7B532": "Internal tip & spoil fees",
+  "7C111": "Internal plant & fleet",
+  "7C112": "Internal plant & fleet"
+ },
+ "na_v3_override": {
+  "7B111": "Rates, levies & insurance",
+  "73422": "Rates, levies & insurance",
+  "7B112": "Utilities supply",
+  "7B113": "Utilities supply",
+  "7B114": "Utilities supply",
+  "7B115": "Waste & bin collection",
+  "72221": "Park furniture, BBQ & bins",
+  "72222": "Signage & wayfinding"
+ },
+ "statutory_nas": [
+  "7B111",
+  "73422"
+ ],
+ "v2_to_v3": {
+  "Contract mowing": "Grounds, turf & vegetation",
+  "Contract landscape maintenance": "Grounds, turf & vegetation",
+  "Tree operations": "Trees & arboriculture",
+  "Natural areas & bushland works": "Bushland, weeds & fire",
+  "Illegal dumping & rubbish removal": "Waste & bin collection",
+  "Cemetery operations": "Cemetery operations",
+  "Cleaning & sanitary": "Cleaning & pressure washing",
+  "Playground inspection & repair": "Playground equipment & softfall",
+  "Water park contract works": "Water play & aquatic plant",
+  "Security & access": "Locks, keys & access hardware",
+  "Electrical & data services": "Electrical, lighting & data",
+  "Plumbing & water assets": "Amenities buildings & plumbing",
+  "Parks maintenance (contract/reactive)": "No invoice sighted",
+  "Electricity supply": "Utilities supply",
+  "Gas supply": "Utilities supply",
+  "Telecommunications": "Utilities supply",
+  "Internal rates & levies": "Rates, levies & insurance",
+  "Waste collection": "Waste & bin collection",
+  "Internal plant & fleet": "Plant, fleet & internal services",
+  "Internal workshop billing": "Plant, fleet & internal services",
+  "Internal stores issue": "Materials & minor equipment",
+  "Internal tip & spoil fees": "Plant, fleet & internal services",
+  "Internal IT charges": "Plant, fleet & internal services",
+  "Internal payroll allocation": "Plant, fleet & internal services",
+  "Vehicle tolls": "Plant, fleet & internal services",
+  "Travel": "Plant, fleet & internal services",
+  "Fleet running costs": "Plant, fleet & internal services",
+  "Contract fuel levy": "Plant, fleet & internal services",
+  "Minor equipment": "Materials & minor equipment",
+  "Paint & materials": "Materials & minor equipment",
+  "Printing & stationery": "Materials & minor equipment",
+  "Other fees & charges": "Materials & minor equipment",
+  "Horticultural & landscape supplies": "Materials & minor equipment",
+  "Construction materials": "Materials & minor equipment",
+  "Postage & advertising": "Materials & minor equipment",
+  "IT equipment & software": "Materials & minor equipment",
+  "Signage & park furniture": "Signage & wayfinding",
+  "Staff medical & pre-employment": "Staff, training & corporate",
+  "Workplace health & safety": "Staff, training & corporate",
+  "Training, conferences & memberships": "Staff, training & corporate",
+  "Hospitality & catering": "Staff, training & corporate",
+  "Consultancy & professional services": "Staff, training & corporate",
+  "Uniforms & safety equipment": "Staff, training & corporate",
+  "Refund of contributions": "Refunds & recoveries"
+ },
+ "narration_classes": [
+  [
+   "Cemetery operations",
+   "\\bgrave|\\binterment|\\bexhum|\\bcemeter"
+  ],
+  [
+   "Contract mowing",
+   "\\bmowing\\b|\\bmow\\b"
+  ],
+  [
+   "Tree operations",
+   "\\btrees?\\b|\\barbor|\\bstump|\\bpruning"
+  ],
+  [
+   "Natural areas & bushland works",
+   "\\bweeds?\\b|bush ?regen|\\bbushland|\\brevegetat|\\bhazard reduction|\\bfire ?break"
+  ],
+  [
+   "Contract landscape maintenance",
+   "\\blandscap|\\bhorticult"
+  ],
+  [
+   "Illegal dumping & rubbish removal",
+   "\\brubbish|\\bdumping|\\bcamp site clean"
+  ],
+  [
+   "Cleaning & sanitary",
+   "\\bcleaning\\b|\\bsanitary|\\bhygiene"
+  ],
+  [
+   "Playground inspection & repair",
+   "\\bplayground|\\bsoft ?fall"
+  ],
+  [
+   "Security & access",
+   "\\bsecurity\\b|\\bpatrols?\\b|\\blocksmith"
+  ],
+  [
+   "Electrical & data services",
+   "\\belectrical\\b"
+  ],
+  [
+   "Plumbing & water assets",
+   "\\bplumb|\\bbackflow|\\birrigation"
+  ],
+  [
+   "Consultancy & professional services",
+   "\\brisk assessment|\\bconsultan|\\bjob dictionary"
+  ],
+  [
+   "Parks maintenance (contract/reactive)",
+   "\\bpest control|\\bhstp\\b"
+  ]
+ ],
+ "single_class_services": [
+  "Contract mowing",
+  "Contract landscape maintenance",
+  "Tree operations",
+  "Natural areas & bushland works",
+  "Cemetery operations",
+  "Illegal dumping & rubbish removal",
+  "Cleaning & sanitary",
+  "Water park contract works"
+ ],
+ "hard_conflict_classes": [
+  "Cemetery operations",
+  "Contract mowing",
+  "Tree operations",
+  "Natural areas & bushland works",
+  "Contract landscape maintenance"
+ ],
+ "journal_doc_types": [
+  "GENERAL JOURNAL",
+  "General Journal",
+  "Reversing Journal",
+  "AP JOURNAL",
+  "Internal Transfer Jn",
+  "UNDEFINED PERIOD JNL"
+ ],
+ "accrual_regex": "accru|\\bAP Accrual",
+ "recode_regex": "recode|stays in pk|split across|split mowing|incorrect na|correct pk|moving |realloc|tsfer|transfer|gst correction|reversal|fuel levy pk|jnl to revenue|reclass",
+ "generic_stopwords": [
+  "standing",
+  "order",
+  "orders",
+  "con",
+  "quote",
+  "replacing",
+  "cancelled",
+  "invoice",
+  "inv",
+  "email",
+  "emailed",
+  "request",
+  "proposal",
+  "for",
+  "services",
+  "service",
+  "parks",
+  "park",
+  "department",
+  "due",
+  "to",
+  "abn",
+  "change",
+  "po",
+  "as",
+  "per",
+  "and",
+  "the",
+  "of",
+  "replacing",
+  "approved",
+  "pay",
+  "reali"
+ ],
+ "unidentified_label": "Unidentified (FY2026/27 branch-wide, not yet cleared)"
+}

@@ -1,0 +1,826 @@
+[
+ {
+  "invoice": "1026099",
+  "vendor": "Origin Energy Electricity Limited",
+  "abn": "33 071 052 287",
+  "subtotal": 565345.0,
+  "incl": 621879.1,
+  "variant": "check 2 PARTIAL-SCOPE (Council-wide consolidated invoice; Parks carries the Logan Garden Park site row, ties by LineKey; checks 1 and 3 tie the whole printed invoice)",
+  "target": [
+   "e23a62cd-73312-PK000469-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "e23a62cd-73312-PK000469-01",
+    "section": "Water Parks",
+    "na": "73312",
+    "pk": "PK000469",
+    "amount": 2752.17,
+    "contractor": "Unidentified (FY2026/27 section-wide, not yet identified)",
+    "narr": "Electricity Charges 01/07/26 to 31/07/26-QB10790446-Logan Garden Park Civic Para"
+   }
+  ],
+  "evid": "1026099",
+  "evid_note": null,
+  "line_map": [
+   [
+    "e23a62cd-73312-PK000469-01",
+    "Logan Garden Park"
+   ]
+  ]
+ },
+ {
+  "invoice": "1026231",
+  "vendor": "Origin Energy Electricity Limited",
+  "abn": "33 071 052 287",
+  "subtotal": 576921.08,
+  "incl": 634612.71,
+  "variant": "check 2 PARTIAL-SCOPE (Council-wide consolidated invoice; Parks carries the Logan Garden Park site row, ties by LineKey; checks 1 and 3 tie the whole printed invoice)",
+  "target": [
+   "d370352b-73312-PK000469-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "d370352b-73312-PK000469-01",
+    "section": "Water Parks",
+    "na": "73312",
+    "pk": "PK000469",
+    "amount": 2822.55,
+    "contractor": "Origin Energy (collective/direct, confirm)",
+    "narr": "Electricity Charges 01/08/26 to 31/08/26-QB10790446-Logan Garden Park Civic Para"
+   }
+  ],
+  "evid": "1026231",
+  "evid_note": null,
+  "line_map": [
+   [
+    "d370352b-73312-PK000469-01",
+    "Logan Garden Park"
+   ]
+  ]
+ },
+ {
+  "invoice": "INV-5621",
+  "vendor": "Pool Shop QLD Pty Ltd",
+  "abn": "54 618 873 251",
+  "subtotal": 34063.51,
+  "incl": 37469.85,
+  "variant": "check 2 derivation equality (incl 37469.85/1.1 = 34063.50)",
+  "target": "166d0436-73123-PK000022-01",
+  "register_lines": [
+   {
+    "linekey": "166d0436-73123-PK000022-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000022",
+    "amount": 34063.5,
+    "contractor": "Unidentified (FY2026/27 section-wide, not yet identified)",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-5621",
+  "evid_note": null,
+  "line_map": null
+ },
+ {
+  "invoice": "15186",
+  "vendor": "Q Power (Qld) Pty Ltd",
+  "abn": "82 067 507 591",
+  "subtotal": 13987.25,
+  "incl": 15385.98,
+  "variant": "standard",
+  "target": "67ce8195-73111-PK000412-01",
+  "register_lines": [
+   {
+    "linekey": "67ce8195-73111-PK000412-01",
+    "section": "Park Services",
+    "na": "73111",
+    "pk": "PK000412",
+    "amount": 13987.25,
+    "contractor": "Q Power (Qld) Pty Ltd",
+    "narr": "Quote 4636"
+   }
+  ],
+  "evid": "15186",
+  "evid_note": null,
+  "line_map": null
+ },
+ {
+  "invoice": "7564",
+  "vendor": "Sea-Crete (Jeol Pty Ltd)",
+  "abn": "84127054291 (printed ungrouped)",
+  "subtotal": 12166.0,
+  "incl": 13382.6,
+  "variant": "standard",
+  "target": "99df7abc-73211-PK000470-01",
+  "register_lines": [
+   {
+    "linekey": "99df7abc-73211-PK000470-01",
+    "section": "Water Parks",
+    "na": "73211",
+    "pk": "PK000470",
+    "amount": 12166.0,
+    "contractor": "Unidentified (FY2026/27 section-wide, not yet identified)",
+    "narr": "Quote 753 -Flagstone Parklands Waterplay"
+   }
+  ],
+  "evid": "7564",
+  "evid_note": null,
+  "line_map": null
+ },
+ {
+  "invoice": "15225",
+  "vendor": "Q Power (Qld) Pty Ltd",
+  "abn": "82 067 507 591",
+  "subtotal": 9162.93,
+  "incl": 10079.22,
+  "variant": "standard; cents companion AP line(s) f386b8d0-73212-PK000415-01 240.0 (TechOne incl/1.1 rounding leg, not green-blocked, cross-referenced in the coding note)",
+  "target": "31da2c4a-73123-PK000412-01",
+  "register_lines": [
+   {
+    "linekey": "31da2c4a-73123-PK000412-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000412",
+    "amount": 9162.93,
+    "contractor": "Unidentified (FY2026/27 section-wide, not yet identified)",
+    "narr": "STANDING ORDER 25/26"
+   },
+   {
+    "linekey": "f386b8d0-73212-PK000415-01",
+    "section": "Park Services",
+    "na": "73212",
+    "pk": "PK000415",
+    "amount": 240.0,
+    "contractor": "Unidentified (FY2026/27 series 8-digit)",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "15225",
+  "evid_note": null,
+  "line_map": null
+ },
+ {
+  "invoice": "INV-8550",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 7019.7,
+  "incl": 7721.67,
+  "variant": "standard",
+  "target": "10c6c130-73123-PK000411-01",
+  "register_lines": [
+   {
+    "linekey": "10c6c130-73123-PK000411-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000411",
+    "amount": 7019.7,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8550",
+  "evid_note": null,
+  "line_map": null
+ },
+ {
+  "invoice": "INV-0342",
+  "vendor": "The Trustee for Flavell-Dau Family Trust",
+  "abn": "47 220 358 629",
+  "subtotal": 5860.0,
+  "incl": 6446.0,
+  "variant": "standard",
+  "target": "9e814ba6-73123-PK000118-01",
+  "register_lines": [
+   {
+    "linekey": "9e814ba6-73123-PK000118-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000118",
+    "amount": 5860.0,
+    "contractor": "Unidentified (FY2026/27 section-wide, not yet identified)",
+    "narr": "Quote 0146"
+   }
+  ],
+  "evid": "INV-0342",
+  "evid_note": null,
+  "line_map": null
+ },
+ {
+  "invoice": "INV-39437",
+  "vendor": "T & H LEVAI PTY LTD",
+  "abn": "65 100 395 480",
+  "subtotal": 8440.0,
+  "incl": 9284.0,
+  "variant": "standard",
+  "target": "b712a99d-73123-PK000022-01",
+  "register_lines": [
+   {
+    "linekey": "b712a99d-73123-PK000022-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000022",
+    "amount": 8440.0,
+    "contractor": "T & H Levai Pty Ltd",
+    "narr": "Quote 657903"
+   }
+  ],
+  "evid": "INV-39437",
+  "evid_note": null,
+  "line_map": null
+ },
+ {
+  "invoice": "INV-39435",
+  "vendor": "T & H LEVAI PTY LTD",
+  "abn": "65 100 395 480",
+  "subtotal": 6400.0,
+  "incl": 7040.0,
+  "variant": "standard",
+  "target": "3da6240b-73123-PK000391-01",
+  "register_lines": [
+   {
+    "linekey": "3da6240b-73123-PK000391-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000391",
+    "amount": 6400.0,
+    "contractor": "T & H Levai Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-39435",
+  "evid_note": null,
+  "line_map": null
+ },
+ {
+  "invoice": "INV-2620",
+  "vendor": "WEIS CONTRACTORS",
+  "abn": "71 812 055 648",
+  "subtotal": 9540.0,
+  "incl": 10494.0,
+  "variant": "standard",
+  "target": "67dd2cb4-73123-PK000391-01",
+  "register_lines": [
+   {
+    "linekey": "67dd2cb4-73123-PK000391-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000391",
+    "amount": 9540.0,
+    "contractor": "Weis Contractors",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-2620",
+  "evid_note": null,
+  "line_map": null
+ },
+ {
+  "invoice": "INV-8638",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 6753.9,
+  "incl": 7429.29,
+  "variant": "standard",
+  "target": "41b9fe86-73123-PK000023-01",
+  "register_lines": [
+   {
+    "linekey": "41b9fe86-73123-PK000023-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000023",
+    "amount": 6753.9,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8638",
+  "evid_note": null,
+  "line_map": null
+ },
+ {
+  "invoice": "INV-8648",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 10763.54,
+  "incl": 11839.89,
+  "variant": "standard",
+  "target": "1a2f9391-73123-PK000411-01",
+  "register_lines": [
+   {
+    "linekey": "1a2f9391-73123-PK000411-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000411",
+    "amount": 10763.54,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8648",
+  "evid_note": null,
+  "line_map": null
+ },
+ {
+  "invoice": "6276",
+  "vendor": "Elemental Shade Structures (Dice Canvas Pty Ltd ATF The Dice Trust & SSAR Australia Pty Ltd ATF The Mark West Trust)",
+  "abn": "99 292 107 173",
+  "subtotal": 10945.0,
+  "incl": 12039.5,
+  "variant": "standard",
+  "target": "e99a1891-73123-PK000024-01",
+  "register_lines": [
+   {
+    "linekey": "e99a1891-73123-PK000024-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000024",
+    "amount": 10945.0,
+    "contractor": "Elemental Shade Structures",
+    "narr": "Yearly inspection of all shade sails ere"
+   }
+  ],
+  "evid": "6276",
+  "evid_note": null,
+  "line_map": null
+ },
+ {
+  "invoice": "INV-5668",
+  "vendor": "Pool Shop QLD Pty Ltd",
+  "abn": "54618873251 (printed ungrouped)",
+  "subtotal": 33764.51,
+  "incl": 37140.95,
+  "variant": "check 2 derivation equality (incl 37140.95/1.1 = 33764.50)",
+  "target": "7c78173e-73123-PK000022-01",
+  "register_lines": [
+   {
+    "linekey": "7c78173e-73123-PK000022-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000022",
+    "amount": 33764.5,
+    "contractor": "Unidentified (FY2026/27 section-wide, not yet identified)",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-5668",
+  "evid_note": null,
+  "line_map": null
+ },
+ {
+  "invoice": "186139862",
+  "vendor": "Higgins Coatings Pty Ltd",
+  "abn": "50 005 632 708",
+  "subtotal": 13888.0,
+  "incl": 15276.8,
+  "variant": "standard",
+  "target": "53231cd7-72315-PK000022-01",
+  "register_lines": [
+   {
+    "linekey": "53231cd7-72315-PK000022-01",
+    "section": "Park Services",
+    "na": "72315",
+    "pk": "PK000022",
+    "amount": 13888.0,
+    "contractor": "Higgins Coatings Pty Ltd",
+    "narr": "Quote QR6891"
+   }
+  ],
+  "evid": "186139862",
+  "evid_note": null,
+  "line_map": null
+ },
+ {
+  "invoice": "00015349",
+  "vendor": "Harpley Services Pty Ltd",
+  "abn": "22 162 601 694",
+  "subtotal": 7321.0,
+  "incl": 8053.1,
+  "variant": "standard",
+  "target": "ae2f2ab3-73212-PK000415-01",
+  "register_lines": [
+   {
+    "linekey": "ae2f2ab3-73212-PK000415-01",
+    "section": "Park Services",
+    "na": "73212",
+    "pk": "PK000415",
+    "amount": 7321.0,
+    "contractor": "Unidentified (FY2026/27 section-wide, not yet identified)",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "00015349",
+  "evid_note": null,
+  "line_map": null
+ },
+ {
+  "invoice": "INV-11834",
+  "vendor": "Coast2Coast Grounds and Gardens",
+  "abn": "24488420203 (printed ungrouped)",
+  "subtotal": 84771.3,
+  "incl": 93248.43,
+  "variant": "check 2 split-posting (each register line ties its own printed line(s) by LineKey: mowing line on the zone PK, fuel levy line on PK000513 service 20821)",
+  "target": [
+   "224c7598-73126-PK000401-01",
+   "224c7598-73126-PK000513-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "224c7598-73126-PK000401-01",
+    "section": "Park Maintenance",
+    "na": "73126",
+    "pk": "PK000401",
+    "amount": 83373.19,
+    "contractor": "Unidentified (FY2026/27 branch-wide, not yet cleared)",
+    "narr": "26/27 - Mowing for Zone 11"
+   },
+   {
+    "linekey": "224c7598-73126-PK000513-01",
+    "section": "No section (NA - Not Applicable)",
+    "na": "73126",
+    "pk": "PK000513",
+    "amount": 1398.11,
+    "contractor": "Unidentified (FY2026/27 branch-wide, not yet cleared)",
+    "narr": "26/27 - Mowing for Zone 11"
+   }
+  ],
+  "evid": "INV-11834",
+  "evid_note": null,
+  "line_map": [
+   [
+    "224c7598-73126-PK000513-01",
+    "FUEL LEVY SURCHARGE"
+   ],
+   [
+    "224c7598-73126-PK000401-01",
+    "."
+   ]
+  ]
+ },
+ {
+  "invoice": "INV-8739",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 12857.8,
+  "incl": 14143.58,
+  "variant": "standard",
+  "target": "748c1e78-73123-PK000023-01",
+  "register_lines": [
+   {
+    "linekey": "748c1e78-73123-PK000023-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000023",
+    "amount": 12857.8,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8739",
+  "evid_note": null,
+  "line_map": null
+ },
+ {
+  "invoice": "INV-39475",
+  "vendor": "T & H LEVAI PTY LTD",
+  "abn": "65 100 395 480",
+  "subtotal": 7200.0,
+  "incl": 7920.0,
+  "variant": "standard",
+  "target": "1119825e-73123-PK000391-01",
+  "register_lines": [
+   {
+    "linekey": "1119825e-73123-PK000391-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000391",
+    "amount": 7200.0,
+    "contractor": "T & H Levai Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-39475",
+  "evid_note": null,
+  "line_map": null
+ },
+ {
+  "invoice": "INV-8754",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 7752.68,
+  "incl": 8527.95,
+  "variant": "standard",
+  "target": "56a65707-73123-PK000391-01",
+  "register_lines": [
+   {
+    "linekey": "56a65707-73123-PK000391-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000391",
+    "amount": 7752.68,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8754",
+  "evid_note": null,
+  "line_map": null
+ },
+ {
+  "invoice": "15253",
+  "vendor": "Q Power (Qld) Pty Ltd",
+  "abn": "82 067 507 591",
+  "subtotal": 19430.74,
+  "incl": 21373.81,
+  "variant": "standard",
+  "target": "a1f6f402-73123-PK000412-01",
+  "register_lines": [
+   {
+    "linekey": "a1f6f402-73123-PK000412-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000412",
+    "amount": 19430.74,
+    "contractor": "Unidentified (FY2026/27 branch-wide, not yet cleared)",
+    "narr": "Quote 6473"
+   }
+  ],
+  "evid": "15253",
+  "evid_note": null,
+  "line_map": null
+ },
+ {
+  "invoice": "INV-39495",
+  "vendor": "T & H LEVAI PTY LTD",
+  "abn": "65 100 395 480",
+  "subtotal": 12025.0,
+  "incl": 13227.5,
+  "variant": "standard",
+  "target": "3727a487-73123-PK000022-01",
+  "register_lines": [
+   {
+    "linekey": "3727a487-73123-PK000022-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000022",
+    "amount": 12025.0,
+    "contractor": "Unidentified (FY2026/27 branch-wide, not yet cleared)",
+    "narr": "Quote 657890"
+   }
+  ],
+  "evid": "INV-39495",
+  "evid_note": null,
+  "line_map": null
+ },
+ {
+  "invoice": "00015285",
+  "vendor": "Harpley Services Pty Ltd",
+  "abn": "22 162 601 694",
+  "subtotal": 7734.05,
+  "incl": 8507.46,
+  "variant": "standard",
+  "target": "d120e55b-73212-PK000441-01",
+  "register_lines": [
+   {
+    "linekey": "d120e55b-73212-PK000441-01",
+    "section": "Park Services",
+    "na": "73212",
+    "pk": "PK000441",
+    "amount": 7734.05,
+    "contractor": "Unidentified (FY2026/27 branch-wide, not yet cleared)",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "00015285",
+  "evid_note": null,
+  "line_map": null
+ },
+ {
+  "invoice": "00015301",
+  "vendor": "Harpley Services Pty Ltd",
+  "abn": "22 162 601 694",
+  "subtotal": 16383.95,
+  "incl": 18022.35,
+  "variant": "standard",
+  "target": "ffafcb2a-73212-PK000415-01",
+  "register_lines": [
+   {
+    "linekey": "ffafcb2a-73212-PK000415-01",
+    "section": "Park Services",
+    "na": "73212",
+    "pk": "PK000415",
+    "amount": 16383.95,
+    "contractor": "Unidentified (FY2026/27 branch-wide, not yet cleared)",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "00015301",
+  "evid_note": null,
+  "line_map": null
+ },
+ {
+  "invoice": "INV-11835",
+  "vendor": "Coast2Coast Grounds and Gardens",
+  "abn": "24488420203 (printed ungrouped)",
+  "subtotal": 92383.04,
+  "incl": 101621.35,
+  "variant": "check 2 split-posting (each register line ties its own printed line(s) by LineKey: mowing line on the zone PK, fuel levy line on PK000513 service 20821)",
+  "target": [
+   "cfff5ef5-73126-PK000396-01",
+   "cfff5ef5-73126-PK000513-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "cfff5ef5-73126-PK000396-01",
+    "section": "Park Maintenance",
+    "na": "73126",
+    "pk": "PK000396",
+    "amount": 90859.39,
+    "contractor": "Unidentified (FY2026/27 branch-wide, not yet cleared)",
+    "narr": "26/27 - Mowing for Zone 12"
+   },
+   {
+    "linekey": "cfff5ef5-73126-PK000513-01",
+    "section": "No section (NA - Not Applicable)",
+    "na": "73126",
+    "pk": "PK000513",
+    "amount": 1523.65,
+    "contractor": "Unidentified (FY2026/27 branch-wide, not yet cleared)",
+    "narr": "26/27 - Mowing for Zone 12"
+   }
+  ],
+  "evid": "INV-11835",
+  "evid_note": null,
+  "line_map": [
+   [
+    "cfff5ef5-73126-PK000513-01",
+    "FUEL LEVY SURCHARGE"
+   ],
+   [
+    "cfff5ef5-73126-PK000396-01",
+    "."
+   ]
+  ]
+ },
+ {
+  "invoice": "INV-2628",
+  "vendor": "WEIS CONTRACTORS",
+  "abn": "71812055648 (printed ungrouped)",
+  "subtotal": 8460.0,
+  "incl": 9306.0,
+  "variant": "standard",
+  "target": "6891eafc-73123-PK000391-01",
+  "register_lines": [
+   {
+    "linekey": "6891eafc-73123-PK000391-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000391",
+    "amount": 8460.0,
+    "contractor": "Unidentified (FY2026/27 branch-wide, not yet cleared)",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-2628",
+  "evid_note": null,
+  "line_map": null
+ },
+ {
+  "invoice": "INV-0367",
+  "vendor": "The Trustee for Flavell-Dau Family Trust",
+  "abn": "47220358629 (printed ungrouped)",
+  "subtotal": 6775.5,
+  "incl": 7453.05,
+  "variant": "standard",
+  "target": "b2f36341-73123-PK000118-01",
+  "register_lines": [
+   {
+    "linekey": "b2f36341-73123-PK000118-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000118",
+    "amount": 6775.5,
+    "contractor": "Unidentified (FY2026/27 branch-wide, not yet cleared)",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-0367",
+  "evid_note": null,
+  "line_map": null
+ },
+ {
+  "invoice": "INV-2632",
+  "vendor": "WEIS CONTRACTORS",
+  "abn": "71812055648 (printed ungrouped)",
+  "subtotal": 7200.0,
+  "incl": 7920.0,
+  "variant": "standard",
+  "target": "995e788c-73123-PK000391-01",
+  "register_lines": [
+   {
+    "linekey": "995e788c-73123-PK000391-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000391",
+    "amount": 7200.0,
+    "contractor": "Unidentified (FY2026/27 branch-wide, not yet cleared)",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-2632",
+  "evid_note": null,
+  "line_map": null
+ },
+ {
+  "invoice": "INV-2634",
+  "vendor": "WEIS CONTRACTORS",
+  "abn": "71812055648 (printed ungrouped)",
+  "subtotal": 8820.0,
+  "incl": 9702.0,
+  "variant": "standard",
+  "target": "b049df20-73123-PK000391-01",
+  "register_lines": [
+   {
+    "linekey": "b049df20-73123-PK000391-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000391",
+    "amount": 8820.0,
+    "contractor": "Unidentified (FY2026/27 branch-wide, not yet cleared)",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-2634",
+  "evid_note": null,
+  "line_map": null
+ },
+ {
+  "invoice": "7717",
+  "vendor": "Kachel Cleaning",
+  "abn": "77 083 786 592",
+  "subtotal": 54186.0,
+  "incl": 59604.6,
+  "variant": "standard",
+  "target": "8917c141-73121-PK000025-01",
+  "register_lines": [
+   {
+    "linekey": "8917c141-73121-PK000025-01",
+    "section": "Park Services",
+    "na": "73121",
+    "pk": "PK000025",
+    "amount": 54186.0,
+    "contractor": "Unidentified (FY2026/27 branch-wide, not yet cleared)",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "7717",
+  "evid_note": null,
+  "line_map": null
+ },
+ {
+  "invoice": "INV-39542",
+  "vendor": "T & H LEVAI PTY LTD",
+  "abn": "65 100 395 480",
+  "subtotal": 7250.0,
+  "incl": 7975.0,
+  "variant": "standard",
+  "target": "99a65739-73123-PK000118-01",
+  "register_lines": [
+   {
+    "linekey": "99a65739-73123-PK000118-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000118",
+    "amount": 7250.0,
+    "contractor": "Unidentified (FY2026/27 branch-wide, not yet cleared)",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-39542",
+  "evid_note": null,
+  "line_map": null
+ },
+ {
+  "invoice": "186140216",
+  "vendor": "Higgins Coatings Pty Ltd",
+  "abn": "50 005 632 708",
+  "subtotal": 14209.0,
+  "incl": 15629.9,
+  "variant": "standard",
+  "target": "413d1f42-73123-PK000510-01",
+  "register_lines": [
+   {
+    "linekey": "413d1f42-73123-PK000510-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000510",
+    "amount": 14209.0,
+    "contractor": "Unidentified (FY2026/27 branch-wide, not yet cleared)",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "186140216",
+  "evid_note": null,
+  "line_map": null
+ }
+]

@@ -1,0 +1,1040 @@
+{
+  "manifest": {
+    "batch_id": "mixed_new_26_27",
+    "runtime": "B",
+    "prompt_version": "PSWP Extraction Prompt v5",
+    "source_files": [
+      {
+        "name": "Mixed new 26-27.pdf",
+        "pages": 75
+      }
+    ],
+    "extracted_utc": "2026-09-11T02:06:28.864605+00:00",
+    "gate": "AMBER",
+    "document_occurrences": 36,
+    "unique_documents": 35,
+    "duplicate_occurrences": 1,
+    "pages_represented": 75,
+    "pages_total": 75,
+    "documents_tie": 36,
+    "documents_out": 0,
+    "unique_captured_ex_gst_total": 1809918.46,
+    "all_occurrences_ex_gst_total": 2386839.54,
+    "findings_count": 7,
+    "ocr_status": "Not available in Runtime B",
+    "line_level_status": "Not certified from layout-flattened chat text",
+    "resume_point": "Source-image OCR and row-level band reconstruction required for strict forensic completion."
+  },
+  "findings": [
+    {
+      "severity": "RED",
+      "pages": [
+        11,
+        15
+      ],
+      "finding": "Exact duplicate of consolidated Origin invoice 1026231 on pages 6 to 10. Excluded from unique-document total."
+    },
+    {
+      "severity": "RED",
+      "pages": [
+        44,
+        44
+      ],
+      "finding": "Invoice 158853 prints $75,377.98 as item/subtotal but also states August Service 2026 $75,345.91. The $32.07 inconsistency requires supplier clarification."
+    },
+    {
+      "severity": "AMBER",
+      "pages": [
+        1,
+        5
+      ],
+      "finding": "Consolidated Origin invoice 1026099 reports 48 invoices for 47 billed sites, including 46 invoices from a previous period. Page 2 includes one 1 May to 27 May 2026 site charge alongside July charges."
+    },
+    {
+      "severity": "AMBER",
+      "pages": [
+        6,
+        10
+      ],
+      "finding": "Origin invoice 1026231 includes site-level adjustments and credits. Consolidated new charges must be reconciled using signed adjustment treatment, not gross site balances."
+    },
+    {
+      "severity": "AMBER",
+      "pages": [
+        20,
+        23,
+        26,
+        29,
+        59,
+        62
+      ],
+      "finding": "Q Power documents reproduce quotation-style scope and conditions within tax invoices. Evidence of completion should be matched to the purchase order and requesting officer approval."
+    },
+    {
+      "severity": "AMBER",
+      "pages": [
+        51,
+        51
+      ],
+      "finding": "Coast2Coast INV-11834 description states base cut $82,554.36 plus GST, while the charged base line is $83,373.19. The printed subtotal reconciles, but the narrative conflict requires support."
+    },
+    {
+      "severity": "AMBER",
+      "pages": [
+        67,
+        67
+      ],
+      "finding": "Harpley invoice 00015301 includes service dates 26 June and 29 June 2026 within a July 2026 pump-out invoice, requiring period and accrual review."
+    }
+  ],
+  "documents": [
+    {
+      "doc_ref": "1026099/pages1-5",
+      "source_file": "Mixed new 26-27.pdf",
+      "doc_kind": "TAX_INVOICE",
+      "supplier": "Origin Energy Electricity Limited",
+      "invoice_no": "1026099",
+      "invoice_date": "17 Aug 2026",
+      "page_range": [
+        1,
+        5
+      ],
+      "printed_subtotal_ex_gst": 565345.0,
+      "printed_gst": 56534.1,
+      "printed_total_incl_gst": 621879.1,
+      "captured_ex_gst": 565345.0,
+      "tie_variance": 0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "2484832"
+      ],
+      "pk_refs": [],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Runtime B document-level capture from layout-flattened text layer."
+    },
+    {
+      "doc_ref": "1026231/pages6-10",
+      "source_file": "Mixed new 26-27.pdf",
+      "doc_kind": "TAX_INVOICE",
+      "supplier": "Origin Energy Electricity Limited",
+      "invoice_no": "1026231",
+      "invoice_date": "2 Sep 2026",
+      "page_range": [
+        6,
+        10
+      ],
+      "printed_subtotal_ex_gst": 576921.08,
+      "printed_gst": 57691.63,
+      "printed_total_incl_gst": 634612.71,
+      "captured_ex_gst": 576921.08,
+      "tie_variance": 0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "2484832"
+      ],
+      "pk_refs": [],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Runtime B document-level capture from layout-flattened text layer."
+    },
+    {
+      "doc_ref": "1026231/pages11-15",
+      "source_file": "Mixed new 26-27.pdf",
+      "doc_kind": "TAX_INVOICE",
+      "supplier": "Origin Energy Electricity Limited",
+      "invoice_no": "1026231",
+      "invoice_date": "2 Sep 2026",
+      "page_range": [
+        11,
+        15
+      ],
+      "printed_subtotal_ex_gst": 576921.08,
+      "printed_gst": 57691.63,
+      "printed_total_incl_gst": 634612.71,
+      "captured_ex_gst": 576921.08,
+      "tie_variance": 0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "2484832"
+      ],
+      "pk_refs": [],
+      "duplicate_of": "1026231/pages6-10",
+      "lines": [],
+      "notes": "Runtime B document-level capture from layout-flattened text layer."
+    },
+    {
+      "doc_ref": "7558/pages16-17",
+      "source_file": "Mixed new 26-27.pdf",
+      "doc_kind": "TAX_INVOICE",
+      "supplier": "Sea-Crete",
+      "invoice_no": "7558",
+      "invoice_date": "24 Jun 2026",
+      "page_range": [
+        16,
+        17
+      ],
+      "printed_subtotal_ex_gst": 34760,
+      "printed_gst": 3476,
+      "printed_total_incl_gst": 38236,
+      "captured_ex_gst": 34760,
+      "tie_variance": 0,
+      "self_tie": "TIE",
+      "po_refs": [],
+      "pk_refs": [],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Runtime B document-level capture from layout-flattened text layer."
+    },
+    {
+      "doc_ref": "INV-5621/pages18-19",
+      "source_file": "Mixed new 26-27.pdf",
+      "doc_kind": "TAX_INVOICE",
+      "supplier": "Pool Shop QLD Pty Ltd",
+      "invoice_no": "INV-5621",
+      "invoice_date": "26 Jul 2026",
+      "page_range": [
+        18,
+        19
+      ],
+      "printed_subtotal_ex_gst": 34063.51,
+      "printed_gst": 3406.34,
+      "printed_total_incl_gst": 37469.85,
+      "captured_ex_gst": 34063.51,
+      "tie_variance": 0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "802963"
+      ],
+      "pk_refs": [
+        "PK000469",
+        "PK000470",
+        "PK000441",
+        "PK000419",
+        "PK000022"
+      ],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Runtime B document-level capture from layout-flattened text layer."
+    },
+    {
+      "doc_ref": "15186/pages20-23",
+      "source_file": "Mixed new 26-27.pdf",
+      "doc_kind": "TAX_INVOICE",
+      "supplier": "Q Power (Qld) Pty Ltd",
+      "invoice_no": "15186",
+      "invoice_date": "31 Jul 2026",
+      "page_range": [
+        20,
+        23
+      ],
+      "printed_subtotal_ex_gst": 13987.25,
+      "printed_gst": 1398.73,
+      "printed_total_incl_gst": 15385.98,
+      "captured_ex_gst": 13987.25,
+      "tie_variance": 0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "718984"
+      ],
+      "pk_refs": [],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Runtime B document-level capture from layout-flattened text layer."
+    },
+    {
+      "doc_ref": "7564/pages24-25",
+      "source_file": "Mixed new 26-27.pdf",
+      "doc_kind": "TAX_INVOICE",
+      "supplier": "Sea-Crete",
+      "invoice_no": "7564",
+      "invoice_date": "5 Aug 2026",
+      "page_range": [
+        24,
+        25
+      ],
+      "printed_subtotal_ex_gst": 12166,
+      "printed_gst": 1216.6,
+      "printed_total_incl_gst": 13382.6,
+      "captured_ex_gst": 12166,
+      "tie_variance": 0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "718029"
+      ],
+      "pk_refs": [],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Runtime B document-level capture from layout-flattened text layer."
+    },
+    {
+      "doc_ref": "15225/pages26-29",
+      "source_file": "Mixed new 26-27.pdf",
+      "doc_kind": "TAX_INVOICE",
+      "supplier": "Q Power (Qld) Pty Ltd",
+      "invoice_no": "15225",
+      "invoice_date": "14 Aug 2026",
+      "page_range": [
+        26,
+        29
+      ],
+      "printed_subtotal_ex_gst": 9162.93,
+      "printed_gst": 916.29,
+      "printed_total_incl_gst": 10079.22,
+      "captured_ex_gst": 9162.93,
+      "tie_variance": 0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "709835"
+      ],
+      "pk_refs": [],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Runtime B document-level capture from layout-flattened text layer."
+    },
+    {
+      "doc_ref": "INV-8550/pages30-32",
+      "source_file": "Mixed new 26-27.pdf",
+      "doc_kind": "TAX_INVOICE",
+      "supplier": "Play Force Australia Pty Ltd",
+      "invoice_no": "INV-8550",
+      "invoice_date": "17 Aug 2026",
+      "page_range": [
+        30,
+        32
+      ],
+      "printed_subtotal_ex_gst": 7019.7,
+      "printed_gst": 701.97,
+      "printed_total_incl_gst": 7721.67,
+      "captured_ex_gst": 7019.7,
+      "tie_variance": 0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "717527"
+      ],
+      "pk_refs": [],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Runtime B document-level capture from layout-flattened text layer."
+    },
+    {
+      "doc_ref": "INV-0342/pages33-33",
+      "source_file": "Mixed new 26-27.pdf",
+      "doc_kind": "TAX_INVOICE",
+      "supplier": "The Trustee for Flavell-Dau Family Trust",
+      "invoice_no": "INV-0342",
+      "invoice_date": "14 Aug 2026",
+      "page_range": [
+        33,
+        33
+      ],
+      "printed_subtotal_ex_gst": 5860,
+      "printed_gst": 586,
+      "printed_total_incl_gst": 6446,
+      "captured_ex_gst": 5860,
+      "tie_variance": 0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "718720"
+      ],
+      "pk_refs": [],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Runtime B document-level capture from layout-flattened text layer."
+    },
+    {
+      "doc_ref": "INV-39437/pages34-34",
+      "source_file": "Mixed new 26-27.pdf",
+      "doc_kind": "TAX_INVOICE",
+      "supplier": "T & H LEVAI PTY LTD",
+      "invoice_no": "INV-39437",
+      "invoice_date": "18 Aug 2026",
+      "page_range": [
+        34,
+        34
+      ],
+      "printed_subtotal_ex_gst": 8440,
+      "printed_gst": 844,
+      "printed_total_incl_gst": 9284,
+      "captured_ex_gst": 8440,
+      "tie_variance": 0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "718729"
+      ],
+      "pk_refs": [],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Runtime B document-level capture from layout-flattened text layer."
+    },
+    {
+      "doc_ref": "INV-39435/pages35-35",
+      "source_file": "Mixed new 26-27.pdf",
+      "doc_kind": "TAX_INVOICE",
+      "supplier": "T & H LEVAI PTY LTD",
+      "invoice_no": "INV-39435",
+      "invoice_date": "18 Aug 2026",
+      "page_range": [
+        35,
+        35
+      ],
+      "printed_subtotal_ex_gst": 6400,
+      "printed_gst": 640,
+      "printed_total_incl_gst": 7040,
+      "captured_ex_gst": 6400,
+      "tie_variance": 0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "717529"
+      ],
+      "pk_refs": [
+        "PK000391"
+      ],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Runtime B document-level capture from layout-flattened text layer."
+    },
+    {
+      "doc_ref": "INV-2620/pages36-36",
+      "source_file": "Mixed new 26-27.pdf",
+      "doc_kind": "TAX_INVOICE",
+      "supplier": "WEIS CONTRACTORS",
+      "invoice_no": "INV-2620",
+      "invoice_date": "19 Aug 2026",
+      "page_range": [
+        36,
+        36
+      ],
+      "printed_subtotal_ex_gst": 9540,
+      "printed_gst": 954,
+      "printed_total_incl_gst": 10494,
+      "captured_ex_gst": 9540,
+      "tie_variance": 0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "717531"
+      ],
+      "pk_refs": [
+        "PK000391"
+      ],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Runtime B document-level capture from layout-flattened text layer."
+    },
+    {
+      "doc_ref": "INV-8638/pages37-39",
+      "source_file": "Mixed new 26-27.pdf",
+      "doc_kind": "TAX_INVOICE",
+      "supplier": "Play Force Australia Pty Ltd",
+      "invoice_no": "INV-8638",
+      "invoice_date": "25 Aug 2026",
+      "page_range": [
+        37,
+        39
+      ],
+      "printed_subtotal_ex_gst": 6753.9,
+      "printed_gst": 675.39,
+      "printed_total_incl_gst": 7429.29,
+      "captured_ex_gst": 6753.9,
+      "tie_variance": 0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "717528"
+      ],
+      "pk_refs": [],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Runtime B document-level capture from layout-flattened text layer."
+    },
+    {
+      "doc_ref": "INV-8648/pages40-42",
+      "source_file": "Mixed new 26-27.pdf",
+      "doc_kind": "TAX_INVOICE",
+      "supplier": "Play Force Australia Pty Ltd",
+      "invoice_no": "INV-8648",
+      "invoice_date": "25 Aug 2026",
+      "page_range": [
+        40,
+        42
+      ],
+      "printed_subtotal_ex_gst": 10763.54,
+      "printed_gst": 1076.35,
+      "printed_total_incl_gst": 11839.89,
+      "captured_ex_gst": 10763.54,
+      "tie_variance": 0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "717527"
+      ],
+      "pk_refs": [],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Runtime B document-level capture from layout-flattened text layer."
+    },
+    {
+      "doc_ref": "6276/pages43-43",
+      "source_file": "Mixed new 26-27.pdf",
+      "doc_kind": "TAX_INVOICE",
+      "supplier": "Elemental Shade Structures",
+      "invoice_no": "6276",
+      "invoice_date": "26 Aug 2026",
+      "page_range": [
+        43,
+        43
+      ],
+      "printed_subtotal_ex_gst": 10945,
+      "printed_gst": 1094.5,
+      "printed_total_incl_gst": 12039.5,
+      "captured_ex_gst": 10945,
+      "tie_variance": 0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "709833"
+      ],
+      "pk_refs": [],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Runtime B document-level capture from layout-flattened text layer."
+    },
+    {
+      "doc_ref": "158853/pages44-44",
+      "source_file": "Mixed new 26-27.pdf",
+      "doc_kind": "TAX_INVOICE",
+      "supplier": "Austspray Environmental Weed Control Pty Ltd",
+      "invoice_no": "158853",
+      "invoice_date": "26 Aug 2026",
+      "page_range": [
+        44,
+        44
+      ],
+      "printed_subtotal_ex_gst": 75377.98,
+      "printed_gst": 7537.8,
+      "printed_total_incl_gst": 82915.78,
+      "captured_ex_gst": 75377.98,
+      "tie_variance": 0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "802470"
+      ],
+      "pk_refs": [
+        "PK000473"
+      ],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Runtime B document-level capture from layout-flattened text layer."
+    },
+    {
+      "doc_ref": "INV-5668/pages45-46",
+      "source_file": "Mixed new 26-27.pdf",
+      "doc_kind": "TAX_INVOICE",
+      "supplier": "Pool Shop QLD Pty Ltd",
+      "invoice_no": "INV-5668",
+      "invoice_date": "26 Aug 2026",
+      "page_range": [
+        45,
+        46
+      ],
+      "printed_subtotal_ex_gst": 33764.51,
+      "printed_gst": 3376.44,
+      "printed_total_incl_gst": 37140.95,
+      "captured_ex_gst": 33764.51,
+      "tie_variance": 0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "802963"
+      ],
+      "pk_refs": [
+        "PK000469",
+        "PK000470",
+        "PK000441",
+        "PK000419",
+        "PK000022"
+      ],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Runtime B document-level capture from layout-flattened text layer."
+    },
+    {
+      "doc_ref": "186139862/pages47-47",
+      "source_file": "Mixed new 26-27.pdf",
+      "doc_kind": "TAX_INVOICE",
+      "supplier": "Higgins Coatings Pty Ltd",
+      "invoice_no": "186139862",
+      "invoice_date": "26 Aug 2026",
+      "page_range": [
+        47,
+        47
+      ],
+      "printed_subtotal_ex_gst": 13888,
+      "printed_gst": 1388.8,
+      "printed_total_incl_gst": 15276.8,
+      "captured_ex_gst": 13888,
+      "tie_variance": 0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "718985"
+      ],
+      "pk_refs": [
+        "PK000022"
+      ],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Runtime B document-level capture from layout-flattened text layer."
+    },
+    {
+      "doc_ref": "00015349/pages48-50",
+      "source_file": "Mixed new 26-27.pdf",
+      "doc_kind": "TAX_INVOICE",
+      "supplier": "Harpley Services Pty Ltd",
+      "invoice_no": "00015349",
+      "invoice_date": "27 Aug 2026",
+      "page_range": [
+        48,
+        50
+      ],
+      "printed_subtotal_ex_gst": 7321,
+      "printed_gst": 732.1,
+      "printed_total_incl_gst": 8053.1,
+      "captured_ex_gst": 7321,
+      "tie_variance": 0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "717525"
+      ],
+      "pk_refs": [
+        "PK000415"
+      ],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Runtime B document-level capture from layout-flattened text layer."
+    },
+    {
+      "doc_ref": "INV-11834/pages51-51",
+      "source_file": "Mixed new 26-27.pdf",
+      "doc_kind": "TAX_INVOICE",
+      "supplier": "Coast2Coast Grounds and Gardens",
+      "invoice_no": "INV-11834",
+      "invoice_date": "24 Aug 2026",
+      "page_range": [
+        51,
+        51
+      ],
+      "printed_subtotal_ex_gst": 84771.3,
+      "printed_gst": 8477.13,
+      "printed_total_incl_gst": 93248.43,
+      "captured_ex_gst": 84771.3,
+      "tie_variance": 0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "802265"
+      ],
+      "pk_refs": [],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Runtime B document-level capture from layout-flattened text layer."
+    },
+    {
+      "doc_ref": "INV-8739/pages52-54",
+      "source_file": "Mixed new 26-27.pdf",
+      "doc_kind": "TAX_INVOICE",
+      "supplier": "Play Force Australia Pty Ltd",
+      "invoice_no": "INV-8739",
+      "invoice_date": "28 Aug 2026",
+      "page_range": [
+        52,
+        54
+      ],
+      "printed_subtotal_ex_gst": 12857.8,
+      "printed_gst": 1285.78,
+      "printed_total_incl_gst": 14143.58,
+      "captured_ex_gst": 12857.8,
+      "tie_variance": 0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "717528"
+      ],
+      "pk_refs": [
+        "PK000023"
+      ],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Runtime B document-level capture from layout-flattened text layer."
+    },
+    {
+      "doc_ref": "INV-39475/pages55-55",
+      "source_file": "Mixed new 26-27.pdf",
+      "doc_kind": "TAX_INVOICE",
+      "supplier": "T & H LEVAI PTY LTD",
+      "invoice_no": "INV-39475",
+      "invoice_date": "28 Aug 2026",
+      "page_range": [
+        55,
+        55
+      ],
+      "printed_subtotal_ex_gst": 7200,
+      "printed_gst": 720,
+      "printed_total_incl_gst": 7920,
+      "captured_ex_gst": 7200,
+      "tie_variance": 0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "717529"
+      ],
+      "pk_refs": [
+        "PK000391"
+      ],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Runtime B document-level capture from layout-flattened text layer."
+    },
+    {
+      "doc_ref": "INV-8754/pages56-58",
+      "source_file": "Mixed new 26-27.pdf",
+      "doc_kind": "TAX_INVOICE",
+      "supplier": "Play Force Australia Pty Ltd",
+      "invoice_no": "INV-8754",
+      "invoice_date": "28 Aug 2026",
+      "page_range": [
+        56,
+        58
+      ],
+      "printed_subtotal_ex_gst": 7752.68,
+      "printed_gst": 775.27,
+      "printed_total_incl_gst": 8527.95,
+      "captured_ex_gst": 7752.68,
+      "tie_variance": 0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "717528"
+      ],
+      "pk_refs": [
+        "PK000391"
+      ],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Runtime B document-level capture from layout-flattened text layer."
+    },
+    {
+      "doc_ref": "15253/pages59-62",
+      "source_file": "Mixed new 26-27.pdf",
+      "doc_kind": "TAX_INVOICE",
+      "supplier": "Q Power (Qld) Pty Ltd",
+      "invoice_no": "15253",
+      "invoice_date": "31 Aug 2026",
+      "page_range": [
+        59,
+        62
+      ],
+      "printed_subtotal_ex_gst": 19430.74,
+      "printed_gst": 1943.07,
+      "printed_total_incl_gst": 21373.81,
+      "captured_ex_gst": 19430.74,
+      "tie_variance": 0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "718506"
+      ],
+      "pk_refs": [],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Runtime B document-level capture from layout-flattened text layer."
+    },
+    {
+      "doc_ref": "INV-39495/pages63-63",
+      "source_file": "Mixed new 26-27.pdf",
+      "doc_kind": "TAX_INVOICE",
+      "supplier": "T & H LEVAI PTY LTD",
+      "invoice_no": "INV-39495",
+      "invoice_date": "31 Aug 2026",
+      "page_range": [
+        63,
+        63
+      ],
+      "printed_subtotal_ex_gst": 12025,
+      "printed_gst": 1202.5,
+      "printed_total_incl_gst": 13227.5,
+      "captured_ex_gst": 12025,
+      "tie_variance": 0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "719048"
+      ],
+      "pk_refs": [
+        "PK000022"
+      ],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Runtime B document-level capture from layout-flattened text layer."
+    },
+    {
+      "doc_ref": "00015285/pages64-66",
+      "source_file": "Mixed new 26-27.pdf",
+      "doc_kind": "TAX_INVOICE",
+      "supplier": "Harpley Services Pty Ltd",
+      "invoice_no": "00015285",
+      "invoice_date": "16 Aug 2026",
+      "page_range": [
+        64,
+        66
+      ],
+      "printed_subtotal_ex_gst": 7734.05,
+      "printed_gst": 773.41,
+      "printed_total_incl_gst": 8507.46,
+      "captured_ex_gst": 7734.05,
+      "tie_variance": 0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "717525"
+      ],
+      "pk_refs": [
+        "PK000441"
+      ],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Runtime B document-level capture from layout-flattened text layer."
+    },
+    {
+      "doc_ref": "00015301/pages67-67",
+      "source_file": "Mixed new 26-27.pdf",
+      "doc_kind": "TAX_INVOICE",
+      "supplier": "Harpley Services Pty Ltd",
+      "invoice_no": "00015301",
+      "invoice_date": "16 Aug 2026",
+      "page_range": [
+        67,
+        67
+      ],
+      "printed_subtotal_ex_gst": 16383.95,
+      "printed_gst": 1638.4,
+      "printed_total_incl_gst": 18022.35,
+      "captured_ex_gst": 16383.95,
+      "tie_variance": 0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "717525"
+      ],
+      "pk_refs": [],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Runtime B document-level capture from layout-flattened text layer."
+    },
+    {
+      "doc_ref": "INV-11835/pages68-68",
+      "source_file": "Mixed new 26-27.pdf",
+      "doc_kind": "TAX_INVOICE",
+      "supplier": "Coast2Coast Grounds and Gardens",
+      "invoice_no": "INV-11835",
+      "invoice_date": "2 Sep 2026",
+      "page_range": [
+        68,
+        68
+      ],
+      "printed_subtotal_ex_gst": 92383.04,
+      "printed_gst": 9238.31,
+      "printed_total_incl_gst": 101621.35,
+      "captured_ex_gst": 92383.04,
+      "tie_variance": -0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "802264"
+      ],
+      "pk_refs": [],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Runtime B document-level capture from layout-flattened text layer."
+    },
+    {
+      "doc_ref": "INV-2628/pages69-69",
+      "source_file": "Mixed new 26-27.pdf",
+      "doc_kind": "TAX_INVOICE",
+      "supplier": "WEIS CONTRACTORS",
+      "invoice_no": "INV-2628",
+      "invoice_date": "3 Sep 2026",
+      "page_range": [
+        69,
+        69
+      ],
+      "printed_subtotal_ex_gst": 8460,
+      "printed_gst": 846,
+      "printed_total_incl_gst": 9306,
+      "captured_ex_gst": 8460,
+      "tie_variance": 0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "717531"
+      ],
+      "pk_refs": [
+        "PK000391"
+      ],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Runtime B document-level capture from layout-flattened text layer."
+    },
+    {
+      "doc_ref": "INV-0367/pages70-70",
+      "source_file": "Mixed new 26-27.pdf",
+      "doc_kind": "TAX_INVOICE",
+      "supplier": "The Trustee for Flavell-Dau Family Trust",
+      "invoice_no": "INV-0367",
+      "invoice_date": "3 Sep 2026",
+      "page_range": [
+        70,
+        70
+      ],
+      "printed_subtotal_ex_gst": 6775.5,
+      "printed_gst": 677.55,
+      "printed_total_incl_gst": 7453.05,
+      "captured_ex_gst": 6775.5,
+      "tie_variance": 0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "717523"
+      ],
+      "pk_refs": [
+        "PK000118"
+      ],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Runtime B document-level capture from layout-flattened text layer."
+    },
+    {
+      "doc_ref": "INV-2632/pages71-71",
+      "source_file": "Mixed new 26-27.pdf",
+      "doc_kind": "TAX_INVOICE",
+      "supplier": "WEIS CONTRACTORS",
+      "invoice_no": "INV-2632",
+      "invoice_date": "8 Sep 2026",
+      "page_range": [
+        71,
+        71
+      ],
+      "printed_subtotal_ex_gst": 7200,
+      "printed_gst": 720,
+      "printed_total_incl_gst": 7920,
+      "captured_ex_gst": 7200,
+      "tie_variance": 0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "717531"
+      ],
+      "pk_refs": [
+        "PK000391"
+      ],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Runtime B document-level capture from layout-flattened text layer."
+    },
+    {
+      "doc_ref": "INV-2634/pages72-72",
+      "source_file": "Mixed new 26-27.pdf",
+      "doc_kind": "TAX_INVOICE",
+      "supplier": "WEIS CONTRACTORS",
+      "invoice_no": "INV-2634",
+      "invoice_date": "8 Sep 2026",
+      "page_range": [
+        72,
+        72
+      ],
+      "printed_subtotal_ex_gst": 8820,
+      "printed_gst": 882,
+      "printed_total_incl_gst": 9702,
+      "captured_ex_gst": 8820,
+      "tie_variance": 0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "717531"
+      ],
+      "pk_refs": [
+        "PK000391"
+      ],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Runtime B document-level capture from layout-flattened text layer."
+    },
+    {
+      "doc_ref": "7717/pages73-73",
+      "source_file": "Mixed new 26-27.pdf",
+      "doc_kind": "TAX_INVOICE",
+      "supplier": "Kachel Cleaning",
+      "invoice_no": "7717",
+      "invoice_date": "6 Sep 2026",
+      "page_range": [
+        73,
+        73
+      ],
+      "printed_subtotal_ex_gst": 54186,
+      "printed_gst": 5418.6,
+      "printed_total_incl_gst": 59604.6,
+      "captured_ex_gst": 54186,
+      "tie_variance": 0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "709779"
+      ],
+      "pk_refs": [
+        "PK000028",
+        "PK000025",
+        "PK000029",
+        "PK000026",
+        "PK000027"
+      ],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Runtime B document-level capture from layout-flattened text layer."
+    },
+    {
+      "doc_ref": "INV-39542/pages74-74",
+      "source_file": "Mixed new 26-27.pdf",
+      "doc_kind": "TAX_INVOICE",
+      "supplier": "T & H LEVAI PTY LTD",
+      "invoice_no": "INV-39542",
+      "invoice_date": "7 Sep 2026",
+      "page_range": [
+        74,
+        74
+      ],
+      "printed_subtotal_ex_gst": 7250,
+      "printed_gst": 725,
+      "printed_total_incl_gst": 7975,
+      "captured_ex_gst": 7250,
+      "tie_variance": 0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "717529"
+      ],
+      "pk_refs": [
+        "PK000118"
+      ],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Runtime B document-level capture from layout-flattened text layer."
+    },
+    {
+      "doc_ref": "186140216/pages75-75",
+      "source_file": "Mixed new 26-27.pdf",
+      "doc_kind": "TAX_INVOICE",
+      "supplier": "Higgins Coatings Pty Ltd",
+      "invoice_no": "186140216",
+      "invoice_date": "9 Sep 2026",
+      "page_range": [
+        75,
+        75
+      ],
+      "printed_subtotal_ex_gst": 14209,
+      "printed_gst": 1420.9,
+      "printed_total_incl_gst": 15629.9,
+      "captured_ex_gst": 14209,
+      "tie_variance": 0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "717373"
+      ],
+      "pk_refs": [
+        "PK000510"
+      ],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Runtime B document-level capture from layout-flattened text layer."
+    }
+  ]
+}
