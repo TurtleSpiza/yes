@@ -14,7 +14,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import pbr_stage
 
-VER = 'v5'
+VER = 'v6'
 OUTNAME = f'Parks_Branch_Transaction_Register_FY2627_{VER}.xlsx'
 CLTOK = re.compile(r'\{CL:(\d+):(\d+)\}')
 SCRATCH = os.path.join(pbr_stage.ROOT, 'cache', 'scratch')
@@ -219,6 +219,30 @@ def build(stage):
 
     # ============================================================== Journal_Pull (rule 21)
     jsrc_held = {str(r[1]).replace('.0', '') for r in v127['Journal_Sources'][4:] if r[0] and str(r[1]).replace('.0', '').isdigit()}
+    js_pulled = {d_['document_file'] for d_ in stage.get('journal_docs', [])}   # pulled and embedded at this build
+    # ============================================================== Journal_Sources (rule 21, batch journal_1)
+    # Laid out here, before the Register is written, because Register col AB cites its row span and a citation is
+    # rewritten from the map on every build, never shifted (rule 19.10). The sheet itself is written in sheet order.
+    JSC_FIRST = 5
+    jsc_docs, jsc_legs, n_ = [], [], JSC_FIRST
+    for d_ in stage.get('journal_docs', []):
+        a_ = n_
+        for leg in d_['legs']:
+            jsc_legs.append((d_, leg))
+            n_ += 1
+        jsc_docs.append(dict(d=d_, first=a_, last=n_ - 1, refs=d_['journal_references_covered']))
+    JSC_LAST = n_ - 1
+    JSC_P0 = JSC_LAST + 3            # per-document control panel
+    JSC_P1 = JSC_P0 + len(jsc_docs) - 1
+    jsc_span = {x['d']['document_file']: f'rows {x["first"]}:{x["last"]}' for x in jsc_docs}
+    jsc_cited = 0
+    for r in rows:
+        df_ = r['meta'].get('journal_src')
+        if df_ and isinstance(r['V'][28], str) and '{js_rows}' in r['V'][28]:
+            r['V'][28] = r['V'][28].replace('{js_rows}', jsc_span[df_])
+            jsc_cited += 1
+    say(f'journal source citations written: {jsc_cited} register line(s) cite Journal_Sources rows {JSC_FIRST}:{JSC_LAST}')
+
     jp_doc = collections.defaultdict(list)
     for r in rows:
         if r['V'][137]:
@@ -231,12 +255,19 @@ def build(stage):
         att = 'Y' if any(str(x['V'][62]).strip() == 'Y' for x in jr) else 'N'
         all_rj = all(r_.startswith('RJ') for r_ in refs)
         acc = acc0 = collections.Counter('%s %s' % (x['V'][14], str(x['V'][15])[:22]) for x in jr)
-        tier = ('D Held, already embedded in PS_WP v127' if df in jsrc_held else
+        tier = ('E Pulled and embedded at branch v6' if df in js_pulled else
+                'D Held, already embedded in PS_WP v127' if df in jsrc_held else
                 'C RJ reversal, no pull' if all_rj else
                 'A Pull required' if att == 'N' else 'B Sight attachment')
         zero = all(jnet[r_] == 0 for r_ in refs)
         why, val = [], 'Low'
-        if any(x['V'][31] == 'Review' for x in jr):
+        if df in js_pulled:
+            _d = next(d_ for d_ in stage['journal_docs'] if d_['document_file'] == df)
+            why.append('pulled at branch v6 and embedded verbatim on Journal_Sources ' + jsc_span.get(df, '') +
+                       ('; the pull covers document ' + str(_d['document']) + ' of this file only, so the remaining references still need the same export without the Document filter'
+                        if not _d['file_fully_covered'] else '; the document nets to $0.00 and its in-scope legs tie the register'))
+            val = 'Done' if _d['file_fully_covered'] else 'Partial'
+        elif any(x['V'][31] == 'Review' for x in jr):
             why.append('recode set does not net inside O110-O115, so the balancing leg sits outside this scope and the pull is the only way to find it (Open Item B-012)'); val = 'High'
         if any(x['V'][134] == 'Accrual reversal' and jnet[str(x['V'][137])] != 0 for x in jr):
             why.append('accrual reversal that does not pair inside FY2026/27; read against 26SLACT P12 before any net (rule 5, Open Item B-011)'); val = 'High'
@@ -344,6 +375,12 @@ def build(stage):
         ho.row([os.path.basename(hh['path']), f'Creditor_Lines (APLEDGER {hh["code"]} {hh["label"]}, {hh["n"]:,} lines {hh["first"].strftime("%d-%b-%Y")} to {hh["last"].strftime("%d-%b-%Y")}, verbatim); md5 {hh["md5"]}; Data_Acquisition F{k_}.'])
     for m_ in stage.get('attach_files', []):
         ho.row([m_['file'], f'Evidence_Invoices / Evidence_Invoice_Lines / Register green block (Batch {m_.get("batch", "attach_1")}, corpus_{m_.get("batch", "attach_1")}_v6.json with page text retained); md5 {m_["md5"]}; the PDF itself is not embedded (rule 15).'])
+    for d_ in stage['journal_docs']:
+        ho.row([d_['source_file'], f'Journal_Sources {jsc_span[d_["document_file"]]} (TechOne Document Line Table, document file {d_["document_file"]}, '
+                                   f'{", ".join(d_["journal_references_covered"])}), every leg verbatim with its branch scope flag; md5 {d_["source_md5"]}; Data_Acquisition.'])
+    ho.row(['mix 22.pdf (81 pages, binder not supplied)', 'Evidence_Invoices / Evidence_Invoice_Lines / Register green block (Batch mix22): supplied corpus corpus_mix22.json md5 '
+            'e6782e55b5379dc3adcb6a1b5c7cebd4, gate RED as supplied (11 P1, 16 documents at OUT), restated to corpus_mix22_v6.json by prep_supplied_corpus.py and gated GREEN; '
+            'the rule 19.2 per-vendor verbatim check ran against independently parsed Savco, Heritage, Play Force and Kachel page text (Data_Acquisition).'])
     ho.row(['code.pdf (66 pages, binder not supplied)', 'Evidence_Invoices / Evidence_Invoice_Lines / Register green block (Batch code): supplied corpus corpus_code.json md5 e256555fc9d22d46a9cce80f8e7bbe3b, prepared to corpus_code_v6.json with page text rebuilt from the retained layout rows and the rule 19.2 per-vendor verbatim check run against an independent source (Data_Acquisition).'])
     ho.blank()
     ho.row(['Next steps (priority order, detail on Open_Items)', ''], 'blue')
@@ -360,7 +397,17 @@ def build(stage):
     ho.blank()
     ho.row(['Change log', ''], 'blue')
     _hm = stage['hist_matches']
-    ho.row([f'{VER}, {BUILD_DATE}', f'Eight APLEDGER creditor histories embedded (Creditor_Lines, {sum(h["n"] for h in HISTS):,} lines: ' + ', '.join(f'{h["code"]} {h["label"]}' for h in HISTS) + f'). {len(_hm)} register lines identified by reference and incl-GST amount (rule 8 Tier 1), {fmt_money(sum(m["amount"] for m in _hm))} ex GST, of which {len(ident_rows)} inherited Park Services lines still carry the identification (port to PS_WP v128; one further inherited match is superseded by its v3 sighting). '
+    _jm = stage['journal_batch']['manifest']
+    ho.row([f'{VER}, {BUILD_DATE}',
+            f'Journal batch journal_1 (rule 21, first journal pull on this register): {_jm["exports_received"]} TechOne Document Line Table exports received, '
+            f'{len(_jm["duplicate_exports"])} of them duplicate copies; {_jm["documents"]} documents; {_jm["documents_embedded"]} embedded verbatim on the new Journal_Sources sheet '
+            f'({_jm["legs_total"]} legs, {_jm["legs_in_scope"]} in branch scope) and {_jm["documents_audited_only"]} audited leg by leg against the PS & WP v127 embed and NOT re-captured (rule 12). '
+            f'Every document nets to $0.00 and every in-scope leg sum ties its register net (Controls group 9). GJ080153 blank narrations answered (June 2026 Plant & Fleet accrual reversal); '
+            f'GJ080309 answered for Open Item B-012 and raised as a $51,091.59 plant hire re-post to a single PK. '
+            f'Batches mix22 (40 invoices, supplied corpus restated from gate RED to GREEN, $57,803.92 of priced rows recovered) and attach_3 (5 TechOne attachments, MPDT and a Heritage credit-note template) captured. '
+            f'MPD001 MPDT added as the thirteenth APLEDGER creditor history. Batch binder11111 HELD on six pages carrying no line record (P3, not repairable downstream). '
+            f'Extraction prompt v6 issued from the mix22 and binder11111 evidence. Control total unchanged.'])
+    ho.row([f'v5, {BUILD_DATE}', f'Eight APLEDGER creditor histories embedded (Creditor_Lines, {sum(h["n"] for h in HISTS):,} lines: ' + ', '.join(f'{h["code"]} {h["label"]}' for h in HISTS) + f'). {len(_hm)} register lines identified by reference and incl-GST amount (rule 8 Tier 1), {fmt_money(sum(m["amount"] for m in _hm))} ex GST, of which {len(ident_rows)} inherited Park Services lines still carry the identification (port to PS_WP v128; one further inherited match is superseded by its v3 sighting). '
             f'Batch attach_1 captured: 5 TechOne attachment PDFs (Eco Technology Solutions 11913, Glascott 012313, Provac INV-00042754, Savco SV007924, Heritage Tree Services INV-47435), 5 green blocks, standard variants, three printed-PK-versus-charged-PK notes. Control total unchanged.'])
     ho.row(['v3, 11-Sep-2026', f'Batch mixed_new_26_27 captured: 33 invoices, {sum(1 for r in sighted if r["meta"].get("ported")) + sum(1 for r in sighted if not r["meta"]["inherited"]) - 30} green blocks, Park Services, Water Parks and Park Maintenance. {sum(1 for r in sighted if r["meta"].get("ported"))} of the green blocks sit on lines inherited from PS_WP v127 and must be ported to the PS_WP register at its next build (Open_Items). Origin consolidated invoices 1026099 and 1026231 captured under the PARTIAL-SCOPE variant (Parks carries the Logan Garden Park site row only). Coast2Coast INV-11834/11835 split-posting resolves service 20821 as the mowing fuel levy leg. Control total unchanged.'])
     ho.row(['v2, 11-Sep-2026', f'Batch mixed_1 captured: {len(evn["order"])} invoices, {sum(1 for r in sighted if not r["meta"]["inherited"])} green blocks, {len(evn["eil"])} evidence lines, {fmt_money(sum(D(x[1][9]) for e, x in ei_rows.items() if e in evn["ei"]))} ex GST on Natural Areas and Park Maintenance lines moved to Confirmed, Tier 1 (rule 17). Control total unchanged. Method 9.0 records the variants.'])
@@ -380,7 +427,7 @@ def build(stage):
     sec_('2.0 Sources and control total',
          'One Ledger Accounts Transactions Table export (27SLACT, criteria verbatim on Data_Acquisition F1), 6,683 lines, export total $4,910,566.68. Four SE2 exports on the identical criteria, by Section, Natural Account, WO Task and Service No, each totalling $4,910,566.68 accumulated actual P1-3. The register total ties to all five to the cent (Controls group 1 and 2). The control total must never change on an identification, enrichment or capture build (rule 10).')
     sec_('3.0 Workbook structure',
-         'Handover | Method | Theme_Map (v2 axis, extended) | Register | Section_Summary | Summary (status, basis, verdict, tier by section) | Themes (v2 by section) | Themes_v3 (group and category by section) | Axes (Line Kind, Line Kind rule, Charge Source, Procurement route by section) | Coverage (A natural account, B WO Task, C service, each tied to its SE2 view with budget) | PK_Listing | Vendor_Series | Journal_Sets | Journal_Pull | Open_Items | Inheritance_Log | Creditor_Lines | SE2_Budget | Evidence_Invoices | Evidence_Invoice_Lines | EIL_Controls | Vendor_Boilerplate | Data_Acquisition | Config | Project_Instructions | Theme_Map_v3 | Controls.',
+         'Handover | Method | Theme_Map (v2 axis, extended) | Register | Section_Summary | Summary (status, basis, verdict, tier by section) | Themes (v2 by section) | Themes_v3 (group and category by section) | Axes (Line Kind, Line Kind rule, Charge Source, Procurement route by section) | Coverage (A natural account, B WO Task, C service, each tied to its SE2 view with budget) | PK_Listing | Vendor_Series | Journal_Sets | Journal_Pull | Journal_Sources | Open_Items | Inheritance_Log | Creditor_Lines | SE2_Budget | Evidence_Invoices | Evidence_Invoice_Lines | EIL_Controls | Vendor_Boilerplate | Data_Acquisition | Config | Project_Instructions | Theme_Map_v3 | Controls.',
          'Not carried from the PS & WP register: site gazetteer, asset, inspection, CRM and pull-queue sheets (Sites through Theme_Review). They are Park Services instruments; the site columns DY:DZ are carried on inherited lines and set to a closed-list site basis on new lines.')
     sec_('4.0 Register column map',
          'Columns 1 to 146 are the PS & WP register map exactly (PSWP_Register_Schema section 2), so every toolkit script reads this register without change: 1-34 analysis, 35-44 parsed references, 45-53 creditor enquiry block, 54-87 grey source block verbatim (BB:CI), 88-127 rule 17 green block (CJ:DW), 128 Src __md5Row, 129-130 site, 131-133 theme v3, 134-136 Line Kind and Charge Source, 137-142 journal provenance, 143 assessment scope, 144 journal type, 145 treatment decision, 146 procurement route.',
@@ -406,12 +453,23 @@ def build(stage):
     sec_('9.0 Rule 17 evidence carried',
          f'{len(sighted)} register lines carry a green block over {len(ev_order)} invoices: {len(carried)} carried from PS & WP v127 (KC-7546 posts as a SUM-TIE pair) and {len(evn["order"])} captured at branch v2 from Batch mixed_1 (INV-39235 posts as a SUM-TIE pair). Evidence_Invoices holds the headers (no control block below the data, so the EI_* names have no headroom problem), Evidence_Invoice_Lines holds {len(eil_lines)} lines ({sum(1 for l in eil_lines if l[6] in (None, ""))} Glascott attachment rows carry no amount and sit outside check 1, rule 16d), EIL_Controls holds one check-1 reconciliation per invoice, Vendor_Boilerplate holds the {len(vb_rows)} BP: keys the green blocks cite. Controls group 4 proves every sighted line reads TRUE on all three checks and every cited key exists.',
          'Batch mixed_1 (v2). Corpus corpus_mixed_1_v6.json (raw-text route, parse_mixed1.py, page text retained, gate GREEN, 2,374 shingles clean); match table match_mixed_1_v6.json; capture by pbr_capture.py, brief-driven (rule 20): categories, variants, EvID prefixes and notes are data. Variants used: standard 24; check 2 SUM-TIE (INV-39235); check 2 derivation equality incl/1.1 (INV-9360, INV-0600, 18788, 18789); check 3 per-line rounding basket (7 documents) and 1c tolerance (26230, 26231). Cents companion AP lines on five documents are cross-referenced in the coding note and not green-blocked. Guru Dirt Works EvIDs carry a GDW- prefix because INV-0111 and INV-0112 are already held for Flavell-Dau in v127 (Method 34.2). Contractor labels are canonicalised by printed ABN to the label already on the register (Levai).')
-    sec_('13.0 Journal pull list (rule 21, branch v5)',
+    sec_('13.0 Journal pull list (rule 21, branch v5, refreshed v6)',
          'Journal_Pull is one row per TechOne document file, because that is the unit a Document Line Table export is pulled by and a document file can carry many journal references (document 1252466 carries eight). '
          f'{len(jp_rows)} document files cover all {sum(len(v_) for v_ in jp_doc.values()):,} journal lines on the Register and total their net movement exactly (Controls group 8).',
          'Tiers: A no attachment in TechOne, so the Document Line Table is the evidence route, pull these; B the document carries an attachment, sight it, a pull adds nothing; C RJ reversing journals, which net to exactly zero and are read as a pair under rules 5 and 6; '
          'D already embedded in the PS & WP register v127 Journal_Sources, where a re-pull is audited leg by leg and never re-captured (rule 12). Ranked within tier by ABSOLUTE net movement into branch O110-O115, never by gross, because gross double-counts both legs of a transfer.',
-         'The "Why it matters" column states the question the pull answers: a recode set that does not net inside O110-O115 (Open Item B-012), an accrual reversal that does not pair inside FY2026/27 and must be read against 26SLACT P12 (rule 5, Open Item B-011), or a blank journal narration. A set that already nets to zero in scope has its pairing proven on the register and needs no pull.')
+         'The "Why it matters" column states the question the pull answers: a recode set that does not net inside O110-O115 (Open Item B-012), an accrual reversal that does not pair inside FY2026/27 and must be read against 26SLACT P12 (rule 5, Open Item B-011), or a blank journal narration. A set that already nets to zero in scope has its pairing proven on the register and needs no pull.',
+         'Tier E is added at v6: documents pulled and embedded on Journal_Sources at this build. Pull value reads Done where the export covers the whole document file and Partial where it was taken with a Document filter and covers one document of the file.')
+    _jm6 = stage['journal_batch']['manifest']
+    sec_('14.0 Journal source documents (rule 21, batch journal_1, new at v6)',
+         f'Journal_Sources embeds the TechOne Document Line Table behind each pulled journal verbatim: {len(jsc_legs)} legs over {len(jsc_docs)} document(s), rows {JSC_FIRST}:{JSC_LAST}, each leg carrying its branch scope flag and, where in scope, the register LineKey it evidences. '
+         f'{_jm6["exports_received"]} exports were received and {len(_jm6["duplicate_exports"])} were duplicate copies of an export already read (identical body rows), kept once. '
+         f'{_jm6["documents_audited_only"]} document is already embedded in the PS & WP register v127 and was audited leg by leg and NOT re-captured (rule 12); the audit is recorded beneath the data block.',
+         'The control panel beneath the data is live: for each document file, net over all legs (must be $0.00), in-scope legs, in-scope net, and the register net of the journal reference(s) the document covers, with a TRUE/FALSE tie. Controls group 9 counts them. '
+         'Register column AB cites the row span of the document that evidences the line, rewritten from the map on every build and never shifted (rule 19.10), which is why the sheet is laid out before the Register is written.',
+         'What the pulls answered. GJ080153 (document 1245194): five register lines carried blank narrations and one sat at Pending evidence; the document is the reversal of the June 2026 Plant & Fleet Services accrual, debiting the PFS revenue accruals 1-13081-6D513 $21,057.77 and 1-13121-6D513 $13,656.71 and crediting 29 Council expense legs, five of them in branch scope. Those lines are now Confirmed, Tier 1, verdict Journal (reversal), and read as a T9 event under rule 5. '
+         'GJ080309 (document 1248219) answers Open Item B-012 for that document: the balancing legs are G ledger 1330-1-31123 $43,784.58 ("Reverse PJ009910") and three cost centre E0035 credits, none inside O110-O115 and none a Plant & Fleet revenue account. It also raises the finding: the three debits reproduce to the cent three of the six plant hire legs GJ080188 posted and IJ075016 reversed, but all three land on PK000068 where the originals carried plant references F007834 (PK000435) and F006632 (PK000396). '
+         'IJ075145 (document 1252466, document 2 of that file): the internal rates journal for rating period 2027-1 schedule S03, $34,505.71 raised against City Bank and allocated over 53 property legs, two of them the Parks share of a $17.65 fire levy on two assessments. The export was taken with a Document filter, so it covers one of the file\'s eight references; the remainder is an open item.')
     sec_('10.0 Controls and verify',
          'Controls (last sheet) gathers every control; column E is a live reference or count, F the expected value fixed at build, G the result; the master verdict at Controls!B4 is TRUE only when nothing reads FALSE and the TRUE count equals the registered count. The build runs as one script: stage gates, write, LibreOffice convert-route recalc with an isolated profile carrying OOXMLRecalcMode=0, calamine verify of the recalculated file (master verdict, every control, every sighted check, every coverage tie, register total, whole-workbook error sweep), then ship. openpyxl writes no cached values, so an unrecalculated file cannot pass.')
     sec_('11.0 Known limits (read before relying on a figure)',
@@ -763,6 +821,66 @@ def build(stage):
     controls.append(('8. Journal pull (rule 21)', 'Journal_Pull', 'Net in scope totals the journal lines on the Register', 'value', f'=Journal_Pull!F{JP_TOT}', float(sum(D(r['V'][20]) for r in rows if r['V'][137]))))
     say(f'journal pull: {len(jp_rows)} document files, tiers {dict(jp_tier)}, Tier A absolute net {fmt_money(jp_absA)}')
 
+    # ============================================================== Journal_Sources (rule 21, batch journal_1)
+    jsc = Sheet(wb, 'Journal_Sources', {'A': 12, 'B': 14, 'C': 9, 'D': 8, 'E': 22, 'F': 24, 'G': 22, 'H': 16, 'I': 12,
+                                       'J': 15, 'K': 46, 'L': 34, 'M': 16, 'N': 14, 'O': 30}, freeze='A5')
+    jsc.row(['Journal source documents: the TechOne Document Line Table behind each pulled journal, embedded verbatim'], 'title')
+    jsc.row(['Verbatim embed (rule 3, rule 21): every leg of every pulled document, in export order, with the branch scope flag and the register LineKey the leg evidences. '
+            'A document already embedded in the PS & WP register v127 is audited leg by leg and NOT re-captured (rule 12); it appears in the audit note below, not in this block. '
+            'Register column AB cites the row span of the document that evidences the line.'], 'sub')
+    jsc.blank()
+    jsc.row(['Journal ref', 'Document file', 'Document', 'Ldg', 'Account number', 'Account description', 'Fund account',
+            'Resource Group', 'Resource Code', 'Amount', 'Narrative', 'Narrative (line 2)', 'Narrative (line 3)',
+            'In branch scope', 'Register LineKey'], 'blue')
+    for d_, leg in jsc_legs:
+        jsc.row([', '.join(d_['journal_references_covered']), d_['document_file'], str(d_['document']), leg['ledger'],
+                leg['account'], leg['account_desc'], leg['fund'], leg['rgroup'], leg['rcode'], float(D(leg['amount'])),
+                leg['narr1'], leg['narr2'], leg['narr3'], leg['in_branch_scope'], leg['register_linekey'] or None],
+               money_cols=(10,))
+    dn('JSC_DocFile', f'Journal_Sources!$B${JSC_FIRST}:$B${JSC_LAST}')
+    dn('JSC_Amount', f'Journal_Sources!$J${JSC_FIRST}:$J${JSC_LAST}')
+    dn('JSC_Scope', f'Journal_Sources!$N${JSC_FIRST}:$N${JSC_LAST}')
+    jsc.blank()
+    jsc.row(['Document file', 'Journal ref(s)', 'Legs', 'Net (live)', 'Nets to zero', 'In-scope legs',
+            'In-scope net (live)', 'Register net for the reference(s) (live)', 'In-scope legs tie the register'], 'blue')
+    for x in jsc_docs:
+        d_ = x['d']; df_ = d_['document_file']
+        regsum = '+'.join(f'ROUND(SUMIF(Reg_JRef,"{rf}",Reg_Amount),2)' for rf in x['refs'])
+        jsc.row([df_, ', '.join(x['refs']), len(d_['legs']),
+                f'=ROUND(SUMPRODUCT((JSC_DocFile="{df_}")*JSC_Amount),2)',
+                f'=IF(ROUND(SUMPRODUCT((JSC_DocFile="{df_}")*JSC_Amount),2)=0,"TRUE","FALSE")',
+                f'=SUMPRODUCT((JSC_DocFile="{df_}")*(JSC_Scope="Yes"))',
+                f'=ROUND(SUMPRODUCT((JSC_DocFile="{df_}")*(JSC_Scope="Yes")*JSC_Amount),2)',
+                f'={regsum}',
+                f'=IF(ROUND(SUMPRODUCT((JSC_DocFile="{df_}")*(JSC_Scope="Yes")*JSC_Amount),2)={regsum},"TRUE","FALSE")'],
+               money_cols=(4, 7, 8))
+    jsc.blank()
+    _jb = stage['journal_batch']
+    for d_ in _jb['documents']:
+        if d_['capture'] == 'embed verbatim':
+            continue
+        a_ = d_['v127_audit']
+        jsc.row([jsc.cell(f'Audited, not re-captured (rule 12): document file {d_["document_file"]} ({", ".join(d_["journal_references_covered"])}) is already embedded in the '
+                        f'PS & WP register v127 Journal_Sources. Leg-by-leg audit of the re-pull: {a_["legs_in_both"]} legs in both copies, {len(a_["legs_only_in_pull"])} only in the pull, '
+                        f'{len(a_["legs_only_in_v127"])} only in v127, identical on ledger, account, resource code, amount and all three narration lines. {d_.get("note", "")}', wrap=True)])
+    for d_ in _jb['documents']:
+        if d_.get('coverage_note'):
+            jsc.row([jsc.cell(f'Coverage, document file {d_["document_file"]}: {d_["coverage_note"]}', wrap=True)])
+    jsc.row([jsc.cell(f'Batch {_jb["manifest"]["batch_id"]}: {_jb["manifest"]["exports_received"]} exports received, {len(_jb["manifest"]["duplicate_exports"])} of them duplicate copies of an export already read '
+                    f'(identical body rows, kept once); {_jb["manifest"]["documents"]} documents; {_jb["manifest"]["legs_total"]} legs, {_jb["manifest"]["legs_in_scope"]} in branch scope matching '
+                    f'{_jb["manifest"]["register_lines_matched"]} register lines one for one.', wrap=True)])
+    controls.append(('9. Journal sources (rule 21)', 'Journal_Sources', 'Journal legs embedded verbatim equals the legs on the pulled documents', 'count',
+                     f'=COUNTA(Journal_Sources!$A${JSC_FIRST}:$A${JSC_LAST})', len(jsc_legs)))
+    controls.append(('9. Journal sources (rule 21)', 'Journal_Sources', 'Every embedded journal document nets to $0.00 over all its legs', 'count',
+                     f'=SUMPRODUCT(--(Journal_Sources!$E${JSC_P0}:$E${JSC_P1}="TRUE"))', len(jsc_docs)))
+    controls.append(('9. Journal sources (rule 21)', 'Journal_Sources', "Every document's in-scope legs tie the register net of its journal reference(s)", 'count',
+                     f'=SUMPRODUCT(--(Journal_Sources!$I${JSC_P0}:$I${JSC_P1}="TRUE"))', len(jsc_docs)))
+    controls.append(('9. Journal sources (rule 21)', 'Journal_Sources', 'Legs flagged in branch scope equals the register lines they evidence', 'count',
+                     f'=SUMPRODUCT(--(Journal_Sources!$N${JSC_FIRST}:$N${JSC_LAST}="Yes"))', sum(d_['in_scope_legs'] for d_ in stage['journal_docs'])))
+    controls.append(('9. Journal sources (rule 21)', 'Register', 'Register lines whose evidence cites a pulled Document Line Table', 'count',
+                     f'=COUNTIF(Register!$AB${FIRST}:$AB${LAST},"Journal_Sources rows*")', len(stage['journal_lines'])))
+    say(f'journal sources: {len(jsc_legs)} legs from {len(jsc_docs)} document(s), rows {JSC_FIRST}:{JSC_LAST}, panel {JSC_P0}:{JSC_P1}')
+
     # ============================================================== Open_Items
     oi = Sheet(wb, 'Open_Items', {'A': 10, 'B': 28, 'C': 16, 'D': 30, 'E': 8, 'F': 16, 'G': 90, 'H': 60})
     oi.row(['Open items, Parks Branch register FY2026/27'], 'title')
@@ -857,11 +975,11 @@ def build(stage):
     if stage['hist_ambiguous']:
         items.append(('Ambiguous history references', 'Note', 'Branch', len(stage['hist_ambiguous']), None,
                       'References where more than one creditor history ties by amount and date, left unidentified: ' + '; '.join(f'{r_} ({", ".join(c_)})' for r_, c_ in stage['hist_ambiguous'][:20]) + '.', 'Match rule, Method 12.0.'))
-    _pk = [r for r in sighted if re.match(r'11-Sep-2026, branch v[45]', str(r['V'][126] or '')) and r['V'][104] not in (None, '(not printed)', 'undefined (as printed)') and str(r['V'][104]).replace(' ', '') != str(r['V'][17])]
+    _pk = [r for r in sighted if re.match(r'11-Sep-2026, branch v[456]', str(r['V'][126] or '')) and r['V'][104] not in (None, '(not printed)', 'undefined (as printed)') and str(r['V'][104]).replace(' ', '') != str(r['V'][17])]
     if _pk:
-        items.append(('Printed PK differs from PK charged (sighted invoices, branch v4 and v5)', 'Housekeeping', '; '.join(sorted({sec_names[str(r['V'][2])] for r in _pk})), len(_pk), sum(D(r['V'][20]) for r in _pk),
+        items.append(('Printed PK differs from PK charged (sighted invoices, branch v4 to v6)', 'Housekeeping', '; '.join(sorted({sec_names[str(r['V'][2])] for r in _pk})), len(_pk), sum(D(r['V'][20]) for r in _pk),
                       '; '.join(f'{r["V"][88]} prints {r["V"][104]}, charged {r["V"][17]}' for r in _pk) + '. The invoice text supports the PK charged in each case except Play Force INV-8502, where the printed PK000338 is not a WO Task in this register (see the coding note on that line). Ask each supplier to quote the charged WO Task. No financial effect.',
-                      'Sighted invoices, Batches attach_1, attach_2 and code.'))
+                      'Sighted invoices, Batches attach_1, attach_2, code, mix22 and attach_3.'))
     _undef = [r for r in sighted if str(r['V'][104]) == 'undefined (as printed)']
     if _undef:
         items.append(('Supplier invoice prints no PK ("undefined")', 'Housekeeping', 'Park Services', len(_undef), sum(D(r['V'][20]) for r in _undef),
@@ -872,6 +990,16 @@ def build(stage):
                   'INV-11824 prints "$4,475.56 x 0.2477 = $1108.59 x 0.0677 = $75.05", but $4,475.56 is the GST-inclusive figure for work of $4,068.69 ex GST; on the ex-GST base the levy is $68.23, so $6.82 ex GST ($7.50 incl) is over-claimed. '
                   'INV-11833, same supplier, same contract PAR/336E/2024, same month, uses the ex-GST base correctly ($59,796.25 x 0.2477 x 0.0677 = $1,002.74). Raise with the contract administrator, and verify the 0.2477 fuel component and 0.0677 escalation against the current Brisbane diesel TGP band before the next payment.',
                   'Sighted invoices INV-11824 and INV-11833 (Batch attach_2); the levy legs post to PK000513 service 20821.'))
+    for o_ in stage['journal_batch'].get('open_items', []):
+        items.append((o_['area'], o_['status'], o_['scope'], o_['lines'], D(o_['amount']), o_['action'], o_['basis']))
+    _kac = [r for r in sighted if str(r['V'][88]) == '7715']
+    if _kac:
+        items.append(('Fuel levy coded to the cleaning account', 'Review', 'No section (NA - Not Applicable)', len(_kac), sum(D(r['V'][20]) for r in _kac),
+                      'Recode Kachel Cleaning invoice 7715, $1,650.00 ex GST on PK000515, from 73121 Cleaning & Sanitary to 74189 Fuel Levy Surcharge, and verify the levy against the stepped and capped '
+                      'fuel levy model (Fact Sheet DM19338551). Confirm the Kachel Cleaning entity name and ABN against master data: the invoice face prints ABN 77 083 786 592 and the email stem '
+                      'kachelcleaning@live.com.au and no entity name at all.',
+                      'Sighted invoice 7715 (Batch mix22). The register\'s own accrual RJ013846 "Parks - Monthly Accrue-Parks Services" accrues the identical $1,650.00 on the identical PK000515 to 74189, '
+                      'and every Vinton fuel levy recode on GJ080696 sits on 74189, so the actual is the odd one out.'))
     for k, it in enumerate(items, 1):
         oi.row([f'B-{k:03d}'] + list(it), money_cols=(6,))
     cited = collections.Counter()
@@ -1019,6 +1147,31 @@ def build(stage):
                  f'Prepared by prep_code_corpus.py (page text rebuilt from the retained layout rows; findings restated as text; pk_refs restricted to PK000000 form, dropping the payment-block bank account) and gated GREEN in container. '
                  f'Rule 19.2 per-vendor verbatim check against an independent source: {_fid["fidelity_check"]["verdict"]}, {_fid["fidelity_check"]["template_rows"]} fixed template rows from {_fid["fidelity_check"]["source"]} present verbatim in all {_fid["fidelity_check"]["documents_tested"]} documents, terms page identical as an ordered sequence. '
                  f'Scope of that check: {_fid["fidelity_check"]["scope"]} | Batch code')
+    _n0 = 8 + len(HISTS) + len(stage.get('attach_files', []))
+    _jbm = stage['journal_batch']['manifest']
+    for k_, d_ in enumerate(stage['journal_docs'], _n0):
+        lines.append(f'F{k_} | 11-Sep-2026 | {d_["source_file"]} | md5 {d_["source_md5"]} | TechOne Document Line Table export (no extraction tool), {d_["params_verbatim"]} | '
+                     f'{d_["legs_total"]} legs, net $0.00, {d_["in_scope_legs"]} in branch scope tying the register net of {", ".join(d_["journal_references_covered"])}; embedded verbatim on Journal_Sources {jsc_span[d_["document_file"]]} | Batch journal_1')
+    for d_ in stage['journal_batch']['documents']:
+        if d_['capture'] == 'embed verbatim':
+            continue
+        lines.append(f'F{_n0 + len(stage["journal_docs"])} | 11-Sep-2026 | {d_["source_file"]} | md5 {d_["source_md5"]} | TechOne Document Line Table export, {d_["params_verbatim"]} | '
+                     f'Re-pull of a document already embedded in PS_WP v127 Journal_Sources; audited leg by leg and NOT re-captured (rule 12): {d_["v127_audit"]["verdict"]} | Batch journal_1')
+    for x_ in _jbm['duplicate_exports']:
+        lines.append(f'Duplicate export screened out (rule 12): {x_["file"]} md5 {x_["md5"]} carries body rows identical to {x_["duplicate_of"]} '
+                     f'(document file {x_["document_file"]}, document {x_["document"]}); read once.')
+    _mix = json.load(open(os.path.join(pbr_stage.ROOT, 'batches', 'mix22', 'corpus_mix22_v6.json')))['manifest']
+    lines.append(f'F{_n0 + len(stage["journal_batch"]["documents"])} | 11-Sep-2026 | corpus_mix22.json | md5 {_mix.get("supplied_corpus_md5")} | Supplied extraction corpus for mix 22.pdf (81 pages, binder not supplied). '
+                 f'Extraction tool as declared: {_mix.get("extraction_tool")}. Gate as supplied: {_mix.get("gate_as_supplied")} on 11 P1 pathologies with {_mix.get("documents_out_as_supplied")} of 40 documents at OUT. '
+                 f'Restated by prep_supplied_corpus.py from the corpus\'s own retained layout rows and gated {_mix.get("gate")}: 32 amount-bearing rows typed NARRATIVE were retyped PRICED from their own band text (R1) and 13 Savco printed totals '
+                 f'that carried the printed GST total were restated from the printed TOTAL row (R2). Every one of the 40 documents now reconciles to its printed subtotal to the cent. '
+                 f'Rule 19.2 per-vendor verbatim check against an independent source: {_mix["fidelity_check"]["verdict"]}. Scope of that check: {_mix["fidelity_check"]["scope"]} | Batch mix22')
+    for _hb in ('binder11111', 'mix222'):
+        _hp = os.path.join(pbr_stage.ROOT, 'batches', _hb, f'hold_{_hb}_v5.json')
+        if os.path.exists(_hp):
+            _h = json.load(open(_hp))
+            lines.append(f'HELD | 11-Sep-2026 | {_h["corpus"]} | md5 {_h["corpus_md5"]} | Supplied extraction corpus, batch {_hb}, {_h["documents"]} documents, declared gate {_h["declared_gate"]}. '
+                         f'{_h["repair_gate"]}: ' + '; '.join(sorted({p_["code"] for p_ in _h["pathologies"]})) + f' on ' + ', '.join(sorted({p_["doc_ref"] for p_ in _h["pathologies"]})) + f'. {_h["decision"]} Not built from (rule 19.2).')
     lines.append(f'Rule 12 screen at v4: every md5 above was screened against the PS & WP v127 Data_Acquisition and this register\'s inputs; none had been received before. HAR073 re-pull audited against the v127 embedded history (5-Aug-2026 pull, F26 there): {stage.get("hist_audit")}.')
     lines.append('Gaps and priority queue (branch): 1. APLEDGER creditor histories for the remaining unidentified supplier series (Open_Items B-001 onward; the queue with one invoice to sight per series is reports/Unidentified_Contractors_v4.md). 2. Sight one invoice per newly identified creditor series to confirm nature (rule 17). 3. 26SLACT P12 for the non-PS/WP sections, to pair the P1 EOY reversals. 4. 27SLACT P4 whole-branch pull when P4 closes, same criteria. 5. Document Line Tables for the recode sets that do not net in scope.')
     for t_ in lines:
@@ -1060,7 +1213,7 @@ def build(stage):
     sweeps = [('Register', f'Register!$U${FIRST}:$Z${LAST}'), ('Register', f'Register!$DQ${FIRST}:$DT${LAST}'), ('Register', f'Register!$EA${FIRST}:$EA${LAST}'),
               ('Register', f'Register!$EI${FIRST}:$EJ${LAST}'), ('Register', f'Register!$EM${FIRST}:$EN${LAST}')]
     for shn, maxc in (('Section_Summary', 'V'), ('Summary', 'M'), ('Themes', 'M'), ('Themes_v3', 'M'), ('Axes', 'M'), ('Coverage', 'M'),
-                      ('PK_Listing', 'G'), ('Vendor_Series', 'E'), ('Journal_Sets', 'E'), ('Journal_Pull', 'G'), ('Evidence_Invoices', 'L'), ('EIL_Controls', 'E')):
+                      ('PK_Listing', 'G'), ('Vendor_Series', 'E'), ('Journal_Sets', 'E'), ('Journal_Pull', 'G'), ('Journal_Sources', 'I'), ('Evidence_Invoices', 'L'), ('EIL_Controls', 'E')):
         sweeps.append((shn, f'{shn}!$A$1:${maxc}$2000'))
     for shn, rng in sweeps:
         controls.append(('6. Error sweeps', shn, f'Error cells in {rng} (must be 0)', 'count', f'=SUMPRODUCT(--ISERROR({rng}))', 0))

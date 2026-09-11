@@ -1,0 +1,60 @@
+{
+ "batch": "binder11111",
+ "corpus": "corpus_Binder11111.json",
+ "corpus_md5": "8c975b89729b3f1bd87a07c709fd8cd5",
+ "received": "11-Sep-2026",
+ "tool": "M365 Copilot, pdftotext layout, PDF render inspection; prepared and restated by prep_mix22_corpus.py (R1 band restatement, R2 Savco printed total)",
+ "declared_gate": "RED",
+ "repair_gate": "RED after prep_supplied_corpus.py restatement",
+ "repairs": [
+  "19827: R3 restated 245 line_type value(s) {'DUPLICATE': 245} to the schema list",
+  "19827: duplicate invoice copies on page(s) [3, 5, 7, 9, 11], typed DUPLICATE_COPY and outside the arithmetic",
+  "19900: R1 retyped 1 amount-bearing row(s) NARRATIVE -> PRICED, captured 6800.00 against printed subtotal 6800.00",
+  "19852: R1 retyped 1 amount-bearing row(s) NARRATIVE -> PRICED, captured 5150.00 against printed subtotal 5150.00",
+  "19997: R3 restated 49 line_type value(s) {'DUPLICATE': 49} to the schema list",
+  "19997: duplicate invoice copies on page(s) [37], typed DUPLICATE_COPY and outside the arithmetic",
+  "batch: R1 restated 2 rows over 13 documents; R2 restated 0 Savco totals"
+ ],
+ "documents": 13,
+ "fidelity_check": "NOT RUN (corpus held; the check runs on the re-extraction)",
+ "pathologies": [
+  {
+   "code": "P3",
+   "doc_ref": "19924",
+   "page": 20,
+   "detail": "page inside a completed document carries no line records"
+  },
+  {
+   "code": "P3",
+   "doc_ref": "19954",
+   "page": 26,
+   "detail": "page inside a completed document carries no line records"
+  },
+  {
+   "code": "P3",
+   "doc_ref": "19965",
+   "page": 28,
+   "detail": "page inside a completed document carries no line records"
+  },
+  {
+   "code": "P3",
+   "doc_ref": "19852",
+   "page": 34,
+   "detail": "page inside a completed document carries no line records"
+  },
+  {
+   "code": "P3",
+   "doc_ref": "19997",
+   "page": 36,
+   "detail": "page inside a completed document carries no line records"
+  },
+  {
+   "code": "P3",
+   "doc_ref": "19997",
+   "page": 38,
+   "detail": "page inside a completed document carries no line records"
+  }
+ ],
+ "rule16": [],
+ "decision": "HELD, not built (rule 19.2). The remaining pathologies are not decidable from the retained rows: the corpus carries no line record at all for the pages listed, so there is nothing to restate from. Supply the binder PDF for the raw-text route, or re-extract under extraction prompt v6, which gates this at extraction time."
+}

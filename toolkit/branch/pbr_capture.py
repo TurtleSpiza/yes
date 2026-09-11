@@ -13,10 +13,13 @@ STAMP = '11-Sep-2026, branch v2, Batch mixed_1 (raw-text route, corpus_mixed_1_v
 STAMPS = {'mixed_1': STAMP, 'mixed_new_26_27': '11-Sep-2026, branch v3, Batch mixed_new_26_27 (raw-text route, corpus_mixed_new_26_27_v6.json)',
           'attach_1': '11-Sep-2026, branch v4, Batch attach_1 (TechOne attachments, raw-text route, corpus_attach_1_v6.json)',
           'attach_2': '11-Sep-2026, branch v5, Batch attach_2 (TechOne attachments, raw-text route, corpus_attach_2_v6.json)',
-          'code': '11-Sep-2026, branch v5, Batch code (code.pdf, supplied corpus prepared and fidelity-checked, corpus_code_v6.json)'}
-BATCH_VER = {'mixed_1': 'v2', 'mixed_new_26_27': 'v3', 'attach_1': 'v4', 'attach_2': 'v5', 'code': 'v5'}
+          'code': '11-Sep-2026, branch v5, Batch code (code.pdf, supplied corpus prepared and fidelity-checked, corpus_code_v6.json)',
+          'mix22': '11-Sep-2026, branch v6, Batch mix22 (mix 22.pdf, supplied corpus restated and fidelity-checked, corpus_mix22_v6.json)',
+          'attach_3': '11-Sep-2026, branch v6, Batch attach_3 (TechOne attachments, raw-text route, corpus_attach_3_v6.json)'}
+BATCH_VER = {'mixed_1': 'v2', 'mixed_new_26_27': 'v3', 'attach_1': 'v4', 'attach_2': 'v5', 'code': 'v5', 'mix22': 'v6', 'attach_3': 'v6'}
 SRCS = {'mixed_1': 'Mixed_1.pdf (md5 b9ddf7fd6c56188a22181921b7b2c8ab), Batch mixed_1, corpus_mixed_1_v6.json', 'mixed_new_26_27': 'Mixed_new_26-27.pdf (md5 813f23077d1d5e77fb1e7150ad08b3cc), Batch mixed_new_26_27, corpus_mixed_new_26_27_v6.json',
-        'code': 'code.pdf, 66 pages (binder not supplied; supplied corpus corpus_code.json md5 e256555fc9d22d46a9cce80f8e7bbe3b, M365 Copilot layout extraction), Batch code, corpus_code_v6.json'}
+        'code': 'code.pdf, 66 pages (binder not supplied; supplied corpus corpus_code.json md5 e256555fc9d22d46a9cce80f8e7bbe3b, M365 Copilot layout extraction), Batch code, corpus_code_v6.json',
+        'mix22': 'mix 22.pdf, 81 pages (binder not supplied; supplied corpus corpus_mix22.json md5 e6782e55b5379dc3adcb6a1b5c7cebd4, M365 Copilot layout extraction, gate RED as supplied), Batch mix22, corpus_mix22_v6.json'}
 
 CAT = {  # vendor template -> (Nature Category v2, v3 category, theme rule)
     'LEVAI': ('Natural areas & bushland works', 'Bushland, weeds & fire', 'P2 sighted job, dominant scope'),
@@ -50,8 +53,12 @@ CAT = {  # vendor template -> (Nature Category v2, v3 category, theme rule)
     'CERTIFIED': ('Contract mowing', 'Grounds, turf & vegetation', 'P2 sighted job, dominant scope'),
     'C2C_INCL': ('Contract mowing', 'Grounds, turf & vegetation', 'P2 sighted job, dominant scope'),
     'FLAVELL_ATT': ('Parks maintenance (contract/reactive)', 'Amenities buildings & plumbing', 'P2 sighted job, dominant scope'),
+    'MPDT': ('Tree operations', 'Trees & arboriculture', 'P2 sighted job, dominant scope'),
+    'HERITAGE_CN': ('Tree operations', 'Trees & arboriculture', 'P2 sighted job, dominant scope'),
+    'PLAYFORCE_ATT': ('Playground inspection & repair', 'Playground equipment & softfall', 'P2 sighted job, dominant scope'),
+    'PPG': ('Horticultural & landscape supplies', 'Materials & minor equipment', 'P1 account governs'),
 }
-BPK = {'ORIGIN': 'ORG', 'SEACRETE': 'SC', 'POOLSHOP': 'PSH', 'QPOWER': 'QP', 'PLAYFORCE': 'PF', 'FLAVELL': 'FD', 'WEIS': 'WC', 'ELEMENTAL': 'ELM', 'HIGGINS': 'HIG', 'HARPLEY': 'INV', 'C2C': 'C2C', 'KACHEL': 'KC', 'LEVAI': 'LEV', 'TEC': 'TEC', 'TREESCAPE': 'TRS', 'BUSHCARE': 'BSH', 'AUSTSPRAY': 'ASP', 'EMU': 'EMU', 'ACTIVECO': 'ACT', 'GURU': 'GDW', 'AUSTCARE': 'ACE', 'GLASCOTT': 'GLA', 'GLASCOTT_LM': 'GLA', 'ETSOL': 'ETS', 'PROVAC': 'PRV', 'SAVCO': 'SAV', 'HERITAGE': 'HTS', 'BURLY': 'BUR', 'CERTIFIED': 'CER', 'C2C_INCL': 'C2C', 'FLAVELL_ATT': 'FD'}
+BPK = {'ORIGIN': 'ORG', 'SEACRETE': 'SC', 'POOLSHOP': 'PSH', 'QPOWER': 'QP', 'PLAYFORCE': 'PF', 'FLAVELL': 'FD', 'WEIS': 'WC', 'ELEMENTAL': 'ELM', 'HIGGINS': 'HIG', 'HARPLEY': 'INV', 'C2C': 'C2C', 'KACHEL': 'KC', 'LEVAI': 'LEV', 'TEC': 'TEC', 'TREESCAPE': 'TRS', 'BUSHCARE': 'BSH', 'AUSTSPRAY': 'ASP', 'EMU': 'EMU', 'ACTIVECO': 'ACT', 'GURU': 'GDW', 'AUSTCARE': 'ACE', 'GLASCOTT': 'GLA', 'GLASCOTT_LM': 'GLA', 'ETSOL': 'ETS', 'PROVAC': 'PRV', 'SAVCO': 'SAV', 'HERITAGE': 'HTS', 'BURLY': 'BUR', 'CERTIFIED': 'CER', 'C2C_INCL': 'C2C', 'FLAVELL_ATT': 'FD', 'MPDT': 'MPD', 'HERITAGE_CN': 'HTS', 'PLAYFORCE_ATT': 'PF', 'PPG': 'PPG'}
 PAY_RX = re.compile(r'BSB|\bAcc\b|Acc No|Account|Bank:|Bank\s|Name:|Please make all payments|Please remit|Payment can be made|Direct Deposit|Please include invoice|Please Mail Payment|Detach this section|Acc\. No|Acc\. Name', re.I)
 TERM_RX = re.compile(r'Terms of Payment|Payment Terms|Payment Due On Receipt|fee of|Security of Payment|Credits cards|processing fee|View and pay online|Please pay the total|questions concerning|THANK YOU|Net30|Net 30|View online', re.I)
 
@@ -215,6 +222,45 @@ def header_fields(d):
                  site=first(r'WORK WAS CARRIED OUT IN ([^\n]+?)\s*$', t), work='; '.join(x.strip() for x in re.findall(r'^\s*((?:CUSTOMER REQUEST NUMBER[^\n]*|PK\d{6} - CONTRACT NUMBER[^\n]*|VEGETATION|WORK WAS CARRIED OUT[^\n]*|AS PER QUOTE|AND STUMP GRINDER[^\n]*))\s*$', t, re.M)) + '; TERMS NET 14',
                  contract=first(r'CONTRACT NUMBER - (PAR/\d{3}/\d{4})', t), paid=NP, bal=first(r'BALANCE DUE\s*\n\s*(A\$[\d,]+\.\d{2})', t))
         f['crwo'] = first(r'(CR#\d+)', t)
+    elif v == 'PLAYFORCE_ATT':
+        blk = [' '.join(x.split()) for x in re.findall(r'^\s{20,}(\S.*?)\s*$', t, re.M)]
+        joined = []
+        for x in blk:
+            if joined and joined[-1].endswith('(Ref:'):
+                joined[-1] += ' ' + x
+            else:
+                joined.append(x)
+        site_rows = [x for x in joined if re.match(r'^\d{6,7} - [A-Z]{2,5} - ', x)]
+        f.update(addr='41 Industrial Ave, Logan Village QLD 4207', phone='Office: (07) 3803 1788; Email: team@playforce.com.au; Web: playforce.com.au',
+                 po=first(r'Reference\s+(\d+)', t), bill='Logan City Council, 150 Wembley Rd, Logan Central QLD 4114, Australia',
+                 officer=first(r'Contact:\s+(.+)', t),
+                 site='; '.join(re.sub(r'^\d{6,7} - [A-Z]{2,5} - ', '', x) for x in site_rows) or NP,
+                 work=' | '.join(x for x in joined if re.match(r'^(Contact|Account|Contract|Date Completed|\d{6,7} - [A-Z]{2,5} - |\(Ref)', x)),
+                 contract=first(r'Contract:\s+(\S+)', t), paid=NP, bal=first(r'Total \(Inc\. GST\)\s+\$\s?([\d,]+\.\d{2})', t))
+        acc = [x.replace('Account: ', '') for x in joined if x.startswith('Account: ') and x != 'Account: 10367833']
+        f['printed_account'] = acc[0] if acc else NP
+        f['crwo'] = '; '.join(x.split(' - ')[0] for x in site_rows) or NP
+    elif v == 'PPG':
+        f.update(addr='McNaughton Road, Clayton VIC 3168, AUSTRALIA', phone='TEL: (03)92636000; FAX: (03)92636993',
+                 po=first(r'Customer Reference\s*\n\s*(\d{6})', t),
+                 bill='LOGAN CITY COUNCIL, WEMBLEY ROAD, LOGAN CENTRAL Queensland 4114, AUSTRALIA; Customer Number ' + first(r'Customer Number\s*\n\s*(\d+)', t),
+                 officer='Salesperson: ' + first(r'Salesperson:\s+(.+?)\s*$', t),
+                 site='LOGAN CITY COUNCIL, WEMBLEY ROAD, LOGAN CENTRAL Queensland 4114 (ship to)',
+                 work='; '.join(' '.join(x.split()) for x in re.findall(r'^\s*((?:Delivery Docket:[^\n]*|POS Order No:[^\n]*|PPG Order No[^\n]*|Ship Date:[^\n]*|\s*\d+\s+\d{8}\s+ReasonCode:[^\n]*|\s*MIXED MERCHANDSE))\s*$', t, re.M)),
+                 contract=NP, paid=NP, bal=first(r'INVOICE TOTAL\s+([\d,]+\.\d{2})', t))
+    elif v == 'MPDT':
+        f.update(addr='PO Box 158, MOSSMAN QLD 4873', phone='07 4098 8264; accounts@mpdt.com.au', po=first(r'Reference\s*\n[^\n]*?\b(7\d{5})\b', t),
+                 bill='Logan City Council, Attention: Aisha Wilson, 150 Wembley Road, LOGAN CENTRAL QLD 4114', officer=first(r'(Attention: [^\n]+?)\s*$', t),
+                 site=first(r'Reference\s*\n[^\n]*?7\d{5} - ([^\n]+?)\s*$', t) + first(r'^\s*Reference\s*\n(?:[^\n]*\n){2}\s*([A-Z][^\n]+?)\s*$', t, ''),
+                 work='; '.join(' '.join(x.split()) for x in re.findall(r'^((?:Tree Removal[^\n]*|TREE REMOVAL[^\n]*|CR#\d+|PK#\d+|Full removal[^\n]*|Remove [^\n]*|\d+\. [^\n]*))', t, re.M)),
+                 contract=NP, paid=NP, bal=first(r'TOTAL AUD\s+([\d,]+\.\d{2})', t))
+        f['crwo'] = first(r'(CR#\d+)', t)
+    elif v == 'HERITAGE_CN':
+        f.update(addr='21-25 Spine Street, Sumner Park QLD 4074, AUSTRALIA', phone=NP, po=first(r'(Blanket Order #: \d+)', t),
+                 bill='Logan City Council, PO Box 3226, LOGAN CITY QLD 4114, AUSTRALIA', officer=NP, site=first(r'Site address: ([^\n]+?)\s*$', t),
+                 work='; '.join(' '.join(x.split()) for x in re.findall(r'^((?:To be applied to [^\n]+|To applied to [^\n]+|Contract # \S+|Blanket Order #: \d+|Proposal Number: \d+|Site address: [^\n]+|CR# \d+|PK\d{6}|SP\d|Work Specification[^\n]*|Cut back vegetation[^\n]*|poison all stumps[^\n]*))\s*$', t, re.M)),
+                 contract=first(r'Contract # (PAR\d{3}[A-Z]\d{4})', t), paid=NP, bal=first(r'REMAINING CREDIT\s+([\d,]+\.\d{2})', t))
+        f['crwo'] = first(r'(CR# \d+)', t)
     elif v == 'HERITAGE':
         f.update(addr='21-25 Spine Street, Sumner Park QLD 4074, AUSTRALIA', phone=NP, po=first(r'Reference[\s\S]*?\n\s*(\d{9})\s*$', t) + '; ' + first(r'(Blanket Order #: \d+)', t),
                  bill='Logan City Council, PO Box 3226, LOGAN CITY QLD 4114, AUSTRALIA', officer=NP, site=first(r'Site address: ([^\n]+?)\s*$', t),
@@ -263,6 +309,13 @@ BOILER = {  # verbatim per vendor template, first sighting; stored once and cite
     'CERTIFIED': ('Payment by direct deposit to : | Certified Mowing Pty Ltd | BSB: 064 401 | ACCOUNT: 1072 9344', None),
     'C2C_INCL': ('Please pay invoice within 14 days and use the INVOICE NUMBER as the reference: | BSB: 084855 | ACC: 335780029 | NAME: Coast2Coast Grounds and Gardens', None),
     'FLAVELL_ATT': ('Payment Details: | BOQ Flavell-Dau Family Trust | F82 Landscaping | BSB: 124 026 | Account: 2354 3389', 'Thank you for your business, we appreciate your support.'),
+    'MPDT': ('Please remit payments to MPDT (Tree Acq Pty Ltd) | BSB 082 167 | Account 329 781 201 | Email remittances to accounts@mpdt.com.au',
+             'Please use the link below or call the office if you wish to pay this invoice via Visa or Mastercard. Please note that card payments will incur an additional 1.70% surcharge. If you wish to avoid this fee, or make a partial payment on invoice, please pay via direct debit. We do not accept American Express.'),
+    'HERITAGE_CN': ('Bank Transfer - Account Details | BSB: 014 279 | Account Number: 9056 99311 | View and pay online now',
+                    'CREDIT ADVICE | Please do not pay on this advice. Deduct the amount of this Credit Note from your next payment to us.'),
+    'PLAYFORCE_ATT': ('Electronic Funds Transfer | Account Name: Play Force Australia Pty Ltd | BSB: 064 400 | Account: 10367833 | Remittance To: accounts@playforce.com.au', None),
+    'PPG': ('Remit To: Bank Deposit: Citibank Limited Sydney NSW 2000 | AUD A/C: 242000-300098029 | USD A/C: 021000089-36198872 | Australia',
+            'Terms of Sale - PPG Industries Australia Pty Limited (ACN 055 500 939), printed in full on page 2 (1 Definition onward), with the export compliance notice.'),
 }
 
 
@@ -287,7 +340,14 @@ def capture(rows, corpus_path, match_path, say, existing_keys=frozenset(), exist
     import re as _re
     canon = {}
     for r in rows:
+        # Canonical contractor label per printed ABN: from the inherited PS/WP analysis and from the APLEDGER history
+        # identifications, whose labels come from the history manifest. Without the second source a supplier that
+        # appears only outside Park Services takes the label as the invoice prints it, which on Savco is upper case
+        # and collides with the history label under COUNTIF (case-insensitive trap).
         if r['meta']['inherited'] and r['V'][13] and r['V'][12]:
+            canon.setdefault(_re.sub(r'\D', '', str(r['V'][13])), r['V'][12])
+    for r in rows:
+        if r['V'][13] and r['V'][12] and not r['V'][88]:
             canon.setdefault(_re.sub(r'\D', '', str(r['V'][13])), r['V'][12])
     def label(d):
         return canon.get(_re.sub(r'\D', '', str(d['supplier_abn'])), d['supplier'].split(' (')[0])
@@ -416,10 +476,10 @@ def capture(rows, corpus_path, match_path, say, existing_keys=frozenset(), exist
             pkp = own[0] if own else (d['pk_refs'][0] if d['pk_refs'] else hf.get('printed_account', NP))
             if pkp == 'undefined':
                 pkp = 'undefined (as printed)'
-            if batch in ('attach_1', 'attach_2', 'code') and pkp not in (NP, 'undefined (as printed)') and pkp.replace(' ', '') != str(V[17]):
+            if batch in ('attach_1', 'attach_2', 'code', 'mix22', 'attach_3') and pkp not in (NP, 'undefined (as printed)') and pkp.replace(' ', '').replace('#', '') != str(V[17]):
                 anom.append(f'Printed PK {pkp} differs from the PK charged {V[17]}; see the coding note. PK Charged stays the ledger Work Order (rule 1).')
             G = {88: evid, 89: d['supplier'], 90: d['supplier_abn'], 91: NP, 92: hf['addr'], 93: hf['phone'], 94: date_out(d['invoice_date']), 95: date_out(d.get('due_date')) if d.get('due_date') else NP,
-                 96: hf['po'], 97: hf['contract'], 98: hf['bill'], 99: NP, 100: hf['officer'], 101: NP, 102: NP, 103: NP, 104: pkp, 105: pkp.replace(' ', '') if pkp != NP else NP,
+                 96: hf['po'], 97: hf['contract'], 98: hf['bill'], 99: NP, 100: hf['officer'], 101: NP, 102: NP, 103: NP, 104: pkp, 105: pkp.replace(' ', '').replace('#', '') if pkp != NP else NP,
                  106: hf['site'], 107: hf['officer'] if 'Site Contact' in hf['officer'] else NP, 108: hf['work'], 109: NP, 103: hf.get('crwo', NP), 110: len(priced), 111: items, 112: NP,
                  113: float(sub), 114: float(gst), 115: float(tot), 116: hf['paid'], 117: hf['bal'], 118: bpk['P'], 119: bpk['T'],
                  120: f'{d["page_range"][1] - d["page_range"][0] + 1} page(s) ({pdfname} pp {d["page_range"][0]}-{d["page_range"][1]})', 125: src, 126: stamp,

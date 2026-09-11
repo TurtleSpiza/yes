@@ -1,0 +1,94 @@
+{
+ "_readme": [
+  "Authored content for Batch journal_1 (rule 18: content as data, never ad-hoc writes). One entry per TechOne document file.",
+  "register_updates.cols keys are 1-based Register column numbers. {js_rows} is replaced at build with the Journal_Sources row span",
+  "this document occupies, so the citation is rewritten from the map on every build and never by positional shift (rule 19.10).",
+  "per_linekey overrides a column on one register line. Nothing here states an amount: amounts come from the export."
+ ],
+ "1245194": {
+  "journal": "GJ080153",
+  "question_the_register_could_not_answer": "Blank narration on all five in-scope lines; Nature Detail read '(blank narration)' and one line sat at Pending evidence, Tier 3.",
+  "answer": "The document is the reversal of the June 2026 Plant & Fleet Services accrual. It debits the two PFS revenue accrual accounts, 1-13081-6D513 $21,057.77 and 1-13121-6D513 $13,656.71, both narrated 'Reversing Journal-June Accruals-for PFS Revenue', and credits the accrued plant, workshop and recharge expense back across 29 Council ledger legs on 7C111, 7C112 and 7C114. Five of those legs sit on branch O110-O115 and are the five register lines.",
+  "register_updates": {
+   "cols": {
+    "24": "EOFY accrual reversal",
+    "25": "Reversal of the June 2026 Plant & Fleet Services accrual, credited back to this PK on the internal plant and fleet accounts. Source document 1245194 (GJ080153) debits the PFS revenue accruals 1-13081-6D513 $21,057.77 and 1-13121-6D513 $13,656.71, narrated 'Reversing Journal-June Accruals-for PFS Revenue', and credits 29 Council expense legs on 7C111, 7C112 and 7C114 totalling $34,714.48, of which the five branch legs total $3,289.09.",
+    "27": "Journal source document (GENJNL Document Line Table)",
+    "28": "Journal_Sources {js_rows}: TechOne Document Line Table for document file 1245194, format GENJNL, pulled 11-Sep-2026 and embedded verbatim. The document nets to $0.00 over 31 legs; the five legs flagged in branch scope sum to the register net of -$3,289.09 and match these five lines one for one.",
+    "29": 1,
+    "31": "Journal (reversal)",
+    "32": "Accrual reversal read as a set under rules 5 and 6, so the line is a T9 event and is excluded from operational spend and trend. The June 2026 accrual it reverses was raised in FY2025/26 and is outside this pull (Open Item B-011).",
+    "33": "Confirmed",
+    "34": "",
+    "134": "Accrual reversal",
+    "135": "K1 tagged Nature Category"
+   }
+  }
+ },
+ "1248219": {
+  "journal": "GJ080309",
+  "question_the_register_could_not_answer": "The set does not net to zero inside O110-O115 (+$51,121.41), so the balancing leg was outside scope and unknown (Open Item B-012).",
+  "answer": "The balancing legs are a G ledger clearing entry, 1330-1-31123 $43,784.58 narrated 'Reverse PJ009910-Reversal', and three cost centre E0035 credits: 1-E0035-73609 $6,880.00 (Digital Platforms), 1-E0035-73513 $258.06 and 1-E0035-72111 $198.77 (Credit card). None sits inside O110-O115 and none is a Plant & Fleet revenue account, so nothing in the document supports the plant hire charge that the three debits carry.",
+  "finding": "The three debits reproduce to the cent three of the six plant hire legs that GJ080188 (document 1246521) posted on 01-Jul-2025 to 30-Jun-2026 and that IJ075016 (document 1247889) reversed in full: $27,374.51 (plant F007834, PK000435, Park Services), $23,717.08 (plant F006632, PK000396, Park Maintenance) and $29.82 (plant F008368, PK000068, Natural Areas). GJ080309 posts all three to PK000068. On the evidence of the original legs, $51,091.59 of the $51,121.41 sits on the wrong PK: $27,374.51 belongs to PK000435 and $23,717.08 to PK000396. The GJ080309 legs carry no plant reference in narration line 3, where every GJ080188 leg carries one. The remaining three original legs, PK000012 $1,733.20, PK000034 $227.10 and PK000083 $12.18 ($1,972.48), were reversed and never re-posted.",
+  "register_updates": {
+   "cols": {
+    "25": "Recode journal posting plant hire billing for 01-Jul-2025 to 30-Jun-2026 to PK000068 on 7C111. Source document 1248219 (GJ080309) debits PK000068 three times, $27,374.51, $23,717.08 and $29.82, all narrated 'Plant Hire Billing-Reversal', and credits G ledger 1330-1-31123 $43,784.58 ('Reverse PJ009910-Reversal'), SL 1-E0035-73609 $6,880.00 (Digital Platforms), SL 1-E0035-73513 $258.06 and SL 1-E0035-72111 $198.77 (Credit card).",
+    "27": "Journal source document (GENJNL Document Line Table)",
+    "28": "Journal_Sources {js_rows}: TechOne Document Line Table for document file 1248219, format GENJNL, pulled 11-Sep-2026 and embedded verbatim. The document nets to $0.00 over 7 legs; the three legs flagged in branch scope sum to the register net of $51,121.41 and match these three lines one for one.",
+    "29": 1,
+    "31": "Review",
+    "32": "Open Item B-012 answered for this document: the balancing legs sit on G ledger 1330-1-31123 and cost centre E0035, outside O110-O115, and none is a Plant & Fleet revenue account. The three debits reproduce to the cent three of the six plant hire legs GJ080188 posted and IJ075016 reversed, but all three land on PK000068 where GJ080188 assigned $27,374.51 to PK000435 and $23,717.08 to PK000396 against plant F007834 and F006632; only the $29.82 leg (plant F008368) was PK000068's. On that evidence $51,091.59 sits on the wrong PK and Natural Areas is overstated by that amount (Open Item B-030).",
+    "33": "Partial",
+    "34": "Ask Finance to confirm the PK split on GJ080309 against the plant references on GJ080188 (F007834 PK000435, F006632 PK000396, F008368 PK000068) and to recode $27,374.51 to PK000435 and $23,717.08 to PK000396 if confirmed; also confirm why the PK000012, PK000034 and PK000083 legs totalling $1,972.48 were reversed by IJ075016 and never re-posted (Open Item B-030)."
+   }
+  }
+ },
+ "1252466": {
+  "journal": "IJ075145",
+  "question_the_register_could_not_answer": "Both lines carried the generic coding note 'Invoice may bundle multiple items and services; nature unproven at line level'.",
+  "answer": "Document 2 of file 1252466 is the internal rates journal for rating period 2027-1, schedule S03. It raises $34,505.71 against City Bank 1330-1-11111 and allocates it over 53 Council property legs (fire levy, internal water, sewerage, garbage and trade waste). Two legs land on Parks PK000092 at $8.65 each: the Parks share of the $17.65 fire levy on assessment 9915980, 41-43 Alvine Drive, and assessment 9916059, 38 Wyndham Circuit, the other $9.00 of each levy going to SL 1-30071-73422.",
+  "register_updates": {
+   "cols": {
+    "27": "Journal source document (LC_INTJN Document Line Table)",
+    "28": "Journal_Sources {js_rows}: TechOne Document Line Table for document file 1252466, document 2, format LC_INTJN, pulled 11-Sep-2026 and embedded verbatim. The document nets to $0.00 over 54 legs; the two legs flagged in branch scope sum to the register net of $17.30 and match these two lines one for one.",
+    "29": 1,
+    "32": "Nature proven at leg level from the source document: the Parks share of a $17.65 fire levy on one rating assessment, the balance of $9.00 carried by SL 1-30071-73422. The line bundles nothing.",
+    "33": "Confirmed",
+    "31": "Correct"
+   },
+   "per_linekey": {
+    "36a37c4a-73422-PK000092-01": {"25": "Parks share of the 2027-1 fire levy on rating assessment 9915980, 41-43 Alvine Drive, Mallard Park: $8.65 of the printed $17.65, the other $9.00 posted to SL 1-30071-73422 on the same document."},
+    "36a37c4a-73422-PK000092-02": {"25": "Parks share of the 2027-1 fire levy on rating assessment 9916059, 38 Wyndham Circuit: $8.65 of the printed $17.65, the other $9.00 posted to SL 1-30071-73422 on the same document."}
+   }
+  },
+  "coverage_note": "The export was taken with a Document filter, so it covers document 2 of file 1252466 only: journal reference IJ075145, 2 of the file's 2,020 register lines and 1 of its 8 references. Rule 21 keys the pull to the document FILE; the remaining references IJ075148 and IJ075149 to IJ075155 need the same export without the Document filter (Open Item B-031)."
+ },
+ "1246521": {
+  "journal": "GJ080188",
+  "capture": "audit only, not re-captured (rule 12)",
+  "answer": "Already embedded in the PS & WP register v127 Journal_Sources (Tier D on the pull list). The re-pull is audited leg by leg: 12 legs in both copies, none only in the pull, none only in v127, identical on ledger, account, resource code, amount and all three narration lines. Not re-captured; no register line changes.",
+  "note": "The v127 embed flags only the PK000435 leg as in PS/WP scope. On the branch scope all six PK legs are register lines, which is a scope difference, not a conflict. The document is the counterpart of the GJ080309 finding: it carries the plant reference (F007834, F006632, F007638, F007814, F008118, F008368) on every leg."
+ },
+ "_open_items": [
+  {
+   "id": "B-030",
+   "area": "Plant hire re-post to a single PK",
+   "status": "Review",
+   "scope": "Natural Areas / Park Maintenance / Park Services",
+   "lines": 3,
+   "amount": 51121.41,
+   "action": "Ask Finance to confirm the PK split on GJ080309 against the plant references on GJ080188 and, if confirmed, recode $27,374.51 to PK000435 and $23,717.08 to PK000396; and to confirm why the PK000012, PK000034 and PK000083 legs totalling $1,972.48 were reversed by IJ075016 and never re-posted.",
+   "basis": "Document Line Table for document file 1248219 (GJ080309) pulled 11-Sep-2026, read against the embedded document 1246521 (GJ080188) and the register lines of IJ075016. The three GJ080309 debits reproduce three GJ080188 legs to the cent but carry no plant reference and all land on PK000068."
+  },
+  {
+   "id": "B-031",
+   "area": "Journal pull taken with a Document filter",
+   "status": "Pending evidence",
+   "scope": "Park Services / Water Parks",
+   "lines": 2018,
+   "amount": 461660.8,
+   "action": "Re-pull the Document Line Table for document file 1252466 without the Document filter, so the export covers every document on the file (rule 21 keys the pull to the document FILE). The pull received covers document 2, journal reference IJ075145, 2 of the file's 2,020 register lines.",
+   "basis": "Export parameter row: 'Document File = 1252466 , Document = 2 , Format = LC_INTJN'. The file carries eight references, IJ075145, IJ075148 and IJ075149 to IJ075155."
+  }
+ ]
+}
