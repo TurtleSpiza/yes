@@ -1,0 +1,16 @@
+{
+ "check": "rule 19.2 per-vendor verbatim fidelity, independent source",
+ "source": "corpus_mixed_new_26_27_v6.json: 5 PLAYFORCE documents with page text retained, parsed from the source PDF at branch v3",
+ "template_rows": 220,
+ "documents_tested": 22,
+ "documents_with_missing_rows": 0,
+ "misses": {},
+ "terms_page_sequence": {
+  "reference": "INV-8550 page 31",
+  "tested": "INV-8060 page 2",
+  "rows": 109,
+  "identical_ordered_sequence": true
+ },
+ "verdict": "PASS",
+ "scope": "Proves the fixed template and boilerplate rows are verbatim and the row order is intact. It cannot independently prove the per-invoice description text, which appears on no other document; that rests on the retained layout rows, the arithmetic tie on every invoice, and the creditor history match on the register line."
+}

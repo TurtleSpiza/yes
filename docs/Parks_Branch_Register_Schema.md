@@ -1,14 +1,14 @@
-# Parks Branch Register Schema (v4 workbook, 11-Sep-2026)
+# Parks Branch Register Schema (v5 workbook, 11-Sep-2026)
 
-Working aid for `Parks_Branch_Transaction_Register_FY2627_v4.xlsx`. Config is authoritative for positions (one occurrence per key); Method states structure (rule 14).
+Working aid for `Parks_Branch_Transaction_Register_FY2627_v5.xlsx`. Config is authoritative for positions (one occurrence per key); Method states structure (rule 14).
 
 ## 1. Identity
 - Scope: Branch 4090000, LCC OP/AP O110-O115, expense type 1, 27SLACT P1-3 (pulled 11-Sep-2026 10:11). Control total $4,910,566.68, 6,683 lines.
 - Register header row 4, data 5:6687, total row 6689 col T (unchanged since v1). 148 columns: PS & WP map 1-146 unchanged, 147 (EQ) Src Note, 148 (ER) Register provenance ("Inherited from PS_WP register v127" | "New at branch v1 (not in the PS_WP register)").
-- 26 sheets. Controls last, 82 controls at v4 (78 through v3, plus group 7 creditor histories), master verdict Controls!B4.
+- 26 sheets. Controls last, 82 controls at v4 and v5 (78 through v3, plus group 7 creditor histories), master verdict Controls!B4.
 
 ## 2. Build chain (rule 19.7)
-`python3 pbr_build.py` runs stage (pbr_stage.py, rules in pbr_rules_v1.json, creditor histories in pbr_histories_v4.json) -> openpyxl write-only -> convert-route recalc (OOXMLRecalcMode=0) -> calamine verify -> ship. Scratch is wiped at start; nothing ships without a clean verify. Chain ~35 s at v4 (Creditor_Lines carries 19,703 history rows). Needs `libreoffice-calc` and `poppler-utils` installed, not just `libreoffice-core`; a missing Calc component fails the convert route with "source file could not be loaded" on any file. Launch detached with `(setsid nohup python3 -u pbr_build.py > build.log 2>&1 < /dev/null &)`; a plain `nohup ... &` is killed when the tool call returns.
+`python3 pbr_build.py` runs stage (pbr_stage.py, rules in pbr_rules_v1.json, creditor histories in pbr_histories_v4.json) -> openpyxl write-only -> convert-route recalc (OOXMLRecalcMode=0) -> calamine verify -> ship. Scratch is wiped at start; nothing ships without a clean verify. Chain ~35 s at v4 and v5 (Creditor_Lines carries 20,718 history rows at v5). Needs `libreoffice-calc` and `poppler-utils` installed, not just `libreoffice-core`; a missing Calc component fails the convert route with "source file could not be loaded" on any file. Launch detached with `(setsid nohup python3 -u pbr_build.py > build.log 2>&1 < /dev/null &)`; a plain `nohup ... &` is killed when the tool call returns.
 
 ## 3. Inheritance (Method 5.0)
 - Key: Document Unique ID + full account + NA + Work Order + amount + Details (newlines as " | "). One-for-one. 3,365 of 3,372 v127 FY2026/27 lines; 7 absent (Inheritance_Log).
@@ -57,3 +57,14 @@ Theme_Map v2 rows 32-54: 23 categories, new themes T14 People, training & corpor
 - Trap: two COUNTIF calls with "Y" and "y" double count (case-insensitive); one control shipped FALSE on the first run for that reason. One criterion per case-insensitive value.
 - Trap: a line identified in the stage and captured later in the same stage would carry both flags; the sighted flag must win before the build counts provenance (ident_v4 popped when col CJ is set).
 - Identification queue: `toolkit/branch/pbr_unidentified_queue.py` reads the shipped register and writes `reports/Unidentified_Contractors_<ver>.md/.xlsx`: every Unidentified line grouped into (section, service, reference shape) series with one invoice to sight per series (largest line with a TechOne attachment: Document File, reference, date, amount, PK). Regenerate after every build.
+
+## 10. v5, four more histories, Batch attach_2 and Batch code (11-Sep-2026)
+- Histories now 12, 20,718 lines: BUR044 Burly Holdings, CER006 Certified Mowing, COA030 Coast2Coast, THE289 Flavell-Dau added to the eight from v4 (`pbr_histories_v4.json`, still the manifest file name). 883 register lines identified, $1,831,834.74 ex GST, 0 ambiguous, 0 conflicts. Unidentified now $465,200.43 on 486 lines under the branch-wide label ($479,599.76 on 509 lines across every Unidentified label), from $1,778,748.05 at v3.
+- Conflict test is ABN-aware: a prior label is only a conflict when the ABN differs AND neither canonical name contains the other. Ten Flavell-Dau lines flagged on the first v5 run were the same entity under a fuller name; the manifest label for THE289 now carries the trading name ("... (t/a F82 Landscaping)") so the whole series reads under one label (COUNTIF).
+- Batch attach_2: six TechOne attachment PDFs, `parse_attach2.py`, four templates. **C2C_INCL trap**: on that Coast2Coast layout the printed Unit Price and Amount AUD columns are GST INCLUSIVE and the description states the ex-GST base; lines are captured ex GST as ROUND(printed/1.1, 2) with the printed figure in the note (ELEMENTAL precedent) and the printed subtotal is TOTAL AUD less printed GST. Three split-posting pairs (two C2C fuel levy legs to PK000513 service 20821, one Certified Mowing main-roads/parks split).
+- **Finding B-029**: Coast2Coast INV-11824 computes its fuel levy on the GST-inclusive base ($4,475.56) where INV-11833 uses the ex-GST base; $6.82 ex GST over-claimed. The invoice prints its own formula, which is what makes it checkable.
+- Batch code: a SUPPLIED corpus (M365 Copilot) for a binder that was not supplied. `prep_code_corpus.py` rebuilds page_text from the retained layout rows, restates findings as text, restricts pk_refs to the PK000000 form (the corpus had taken the payment-block bank account "Account: 10367833" as a PK on two documents) and restates dates as ISO, then gates in container.
+- **Rule 19.2 with no retained page text**: the per-vendor check runs against an INDEPENDENT source, the Play Force page text this project retained at v3. Every row present in all five of those documents (220) must appear verbatim in every document of the new batch, and a terms page must match as an ordered sequence. Both hold. The check cannot prove per-invoice description text; that rests on the retained rows, the arithmetic tie and the creditor history. Recorded on Data_Acquisition with its scope stated.
+- Trap: a supplied corpus may name a source file it does not carry an md5 for; the rule 12 gate falls back to the corpus md5.
+- Trap: on a split-posting capture the green block must carry the printed PK of that target's own lines, not the document's first PK. `pbr_capture` now maps printed work orders to targets through the same line map that ties check 2.
+- Sighted 212 rows over 205 invoices. Confirmed $3,207,098.06; Partial $1,113,860.27; Pending evidence $589,608.35. Control total unchanged, 82 of 82 controls TRUE.
