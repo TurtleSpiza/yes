@@ -43,6 +43,15 @@ fi
 # attempt fails the whole run. Pinned versions are satisfied without touching it.
 echo "[session-start] installing Python requirements"
 python3 -m pip install -q --disable-pip-version-check --root-user-action=ignore -r requirements.txt
+# cffi must be importable as _cffi_backend before anything touches the optional set: the container's
+# Debian cryptography panics the interpreter without it. Re-install explicitly if the pin did not land.
+if ! python3 -c "import _cffi_backend" >/dev/null 2>&1; then
+  echo "[session-start] _cffi_backend missing after requirements install; installing cffi explicitly"
+  python3 -m pip install -q --disable-pip-version-check --root-user-action=ignore cffi
+fi
+python3 -c "import _cffi_backend" >/dev/null 2>&1 \
+  && echo "[session-start] cffi present (_cffi_backend imports)" \
+  || echo "[session-start] WARNING: cffi still not importable; the env check below will fail on it"
 python3 -m pip install -q --disable-pip-version-check --root-user-action=ignore -r requirements-optional.txt \
   || echo "[session-start] note: optional PDF inspection packages did not install; the build chain does not need them"
 
