@@ -1,0 +1,886 @@
+{
+  "manifest": {
+    "batch_id": "mixed_1",
+    "source_files": [
+      {
+        "name": "Mixed 1.pdf",
+        "pages": 61
+      }
+    ],
+    "runtime": "B",
+    "prompt_version": "PSWP Extraction Prompt v5",
+    "extracted_utc": "2026-09-11T01:19:26.901626+00:00",
+    "gate": "AMBER",
+    "documents_found": 30,
+    "unique_documents": 29,
+    "duplicate_documents": 1,
+    "pages_represented": 61,
+    "pages_total": 61,
+    "documents_tie": 30,
+    "documents_out": 0,
+    "unique_captured_ex_gst_total": 1177803.37,
+    "all_occurrences_ex_gst_total": 1188123.37,
+    "line_level_status": "Not fully available from layout-flattened chat text",
+    "ocr_status": "Not available in Runtime B",
+    "findings_count": 6,
+    "resume_point": "Line-level reconstruction and source-image comparison required for strict forensic completion."
+  },
+  "findings": [
+    {
+      "severity": "RED",
+      "pages": [
+        30,
+        31
+      ],
+      "finding": "Exact duplicate of INV-0110 on pages 28-29. Excluded from unique-document financial total."
+    },
+    {
+      "severity": "RED",
+      "pages": [
+        55,
+        56
+      ],
+      "finding": "Invoice 012191 header subtotal is $32,477.92, while attached schedule totals $32,951.44, a $473.52 ex-GST difference. The schedule includes Windaroo Lake Park rubbish removal of $473.52 under PK000382."
+    },
+    {
+      "severity": "RED",
+      "pages": [
+        57,
+        58
+      ],
+      "finding": "Invoice 012197 header subtotal is $25,217.15, while attached schedule totals $27,073.64, a $1,856.49 ex-GST difference. Attachment contains PK000383 and PK000379 lines in addition to PK000378."
+    },
+    {
+      "severity": "AMBER",
+      "pages": [
+        25,
+        27
+      ],
+      "finding": "INV-9360 is dated 31 Mar 2026, but line descriptions show July treatment dates. Invoice date or service-period evidence requires validation."
+    },
+    {
+      "severity": "AMBER",
+      "pages": [
+        24,
+        24
+      ],
+      "finding": "Invoice 158592 narrative states $75,345.91 plus GST and also displays $81,732.39 at line level; printed subtotal and total reconcile to $75,345.91 plus $7,534.59 GST."
+    },
+    {
+      "severity": "AMBER",
+      "pages": [
+        34,
+        35
+      ],
+      "finding": "Invoice 26231 contains order numbers 801672, 702342 and one 801671 line, therefore the order reference is mixed rather than singular."
+    }
+  ],
+  "documents": [
+    {
+      "doc_ref": "INV-39235/pages1-2",
+      "doc_kind": "TAX_INVOICE",
+      "source_file": "Mixed 1.pdf",
+      "page_range": [
+        1,
+        2
+      ],
+      "supplier": "T & H LEVAI PTY LTD",
+      "invoice_no": "INV-39235",
+      "invoice_date": "30 Jun 2026",
+      "printed_subtotal_ex_gst": 33570,
+      "printed_gst": 3357,
+      "printed_total_incl_gst": 36927,
+      "captured_ex_gst": 33570,
+      "tie_variance": 0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "717482"
+      ],
+      "pk_refs": [
+        "PK000381"
+      ],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Document-level Runtime B capture. Layout rows are not reconstructed where the chat text layer does not preserve stable column geometry."
+    },
+    {
+      "doc_ref": "3597/pages3-4",
+      "doc_kind": "TAX_INVOICE",
+      "source_file": "Mixed 1.pdf",
+      "page_range": [
+        3,
+        4
+      ],
+      "supplier": "Total Environmental Concepts Pty Ltd",
+      "invoice_no": "3597",
+      "invoice_date": "30 Jun 2026",
+      "printed_subtotal_ex_gst": 33162.5,
+      "printed_gst": 3316.25,
+      "printed_total_incl_gst": 36478.75,
+      "captured_ex_gst": 33162.5,
+      "tie_variance": 0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "717597"
+      ],
+      "pk_refs": [],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Document-level Runtime B capture. Layout rows are not reconstructed where the chat text layer does not preserve stable column geometry."
+    },
+    {
+      "doc_ref": "3598/pages5-6",
+      "doc_kind": "TAX_INVOICE",
+      "source_file": "Mixed 1.pdf",
+      "page_range": [
+        5,
+        6
+      ],
+      "supplier": "Total Environmental Concepts Pty Ltd",
+      "invoice_no": "3598",
+      "invoice_date": "30 Jun 2026",
+      "printed_subtotal_ex_gst": 16625,
+      "printed_gst": 1662.5,
+      "printed_total_incl_gst": 18287.5,
+      "captured_ex_gst": 16625,
+      "tie_variance": 0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "709808"
+      ],
+      "pk_refs": [],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Document-level Runtime B capture. Layout rows are not reconstructed where the chat text layer does not preserve stable column geometry."
+    },
+    {
+      "doc_ref": "36220/pages7-7",
+      "doc_kind": "TAX_INVOICE",
+      "source_file": "Mixed 1.pdf",
+      "page_range": [
+        7,
+        7
+      ],
+      "supplier": "Treescape Australia Pty Ltd",
+      "invoice_no": "36220",
+      "invoice_date": "30 Jun 2026",
+      "printed_subtotal_ex_gst": 25239.25,
+      "printed_gst": 2523.93,
+      "printed_total_incl_gst": 27763.18,
+      "captured_ex_gst": 25239.25,
+      "tie_variance": 0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "801669"
+      ],
+      "pk_refs": [
+        "PK000373"
+      ],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Document-level Runtime B capture. Layout rows are not reconstructed where the chat text layer does not preserve stable column geometry."
+    },
+    {
+      "doc_ref": "18709/pages8-8",
+      "doc_kind": "TAX_INVOICE",
+      "source_file": "Mixed 1.pdf",
+      "page_range": [
+        8,
+        8
+      ],
+      "supplier": "Bushcare Services",
+      "invoice_no": "18709",
+      "invoice_date": "15 Jun 2026",
+      "printed_subtotal_ex_gst": 8181.82,
+      "printed_gst": 818.18,
+      "printed_total_incl_gst": 9000,
+      "captured_ex_gst": 8181.82,
+      "tie_variance": 0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "709816"
+      ],
+      "pk_refs": [
+        "PK000375"
+      ],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Document-level Runtime B capture. Layout rows are not reconstructed where the chat text layer does not preserve stable column geometry."
+    },
+    {
+      "doc_ref": "158593/pages9-9",
+      "doc_kind": "TAX_INVOICE",
+      "source_file": "Mixed 1.pdf",
+      "page_range": [
+        9,
+        9
+      ],
+      "supplier": "Austspray Environmental Weed Control Pty Ltd",
+      "invoice_no": "158593",
+      "invoice_date": "24 Jul 2026",
+      "printed_subtotal_ex_gst": 66937.12,
+      "printed_gst": 6693.71,
+      "printed_total_incl_gst": 73630.83,
+      "captured_ex_gst": 66937.12,
+      "tie_variance": 0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "802470"
+      ],
+      "pk_refs": [
+        "PK000016"
+      ],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Document-level Runtime B capture. Layout rows are not reconstructed where the chat text layer does not preserve stable column geometry."
+    },
+    {
+      "doc_ref": "158591/pages10-10",
+      "doc_kind": "TAX_INVOICE",
+      "source_file": "Mixed 1.pdf",
+      "page_range": [
+        10,
+        10
+      ],
+      "supplier": "Austspray Environmental Weed Control Pty Ltd",
+      "invoice_no": "158591",
+      "invoice_date": "24 Jul 2026",
+      "printed_subtotal_ex_gst": 51362.6,
+      "printed_gst": 5136.26,
+      "printed_total_incl_gst": 56498.86,
+      "captured_ex_gst": 51362.6,
+      "tie_variance": 0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "802470"
+      ],
+      "pk_refs": [
+        "PK000014"
+      ],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Document-level Runtime B capture. Layout rows are not reconstructed where the chat text layer does not preserve stable column geometry."
+    },
+    {
+      "doc_ref": "INV-0569/pages11-14",
+      "doc_kind": "TAX_INVOICE",
+      "source_file": "Mixed 1.pdf",
+      "page_range": [
+        11,
+        14
+      ],
+      "supplier": "Environmental Management Unit Pty Ltd",
+      "invoice_no": "INV-0569",
+      "invoice_date": "24 Jul 2026",
+      "printed_subtotal_ex_gst": 91232.61,
+      "printed_gst": 9123.25,
+      "printed_total_incl_gst": 100355.86,
+      "captured_ex_gst": 91232.61,
+      "tie_variance": 0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "802207"
+      ],
+      "pk_refs": [
+        "PK000378"
+      ],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Document-level Runtime B capture. Layout rows are not reconstructed where the chat text layer does not preserve stable column geometry."
+    },
+    {
+      "doc_ref": "18751/pages15-18",
+      "doc_kind": "TAX_INVOICE",
+      "source_file": "Mixed 1.pdf",
+      "page_range": [
+        15,
+        18
+      ],
+      "supplier": "Bushcare Services",
+      "invoice_no": "18751",
+      "invoice_date": "24 Jul 2026",
+      "printed_subtotal_ex_gst": 42915.58,
+      "printed_gst": 4291.5,
+      "printed_total_incl_gst": 47207.08,
+      "captured_ex_gst": 42915.58,
+      "tie_variance": 0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "801675"
+      ],
+      "pk_refs": [
+        "PK000378"
+      ],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Document-level Runtime B capture. Layout rows are not reconstructed where the chat text layer does not preserve stable column geometry."
+    },
+    {
+      "doc_ref": "18750/pages19-22",
+      "doc_kind": "TAX_INVOICE",
+      "source_file": "Mixed 1.pdf",
+      "page_range": [
+        19,
+        22
+      ],
+      "supplier": "Bushcare Services",
+      "invoice_no": "18750",
+      "invoice_date": "24 Jul 2026",
+      "printed_subtotal_ex_gst": 54359.72,
+      "printed_gst": 5435.9,
+      "printed_total_incl_gst": 59795.62,
+      "captured_ex_gst": 54359.72,
+      "tie_variance": 0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "801676"
+      ],
+      "pk_refs": [
+        "PK000378"
+      ],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Document-level Runtime B capture. Layout rows are not reconstructed where the chat text layer does not preserve stable column geometry."
+    },
+    {
+      "doc_ref": "158590/pages23-23",
+      "doc_kind": "TAX_INVOICE",
+      "source_file": "Mixed 1.pdf",
+      "page_range": [
+        23,
+        23
+      ],
+      "supplier": "Austspray Environmental Weed Control Pty Ltd",
+      "invoice_no": "158590",
+      "invoice_date": "27 Jul 2026",
+      "printed_subtotal_ex_gst": 57618.11,
+      "printed_gst": 5761.81,
+      "printed_total_incl_gst": 63379.92,
+      "captured_ex_gst": 57618.11,
+      "tie_variance": 0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "802470"
+      ],
+      "pk_refs": [
+        "PK000017"
+      ],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Document-level Runtime B capture. Layout rows are not reconstructed where the chat text layer does not preserve stable column geometry."
+    },
+    {
+      "doc_ref": "158592/pages24-24",
+      "doc_kind": "TAX_INVOICE",
+      "source_file": "Mixed 1.pdf",
+      "page_range": [
+        24,
+        24
+      ],
+      "supplier": "Austspray Environmental Weed Control Pty Ltd",
+      "invoice_no": "158592",
+      "invoice_date": "27 Jul 2026",
+      "printed_subtotal_ex_gst": 75345.91,
+      "printed_gst": 7534.59,
+      "printed_total_incl_gst": 82880.5,
+      "captured_ex_gst": 75345.91,
+      "tie_variance": 0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "802470"
+      ],
+      "pk_refs": [
+        "PK000473"
+      ],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Document-level Runtime B capture. Layout rows are not reconstructed where the chat text layer does not preserve stable column geometry."
+    },
+    {
+      "doc_ref": "INV-9360/pages25-27",
+      "doc_kind": "TAX_INVOICE",
+      "source_file": "Mixed 1.pdf",
+      "page_range": [
+        25,
+        27
+      ],
+      "supplier": "Activeco",
+      "invoice_no": "INV-9360",
+      "invoice_date": "31 Mar 2026",
+      "printed_subtotal_ex_gst": 51704.65,
+      "printed_gst": 5170.48,
+      "printed_total_incl_gst": 56875.13,
+      "captured_ex_gst": 51704.65,
+      "tie_variance": 0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "801673"
+      ],
+      "pk_refs": [
+        "PK000378"
+      ],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Document-level Runtime B capture. Layout rows are not reconstructed where the chat text layer does not preserve stable column geometry."
+    },
+    {
+      "doc_ref": "INV-0110/pages28-29",
+      "doc_kind": "TAX_INVOICE",
+      "source_file": "Mixed 1.pdf",
+      "page_range": [
+        28,
+        29
+      ],
+      "supplier": "Guru Dirt Works",
+      "invoice_no": "INV-0110",
+      "invoice_date": "15 Aug 2026",
+      "printed_subtotal_ex_gst": 10320,
+      "printed_gst": 1032,
+      "printed_total_incl_gst": 11352,
+      "captured_ex_gst": 10320,
+      "tie_variance": 0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "717368"
+      ],
+      "pk_refs": [
+        "PK000381"
+      ],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Document-level Runtime B capture. Layout rows are not reconstructed where the chat text layer does not preserve stable column geometry."
+    },
+    {
+      "doc_ref": "INV-0110/pages30-31",
+      "doc_kind": "TAX_INVOICE",
+      "source_file": "Mixed 1.pdf",
+      "page_range": [
+        30,
+        31
+      ],
+      "supplier": "Guru Dirt Works",
+      "invoice_no": "INV-0110",
+      "invoice_date": "15 Aug 2026",
+      "printed_subtotal_ex_gst": 10320,
+      "printed_gst": 1032,
+      "printed_total_incl_gst": 11352,
+      "captured_ex_gst": 10320,
+      "tie_variance": 0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "717368"
+      ],
+      "pk_refs": [
+        "PK000381"
+      ],
+      "duplicate_of": "INV-0110/pages28-29",
+      "lines": [],
+      "notes": "Document-level Runtime B capture. Layout rows are not reconstructed where the chat text layer does not preserve stable column geometry."
+    },
+    {
+      "doc_ref": "26230/pages32-33",
+      "doc_kind": "TAX_INVOICE",
+      "source_file": "Mixed 1.pdf",
+      "page_range": [
+        32,
+        33
+      ],
+      "supplier": "Aust Care Environmental Services Pty Ltd",
+      "invoice_no": "26230",
+      "invoice_date": "19 Aug 2026",
+      "printed_subtotal_ex_gst": 39128.88,
+      "printed_gst": 3912.88,
+      "printed_total_incl_gst": 43041.76,
+      "captured_ex_gst": 39128.88,
+      "tie_variance": -0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "801671"
+      ],
+      "pk_refs": [
+        "PK000378"
+      ],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Document-level Runtime B capture. Layout rows are not reconstructed where the chat text layer does not preserve stable column geometry."
+    },
+    {
+      "doc_ref": "26231/pages34-35",
+      "doc_kind": "TAX_INVOICE",
+      "source_file": "Mixed 1.pdf",
+      "page_range": [
+        34,
+        35
+      ],
+      "supplier": "Aust Care Environmental Services Pty Ltd",
+      "invoice_no": "26231",
+      "invoice_date": "20 Aug 2026",
+      "printed_subtotal_ex_gst": 49052.32,
+      "printed_gst": 4905.24,
+      "printed_total_incl_gst": 53957.56,
+      "captured_ex_gst": 49052.32,
+      "tie_variance": 0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "mixed"
+      ],
+      "pk_refs": [
+        "PK000378"
+      ],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Document-level Runtime B capture. Layout rows are not reconstructed where the chat text layer does not preserve stable column geometry."
+    },
+    {
+      "doc_ref": "158851/pages36-36",
+      "doc_kind": "TAX_INVOICE",
+      "source_file": "Mixed 1.pdf",
+      "page_range": [
+        36,
+        36
+      ],
+      "supplier": "Austspray Environmental Weed Control Pty Ltd",
+      "invoice_no": "158851",
+      "invoice_date": "21 Aug 2026",
+      "printed_subtotal_ex_gst": 51362.6,
+      "printed_gst": 5136.26,
+      "printed_total_incl_gst": 56498.86,
+      "captured_ex_gst": 51362.6,
+      "tie_variance": 0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "802470"
+      ],
+      "pk_refs": [
+        "PK000014"
+      ],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Document-level Runtime B capture. Layout rows are not reconstructed where the chat text layer does not preserve stable column geometry."
+    },
+    {
+      "doc_ref": "INV-0600/pages37-39",
+      "doc_kind": "TAX_INVOICE",
+      "source_file": "Mixed 1.pdf",
+      "page_range": [
+        37,
+        39
+      ],
+      "supplier": "Environmental Management Unit Pty Ltd",
+      "invoice_no": "INV-0600",
+      "invoice_date": "21 Aug 2026",
+      "printed_subtotal_ex_gst": 28913.57,
+      "printed_gst": 2891.34,
+      "printed_total_incl_gst": 31804.91,
+      "captured_ex_gst": 28913.57,
+      "tie_variance": 0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "802207"
+      ],
+      "pk_refs": [
+        "PK000378"
+      ],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Document-level Runtime B capture. Layout rows are not reconstructed where the chat text layer does not preserve stable column geometry."
+    },
+    {
+      "doc_ref": "INV-0111/pages40-41",
+      "doc_kind": "TAX_INVOICE",
+      "source_file": "Mixed 1.pdf",
+      "page_range": [
+        40,
+        41
+      ],
+      "supplier": "Guru Dirt Works",
+      "invoice_no": "INV-0111",
+      "invoice_date": "23 Aug 2026",
+      "printed_subtotal_ex_gst": 9582.5,
+      "printed_gst": 958.25,
+      "printed_total_incl_gst": 10540.75,
+      "captured_ex_gst": 9582.5,
+      "tie_variance": 0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "717368"
+      ],
+      "pk_refs": [
+        "PK000381"
+      ],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Document-level Runtime B capture. Layout rows are not reconstructed where the chat text layer does not preserve stable column geometry."
+    },
+    {
+      "doc_ref": "158852/pages42-42",
+      "doc_kind": "TAX_INVOICE",
+      "source_file": "Mixed 1.pdf",
+      "page_range": [
+        42,
+        42
+      ],
+      "supplier": "Austspray Environmental Weed Control Pty Ltd",
+      "invoice_no": "158852",
+      "invoice_date": "24 Aug 2026",
+      "printed_subtotal_ex_gst": 66937.12,
+      "printed_gst": 6693.71,
+      "printed_total_incl_gst": 73630.83,
+      "captured_ex_gst": 66937.12,
+      "tie_variance": 0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "802470"
+      ],
+      "pk_refs": [
+        "PK000016"
+      ],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Document-level Runtime B capture. Layout rows are not reconstructed where the chat text layer does not preserve stable column geometry."
+    },
+    {
+      "doc_ref": "18788/pages43-47",
+      "doc_kind": "TAX_INVOICE",
+      "source_file": "Mixed 1.pdf",
+      "page_range": [
+        43,
+        47
+      ],
+      "supplier": "Bushcare Services",
+      "invoice_no": "18788",
+      "invoice_date": "25 Aug 2026",
+      "printed_subtotal_ex_gst": 22888.32,
+      "printed_gst": 2288.8,
+      "printed_total_incl_gst": 25177.12,
+      "captured_ex_gst": 22888.32,
+      "tie_variance": 0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "801676"
+      ],
+      "pk_refs": [
+        "PK000378"
+      ],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Document-level Runtime B capture. Layout rows are not reconstructed where the chat text layer does not preserve stable column geometry."
+    },
+    {
+      "doc_ref": "18789/pages48-51",
+      "doc_kind": "TAX_INVOICE",
+      "source_file": "Mixed 1.pdf",
+      "page_range": [
+        48,
+        51
+      ],
+      "supplier": "Bushcare Services",
+      "invoice_no": "18789",
+      "invoice_date": "25 Aug 2026",
+      "printed_subtotal_ex_gst": 21743.93,
+      "printed_gst": 2174.36,
+      "printed_total_incl_gst": 23918.29,
+      "captured_ex_gst": 21743.93,
+      "tie_variance": 0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "801675"
+      ],
+      "pk_refs": [
+        "PK000378"
+      ],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Document-level Runtime B capture. Layout rows are not reconstructed where the chat text layer does not preserve stable column geometry."
+    },
+    {
+      "doc_ref": "158850/pages52-52",
+      "doc_kind": "TAX_INVOICE",
+      "source_file": "Mixed 1.pdf",
+      "page_range": [
+        52,
+        52
+      ],
+      "supplier": "Austspray Environmental Weed Control Pty Ltd",
+      "invoice_no": "158850",
+      "invoice_date": "26 Aug 2026",
+      "printed_subtotal_ex_gst": 57631.44,
+      "printed_gst": 5763.14,
+      "printed_total_incl_gst": 63394.58,
+      "captured_ex_gst": 57631.44,
+      "tie_variance": 0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "802470"
+      ],
+      "pk_refs": [
+        "PK000017"
+      ],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Document-level Runtime B capture. Layout rows are not reconstructed where the chat text layer does not preserve stable column geometry."
+    },
+    {
+      "doc_ref": "158853/pages53-53",
+      "doc_kind": "TAX_INVOICE",
+      "source_file": "Mixed 1.pdf",
+      "page_range": [
+        53,
+        53
+      ],
+      "supplier": "Austspray Environmental Weed Control Pty Ltd",
+      "invoice_no": "158853",
+      "invoice_date": "26 Aug 2026",
+      "printed_subtotal_ex_gst": 75377.98,
+      "printed_gst": 7537.8,
+      "printed_total_incl_gst": 82915.78,
+      "captured_ex_gst": 75377.98,
+      "tie_variance": 0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "802470"
+      ],
+      "pk_refs": [
+        "PK000473"
+      ],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Document-level Runtime B capture. Layout rows are not reconstructed where the chat text layer does not preserve stable column geometry."
+    },
+    {
+      "doc_ref": "INV-0112/pages54-54",
+      "doc_kind": "TAX_INVOICE",
+      "source_file": "Mixed 1.pdf",
+      "page_range": [
+        54,
+        54
+      ],
+      "supplier": "Guru Dirt Works",
+      "invoice_no": "INV-0112",
+      "invoice_date": "28 Aug 2026",
+      "printed_subtotal_ex_gst": 9300,
+      "printed_gst": 930,
+      "printed_total_incl_gst": 10230,
+      "captured_ex_gst": 9300,
+      "tie_variance": 0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "717368"
+      ],
+      "pk_refs": [
+        "PK000381"
+      ],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Document-level Runtime B capture. Layout rows are not reconstructed where the chat text layer does not preserve stable column geometry."
+    },
+    {
+      "doc_ref": "012191/pages55-56",
+      "doc_kind": "TAX_INVOICE",
+      "source_file": "Mixed 1.pdf",
+      "page_range": [
+        55,
+        56
+      ],
+      "supplier": "Glascott Landscape and Civil Pty Limited",
+      "invoice_no": "012191",
+      "invoice_date": "31 Aug 2026",
+      "printed_subtotal_ex_gst": 32477.92,
+      "printed_gst": 3247.79,
+      "printed_total_incl_gst": 35725.71,
+      "captured_ex_gst": 32477.92,
+      "tie_variance": 0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "802902"
+      ],
+      "pk_refs": [
+        "PK000378"
+      ],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Document-level Runtime B capture. Layout rows are not reconstructed where the chat text layer does not preserve stable column geometry."
+    },
+    {
+      "doc_ref": "012197/pages57-58",
+      "doc_kind": "TAX_INVOICE",
+      "source_file": "Mixed 1.pdf",
+      "page_range": [
+        57,
+        58
+      ],
+      "supplier": "Glascott Landscape and Civil Pty Limited",
+      "invoice_no": "012197",
+      "invoice_date": "31 Aug 2026",
+      "printed_subtotal_ex_gst": 25217.15,
+      "printed_gst": 2521.72,
+      "printed_total_incl_gst": 27738.87,
+      "captured_ex_gst": 25217.15,
+      "tie_variance": 0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "802903"
+      ],
+      "pk_refs": [
+        "PK000378"
+      ],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Document-level Runtime B capture. Layout rows are not reconstructed where the chat text layer does not preserve stable column geometry."
+    },
+    {
+      "doc_ref": "INV-0115/pages59-59",
+      "doc_kind": "TAX_INVOICE",
+      "source_file": "Mixed 1.pdf",
+      "page_range": [
+        59,
+        59
+      ],
+      "supplier": "Guru Dirt Works",
+      "invoice_no": "INV-0115",
+      "invoice_date": "7 Sep 2026",
+      "printed_subtotal_ex_gst": 11240,
+      "printed_gst": 1124,
+      "printed_total_incl_gst": 12364,
+      "captured_ex_gst": 11240,
+      "tie_variance": 0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "717368"
+      ],
+      "pk_refs": [
+        "PK000381"
+      ],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Document-level Runtime B capture. Layout rows are not reconstructed where the chat text layer does not preserve stable column geometry."
+    },
+    {
+      "doc_ref": "26302/pages60-61",
+      "doc_kind": "TAX_INVOICE",
+      "source_file": "Mixed 1.pdf",
+      "page_range": [
+        60,
+        61
+      ],
+      "supplier": "Aust Care Environmental Services Pty Ltd",
+      "invoice_no": "26302",
+      "invoice_date": "9 Sep 2026",
+      "printed_subtotal_ex_gst": 58374.77,
+      "printed_gst": 5837.48,
+      "printed_total_incl_gst": 64212.25,
+      "captured_ex_gst": 58374.77,
+      "tie_variance": 0.0,
+      "self_tie": "TIE",
+      "po_refs": [
+        "801671"
+      ],
+      "pk_refs": [
+        "PK000378"
+      ],
+      "duplicate_of": null,
+      "lines": [],
+      "notes": "Document-level Runtime B capture. Layout rows are not reconstructed where the chat text layer does not preserve stable column geometry."
+    }
+  ]
+}

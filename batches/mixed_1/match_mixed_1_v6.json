@@ -1,0 +1,662 @@
+[
+ {
+  "invoice": "INV-39235",
+  "vendor": "T & H LEVAI PTY LTD",
+  "abn": "65 100 395 480",
+  "subtotal": 33570.0,
+  "incl": 33570.0,
+  "variant": "check 2 SUM-TIE (one printed invoice posted as two AP rows, each with a printed counterpart quote line)",
+  "target": [
+   "51321023-73212-PK000373-01",
+   "51321023-73212-PK000373-02"
+  ],
+  "register_lines": [
+   {
+    "linekey": "51321023-73212-PK000373-01",
+    "section": "Natural Areas",
+    "na": "73212",
+    "pk": "PK000373",
+    "amount": 18900.0,
+    "contractor": "T & H Levai Pty Ltd"
+   },
+   {
+    "linekey": "51321023-73212-PK000373-02",
+    "section": "Natural Areas",
+    "na": "73212",
+    "pk": "PK000373",
+    "amount": 14670.0,
+    "contractor": "T & H Levai Pty Ltd"
+   }
+  ],
+  "evid": "INV-39235",
+  "evid_note": null
+ },
+ {
+  "invoice": "3597",
+  "vendor": "Total Environmental Concepts Pty Ltd",
+  "abn": "11 600 627 343",
+  "subtotal": 33162.5,
+  "incl": 36478.75,
+  "variant": "standard",
+  "target": "106bc6a2-73212-PK000373-01",
+  "register_lines": [
+   {
+    "linekey": "106bc6a2-73212-PK000373-01",
+    "section": "Natural Areas",
+    "na": "73212",
+    "pk": "PK000373",
+    "amount": 33162.5,
+    "contractor": "Total Environmental Concepts Pty Ltd"
+   }
+  ],
+  "evid": "3597",
+  "evid_note": null
+ },
+ {
+  "invoice": "3598",
+  "vendor": "Total Environmental Concepts Pty Ltd",
+  "abn": "11 600 627 343",
+  "subtotal": 16625.0,
+  "incl": 18287.5,
+  "variant": "standard",
+  "target": "470fcde5-73128-PK000079-01",
+  "register_lines": [
+   {
+    "linekey": "470fcde5-73128-PK000079-01",
+    "section": "Natural Areas",
+    "na": "73128",
+    "pk": "PK000079",
+    "amount": 16625.0,
+    "contractor": "Total Environmental Concepts Pty Ltd"
+   }
+  ],
+  "evid": "3598",
+  "evid_note": null
+ },
+ {
+  "invoice": "36220",
+  "vendor": "Treescape Australasia Pty Ltd",
+  "abn": "20-117-830-118 (printed hyphenated)",
+  "subtotal": 25239.25,
+  "incl": 27763.18,
+  "variant": "standard",
+  "target": "4036efe4-73212-PK000373-01",
+  "register_lines": [
+   {
+    "linekey": "4036efe4-73212-PK000373-01",
+    "section": "Natural Areas",
+    "na": "73212",
+    "pk": "PK000373",
+    "amount": 25239.25,
+    "contractor": "Treescape Australasia Pty Ltd"
+   }
+  ],
+  "evid": "36220",
+  "evid_note": null
+ },
+ {
+  "invoice": "18709",
+  "vendor": "Bushcare Services",
+  "abn": "14 532 577 037",
+  "subtotal": 8181.82,
+  "incl": 9000.0,
+  "variant": "standard",
+  "target": "9d6fa03c-73123-PK000375-01",
+  "register_lines": [
+   {
+    "linekey": "9d6fa03c-73123-PK000375-01",
+    "section": "Natural Areas",
+    "na": "73123",
+    "pk": "PK000375",
+    "amount": 8181.82,
+    "contractor": "Bushcare Services"
+   }
+  ],
+  "evid": "18709",
+  "evid_note": null
+ },
+ {
+  "invoice": "158593",
+  "vendor": "Austspray Environmental Weed Control Pty Ltd",
+  "abn": "89 122 731 775",
+  "subtotal": 66937.12,
+  "incl": 73630.83,
+  "variant": "standard",
+  "target": "d6659e7a-73126-PK000052-01",
+  "register_lines": [
+   {
+    "linekey": "d6659e7a-73126-PK000052-01",
+    "section": "Park Maintenance",
+    "na": "73126",
+    "pk": "PK000052",
+    "amount": 66937.12,
+    "contractor": "Austspray Environmental Weed Control Pty Ltd"
+   }
+  ],
+  "evid": "158593",
+  "evid_note": null
+ },
+ {
+  "invoice": "158591",
+  "vendor": "Austspray Environmental Weed Control Pty Ltd",
+  "abn": "89 122 731 775",
+  "subtotal": 51362.6,
+  "incl": 56498.86,
+  "variant": "standard",
+  "target": "1a810557-73126-PK000052-01",
+  "register_lines": [
+   {
+    "linekey": "1a810557-73126-PK000052-01",
+    "section": "Park Maintenance",
+    "na": "73126",
+    "pk": "PK000052",
+    "amount": 51362.6,
+    "contractor": "Austspray Environmental Weed Control Pty Ltd"
+   }
+  ],
+  "evid": "158591",
+  "evid_note": null
+ },
+ {
+  "invoice": "INV-0569",
+  "vendor": "Environmental Management Unit Pty Ltd",
+  "abn": "57 679 181 447",
+  "subtotal": 91232.61,
+  "incl": 100355.86,
+  "variant": "standard; cents companion AP line(s) c9a99367-73212-PK000378-02 -0.01 (TechOne incl/1.1 rounding leg, not green-blocked, cross-referenced in the coding note)",
+  "target": "c9a99367-73212-PK000378-01",
+  "register_lines": [
+   {
+    "linekey": "c9a99367-73212-PK000378-01",
+    "section": "Natural Areas",
+    "na": "73212",
+    "pk": "PK000378",
+    "amount": 91232.61,
+    "contractor": "Environmental Management Unit Pty Ltd"
+   },
+   {
+    "linekey": "c9a99367-73212-PK000378-02",
+    "section": "Natural Areas",
+    "na": "73212",
+    "pk": "PK000378",
+    "amount": -0.01,
+    "contractor": "Environmental Management Unit Pty Ltd"
+   }
+  ],
+  "evid": "INV-0569",
+  "evid_note": null
+ },
+ {
+  "invoice": "18751",
+  "vendor": "Bushcare Services",
+  "abn": "14 532 577 037",
+  "subtotal": 42915.58,
+  "incl": 47207.08,
+  "variant": "standard; cents companion AP line(s) 152f7bfd-73212-PK000378-02 -0.05 (TechOne incl/1.1 rounding leg, not green-blocked, cross-referenced in the coding note)",
+  "target": "152f7bfd-73212-PK000378-01",
+  "register_lines": [
+   {
+    "linekey": "152f7bfd-73212-PK000378-01",
+    "section": "Natural Areas",
+    "na": "73212",
+    "pk": "PK000378",
+    "amount": 42915.58,
+    "contractor": "Bushcare Services"
+   },
+   {
+    "linekey": "152f7bfd-73212-PK000378-02",
+    "section": "Natural Areas",
+    "na": "73212",
+    "pk": "PK000378",
+    "amount": -0.05,
+    "contractor": "Bushcare Services"
+   }
+  ],
+  "evid": "18751",
+  "evid_note": null
+ },
+ {
+  "invoice": "18750",
+  "vendor": "Bushcare Services",
+  "abn": "14 532 577 037",
+  "subtotal": 54359.72,
+  "incl": 59795.62,
+  "variant": "standard; cents companion AP line(s) 0f363ea0-73212-PK000378-02 -0.06 (TechOne incl/1.1 rounding leg, not green-blocked, cross-referenced in the coding note)",
+  "target": "0f363ea0-73212-PK000378-01",
+  "register_lines": [
+   {
+    "linekey": "0f363ea0-73212-PK000378-01",
+    "section": "Natural Areas",
+    "na": "73212",
+    "pk": "PK000378",
+    "amount": 54359.72,
+    "contractor": "Bushcare Services"
+   },
+   {
+    "linekey": "0f363ea0-73212-PK000378-02",
+    "section": "Natural Areas",
+    "na": "73212",
+    "pk": "PK000378",
+    "amount": -0.06,
+    "contractor": "Bushcare Services"
+   }
+  ],
+  "evid": "18750",
+  "evid_note": null
+ },
+ {
+  "invoice": "158590",
+  "vendor": "Austspray Environmental Weed Control Pty Ltd",
+  "abn": "89 122 731 775",
+  "subtotal": 57618.11,
+  "incl": 63379.92,
+  "variant": "standard",
+  "target": "bedeca50-73126-PK000052-01",
+  "register_lines": [
+   {
+    "linekey": "bedeca50-73126-PK000052-01",
+    "section": "Park Maintenance",
+    "na": "73126",
+    "pk": "PK000052",
+    "amount": 57618.11,
+    "contractor": "Austspray Environmental Weed Control Pty Ltd"
+   }
+  ],
+  "evid": "158590",
+  "evid_note": null
+ },
+ {
+  "invoice": "158592",
+  "vendor": "Austspray Environmental Weed Control Pty Ltd",
+  "abn": "89 122 731 775",
+  "subtotal": 75345.91,
+  "incl": 82880.5,
+  "variant": "standard",
+  "target": "49fe93cd-73126-PK000052-01",
+  "register_lines": [
+   {
+    "linekey": "49fe93cd-73126-PK000052-01",
+    "section": "Park Maintenance",
+    "na": "73126",
+    "pk": "PK000052",
+    "amount": 75345.91,
+    "contractor": "Austspray Environmental Weed Control Pty Ltd"
+   }
+  ],
+  "evid": "158592",
+  "evid_note": null
+ },
+ {
+  "invoice": "INV-9360",
+  "vendor": "Lilgeco Pty Ltd ATF M Hanns Family Trust Trading As Activeco",
+  "abn": "36 540 248 138",
+  "subtotal": 51704.65,
+  "incl": 56875.13,
+  "variant": "check 2 derivation equality (incl 56875.13/1.1 = 51704.66)",
+  "target": "eebaeb8f-73212-PK000378-01",
+  "register_lines": [
+   {
+    "linekey": "eebaeb8f-73212-PK000378-01",
+    "section": "Natural Areas",
+    "na": "73212",
+    "pk": "PK000378",
+    "amount": 51704.66,
+    "contractor": "Lilgeco Pty Ltd ATF M Hanns Family Trust Trading As Activeco"
+   }
+  ],
+  "evid": "INV-9360",
+  "evid_note": null
+ },
+ {
+  "invoice": "INV-0110",
+  "vendor": "Guru Dirt Works",
+  "abn": "39 950 797 737",
+  "subtotal": 10320.0,
+  "incl": 11352.0,
+  "variant": "standard",
+  "target": "47d7688f-73212-PK000381-01",
+  "register_lines": [
+   {
+    "linekey": "47d7688f-73212-PK000381-01",
+    "section": "Natural Areas",
+    "na": "73212",
+    "pk": "PK000381",
+    "amount": 10320.0,
+    "contractor": "Guru Dirt Works"
+   }
+  ],
+  "evid": "GDW-INV-0110",
+  "evid_note": "EvID prefixed GDW-: the Xero INV-# id is already held for Flavell-Dau in PS_WP v127 (Method 34.2 precedent); the prefix is applied to the whole Guru Dirt Works series for consistency"
+ },
+ {
+  "invoice": "26230",
+  "vendor": "Aust Care Environmental Services Pty Ltd",
+  "abn": "53 093 389 407",
+  "subtotal": 39128.88,
+  "incl": 43041.76,
+  "variant": "standard; cents companion AP line(s) 68becbf5-73212-PK000378-02 -0.01 (TechOne incl/1.1 rounding leg, not green-blocked, cross-referenced in the coding note)",
+  "target": "68becbf5-73212-PK000378-01",
+  "register_lines": [
+   {
+    "linekey": "68becbf5-73212-PK000378-01",
+    "section": "Natural Areas",
+    "na": "73212",
+    "pk": "PK000378",
+    "amount": 39128.88,
+    "contractor": "Aust Care Environmental Services Pty Ltd"
+   },
+   {
+    "linekey": "68becbf5-73212-PK000378-02",
+    "section": "Natural Areas",
+    "na": "73212",
+    "pk": "PK000378",
+    "amount": -0.01,
+    "contractor": "Aust Care Environmental Services Pty Ltd"
+   }
+  ],
+  "evid": "26230",
+  "evid_note": null
+ },
+ {
+  "invoice": "26231",
+  "vendor": "Aust Care Environmental Services Pty Ltd",
+  "abn": "53 093 389 407",
+  "subtotal": 49052.32,
+  "incl": 53957.56,
+  "variant": "standard; cents companion AP line(s) 98359e17-73212-PK000378-02 0.01 (TechOne incl/1.1 rounding leg, not green-blocked, cross-referenced in the coding note)",
+  "target": "98359e17-73212-PK000378-01",
+  "register_lines": [
+   {
+    "linekey": "98359e17-73212-PK000378-01",
+    "section": "Natural Areas",
+    "na": "73212",
+    "pk": "PK000378",
+    "amount": 49052.32,
+    "contractor": "Aust Care Environmental Services Pty Ltd"
+   },
+   {
+    "linekey": "98359e17-73212-PK000378-02",
+    "section": "Natural Areas",
+    "na": "73212",
+    "pk": "PK000378",
+    "amount": 0.01,
+    "contractor": "Aust Care Environmental Services Pty Ltd"
+   }
+  ],
+  "evid": "26231",
+  "evid_note": null
+ },
+ {
+  "invoice": "158851",
+  "vendor": "Austspray Environmental Weed Control Pty Ltd",
+  "abn": "89 122 731 775",
+  "subtotal": 51362.6,
+  "incl": 56498.86,
+  "variant": "standard",
+  "target": "5b912c6e-73126-PK000052-01",
+  "register_lines": [
+   {
+    "linekey": "5b912c6e-73126-PK000052-01",
+    "section": "Park Maintenance",
+    "na": "73126",
+    "pk": "PK000052",
+    "amount": 51362.6,
+    "contractor": "Austspray Environmental Weed Control Pty Ltd"
+   }
+  ],
+  "evid": "158851",
+  "evid_note": null
+ },
+ {
+  "invoice": "INV-0600",
+  "vendor": "Environmental Management Unit Pty Ltd",
+  "abn": "57 679 181 447",
+  "subtotal": 28913.57,
+  "incl": 31804.91,
+  "variant": "check 2 derivation equality (incl 31804.91/1.1 = 28913.55)",
+  "target": "f6b4dbfe-73212-PK000378-01",
+  "register_lines": [
+   {
+    "linekey": "f6b4dbfe-73212-PK000378-01",
+    "section": "Natural Areas",
+    "na": "73212",
+    "pk": "PK000378",
+    "amount": 28913.55,
+    "contractor": "Environmental Management Unit Pty Ltd"
+   }
+  ],
+  "evid": "INV-0600",
+  "evid_note": null
+ },
+ {
+  "invoice": "INV-0111",
+  "vendor": "Guru Dirt Works",
+  "abn": "39 950 797 737",
+  "subtotal": 9582.5,
+  "incl": 10540.75,
+  "variant": "standard",
+  "target": "fac14e9a-73212-PK000381-01",
+  "register_lines": [
+   {
+    "linekey": "fac14e9a-73212-PK000381-01",
+    "section": "Natural Areas",
+    "na": "73212",
+    "pk": "PK000381",
+    "amount": 9582.5,
+    "contractor": "Guru Dirt Works"
+   }
+  ],
+  "evid": "GDW-INV-0111",
+  "evid_note": "EvID prefixed GDW-: the Xero INV-# id is already held for Flavell-Dau in PS_WP v127 (Method 34.2 precedent); the prefix is applied to the whole Guru Dirt Works series for consistency"
+ },
+ {
+  "invoice": "158852",
+  "vendor": "Austspray Environmental Weed Control Pty Ltd",
+  "abn": "89 122 731 775",
+  "subtotal": 66937.12,
+  "incl": 73630.83,
+  "variant": "standard",
+  "target": "c66f3861-73126-PK000052-01",
+  "register_lines": [
+   {
+    "linekey": "c66f3861-73126-PK000052-01",
+    "section": "Park Maintenance",
+    "na": "73126",
+    "pk": "PK000052",
+    "amount": 66937.12,
+    "contractor": "Austspray Environmental Weed Control Pty Ltd"
+   }
+  ],
+  "evid": "158852",
+  "evid_note": null
+ },
+ {
+  "invoice": "18788",
+  "vendor": "Bushcare Services",
+  "abn": "14 532 577 037",
+  "subtotal": 22888.32,
+  "incl": 25177.12,
+  "variant": "check 2 derivation equality (incl 25177.12/1.1 = 22888.29)",
+  "target": "ad0ada8d-73212-PK000378-01",
+  "register_lines": [
+   {
+    "linekey": "ad0ada8d-73212-PK000378-01",
+    "section": "Natural Areas",
+    "na": "73212",
+    "pk": "PK000378",
+    "amount": 22888.29,
+    "contractor": "Bushcare Services"
+   }
+  ],
+  "evid": "18788",
+  "evid_note": null
+ },
+ {
+  "invoice": "18789",
+  "vendor": "Bushcare Services",
+  "abn": "14 532 577 037",
+  "subtotal": 21743.93,
+  "incl": 23918.29,
+  "variant": "check 2 derivation equality (incl 23918.29/1.1 = 21743.90)",
+  "target": "04dd5d58-73212-PK000378-01",
+  "register_lines": [
+   {
+    "linekey": "04dd5d58-73212-PK000378-01",
+    "section": "Natural Areas",
+    "na": "73212",
+    "pk": "PK000378",
+    "amount": 21743.9,
+    "contractor": "Bushcare Services"
+   }
+  ],
+  "evid": "18789",
+  "evid_note": null
+ },
+ {
+  "invoice": "158850",
+  "vendor": "Austspray Environmental Weed Control Pty Ltd",
+  "abn": "89 122 731 775",
+  "subtotal": 57631.44,
+  "incl": 63394.58,
+  "variant": "standard",
+  "target": "070a7eb2-73126-PK000052-01",
+  "register_lines": [
+   {
+    "linekey": "070a7eb2-73126-PK000052-01",
+    "section": "Park Maintenance",
+    "na": "73126",
+    "pk": "PK000052",
+    "amount": 57631.44,
+    "contractor": "Austspray Environmental Weed Control Pty Ltd"
+   }
+  ],
+  "evid": "158850",
+  "evid_note": null
+ },
+ {
+  "invoice": "158853",
+  "vendor": "Austspray Environmental Weed Control Pty Ltd",
+  "abn": "89 122 731 775",
+  "subtotal": 75377.98,
+  "incl": 82915.78,
+  "variant": "standard",
+  "target": "4b2dc2de-73126-PK000052-01",
+  "register_lines": [
+   {
+    "linekey": "4b2dc2de-73126-PK000052-01",
+    "section": "Park Maintenance",
+    "na": "73126",
+    "pk": "PK000052",
+    "amount": 75377.98,
+    "contractor": "Austspray Environmental Weed Control Pty Ltd"
+   }
+  ],
+  "evid": "158853",
+  "evid_note": null
+ },
+ {
+  "invoice": "INV-0112",
+  "vendor": "Guru Dirt Works",
+  "abn": "39950797737 (printed ungrouped)",
+  "subtotal": 9300.0,
+  "incl": 10230.0,
+  "variant": "standard",
+  "target": "27485932-73212-PK000381-01",
+  "register_lines": [
+   {
+    "linekey": "27485932-73212-PK000381-01",
+    "section": "Natural Areas",
+    "na": "73212",
+    "pk": "PK000381",
+    "amount": 9300.0,
+    "contractor": "Guru Dirt Works"
+   }
+  ],
+  "evid": "GDW-INV-0112",
+  "evid_note": "EvID prefixed GDW-: the Xero INV-# id is already held for Flavell-Dau in PS_WP v127 (Method 34.2 precedent); the prefix is applied to the whole Guru Dirt Works series for consistency"
+ },
+ {
+  "invoice": "012191",
+  "vendor": "Glascott Landscape and Civil Pty Limited (letterhead prints \"Technigro ABN 97 001 281 572\")",
+  "abn": "97 001 281 572",
+  "subtotal": 32477.92,
+  "incl": 35725.71,
+  "variant": "standard",
+  "target": "53e3c796-73212-PK000378-01",
+  "register_lines": [
+   {
+    "linekey": "53e3c796-73212-PK000378-01",
+    "section": "Natural Areas",
+    "na": "73212",
+    "pk": "PK000378",
+    "amount": 32477.92,
+    "contractor": "Glascott Landscape and Civil Pty Limited"
+   }
+  ],
+  "evid": "012191",
+  "evid_note": null
+ },
+ {
+  "invoice": "012197",
+  "vendor": "Glascott Landscape and Civil Pty Limited (letterhead prints \"Technigro ABN 97 001 281 572\")",
+  "abn": "97 001 281 572",
+  "subtotal": 25217.15,
+  "incl": 27738.87,
+  "variant": "standard",
+  "target": "55521d09-73212-PK000378-01",
+  "register_lines": [
+   {
+    "linekey": "55521d09-73212-PK000378-01",
+    "section": "Natural Areas",
+    "na": "73212",
+    "pk": "PK000378",
+    "amount": 25217.15,
+    "contractor": "Glascott Landscape and Civil Pty Limited"
+   }
+  ],
+  "evid": "012197",
+  "evid_note": null
+ },
+ {
+  "invoice": "INV-0115",
+  "vendor": "Guru Dirt Works",
+  "abn": "39950797737 (printed ungrouped)",
+  "subtotal": 11240.0,
+  "incl": 12364.0,
+  "variant": "standard",
+  "target": "86805b93-73212-PK000381-01",
+  "register_lines": [
+   {
+    "linekey": "86805b93-73212-PK000381-01",
+    "section": "Natural Areas",
+    "na": "73212",
+    "pk": "PK000381",
+    "amount": 11240.0,
+    "contractor": "Guru Dirt Works"
+   }
+  ],
+  "evid": "GDW-INV-0115",
+  "evid_note": "EvID prefixed GDW-: the Xero INV-# id is already held for Flavell-Dau in PS_WP v127 (Method 34.2 precedent); the prefix is applied to the whole Guru Dirt Works series for consistency"
+ },
+ {
+  "invoice": "26302",
+  "vendor": "Aust Care Environmental Services Pty Ltd",
+  "abn": "53 093 389 407",
+  "subtotal": 58374.77,
+  "incl": 64212.25,
+  "variant": "standard",
+  "target": "70d88118-73212-PK000378-01",
+  "register_lines": [
+   {
+    "linekey": "70d88118-73212-PK000378-01",
+    "section": "Natural Areas",
+    "na": "73212",
+    "pk": "PK000378",
+    "amount": 58374.77,
+    "contractor": "Aust Care Environmental Services Pty Ltd"
+   }
+  ],
+  "evid": "26302",
+  "evid_note": null
+ }
+]
