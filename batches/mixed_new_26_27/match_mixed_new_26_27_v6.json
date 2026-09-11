@@ -134,7 +134,7 @@
   "abn": "82 067 507 591",
   "subtotal": 9162.93,
   "incl": 10079.22,
-  "variant": "standard; cents companion AP line(s) f386b8d0-73212-PK000415-01 240.0 (TechOne incl/1.1 rounding leg, not green-blocked, cross-referenced in the coding note)",
+  "variant": "standard",
   "target": "31da2c4a-73123-PK000412-01",
   "register_lines": [
    {
@@ -145,19 +145,10 @@
     "amount": 9162.93,
     "contractor": "Unidentified (FY2026/27 section-wide, not yet identified)",
     "narr": "STANDING ORDER 25/26"
-   },
-   {
-    "linekey": "f386b8d0-73212-PK000415-01",
-    "section": "Park Services",
-    "na": "73212",
-    "pk": "PK000415",
-    "amount": 240.0,
-    "contractor": "Unidentified (FY2026/27 series 8-digit)",
-    "narr": "Standing Order 2026/27"
    }
   ],
   "evid": "15225",
-  "evid_note": null,
+  "evid_note": "v4 correction: register line f386b8d0-73212-PK000415-01 (reference 00015225, $240.00, Document File 1252793, 16-Jul-2026) was tagged at v3 as a cents companion of this invoice; it sits on a different TechOne document and the HAR073 APLEDGER history shows it is Harpley Services invoice 00015225 ($264.00 incl). The tag is withdrawn; this invoice posts as one register line.",
   "line_map": null
  },
  {

@@ -17,6 +17,11 @@ V127 = _os.environ.get('PBR_V127', _os.path.join(ROOT, 'registers', 'PS_WP_Trans
 CACHE = _os.path.join(ROOT, 'cache')
 HERE = os.path.dirname(os.path.abspath(__file__))
 RULES = json.load(open(os.path.join(HERE, 'pbr_rules_v1.json')))
+HIST = json.load(open(os.path.join(HERE, 'pbr_histories_v4.json')))  # APLEDGER creditor histories, branch v4 (content as data)
+HIST_COLS = ['Reference', 'GST Date', 'Discount Date', 'On Hold', 'Has Note', 'Date', 'Description (Document Type)', 'Details', 'Outstanding', 'Applied',
+             'Transaction Amount', 'Due Date', 'Ageing Date', 'Period', 'Ageing', 'Source', 'Units', 'Discount', 'Has Attachment', 'Payment Details', 'ABN',
+             'Billing System', 'Work Order', 'Work Order Transaction Number', 'Work System']
+BATCHES = ('mixed_1', 'mixed_new_26_27', 'attach_1')
 NCOL = 148  # 146 PS/WP columns + 147 Src Note + 148 Register provenance
 
 def D(x):
@@ -111,6 +116,42 @@ def load_ledger():
     return dict(params=rows[1][0], criteria=crit, hdr_code=hdr_code, hdr=hdr, data=data, total=total)
 
 
+def as_date(v):
+    if isinstance(v, dt.datetime):
+        return v.date()
+    if isinstance(v, dt.date):
+        return v
+    if isinstance(v, str) and re.match(r'\d{4}-\d{2}-\d{2}', v):
+        return dt.date.fromisoformat(v[:10])
+    return None
+
+
+def load_histories():
+    """APLEDGER creditor histories (branch v4): one TechOne export per creditor account, verbatim rows keyed by export row."""
+    out = []
+    for h in HIST['histories']:
+        p = os.path.join(ROOT, HIST['dir'], h['file'])
+        rows = sheet(p)
+        hdr = [str(c) for c in rows[4]]
+        assert hdr[:25] == HIST_COLS, (h['file'], hdr)
+        code = re.search(r'Account = (\w+)', str(rows[1][0])).group(1)
+        assert code == h['code'], (h['file'], code, h['code'])
+        data, total = [], None
+        for i, r in enumerate(rows[5:], 6):
+            if all(c in ('', None) for c in r):
+                continue
+            if r[5] in ('', None) and isinstance(r[10], float):
+                total = r; continue
+            data.append((i, r))
+        assert total is not None and sum(D(r[10]) for _, r in data) == D(total[10]), (h['code'], 'export total row does not tie')
+        abns = collections.Counter(str(r[20]).strip() for _, r in data)
+        assert abns.most_common(1)[0][0] == h['abn'], (h['code'], abns.most_common(3))
+        dates = [as_date(r[5]) for _, r in data]
+        out.append(dict(h, path=p, md5=md5(p), params=str(rows[1][0]), hdr=hdr, data=data, total=total, n=len(data), first=min(dates), last=max(dates),
+                        n_fy27=sum(1 for d_ in dates if d_ >= dt.date(2026, 7, 1)), abn_other=[a for a, _ in abns.most_common() if a != h['abn']]))
+    return out
+
+
 def load_se2():
     out = {}
     for k, p in SE2.items():
@@ -162,6 +203,8 @@ def main(dry=False):
     L = load_ledger()
     se2 = load_se2()
     led_md5 = md5(LEDGER)
+    H = load_histories()
+    say(f'creditor histories loaded: {len(H)} files, {sum(h["n"] for h in H):,} lines')
     say(f'ledger rows {len(L["data"])} total {L["total"]}')
     # ------------------------------------------------------------------ gate 1: extract ties
     tot = sum(D(r[7]) for r in L['data'])
@@ -175,6 +218,26 @@ def main(dry=False):
     # ------------------------------------------------------------------ v127 FY2026/27 population
     v = pickle.load(open(_os.path.join(CACHE, 'v127.pkl'), 'rb'))
     VR = v['Register']
+    # ------------------------------------------------------------------ rule 12 duplicate screen (md5 against v127 Data_Acquisition and this register's inputs)
+    da127 = ' '.join(str(c) for r in v['Data_Acquisition'] for c in r if c)
+    known = {led_md5} | {s_['md5'] for s_ in se2.values()}
+    for h in H:
+        assert h['md5'] not in da127 and h['md5'] not in known, ('rule 12: history already received', h['code'], h['md5'])
+        known.add(h['md5'])
+    for batch in BATCHES:
+        cj = json.load(open(os.path.join(ROOT, 'batches', batch, f'corpus_{batch}_v6.json')))
+        assert cj['manifest'].get('gate') == 'GREEN', (batch, cj['manifest'].get('gate'))
+        for sf in cj['manifest']['source_files']:
+            assert sf['md5'] not in da127, ('rule 12: source file already received', batch, sf)
+    say('gate rule 12: no history or source-file md5 previously received')
+    # HAR073 re-pull audit against the v127 embedded history (rule 12: a re-sighting is audited, not re-captured)
+    hist_audit = {}
+    for k_, h in enumerate(H):
+        old = {(str(r[2]).strip(), str(as_date(r[7])), D(r[12])) for r in v['Creditor_Lines'][4:] if str(r[0]).startswith(h['code'])}
+        if old:
+            new = {(str(r[0]).strip(), str(as_date(r[5])), D(r[10])) for _, r in h['data']}
+            hist_audit[h['code']] = dict(v127_rows=len(old), new_rows=len(new), in_both=len(old & new), v127_only=len(old - new), new_only=len(new - old))
+    say(f'history re-pull audit against v127 Creditor_Lines: {hist_audit}')
     v_hdr = VR[3]
     forms = json.load(open(_os.path.join(CACHE, 'v127_fy2627_forms.json')))
     vfy = [(i + 1, r) for i, r in enumerate(VR) if i >= 4 and i < 31364 and r[4] == 'FY2026/27']
@@ -214,6 +277,45 @@ def main(dry=False):
     for i, r in enumerate(CL[4:], 5):
         if str(r[2]).strip():
             cl_by_ref[str(r[2]).strip()].append((i, r))
+    # branch v4 APLEDGER histories: reference -> (history index, export row, row)
+    hist_by_ref = collections.defaultdict(list)
+    for k_, h in enumerate(H):
+        for i, r in h['data']:
+            hist_by_ref[clean_num_text(r[0]).strip()].append((k_, i, r))
+    du_sum = collections.defaultdict(Decimal)
+    for y in L['data']:
+        du_sum[y[14]] += D(y[7])
+    hist_matches, hist_conflicts, hist_ambiguous = [], [], []
+
+    def hist_match(ref, du, ddate):
+        cands = hist_by_ref.get(ref, [])
+        if not cands:
+            return None
+        want = (du_sum[du] * Decimal('1.1')).quantize(Decimal('0.01'), ROUND_HALF_UP)
+        ok = []
+        for k_, i, r in cands:
+            hd = as_date(r[5])
+            if abs(D(r[10]) - want) <= Decimal('0.02') and hd and isinstance(ddate, dt.date) and abs((hd - ddate).days) <= 120:
+                ok.append((k_, i, r))
+        codes = {H[k_]['code'] for k_, _, _ in ok}
+        if len(codes) > 1:
+            hist_ambiguous.append((ref, sorted(codes)))
+        return ok[0] if len(codes) == 1 else None
+
+    def apply_hist(V, hm, ref, dsum):
+        k_, i, c = hm; hh = H[k_]
+        V[11] = hh['code']; V[12] = hh['label']
+        abn_raw = clean_num_text(c[20]).strip()
+        abn = f'{abn_raw[:2]} {abn_raw[2:5]} {abn_raw[5:8]} {abn_raw[8:]}' if len(abn_raw) == 11 else None
+        V[13] = abn
+        V[45] = c[10]; V[46] = c[1] or None; V[47] = c[11] or None; V[48] = c[8]; V[49] = c[9]
+        V[50] = c[14] or None; V[51] = c[3] or None; V[52] = (str(c[19]) if c[19] not in (None, '') else '').strip() or None; V[53] = (str(c[21]) if c[21] not in (None, '') else '').strip() or None
+        V[23] = c[7] or None
+        hd = as_date(c[5])
+        ev = (f'Creditor history line (APLEDGER {hh["code"]} history pulled 11-Sep-2026, Creditor_Lines row {{CL:{k_}:{i}}}): {hh["code"]} ({hh["label"]}), reference {ref}, '
+              f'${D(c[10]):,} incl GST dated {hd.strftime("%d-%b-%Y") if hd else "(no date)"} against document net ${dsum:,} ex GST (x1.1 within 2c)'
+              + (f', ABN {abn}' if abn else ', no ABN on the history line'))
+        return abn, ev
 
     # ------------------------------------------------------------------ build rows
     theme_v2 = [(r[0], r[1]) for r in v['Theme_Map'][4:31] if r[0]] + [tuple(x) for x in RULES['theme_map_v2_extension']]
@@ -454,6 +556,7 @@ def main(dry=False):
                 if len({c[0] for _, c in ok}) == 1:
                     cred = ok[0]
             m_named = re.search(r"([A-Z][\w&'\.]*(?: [A-Z&][\w&'\.]*){0,4} (?:Pty Ltd|Pty Limited|Limited|Ltd))", narr or '')
+            hm = None if cred else hist_match(ref, x[14], ddate)
             if cred:
                 ci, c = cred
                 code, label = (c[0].split(' (', 1) + [''])[:2]
@@ -468,6 +571,11 @@ def main(dry=False):
                 evidence = (f'Creditor history line (PS_WP v127 Creditor_Lines row {ci}, carried as Creditor_Lines here): {c[0]}, reference {ref}, '
                             f'${D(c[12]):,} incl GST against document net ${docsum:,} ex GST (x1.1 within 2c)' + (f', ABN {abn}' if abn else ', no ABN on the history line'))
                 cred_new_matches.append((V[1], ci))
+            elif hm:
+                docsum = du_sum[x[14]]
+                abn, evidence = apply_hist(V, hm, ref, docsum)
+                cont = V[12]; tier = 1 if abn else 2; basis = 'Matched creditor history'
+                hist_matches.append(dict(lk=V[1], k=hm[0], i=hm[1], code=H[hm[0]]['code'], inherited=False, prior=None, amount=amt, sec=sec))
             elif dtype == 'Creditors invoices' and re.match(r"^[A-Z][A-Za-z'\. &]+-", narr or ''):
                 cont = f'{(narr or "").split("-")[0].strip()} (narration-named payee)'; tier = 2; basis = 'Line narration'
                 evidence = 'Payee named in the AP narration; invoice not sighted'
@@ -531,6 +639,37 @@ def main(dry=False):
         meta['charge'] = charge
         rows.append(dict(V=V, meta=meta, lidx=i))
 
+    # ------------------------------------------------------------------ inherited AP lines identified from the branch v4 histories (rule 8 Tier 1; port to PS_WP)
+    weak = re.compile(r'Unidentified|series-inferred|confirm\)|\(named in', re.I)
+    for r in rows:
+        if not r['meta']['inherited']:
+            continue
+        V = r['V']; x = L['data'][r['lidx']]
+        if V[10] != 'AP' or V[88] or V[27] == 'Sighted invoice line':
+            continue
+        prior = str(V[12] or '')
+        if not (V[29] == 3 or weak.search(prior) or V[27] == 'Vendor inference (unconfirmed)'):
+            continue
+        ref = clean_num_text(x[3]).strip()
+        hm = hist_match(ref, x[14], x[4])
+        if not hm:
+            continue
+        old_ev = str(V[28] or '')
+        abn, ev = apply_hist(V, hm, ref, du_sum[x[14]])
+        docfile = clean_num_text(x[15])
+        V[27] = 'Matched creditor history'; V[29] = 1 if abn else 2
+        V[28] = (ev + f'. TechOne attachment: {str(x[8]).strip() or "(blank)"}; Document File {docfile}. Identified at branch v4 (port to PS_WP v128); '
+                 f'the PS_WP v127 evidence read: {old_ev[:240]}')
+        if V[33] == 'Pending evidence':
+            V[33] = 'Partial'
+        V[34] = f'Sight the invoice (Document File {docfile}) to confirm nature under rule 17. Port this identification to PS_WP v128.'
+        r['meta']['ident_v4'] = H[hm[0]]['code']
+        if not re.search(r'Unidentified|series-inferred|confirm\)', prior, re.I):
+            hist_conflicts.append((V[1], prior, H[hm[0]]['code'], amt_ := D(V[20])))
+        hist_matches.append(dict(lk=V[1], k=hm[0], i=hm[1], code=H[hm[0]]['code'], inherited=True, prior=prior, amount=D(V[20]), sec=str(V[2])))
+    say(f'APLEDGER history identifications: {len(hist_matches)} lines ({sum(1 for m in hist_matches if m["inherited"])} inherited), '
+        f'{sum(m["amount"] for m in hist_matches):,} ex GST; label conflicts {len(hist_conflicts)}; ambiguous references {len(hist_ambiguous)}')
+
     # ------------------------------------------------------------------ supplier named in a Council journal (Tier 2, corroborated)
     digits = lambda ref: re.sub(r'\D', '', str(ref)).lstrip('0')
     ap_by_inv = collections.defaultdict(list)
@@ -579,8 +718,14 @@ def main(dry=False):
     _keys = frozenset(str(r[0]) for r in v['Vendor_Boilerplate'][4:] if str(r[0]).startswith('BP:'))
     _text = {str(r[0]): r[5] for r in v['Vendor_Boilerplate'][4:] if str(r[0]).startswith('BP:')}
     ev_new, cap_variants = None, None
-    for batch in ('mixed_1', 'mixed_new_26_27'):
+    for batch in BATCHES:
         ev_new, cap_variants = pbr_capture.capture(rows, os.path.join(ROOT, 'batches', batch, f'corpus_{batch}_v6.json'), os.path.join(ROOT, 'batches', batch, f'match_{batch}_v6.json'), say, _keys, _text, ev_new, cap_variants)
+
+    # a sighted invoice (rule 17) supersedes a history identification on the same line: the green block carries the evidence
+    for r in rows:
+        if r['meta'].get('ident_v4') and r['V'][88]:
+            r['meta']['ident_v4_superseded'] = r['meta'].pop('ident_v4')
+    say(f'history identifications superseded by a sighted invoice: {sum(1 for r in rows if r["meta"].get("ident_v4_superseded"))}')
 
     # ------------------------------------------------------------------ LineKey uniqueness (rule 9)
     keys = [r['V'][1] for r in rows]
@@ -607,7 +752,9 @@ def main(dry=False):
         coll = {k: s for k, s in vals.items() if len(s) > 1}
         if coll:
             say(f'case-variant labels in col {c}: {sorted(map(sorted, coll.values()))}')
-    stage = dict(rows=rows, L=L, se2=se2, led_md5=led_md5, v127_md5=md5(V127), inherit_n=len(inherit),
+    attach_files = json.load(open(os.path.join(ROOT, 'batches', 'attach_1', 'corpus_attach_1_v6.json')))['manifest']['source_files']
+    stage = dict(rows=rows, L=L, se2=se2, led_md5=led_md5, v127_md5=md5(V127), inherit_n=len(inherit), hist=H, attach_files=attach_files, hist_matches=hist_matches,
+                 hist_conflicts=hist_conflicts, hist_ambiguous=hist_ambiguous, hist_audit=hist_audit,
                  unmatched_v=[(n, r) for n, r in unmatched_v], v2new=v2new, theme_v2=theme_v2, theme_v3=theme_v3,
                  svc_names=svc_names, na_names=na_names, sec_names=sec_names, flags=flags, oi_data=oi_data,
                  typo_rows=typo_rows, cred_new_matches=cred_new_matches, jnamed=stage_jnamed, log=log, jnet=jnet, jcount=jcount)

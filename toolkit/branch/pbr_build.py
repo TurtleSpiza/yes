@@ -14,7 +14,9 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import pbr_stage
 
-OUTNAME = 'Parks_Branch_Transaction_Register_FY2627_v3.xlsx'
+VER = 'v4'
+OUTNAME = f'Parks_Branch_Transaction_Register_FY2627_{VER}.xlsx'
+CLTOK = re.compile(r'\{CL:(\d+):(\d+)\}')
 SCRATCH = os.path.join(pbr_stage.ROOT, 'cache', 'scratch')
 OUTDIR = os.environ.get('PBR_OUTDIR', os.path.join(pbr_stage.ROOT, 'registers'))
 BUILD_DATE = '11-Sep-2026'
@@ -121,8 +123,14 @@ def build(stage):
         want16 = V[84].strip() or '(no WO Task)'
         if str(V[16]) != want16:
             raise AssertionError(('pkheader', V[1], V[16], V[84]))
-        V[148] = (INH + '; sighted at branch v3 (port the capture to PS_WP v128)') if r['meta'].get('ported') else (INH if r['meta']['inherited'] else NEW)
+        if r['meta'].get('ported'):
+            V[148] = INH + f'; sighted at branch {r["meta"].get("ported_ver", "v3")} (port the capture to PS_WP v128)'
+        elif r['meta'].get('ident_v4'):
+            V[148] = INH + f'; contractor identified at branch v4 from APLEDGER {r["meta"]["ident_v4"]} (port to PS_WP v128)'
+        else:
+            V[148] = INH if r['meta']['inherited'] else NEW
     say('gate analysis keys agree with the grey source block on all lines')
+    ident_rows = [r for r in rows if r['meta'].get('ident_v4')]
 
     # ---------------------------------------------------------------- evidence carry maps
     sighted = stage['sighted']; evids = stage['evids']
@@ -235,6 +243,27 @@ def build(stage):
     controls = []   # (group, sheet, text, kind, formulaE, expected)
     summary_ties = []  # (sheet, cell) totals that must equal the register total
 
+    # ---------------------------------------------------------------- Creditor_Lines layout (rows cited by Register col 28)
+    CLv = v127['Creditor_Lines']
+    new_ci = {ci for _, ci in stage['cred_new_matches']}
+    cl_keep = [(i, r) for i, r in enumerate(CLv[4:], 5) if r[1] == 'FY2026/27' or i in new_ci]
+    HISTS = stage['hist']; hist_matches = stage['hist_matches']
+    hm_set = {(m['k'], m['i']) for m in hist_matches}
+    clrow = {}
+    nxt = 5 + len(cl_keep)
+    for k_, hh in enumerate(HISTS):
+        for i, _ in hh['data']:
+            clrow[(k_, i)] = nxt; nxt += 1
+    CL_LAST = nxt - 1
+    hist_cited = 0
+    for r in rows:
+        t_ = r['V'][28]
+        if isinstance(t_, str) and '{CL:' in t_:
+            r['V'][28] = CLTOK.sub(lambda mm: str(clrow[(int(mm.group(1)), int(mm.group(2)))]), t_)
+        if isinstance(r['V'][28], str) and 'history pulled 11-Sep-2026' in r['V'][28]:
+            hist_cited += 1
+    say(f'creditor lines: {len(cl_keep)} carried from v127, {len(clrow)} from the branch v4 APLEDGER pulls; {hist_cited} register lines cite a v4 history row')
+
     # ============================================================== Handover (content filled from computed facts)
     unid_by_sec = collections.defaultdict(lambda: [0, Decimal(0)])
     for r in rows:
@@ -245,7 +274,7 @@ def build(stage):
         status_amt[r['V'][33]] += D(r['V'][20])
     inh_amt = sum(D(r['V'][20]) for r in rows if r['meta']['inherited'])
     ho = Sheet(wb, 'Handover', {'A': 34, 'B': 120})
-    ho.row([f'Handover, Parks Branch transaction register FY2026/27 O110-O115 ({BUILD_DATE}, v1)'], 'title')
+    ho.row([f'Handover, Parks Branch transaction register FY2026/27 O110-O115 ({BUILD_DATE}, {VER})'], 'title')
     ho.row(['Self-contained workbook. Every source export is embedded verbatim; the PS & WP register v127 FY2026/27 analysis is inherited line by line; every figure below is live or restated from the embedded sources.'], 'sub')
     ho.blank()
     ho.row(['Position at handover', ''], 'blue')
@@ -256,7 +285,8 @@ def build(stage):
            ('$ Confirmed (live)', '=SUMIFS(Reg_Amount,Reg_Status,"Confirmed")'), ('$ Partial (live)', '=SUMIFS(Reg_Amount,Reg_Status,"Partial")'),
            ('$ Pending evidence (live)', '=SUMIFS(Reg_Amount,Reg_Status,"Pending evidence")'),
            ('Sighted invoice lines (rule 17, carried)', '=COUNTIF(Reg_Basis,"Sighted invoice line")'),
-           ('$ with contractor unidentified (live)', f'=SUMIFS(Reg_Amount,Reg_Contractor,"{esc(UNID)}")')]
+           ('$ with contractor unidentified (live)', f'=SUMIFS(Reg_Amount,Reg_Contractor,"{esc(UNID)}")'),
+           ('$ identified from the branch v4 APLEDGER histories (live, lines still citing the history)', f'=SUMIFS(Reg_Amount,Register!$AB${FIRST}:$AB${LAST},"*history pulled 11-Sep-2026*")')]
     for a, b in pos:
         ho.row([a, b], money_cols=(2,) if (isinstance(b, float) or (isinstance(b, str) and ('SUM' in b or 'T' + str(TOT) in b))) else ())
     ho.blank()
@@ -265,6 +295,10 @@ def build(stage):
     for k, s in se2.items():
         ho.row([os.path.basename(s['path']), f'SE2_Budget sheet verbatim (SE2 by {k}); md5 {s["md5"]}; Coverage and Section_Summary tie to it.'])
     ho.row([os.path.basename(pbr_stage.V127), f'Inheritance source only (not embedded): FY2026/27 analysis, green blocks, evidence lines and matched creditor lines; md5 {stage["v127_md5"]}; Inheritance_Log.'])
+    for k_, hh in enumerate(HISTS, 7):
+        ho.row([os.path.basename(hh['path']), f'Creditor_Lines (APLEDGER {hh["code"]} {hh["label"]}, {hh["n"]:,} lines {hh["first"].strftime("%d-%b-%Y")} to {hh["last"].strftime("%d-%b-%Y")}, verbatim); md5 {hh["md5"]}; Data_Acquisition F{k_}.'])
+    for m_ in stage.get('attach_files', []):
+        ho.row([m_['file'], f'Evidence_Invoices / Evidence_Invoice_Lines / Register green block (Batch attach_1, corpus_attach_1_v6.json with page text retained); md5 {m_["md5"]}; the PDF itself is not embedded (rule 15).'])
     ho.blank()
     ho.row(['Next steps (priority order, detail on Open_Items)', ''], 'blue')
     top = sorted(unid_by_sec.items(), key=lambda kv: -kv[1][1])[:3]
@@ -273,18 +307,22 @@ def build(stage):
              '2. Pair the FY2025/26 EOY AP accrual reversals posted in P1 against 26SLACT P12 for the non-PS/WP sections before reading any section net (rule 5).',
              '3. Re-adjudicate the inherited PS/WP journal sets that now net to zero once the other branch legs are in scope (Open_Items).',
              '4. Confirm the service-to-section mapping for service 20821 (61 lines on Section NA, no WO Task).',
-             '5. Load P4 when it closes; this register refreshes as a whole-branch pull, never section by section.']
+             '5. Load P4 when it closes; this register refreshes as a whole-branch pull, never section by section.',
+             f'6. Port to PS_WP v128: the branch v3/v4 captures on inherited lines and the {len(ident_rows)} inherited Park Services lines identified at branch v4 from the HAR073 history (Register col ER).']
     for s_ in steps:
         ho.row(['', s_])
     ho.blank()
     ho.row(['Change log', ''], 'blue')
+    _hm = stage['hist_matches']
+    ho.row([f'{VER}, {BUILD_DATE}', f'Eight APLEDGER creditor histories embedded (Creditor_Lines, {sum(h["n"] for h in HISTS):,} lines: ' + ', '.join(f'{h["code"]} {h["label"]}' for h in HISTS) + f'). {len(_hm)} register lines identified by reference and incl-GST amount (rule 8 Tier 1), {fmt_money(sum(m["amount"] for m in _hm))} ex GST, of which {len(ident_rows)} inherited Park Services lines still carry the identification (port to PS_WP v128; one further inherited match is superseded by its v3 sighting). '
+            f'Batch attach_1 captured: 5 TechOne attachment PDFs (Eco Technology Solutions 11913, Glascott 012313, Provac INV-00042754, Savco SV007924, Heritage Tree Services INV-47435), 5 green blocks, standard variants, three printed-PK-versus-charged-PK notes. Control total unchanged.'])
     ho.row(['v3, 11-Sep-2026', f'Batch mixed_new_26_27 captured: 33 invoices, {sum(1 for r in sighted if r["meta"].get("ported")) + sum(1 for r in sighted if not r["meta"]["inherited"]) - 30} green blocks, Park Services, Water Parks and Park Maintenance. {sum(1 for r in sighted if r["meta"].get("ported"))} of the green blocks sit on lines inherited from PS_WP v127 and must be ported to the PS_WP register at its next build (Open_Items). Origin consolidated invoices 1026099 and 1026231 captured under the PARTIAL-SCOPE variant (Parks carries the Logan Garden Park site row only). Coast2Coast INV-11834/11835 split-posting resolves service 20821 as the mowing fuel levy leg. Control total unchanged.'])
     ho.row(['v2, 11-Sep-2026', f'Batch mixed_1 captured: {len(evn["order"])} invoices, {sum(1 for r in sighted if not r["meta"]["inherited"])} green blocks, {len(evn["eil"])} evidence lines, {fmt_money(sum(D(x[1][9]) for e, x in ei_rows.items() if e in evn["ei"]))} ex GST on Natural Areas and Park Maintenance lines moved to Confirmed, Tier 1 (rule 17). Control total unchanged. Method 9.0 records the variants.'])
     ho.row(['v1, 11-Sep-2026', f'First build. {N:,} lines tie to the ledger export and to all four SE2 views at $4,910,566.68. {stage["inherit_n"]:,} PS/WP lines ({fmt_money(inh_amt)}) inherit v127 analysis unchanged in substance; {N - stage["inherit_n"]:,} lines classified by the branch v1 engine (Method 6.0). Theme maps extended (Method 7.0). 111 rule 17 green blocks, 110 invoices and 484 evidence lines carried with every check live.'])
 
     # ============================================================== Method
     me = Sheet(wb, 'Method', {'A': 12, 'B': 150})
-    me.row(['Method, Parks Branch transaction register FY2026/27 (v1)'], 'title')
+    me.row([f'Method, Parks Branch transaction register FY2026/27 ({VER})'], 'title')
     me.row(['Numbered sections. Positions are read from Config (rule 19.6); structure is stated here (rule 14).'], 'sub')
     me.blank()
     M = []
@@ -328,6 +366,11 @@ def build(stage):
          'Outside Park Services and Water Parks there is no creditor history or sighted invoice yet: AP nature on new lines is service- or narration-based and supplier identity is mostly Tier 3. Confirmed $ on new lines is journals, internal charges and utilities only.',
          'Monthly accruals (DM 18989758) reverse in the following period; P3 accruals still open at the pull will net only when P4 loads. The P1 EOY 2025/26 accrual reversals are cross-FY and must not be read as FY2026/27 underspend (rule 5).',
          'Site attribution is not performed for new lines. Supply-point text on electricity lines is parsed into column 42 only.')
+    sec_('12.0 Creditor histories (branch v4)',
+         f'Eight APLEDGER creditor histories (TechOne Ledger Accounts Transactions Table, Default Ledger Type AP, one creditor account per export) pulled 11-Sep-2026 and embedded verbatim on Creditor_Lines: ' + '; '.join(f'{h["code"]} {h["label"]} ({h["n"]:,} lines, {h["first"].strftime("%d-%b-%Y")} to {h["last"].strftime("%d-%b-%Y")}, ABN {h["abn"]})' for h in HISTS) + '. Each file md5 is screened against the PS & WP v127 Data_Acquisition and this register\'s inputs before use (rule 12); HAR073 supersedes the 5-Aug-2026 pull embedded in PS_WP v127 (audit: ' + str(stage.get('hist_audit')) + ').',
+         'Match rule (pbr_histories_v4.json, held as data): the AP register line reference equals the history Reference; the history Transaction Amount (incl GST) is within 2c of the document net ex GST x 1.1 summed over every register line on the Document Unique ID; the history Date is within 120 days of the register Doc Date; exactly one creditor code satisfies all three (numeric references collide across creditors, e.g. Harpley and Eco Technology Solutions both issue reference 11913). Tier 1 where the history line carries an 11-digit ABN. The register line takes the creditor code (col K), the label from the manifest (col L, canonical per printed ABN), the ABN grouped (col M), the enquiry block (cols W, AS:BA) and an Evidence sentence citing the Creditor_Lines row. Status stays Partial and verdict Confirm: an AP line is never Confirmed without rule 17.',
+         f'Inherited Park Services lines carried from PS_WP v127 as Unidentified, series-inferred or vendor-inferred are identified the same way ({len(ident_rows)} lines, HAR073; a sighted invoice on the same line supersedes the identification); their provenance (col ER) reads "contractor identified at branch v4" and the v127 evidence sentence is kept inside the new one. Sighted (Tier 1, rule 17) lines are never re-identified. Label conflicts, where the v127 label named a different vendor: {len(stage["hist_conflicts"])} (Open_Items). Correction carried in the match table: at v3 register line f386b8d0-73212-PK000415-01 (reference 00015225, $240.00) was tagged a cents companion of Q Power 15225; it is on a different TechOne document and HAR073 shows it is Harpley invoice 00015225, so the tag is withdrawn (match_mixed_new_26_27_v6.json evid_note).',
+         'Batch attach_1 (v4): five single-invoice TechOne attachment PDFs (EzeScan exports, file name = attachment id) parsed by parse_attach1.py (pdftotext -layout, page text retained, five templates ETSOL, GLASCOTT_LM, PROVAC, SAVCO, HERITAGE), gated GREEN (P9 page-coverage test now runs per source file when a corpus carries several), 254 five-word shingles clean, match table match_attach_1_v6.json (five standard variants, one register line each, coding verdict and note per invoice as data). Printed PK versus PK charged is recorded on three invoices (Eco Technology Solutions 11913, Provac INV-00042754, Savco SV007924); PK Charged stays the ledger Work Order (rule 1).')
     for h, p in M:
         if h:
             me.row([h, ''], 'blue')
@@ -693,7 +736,7 @@ def build(stage):
                       'WO Tasks with an annual budget but a nil P1-3 phased budget and material spend: ' + '; '.join(f'{k} {fmt_money(e[6])} of {fmt_money(e[10])} annual' for k, e in sorted(zeroytd, key=lambda x: -x[1][6])[:8]) + '. YTD variance on these reads as overspend by construction; review the phasing.',
                       'SE2 by WO Task.'))
     items.append(('Glascott schedule v face', 'Review', 'Natural Areas', 2, 57695.07,
-                  'Invoices 012191 and 012197 bill $32,477.92 and $25,217.15 on the face; the attached schedules total $32,951.44 and $27,073.64 ($473.52 and $1,856.49 more) and carry rows on PK000382, PK000383 and PK000379 outside PK000378. Confirm with Natural Areas whether the face or the schedule is the agreed claim, and whether the other-PK rows were billed elsewhere. Letterhead prints Technigro ABN 97 001 281 572 with a Glascott bank account: confirm the creditor entity.',
+                  'Invoices 012191 and 012197 bill $32,477.92 and $25,217.15 on the face; the attached schedules total $32,951.44 and $27,073.64 ($473.52 and $1,856.49 more) and carry rows on PK000382, PK000383 and PK000379 outside PK000378. Confirm with Natural Areas whether the face or the schedule is the agreed claim, and whether the other-PK rows were billed elsewhere. Letterhead prints Technigro ABN 97 001 281 572 with a Glascott bank account. Entity resolved at v4: APLEDGER GLA009 carries ABN 97001281572, so the creditor record is Glascott Landscape and Civil Pty Limited (rule 8).',
                   'Sighted invoices GLASCOTT 012191/012197 and attachments (rule 16d).'))
     items.append(('Activeco INV-9360 date error', 'Housekeeping', 'Natural Areas', 1, 51704.65,
                   'Invoice dated 31-Mar-2026, due 30-Apr-2026, for July 2026 treatments, posted 24-Jul-2026. Ask Activeco to reissue with the correct date; no financial effect. FY (Service) reads Jul-2026 from the treatment dates.',
@@ -713,8 +756,25 @@ def build(stage):
                   'Consolidated invoices 1026099 ($565,345.00) and 1026231 ($576,921.08) are Council-wide, 47 to 48 sites; Parks carries only Logan Garden Park (NMI QB10790446 8) at $2,752.17 and $2,822.55. Captured in full under rule 16 (all site rows); register ties by LineKey to the Parks site row.',
                   'Sighted invoices, PARTIAL-SCOPE variant.'))
     items.append(('Case-variant contractor label', 'Housekeeping', 'Vendor_Series', None, None,
-                  '"LCC internal billing (Plant & Fleet / Workshop)" and "... / workshop)" are both carried from v127. Vendor_Series groups them; canonicalise in both registers at the next housekeeping build.',
+                  '"LCC internal billing (Plant & Fleet / Workshop)" and "... / workshop)" are both carried from v127. Vendor_Series groups them; canonicalise in both registers at the next housekeeping build. Same trap on ABN strings at v4: Treescape Australasia carries "20 117 830 118" (APLEDGER TRE010) and "20-117-830-118 (printed with hyphens)" (branch v2 capture) on different lines; column M should hold the grouped form on every line, the green block the printed form.',
                   'COUNTIF case-insensitivity trap.'))
+    _hm = stage['hist_matches']; _inh = ident_rows
+    if _inh:
+        items.append(('Port branch v4 identifications to the PS_WP register', 'Open', 'Park Services / Water Parks', len(_inh), sum(D(r['V'][20]) for r in _inh),
+                      f'{len(_inh)} inherited lines were Unidentified, series-inferred or vendor-inferred in PS_WP v127 and are now Tier 1 from the HAR073 APLEDGER history (Register col ER "identified at branch v4"). Port at PS_WP v128 with the same history file (Data_Acquisition F9), then re-inherit here.',
+                      'Creditor_Lines (branch v4 block); Method 12.0.'))
+    if stage['hist_conflicts']:
+        items.append(('Contractor label superseded by an APLEDGER match', 'Review', 'Park Services', len(stage['hist_conflicts']), sum(a_ for _, _, _, a_ in stage['hist_conflicts']),
+                      'The PS_WP v127 label named a different vendor on a vendor-inference basis; the APLEDGER history (reference, incl amount, date, ABN) now identifies the creditor: ' + '; '.join(f'{lk} was "{pl}", now {code}' for lk, pl, code, _ in stage['hist_conflicts']) + '. Sight the invoice to settle it and correct PS_WP v128.',
+                      'Rule 8: a creditor history with ABN outranks a vendor inference.'))
+    if stage['hist_ambiguous']:
+        items.append(('Ambiguous history references', 'Note', 'Branch', len(stage['hist_ambiguous']), None,
+                      'References where more than one creditor history ties by amount and date, left unidentified: ' + '; '.join(f'{r_} ({", ".join(c_)})' for r_, c_ in stage['hist_ambiguous'][:20]) + '.', 'Match rule, Method 12.0.'))
+    _pk = [r for r in sighted if str(r['V'][126] or '').startswith('11-Sep-2026, branch v4') and r['V'][104] not in (None, '(not printed)') and str(r['V'][104]).replace(' ', '') != str(r['V'][17])]
+    if _pk:
+        items.append(('Printed PK differs from PK charged (Batch attach_1)', 'Housekeeping', 'Park Maintenance / Cemeteries / Trees', len(_pk), sum(D(r['V'][20]) for r in _pk),
+                      '; '.join(f'{r["V"][88]} prints {r["V"][104]}, charged {r["V"][17]}' for r in _pk) + '. In each case the invoice text supports the PK charged (coding note on the line); ask the supplier to quote the charged WO Task. No financial effect.',
+                      'Sighted invoices, Batch attach_1.'))
     for k, it in enumerate(items, 1):
         oi.row([f'B-{k:03d}'] + list(it), money_cols=(6,))
     cited = collections.Counter()
@@ -744,16 +804,24 @@ def build(stage):
             il.row([n, r[0], 'Inherited', v2new[n], r[7], r[13], r[16], r[19], r[32], None], money_cols=(8,))
 
     # ============================================================== Creditor_Lines
-    CLv = v127['Creditor_Lines']
-    new_ci = {ci for _, ci in stage['cred_new_matches']}
-    cl_keep = [(i, r) for i, r in enumerate(CLv[4:], 5) if r[1] == 'FY2026/27' or i in new_ci]
-    cl = Sheet(wb, 'Creditor_Lines', {'A': 40, 'J': 50})
+    cl = Sheet(wb, 'Creditor_Lines', {'A': 40, 'J': 50, 'AB': 44})
     cl.row(['Creditor ledger lines supporting FY2026/27 identifications'], 'title')
-    cl.row(['Carried verbatim from PS & WP v127 Creditor_Lines: every line matched there to FY2026/27, plus the lines matched at branch v1 by reference and amount (Method 6.0). Column AB is the v127 row.'], 'sub')
+    cl.row([f'Rows 5-{4 + len(cl_keep)}: carried verbatim from PS & WP v127 Creditor_Lines (every line matched there to FY2026/27, plus the lines matched at branch v1 by reference and amount; column AB is the v127 row). '
+            f'Rows {5 + len(cl_keep)}-{CL_LAST}: the {len(HISTS)} APLEDGER creditor histories pulled 11-Sep-2026 for branch v4, embedded in full and verbatim (rule 3, rule 14); column AB is the export row, column AC marks the lines matched to a register line (Method 12.0).'], 'sub')
     cl.blank()
-    cl.row(list(CLv[3][:27]) + ['v127 Creditor_Lines row', 'Used at branch v1 for new lines'], 'grey')
+    cl.row(list(CLv[3][:27]) + ['v127 Creditor_Lines row / APLEDGER export row', 'Used at branch (v1 new lines / v4 identifications)'], 'grey')
     for i, r in cl_keep:
         cl.row(list(r[:27]) + [i, 'Y' if i in new_ci else None], date_cols=(4, 5, 8, 14, 15))
+    for k_, hh in enumerate(HISTS):
+        for i, r in hh['data']:
+            assert cl.n + 1 == clrow[(k_, i)]
+            hit = (k_, i) in hm_set
+            cl.row([f"{hh['code']} ({hh['label']})", 'FY2026/27' if hit else None] + list(r[:25]) + [f"APLEDGER {hh['code']} export row {i} (branch v4 pull)", 'Y' if hit else None], date_cols=(4, 5, 8, 14, 15))
+    assert cl.n == CL_LAST
+    controls.append(('7. Creditor histories (v4)', 'Creditor_Lines', 'Creditor_Lines rows carried from the branch v4 APLEDGER pulls', 'count', f'=COUNTIF(Creditor_Lines!$AB$5:$AB${CL_LAST},"APLEDGER*")', len(clrow)))
+    controls.append(('7. Creditor histories (v4)', 'Creditor_Lines', 'History lines (branch v4 block) matched to a register line (column AC = Y)', 'count', f'=COUNTIF(Creditor_Lines!$AC${5 + len(cl_keep)}:$AC${CL_LAST},"Y")', len(hm_set)))
+    controls.append(('7. Creditor histories (v4)', 'Register', 'Register lines whose evidence cites a branch v4 APLEDGER history row', 'count', f'=COUNTIF(Register!$AB${FIRST}:$AB${LAST},"*history pulled 11-Sep-2026*")', hist_cited))
+    controls.append(('7. Creditor histories (v4)', 'Register', 'Inherited lines identified at branch v4 (provenance column)', 'count', f'=COUNTIF(Reg_Prov,"*identified at branch v4*")', len(ident_rows)))
 
     # ============================================================== SE2_Budget
     sb = Sheet(wb, 'SE2_Budget', {'A': 44})
@@ -786,7 +854,7 @@ def build(stage):
 
     el = Sheet(wb, 'Evidence_Invoice_Lines', {'A': 18, 'C': 80, 'J': 30, 'K': 50})
     el.row(['Evidence invoice lines carried, verbatim (rule 16)'], 'title')
-    el.row(['One row per printed line: carried unchanged from PS & WP v127, or captured at branch v2 from Batch mixed_1. Column J joins to the Register LineKey. ATTACHMENT rows (Glascott schedules) carry no amount in column G and are excluded from check 1 (rule 16d).'], 'sub')
+    el.row(['One row per printed line: carried unchanged from PS & WP v127, or captured at branch v2, v3 and v4 from Batches mixed_1, mixed_new_26_27 and attach_1. Column J joins to the Register LineKey. ATTACHMENT rows (Glascott schedules) carry no amount in column G and are excluded from check 1 (rule 16d).'], 'sub')
     el.blank()
     el.row(list(EIL[3][:13]), 'green')
     for r in eil_lines:
@@ -844,20 +912,26 @@ def build(stage):
     for k_, (k, s) in enumerate(se2.items(), 2):
         lines.append(f'F{k_} | 11-Sep-2026 | {os.path.basename(s["path"])} | md5 {s["md5"]} | TechOne SE2 enquiry export, by {k} | {len(s["body"])} body rows, accumulated actual P1-3 $4,910,566.68 | criteria (verbatim): {s["criteria"]}')
     lines.append(f'F6 | 11-Sep-2026 | {os.path.basename(pbr_stage.V127)} | md5 {stage["v127_md5"]} | Inheritance source, read with python-calamine; not embedded (the PS & WP register remains its own record). 3,372 FY2026/27 lines screened, 3,365 inherited, 7 absent.')
-    lines.append('Gaps and priority queue (branch): 1. APLEDGER creditor histories for the non-PS/WP supplier series (Open_Items B-001 onward). 2. 26SLACT P12 for the non-PS/WP sections, to pair the P1 EOY reversals. 3. 27SLACT P4 whole-branch pull when P4 closes, same criteria. 4. Document Line Tables for the recode sets that do not net in scope.')
+    for k_, hh in enumerate(HISTS, 7):
+        lines.append(f'F{k_} | 11-Sep-2026 | {os.path.basename(hh["path"])} | md5 {hh["md5"]} | TechOne Ledger Accounts Transactions Table export, APLEDGER creditor history {hh["code"]} ({hh["label"]}, ABN {hh["abn"]}), no extraction tool | {hh["n"]:,} lines {hh["first"].strftime("%d-%b-%Y")} to {hh["last"].strftime("%d-%b-%Y")}, export total row ${D(hh["total"][10]):,} | {hh["params"]} | label basis: {hh["label_basis"]}')
+    for k_, m_ in enumerate(stage.get('attach_files', []), 7 + len(HISTS)):
+        lines.append(f'F{k_} | 11-Sep-2026 | {m_["file"]} | md5 {m_["md5"]} | TechOne attachment PDF (EzeScan Server21 export, {m_["pages"]} page(s)); parsed by parse_attach1.py, pdftotext -layout, page text retained in corpus_attach_1_v6.json; gate GREEN; the PDF is not embedded (rule 15) | Batch attach_1')
+    lines.append(f'Rule 12 screen at v4: every md5 above was screened against the PS & WP v127 Data_Acquisition and this register\'s inputs; none had been received before. HAR073 re-pull audited against the v127 embedded history (5-Aug-2026 pull, F26 there): {stage.get("hist_audit")}.')
+    lines.append('Gaps and priority queue (branch): 1. APLEDGER creditor histories for the remaining unidentified supplier series (Open_Items B-001 onward; the queue with one invoice to sight per series is reports/Unidentified_Contractors_v4.md). 2. Sight one invoice per newly identified creditor series to confirm nature (rule 17). 3. 26SLACT P12 for the non-PS/WP sections, to pair the P1 EOY reversals. 4. 27SLACT P4 whole-branch pull when P4 closes, same criteria. 5. Document Line Tables for the recode sets that do not net in scope.')
     for t_ in lines:
         da.row([da.cell(t_, wrap=True)])
 
     # ============================================================== Config
     cf = Sheet(wb, 'Config', {'A': 30, 'B': 60})
     cf.row(['Config: toolkit positions (rule 19.6). One occurrence per key.'], 'title')
-    cfg = [('WORKBOOK_VERSION', 'v3'), ('WORKBOOK_NAME', OUTNAME), ('REGISTER_DATA', f'{FIRST}:{LAST}'), ('REGISTER_TOTAL_ROW', TOT),
+    cfg = [('WORKBOOK_VERSION', VER), ('WORKBOOK_NAME', OUTNAME), ('REGISTER_DATA', f'{FIRST}:{LAST}'), ('REGISTER_TOTAL_ROW', TOT),
            ('REGISTER_COLS', 148), ('GREEN_BLOCK_COLS', '88:127'), ('CONTROL_TOTAL', 4910566.68), ('LINES', N),
            ('INHERITED_LINES', stage['inherit_n']), ('NEW_LINES', N - stage['inherit_n']), ('THEME_MAP_RANGE', f'A5:B{TM_LAST}'),
            ('THEME_MAP_V3_RANGE', f'A5:C{T3_LAST}'), ('EI_DATA', f'5:{EI_LAST}'), ('EI_TOTALS_ROW', EI_TOT), ('EIL_DATA', f'5:{EIL_LAST}'),
            ('EIL_CONTROLS', f'5:{EI_LAST} summary {EI_TOT}'), ('SIGHTED_COUNT', len(sighted)), ('RECON_COUNT', len(ev_order)),
            ('BOILERPLATE_KEYS', len(vb_rows)), ('JOURNAL_SETS', f'5:{JS_LAST} total {JS_TOT}'), ('SOURCE_LEDGER_MD5', stage['led_md5']),
-           ('INHERITANCE_SOURCE_MD5', stage['v127_md5']), ('RULES_FILE', 'pbr_rules_v1.json')]
+           ('INHERITANCE_SOURCE_MD5', stage['v127_md5']), ('RULES_FILE', 'pbr_rules_v1.json'), ('HISTORIES_FILE', 'pbr_histories_v4.json'),
+           ('CREDITOR_LINES', f'5:{CL_LAST} (v127 carried 5:{4 + len(cl_keep)}, APLEDGER v4 {5 + len(cl_keep)}:{CL_LAST})'), ('BATCHES', ', '.join(pbr_stage.BATCHES))]
     for k, v_ in cfg:
         cf.row([k, v_])
 
@@ -907,7 +981,7 @@ def build(stage):
     meta = dict(FIRST=FIRST, LAST=LAST, TOT=TOT, N=N, EI_LAST=EI_LAST, EI_TOT=EI_TOT, ncontrols=len(controls), C0=C0, C1=C1,
                 sighted_rows=[r['row'] for r in sighted], sections=SECTIONS, reclass=len(reclass), js_zero=js_zero, jrefs=len(jrefs),
                 cite=dict(cite_changes), items=len(items), unid=sum(v[1] for v in unid_by_sec.values()), unid_n=sum(v[0] for v in unid_by_sec.values()),
-                status_amt={k: float(v) for k, v in status_amt.items()})
+                status_amt={k: float(v) for k, v in status_amt.items()}, hist=dict(files=len(HISTS), lines=len(clrow), matched=len(hist_matches), matched_amt=float(sum(m['amount'] for m in hist_matches)), inherited=sum(1 for m in hist_matches if m['inherited']), cited=hist_cited, conflicts=len(stage['hist_conflicts'])))
     del wb
     gc.collect()
     return meta

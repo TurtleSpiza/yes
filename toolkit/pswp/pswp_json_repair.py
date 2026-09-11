@@ -16,7 +16,7 @@ FAMILIES
   F2  number hygiene: quoted amounts, '$', thousands separators, more than two decimals (P8)
   F3  supplier ABN: LCC's own ABN 21 627 796 435 read out of the bill-to block (P4)
   F4  doc_ref hygiene: leading zeros preserved, TechOne C-image id kept out of doc_ref
-  F5  page ranges: gaps, and overlaps beyond the single page section 3.4 permits (P9)
+  F5  page ranges: gaps, and overlaps beyond the single page section 3.4 permits (P9); tested per source file when a corpus carries several
   F6  the 4.4 invariant: PRICED iff an amount is present, asserted both ways (P2)
   F7  duplicate doc_ref with neither copy marked duplicate_of (P7)
   F8  credit notes: sign convention, doc_kind
@@ -471,23 +471,28 @@ def assess(corpus: dict) -> list[Pathology]:
     m = corpus.get("manifest", {})
     if m.get("runtime") == "A" and int(m.get("ocr_pages_outstanding") or 0) > 0:
         pats.append(Pathology("P6", "-", 0, "%s OCR pages outstanding" % m.get("ocr_pages_outstanding")))
-    # P9 page coverage across the binder
-    spans = sorted((tuple(d.get("page_range") or [0, 0]) for d in corpus.get("documents", [])))
-    total = 0
-    for sf in m.get("source_files") or []:
-        if isinstance(sf, dict):
-            total = max(total, int(sf.get("pages") or 0))
-    covered: set[int] = set()
-    for a, b in spans:
-        covered |= set(range(a, b + 1))
-    if total:
-        missing = sorted(set(range(1, total + 1)) - covered)
-        if missing:
-            pats.append(Pathology("P9", "-", missing[0], "pages not covered by any page_range: %s" % missing))
-    for i in range(1, len(spans)):
-        prev, cur = spans[i - 1], spans[i]
-        if cur[0] < prev[1]:  # more than the single shared page 3.4 allows
-            pats.append(Pathology("P9", "-", cur[0], "page ranges %s and %s overlap by more than one page" % (prev, cur)))
+    # P9 page coverage across the binder. A corpus may carry several source files (one attachment PDF per document,
+    # branch batch attach_1): coverage and overlap are then tested per source file, never across files.
+    sfs = [sf for sf in (m.get("source_files") or []) if isinstance(sf, dict)]
+    pages_of = {str(sf.get("file")): int(sf.get("pages") or 0) for sf in sfs}
+    groups: dict[str, list] = {}
+    for d in corpus.get("documents", []):
+        key = str(d.get("source_file")) if len(sfs) > 1 else "-"
+        groups.setdefault(key, []).append(tuple(d.get("page_range") or [0, 0]))
+    for key, spans in groups.items():
+        spans = sorted(spans)
+        total = pages_of.get(key, 0) if key != "-" else max([0] + list(pages_of.values()))
+        covered: set[int] = set()
+        for a, b in spans:
+            covered |= set(range(a, b + 1))
+        if total:
+            missing = sorted(set(range(1, total + 1)) - covered)
+            if missing:
+                pats.append(Pathology("P9", key, missing[0], "pages not covered by any page_range: %s" % missing))
+        for i in range(1, len(spans)):
+            prev, cur = spans[i - 1], spans[i]
+            if cur[0] < prev[1]:  # more than the single shared page 3.4 allows
+                pats.append(Pathology("P9", key, cur[0], "page ranges %s and %s overlap by more than one page" % (prev, cur)))
     return pats
 
 
