@@ -17,7 +17,7 @@ V127 = _os.environ.get('PBR_V127', _os.path.join(ROOT, 'registers', 'PS_WP_Trans
 CACHE = _os.path.join(ROOT, 'cache')
 HERE = os.path.dirname(os.path.abspath(__file__))
 RULES = json.load(open(os.path.join(HERE, 'pbr_rules_v1.json')))
-HIST = json.load(open(os.path.join(HERE, 'pbr_histories_v4.json')))  # APLEDGER creditor histories, branch v4 (content as data)
+HIST = json.load(open(os.path.join(HERE, 'pbr_histories_v4.json')))  # APLEDGER creditor histories, branch v4 to v6 (content as data; 'added' names the version each was pulled for)
 HIST_COLS = ['Reference', 'GST Date', 'Discount Date', 'On Hold', 'Has Note', 'Date', 'Description (Document Type)', 'Details', 'Outstanding', 'Applied',
              'Transaction Amount', 'Due Date', 'Ageing Date', 'Period', 'Ageing', 'Source', 'Units', 'Discount', 'Has Attachment', 'Payment Details', 'ABN',
              'Billing System', 'Work Order', 'Work Order Transaction Number', 'Work System']
@@ -128,7 +128,7 @@ def as_date(v):
 
 
 def load_histories():
-    """APLEDGER creditor histories (branch v4): one TechOne export per creditor account, verbatim rows keyed by export row."""
+    """APLEDGER creditor histories (branch v4 to v6): one TechOne export per creditor account, verbatim rows keyed by export row."""
     out = []
     for h in HIST['histories']:
         p = os.path.join(ROOT, HIST['dir'], h['file'])
@@ -234,7 +234,7 @@ def main(dry=False):
             assert h_, ('rule 12: no md5 to screen', batch, sf)
             assert h_ not in da127, ('rule 12: source file already received', batch, sf)
     say('gate rule 12: no history or source-file md5 previously received')
-    # HAR073 re-pull audit against the v127 embedded history (rule 12: a re-sighting is audited, not re-captured)
+    # re-pull audit against the v127 embedded histories, HAR073 at v4 and LEV002 at v6 (rule 12: a re-sighting is audited, not re-captured)
     hist_audit = {}
     for k_, h in enumerate(H):
         old = {(str(r[2]).strip(), str(as_date(r[7])), D(r[12])) for r in v['Creditor_Lines'][4:] if str(r[0]).startswith(h['code'])}
@@ -281,7 +281,7 @@ def main(dry=False):
     for i, r in enumerate(CL[4:], 5):
         if str(r[2]).strip():
             cl_by_ref[str(r[2]).strip()].append((i, r))
-    # branch v4 APLEDGER histories: reference -> (history index, export row, row)
+    # branch v4 to v6 APLEDGER histories: reference -> (history index, export row, row)
     hist_by_ref = collections.defaultdict(list)
     for k_, h in enumerate(H):
         for i, r in h['data']:
@@ -643,7 +643,7 @@ def main(dry=False):
         meta['charge'] = charge
         rows.append(dict(V=V, meta=meta, lidx=i))
 
-    # ------------------------------------------------------------------ inherited AP lines identified from the branch v4 histories (rule 8 Tier 1; port to PS_WP)
+    # ------------------------------------------------------------------ inherited AP lines identified from the branch v4 to v6 histories (rule 8 Tier 1; port to PS_WP)
     weak = re.compile(r'Unidentified|series-inferred|confirm\)|\(named in', re.I)
     for r in rows:
         if not r['meta']['inherited']:
@@ -662,12 +662,12 @@ def main(dry=False):
         abn, ev = apply_hist(V, hm, ref, du_sum[x[14]])
         docfile = clean_num_text(x[15])
         V[27] = 'Matched creditor history'; V[29] = 1 if abn else 2
-        V[28] = (ev + f'. TechOne attachment: {str(x[8]).strip() or "(blank)"}; Document File {docfile}. Identified at branch v4 (port to PS_WP v128); '
+        V[28] = (ev + f'. TechOne attachment: {str(x[8]).strip() or "(blank)"}; Document File {docfile}. Identified at branch {H[hm[0]].get("added", "v4")} (port to PS_WP v128); '
                  f'the PS_WP v127 evidence read: {old_ev[:240]}')
         if V[33] == 'Pending evidence':
             V[33] = 'Partial'
         V[34] = f'Sight the invoice (Document File {docfile}) to confirm nature under rule 17. Port this identification to PS_WP v128.'
-        r['meta']['ident_v4'] = H[hm[0]]['code']
+        r['meta']['ident_v4'] = H[hm[0]]['code']; r['meta']['ident_ver'] = H[hm[0]].get('added', 'v4')
         # a conflict is a DIFFERENT vendor, not the same one under a fuller or shorter name: test the ABN first,
         # then containment of the canonical name (v127 carries trading-name suffixes the APLEDGER label does not).
         nm = lambda x: re.sub(r'[^a-z0-9]', '', str(x).lower())
