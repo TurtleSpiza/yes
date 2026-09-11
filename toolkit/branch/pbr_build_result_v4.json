@@ -4,11 +4,11 @@
   "LAST": 6687,
   "TOT": 6689,
   "N": 6683,
-  "EI_LAST": 176,
-  "EI_TOT": 178,
-  "ncontrols": 78,
+  "EI_LAST": 181,
+  "EI_TOT": 183,
+  "ncontrols": 82,
   "C0": 8,
-  "C1": 85,
+  "C1": 89,
   "sighted_rows": [
    419,
    429,
@@ -42,6 +42,8 @@
    1006,
    1007,
    1008,
+   1041,
+   1218,
    1413,
    1463,
    1468,
@@ -180,10 +182,13 @@
    5497,
    5504,
    5505,
+   5737,
+   6263,
    6398,
    6399,
    6415,
    6418,
+   6465,
    6633,
    6634
   ],
@@ -206,32 +211,42 @@
    "col28_clauses_removed": 111,
    "row_citations_remapped": 16
   },
-  "items": 25,
-  "unid": "1778748.05",
-  "unid_n": 1218,
+  "items": 27,
+  "unid": "711974.74",
+  "unid_n": 538,
   "status_amt": {
-   "Confirmed": 2939018.18,
-   "Pending evidence": 1969596.99,
-   "Partial": 1951.51
+   "Confirmed": 3046182.48,
+   "Pending evidence": 889461.2,
+   "Partial": 974923.0
+  },
+  "hist": {
+   "files": 8,
+   "lines": 19703,
+   "matched": 786,
+   "matched_amt": 1368141.33,
+   "inherited": 50,
+   "cited": 775,
+   "conflicts": 0
   }
  },
  "facts": {
   "master": "TRUE",
-  "passing": 78.0,
-  "registered": 78.0,
+  "passing": 82.0,
+  "registered": 82.0,
   "pin": 1485304.02,
   "total": 4910566.68
  },
  "fails": [],
  "log": [
-  "[   4.0s] stage complete",
-  "[   4.6s] gate analysis keys agree with the grey source block on all lines",
-  "[   4.6s] evidence carry: 172 invoices, 1116 lines, 52 boilerplate keys",
-  "[   4.7s] citations: {'col28_clauses_removed': 111, 'row_citations_remapped': 16}",
-  "[   4.7s] journal sets 63, net-zero 17, inherited open sets now pairing at branch scope 3",
-  "[   9.5s] register written",
-  "[  10.4s] controls registered 78",
-  "[  11.1s] workbook written; recalculating (convert route)",
-  "[  22.0s] recalc complete; verifying the recalculated file with calamine"
+  "[   5.6s] stage complete",
+  "[   6.4s] gate analysis keys agree with the grey source block on all lines",
+  "[   6.5s] evidence carry: 177 invoices, 1147 lines, 58 boilerplate keys",
+  "[   6.5s] citations: {'col28_clauses_removed': 111, 'row_citations_remapped': 16}",
+  "[   6.5s] journal sets 63, net-zero 17, inherited open sets now pairing at branch scope 3",
+  "[   6.5s] creditor lines: 373 carried from v127, 19703 from the branch v4 APLEDGER pulls; 775 register lines cite a v4 history row",
+  "[  11.4s] register written",
+  "[  17.1s] controls registered 82",
+  "[  18.2s] workbook written; recalculating (convert route)",
+  "[  32.9s] recalc complete; verifying the recalculated file with calamine"
  ]
 }

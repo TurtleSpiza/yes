@@ -1,0 +1,152 @@
+[
+ {
+  "invoice": "11913",
+  "vendor": "ETSol Pty Ltd t/a Eco Technology Solutions",
+  "abn": "96 644 313 002",
+  "subtotal": 10229.97,
+  "incl": 11252.97,
+  "variant": "standard",
+  "target": [
+   "7fa7c620-73126-PK000422-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "7fa7c620-73126-PK000422-01",
+    "section": "Park Maintenance",
+    "na": "73126",
+    "pk": "PK000422",
+    "amount": 10229.97,
+    "contractor": "Unidentified (FY2026/27 branch-wide, not yet cleared)",
+    "narr": "26/27 - Mowing for Zone 1",
+    "docfile": "1256093"
+   }
+  ],
+  "evid": "11913",
+  "evid_note": null,
+  "source_file": "C00312585.pdf",
+  "docfile": "1256093",
+  "coding_verdict": "Correct",
+  "coding_note": "Printed PK000400 (Parks/Roads; the Zone 6 mowing WO Task in SE2) against a ledger charge to PK000422 (Contract Mowing - Zone 1); the invoice text (PAR/336/2024 Mowing Zone 1 High Growth Parks, MZ1 site codes) supports the PK charged.",
+  "follow_up": "Ask Eco Technology Solutions to print the Zone 1 WO Task (PK000422) on Zone 1 claims; no financial effect."
+ },
+ {
+  "invoice": "012313",
+  "vendor": "Glascott Landscape and Civil Pty Limited (letterhead prints \"Technigro ABN 97 001 281 572\")",
+  "abn": "97 001 281 572",
+  "subtotal": 56454.33,
+  "incl": 62099.76,
+  "variant": "standard",
+  "target": [
+   "18a1c8e9-73126-PK000015-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "18a1c8e9-73126-PK000015-01",
+    "section": "Park Maintenance",
+    "na": "73126",
+    "pk": "PK000015",
+    "amount": 56454.33,
+    "contractor": "Unidentified (FY2026/27 branch-wide, not yet cleared)",
+    "narr": "26/27 Zone 3",
+    "docfile": "1262788"
+   }
+  ],
+  "evid": "012313",
+  "evid_note": null,
+  "source_file": "C00319690_1.pdf",
+  "docfile": "1262788",
+  "coding_verdict": "Correct",
+  "coding_note": "Letterhead prints Technigro ABN 97 001 281 572; APLEDGER GLA009 (branch v4) carries the same ABN, so the creditor entity is confirmed as Glascott Landscape and Civil Pty Limited (rule 8, printed ABN decides).",
+  "follow_up": null
+ },
+ {
+  "invoice": "INV-00042754",
+  "vendor": "Provac Australia Pty Ltd",
+  "abn": "24 130 227 164",
+  "subtotal": 880.0,
+  "incl": 968.0,
+  "variant": "standard",
+  "target": [
+   "74ad1f7b-73212-PK000402-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "74ad1f7b-73212-PK000402-01",
+    "section": "Cemeteries",
+    "na": "73212",
+    "pk": "PK000402",
+    "amount": 880.0,
+    "contractor": "Unidentified (FY2026/27 branch-wide, not yet cleared)",
+    "narr": "26/27 Grave digging",
+    "docfile": "1248957"
+   }
+  ],
+  "evid": "INV-00042754",
+  "evid_note": null,
+  "source_file": "C00306835.pdf",
+  "docfile": "1248957",
+  "coding_verdict": "Correct",
+  "coding_note": "Printed PK000446 under the line against a ledger charge to PK000402 (Cemeteries); PK000446 is not a WO Task in the FY2026/27 branch SE2, and a Beenleigh Cemetery grave dig sits on the Cemeteries task.",
+  "follow_up": "Confirm with Cemeteries which PK Provac should quote (the printed PK000446 is not a current branch WO Task); no financial effect."
+ },
+ {
+  "invoice": "SV007924",
+  "vendor": "Savco Vegetation Services Pty Ltd",
+  "abn": "78161366749 (printed ungrouped)",
+  "subtotal": 16800.0,
+  "incl": 18480.0,
+  "variant": "standard",
+  "target": [
+   "448750f0-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "448750f0-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 16800.0,
+    "contractor": "Unidentified (FY2026/27 branch-wide, not yet cleared)",
+    "narr": "Standing Order 2026/27",
+    "docfile": "1259934"
+   }
+  ],
+  "evid": "SV007924",
+  "evid_note": null,
+  "source_file": "C00309459.pdf",
+  "docfile": "1259934",
+  "coding_verdict": "Correct",
+  "coding_note": "Printed PK000477 (Roadside Street Tree Operations) against a ledger charge to PK000482 (Parks Tree Operations); the invoice states the work was carried out in Oak Park Woodridge, a park, which supports the PK charged.",
+  "follow_up": "Confirm with Trees that the Oak Park CR#3867562 works belong on PK000482 rather than the PK000477 printed on the quote; no financial effect."
+ },
+ {
+  "invoice": "INV-47435",
+  "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+  "abn": "32 416 129 034",
+  "subtotal": 22800.0,
+  "incl": 25080.0,
+  "variant": "standard",
+  "target": [
+   "f55cece3-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "f55cece3-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 22800.0,
+    "contractor": "Unidentified (FY2026/27 branch-wide, not yet cleared)",
+    "narr": "Standing Order 2026/27",
+    "docfile": "1250798"
+   }
+  ],
+  "evid": "INV-47435",
+  "evid_note": null,
+  "source_file": "C00307253_2.pdf",
+  "docfile": "1250798",
+  "coding_verdict": "Correct",
+  "coding_note": null,
+  "follow_up": null
+ }
+]
