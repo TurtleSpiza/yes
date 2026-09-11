@@ -30,6 +30,7 @@ installs what the chain needs, then proves it:
 | `python-calamine` | every workbook read (rule 19.8) |
 | `openpyxl` | every workbook write |
 | `lxml` | recovers rule 17 formula text from the v127 sheet XML |
+| `cffi` | supplies `_cffi_backend` to the container's Debian cryptography; without it any cryptography import (pdfplumber makes one) panics the interpreter and takes the env check down |
 | `poppler-utils` | `pdftotext -layout` and `pdfinfo`, the raw-text invoice route |
 | `libreoffice-calc` | the convert-route recalc |
 
@@ -46,7 +47,7 @@ python3 toolkit/branch/pbr_env_check.py --all
 
 It writes a workbook with a live formula, recalculates it through LibreOffice, reads it back with
 calamine, round-trips a probe PDF through poppler, imports every toolkit module and byte-compiles the
-toolkit. Sixteen checks, under two seconds, and it names the fix for whatever fails. **`libreoffice-core`
+toolkit. Seventeen checks, under two seconds, and it names the fix for whatever fails. **`libreoffice-core`
 alone is not enough**: without the Calc component every conversion fails with "source file could not be
 loaded", which reads like a corrupt workbook and is not.
 
