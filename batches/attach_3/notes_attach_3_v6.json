@@ -1,0 +1,39 @@
+{
+ "INV-13892": {
+  "coding_note": "Tree removal at 23 Jan Court, Bethania: full removal of one Spotted Gum with all debris removed, stump ground and backfilled with approved sandy loam and lawn seed, to LCC specifications; CR#3753818, PO 709837, standing order 25/26. Printed PK#000477 matches the charge. First sighting of MPDT (Tree Acq Pty Ltd), ABN 92 626 678 635: the line read Unidentified before this capture and the APLEDGER history MPD001 is embedded at this build.",
+  "coding_verdict": "Correct"
+ },
+ "INV-13576": {
+  "coding_note": "Tree removals at 206-222 Mundoolun Road, Jimboomba: Ironbark removed and stump ground, root plate exposed by erosion, located behind an Armco barrier; CR#3862549, PO 709837. The face prints 'PK#0000477', seven digits, for PK000477; captured as printed (rule 13) and the charge is unaffected (Open Item B-027).",
+  "coding_verdict": "Correct",
+  "follow_up": "Ask MPDT to print the PK in the PK000000 form; this invoice prints PK#0000477."
+ },
+ "INV-14305": {
+  "coding_note": "Tree removal with traffic control and shallow stump grind at 144-148 Cedar Grove Road, Cedar Grove: one large Eucalypt; CR#3853409, PO 717378, standing order 2026/27. The face prints 'PK#00047', five digits, for PK000477; captured as printed (rule 13) and the charge is unaffected (Open Item B-027).",
+  "coding_verdict": "Correct",
+  "follow_up": "Ask MPDT to print the PK in the PK000000 form; this invoice prints PK#00047."
+ },
+ "CN-48535": {
+  "coding_note": "Heritage Tree Services credit note against INV-47689, invoiced in error: 3 man tree crew 1.5 hours at $272.22, $408.33 ex GST, cutting back vegetation and poisoning stumps at 120-134 California Creek Rd Cornubia; CR# 3907498, blanket order 717577, SP2. The credit advice prints 'Credit Amount 0.00', which is the credit REMAINING after the note was applied to the invoice, not the value of the note; the note itself is $449.16 incl GST and the ledger posts -$408.33 ex GST, which is what this line carries. Printed PK000477 matches the charge.",
+  "coding_verdict": "Correct"
+ },
+ "CN-48871": {
+  "coding_note": "Heritage Tree Services credit note to be applied to INV-44444, the work having been partially invoiced on INV-43308: 3 man tree crew, $390.00 ex GST, remove epicormic growth and ring bark at 26 Blue-Gum Drive, Marsden; CR# 3759337, blanket order 709885, SP2. As with CN-48535 the credit advice's 'Credit Amount 0.00' is the remaining credit, not the value of the note. Printed PK000477 matches the charge.",
+  "coding_verdict": "Correct"
+ },
+ "INV-8776": {
+  "coding_note": "Play Force replacement of a digger at Valley View Park, Holmview, work order 717528 (Ref: 32936), under contract LB304 (LocalBuy), completed date not printed; one line, 'Replace digger with new as per Quote 699945', $5,755.78 ex GST. The Account field on the face prints the literal word 'undefined', so the invoice carries no PK; the charge is PK000023 (service 20481 Playground Maintenance & Repairs), which the work supports (Open Item B-028). The only description of what was supplied is the quote reference, and the quote is not attached.",
+  "coding_verdict": "Confirm",
+  "follow_up": "Obtain Play Force quote 699945, which is the only description of the digger supplied, and ask Play Force to populate the Account field: this invoice prints 'undefined' (Open Item B-028)."
+ },
+ "5214496428": {
+  "coding_note": "PPG Industries paint supply on customer reference 717220, delivery docket 1016101236012, POS order 236012, PPG order 504446962, shipped and invoiced 06-Aug-2026. One line, 'ReasonCode:PROMPT_PRICE_CHANGE// MIXED MERCHANDSE' (as printed), $191.14 ex GST. No row on this layout is labelled Subtotal: the ex-GST total is PRODUCT TOTAL $191.14 plus FREIGHT $0.00 plus PAINTBACK LEVY $0.00. No PK or work order prints on the face; the charge is PK000510 on 73123.",
+  "coding_verdict": "Confirm",
+  "follow_up": "Ask PPG to quote the Logan work order on the invoice: the face carries only customer reference 717220, so nothing on the document evidences PK000510. The line description is a price-change reason code and 'MIXED MERCHANDSE', which does not say what was supplied; obtain the delivery docket 1016101236012."
+ },
+ "5214452043": {
+  "coding_note": "PPG Industries paint supply on customer reference '717220 Corey', delivery docket 1016102031637, POS order 031637, PPG order 504402972, shipped and invoiced 14-Jul-2026. One line, 'ReasonCode:PROMPT_PRICE_CHANGE// MIXED MERCHANDSE' (as printed), $165.15 ex GST; PRODUCT TOTAL $165.15 plus FREIGHT $0.00 plus PAINTBACK LEVY $0.00. No PK or work order prints on the face; the charge is PK000510 on 73123.",
+  "coding_verdict": "Confirm",
+  "follow_up": "Ask PPG to quote the Logan work order on the invoice: the face carries only customer reference '717220 Corey'. Obtain delivery docket 1016102031637; the printed line description does not say what was supplied."
+ }
+}

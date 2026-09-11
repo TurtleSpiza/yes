@@ -1,0 +1,1162 @@
+[
+ {
+  "invoice": "SV007794",
+  "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
+  "abn": "78 161 366 749",
+  "subtotal": 4522.5,
+  "incl": 4974.75,
+  "variant": "standard",
+  "target": [
+   "04f412b7-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "04f412b7-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 4522.5,
+    "contractor": "Savco Vegetation Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "SV007794",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Tree work at TABITHA COURT BAHRAS under PAR/329/2021, CREW 3, CREW 6, CREW 7; CR#3676765. Printed PK000477 matches the charge.",
+  "follow_up": null,
+  "source_file": "mix 22.pdf"
+ },
+ {
+  "invoice": "INV-47051",
+  "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+  "abn": "32 416 129 034",
+  "subtotal": 4180.0,
+  "incl": 4598.0,
+  "variant": "standard",
+  "target": [
+   "4029497c-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "4029497c-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 4180.0,
+    "contractor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-47051",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Tree work at 16 Cunningham Street Rochedale South under contract PAR329B2021; CR# 3778695. Printed PK000477 matches the charge.",
+  "follow_up": null,
+  "source_file": "mix 22.pdf"
+ },
+ {
+  "invoice": "INV-47257",
+  "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+  "abn": "32 416 129 034",
+  "subtotal": 3600.0,
+  "incl": 3960.0,
+  "variant": "standard",
+  "target": [
+   "c5da037d-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "c5da037d-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 3600.0,
+    "contractor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-47257",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Tree work at Ewing Park - Behind 2 Wagawn Street WOODRIDGE under contract PAR329B2021; CR# 3842177. Printed PK000482 matches the charge.",
+  "follow_up": null,
+  "source_file": "mix 22.pdf"
+ },
+ {
+  "invoice": "SV007865",
+  "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
+  "abn": "78 161 366 749",
+  "subtotal": 3980.34,
+  "incl": 4378.37,
+  "variant": "standard",
+  "target": [
+   "0e9ff6b8-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "0e9ff6b8-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 3980.34,
+    "contractor": "Savco Vegetation Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "SV007865",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Tree work in CLEARWATER STREET under PAR/329/2021, CREW 4; CR#3784345. The invoice prints PK000073 (service 20421 Natural Area Tree Operations); the charge is PK000477 (service 20241 Roadside Street Tree Operations). The printed site is a street, which supports the roadside service that carries the charge, so the charge stands and the printed PK is the error (Open Item B-027).",
+  "follow_up": "Ask Savco to print PK000477 on roadside street-tree jobs; the invoice printed PK000073 (natural areas).",
+  "source_file": "mix 22.pdf"
+ },
+ {
+  "invoice": "INV-47354",
+  "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+  "abn": "32 416 129 034",
+  "subtotal": 4036.79,
+  "incl": 4440.47,
+  "variant": "standard",
+  "target": [
+   "50285625-73212-PK000474-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "50285625-73212-PK000474-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000474",
+    "amount": 4036.79,
+    "contractor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-47354",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Tree work at Bardon Road, BERRINBA under contract PAR329B2021; CR# 3805315. Printed PK000474 matches the charge.",
+  "follow_up": null,
+  "source_file": "mix 22.pdf"
+ },
+ {
+  "invoice": "INV-47352",
+  "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+  "abn": "32 416 129 034",
+  "subtotal": 9067.02,
+  "incl": 9973.72,
+  "variant": "standard",
+  "target": [
+   "d462fef1-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "d462fef1-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 9067.02,
+    "contractor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-47352",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Tree work at Drover Reserve rear of 23 Weeping Fig Court under contract PAR329B2021; CR# 3831117. Printed PK000482 matches the charge.",
+  "follow_up": null,
+  "source_file": "mix 22.pdf"
+ },
+ {
+  "invoice": "INV-47552",
+  "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+  "abn": "32 416 129 034",
+  "subtotal": 3517.92,
+  "incl": 3869.72,
+  "variant": "check 2 derivation equality (register amount = ROUND(printed total incl GST / 1.1, 2))",
+  "target": [
+   "9e0498a1-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "9e0498a1-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 3517.93,
+    "contractor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-47552",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Tree work at behind 7 Presley Court WINDAROO under contract PAR329B2021; CR# 3813464. Printed PK000482 matches the charge.",
+  "follow_up": null,
+  "source_file": "mix 22.pdf"
+ },
+ {
+  "invoice": "INV-47751",
+  "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+  "abn": "32 416 129 034",
+  "subtotal": 3517.92,
+  "incl": 3869.71,
+  "variant": "standard",
+  "target": [
+   "f1869cea-73212-PK000474-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "f1869cea-73212-PK000474-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000474",
+    "amount": 3517.92,
+    "contractor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-47751",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Tree work at LAHORE STREET, CRESTMEAD under contract PAR329B2021; CR# 3897599. Printed PK000474 matches the charge.",
+  "follow_up": null,
+  "source_file": "mix 22.pdf"
+ },
+ {
+  "invoice": "INV-47813",
+  "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+  "abn": "32 416 129 034",
+  "subtotal": 7077.72,
+  "incl": 7785.49,
+  "variant": "standard",
+  "target": [
+   "81dcd675-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "81dcd675-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 7077.72,
+    "contractor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-47813",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Tree work at Columbia Park, Behind 16 Columbia Court under contract PAR329B2021; CR# 3670673. Printed PK000482 matches the charge.",
+  "follow_up": null,
+  "source_file": "mix 22.pdf"
+ },
+ {
+  "invoice": "SV007952",
+  "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
+  "abn": "78 161 366 749",
+  "subtotal": 8920.0,
+  "incl": 9812.0,
+  "variant": "standard",
+  "target": [
+   "4b55380b-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "4b55380b-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 8920.0,
+    "contractor": "Savco Vegetation Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "SV007952",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Review",
+  "coding_note": "Tree work in MURRAYS ROAD TENAH MERAH as per quote SQL 5154, 15/07/2026 and 30/07/2026, CREW 4, 60 trees; CR#3851676. The invoice prints PK000477 (service 20241 Roadside Street Tree Operations); the charge is PK000482 (service 20381 Parks Tree Operations). The printed site is a road, so on the face of the invoice the printed PK is the better fit and the charge is the one in doubt, which is the opposite of the usual case (Open Item B-027). Pricing is per a quote that is not in this binder.",
+  "follow_up": "Confirm with Parks whether the 60 trees on Murrays Road, Tanah Merah sit in a park (PK000482) or on the road reserve (PK000477, as the invoice prints); and obtain quote SQL 5154, which sets the $8,920.00 price.",
+  "source_file": "mix 22.pdf"
+ },
+ {
+  "invoice": "INV-47931",
+  "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+  "abn": "32 416 129 034",
+  "subtotal": 9124.61,
+  "incl": 10037.07,
+  "variant": "standard",
+  "target": [
+   "8a95b34a-73212-PK000474-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "8a95b34a-73212-PK000474-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000474",
+    "amount": 9124.61,
+    "contractor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-47931",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Tree work at 68 DARLINGTON DRIVE YARRABILBA under contract PAR329B2021; CR# 3922921. Printed PK000474 matches the charge.",
+  "follow_up": null,
+  "source_file": "mix 22.pdf"
+ },
+ {
+  "invoice": "7715",
+  "vendor": "Kachel Cleaning",
+  "abn": "77 083 786 592",
+  "subtotal": 1650.0,
+  "incl": 1815.0,
+  "variant": "standard",
+  "target": [
+   "88461e46-73121-PK000515-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "88461e46-73121-PK000515-01",
+    "section": "No section (NA - Not Applicable)",
+    "na": "73121",
+    "pk": "PK000515",
+    "amount": 1650.0,
+    "contractor": "Kachel Cleaning",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "7715",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Review",
+  "coding_note": "Cleaning contract PAR/377/2025 fuel levy claim for April to June 2026, $1,650.00 ex GST, charged to PK000515 (service 20821 Parks Disaster Management) on natural account 73121 Cleaning & Sanitary. Two points. First, the register's own accrual for this charge, RJ013846 'Parks - Monthly Accrue-Parks Services', accrues the identical $1,650.00 on the identical PK000515 to natural account 74189 Fuel Levy Surcharge, which is also where every Vinton fuel levy recode on GJ080696 sits, so the actual and the accrual disagree on the account and 73121 is the odd one out. Second, the supplier name is not printed on the face at all: the document carries ABN 77 083 786 592 and the email stem kachelcleaning@live.com.au and no entity name.",
+  "follow_up": "Recode 7715 from 73121 Cleaning & Sanitary to 74189 Fuel Levy Surcharge to agree with the RJ013846 accrual and the Vinton fuel levy convention, and verify the levy against the stepped and capped fuel levy model (Fact Sheet DM19338551); and confirm the Kachel Cleaning entity name and ABN against master data, since the invoice face prints neither (Open Item B-032).",
+  "source_file": "mix 22.pdf"
+ },
+ {
+  "invoice": "SV007966",
+  "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
+  "abn": "78 161 366 749",
+  "subtotal": 4830.84,
+  "incl": 5313.92,
+  "variant": "standard",
+  "target": [
+   "7bc787e3-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "7bc787e3-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 4830.84,
+    "contractor": "Savco Vegetation Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "SV007966",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Tree work at KAWANA CRESCENT under PAR/329/2021, CREW 4, CREW 6, CREW 8; CR#3721428. Printed PK000482 matches the charge.",
+  "follow_up": null,
+  "source_file": "mix 22.pdf"
+ },
+ {
+  "invoice": "INV-48075",
+  "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+  "abn": "32 416 129 034",
+  "subtotal": 9612.23,
+  "incl": 10573.46,
+  "variant": "check 2 derivation equality (register amount = ROUND(printed total incl GST / 1.1, 2))",
+  "target": [
+   "aa1adec3-73212-PK000474-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "aa1adec3-73212-PK000474-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000474",
+    "amount": 9612.24,
+    "contractor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-48075",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Tree work at 6 Kala Street, Rochedale South under contract PAR329B2021; CR# 3813940. Tower (EWP) >23m plus two traffic control units. The invoice prints PK000477 and the charge is PK000474; both sit in service 20241 Roadside Street Tree Operations, so the service and the section are unaffected and only the work order differs (Open Item B-027).",
+  "follow_up": "Confirm which roadside tree work order (PK000474 or the printed PK000477) owns 6 Kala Street, Rochedale South.",
+  "source_file": "mix 22.pdf"
+ },
+ {
+  "invoice": "INV-48109",
+  "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+  "abn": "32 416 129 034",
+  "subtotal": 4727.21,
+  "incl": 5199.93,
+  "variant": "standard",
+  "target": [
+   "f9624e6c-73212-PK000474-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "f9624e6c-73212-PK000474-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000474",
+    "amount": 4727.21,
+    "contractor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-48109",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Tree work at Summerview Avenue Yarrabilba under contract PAR329B2021; CR# 3843839. Printed PK000474 matches the charge.",
+  "follow_up": null,
+  "source_file": "mix 22.pdf"
+ },
+ {
+  "invoice": "INV-48144",
+  "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+  "abn": "32 416 129 034",
+  "subtotal": 3674.97,
+  "incl": 4042.47,
+  "variant": "standard",
+  "target": [
+   "8c875ec3-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "8c875ec3-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 3674.97,
+    "contractor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-48144",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Tree work at MARSDEN PARKS DEPOT 177 Chambers Flat Road, under contract PAR329B2021; CR# 3568493. Printed PK000482 matches the charge.",
+  "follow_up": null,
+  "source_file": "mix 22.pdf"
+ },
+ {
+  "invoice": "INV-8485",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 1212.12,
+  "incl": 1333.33,
+  "variant": "standard",
+  "target": [
+   "d602496d-73123-PK000411-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "d602496d-73123-PK000411-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000411",
+    "amount": 1212.12,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8485",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground work at (site not printed) under LB304 (LocalBuy): Routine inspection of skate parks inclusing removal. Printed PK000411 matches the charge.",
+  "follow_up": null,
+  "source_file": "mix 22.pdf"
+ },
+ {
+  "invoice": "INV-48347",
+  "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+  "abn": "32 416 129 034",
+  "subtotal": 3936.72,
+  "incl": 4330.4,
+  "variant": "check 2 derivation equality (register amount = ROUND(printed total incl GST / 1.1, 2))",
+  "target": [
+   "a79f8391-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "a79f8391-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 3936.73,
+    "contractor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-48347",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Tree work at 42-44 Kallioota, Greenbank under contract PAR329B2021; CR# 3921124. Printed PK000477 matches the charge.",
+  "follow_up": null,
+  "source_file": "mix 22.pdf"
+ },
+ {
+  "invoice": "INV-8562",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 2252.73,
+  "incl": 2478.0,
+  "variant": "standard",
+  "target": [
+   "628b7840-73123-PK000023-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "628b7840-73123-PK000023-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000023",
+    "amount": 2252.73,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8562",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground work at Albert River Park - Eagleby under LB304 (LocalBuy): new powder coated deck with new fixings; Maintenance Labour. Printed PK000023 matches the charge.",
+  "follow_up": null,
+  "source_file": "mix 22.pdf"
+ },
+ {
+  "invoice": "SV008021",
+  "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
+  "abn": "78 161 366 749",
+  "subtotal": 5956.0,
+  "incl": 6551.6,
+  "variant": "standard",
+  "target": [
+   "c5e380eb-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "c5e380eb-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 5956.0,
+    "contractor": "Savco Vegetation Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "SV008021",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Tree work at KURRAJONG PARK under PAR/329/2021, CREW 3; CR#3886676. Printed PK000482 matches the charge. Pricing is stated as per quote; the quote is not in this binder ($5,956.00 ex GST).",
+  "follow_up": "Obtain the supporting quote from Savco; the invoice prices the job as per quote and the quote is not in the binder.",
+  "source_file": "mix 22.pdf"
+ },
+ {
+  "invoice": "SV008026",
+  "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
+  "abn": "78 161 366 749",
+  "subtotal": 4489.56,
+  "incl": 4938.51,
+  "variant": "check 2 derivation equality (register amount = ROUND(printed total incl GST / 1.1, 2))",
+  "target": [
+   "8b5979b4-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "8b5979b4-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 4489.55,
+    "contractor": "Savco Vegetation Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "SV008026",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Tree work at ALFRED STREET under PAR/329/2021, CREW 3, CREW 6, CREW 8; CR#3601223. Printed PK000477 matches the charge.",
+  "follow_up": null,
+  "source_file": "mix 22.pdf"
+ },
+ {
+  "invoice": "INV-8593",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 1506.71,
+  "incl": 1657.38,
+  "variant": "standard",
+  "target": [
+   "aeea2d7a-73123-PK000023-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "aeea2d7a-73123-PK000023-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000023",
+    "amount": 1506.71,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8593",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground work at Chatfield Park - Edens Landing under LB304 (LocalBuy): Track ride trolley; Maintenance Labour. Printed PK000023 matches the charge.",
+  "follow_up": null,
+  "source_file": "mix 22.pdf"
+ },
+ {
+  "invoice": "SV008028",
+  "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
+  "abn": "78 161 366 749",
+  "subtotal": 9543.96,
+  "incl": 10498.35,
+  "variant": "check 2 derivation equality (register amount = ROUND(printed total incl GST / 1.1, 2))",
+  "target": [
+   "958805ae-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "958805ae-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 9543.95,
+    "contractor": "Savco Vegetation Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "SV008028",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Tree work at MATHEWS PARK under PAR/329/2021, CREW 2, CREW 3, CREW 4, CREW 6, CREW 8; CR#3634016. Printed PK000482 matches the charge.",
+  "follow_up": null,
+  "source_file": "mix 22.pdf"
+ },
+ {
+  "invoice": "SV008029",
+  "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
+  "abn": "78 161 366 749",
+  "subtotal": 9179.0,
+  "incl": 10096.9,
+  "variant": "standard",
+  "target": [
+   "101097e5-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "101097e5-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 9179.0,
+    "contractor": "Savco Vegetation Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "SV008029",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Tree work at KURRAJONG DRIVE under PAR/329/2021, CREW 4; CR#3665145. Printed PK000477 matches the charge. Pricing is stated as per quote; the quote is not in this binder ($9,179.00 ex GST).",
+  "follow_up": "Obtain the supporting quote from Savco; the invoice prices the job as per quote and the quote is not in the binder.",
+  "source_file": "mix 22.pdf"
+ },
+ {
+  "invoice": "INV-8607",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 1212.12,
+  "incl": 1333.33,
+  "variant": "standard",
+  "target": [
+   "e697098a-73123-PK000411-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "e697098a-73123-PK000411-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000411",
+    "amount": 1212.12,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8607",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground work at (site not printed) under LB304 (LocalBuy): Routine inspection of skate parks inclusing removal. Printed PK000411 matches the charge.",
+  "follow_up": null,
+  "source_file": "mix 22.pdf"
+ },
+ {
+  "invoice": "INV-8630",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 1297.53,
+  "incl": 1427.28,
+  "variant": "standard",
+  "target": [
+   "1b2c284d-73123-PK000411-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "1b2c284d-73123-PK000411-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000411",
+    "amount": 1297.53,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8630",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Confirm",
+  "coding_note": "Playground work at Logan City Council - Logan Central under LB304 (LocalBuy): Operational playground inspection. No PK is printed anywhere on the face: the only 'Account:' row on the document is the payment block's bank account 10367833. The charge is PK000411 (service 20481 Playground Maintenance & Repairs), which the work supports, but the invoice does not evidence it (Open Item B-028).",
+  "follow_up": "Ask Play Force to print the PK on operational inspection invoices; this one prints none (Open Item B-028).",
+  "source_file": "mix 22.pdf"
+ },
+ {
+  "invoice": "SV008051",
+  "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
+  "abn": "78 161 366 749",
+  "subtotal": 4631.58,
+  "incl": 5094.73,
+  "variant": "check 2 derivation equality (register amount = ROUND(printed total incl GST / 1.1, 2))",
+  "target": [
+   "7782d1b1-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "7782d1b1-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 4631.57,
+    "contractor": "Savco Vegetation Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "SV008051",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Tree work at JIMBOOMBA PARK under PAR/329/2021, CREW 2, CREW 3, CREW 6, CREW 8; CR#3856545. Printed PK000482 matches the charge.",
+  "follow_up": null,
+  "source_file": "mix 22.pdf"
+ },
+ {
+  "invoice": "INV-8665",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 1355.0,
+  "incl": 1490.5,
+  "variant": "standard",
+  "target": [
+   "d706fe85-73123-PK000442-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "d706fe85-73123-PK000442-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000442",
+    "amount": 1355.0,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8665",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground work at Doug Larsen Park - Beenleigh under LB304 (LocalBuy): Weekly Inspection/Maintenance on going. Printed PK000442 matches the charge.",
+  "follow_up": null,
+  "source_file": "mix 22.pdf"
+ },
+ {
+  "invoice": "INV-8666",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 1355.0,
+  "incl": 1490.5,
+  "variant": "standard",
+  "target": [
+   "f68b592f-73123-PK000442-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "f68b592f-73123-PK000442-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000442",
+    "amount": 1355.0,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8666",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground work at Doug Larsen Park - Beenleigh under LB304 (LocalBuy): Weekly Inspection/Maintenance on going. Printed PK000442 matches the charge.",
+  "follow_up": null,
+  "source_file": "mix 22.pdf"
+ },
+ {
+  "invoice": "INV-8667",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 1355.0,
+  "incl": 1490.5,
+  "variant": "standard",
+  "target": [
+   "842728dc-73123-PK000442-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "842728dc-73123-PK000442-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000442",
+    "amount": 1355.0,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8667",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground work at Doug Larsen Park - Beenleigh under LB304 (LocalBuy): Weekly Inspection/Maintenance on going. Printed PK000442 matches the charge.",
+  "follow_up": null,
+  "source_file": "mix 22.pdf"
+ },
+ {
+  "invoice": "INV-8668",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 1355.0,
+  "incl": 1490.5,
+  "variant": "standard",
+  "target": [
+   "2b88b307-73123-PK000442-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "2b88b307-73123-PK000442-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000442",
+    "amount": 1355.0,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8668",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground work at Doug Larsen Park - Beenleigh under LB304 (LocalBuy): Weekly Inspection/Maintenance on going. Printed PK000442 matches the charge.",
+  "follow_up": null,
+  "source_file": "mix 22.pdf"
+ },
+ {
+  "invoice": "INV-8675",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 1106.82,
+  "incl": 1217.5,
+  "variant": "standard",
+  "target": [
+   "69d5286f-73123-PK000023-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "69d5286f-73123-PK000023-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000023",
+    "amount": 1106.82,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8675",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground work at Logan River Parklands - Beenleigh under LB304 (LocalBuy): swages/thimbles/new cable; Trampoline Spring 110mm x 35mm Zinc; Maintenance Labour. Printed PK000023 matches the charge.",
+  "follow_up": null,
+  "source_file": "mix 22.pdf"
+ },
+ {
+  "invoice": "INV-8715",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 2195.82,
+  "incl": 2415.4,
+  "variant": "standard",
+  "target": [
+   "2f89e2ef-73123-PK000411-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "2f89e2ef-73123-PK000411-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000411",
+    "amount": 2195.82,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8715",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Confirm",
+  "coding_note": "Playground work at Logan City Council - Logan Central under LB304 (LocalBuy): Division 10 Operational playground inspection. No PK is printed anywhere on the face: the only 'Account:' row on the document is the payment block's bank account 10367833. The charge is PK000411 (service 20481 Playground Maintenance & Repairs), which the work supports, but the invoice does not evidence it (Open Item B-028).",
+  "follow_up": "Ask Play Force to print the PK on operational inspection invoices; this one prints none (Open Item B-028).",
+  "source_file": "mix 22.pdf"
+ },
+ {
+  "invoice": "SV008056",
+  "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
+  "abn": "78 161 366 749",
+  "subtotal": 6000.0,
+  "incl": 6600.0,
+  "variant": "standard",
+  "target": [
+   "0c081970-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "0c081970-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 6000.0,
+    "contractor": "Savco Vegetation Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "SV008056",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Tree work at BRANDON PARK under PAR/329/2021, CREW 3; CR#3852084. Printed PK000482 matches the charge. Pricing is stated as per quote; the quote is not in this binder ($6,000.00 ex GST).",
+  "follow_up": "Obtain the supporting quote from Savco; the invoice prices the job as per quote and the quote is not in the binder.",
+  "source_file": "mix 22.pdf"
+ },
+ {
+  "invoice": "INV-8734",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 2152.6,
+  "incl": 2367.86,
+  "variant": "standard",
+  "target": [
+   "b1a3a8b5-73123-PK000391-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "b1a3a8b5-73123-PK000391-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000391",
+    "amount": 2152.6,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8734",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground work at Stoneleigh Reserve Park - Logan under LB304 (LocalBuy): Takura top up; Maintenance Labour. Printed PK000391 matches the charge.",
+  "follow_up": null,
+  "source_file": "mix 22.pdf"
+ },
+ {
+  "invoice": "INV-8748",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 1179.53,
+  "incl": 1297.48,
+  "variant": "standard",
+  "target": [
+   "064e778d-73123-PK000023-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "064e778d-73123-PK000023-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000023",
+    "amount": 1179.53,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8748",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground work at Tygum Park - Waterford West under LB304 (LocalBuy): M10 D Shackle; 30mm Black Conduit; 6mm Stainless Chain. Printed PK000023 matches the charge.",
+  "follow_up": null,
+  "source_file": "mix 22.pdf"
+ },
+ {
+  "invoice": "INV-8755",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 2770.47,
+  "incl": 3047.52,
+  "variant": "standard",
+  "target": [
+   "e37163ab-73123-PK000411-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "e37163ab-73123-PK000411-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000411",
+    "amount": 2770.47,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8755",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground work at (site not printed) under LB304 (LocalBuy): Operational Inspection on cableways. Printed PK000411 matches the charge.",
+  "follow_up": null,
+  "source_file": "mix 22.pdf"
+ },
+ {
+  "invoice": "SV008069",
+  "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
+  "abn": "78 161 366 749",
+  "subtotal": 5234.0,
+  "incl": 5757.4,
+  "variant": "standard",
+  "target": [
+   "c9cb9abe-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "c9cb9abe-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 5234.0,
+    "contractor": "Savco Vegetation Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "SV008069",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Tree work at ISON ROAD GREENBANK under PAR/329/2021, CREW 3; CR#37004395. Printed PK000477 matches the charge. Pricing is stated as per quote; the quote is not in this binder ($5,234.00 ex GST).",
+  "follow_up": "Obtain the supporting quote from Savco; the invoice prices the job as per quote and the quote is not in the binder.",
+  "source_file": "mix 22.pdf"
+ },
+ {
+  "invoice": "SV008094",
+  "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
+  "abn": "78 161 366 749",
+  "subtotal": 4322.0,
+  "incl": 4754.2,
+  "variant": "standard",
+  "target": [
+   "32c0720b-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "32c0720b-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 4322.0,
+    "contractor": "Savco Vegetation Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "SV008094",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Tree work at (site not printed) under PAR/329/2021, CREW 3; CR#3889846. Printed PK000477 matches the charge. Pricing is stated as per quote; the quote is not in this binder ($4,322.00 ex GST).",
+  "follow_up": "Obtain the supporting quote from Savco; the invoice prices the job as per quote and the quote is not in the binder.",
+  "source_file": "mix 22.pdf"
+ },
+ {
+  "invoice": "SV008082",
+  "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
+  "abn": "78 161 366 749",
+  "subtotal": 5224.5,
+  "incl": 5746.95,
+  "variant": "standard",
+  "target": [
+   "7cb2a1f0-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "7cb2a1f0-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 5224.5,
+    "contractor": "Savco Vegetation Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "SV008082",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Tree work at SHANNON RAMSAY under PAR/329/2021, CREW 3, CREW 6; CR#3715445. Printed PK000482 matches the charge.",
+  "follow_up": null,
+  "source_file": "mix 22.pdf"
+ }
+]

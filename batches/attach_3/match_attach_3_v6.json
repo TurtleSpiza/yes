@@ -1,0 +1,234 @@
+[
+ {
+  "invoice": "INV-13892",
+  "vendor": "MPDT (Tree Acq Pty Ltd)",
+  "abn": "92 626 678 635",
+  "subtotal": 6750.0,
+  "incl": 7425.0,
+  "variant": "standard",
+  "target": [
+   "7bdd5084-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "7bdd5084-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 6750.0,
+    "contractor": "Unidentified (FY2026/27 branch-wide, not yet cleared)",
+    "narr": "STANDING ORDER 25/26"
+   }
+  ],
+  "evid": "INV-13892",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Tree removal at 23 Jan Court, Bethania: full removal of one Spotted Gum with all debris removed, stump ground and backfilled with approved sandy loam and lawn seed, to LCC specifications; CR#3753818, PO 709837, standing order 25/26. Printed PK#000477 matches the charge. First sighting of MPDT (Tree Acq Pty Ltd), ABN 92 626 678 635: the line read Unidentified before this capture and the APLEDGER history MPD001 is embedded at this build.",
+  "follow_up": null,
+  "source_file": "C00301520_1.pdf"
+ },
+ {
+  "invoice": "INV-13576",
+  "vendor": "MPDT (Tree Acq Pty Ltd)",
+  "abn": "92 626 678 635",
+  "subtotal": 5100.0,
+  "incl": 5610.0,
+  "variant": "standard",
+  "target": [
+   "4e6cdb99-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "4e6cdb99-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 5100.0,
+    "contractor": "Unidentified (FY2026/27 branch-wide, not yet cleared)",
+    "narr": "STANDING ORDER 25/26"
+   }
+  ],
+  "evid": "INV-13576",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Tree removals at 206-222 Mundoolun Road, Jimboomba: Ironbark removed and stump ground, root plate exposed by erosion, located behind an Armco barrier; CR#3862549, PO 709837. The face prints 'PK#0000477', seven digits, for PK000477; captured as printed (rule 13) and the charge is unaffected (Open Item B-027).",
+  "follow_up": "Ask MPDT to print the PK in the PK000000 form; this invoice prints PK#0000477.",
+  "source_file": "C00313294.pdf"
+ },
+ {
+  "invoice": "INV-14305",
+  "vendor": "MPDT (Tree Acq Pty Ltd)",
+  "abn": "92 626 678 635",
+  "subtotal": 7800.0,
+  "incl": 8580.0,
+  "variant": "standard",
+  "target": [
+   "816301bf-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "816301bf-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 7800.0,
+    "contractor": "Unidentified (FY2026/27 branch-wide, not yet cleared)",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-14305",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Tree removal with traffic control and shallow stump grind at 144-148 Cedar Grove Road, Cedar Grove: one large Eucalypt; CR#3853409, PO 717378, standing order 2026/27. The face prints 'PK#00047', five digits, for PK000477; captured as printed (rule 13) and the charge is unaffected (Open Item B-027).",
+  "follow_up": "Ask MPDT to print the PK in the PK000000 form; this invoice prints PK#00047.",
+  "source_file": "C00310738.pdf"
+ },
+ {
+  "invoice": "CN-48535",
+  "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+  "abn": "32 416 129 034",
+  "subtotal": -408.33,
+  "incl": -449.16,
+  "variant": "standard",
+  "target": [
+   "ee4400ad-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "ee4400ad-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": -408.33,
+    "contractor": "Unidentified (FY2026/27 branch-wide, not yet cleared)",
+    "narr": "INV-47689 PK00047773212"
+   }
+  ],
+  "evid": "CN-48535",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Heritage Tree Services credit note against INV-47689, invoiced in error: 3 man tree crew 1.5 hours at $272.22, $408.33 ex GST, cutting back vegetation and poisoning stumps at 120-134 California Creek Rd Cornubia; CR# 3907498, blanket order 717577, SP2. The credit advice prints 'Credit Amount 0.00', which is the credit REMAINING after the note was applied to the invoice, not the value of the note; the note itself is $449.16 incl GST and the ledger posts -$408.33 ex GST, which is what this line carries. Printed PK000477 matches the charge.",
+  "follow_up": null,
+  "source_file": "C00315202.pdf"
+ },
+ {
+  "invoice": "CN-48871",
+  "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+  "abn": "32 416 129 034",
+  "subtotal": -390.0,
+  "incl": -429.0,
+  "variant": "standard",
+  "target": [
+   "b297c580-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "b297c580-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": -390.0,
+    "contractor": "Unidentified (FY2026/27 branch-wide, not yet cleared)",
+    "narr": "Credit relates to INV-44444"
+   }
+  ],
+  "evid": "CN-48871",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Heritage Tree Services credit note to be applied to INV-44444, the work having been partially invoiced on INV-43308: 3 man tree crew, $390.00 ex GST, remove epicormic growth and ring bark at 26 Blue-Gum Drive, Marsden; CR# 3759337, blanket order 709885, SP2. As with CN-48535 the credit advice's 'Credit Amount 0.00' is the remaining credit, not the value of the note. Printed PK000477 matches the charge.",
+  "follow_up": null,
+  "source_file": "C00318738.pdf"
+ },
+ {
+  "invoice": "INV-8776",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 5755.78,
+  "incl": 6331.36,
+  "variant": "standard",
+  "target": [
+   "26a893e6-73123-PK000023-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "26a893e6-73123-PK000023-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000023",
+    "amount": 5755.78,
+    "contractor": "Unidentified (FY2026/27 branch-wide, not yet cleared)",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8776",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Confirm",
+  "coding_note": "Play Force replacement of a digger at Valley View Park, Holmview, work order 717528 (Ref: 32936), under contract LB304 (LocalBuy), completed date not printed; one line, 'Replace digger with new as per Quote 699945', $5,755.78 ex GST. The Account field on the face prints the literal word 'undefined', so the invoice carries no PK; the charge is PK000023 (service 20481 Playground Maintenance & Repairs), which the work supports (Open Item B-028). The only description of what was supplied is the quote reference, and the quote is not attached.",
+  "follow_up": "Obtain Play Force quote 699945, which is the only description of the digger supplied, and ask Play Force to populate the Account field: this invoice prints 'undefined' (Open Item B-028).",
+  "source_file": "C00317309.pdf"
+ },
+ {
+  "invoice": "5214496428",
+  "vendor": "PPG Industries Australia Pty Ltd",
+  "abn": "82 055 500 939",
+  "subtotal": 191.14,
+  "incl": 210.25,
+  "variant": "standard",
+  "target": [
+   "338b8e37-73123-PK000510-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "338b8e37-73123-PK000510-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000510",
+    "amount": 191.14,
+    "contractor": "PPG Industries",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "5214496428",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Confirm",
+  "coding_note": "PPG Industries paint supply on customer reference 717220, delivery docket 1016101236012, POS order 236012, PPG order 504446962, shipped and invoiced 06-Aug-2026. One line, 'ReasonCode:PROMPT_PRICE_CHANGE// MIXED MERCHANDSE' (as printed), $191.14 ex GST. No row on this layout is labelled Subtotal: the ex-GST total is PRODUCT TOTAL $191.14 plus FREIGHT $0.00 plus PAINTBACK LEVY $0.00. No PK or work order prints on the face; the charge is PK000510 on 73123.",
+  "follow_up": "Ask PPG to quote the Logan work order on the invoice: the face carries only customer reference 717220, so nothing on the document evidences PK000510. The line description is a price-change reason code and 'MIXED MERCHANDSE', which does not say what was supplied; obtain the delivery docket 1016101236012.",
+  "source_file": "C00312177_1.pdf"
+ },
+ {
+  "invoice": "5214452043",
+  "vendor": "PPG Industries Australia Pty Ltd",
+  "abn": "82 055 500 939",
+  "subtotal": 165.15,
+  "incl": 181.67,
+  "variant": "standard",
+  "target": [
+   "16322ba0-73123-PK000510-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "16322ba0-73123-PK000510-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000510",
+    "amount": 165.15,
+    "contractor": "PPG Industries Australia Pty Limited",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "5214452043",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Confirm",
+  "coding_note": "PPG Industries paint supply on customer reference '717220 Corey', delivery docket 1016102031637, POS order 031637, PPG order 504402972, shipped and invoiced 14-Jul-2026. One line, 'ReasonCode:PROMPT_PRICE_CHANGE// MIXED MERCHANDSE' (as printed), $165.15 ex GST; PRODUCT TOTAL $165.15 plus FREIGHT $0.00 plus PAINTBACK LEVY $0.00. No PK or work order prints on the face; the charge is PK000510 on 73123.",
+  "follow_up": "Ask PPG to quote the Logan work order on the invoice: the face carries only customer reference '717220 Corey'. Obtain delivery docket 1016102031637; the printed line description does not say what was supplied.",
+  "source_file": "C00306732_1.pdf"
+ }
+]

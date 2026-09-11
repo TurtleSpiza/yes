@@ -1,7 +1,7 @@
 {
- "version": "branch v5 (11-Sep-2026)",
+ "version": "branch v6 (11-Sep-2026)",
  "dir": "data/inputs_2026-09-11/creditor_histories",
- "pulled": "11-Sep-2026 12:34 to 13:16",
+ "pulled": "11-Sep-2026 12:34 to 14:50",
  "tool": "TechOne Ledger Accounts Transactions Table export, Default Ledger Type = AP, Ledger Name = APLEDGER, one creditor account per file (no extraction tool)",
  "match_rule": "AP register line reference equals the history Reference; the history Transaction Amount (incl GST) is within 2c of the document net ex GST x 1.1 (all register lines on the Document Unique ID); the history Date is within 120 days of the register Doc Date; exactly one creditor code satisfies all three. Tier 1 where the history line carries an 11-digit ABN, else Tier 2 (rule 8).",
  "histories": [
@@ -88,6 +88,13 @@
    "label": "The Trustee for Flavell-Dau Family Trust (t/a F82 Landscaping)",
    "abn": "47220358629",
    "label_basis": "Sighted invoice INV-0339 (branch v5) and the branch v3 Flavell-Dau captures; the payment block prints F82 Landscaping, kept in the label so every line of the series carries one label (COUNTIF). ABN 47 220 358 629 as on this APLEDGER record and on PS_WP v127 Creditor_Lines THE289."
+  },
+  {
+   "file": "Ledger_Accounts_Transactions_Table__20260911T145043.865.xlsx",
+   "code": "MPD001",
+   "label": "MPDT (Tree Acq Pty Ltd)",
+   "abn": "92626678635",
+   "label_basis": "Sighted invoices INV-13892, INV-13576 and INV-14305 (branch v6, batch attach_3) letterhead \"MPDT (Tree Acq Pty Ltd)\", ABN 92 626 678 635 as on this APLEDGER record (630 of its 633 lines)."
   }
  ]
 }

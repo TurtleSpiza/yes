@@ -1,0 +1,81 @@
+{
+ "check": "rule 19.2 per-vendor verbatim fidelity, independent source",
+ "method": "For each vendor template: take every row that is constant across this batch's documents for that vendor and carries no money token, and verify it against page text this project parsed independently from a real PDF. A row passes verbatim, or as a digit variant (invoice number, date) of a reference row. A row that is neither but is a near neighbour of a reference row is a silently altered template row and fails.",
+ "vendors": [
+  {
+   "vendor_template": "HERITAGE",
+   "batch_documents": 12,
+   "reference_documents": [
+    "attach_1:INV-47435/C00307253_2.pdf (branch v4, TechOne attachment PDF, parse_attach1.py)"
+   ],
+   "batch_constant_template_rows": 22,
+   "verbatim_in_reference": 22,
+   "digit_variant_of_a_reference_row": 0,
+   "digit_variant_rows": [],
+   "unmatched_rows": 0,
+   "unmatched": [],
+   "altered_template_rows": [],
+   "reference_intersection_check": null
+  },
+  {
+   "vendor_template": "KACHEL",
+   "batch_documents": 1,
+   "reference_documents": [
+    "mixed_new_26_27:7717/pages73-73 (branch v3, Mixed_new_26-27.pdf, parse_mixed_new.py)"
+   ],
+   "batch_constant_template_rows": 11,
+   "verbatim_in_reference": 8,
+   "digit_variant_of_a_reference_row": 2,
+   "digit_variant_rows": [
+    "ABN Number: 77 083 786 592 TAX INVOICE No.7715",
+    "Date: 31/07/2026"
+   ],
+   "unmatched_rows": 1,
+   "unmatched": [
+    "Fuel levy from April to June 2026"
+   ],
+   "altered_template_rows": [],
+   "reference_intersection_check": null
+  },
+  {
+   "vendor_template": "PLAYFORCE",
+   "batch_documents": 14,
+   "reference_documents": [
+    "mixed_new_26_27:INV-8550/pages30-32 (branch v3, Mixed_new_26-27.pdf, parse_mixed_new.py)",
+    "mixed_new_26_27:INV-8638/pages37-39 (branch v3, Mixed_new_26-27.pdf, parse_mixed_new.py)",
+    "mixed_new_26_27:INV-8648/pages40-42 (branch v3, Mixed_new_26-27.pdf, parse_mixed_new.py)",
+    "mixed_new_26_27:INV-8739/pages52-54 (branch v3, Mixed_new_26-27.pdf, parse_mixed_new.py)",
+    "mixed_new_26_27:INV-8754/pages56-58 (branch v3, Mixed_new_26-27.pdf, parse_mixed_new.py)"
+   ],
+   "batch_constant_template_rows": 220,
+   "verbatim_in_reference": 220,
+   "digit_variant_of_a_reference_row": 0,
+   "digit_variant_rows": [],
+   "unmatched_rows": 0,
+   "unmatched": [],
+   "altered_template_rows": [],
+   "reference_intersection_check": {
+    "reference_template_rows": 220,
+    "documents_missing_any": 0,
+    "misses": {}
+   }
+  },
+  {
+   "vendor_template": "SAVCO",
+   "batch_documents": 13,
+   "reference_documents": [
+    "attach_1:SV007924/C00309459.pdf (branch v4, TechOne attachment PDF, parse_attach1.py)"
+   ],
+   "batch_constant_template_rows": 23,
+   "verbatim_in_reference": 23,
+   "digit_variant_of_a_reference_row": 0,
+   "digit_variant_rows": [],
+   "unmatched_rows": 0,
+   "unmatched": [],
+   "altered_template_rows": [],
+   "reference_intersection_check": null
+  }
+ ],
+ "verdict": "PASS",
+ "scope": "Proves the fixed template and boilerplate rows this batch carries are verbatim against an independent parse of the same vendor. It cannot prove per-invoice description text, which appears on no other document; that rests on the retained layout rows, the arithmetic tie on every invoice (all 40 reconcile to the printed subtotal to the cent) and the creditor history on the register line. Where a vendor contributes a single document to this batch, \"constant across the batch\" is that document's own rows, so the unmatched list for that vendor is its invoice-specific text."
+}
