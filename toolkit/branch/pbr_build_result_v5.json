@@ -6,9 +6,9 @@
   "N": 6683,
   "EI_LAST": 209,
   "EI_TOT": 211,
-  "ncontrols": 82,
+  "ncontrols": 86,
   "C0": 8,
-  "C1": 89,
+  "C1": 93,
   "sighted_rows": [
    419,
    429,
@@ -262,22 +262,23 @@
  },
  "facts": {
   "master": "TRUE",
-  "passing": 82.0,
-  "registered": 82.0,
+  "passing": 86.0,
+  "registered": 86.0,
   "pin": 1485304.02,
   "total": 4910566.68
  },
  "fails": [],
  "log": [
-  "[   5.6s] stage complete",
-  "[   6.5s] gate analysis keys agree with the grey source block on all lines",
-  "[   6.5s] evidence carry: 205 invoices, 1205 lines, 60 boilerplate keys",
-  "[   6.5s] citations: {'col28_clauses_removed': 111, 'row_citations_remapped': 16}",
-  "[   6.5s] journal sets 63, net-zero 17, inherited open sets now pairing at branch scope 3",
-  "[   6.7s] creditor lines: 373 carried from v127, 20718 from the branch v4 APLEDGER pulls; 857 register lines cite a v4 history row",
-  "[  11.5s] register written",
-  "[  17.2s] controls registered 82",
-  "[  18.3s] workbook written; recalculating (convert route)",
-  "[  32.7s] recalc complete; verifying the recalculated file with calamine"
+  "[   5.3s] stage complete",
+  "[   6.1s] gate analysis keys agree with the grey source block on all lines",
+  "[   6.1s] evidence carry: 205 invoices, 1205 lines, 60 boilerplate keys",
+  "[   6.2s] citations: {'col28_clauses_removed': 111, 'row_citations_remapped': 16}",
+  "[   6.2s] journal sets 63, net-zero 17, inherited open sets now pairing at branch scope 3",
+  "[   6.4s] creditor lines: 373 carried from v127, 20718 from the branch v4 APLEDGER pulls; 857 register lines cite a v4 history row",
+  "[  11.2s] register written",
+  "[  11.4s] journal pull: 56 document files, tiers {'A Pull required': 8, 'B Sight attachment': 38, 'C RJ reversal, no pull': 6, 'D Held, already embedded in PS_WP v127': 4}, Tier A absolute net $790,704.10",
+  "[  17.3s] controls registered 86",
+  "[  18.4s] workbook written; recalculating (convert route)",
+  "[  32.0s] recalc complete; verifying the recalculated file with calamine"
  ]
 }
