@@ -14,7 +14,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import pbr_stage
 
-VER = 'v6'
+VER = 'v7'
 OUTNAME = f'Parks_Branch_Transaction_Register_FY2627_{VER}.xlsx'
 CLTOK = re.compile(r'\{CL:(\d+):(\d+)\}')
 SCRATCH = os.path.join(pbr_stage.ROOT, 'cache', 'scratch')
@@ -378,6 +378,13 @@ def build(stage):
     for d_ in stage['journal_docs']:
         ho.row([d_['source_file'], f'Journal_Sources {jsc_span[d_["document_file"]]} (TechOne Document Line Table, document file {d_["document_file"]}, '
                                    f'{", ".join(d_["journal_references_covered"])}), every leg verbatim with its branch scope flag; md5 {d_["source_md5"]}; Data_Acquisition.'])
+    for _b in ('mix222', 'binder11111'):
+        _cp = os.path.join(pbr_stage.ROOT, 'batches', _b, f'corpus_{_b}_v6.json')
+        if os.path.exists(_cp):
+            _sf = json.load(open(_cp))['manifest']['source_files'][0]
+            ho.row([f'{_sf["file"]} ({_sf["pages"]} pages)', f'Evidence_Invoices / Evidence_Invoice_Lines / Register green block (Batch {_b}); '
+                    f'md5 {_sf["md5"]}; parsed by parse_binders.py, pdftotext -layout, page text retained in corpus_{_b}_v6.json, gate GREEN; '
+                    f'the PDF itself is not embedded (rule 15).'])
     ho.row(['mix 22.pdf (81 pages, binder not supplied)', 'Evidence_Invoices / Evidence_Invoice_Lines / Register green block (Batch mix22): supplied corpus corpus_mix22.json md5 '
             'e6782e55b5379dc3adcb6a1b5c7cebd4, gate RED as supplied (11 P1, 16 documents at OUT), restated to corpus_mix22_v6.json by prep_supplied_corpus.py and gated GREEN; '
             'the rule 19.2 per-vendor verbatim check ran against independently parsed Savco, Heritage, Play Force and Kachel page text (Data_Acquisition).'])
@@ -397,6 +404,19 @@ def build(stage):
     ho.blank()
     ho.row(['Change log', ''], 'blue')
     _hm = stage['hist_matches']
+    _b7 = {b: json.load(open(os.path.join(pbr_stage.ROOT, 'batches', b, f'corpus_{b}_v6.json')))['manifest']
+           for b in ('mix222', 'binder11111') if os.path.exists(os.path.join(pbr_stage.ROOT, 'batches', b, f'corpus_{b}_v6.json'))}
+    if _b7:
+        ho.row([f'{VER}, {BUILD_DATE}',
+                'The two binders held at v6 were supplied and built. Batches ' + ' and '.join(
+                    f'{b} ({m["documents_found"]} invoices, {m["source_files"][0]["file"]}, {m["source_files"][0]["pages"]} pages, '
+                    f'captured {fmt_money(m["captured_ex_gst_total"])} ex GST)' for b, m in _b7.items()) + '. '
+                'Both were parsed on the raw-text route by parse_binders.py to extraction prompt v6 and gate GREEN, every document at TIE, every '
+                'header block proven to add up and the residue test empty before emit. Every page the supplied corpora left with no line record (P3) '
+                'is a blank separator page and now carries one BLANK record. Invoice 19827 prints six identical copies and 19997 two; the first of '
+                'each is captured and the rest typed DUPLICATE_COPY, outside the arithmetic. '
+                'Findings: no ABN prints anywhere on any of the 13 RST Systems invoices (B-033), and four of the eight LCC Fuel Levy - Diesel lines '
+                'were recoded to PK000514 on 74189 by GJ080696 while four were not (B-034). Control total unchanged.'])
     _jm = stage['journal_batch']['manifest']
     _h6 = [h for h in HISTS if h.get('added') == 'v6']; _hm6 = [m for m in _hm if HISTS[m['k']].get('added') == 'v6']
     ho.row([f'{VER}, {BUILD_DATE}',
@@ -1006,6 +1026,25 @@ def build(stage):
                       'kachelcleaning@live.com.au and no entity name at all.',
                       'Sighted invoice 7715 (Batch mix22). The register\'s own accrual RJ013846 "Parks - Monthly Accrue-Parks Services" accrues the identical $1,650.00 on the identical PK000515 to 74189, '
                       'and every Vinton fuel levy recode on GJ080696 sits on 74189, so the actual is the odd one out.'))
+    _vin = [r for r in sighted if str(r['V'][126] or '').find('Batch binder11111') >= 0]
+    if _vin:
+        items.append(('Supplier invoice prints no ABN', 'Review', 'Trees', len(_vin), sum(D(r['V'][20]) for r in _vin),
+                      'Ask Vinton Tree Services to print its entity name and ABN on the invoice face. None of the 13 invoices in the binder prints an ABN anywhere, '
+                      'and no entity name prints on the face: the only supplier identification is "RST Systems Pty Ltd" in the bank block and the remittance address '
+                      'admin@vintontreeservices.com.au. A tax invoice for a supply over $1,000 must show the supplier identity and ABN, and every one of these is over that. '
+                      'Confirm which entity the register should carry: the creditor record is VIN003 Vinton Tree Services, ABN 84 008 552 538.',
+                      'Sighted invoices, Batch binder11111. Rule 8: the printed ABN decides identity, and these faces print none, so the label and ABN on the line come '
+                      'from the APLEDGER history, not from the document.'))
+    _levy = [r for r in sighted if 'LCC Fuel Levy - Diesel' in str(r['V'][111] or '')]
+    if _levy:
+        items.append(('Fuel levy recoded on some invoices and not others', 'Review', 'Trees / Park Maintenance', len(_levy), D('587.31'),
+                      'Eight Vinton invoices in Batch binder11111 carry an LCC Fuel Levy - Diesel line, $829.03 in total. GJ080696 recoded four of them to PK000514 on '
+                      '74189 Fuel Levy Surcharge (19895 $63.93, 19924 $6.65, 19941 $138.04, 19954 $33.10) and left four on 73212 with the work (19965 $134.31, '
+                      '19983 $253.69, 19989 $184.39, 19997 $14.92, $587.31 in all). Ask Finance which treatment is intended and recode the rest to match. '
+                      'Then verify the levy itself: as a percentage of the work ex levy these invoices print three different rates in six weeks on one contract, '
+                      '0.861% (19895, 17-Jul), 2.955% (19924, 19941, 19965) and 3.940% (19954, 19983, 19989, 19997), and the rate is not monotonic in date: '
+                      '3.940% on 7-Aug, 2.955% on 13-Aug, 3.940% again on 24-Aug. A stepped and capped model banded on the diesel TGP cannot produce that from the work date alone.',
+                      'Sighted invoices, Batch binder11111, read against the GJ080696 recode legs on the register (74189, PK000514) and the stepped and capped fuel levy model (Fact Sheet DM19338551).'))
     for k, it in enumerate(items, 1):
         oi.row([f'B-{k:03d}'] + list(it), money_cols=(6,))
     cited = collections.Counter()
@@ -1175,10 +1214,20 @@ def build(stage):
                  f'Rule 19.2 per-vendor verbatim check against an independent source: {_mix["fidelity_check"]["verdict"]}. Scope of that check: {_mix["fidelity_check"]["scope"]} | Batch mix22')
     for _hb in ('binder11111', 'mix222'):
         _hp = os.path.join(pbr_stage.ROOT, 'batches', _hb, f'hold_{_hb}_v5.json')
-        if os.path.exists(_hp):
-            _h = json.load(open(_hp))
-            lines.append(f'HELD | 11-Sep-2026 | {_h["corpus"]} | md5 {_h["corpus_md5"]} | Supplied extraction corpus, batch {_hb}, {_h["documents"]} documents, declared gate {_h["declared_gate"]}. '
-                         f'{_h["repair_gate"]}: ' + '; '.join(sorted({p_["code"] for p_ in _h["pathologies"]})) + f' on ' + ', '.join(sorted({p_["doc_ref"] for p_ in _h["pathologies"]})) + f'. {_h["decision"]} Not built from (rule 19.2).')
+        _cp = os.path.join(pbr_stage.ROOT, 'batches', _hb, f'corpus_{_hb}_v6.json')
+        if not os.path.exists(_hp):
+            continue
+        _h = json.load(open(_hp))
+        _c = json.load(open(_cp))['manifest'] if os.path.exists(_cp) else None
+        _sf = (_c['source_files'][0] if _c else {})
+        lines.append(f'HELD AT v6, RELEASED AT v7 | 11-Sep-2026 | {_h["corpus"]} | md5 {_h["corpus_md5"]} | Supplied extraction corpus, batch {_hb}, '
+                     f'{_h["documents"]} documents, declared gate {_h["declared_gate"]}. {_h["repair_gate"]}: '
+                     + '; '.join(sorted({p_["code"] for p_ in _h["pathologies"]})) + ' on ' + ', '.join(sorted({p_["doc_ref"] for p_ in _h["pathologies"]}))
+                     + '. Held and not built from (rule 19.2). ' + (
+                         f'The binder {_sf.get("file")} was then supplied (md5 {_sf.get("md5")}, {_sf.get("pages")} pages) and parsed on the raw-text route by '
+                         f'parse_binders.py to extraction prompt v6 ({_c["extraction_tool"]}); gate {_c["gate"]}, {_c["documents_found"]} documents all at TIE, '
+                         f'{_c["lines_captured"]:,} line records, captured ex GST {fmt_money(_c["captured_ex_gst_total"])}. Every page the supplied corpus left with no '
+                         f'record is a blank separator page and now carries one BLANK record (prompt v6 3.9).' if _c else ''))
     lines.append(f'Rule 12 screen at v4 to v6: every md5 above was screened against the PS & WP v127 Data_Acquisition and this register\'s inputs; none had been received before. Re-pulls audited against the v127 embedded histories and not re-captured: HAR073 at v4 (5-Aug-2026 pull, F26 there) and LEV002 at v6 (2-Sep-2026 re-pull, F127 there): {stage.get("hist_audit")}.')
     lines.append('ABR public register lookups (v6, 11-Sep-2026, abr.business.gov.au ABN View): 52 010 996 175 Mimeway Pty. Ltd., trading name Mimeway Pty. Ltd. t/as Nuway Landscape Supplies (NUW001); 49 600 618 657 Greenway Solutions Pty Ltd (GRE083); 38 081 222 675 P.K. Consulting Pty Ltd, QLD 4133 (WAT088). Each is the ABN carried on the APLEDGER export for that creditor code; the lookup names the entity, it is not invoice evidence (rule 8: Tier 1 on the creditor history with ABR ABN; nature stays unconfirmed until an invoice is sighted under rule 17).')
     lines.append(f'Gaps and priority queue (branch): 1. APLEDGER creditor histories for the remaining unidentified supplier series (Open_Items B-001 onward; the queue with one invoice to sight per series is reports/Unidentified_Contractors_{VER}.md). 2. Sight one invoice per newly identified creditor series to confirm nature (rule 17). 3. 26SLACT P12 for the non-PS/WP sections, to pair the P1 EOY reversals. 4. 27SLACT P4 whole-branch pull when P4 closes, same criteria. 5. Document Line Tables for the recode sets that do not net in scope.')

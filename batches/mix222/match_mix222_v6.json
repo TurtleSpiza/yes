@@ -1,0 +1,843 @@
+[
+ {
+  "invoice": "00015210",
+  "vendor": "Harpley Services Pty Ltd",
+  "abn": "22 162 601 694",
+  "subtotal": 581.58,
+  "incl": 639.74,
+  "variant": "standard",
+  "target": [
+   "5ae5960c-73212-PK000415-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "5ae5960c-73212-PK000415-01",
+    "section": "Park Services",
+    "na": "73212",
+    "pk": "PK000415",
+    "amount": 581.58,
+    "contractor": "Harpley Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "00015210",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Plumbing works at Pioneer Park under contract LCC-09-2022, requesting officer Rene, CR/WO# PK#:. Work requested: Water filter 10 micron filter install on pump outlet. Works carried out: Installed 3/4 Filter into outlet of Pump. Lines: 4 Labour Tradesman $90.00 $360.00; 1 Materials $221.58 $221.58. Printed PK#000415. No CR or work order is printed on the invoice face: the CR/WO# field is blank.",
+  "follow_up": "Ask Harpley to print the CR or work order number; the CR/WO# field on this invoice is blank.",
+  "source_file": "mix_222.pdf"
+ },
+ {
+  "invoice": "00015212",
+  "vendor": "Harpley Services Pty Ltd",
+  "abn": "22 162 601 694",
+  "subtotal": 283.2,
+  "incl": 311.52,
+  "variant": "standard",
+  "target": [
+   "26d07a86-73212-PK000415-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "26d07a86-73212-PK000415-01",
+    "section": "Park Services",
+    "na": "73212",
+    "pk": "PK000415",
+    "amount": 283.2,
+    "contractor": "Harpley Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "00015212",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Plumbing works at Everleigh under contract LCC-09-2022, requesting officer Jessica, CR/WO# 3909470. Work requested: Water Bubbler doesnt work, has missing tap head, no water flow at all \u2013 Photos attached. Works carried out: Found cam action tap assembly stolen from bubbler. Lines: 1.5 Labour Tradesman $90.00 $135.00; 1 Materials $148.20 $148.20. Printed PK#000415.",
+  "follow_up": null,
+  "source_file": "mix_222.pdf"
+ },
+ {
+  "invoice": "00015220",
+  "vendor": "Harpley Services Pty Ltd",
+  "abn": "22 162 601 694",
+  "subtotal": 944.19,
+  "incl": 1038.61,
+  "variant": "standard",
+  "target": [
+   "6f347ed8-73212-PK000415-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "6f347ed8-73212-PK000415-01",
+    "section": "Park Services",
+    "na": "73212",
+    "pk": "PK000415",
+    "amount": 944.19,
+    "contractor": "Harpley Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "00015220",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Plumbing works at Logan River Parklands under contract LCC-09-2022, requesting officer Nakita, CR/WO# PK#:. Work requested: Alter blocked Pan waste pipework to be into new IO\u2019s outside. Get flashings made up to cover holes as Works carried out: 15-6 Attended site, organised materials. To install when ready Lines: 7.5 Labour Tradesman $90.00 $675.00; 1 Materials $269.19 $269.19. Printed PK#000415. No CR or work order is printed on the invoice face: the CR/WO# field is blank.",
+  "follow_up": "Ask Harpley to print the CR or work order number; the CR/WO# field on this invoice is blank.",
+  "source_file": "mix_222.pdf"
+ },
+ {
+  "invoice": "00015219",
+  "vendor": "Harpley Services Pty Ltd",
+  "abn": "22 162 601 694",
+  "subtotal": 270.0,
+  "incl": 297.0,
+  "variant": "standard",
+  "target": [
+   "aef3fe2d-73212-PK000415-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "aef3fe2d-73212-PK000415-01",
+    "section": "Park Services",
+    "na": "73212",
+    "pk": "PK000415",
+    "amount": 270.0,
+    "contractor": "Harpley Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "00015219",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Plumbing works at Lancaster Park under contract LCC-09-2022, requesting officer Jessica, CR/WO# 3912646. Work requested: Blocked toilets Works carried out: (see the invoice narrative) Lines: 1 Labour Tradesman $90.00 $90.00; 1 Drain Cleaning - Jet Rodder $180.00 $180.00. Printed PK#000415.",
+  "follow_up": null,
+  "source_file": "mix_222.pdf"
+ },
+ {
+  "invoice": "00015233",
+  "vendor": "Harpley Services Pty Ltd",
+  "abn": "22 162 601 694",
+  "subtotal": 371.88,
+  "incl": 409.07,
+  "variant": "standard",
+  "target": [
+   "aa43acaa-73212-PK000415-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "aa43acaa-73212-PK000415-01",
+    "section": "Park Services",
+    "na": "73212",
+    "pk": "PK000415",
+    "amount": 371.88,
+    "contractor": "Harpley Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "00015233",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Plumbing works at Chris Green Park under contract LCC-09-2022, requesting officer Jessica, CR/WO# 3914777. Work requested: Beenleigh skate park public toilets / Chris green park - Males urinal is over flowing and blocked there is a Works carried out: (see the invoice narrative) Lines: 2 Labour Tradesman $90.00 $180.00; 1 Drain Cleaning - Electric Eel $150.00 $150.00; 1 Materials $41.88 $41.88. Printed PK#000415.",
+  "follow_up": null,
+  "source_file": "mix_222.pdf"
+ },
+ {
+  "invoice": "00015232",
+  "vendor": "Harpley Services Pty Ltd",
+  "abn": "22 162 601 694",
+  "subtotal": 373.2,
+  "incl": 410.52,
+  "variant": "standard",
+  "target": [
+   "b570a36d-73212-PK000415-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "b570a36d-73212-PK000415-01",
+    "section": "Park Services",
+    "na": "73212",
+    "pk": "PK000415",
+    "amount": 373.2,
+    "contractor": "Harpley Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "00015232",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Plumbing works at Ironbark Park under contract LCC-09-2022, requesting officer Ryan, CR/WO# 3914532. Work requested: Tap unable to be turned off in DOLA Works carried out: 3-7: Attended site to find tap unable to turn off. isolated water Lines: 2.5 Labour Tradesman $90.00 $225.00; 1 Materials $148.20 $148.20. Printed PK#000415.",
+  "follow_up": null,
+  "source_file": "mix_222.pdf"
+ },
+ {
+  "invoice": "00015261",
+  "vendor": "Harpley Services Pty Ltd",
+  "abn": "22 162 601 694",
+  "subtotal": 780.0,
+  "incl": 858.0,
+  "variant": "standard",
+  "target": [
+   "9f54943e-73212-PK000415-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "9f54943e-73212-PK000415-01",
+    "section": "Park Services",
+    "na": "73212",
+    "pk": "PK000415",
+    "amount": 780.0,
+    "contractor": "Harpley Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "00015261",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Plumbing works at Belyando Park, Holmview under contract LCC-09-2022, requesting officer Corey, CR/WO# 3913180. Work requested: Water Bubbler is blocked with sand, Please clean out. Works carried out: 8-7: Removed large amounts of sand/dirt from bubbler & drain. Lines: 7 Labour Tradesman $90.00 $630.00; 1 Drain Cleaning - Electric Eel $150.00 $150.00. Printed PK#000415.",
+  "follow_up": null,
+  "source_file": "mix_222.pdf"
+ },
+ {
+  "invoice": "00015258",
+  "vendor": "Harpley Services Pty Ltd",
+  "abn": "22 162 601 694",
+  "subtotal": 690.0,
+  "incl": 759.0,
+  "variant": "standard",
+  "target": [
+   "fd0207ea-73212-PK000415-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "fd0207ea-73212-PK000415-01",
+    "section": "Park Services",
+    "na": "73212",
+    "pk": "PK000415",
+    "amount": 690.0,
+    "contractor": "Harpley Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "00015258",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Plumbing works at Leighton Fields under contract LCC-09-2022, requesting officer Jessica, CR/WO# 3916112. Work requested: Male toilets blocked Works carried out: Found right hand toilet to be backed up and overflowing, Lines: 4 Labour Tradesman $90.00 $360.00; 1 Drain Cleaning - CCTV $150.00 $150.00; 1 Drain Cleaning - Jet Rodder $180.00 $180.00. Printed PK#000415.",
+  "follow_up": null,
+  "source_file": "mix_222.pdf"
+ },
+ {
+  "invoice": "00015259",
+  "vendor": "Harpley Services Pty Ltd",
+  "abn": "22 162 601 694",
+  "subtotal": 315.0,
+  "incl": 346.5,
+  "variant": "standard",
+  "target": [
+   "cad0e793-73212-PK000415-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "cad0e793-73212-PK000415-01",
+    "section": "Park Services",
+    "na": "73212",
+    "pk": "PK000415",
+    "amount": 315.0,
+    "contractor": "Harpley Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "00015259",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Plumbing works at Shailor Pioneer Park under contract LCC-09-2022, requesting officer Dominic, CR/WO# 3918730. Work requested: Two leaking bubblers in the park one near play units and the other near the basket ball courts. Works carried out: Removed large amounts of roots from drainage line under Lines: 1.5 Labour Tradesman $90.00 $135.00; 1 Drain Cleaning - Jet Rodder $180.00 $180.00. Printed PK#000415.",
+  "follow_up": null,
+  "source_file": "mix_222.pdf"
+ },
+ {
+  "invoice": "00015265",
+  "vendor": "Harpley Services Pty Ltd",
+  "abn": "22 162 601 694",
+  "subtotal": 306.01,
+  "incl": 336.61,
+  "variant": "standard",
+  "target": [
+   "0eb808b6-73212-PK000415-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "0eb808b6-73212-PK000415-01",
+    "section": "Park Services",
+    "na": "73212",
+    "pk": "PK000415",
+    "amount": 306.01,
+    "contractor": "Harpley Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "00015265",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Plumbing works at Highland Park under contract LCC-09-2022, requesting officer Jessica, CR/WO# 3920345. Work requested: Tap in dog park can't be turned off. Works carried out: Replaced the stuffing box cam action. Operating correctly when Lines: 1 Labour Tradesman $90.00 $90.00; 1 Materials $216.01 $216.01. Printed PK#000415.",
+  "follow_up": null,
+  "source_file": "mix_222.pdf"
+ },
+ {
+  "invoice": "00015266",
+  "vendor": "Harpley Services Pty Ltd",
+  "abn": "22 162 601 694",
+  "subtotal": 378.04,
+  "incl": 415.84,
+  "variant": "standard",
+  "target": [
+   "26c593e1-73212-PK000415-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "26c593e1-73212-PK000415-01",
+    "section": "Park Services",
+    "na": "73212",
+    "pk": "PK000415",
+    "amount": 378.04,
+    "contractor": "Harpley Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "00015266",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Plumbing works at Riverdale Park under contract LCC-09-2022, requesting officer Melina, CR/WO# 3925546. Work requested: Please see attached request for replacement of lids near the main toilet block. Works carried out: 28-7: Attended site to inspect damaged pit/lid. Ordered from Lines: 3 Labour Tradesman $90.00 $270.00; 1 Materials $108.04 $108.04. Printed PK#000415.",
+  "follow_up": null,
+  "source_file": "mix_222.pdf"
+ },
+ {
+  "invoice": "00015275",
+  "vendor": "Harpley Services Pty Ltd",
+  "abn": "22 162 601 694",
+  "subtotal": 315.0,
+  "incl": 346.5,
+  "variant": "standard",
+  "target": [
+   "47f0f044-73212-PK000415-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "47f0f044-73212-PK000415-01",
+    "section": "Park Services",
+    "na": "73212",
+    "pk": "PK000415",
+    "amount": 315.0,
+    "contractor": "Harpley Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "00015275",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Plumbing works at Sturdee Park under contract LCC-09-2022, requesting officer Nakita, CR/WO# 3922610. Work requested: Blocked disabled/male Works carried out: Found the blockage to be further down the line had to use jet Lines: 1.5 Labour Tradesman $90.00 $135.00; 1 Drain Cleaning - Jet Rodder $180.00 $180.00. Printed PK#000415.",
+  "follow_up": null,
+  "source_file": "mix_222.pdf"
+ },
+ {
+  "invoice": "00015277",
+  "vendor": "Harpley Services Pty Ltd",
+  "abn": "22 162 601 694",
+  "subtotal": 465.0,
+  "incl": 511.5,
+  "variant": "standard",
+  "target": [
+   "ab6e67f7-73212-PK000415-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "ab6e67f7-73212-PK000415-01",
+    "section": "Park Services",
+    "na": "73212",
+    "pk": "PK000415",
+    "amount": 465.0,
+    "contractor": "Harpley Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "00015277",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Plumbing works at Kookaburra Park under contract LCC-09-2022, requesting officer Nakita, CR/WO# 3922629. Work requested: Blocked male/female Works carried out: Found the toilets to be clear. Lines: 1.5 Labour Tradesman $90.00 $135.00; 1 Drain Cleaning - CCTV $150.00 $150.00; 1 Drain Cleaning - Jet Rodder $180.00 $180.00. Printed PK#000415.",
+  "follow_up": null,
+  "source_file": "mix_222.pdf"
+ },
+ {
+  "invoice": "00015267",
+  "vendor": "Harpley Services Pty Ltd",
+  "abn": "22 162 601 694",
+  "subtotal": 514.8,
+  "incl": 566.28,
+  "variant": "standard",
+  "target": [
+   "0e243ebe-73212-PK000415-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "0e243ebe-73212-PK000415-01",
+    "section": "Park Services",
+    "na": "73212",
+    "pk": "PK000415",
+    "amount": 514.8,
+    "contractor": "Harpley Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "00015267",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Plumbing works at Crestmead Park under contract LCC-09-2022, requesting officer Nakita, CR/WO# 3925224. Work requested: large dog parks water tap is blocked as its only dribbling water out as the pressure is very very low Works carried out: Found DOLA tap to be faulty. Replaced complete cam action Lines: 1.5 Labour Tradesman $90.00 $135.00; 1 Materials $379.80 $379.80. Printed PK#000415.",
+  "follow_up": null,
+  "source_file": "mix_222.pdf"
+ },
+ {
+  "invoice": "00015271",
+  "vendor": "Harpley Services Pty Ltd",
+  "abn": "22 162 601 694",
+  "subtotal": 465.0,
+  "incl": 511.5,
+  "variant": "standard",
+  "target": [
+   "1bb7f63a-73212-PK000415-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "1bb7f63a-73212-PK000415-01",
+    "section": "Park Services",
+    "na": "73212",
+    "pk": "PK000415",
+    "amount": 465.0,
+    "contractor": "Harpley Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "00015271",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Plumbing works at Barbaralla Park under contract LCC-09-2022, requesting officer Melina, CR/WO# 3921317. Work requested: Please unblock the toilet Works carried out: Found both Toilets to be blocked. Lines: 1.5 Labour Tradesman $90.00 $135.00; 1 Drain Cleaning - CCTV $150.00 $150.00; 1 Drain Cleaning - Jet Rodder $180.00 $180.00. Printed PK#000415.",
+  "follow_up": null,
+  "source_file": "mix_222.pdf"
+ },
+ {
+  "invoice": "00015268",
+  "vendor": "Harpley Services Pty Ltd",
+  "abn": "22 162 601 694",
+  "subtotal": 945.0,
+  "incl": 1039.5,
+  "variant": "standard",
+  "target": [
+   "c4a8dc2e-73212-PK000415-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "c4a8dc2e-73212-PK000415-01",
+    "section": "Park Services",
+    "na": "73212",
+    "pk": "PK000415",
+    "amount": 945.0,
+    "contractor": "Harpley Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "00015268",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Plumbing works at Schmidts Creek Park Nrth under contract LCC-09-2022, requesting officer Ryan, CR/WO# 3865958. Work requested: Water fountain not functioning. Works carried out: 14-4: Found multiple parts on bubbler to be missing or playing Lines: 5 Labour Tradesman $90.00 $450.00; 1 Materials $495.00 $495.00. Printed PK#000415.",
+  "follow_up": null,
+  "source_file": "mix_222.pdf"
+ },
+ {
+  "invoice": "00015284",
+  "vendor": "Harpley Services Pty Ltd",
+  "abn": "22 162 601 694",
+  "subtotal": 719.08,
+  "incl": 790.99,
+  "variant": "standard",
+  "target": [
+   "4d8811d8-73212-PK000415-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "4d8811d8-73212-PK000415-01",
+    "section": "Park Services",
+    "na": "73212",
+    "pk": "PK000415",
+    "amount": 719.08,
+    "contractor": "Harpley Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "00015284",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Plumbing works at Priestdale Park under contract LCC-09-2022, requesting officer Melina, CR/WO# 3918892. Work requested: Please repair leaking tap. Sorry exact location and photos weren\u2019t given Works carried out: 17-7: Found pipework to be leaking from old gal risers. Isolated Lines: 5 Labour Tradesman $90.00 $450.00; 1 Materials $269.08 $269.08. Printed PK#000415.",
+  "follow_up": null,
+  "source_file": "mix_222.pdf"
+ },
+ {
+  "invoice": "00015287",
+  "vendor": "Harpley Services Pty Ltd",
+  "abn": "22 162 601 694",
+  "subtotal": 585.0,
+  "incl": 643.5,
+  "variant": "standard",
+  "target": [
+   "d6427368-73212-PK000415-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "d6427368-73212-PK000415-01",
+    "section": "Park Services",
+    "na": "73212",
+    "pk": "PK000415",
+    "amount": 585.0,
+    "contractor": "Harpley Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "00015287",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Confirm",
+  "coding_note": "Plumbing works at Pioneer Park Woodhill under contract LCC-09-2022, requesting officer Jessica, CR/WO# 3930839. Work requested: Resident reporting no water to the toilet and is concerned that using it may cause a blockage. Works carried out: Attended site 7-8-26 Lines: 2.5 Labour Tradesman $90.00 $225.00; 1 Water $360.00 $360.00. Printed PK#000415. The invoice includes a $360.00 water charge; nothing on the face evidences the quantity delivered.",
+  "follow_up": "Obtain the supplier's water delivery docket for the $360.00 water charge on this invoice.",
+  "source_file": "mix_222.pdf"
+ },
+ {
+  "invoice": "00015289",
+  "vendor": "Harpley Services Pty Ltd",
+  "abn": "22 162 601 694",
+  "subtotal": 959.08,
+  "incl": 1054.99,
+  "variant": "standard",
+  "target": [
+   "a9ce4895-73212-PK000415-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "a9ce4895-73212-PK000415-01",
+    "section": "Park Services",
+    "na": "73212",
+    "pk": "PK000415",
+    "amount": 959.08,
+    "contractor": "Harpley Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "00015289",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Plumbing works at Priestdale Park under contract LCC-09-2022, requesting officer Jessica, CR/WO# 3918577. Work requested: Water tap and it is now busted and a large amount of water is bursting out currently and wont stop - Works carried out: 13-7: Found gal to be split on base & under concrete. Water Lines: 5 Labour Tradesman $90.00 $450.00; 1 Materials $509.08 $509.08. Printed PK#000415.",
+  "follow_up": null,
+  "source_file": "mix_222.pdf"
+ },
+ {
+  "invoice": "00015293",
+  "vendor": "Harpley Services Pty Ltd",
+  "abn": "22 162 601 694",
+  "subtotal": 360.0,
+  "incl": 396.0,
+  "variant": "standard",
+  "target": [
+   "3ab2eecf-73212-PK000415-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "3ab2eecf-73212-PK000415-01",
+    "section": "Park Services",
+    "na": "73212",
+    "pk": "PK000415",
+    "amount": 360.0,
+    "contractor": "Harpley Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "00015293",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Plumbing works at Tully Memorial Park under contract LCC-09-2022, requesting officer Ryan/Kahn, CR/WO# 3904050. Work requested: Toilets block dog area. Works carried out: 15-6-26: Found Irrigation Chamber to be empty. HSTP to be Lines: 4 Labour Tradesman $90.00 $360.00. Printed PK#000415.",
+  "follow_up": null,
+  "source_file": "mix_222.pdf"
+ },
+ {
+  "invoice": "00015291",
+  "vendor": "Harpley Services Pty Ltd",
+  "abn": "22 162 601 694",
+  "subtotal": 330.0,
+  "incl": 363.0,
+  "variant": "standard",
+  "target": [
+   "5eaad6f5-73212-PK000415-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "5eaad6f5-73212-PK000415-01",
+    "section": "Park Services",
+    "na": "73212",
+    "pk": "PK000415",
+    "amount": 330.0,
+    "contractor": "Harpley Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "00015291",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Plumbing works at Freshwater Park under contract LCC-09-2022, requesting officer Jessica, CR/WO# 3924028. Work requested: Bubbler in the park is blocked and needs repair as algae is forming Works carried out: Found sand and roots blocking bubbler. Lines: 2 Labour Tradesman $90.00 $180.00; 1 Drain Cleaning - Electric Eel $150.00 $150.00. Printed PK#000415.",
+  "follow_up": null,
+  "source_file": "mix_222.pdf"
+ },
+ {
+  "invoice": "00015299",
+  "vendor": "Harpley Services Pty Ltd",
+  "abn": "22 162 601 694",
+  "subtotal": 2210.0,
+  "incl": 2431.0,
+  "variant": "standard",
+  "target": [
+   "8bf6e96b-73212-PK000415-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "8bf6e96b-73212-PK000415-01",
+    "section": "Park Services",
+    "na": "73212",
+    "pk": "PK000415",
+    "amount": 2210.0,
+    "contractor": "Harpley Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "00015299",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Confirm",
+  "coding_note": "Plumbing works at Logan River Parklands under contract LCC-09-2022, requesting officer Melina, CR/WO# 3930171. Work requested: All toilets blocked. Cleaners locked up. Works carried out: 4-8-26: Found tank full and all the toilets backing up. Lines: 7 Labour Tradesman $90.00 $630.00; 1 Drain Cleaning - CCTV $150.00 $150.00; 1 Drain Cleaning - Jet Rodder $180.00 $180.00; 1 Drain Cleaning - Electric Eel $150.00 $150.00; 1 Sub-Contractor Drain Cleaning Machine $1,100.00 $1,100.00. Printed PK#000418. The invoice prints PK#: 000418 and the charge is PK000415 (Open Item B-027); both sit on 73212 in Park Services. The $1,100.00 sub-contractor drain-cleaning machine line is a pass-through charge and the sub-contractor's own invoice is not attached.",
+  "follow_up": "Confirm whether the charge belongs on the printed PK000418 or the charged PK000415, and obtain the sub-contractor's invoice for the $1,100.00 drain-cleaning machine line.",
+  "source_file": "mix_222.pdf"
+ },
+ {
+  "invoice": "00015292",
+  "vendor": "Harpley Services Pty Ltd",
+  "abn": "22 162 601 694",
+  "subtotal": 350.2,
+  "incl": 385.22,
+  "variant": "standard",
+  "target": [
+   "873907ff-73212-PK000415-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "873907ff-73212-PK000415-01",
+    "section": "Park Services",
+    "na": "73212",
+    "pk": "PK000415",
+    "amount": 350.2,
+    "contractor": "Harpley Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "00015292",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Plumbing works at Bega Park under contract LCC-09-2022, requesting officer Shane, CR/WO# 3929034. Work requested: Tap in dog off leash area is leaking and un able to turn off. Works carried out: Found tapware to have failed due to stuffing box issue. Lines: 2 Labour Tradesman $90.00 $180.00; 1 Materials $170.20 $170.20. Printed PK#000415.",
+  "follow_up": null,
+  "source_file": "mix_222.pdf"
+ },
+ {
+  "invoice": "00015302",
+  "vendor": "Harpley Services Pty Ltd",
+  "abn": "22 162 601 694",
+  "subtotal": 5416.5,
+  "incl": 5958.15,
+  "variant": "standard",
+  "target": [
+   "88f0a967-73212-PK000428-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "88f0a967-73212-PK000428-01",
+    "section": "Park Services",
+    "na": "73212",
+    "pk": "PK000428",
+    "amount": 5416.5,
+    "contractor": "Harpley Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "00015302",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Confirm",
+  "coding_note": "Plumbing works at Hugh Muntz Park under contract LCC-09-2022, requesting officer Nakita/Rene, CR/WO# n/a. Work requested: July 2026 pump outs Works carried out: July 2026 Pump Outs at Hugh Muntz Park Lines: 1 29/06/26 - 8,000 L $1,335.95 $1,335.95; 1 9/07/26 - 0L $447.70 $447.70; 1 17/07/26 - 6,500 L $1,170.95 $1,170.95; 1 28/07/26 - 8,500 L $1,290.95 $1,290.95; 1 31/07/26 - 6,500L $1,170.95 $1,170.95. Printed PK#000428. July 2026 pump-outs at Hugh Muntz Park, printed PK#000428 matching the charge. One pump-out line reads \"9/07/26 - 0L\" and charges $447.70: the docket records no volume removed, so nothing on the face evidences what was supplied for that line. CR/WO# prints \"n/a\".",
+  "follow_up": "Obtain the 9-Jul-2026 pump-out docket for the $447.70 line, which records 0 L on the invoice face.",
+  "source_file": "mix_222.pdf"
+ },
+ {
+  "invoice": "00015310",
+  "vendor": "Harpley Services Pty Ltd",
+  "abn": "22 162 601 694",
+  "subtotal": 377.72,
+  "incl": 415.49,
+  "variant": "standard",
+  "target": [
+   "279941c9-73212-PK000415-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "279941c9-73212-PK000415-01",
+    "section": "Park Services",
+    "na": "73212",
+    "pk": "PK000415",
+    "amount": 377.72,
+    "contractor": "Harpley Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "00015310",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Plumbing works at Alexander Clark Park under contract LCC-09-2022, requesting officer On Call/Shane, CR/WO# 3933655. Work requested: Leaking tap at the bottom of the park, next to Gazebo and bin Phoned through by Parks On call officer Works carried out: Found cam action to be leaking and handle missing replaced Lines: 1 Labour Tradesman $90.00 $90.00; 1 Materials $287.72 $287.72. Printed PK#000415.",
+  "follow_up": null,
+  "source_file": "mix_222.pdf"
+ },
+ {
+  "invoice": "00015312",
+  "vendor": "Harpley Services Pty Ltd",
+  "abn": "22 162 601 694",
+  "subtotal": 476.01,
+  "incl": 523.61,
+  "variant": "standard",
+  "target": [
+   "e2474040-73212-PK000415-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "e2474040-73212-PK000415-01",
+    "section": "Park Services",
+    "na": "73212",
+    "pk": "PK000415",
+    "amount": 476.01,
+    "contractor": "Harpley Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "00015312",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Plumbing works at Jingeri park under contract LCC-09-2022, requesting officer Jessica, CR/WO# 3934116. Work requested: Water fountain near picnic table is leaking Works carried out: Replaced stuffing box on tap ware as was leaking. Lines: 2.5 Labour Tradesman $90.00 $225.00; 1 Materials $251.01 $251.01. Printed PK#000415.",
+  "follow_up": null,
+  "source_file": "mix_222.pdf"
+ },
+ {
+  "invoice": "00015303",
+  "vendor": "Harpley Services Pty Ltd",
+  "abn": "22 162 601 694",
+  "subtotal": 370.04,
+  "incl": 407.04,
+  "variant": "standard",
+  "target": [
+   "1b35897d-73212-PK000415-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "1b35897d-73212-PK000415-01",
+    "section": "Park Services",
+    "na": "73212",
+    "pk": "PK000415",
+    "amount": 370.04,
+    "contractor": "Harpley Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "00015303",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Plumbing works at Riverdale Park under contract LCC-09-2022, requesting officer Melina, CR/WO# 3926618. Work requested: Please replace missing tap handle Works carried out: Replaced missing handles on tapware as required. Lines: 1.5 Labour Tradesman $90.00 $135.00; 1 Materials $235.04 $235.04. Printed PK#000415.",
+  "follow_up": null,
+  "source_file": "mix_222.pdf"
+ },
+ {
+  "invoice": "00015315",
+  "vendor": "Harpley Services Pty Ltd",
+  "abn": "22 162 601 694",
+  "subtotal": 330.0,
+  "incl": 363.0,
+  "variant": "standard",
+  "target": [
+   "dcf6f7b6-73212-PK000415-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "dcf6f7b6-73212-PK000415-01",
+    "section": "Park Services",
+    "na": "73212",
+    "pk": "PK000415",
+    "amount": 330.0,
+    "contractor": "Harpley Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "00015315",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Plumbing works at Meakin Park under contract LCC-09-2022, requesting officer Melina/Jessica, CR/WO# 3935261. Work requested: Blocked toilet and leaking from waste pipe Male basin not draining Works carried out: Found basin drain to be blocked with tree roots used eel to drill Lines: 2 Labour Tradesman $90.00 $180.00; 1 Drain Cleaning - Electric Eel $150.00 $150.00. Printed PK#000415.",
+  "follow_up": null,
+  "source_file": "mix_222.pdf"
+ },
+ {
+  "invoice": "00015311",
+  "vendor": "Harpley Services Pty Ltd",
+  "abn": "22 162 601 694",
+  "subtotal": 741.56,
+  "incl": 815.72,
+  "variant": "standard",
+  "target": [
+   "5c164542-73212-PK000415-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "5c164542-73212-PK000415-01",
+    "section": "Park Services",
+    "na": "73212",
+    "pk": "PK000415",
+    "amount": 741.56,
+    "contractor": "Harpley Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "00015311",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Plumbing works at Federation Drive Reserve under contract LCC-09-2022, requesting officer Melina, CR/WO# 3918211. Work requested: Please unblock the drain at the dola bubbler Works carried out: 20-7: Inspected to find bubbler leaking underground. Isolated Lines: 6 Labour Tradesman $90.00 $540.00; 1 Materials $201.56 $201.56. Printed PK#000415.",
+  "follow_up": null,
+  "source_file": "mix_222.pdf"
+ }
+]

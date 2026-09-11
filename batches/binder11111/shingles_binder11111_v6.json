@@ -1,0 +1,116 @@
+{
+ "corpus": {
+  "scope": "corpus",
+  "documents_checked": 13,
+  "shingles_tested": 176,
+  "failures": [],
+  "results": [
+   {
+    "doc_ref": "19827",
+    "vendor": "RST Systems Pty Ltd",
+    "shingles_tested": 14,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "19835",
+    "vendor": "RST Systems Pty Ltd",
+    "shingles_tested": 8,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "19887",
+    "vendor": "RST Systems Pty Ltd",
+    "shingles_tested": 20,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "19895",
+    "vendor": "RST Systems Pty Ltd",
+    "shingles_tested": 17,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "19924",
+    "vendor": "RST Systems Pty Ltd",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "19941",
+    "vendor": "RST Systems Pty Ltd",
+    "shingles_tested": 35,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "19900",
+    "vendor": "RST Systems Pty Ltd",
+    "shingles_tested": 6,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "19954",
+    "vendor": "RST Systems Pty Ltd",
+    "shingles_tested": 13,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "19965",
+    "vendor": "RST Systems Pty Ltd",
+    "shingles_tested": 12,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "19983",
+    "vendor": "RST Systems Pty Ltd",
+    "shingles_tested": 12,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "19989",
+    "vendor": "RST Systems Pty Ltd",
+    "shingles_tested": 16,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "19852",
+    "vendor": "RST Systems Pty Ltd",
+    "shingles_tested": 6,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "19997",
+    "vendor": "RST Systems Pty Ltd",
+    "shingles_tested": 12,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   }
+  ],
+  "VERDICT": "PASS"
+ },
+ "VERDICT": "PASS"
+}

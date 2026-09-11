@@ -1,0 +1,244 @@
+{
+ "corpus": {
+  "scope": "corpus",
+  "documents_checked": 29,
+  "shingles_tested": 121,
+  "failures": [],
+  "results": [
+   {
+    "doc_ref": "00015210",
+    "vendor": "Harpley Services Pty Ltd",
+    "shingles_tested": 2,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "00015212",
+    "vendor": "Harpley Services Pty Ltd",
+    "shingles_tested": 2,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "00015220",
+    "vendor": "Harpley Services Pty Ltd",
+    "shingles_tested": 2,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "00015219",
+    "vendor": "Harpley Services Pty Ltd",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "00015233",
+    "vendor": "Harpley Services Pty Ltd",
+    "shingles_tested": 6,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "00015232",
+    "vendor": "Harpley Services Pty Ltd",
+    "shingles_tested": 2,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "00015261",
+    "vendor": "Harpley Services Pty Ltd",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "00015258",
+    "vendor": "Harpley Services Pty Ltd",
+    "shingles_tested": 8,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "00015259",
+    "vendor": "Harpley Services Pty Ltd",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "00015265",
+    "vendor": "Harpley Services Pty Ltd",
+    "shingles_tested": 2,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "00015266",
+    "vendor": "Harpley Services Pty Ltd",
+    "shingles_tested": 2,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "00015275",
+    "vendor": "Harpley Services Pty Ltd",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "00015277",
+    "vendor": "Harpley Services Pty Ltd",
+    "shingles_tested": 8,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "00015267",
+    "vendor": "Harpley Services Pty Ltd",
+    "shingles_tested": 2,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "00015271",
+    "vendor": "Harpley Services Pty Ltd",
+    "shingles_tested": 8,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "00015268",
+    "vendor": "Harpley Services Pty Ltd",
+    "shingles_tested": 2,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "00015284",
+    "vendor": "Harpley Services Pty Ltd",
+    "shingles_tested": 2,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "00015287",
+    "vendor": "Harpley Services Pty Ltd",
+    "shingles_tested": 2,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "00015289",
+    "vendor": "Harpley Services Pty Ltd",
+    "shingles_tested": 2,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "00015293",
+    "vendor": "Harpley Services Pty Ltd",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "00015291",
+    "vendor": "Harpley Services Pty Ltd",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "00015299",
+    "vendor": "Harpley Services Pty Ltd",
+    "shingles_tested": 15,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "00015292",
+    "vendor": "Harpley Services Pty Ltd",
+    "shingles_tested": 2,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "00015302",
+    "vendor": "Harpley Services Pty Ltd",
+    "shingles_tested": 13,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "00015310",
+    "vendor": "Harpley Services Pty Ltd",
+    "shingles_tested": 2,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "00015312",
+    "vendor": "Harpley Services Pty Ltd",
+    "shingles_tested": 2,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "00015303",
+    "vendor": "Harpley Services Pty Ltd",
+    "shingles_tested": 2,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "00015315",
+    "vendor": "Harpley Services Pty Ltd",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "00015311",
+    "vendor": "Harpley Services Pty Ltd",
+    "shingles_tested": 2,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   }
+  ],
+  "VERDICT": "PASS"
+ },
+ "VERDICT": "PASS"
+}
