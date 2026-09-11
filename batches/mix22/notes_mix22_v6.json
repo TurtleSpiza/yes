@@ -1,0 +1,138 @@
+{
+ "SV007794": {
+  "coding_note": "Tree work at TABITHA COURT BAHRAS under PAR/329/2021, CREW 3, CREW 6, CREW 7; CR#3676765. Printed PK000477 matches the charge."
+ },
+ "INV-47051": {
+  "coding_note": "Tree work at 16 Cunningham Street Rochedale South under contract PAR329B2021; CR# 3778695. Printed PK000477 matches the charge."
+ },
+ "INV-47257": {
+  "coding_note": "Tree work at Ewing Park - Behind 2 Wagawn Street WOODRIDGE under contract PAR329B2021; CR# 3842177. Printed PK000482 matches the charge."
+ },
+ "SV007865": {
+  "coding_note": "Tree work in CLEARWATER STREET under PAR/329/2021, CREW 4; CR#3784345. The invoice prints PK000073 (service 20421 Natural Area Tree Operations); the charge is PK000477 (service 20241 Roadside Street Tree Operations). The printed site is a street, which supports the roadside service that carries the charge, so the charge stands and the printed PK is the error (Open Item B-027).",
+  "coding_verdict": "Correct",
+  "follow_up": "Ask Savco to print PK000477 on roadside street-tree jobs; the invoice printed PK000073 (natural areas)."
+ },
+ "INV-47354": {
+  "coding_note": "Tree work at Bardon Road, BERRINBA under contract PAR329B2021; CR# 3805315. Printed PK000474 matches the charge."
+ },
+ "INV-47352": {
+  "coding_note": "Tree work at Drover Reserve rear of 23 Weeping Fig Court under contract PAR329B2021; CR# 3831117. Printed PK000482 matches the charge."
+ },
+ "INV-47552": {
+  "coding_note": "Tree work at behind 7 Presley Court WINDAROO under contract PAR329B2021; CR# 3813464. Printed PK000482 matches the charge."
+ },
+ "INV-47751": {
+  "coding_note": "Tree work at LAHORE STREET, CRESTMEAD under contract PAR329B2021; CR# 3897599. Printed PK000474 matches the charge."
+ },
+ "INV-47813": {
+  "coding_note": "Tree work at Columbia Park, Behind 16 Columbia Court under contract PAR329B2021; CR# 3670673. Printed PK000482 matches the charge."
+ },
+ "SV007952": {
+  "coding_note": "Tree work in MURRAYS ROAD TENAH MERAH as per quote SQL 5154, 15/07/2026 and 30/07/2026, CREW 4, 60 trees; CR#3851676. The invoice prints PK000477 (service 20241 Roadside Street Tree Operations); the charge is PK000482 (service 20381 Parks Tree Operations). The printed site is a road, so on the face of the invoice the printed PK is the better fit and the charge is the one in doubt, which is the opposite of the usual case (Open Item B-027). Pricing is per a quote that is not in this binder.",
+  "coding_verdict": "Review",
+  "follow_up": "Confirm with Parks whether the 60 trees on Murrays Road, Tanah Merah sit in a park (PK000482) or on the road reserve (PK000477, as the invoice prints); and obtain quote SQL 5154, which sets the $8,920.00 price."
+ },
+ "INV-47931": {
+  "coding_note": "Tree work at 68 DARLINGTON DRIVE YARRABILBA under contract PAR329B2021; CR# 3922921. Printed PK000474 matches the charge."
+ },
+ "7715": {
+  "coding_note": "Cleaning contract PAR/377/2025 fuel levy claim for April to June 2026, $1,650.00 ex GST, charged to PK000515 (service 20821 Parks Disaster Management) on natural account 73121 Cleaning & Sanitary. Two points. First, the register's own accrual for this charge, RJ013846 'Parks - Monthly Accrue-Parks Services', accrues the identical $1,650.00 on the identical PK000515 to natural account 74189 Fuel Levy Surcharge, which is also where every Vinton fuel levy recode on GJ080696 sits, so the actual and the accrual disagree on the account and 73121 is the odd one out. Second, the supplier name is not printed on the face at all: the document carries ABN 77 083 786 592 and the email stem kachelcleaning@live.com.au and no entity name.",
+  "coding_verdict": "Review",
+  "follow_up": "Recode 7715 from 73121 Cleaning & Sanitary to 74189 Fuel Levy Surcharge to agree with the RJ013846 accrual and the Vinton fuel levy convention, and verify the levy against the stepped and capped fuel levy model (Fact Sheet DM19338551); and confirm the Kachel Cleaning entity name and ABN against master data, since the invoice face prints neither (Open Item B-032)."
+ },
+ "SV007966": {
+  "coding_note": "Tree work at KAWANA CRESCENT under PAR/329/2021, CREW 4, CREW 6, CREW 8; CR#3721428. Printed PK000482 matches the charge."
+ },
+ "INV-48075": {
+  "coding_note": "Tree work at 6 Kala Street, Rochedale South under contract PAR329B2021; CR# 3813940. Tower (EWP) >23m plus two traffic control units. The invoice prints PK000477 and the charge is PK000474; both sit in service 20241 Roadside Street Tree Operations, so the service and the section are unaffected and only the work order differs (Open Item B-027).",
+  "follow_up": "Confirm which roadside tree work order (PK000474 or the printed PK000477) owns 6 Kala Street, Rochedale South."
+ },
+ "INV-48109": {
+  "coding_note": "Tree work at Summerview Avenue Yarrabilba under contract PAR329B2021; CR# 3843839. Printed PK000474 matches the charge."
+ },
+ "INV-48144": {
+  "coding_note": "Tree work at MARSDEN PARKS DEPOT 177 Chambers Flat Road, under contract PAR329B2021; CR# 3568493. Printed PK000482 matches the charge."
+ },
+ "INV-8485": {
+  "coding_note": "Playground work at (site not printed) under LB304 (LocalBuy): Routine inspection of skate parks inclusing removal. Printed PK000411 matches the charge."
+ },
+ "INV-48347": {
+  "coding_note": "Tree work at 42-44 Kallioota, Greenbank under contract PAR329B2021; CR# 3921124. Printed PK000477 matches the charge."
+ },
+ "INV-8562": {
+  "coding_note": "Playground work at Albert River Park - Eagleby under LB304 (LocalBuy): new powder coated deck with new fixings; Maintenance Labour. Printed PK000023 matches the charge."
+ },
+ "SV008021": {
+  "coding_note": "Tree work at KURRAJONG PARK under PAR/329/2021, CREW 3; CR#3886676. Printed PK000482 matches the charge. Pricing is stated as per quote; the quote is not in this binder ($5,956.00 ex GST).",
+  "follow_up": "Obtain the supporting quote from Savco; the invoice prices the job as per quote and the quote is not in the binder."
+ },
+ "SV008026": {
+  "coding_note": "Tree work at ALFRED STREET under PAR/329/2021, CREW 3, CREW 6, CREW 8; CR#3601223. Printed PK000477 matches the charge."
+ },
+ "INV-8593": {
+  "coding_note": "Playground work at Chatfield Park - Edens Landing under LB304 (LocalBuy): Track ride trolley; Maintenance Labour. Printed PK000023 matches the charge."
+ },
+ "SV008028": {
+  "coding_note": "Tree work at MATHEWS PARK under PAR/329/2021, CREW 2, CREW 3, CREW 4, CREW 6, CREW 8; CR#3634016. Printed PK000482 matches the charge."
+ },
+ "SV008029": {
+  "coding_note": "Tree work at KURRAJONG DRIVE under PAR/329/2021, CREW 4; CR#3665145. Printed PK000477 matches the charge. Pricing is stated as per quote; the quote is not in this binder ($9,179.00 ex GST).",
+  "follow_up": "Obtain the supporting quote from Savco; the invoice prices the job as per quote and the quote is not in the binder."
+ },
+ "INV-8607": {
+  "coding_note": "Playground work at (site not printed) under LB304 (LocalBuy): Routine inspection of skate parks inclusing removal. Printed PK000411 matches the charge."
+ },
+ "INV-8630": {
+  "coding_note": "Playground work at Logan City Council - Logan Central under LB304 (LocalBuy): Operational playground inspection. No PK is printed anywhere on the face: the only 'Account:' row on the document is the payment block's bank account 10367833. The charge is PK000411 (service 20481 Playground Maintenance & Repairs), which the work supports, but the invoice does not evidence it (Open Item B-028).",
+  "coding_verdict": "Confirm",
+  "follow_up": "Ask Play Force to print the PK on operational inspection invoices; this one prints none (Open Item B-028)."
+ },
+ "SV008051": {
+  "coding_note": "Tree work at JIMBOOMBA PARK under PAR/329/2021, CREW 2, CREW 3, CREW 6, CREW 8; CR#3856545. Printed PK000482 matches the charge."
+ },
+ "INV-8665": {
+  "coding_note": "Playground work at Doug Larsen Park - Beenleigh under LB304 (LocalBuy): Weekly Inspection/Maintenance on going. Printed PK000442 matches the charge."
+ },
+ "INV-8666": {
+  "coding_note": "Playground work at Doug Larsen Park - Beenleigh under LB304 (LocalBuy): Weekly Inspection/Maintenance on going. Printed PK000442 matches the charge."
+ },
+ "INV-8667": {
+  "coding_note": "Playground work at Doug Larsen Park - Beenleigh under LB304 (LocalBuy): Weekly Inspection/Maintenance on going. Printed PK000442 matches the charge."
+ },
+ "INV-8668": {
+  "coding_note": "Playground work at Doug Larsen Park - Beenleigh under LB304 (LocalBuy): Weekly Inspection/Maintenance on going. Printed PK000442 matches the charge."
+ },
+ "INV-8675": {
+  "coding_note": "Playground work at Logan River Parklands - Beenleigh under LB304 (LocalBuy): swages/thimbles/new cable; Trampoline Spring 110mm x 35mm Zinc; Maintenance Labour. Printed PK000023 matches the charge."
+ },
+ "INV-8715": {
+  "coding_note": "Playground work at Logan City Council - Logan Central under LB304 (LocalBuy): Division 10 Operational playground inspection. No PK is printed anywhere on the face: the only 'Account:' row on the document is the payment block's bank account 10367833. The charge is PK000411 (service 20481 Playground Maintenance & Repairs), which the work supports, but the invoice does not evidence it (Open Item B-028).",
+  "coding_verdict": "Confirm",
+  "follow_up": "Ask Play Force to print the PK on operational inspection invoices; this one prints none (Open Item B-028)."
+ },
+ "SV008056": {
+  "coding_note": "Tree work at BRANDON PARK under PAR/329/2021, CREW 3; CR#3852084. Printed PK000482 matches the charge. Pricing is stated as per quote; the quote is not in this binder ($6,000.00 ex GST).",
+  "follow_up": "Obtain the supporting quote from Savco; the invoice prices the job as per quote and the quote is not in the binder."
+ },
+ "INV-8734": {
+  "coding_note": "Playground work at Stoneleigh Reserve Park - Logan under LB304 (LocalBuy): Takura top up; Maintenance Labour. Printed PK000391 matches the charge."
+ },
+ "INV-8748": {
+  "coding_note": "Playground work at Tygum Park - Waterford West under LB304 (LocalBuy): M10 D Shackle; 30mm Black Conduit; 6mm Stainless Chain. Printed PK000023 matches the charge."
+ },
+ "INV-8755": {
+  "coding_note": "Playground work at (site not printed) under LB304 (LocalBuy): Operational Inspection on cableways. Printed PK000411 matches the charge."
+ },
+ "SV008069": {
+  "coding_note": "Tree work at ISON ROAD GREENBANK under PAR/329/2021, CREW 3; CR#37004395. Printed PK000477 matches the charge. Pricing is stated as per quote; the quote is not in this binder ($5,234.00 ex GST).",
+  "follow_up": "Obtain the supporting quote from Savco; the invoice prices the job as per quote and the quote is not in the binder."
+ },
+ "SV008094": {
+  "coding_note": "Tree work at (site not printed) under PAR/329/2021, CREW 3; CR#3889846. Printed PK000477 matches the charge. Pricing is stated as per quote; the quote is not in this binder ($4,322.00 ex GST).",
+  "follow_up": "Obtain the supporting quote from Savco; the invoice prices the job as per quote and the quote is not in the binder."
+ },
+ "SV008082": {
+  "coding_note": "Tree work at SHANNON RAMSAY under PAR/329/2021, CREW 3, CREW 6; CR#3715445. Printed PK000482 matches the charge."
+ }
+}

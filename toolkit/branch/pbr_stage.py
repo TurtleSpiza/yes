@@ -21,7 +21,8 @@ HIST = json.load(open(os.path.join(HERE, 'pbr_histories_v4.json')))  # APLEDGER 
 HIST_COLS = ['Reference', 'GST Date', 'Discount Date', 'On Hold', 'Has Note', 'Date', 'Description (Document Type)', 'Details', 'Outstanding', 'Applied',
              'Transaction Amount', 'Due Date', 'Ageing Date', 'Period', 'Ageing', 'Source', 'Units', 'Discount', 'Has Attachment', 'Payment Details', 'ABN',
              'Billing System', 'Work Order', 'Work Order Transaction Number', 'Work System']
-BATCHES = ('mixed_1', 'mixed_new_26_27', 'attach_1', 'attach_2', 'code')
+BATCHES = ('mixed_1', 'mixed_new_26_27', 'attach_1', 'attach_2', 'code', 'mix22', 'attach_3')
+JOURNAL_BATCH = 'journal_1'  # TechOne Document Line Table pulls (rule 21, pipeline "per journal batch")
 NCOL = 148  # 146 PS/WP columns + 147 Src Note + 148 Register provenance
 
 def D(x):
@@ -729,6 +730,38 @@ def main(dry=False):
     for batch in BATCHES:
         ev_new, cap_variants = pbr_capture.capture(rows, os.path.join(ROOT, 'batches', batch, f'corpus_{batch}_v6.json'), os.path.join(ROOT, 'batches', batch, f'match_{batch}_v6.json'), say, _keys, _text, ev_new, cap_variants)
 
+    # ------------------------------------------------------------------ journal source documents (rule 21, batch journal_1)
+    # The batch driver has already proved each document nets to zero, that every in-scope leg ties its own register
+    # line, and that a re-pull of a document already embedded in PS_WP v127 is identical leg by leg (rule 12). Those
+    # facts are re-asserted here, because the stage is where a gate belongs, and then the authored restatement is
+    # applied to the register lines the document evidences.
+    jb = json.load(open(os.path.join(ROOT, 'batches', JOURNAL_BATCH, f'{JOURNAL_BATCH}_v6.json')))
+    jm = jb['manifest']
+    assert jm['gate'] == 'GREEN', jm['gate']
+    assert jm['all_documents_net_zero'] and jm['all_ties_true'], jm
+    jkey = {r['V'][1]: r for r in rows}
+    jsrc_docs, jupd, jcited = [], 0, set()
+    for d in jb['documents']:
+        assert d['nets_to_zero'] and d['all_ties_true'], d['document_file']
+        if d['capture'] != 'embed verbatim':
+            assert d['v127_audit'] and d['v127_audit']['identical'], d['document_file']
+            continue
+        upd = d.get('register_updates') or {}
+        cols = {int(k): val for k, val in (upd.get('cols') or {}).items()}
+        per = {lk: {int(c): val for c, val in m.items()} for lk, m in (upd.get('per_linekey') or {}).items()}
+        for leg in d['legs']:
+            if leg['in_branch_scope'] != 'Yes':
+                continue
+            r = jkey[leg['register_linekey']]
+            for c, val in {**cols, **per.get(leg['register_linekey'], {})}.items():
+                r['V'][c] = val
+            r['meta']['journal_src'] = d['document_file']
+            jcited.add(leg['register_linekey'])
+            jupd += 1
+        jsrc_docs.append(d)
+    say(f'journal sources: {len(jsrc_docs)} document(s) embedded verbatim, '
+        f'{jm["documents_audited_only"]} audited only (rule 12), {jupd} register line(s) restated from a pulled document')
+
     # a sighted invoice (rule 17) supersedes a history identification on the same line: the green block carries the evidence
     for r in rows:
         if r['meta'].get('ident_v4') and r['V'][88]:
@@ -761,14 +794,15 @@ def main(dry=False):
         if coll:
             say(f'case-variant labels in col {c}: {sorted(map(sorted, coll.values()))}')
     attach_files = []
-    for b in ('attach_1', 'attach_2'):
+    for b in ('attach_1', 'attach_2', 'attach_3'):
         for sf in json.load(open(os.path.join(ROOT, 'batches', b, f'corpus_{b}_v6.json')))['manifest']['source_files']:
             attach_files.append(dict(sf, batch=b))
     stage = dict(rows=rows, L=L, se2=se2, led_md5=led_md5, v127_md5=md5(V127), inherit_n=len(inherit), hist=H, attach_files=attach_files, hist_matches=hist_matches,
                  hist_conflicts=hist_conflicts, hist_ambiguous=hist_ambiguous, hist_audit=hist_audit,
                  unmatched_v=[(n, r) for n, r in unmatched_v], v2new=v2new, theme_v2=theme_v2, theme_v3=theme_v3,
                  svc_names=svc_names, na_names=na_names, sec_names=sec_names, flags=flags, oi_data=oi_data,
-                 typo_rows=typo_rows, cred_new_matches=cred_new_matches, jnamed=stage_jnamed, log=log, jnet=jnet, jcount=jcount)
+                 typo_rows=typo_rows, cred_new_matches=cred_new_matches, jnamed=stage_jnamed, log=log, jnet=jnet, jcount=jcount,
+                 journal_batch=jb, journal_docs=jsrc_docs, journal_lines=sorted(jcited))
     # carry evidence
     sighted = [r for r in rows if r['V'][88]]
     evids = collections.OrderedDict()

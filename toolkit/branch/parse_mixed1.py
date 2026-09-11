@@ -30,6 +30,9 @@ def iso(s):
     m = re.match(r'(\d{1,2}) ([A-Za-z]{3})[a-z]* (\d{4})$', s)
     if m:
         return dt.date(int(m.group(3)), MON[m.group(2).lower()], int(m.group(1))).isoformat()
+    m = re.match(r'(\d{1,2})-([A-Za-z]{3})[a-z]*-(\d{4})$', s)   # Play Force and PPG attachment layouts (branch v6)
+    if m:
+        return dt.date(int(m.group(3)), MON[m.group(2).lower()], int(m.group(1))).isoformat()
     raise ValueError(s)
 
 

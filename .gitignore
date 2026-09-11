@@ -3,6 +3,7 @@ cache/*
 __pycache__/
 *.pyc
 *.pkl
+build.log
 
 # session-start hook artefacts
 .claude/hooks/*.log

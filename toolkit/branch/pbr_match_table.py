@@ -1,0 +1,107 @@
+"""pbr_match_table.py - build a batch match table against the shipped branch register (rule 20: content as data).
+
+For each document in a GREEN corpus: screen its identifier against Evidence_Invoices column A (rule 12 duplicate
+screen), find its register line(s) by reference, and decide the rule 17 check-2 variant by the settled precedence:
+
+    exact  ->  SUM-TIE  ->  derivation equality (incl / 1.1)  ->  one-cent tolerance  ->  split posting by LineKey
+
+The precedence is not cosmetic. A two-cent difference that is exactly incl/1.1 is a DERIVATION case, not a tolerance
+case, and labelling it the other way fails check 2 under LibreOffice (branch v2 precedent, INV-0600).
+
+Authored content (coding verdict, coding note, follow-up, evidence note, line map) is data in
+notes_<batch>_v6.json and is merged here; nothing in this file forms a coding judgement.
+
+Usage: python3 pbr_match_table.py <batch id> [register.xlsx]
+"""
+import collections, json, os, re, sys
+from decimal import Decimal, ROUND_HALF_UP
+
+from python_calamine import CalamineWorkbook
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.abspath(os.path.join(HERE, '..', '..'))
+BATCH = sys.argv[1]
+REG = sys.argv[2] if len(sys.argv) > 2 else os.path.join(ROOT, 'registers', 'Parks_Branch_Transaction_Register_FY2627_v5.xlsx')
+BDIR = os.path.join(ROOT, 'batches', BATCH)
+INCL = Decimal('1.1')
+C_LINEKEY, C_SECTION, C_REF, C_CONTRACTOR, C_NA, C_PK, C_AMOUNT, C_NARR = 1, 3, 8, 12, 14, 17, 20, 22
+
+
+def D(x):
+    return Decimal(str(x or 0)).quantize(Decimal('0.01'), ROUND_HALF_UP)
+
+
+def txt(v):
+    if v is None:
+        return ''
+    if isinstance(v, float) and v.is_integer():
+        return str(int(v))
+    return str(v).strip()
+
+
+def sheet(path, name):
+    return CalamineWorkbook.from_path(path).get_sheet_by_name(name).to_python(skip_empty_area=False)
+
+
+def variant_of(amounts, sub, incl):
+    """Rule 17 check-2 variant for one document, in the settled precedence order."""
+    tot = sum(amounts, Decimal('0'))
+    if len(amounts) > 1:
+        return 'check 2 split-posting (each register line ties its own captured lines by LineKey)'
+    if tot == sub:
+        return 'standard'
+    if tot == (incl / INCL).quantize(Decimal('0.01'), ROUND_HALF_UP):
+        return 'check 2 derivation equality (register amount = ROUND(printed total incl GST / 1.1, 2))'
+    if abs(tot - sub) <= Decimal('0.01'):
+        return 'check 2 one-cent tolerance'
+    return 'UNRESOLVED'
+
+
+def main():
+    corpus = json.load(open(os.path.join(BDIR, f'corpus_{BATCH}_v6.json')))
+    assert corpus['manifest']['gate'] == 'GREEN', corpus['manifest']['gate']
+    npath = os.path.join(BDIR, f'notes_{BATCH}_v6.json')
+    notes = json.load(open(npath)) if os.path.exists(npath) else {}
+
+    reg = [r for r in sheet(REG, 'Register')[4:] if txt(r[C_LINEKEY - 1])]
+    by_ref = collections.defaultdict(list)
+    for r in reg:
+        by_ref[txt(r[C_REF - 1])].append(r)
+    sighted = {txt(r[0]) for r in sheet(REG, 'Evidence_Invoices')[4:] if txt(r[0])}
+    sighted_stem = {s.split('/')[0] for s in sighted}
+
+    out, held = [], []
+    for d in corpus['documents']:
+        inv = d['invoice_no']
+        if inv in sighted_stem:
+            held.append(inv)
+            continue
+        rows = by_ref.get(inv, [])
+        assert rows, f'{inv}: no register line carries this reference'
+        amounts = [D(r[C_AMOUNT - 1]) for r in rows]
+        sub, incl = D(d['printed_subtotal_ex_gst']), D(d['printed_total_incl_gst'])
+        var = variant_of(amounts, sub, incl)
+        assert var != 'UNRESOLVED', (inv, [str(a) for a in amounts], str(sub), str(incl))
+        entry = dict(invoice=inv, vendor=d['supplier'], abn=d['supplier_abn'], subtotal=float(sub), incl=float(incl),
+                     variant=var, target=[txt(r[C_LINEKEY - 1]) for r in rows],
+                     register_lines=[dict(linekey=txt(r[C_LINEKEY - 1]), section=txt(r[C_SECTION - 1]), na=txt(r[C_NA - 1]),
+                                          pk=txt(r[C_PK - 1]), amount=float(D(r[C_AMOUNT - 1])), contractor=txt(r[C_CONTRACTOR - 1]),
+                                          narr=re.sub(r'\s*\n\s*', ' | ', txt(r[C_NARR - 1]))) for r in rows],
+                     evid=inv, evid_note=None, line_map=None, coding_verdict='Correct', coding_note=None, follow_up=None,
+                     source_file=d.get('source_file'))
+        entry.update(notes.get(inv, {}))
+        out.append(entry)
+
+    json.dump(out, open(os.path.join(BDIR, f'match_{BATCH}_v6.json'), 'w'), indent=1)
+    v = collections.Counter(e['variant'].split(' (')[0] for e in out)
+    print(f'{BATCH}: {len(out)} documents matched, {len(held)} held by the rule 12 evidence screen {held or ""}; variants {dict(v)}')
+    for e in out:
+        if e['variant'] != 'standard':
+            print(f'  {e["invoice"]:<12} {e["variant"].split(" (")[0]}: register {sum(l["amount"] for l in e["register_lines"]):,.2f} '
+                  f'against printed subtotal {e["subtotal"]:,.2f}, printed total {e["incl"]:,.2f}')
+        if e['coding_verdict'] != 'Correct' or e['follow_up']:
+            print(f'  {e["invoice"]:<12} verdict {e["coding_verdict"]}; follow-up: {e["follow_up"]}')
+
+
+if __name__ == '__main__':
+    main()
