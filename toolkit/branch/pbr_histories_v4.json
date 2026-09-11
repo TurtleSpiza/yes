@@ -1,7 +1,7 @@
 {
  "version": "branch v6 (11-Sep-2026)",
  "dir": "data/inputs_2026-09-11/creditor_histories",
- "pulled": "11-Sep-2026 12:34 to 13:16 (v4 and v5), 15:09 to 15:14 (v6)",
+ "pulled": "11-Sep-2026 12:34 to 13:16 (v4 and v5), 14:50 and 15:09 to 15:14 (v6)",
  "tool": "TechOne Ledger Accounts Transactions Table export, Default Ledger Type = AP, Ledger Name = APLEDGER, one creditor account per file (no extraction tool)",
  "match_rule": "AP register line reference equals the history Reference; the history Transaction Amount (incl GST) is within 2c of the document net ex GST x 1.1 (all register lines on the Document Unique ID); the history Date is within 120 days of the register Doc Date; exactly one creditor code satisfies all three. Tier 1 where the history line carries an 11-digit ABN, else Tier 2 (rule 8).",
  "histories": [
@@ -132,6 +132,14 @@
    "abn": "38081222675",
    "added": "v6",
    "label_basis": "ABR public register sighted 11-Sep-2026 for ABN 38 081 222 675 (the ABN on every one of the 56 lines of this APLEDGER record): entity P.K. Consulting Pty Ltd, QLD 4133; no business name shown on the ABR page read. The APLEDGER narrations say landscape supplies only and the creditor code suggests a Water- trading name; the LCCWL### series on Park Maintenance service 20181 (PK000012). Trading name to be confirmed from the first sighted invoice."
+  },
+  {
+   "file": "Ledger_Accounts_Transactions_Table__20260911T145043.865.xlsx",
+   "code": "MPD001",
+   "label": "MPDT (Tree Acq Pty Ltd)",
+   "abn": "92626678635",
+   "label_basis": "Sighted invoices INV-13892, INV-13576 and INV-14305 (branch v6, batch attach_3) letterhead \"MPDT (Tree Acq Pty Ltd)\", ABN 92 626 678 635 as on this APLEDGER record (630 of its 633 lines).",
+   "added": "v6"
   }
  ]
 }
