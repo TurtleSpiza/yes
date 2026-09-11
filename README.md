@@ -5,7 +5,7 @@ Two Excel registers for Logan City Council Parks Branch expenditure, and the Pyt
 | Register | File | Scope |
 |---|---|---|
 | Park Services & Water Parks | `registers/PS_WP_Transaction_Register_3FY_v127_CANDIDATE.xlsx` | Sections 4090240 and 4090260, FY2023/24 to FY2026/27 (three assessed years plus a memo year). The record for the three-year audit. |
-| Parks Branch FY2026/27 | `registers/Parks_Branch_Transaction_Register_FY2627_v6.xlsx` | Branch 4090000, all sections, FY2026/27 P1-3 at O110-O115. Inherits the PS/WP FY2026/27 analysis line by line and classifies the other sections itself. |
+| Parks Branch FY2026/27 | `registers/Parks_Branch_Transaction_Register_FY2627_v7.xlsx` | Branch 4090000, all sections, FY2026/27 P1-3 at O110-O115. Inherits the PS/WP FY2026/27 analysis line by line and classifies the other sections itself. |
 
 Both registers follow the same column map (PS/WP schema, 146 columns; the branch register adds two), the same rule set (`docs/PSWP_Project_Instructions_v11__1_.md`) and the same verification standard: a sighted invoice is captured at line level, every printed detail sits on the register line, and three live checks return TRUE before a line is Confirmed.
 
@@ -59,7 +59,7 @@ Requirements are installed by the session hook above; `python3 toolkit/branch/pb
 python3 toolkit/branch/pbr_build.py
 ```
 
-One script runs the whole chain: stage, write, LibreOffice convert-route recalc (isolated profile, `OOXMLRecalcMode=0`), calamine verify of the recalculated file, ship to `registers/`. It ships only on a clean verify (92 controls, every sighted line's three checks, the register total and a whole-workbook error sweep). A partial run is discarded, never resumed. About 35 to 40 seconds from a warm cache. Set `PBR_OUTDIR` to ship elsewhere; `PBR_INPUTS` and `PBR_V127` override the input locations.
+One script runs the whole chain: stage, write, LibreOffice convert-route recalc (isolated profile, `OOXMLRecalcMode=0`), calamine verify of the recalculated file, ship to `registers/`. It ships only on a clean verify (93 controls, every sighted line's three checks, the register total and a whole-workbook error sweep). A partial run is discarded, never resumed. About 35 to 40 seconds from a warm cache. Set `PBR_OUTDIR` to ship elsewhere; `PBR_INPUTS` and `PBR_V127` override the input locations.
 
 ## Capturing a new invoice batch
 
@@ -75,11 +75,15 @@ Drop the APLEDGER export (Ledger Accounts Transactions Table, Default Ledger Typ
 
 TechOne Document Line Table exports are the evidence route for a journal that carries no attachment (rule 21). Drop the exports into `data/inputs_2026-09-11/journal_pulls/`, run `python3 toolkit/branch/pbr_journal_batch.py`, author `batches/journal_1/notes_journal_1_v6.json` with what each document answers, then `pbr_build.py`. The driver screens every md5 (rule 12), keeps one copy of a duplicate export, maps each leg to its register line, proves each document nets to $0.00 and that every in-scope leg sum ties its journal reference's register net, and audits any document already embedded in the PS & WP register leg by leg rather than re-capturing it. The legs are embedded verbatim on `Journal_Sources`.
 
-## State at v6 (11-Sep-2026)
+## State at v7 (11-Sep-2026)
 
-Register total $4,910,566.68 across 6,683 lines, tied to the ledger export and all four SE2 views; 93 of 93 controls TRUE. 260 sighted lines over 253 invoices. Seventeen APLEDGER creditor histories embedded (44,410 lines on Creditor_Lines) identify $1,231,762.13 ex GST at Tier 1. Confirmed $3,395,636.55; Partial $1,051,927.10; Pending evidence $463,003.03. Contractor unidentified $358,887.70; the queue with one invoice to sight per series is `reports/Unidentified_Contractors_v6.md` (340 lines, 91 series).
+Register total $4,910,566.68 across 6,683 lines, tied to the ledger export and all four SE2 views; 93 of 93 controls TRUE. 302 sighted lines over 295 invoices. Seventeen APLEDGER creditor histories embedded (44,410 lines on Creditor_Lines). Confirmed $3,469,104.69; Partial $978,458.96; Pending evidence $463,003.03. Contractor unidentified $358,887.70; the queue with one invoice to sight per series is `reports/Unidentified_Contractors_v7.md`.
 
-v6 is the merge of two sessions' work on this register. From this branch: the first journal batch, with three TechOne Document Line Tables embedded verbatim on the new `Journal_Sources` sheet (92 legs) and one re-pull audited against the PS & WP v127 embed and not re-captured. Those pulls answered the blank narrations on GJ080153 (the June 2026 Plant & Fleet accrual reversal) and Open Item B-012 for GJ080309, which also raised B-030: $51,091.59 of plant hire re-posted to PK000068 that the original GJ080188 legs assign to PK000435 and PK000396 on their plant references. Batches mix22 (40 invoices) and attach_3 (8 TechOne attachments) were captured; batches binder11111 and mix222 are held on pages carrying no line record (P3), which cannot be repaired downstream. From `claude/new-session-w6zxj2`: five more APLEDGER creditor histories at v6 (NUW001, LEV002, GRE083, WAT088 there, MPD001 here), the session-start toolchain hook and the environment self-test.
+v7 built the two binders that v6 had held. Both supplied corpora had left pages with no line record at all (P3), which cannot be restated downstream; every one of those pages turns out to be a blank separator page, so the raw-text parse gives each a BLANK record and the coverage assertion holds. `mix222` is 29 Harpley Services invoices ($21,223.09 ex GST) and `binder11111` is 13 RST Systems invoices ($52,245.05), the $11,950.00 the v5 extraction dropped included. Both gate GREEN, every document ties, every header block was proven to add up and the residue test was empty before emit, and the rule 19.2 shingle check passed on both.
+
+Two findings came out of them. **B-033:** none of the 13 RST Systems invoices prints an ABN anywhere, and no entity name prints on the face, so the register's label and ABN come from the APLEDGER history rather than the document. **B-034:** eight of those invoices carry an LCC Fuel Levy - Diesel line totalling $829.03; GJ080696 recoded four of them to PK000514 on 74189 and left four on 73212 with the work, and as a percentage of the work the printed levy takes three different rates in six weeks on one contract without being monotonic in date.
+
+v6, which v7 builds on, added the first journal batch (three TechOne Document Line Tables embedded verbatim on `Journal_Sources`, one re-pull audited and not re-captured), batches mix22 and attach_3, and five more creditor histories. Its pulls answered the blank narrations on GJ080153 and Open Item B-012 for GJ080309, which raised B-030: $51,091.59 of plant hire re-posted to PK000068 that the original GJ080188 legs assign to PK000435 and PK000396 on their plant references.
 
 Other open items: the PS_WP port (B-022, B-026), printed-versus-charged PKs (B-027, B-028), the Coast2Coast fuel levy over-claim (B-029), the partial journal pull on document file 1252466 (B-031) and a fuel levy coded to the cleaning account (B-032).
 

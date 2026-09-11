@@ -15,8 +15,10 @@ STAMPS = {'mixed_1': STAMP, 'mixed_new_26_27': '11-Sep-2026, branch v3, Batch mi
           'attach_2': '11-Sep-2026, branch v5, Batch attach_2 (TechOne attachments, raw-text route, corpus_attach_2_v6.json)',
           'code': '11-Sep-2026, branch v5, Batch code (code.pdf, supplied corpus prepared and fidelity-checked, corpus_code_v6.json)',
           'mix22': '11-Sep-2026, branch v6, Batch mix22 (mix 22.pdf, supplied corpus restated and fidelity-checked, corpus_mix22_v6.json)',
-          'attach_3': '11-Sep-2026, branch v6, Batch attach_3 (TechOne attachments, raw-text route, corpus_attach_3_v6.json)'}
-BATCH_VER = {'mixed_1': 'v2', 'mixed_new_26_27': 'v3', 'attach_1': 'v4', 'attach_2': 'v5', 'code': 'v5', 'mix22': 'v6', 'attach_3': 'v6'}
+          'attach_3': '11-Sep-2026, branch v6, Batch attach_3 (TechOne attachments, raw-text route, corpus_attach_3_v6.json)',
+          'mix222': '11-Sep-2026, branch v7, Batch mix222 (mix_222.pdf, raw-text route to extraction prompt v6, corpus_mix222_v6.json)',
+          'binder11111': '11-Sep-2026, branch v7, Batch binder11111 (Binder11111.pdf, raw-text route to extraction prompt v6, corpus_binder11111_v6.json)'}
+BATCH_VER = {'mixed_1': 'v2', 'mixed_new_26_27': 'v3', 'attach_1': 'v4', 'attach_2': 'v5', 'code': 'v5', 'mix22': 'v6', 'attach_3': 'v6', 'mix222': 'v7', 'binder11111': 'v7'}
 SRCS = {'mixed_1': 'Mixed_1.pdf (md5 b9ddf7fd6c56188a22181921b7b2c8ab), Batch mixed_1, corpus_mixed_1_v6.json', 'mixed_new_26_27': 'Mixed_new_26-27.pdf (md5 813f23077d1d5e77fb1e7150ad08b3cc), Batch mixed_new_26_27, corpus_mixed_new_26_27_v6.json',
         'code': 'code.pdf, 66 pages (binder not supplied; supplied corpus corpus_code.json md5 e256555fc9d22d46a9cce80f8e7bbe3b, M365 Copilot layout extraction), Batch code, corpus_code_v6.json',
         'mix22': 'mix 22.pdf, 81 pages (binder not supplied; supplied corpus corpus_mix22.json md5 e6782e55b5379dc3adcb6a1b5c7cebd4, M365 Copilot layout extraction, gate RED as supplied), Batch mix22, corpus_mix22_v6.json'}
@@ -57,8 +59,9 @@ CAT = {  # vendor template -> (Nature Category v2, v3 category, theme rule)
     'HERITAGE_CN': ('Tree operations', 'Trees & arboriculture', 'P2 sighted job, dominant scope'),
     'PLAYFORCE_ATT': ('Playground inspection & repair', 'Playground equipment & softfall', 'P2 sighted job, dominant scope'),
     'PPG': ('Horticultural & landscape supplies', 'Materials & minor equipment', 'P1 account governs'),
+    'VINTON': ('Tree operations', 'Trees & arboriculture', 'P2 sighted job, dominant scope'),
 }
-BPK = {'ORIGIN': 'ORG', 'SEACRETE': 'SC', 'POOLSHOP': 'PSH', 'QPOWER': 'QP', 'PLAYFORCE': 'PF', 'FLAVELL': 'FD', 'WEIS': 'WC', 'ELEMENTAL': 'ELM', 'HIGGINS': 'HIG', 'HARPLEY': 'INV', 'C2C': 'C2C', 'KACHEL': 'KC', 'LEVAI': 'LEV', 'TEC': 'TEC', 'TREESCAPE': 'TRS', 'BUSHCARE': 'BSH', 'AUSTSPRAY': 'ASP', 'EMU': 'EMU', 'ACTIVECO': 'ACT', 'GURU': 'GDW', 'AUSTCARE': 'ACE', 'GLASCOTT': 'GLA', 'GLASCOTT_LM': 'GLA', 'ETSOL': 'ETS', 'PROVAC': 'PRV', 'SAVCO': 'SAV', 'HERITAGE': 'HTS', 'BURLY': 'BUR', 'CERTIFIED': 'CER', 'C2C_INCL': 'C2C', 'FLAVELL_ATT': 'FD', 'MPDT': 'MPD', 'HERITAGE_CN': 'HTS', 'PLAYFORCE_ATT': 'PF', 'PPG': 'PPG'}
+BPK = {'ORIGIN': 'ORG', 'SEACRETE': 'SC', 'POOLSHOP': 'PSH', 'QPOWER': 'QP', 'PLAYFORCE': 'PF', 'FLAVELL': 'FD', 'WEIS': 'WC', 'ELEMENTAL': 'ELM', 'HIGGINS': 'HIG', 'HARPLEY': 'INV', 'C2C': 'C2C', 'KACHEL': 'KC', 'LEVAI': 'LEV', 'TEC': 'TEC', 'TREESCAPE': 'TRS', 'BUSHCARE': 'BSH', 'AUSTSPRAY': 'ASP', 'EMU': 'EMU', 'ACTIVECO': 'ACT', 'GURU': 'GDW', 'AUSTCARE': 'ACE', 'GLASCOTT': 'GLA', 'GLASCOTT_LM': 'GLA', 'ETSOL': 'ETS', 'PROVAC': 'PRV', 'SAVCO': 'SAV', 'HERITAGE': 'HTS', 'BURLY': 'BUR', 'CERTIFIED': 'CER', 'C2C_INCL': 'C2C', 'FLAVELL_ATT': 'FD', 'MPDT': 'MPD', 'HERITAGE_CN': 'HTS', 'PLAYFORCE_ATT': 'PF', 'PPG': 'PPG', 'VINTON': 'VTS'}
 PAY_RX = re.compile(r'BSB|\bAcc\b|Acc No|Account|Bank:|Bank\s|Name:|Please make all payments|Please remit|Payment can be made|Direct Deposit|Please include invoice|Please Mail Payment|Detach this section|Acc\. No|Acc\. Name', re.I)
 TERM_RX = re.compile(r'Terms of Payment|Payment Terms|Payment Due On Receipt|fee of|Security of Payment|Credits cards|processing fee|View and pay online|Please pay the total|questions concerning|THANK YOU|Net30|Net 30|View online', re.I)
 
@@ -222,6 +225,14 @@ def header_fields(d):
                  site=first(r'WORK WAS CARRIED OUT IN ([^\n]+?)\s*$', t), work='; '.join(x.strip() for x in re.findall(r'^\s*((?:CUSTOMER REQUEST NUMBER[^\n]*|PK\d{6} - CONTRACT NUMBER[^\n]*|VEGETATION|WORK WAS CARRIED OUT[^\n]*|AS PER QUOTE|AND STUMP GRINDER[^\n]*))\s*$', t, re.M)) + '; TERMS NET 14',
                  contract=first(r'CONTRACT NUMBER - (PAR/\d{3}/\d{4})', t), paid=NP, bal=first(r'BALANCE DUE\s*\n\s*(A\$[\d,]+\.\d{2})', t))
         f['crwo'] = first(r'(CR#\d+)', t)
+    elif v == 'VINTON':
+        f.update(addr=NP, phone='admin@vintontreeservices.com.au (remittance address); no letterhead address prints',
+                 po=first(r'PO:\s+(\d+)', t), bill='Logan City Council, A/C Payable Department, PO Box 3226, Logan City DC QLD 4114',
+                 officer=first(r'Attention:\s*\n\s*(\S.+?)\s*$', t),
+                 site=first(r'^\s{10,}(\d+[\w \-/,]+(?:Street|St|Road|Rd|Drive|Dr|Court|Ct|Avenue|Ave|Parade|Crescent|Way|Place|Pl|Highway|Hwy)[^\n]*)$', t),
+                 work='; '.join(' '.join(x.split()) for x in re.findall(r'^\s*((?:CR ?#\s?\d+[^\n]*|Completed \d{2}/\d{2}/\d{4}|Provide [^\n]+|Remove [^\n]+|Stump grind[^\n]*|Supply [^\n]+|Prune [^\n]+))\s*$', t, re.M)),
+                 contract=first(r'(PAR/\d{3}[A-Z]?/\d{4})', t), paid=NP, bal=first(r'Balance Due:\s+\$([\d,]+\.\d{2})', t))
+        f['crwo'] = first(r'(CR ?#\s?\d+)', t)
     elif v == 'PLAYFORCE_ATT':
         blk = [' '.join(x.split()) for x in re.findall(r'^\s{20,}(\S.*?)\s*$', t, re.M)]
         joined = []
@@ -314,6 +325,7 @@ BOILER = {  # verbatim per vendor template, first sighting; stored once and cite
     'HERITAGE_CN': ('Bank Transfer - Account Details | BSB: 014 279 | Account Number: 9056 99311 | View and pay online now',
                     'CREDIT ADVICE | Please do not pay on this advice. Deduct the amount of this Credit Note from your next payment to us.'),
     'PLAYFORCE_ATT': ('Electronic Funds Transfer | Account Name: Play Force Australia Pty Ltd | BSB: 064 400 | Account: 10367833 | Remittance To: accounts@playforce.com.au', None),
+    'VINTON': ('BANK DETAIL FOR EFT PAYMENT | RST Systems Pty Ltd | ANZ Underwood | BSB - 014279 | ACC No - 260818618 | Please email remittance Advice to admin@vintontreeservices.com.au', None),
     'PPG': ('Remit To: Bank Deposit: Citibank Limited Sydney NSW 2000 | AUD A/C: 242000-300098029 | USD A/C: 021000089-36198872 | Australia',
             'Terms of Sale - PPG Industries Australia Pty Limited (ACN 055 500 939), printed in full on page 2 (1 Definition onward), with the export compliance notice.'),
 }
@@ -439,6 +451,7 @@ def capture(rows, corpus_path, match_path, say, existing_keys=frozenset(), exist
             if 'Printed GST' not in fnd: anom.append(fnd)
         if v == 'GLASCOTT': anom.append('Letterhead prints Technigro ABN 97 001 281 572; payment account name is Glascott Landscape and Civil Pty Limited. Printed ABN decides identity (rule 8); confirm the creditor entity against the APLEDGER record.')
         if v == 'GLASCOTT_LM': anom.append('Letterhead prints Technigro ABN 97 001 281 572; payment account name is Glascott Landscape and Civil Pty Limited. APLEDGER GLA009 (branch v4) carries ABN 97001281572, so the creditor entity is the Glascott record (rule 8, printed ABN decides).')
+        if v == 'VINTON': anom.append('No ABN is printed anywhere on this invoice and no entity name prints on the face; the only supplier identification is "RST Systems Pty Ltd" in the bank block and the remittance address admin@vintontreeservices.com.au. The register label and ABN come from the APLEDGER history VIN003 (Vinton Tree Services, ABN 84 008 552 538), not from this document (rule 8).')
         if v == 'SAVCO': anom.append('ABN printed ungrouped (78161366749); register column M carries the grouped form.')
         if m['invoice'] == 'INV-9360': anom.append('Invoice date 31-Mar-2026 and due 30-Apr-2026 print against July 2026 treatment dates and a 24-Jul-2026 posting; supplier-side date error, service period Jul-2026.')
         if m.get('evid_note'): anom.append(m['evid_note'])
@@ -453,7 +466,14 @@ def capture(rows, corpus_path, match_path, say, existing_keys=frozenset(), exist
             if r['meta']['inherited']:
                 V[148] = f'Inherited from PS_WP register v127; sighted at branch {ver} (port the capture to PS_WP v128)'
                 r['meta']['ported'] = True; r['meta']['ported_ver'] = ver
-            V[11] = V[11]; V[12] = label(d); V[13] = canon_abn(d['supplier_abn']) if batch == 'attach_1' else d['supplier_abn']
+            V[11] = V[11]
+            if d.get('supplier_abn'):
+                V[12] = label(d); V[13] = canon_abn(d['supplier_abn']) if batch == 'attach_1' else d['supplier_abn']
+            else:
+                # Rule 8: the printed ABN decides identity, and this face prints none. The creditor history that
+                # identified the line (Tier 1, with an ABN) keeps the label and the ABN; the printed supplier name
+                # goes to the green block and the coding note, never over the top of evidence that carries an ABN.
+                V[12] = V[12] or label(d); V[13] = V[13] or None
             V[24] = cat; V[132] = v3; V[133] = trule; V[131] = None
             V[25] = f'{cat}; sighted {len(priced)} line(s), {d["supplier"].split(" (")[0]}: {hf["work"][:160]}. Items: {desc_top}'
             V[27] = 'Sighted invoice line'; V[29] = 1; V[33] = 'Confirmed'

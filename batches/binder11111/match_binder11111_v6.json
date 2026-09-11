@@ -1,0 +1,379 @@
+[
+ {
+  "invoice": "19827",
+  "vendor": "RST Systems Pty Ltd",
+  "abn": null,
+  "subtotal": 6616.27,
+  "incl": 7277.9,
+  "variant": "standard",
+  "target": [
+   "613c908b-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "613c908b-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 6616.27,
+    "contractor": "Vinton Tree Services",
+    "narr": "STANDING ORDER 25/26"
+   }
+  ],
+  "evid": "19827",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Confirm",
+  "coding_note": "Tree works under contract PAR/329E/2021, CR# 3653097, Completed 30/06/2026. Scope as printed: Tax Invoice (ex-GST) GST) CR# 3653097 PK000482 Completed 30/06/2026 Moss Park, Behind 7 Allgas Street Remove three trees along fenceline, owner has agreed to allow access to Lines: 11.25 4 person crew for Tree Maintenance $315.00 $3,543.75; 11.25 EWP up to 28m $190.00 $2,137.50; 3 Crane Truck with Operator $180.00 $540.00; 1 Tip fees - attached $395.02 $395.02. Printed PK000482. The face prints no ABN anywhere; the only supplier identification is \"RST Systems Pty Ltd\" in the bank block and the remittance address admin@vintontreeservices.com.au, against the register's creditor Vinton Tree Services, VIN003, ABN 84 008 552 538. The binder prints six identical copies of this invoice (pages 1-12); one is captured and the rest are outside the arithmetic (rule 11.4).",
+  "follow_up": "Ask Vinton Tree Services to print its entity name and ABN on the invoice face: this one prints neither, which a tax invoice over $1,000 must carry (Open Item B-033).",
+  "source_file": "Binder11111.pdf"
+ },
+ {
+  "invoice": "19835",
+  "vendor": "RST Systems Pty Ltd",
+  "abn": null,
+  "subtotal": 2398.75,
+  "incl": 2638.63,
+  "variant": "standard",
+  "target": [
+   "d1f6c9ad-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "d1f6c9ad-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 2398.75,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19835",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Confirm",
+  "coding_note": "Tree works under contract PAR/329E/2021, CR# 3834566, Completed 01/07/2026. Scope as printed: Tax Invoice (ex-GST) GST) CR# 3834566 PK000482 Completed 01/07/2026 Behind 27 Silvertop Street, Hillcrest 1 x Delonix - prune to reduce encroachment on property and road to best Lines: 4.75 4 person crew for Tree Maintenance $315.00 $1,496.25; 4.75 EWP up to 28m $190.00 $902.50. Printed PK000482. The face prints no ABN anywhere; the only supplier identification is \"RST Systems Pty Ltd\" in the bank block and the remittance address admin@vintontreeservices.com.au, against the register's creditor Vinton Tree Services, VIN003, ABN 84 008 552 538.",
+  "follow_up": "Ask Vinton Tree Services to print its entity name and ABN on the invoice face: this one prints neither, which a tax invoice over $1,000 must carry (Open Item B-033).",
+  "source_file": "Binder11111.pdf"
+ },
+ {
+  "invoice": "19887",
+  "vendor": "RST Systems Pty Ltd",
+  "abn": null,
+  "subtotal": 1246.25,
+  "incl": 1370.88,
+  "variant": "standard",
+  "target": [
+   "ea7f6380-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "ea7f6380-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 1246.25,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19887",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Confirm",
+  "coding_note": "Tree works under contract PAR/329E/2021, CR# 3808571, Completed 13/07/2026. Scope as printed: Tax Invoice (ex-GST) GST) CR# 3808571 PK000477 Completed 13/07/2026 1 Holder Street, Loganholme Aerial inspect main union and remove deadwood, ewp should be able to Lines: 0.25 4 person crew for Tree Maintenance $315.00 $78.75; 0.25 EWP up to 28m $190.00 $47.50; 3.5 Cut and disperse rate inclusive of 3 person crew- including a climber and $320.00 $1,120.00. Printed PK000477. The face prints no ABN anywhere; the only supplier identification is \"RST Systems Pty Ltd\" in the bank block and the remittance address admin@vintontreeservices.com.au, against the register's creditor Vinton Tree Services, VIN003, ABN 84 008 552 538.",
+  "follow_up": "Ask Vinton Tree Services to print its entity name and ABN on the invoice face: this one prints neither, which a tax invoice over $1,000 must carry (Open Item B-033).",
+  "source_file": "Binder11111.pdf"
+ },
+ {
+  "invoice": "19895",
+  "vendor": "RST Systems Pty Ltd",
+  "abn": null,
+  "subtotal": 7489.93,
+  "incl": 8238.92,
+  "variant": "standard",
+  "target": [
+   "0d75c912-73212-PK000302-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "0d75c912-73212-PK000302-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000302",
+    "amount": 7489.93,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19895",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Confirm",
+  "coding_note": "Tree works under contract PAR/329E/2021, CR# 3886392, Completed 15/07/2026. Scope as printed: Tax Invoice (ex-GST) GST) CR# 3886392 PK000302 Completed 15/07/2026 Albert River Park, Ramu Street, Eagleby Lines: 8 4 person crew for Tree Maintenance $315.00 $2,520.00; 13 Crane Truck with Operator $180.00 $2,340.00; 3 Stump grinding $180.00 $540.00; 5 Excavator $110.00 $550.00; 3 Tipper $180.00 $540.00; 1 LCC Fuel Levy - Diesel $63.93 $63.93; 1 Tip fees (attached) $936.00 $936.00. Printed PK000302. The face prints no ABN anywhere; the only supplier identification is \"RST Systems Pty Ltd\" in the bank block and the remittance address admin@vintontreeservices.com.au, against the register's creditor Vinton Tree Services, VIN003, ABN 84 008 552 538. The invoice carries an LCC Fuel Levy - Diesel line of $63.93, 0.861% of the work ex levy. That levy was recoded to PK000514 on 74189 Fuel Levy Surcharge by GJ080696; the work stays here on 73212.",
+  "follow_up": "Ask Vinton Tree Services to print its entity name and ABN on the invoice face: this one prints neither, which a tax invoice over $1,000 must carry (Open Item B-033).",
+  "source_file": "Binder11111.pdf"
+ },
+ {
+  "invoice": "19924",
+  "vendor": "RST Systems Pty Ltd",
+  "abn": null,
+  "subtotal": 231.65,
+  "incl": 254.82,
+  "variant": "standard",
+  "target": [
+   "bc01719b-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "bc01719b-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 231.65,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19924",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Confirm",
+  "coding_note": "Tree works under contract PAR/329E/2021, CR# 3832059, Completed 27/07/2026. Scope as printed: Tax Invoice (ex-GST) GST) CR# 3832059 PK000482 Completed 27/07/2026 29 Keystone Street, Beenleigh Stump grind (tree worked completed and invoiced on invoice 19877) Lines: 1.25 Stump grinding $180.00 $225.00; 1 LCC Fuel Levy - Diesel $6.65 $6.65. Printed PK000482. The face prints no ABN anywhere; the only supplier identification is \"RST Systems Pty Ltd\" in the bank block and the remittance address admin@vintontreeservices.com.au, against the register's creditor Vinton Tree Services, VIN003, ABN 84 008 552 538. The invoice carries an LCC Fuel Levy - Diesel line of $6.65, 2.956% of the work ex levy. That levy was recoded to PK000514 on 74189 Fuel Levy Surcharge by GJ080696; the work stays here on 73212.",
+  "follow_up": "Ask Vinton Tree Services to print its entity name and ABN on the invoice face: this one prints neither, which a tax invoice over $1,000 must carry (Open Item B-033).",
+  "source_file": "Binder11111.pdf"
+ },
+ {
+  "invoice": "19941",
+  "vendor": "RST Systems Pty Ltd",
+  "abn": null,
+  "subtotal": 4809.29,
+  "incl": 5290.22,
+  "variant": "standard",
+  "target": [
+   "0d9afca7-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "0d9afca7-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 4809.29,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19941",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Confirm",
+  "coding_note": "Tree works under contract PAR/329E/2021, CR# 3855656, Completed 29/07/2026. Scope as printed: Tax Invoice (ex-GST) GST) CR# 3855656 PK000482 Completed 29/07/2026 Hanlon Park, Tanah Merah Weight reduction/remedial prune past pruning cuts & remove invasive vine Lines: 0.25 4 person crew for Tree Maintenance $315.00 $78.75; 0.25 EWP up to 28m $190.00 $47.50; 7 Cut and disperse rate inclusive of 3 person crew- including a climber and $320.00 $2,240.00; 7 2 person crew for Tree Maintenance $220.00 $1,540.00; 1 4 person crew for Tree Maintenance $315.00 $315.00; 2.5 Stump grinding $180.00 $450.00; 1 LCC Fuel Levy - Diesel $138.04 $138.04. Printed PK000482. The face prints no ABN anywhere; the only supplier identification is \"RST Systems Pty Ltd\" in the bank block and the remittance address admin@vintontreeservices.com.au, against the register's creditor Vinton Tree Services, VIN003, ABN 84 008 552 538. The invoice carries an LCC Fuel Levy - Diesel line of $138.04, 2.955% of the work ex levy. That levy was recoded to PK000514 on 74189 Fuel Levy Surcharge by GJ080696; the work stays here on 73212.",
+  "follow_up": "Ask Vinton Tree Services to print its entity name and ABN on the invoice face: this one prints neither, which a tax invoice over $1,000 must carry (Open Item B-033).",
+  "source_file": "Binder11111.pdf"
+ },
+ {
+  "invoice": "19900",
+  "vendor": "RST Systems Pty Ltd",
+  "abn": null,
+  "subtotal": 6800.0,
+  "incl": 7480.0,
+  "variant": "standard",
+  "target": [
+   "b9691276-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "b9691276-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 6800.0,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19900",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Confirm",
+  "coding_note": "Tree works under contract PAR/329E/2021, CR #3897268, Completed 05/08/2026. Scope as printed: Tax Invoice Lines: CR #3897268, PK #000477, 17 Veivers Rd Woolffdene $6,800.00 GST. Printed PK #000477. The face prints no ABN anywhere; the only supplier identification is \"RST Systems Pty Ltd\" in the bank block and the remittance address admin@vintontreeservices.com.au, against the register's creditor Vinton Tree Services, VIN003, ABN 84 008 552 538.",
+  "follow_up": "Ask Vinton Tree Services to print its entity name and ABN on the invoice face: this one prints neither, which a tax invoice over $1,000 must carry (Open Item B-033).",
+  "source_file": "Binder11111.pdf"
+ },
+ {
+  "invoice": "19954",
+  "vendor": "RST Systems Pty Ltd",
+  "abn": null,
+  "subtotal": 873.1,
+  "incl": 960.41,
+  "variant": "standard",
+  "target": [
+   "f7e54f39-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "f7e54f39-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 873.1,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19954",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Confirm",
+  "coding_note": "Tree works under contract PAR/329E/2021, CR# 3926558, Completed 06/08/2026. Scope as printed: Tax Invoice (ex-GST) GST) CR# 3926558 PK000475 Completed 06/08/2026 Millers Road, alongside 1 Inverness Street, Underwood Make safe - fallen tree blocking footpath Lines: 1.5 3 person crew for Tree Maintenance $250.00 $375.00; 1.5 EWP up to 28m $190.00 $285.00; 1 Stump grinding $180.00 $180.00; 1 LCC Fuel Levy - Diesel $33.10 $33.10. Printed PK000475. The face prints no ABN anywhere; the only supplier identification is \"RST Systems Pty Ltd\" in the bank block and the remittance address admin@vintontreeservices.com.au, against the register's creditor Vinton Tree Services, VIN003, ABN 84 008 552 538. The invoice carries an LCC Fuel Levy - Diesel line of $33.10, 3.940% of the work ex levy. That levy was recoded to PK000514 on 74189 Fuel Levy Surcharge by GJ080696; the work stays here on 73212. The invoice prints PK#000475 and the charge is PK000477 (Open Item B-027).",
+  "follow_up": "Confirm whether the charge belongs on the printed PK000475 or the charged PK000477; and ask Vinton to print its entity name and ABN (Open Item B-033).",
+  "source_file": "Binder11111.pdf"
+ },
+ {
+  "invoice": "19965",
+  "vendor": "RST Systems Pty Ltd",
+  "abn": null,
+  "subtotal": 4679.31,
+  "incl": 5147.24,
+  "variant": "standard",
+  "target": [
+   "0db6d983-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "0db6d983-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 4679.31,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19965",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Confirm",
+  "coding_note": "Tree works under contract PAR/329E/2021, CR# 3730260, Completed 11/08/2026. Scope as printed: Tax Invoice (ex-GST) GST) CR# 3730260 PK000477 Completed 11/08/2026 182 Wembley Road, Logan Central Lift trees along the path in front of houses for pedestrian access. Remove Lines: 9 4 person crew for Tree Maintenance $315.00 $2,835.00; 9 EWP up to 28m $190.00 $1,710.00; 1 LCC Fuel Levy - Diesel $134.31 $134.31. Printed PK000477. The face prints no ABN anywhere; the only supplier identification is \"RST Systems Pty Ltd\" in the bank block and the remittance address admin@vintontreeservices.com.au, against the register's creditor Vinton Tree Services, VIN003, ABN 84 008 552 538. The invoice carries an LCC Fuel Levy - Diesel line of $134.31, 2.955% of the work ex levy. That levy has NOT been recoded: it sits here on 73212 with the work, where GJ080696 moved the levies on 19895, 19924, 19941 and 19954 to PK000514 on 74189 (Open Item B-034).",
+  "follow_up": "Ask Vinton Tree Services to print its entity name and ABN on the invoice face: this one prints neither, which a tax invoice over $1,000 must carry (Open Item B-033).",
+  "source_file": "Binder11111.pdf"
+ },
+ {
+  "invoice": "19983",
+  "vendor": "RST Systems Pty Ltd",
+  "abn": null,
+  "subtotal": 6692.44,
+  "incl": 7361.68,
+  "variant": "standard",
+  "target": [
+   "7ce970e3-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "7ce970e3-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 6692.44,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19983",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Confirm",
+  "coding_note": "Tree works under contract PAR/329E/2021, CR# 3876767, Completed 20/08/2026. Scope as printed: Tax Invoice (ex-GST) GST) CR# 3876767 PK000477 Completed 20/08/2026 259-267 Rossmore Road, Chambers Flat Reduce dead branches on property side only on large Euc and Ironbark, Lines: 12.75 4 person crew for Tree Maintenance $315.00 $4,016.25; 12.75 EWP up to 28m $190.00 $2,422.50; 1 LCC Fuel Levy - Diesel $253.69 $253.69. Printed PK000477. The face prints no ABN anywhere; the only supplier identification is \"RST Systems Pty Ltd\" in the bank block and the remittance address admin@vintontreeservices.com.au, against the register's creditor Vinton Tree Services, VIN003, ABN 84 008 552 538. The invoice carries an LCC Fuel Levy - Diesel line of $253.69, 3.940% of the work ex levy. That levy has NOT been recoded: it sits here on 73212 with the work, where GJ080696 moved the levies on 19895, 19924, 19941 and 19954 to PK000514 on 74189 (Open Item B-034).",
+  "follow_up": "Ask Vinton Tree Services to print its entity name and ABN on the invoice face: this one prints neither, which a tax invoice over $1,000 must carry (Open Item B-033).",
+  "source_file": "Binder11111.pdf"
+ },
+ {
+  "invoice": "19989",
+  "vendor": "RST Systems Pty Ltd",
+  "abn": null,
+  "subtotal": 4864.39,
+  "incl": 5350.83,
+  "variant": "standard",
+  "target": [
+   "e2077334-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "e2077334-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 4864.39,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19989",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Confirm",
+  "coding_note": "Tree works under contract PAR/329E/2021, CR# 3908237, Completed 21/08/2026. Scope as printed: Tax Invoice (ex-GST) GST) CR# 3908237 PK000477 Completed 21/08/2026 16 Holder Street, Loganholme 2 x Melaleuca remove and stump grind Lines: 6.75 3 person crew for Tree Maintenance $250.00 $1,687.50; 6.75 EWP up to 28m $190.00 $1,282.50; 1.5 Crane Truck with Operator $180.00 $270.00; 8 Stump grinding $180.00 $1,440.00; 1 LCC Fuel Levy - Diesel $184.39 $184.39. Printed PK000477. The face prints no ABN anywhere; the only supplier identification is \"RST Systems Pty Ltd\" in the bank block and the remittance address admin@vintontreeservices.com.au, against the register's creditor Vinton Tree Services, VIN003, ABN 84 008 552 538. The invoice carries an LCC Fuel Levy - Diesel line of $184.39, 3.940% of the work ex levy. That levy has NOT been recoded: it sits here on 73212 with the work, where GJ080696 moved the levies on 19895, 19924, 19941 and 19954 to PK000514 on 74189 (Open Item B-034).",
+  "follow_up": "Ask Vinton Tree Services to print its entity name and ABN on the invoice face: this one prints neither, which a tax invoice over $1,000 must carry (Open Item B-033).",
+  "source_file": "Binder11111.pdf"
+ },
+ {
+  "invoice": "19852",
+  "vendor": "RST Systems Pty Ltd",
+  "abn": null,
+  "subtotal": 5150.0,
+  "incl": 5665.0,
+  "variant": "standard",
+  "target": [
+   "c09426d3-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "c09426d3-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 5150.0,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19852",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Confirm",
+  "coding_note": "Tree works under contract PAR/329E/2021, CR#3908260, Completed 25/08/2026. Scope as printed: Tax Invoice Lines: CR#3908260 - Crestmead Park - Augusta Street, Crestmead $5,150.00 GST. Printed (no PK printed). The face prints no ABN anywhere; the only supplier identification is \"RST Systems Pty Ltd\" in the bank block and the remittance address admin@vintontreeservices.com.au, against the register's creditor Vinton Tree Services, VIN003, ABN 84 008 552 538. No PK is printed on this invoice at all (Open Item B-028).",
+  "follow_up": "Ask Vinton to print the PK and its entity name and ABN: this invoice prints none of them (Open Items B-028 and B-033).",
+  "source_file": "Binder11111.pdf"
+ },
+ {
+  "invoice": "19997",
+  "vendor": "RST Systems Pty Ltd",
+  "abn": null,
+  "subtotal": 393.67,
+  "incl": 433.04,
+  "variant": "standard",
+  "target": [
+   "b307ee4d-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "b307ee4d-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 393.67,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19997",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Confirm",
+  "coding_note": "Tree works under contract PAR/329E/2021, CR# 3920269, Completed 25/08/2026. Scope as printed: Tax Invoice (ex-GST) GST) CR# 3920269 PK000477 Completed 25/08/2026 Cnr Shelford Ct & Earl Ct Boronia Heights Prune 1 x Jacaranda Street tree. Target prune epicormic shoots from lower Lines: 0.75 4 person crew for Tree Maintenance $315.00 $236.25; 0.75 EWP up to 28m $190.00 $142.50; 1 LCC Fuel Levy - Diesel $14.92 $14.92. Printed PK000477. The face prints no ABN anywhere; the only supplier identification is \"RST Systems Pty Ltd\" in the bank block and the remittance address admin@vintontreeservices.com.au, against the register's creditor Vinton Tree Services, VIN003, ABN 84 008 552 538. The invoice carries an LCC Fuel Levy - Diesel line of $14.92, 3.939% of the work ex levy. That levy has NOT been recoded: it sits here on 73212 with the work, where GJ080696 moved the levies on 19895, 19924, 19941 and 19954 to PK000514 on 74189 (Open Item B-034). The binder prints two identical copies of this invoice (pages 35-38); one is captured and the second is outside the arithmetic (rule 11.4).",
+  "follow_up": "Ask Vinton Tree Services to print its entity name and ABN on the invoice face: this one prints neither, which a tax invoice over $1,000 must carry (Open Item B-033).",
+  "source_file": "Binder11111.pdf"
+ }
+]
