@@ -20,16 +20,45 @@ Both registers follow the same column map (PS/WP schema, 146 columns; the branch
 - `reports/` derived reports regenerated from the shipped register: `Unidentified_Contractors_v6.md/.xlsx`, the identification queue with one invoice to sight per supplier series; `Journal_Pull_v6.md/.xlsx`, the rule 21 journal pull list, one row per TechOne document file.
 - `cache/` scratch (calamine pickles, recalc output). Not committed.
 
-## Rebuilding the branch register
+## Session setup
 
-Requirements: Python 3.11 or 3.12, `python-calamine`, `openpyxl`, `lxml`, `pandas`, LibreOffice with the Calc component (`libreoffice-calc`, not only `libreoffice-core`) and `pdftotext` (`poppler-utils`).
+Every web session provisions itself. `.claude/hooks/session-start.sh` runs before the session starts and
+installs what the chain needs, then proves it:
+
+| Dependency | Why |
+|---|---|
+| `python-calamine` | every workbook read (rule 19.8) |
+| `openpyxl` | every workbook write |
+| `lxml` | recovers rule 17 formula text from the v127 sheet XML |
+| `poppler-utils` | `pdftotext -layout` and `pdfinfo`, the raw-text invoice route |
+| `libreoffice-calc` | the convert-route recalc |
+
+Pins are in `requirements.txt`, with an optional PDF-inspection set in `requirements-optional.txt` that
+never blocks a session. The hook is idempotent: about four seconds on a warm container, and it installs
+system packages only when they are absent. It exports `PYTHONPATH` for the two toolkit directories, so
+`import pbr_stage` works from anywhere.
+
+Verify the chain at any time, and after changing any dependency:
 
 ```
-pip install python-calamine openpyxl lxml pandas
+python3 toolkit/branch/pbr_env_check.py --all
+```
+
+It writes a workbook with a live formula, recalculates it through LibreOffice, reads it back with
+calamine, round-trips a probe PDF through poppler, imports every toolkit module and byte-compiles the
+toolkit. Sixteen checks, under two seconds, and it names the fix for whatever fails. **`libreoffice-core`
+alone is not enough**: without the Calc component every conversion fails with "source file could not be
+loaded", which reads like a corrupt workbook and is not.
+
+## Rebuilding the branch register
+
+Requirements are installed by the session hook above; `python3 toolkit/branch/pbr_env_check.py --all` confirms them.
+
+```
 python3 toolkit/branch/pbr_build.py
 ```
 
-One script runs the whole chain: stage, write, LibreOffice convert-route recalc (isolated profile, `OOXMLRecalcMode=0`), calamine verify of the recalculated file, ship to `registers/`. It ships only on a clean verify (78 controls, every sighted line's three checks, the register total and a whole-workbook error sweep). A partial run is discarded, never resumed. About 35 to 40 seconds from a warm cache. Set `PBR_OUTDIR` to ship elsewhere; `PBR_INPUTS` and `PBR_V127` override the input locations.
+One script runs the whole chain: stage, write, LibreOffice convert-route recalc (isolated profile, `OOXMLRecalcMode=0`), calamine verify of the recalculated file, ship to `registers/`. It ships only on a clean verify (92 controls, every sighted line's three checks, the register total and a whole-workbook error sweep). A partial run is discarded, never resumed. About 35 to 40 seconds from a warm cache. Set `PBR_OUTDIR` to ship elsewhere; `PBR_INPUTS` and `PBR_V127` override the input locations.
 
 ## Capturing a new invoice batch
 
