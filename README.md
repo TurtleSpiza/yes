@@ -53,4 +53,4 @@ v6 adds the first journal batch: three TechOne Document Line Tables embedded ver
 
 ## The extraction prompt
 
-`docs/PSWP_Extraction_Prompt_v6.md` is current and supersedes v5. v6 was written from the mix22 and binder11111 failures: it makes the item table's column bands mandatory and gated, makes the amount band the sole sufficient test for a priced row, adds a residue test that must be empty before a document is emitted, gates the header block's own arithmetic, closes the `line_type` list, and carries a template compatibility annexe covering all 34 invoice layouts this project has met.
+`docs/PSWP_Extraction_Prompt_v6.md` is current and supersedes v5. v6 was written from the mix22 and binder11111 failures: it makes the item table's column bands mandatory and gated, makes the amount band the sole sufficient test for a priced row, adds a residue test that must be empty before a document is emitted, gates the header block's own arithmetic, closes the `line_type` list, and carries a template compatibility annexe covering the 36 invoice layouts this project has met.

@@ -6,7 +6,7 @@ v5 is kept here in full and **amended, not rewritten**. That is deliberate: v4 b
 
 **What v6 changes, and why.** v5 has the right rule for classifying a priced row and no way to tell whether you followed it. Two v5 runs on this project, `mix22` (40 invoices, four suppliers) and `Binder11111` (13 invoices, one supplier), both declared RED and between them left **34 printed rows carrying an amount typed NARRATIVE**, so 18 documents captured less than they printed and 13 captured nothing at all. Every one of those rows had its amount sitting in the item table's amount band, which is exactly what v5 section 4.2 says makes a row PRICED. The rule was not wrong. It was unenforceable, because neither run recorded the column bands section 4.1 asks for, and nothing checked that they had.
 
-So v6 is mostly about **making v5's rules checkable**: bands are mandatory and gated, the amount band alone decides, the retry ladder has to show its work, the header block has to add up, and the line-type list is closed. Then, because the failures were spread across every layout the project meets, v6 adds **Annexe A, a template compatibility table** covering all 34 layouts seen to date, with each one's header signature, amount band and known trap.
+So v6 is mostly about **making v5's rules checkable**: bands are mandatory and gated, the amount band alone decides, the retry ladder has to show its work, the header block has to add up, and the line-type list is closed. Then, because the failures were spread across every layout the project meets, v6 adds **Annexe A, a template compatibility table** covering the 36 layouts seen to date (35 vendor templates, one of which prints two), with each one's header signature, amount band and known trap.
 
 **Read section 1 before anything else. It decides which gates apply to you.**
 
@@ -532,6 +532,7 @@ Every layout this project has met, with the item table's header signature as pri
 | VINTON (A) | `DESCRIPTION \| EX AMOUNT \| TAX CODE` | `EX AMOUNT` | No quantity and no unit price columns exist. |
 | VINTON (B) | `HRS \| DESCRIPTION \| UNIT PRICE (ex-GST) \| TOTAL PRICE (ex-GST)` | `TOTAL PRICE` | The `GST:` label and its amount print on different physical rows, and the bank block interleaves with the totals block. |
 | MPDT | `Description \| Quantity \| Unit Price \| GST \| Amount AUD` | `Amount AUD` | Header labels stack above their values (5.2). PK prints malformed: `PK#00047`, `PK#0000477`. |
+| PPG (SAP) | `Item No \| Material \| Item Description \| Quantity \| Unit Price \| Net Value` | `Net Value` | **No row is labelled Subtotal**: the ex-GST total is `PRODUCT TOTAL` plus `FREIGHT` plus `PAINTBACK LEVY`, each printed separately. The unit price prints to FOUR decimals (191.1400). No PK prints on the face; the line description is a price-change reason code and `MIXED MERCHANDSE`. Terms of sale fill page 2. |
 | ETSOL | `Description \| Qty \| Rate \| TAX \| Amount` | `Amount` | The `TAX` column prints the literal `GST`, a code, not money. Negative rows appear for partial deletions. |
 | GLASCOTT | `Invoice No` face plus an attached schedule | schedule `Ex GST` column | The face total and the attached schedule total can differ (Open Item B-019). Schedule rows carry no amount in the face table. |
 | GLASCOTT_LM, HIGGINS, LEVAI | `DESCRIPTION OF SUPPLY \| AMOUNT` / `DESCRIPTION \| AMOUNT` | `AMOUNT` | A two-band table: no quantity, no unit price. |
@@ -592,5 +593,5 @@ The difference between those last two rows is the whole argument for v6. A miscl
 - **`header_sources`, `header_adds_up`, `duplicate_copy_pages`, `is_item_table` and rung 1 `rows` added to the schema**, so each new check leaves its evidence in the corpus.
 - **Findings discipline (14).** No evidence finding on a document that failed to parse.
 - **Fidelity honesty (10).** `shingle_checks_run: 0` is stated as an omission, not left to read as a pass.
-- **Annexe A, template compatibility,** covering all 34 layouts met to date, and Annexe B, the two failures that produced this version.
+- **Annexe A, template compatibility,** covering the 36 layouts met to date, and Annexe B, the two failures that produced this version.
 - Kept unchanged in substance from v5: the runtime declaration, two-pass architecture, document boundary detection, the misroute guard, the exclusion list, the 4.4 invariant, the four-rung ladder, header-amount rules, OCR-by-need in runtime A, the emit protocol, the evidence stem rule, the findings register and the gate-first report.
