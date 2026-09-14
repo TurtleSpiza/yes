@@ -23,6 +23,7 @@ HIST_COLS = ['Reference', 'GST Date', 'Discount Date', 'On Hold', 'Has Note', 'D
              'Billing System', 'Work Order', 'Work Order Transaction Number', 'Work System']
 BATCHES = ('mixed_1', 'mixed_new_26_27', 'attach_1', 'attach_2', 'code', 'mix22', 'attach_3', 'mix222', 'binder11111')
 JOURNAL_BATCH = 'journal_1'  # TechOne Document Line Table pulls (rule 21, pipeline "per journal batch")
+RECON_BATCH = 'recon_1'      # TechOne Document Reconstruction pulls (rule 21, the counterparty route)
 NCOL = 148  # 146 PS/WP columns + 147 Src Note + 148 Register provenance
 
 def D(x):
@@ -769,6 +770,29 @@ def main(dry=False):
     say(f'journal sources: {len(jsrc_docs)} document(s) embedded verbatim, '
         f'{jm["documents_audited_only"]} audited only (rule 12), {jupd} register line(s) restated from a pulled document')
 
+    # ------------------------------------------------------------------ reconstruction batch (rule 21, Document Reconstruction route)
+    # Same standard as the journal batch: the gate, the net-zero proof and the per-reference tie are re-asserted here,
+    # because the stage is where a gate belongs. A reconstruction reaches the Council-side counterparty legs a Document
+    # Line Table taken inside the branch never shows, and maps to a register line on the register's own Src Account.
+    rb = json.load(open(os.path.join(ROOT, 'batches', RECON_BATCH, f'{RECON_BATCH}_v9.json')))
+    rm = rb['manifest']
+    assert rm['gate'] == 'GREEN', rm['gate']
+    assert rm['all_documents_net_zero'] and rm['all_ties_true'], rm
+    rsrc_docs, rcited = [], set()
+    for d in rb['documents']:
+        assert d['nets_to_zero'] and d['all_ties_true'], d['cross_reference']
+        if d['capture'] != 'embed verbatim':
+            assert d.get('journal_audit') and d['journal_audit']['identical'], d['cross_reference']
+            continue
+        for leg in d['legs']:
+            if leg['in_branch_scope'] != 'Yes':
+                continue
+            assert leg['register_linekey'] in jkey, (d['cross_reference'], leg['register_linekey'])
+            rcited.add(leg['register_linekey'])
+        rsrc_docs.append(d)
+    say(f'reconstruction sources: {len(rsrc_docs)} document(s) embedded verbatim, '
+        f'{rm["documents_audited_only"]} audited only (rule 12), {len(rcited)} register line(s) evidenced by a reconstruction leg')
+
     # a sighted invoice (rule 17) supersedes a history identification on the same line: the green block carries the evidence
     for r in rows:
         if r['meta'].get('ident_v4') and r['V'][88]:
@@ -834,7 +858,8 @@ def main(dry=False):
                  unmatched_v=[(n, r) for n, r in unmatched_v], v2new=v2new, theme_v2=theme_v2, theme_v3=theme_v3,
                  svc_names=svc_names, na_names=na_names, sec_names=sec_names, flags=flags, oi_data=oi_data,
                  typo_rows=typo_rows, cred_new_matches=cred_new_matches, jnamed=stage_jnamed, log=log, jnet=jnet, jcount=jcount,
-                 journal_batch=jb, journal_docs=jsrc_docs, journal_lines=sorted(jcited))
+                 journal_batch=jb, journal_docs=jsrc_docs, journal_lines=sorted(jcited),
+                 recon_batch=rb, recon_docs=rsrc_docs, recon_lines=sorted(rcited))
     # carry evidence
     sighted = [r for r in rows if r['V'][88]]
     evids = collections.OrderedDict()

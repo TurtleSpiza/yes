@@ -146,7 +146,7 @@
    "code": "WOR035",
    "label": "Worssell",
    "abn": "19100960227",
-   "label_basis": "Sighted invoice SI105621 and sales credit SC10927 (branch v8): both print ABN 19 100 960 227, the trading name Worssell (70 Mica Street, Carole Park; www.worssell.com.au; remittance michele@worssell.com.au) and Suncorp BSB 484-799 account 049681698, which is the $PAY - MET 484-799 049681698 on 143 lines of this APLEDGER record. No registered entity name prints on either face, so the label is the printed trading name, not a company name (Open Item B-035).",
+   "label_basis": "Sighted invoice SI105621 and sales credit SC10927 (branch v8): both print ABN 19 100 960 227, the trading name Worssell (70 Mica Street, Carole Park; www.worssell.com.au; remittance michele@worssell.com.au) and Suncorp BSB 484-799 account 049681698, which is the $PAY - MET 484-799 049681698 on 143 lines of this APLEDGER record. No registered entity name prints on either face, so the label is the printed trading name, not a company name Raised on Open_Items as \"Supplier invoice prints no registered entity name\" (the B-number renumbers as sections are identified, so it is not quoted here).",
    "pulled": "14-Sep-2026",
    "added": "v8"
   },
@@ -164,7 +164,7 @@
    "code": "INT036",
    "label": "Chalcedony Investments Pty Ltd",
    "abn": "73010305674",
-   "label_basis": "Sighted invoice 67855 (branch v8) letterhead and EFT block: Chalcedony Investments Pty Ltd, 51 Chetwynd Street Loganholme QLD 4129, ABN 73 010 305 674, Westpac BSB 033-107 account 421367, which is the $PAY - WPC 033-107 421367 on this APLEDGER record. Remittance goes to accounts.au@relyon.com. The creditor code INT036 does not correspond to the printed entity name (Open Item B-036).",
+   "label_basis": "Sighted invoice 67855 (branch v8) letterhead and EFT block: Chalcedony Investments Pty Ltd, 51 Chetwynd Street Loganholme QLD 4129, ABN 73 010 305 674, Westpac BSB 033-107 account 421367, which is the $PAY - WPC 033-107 421367 on this APLEDGER record. Remittance goes to accounts.au@relyon.com. The creditor code INT036 does not correspond to the printed entity name Raised on Open_Items as \"Creditor code does not match the entity on the invoice\" (the B-number renumbers as sections are identified, so it is not quoted here).",
    "pulled": "14-Sep-2026",
    "added": "v8"
   },
