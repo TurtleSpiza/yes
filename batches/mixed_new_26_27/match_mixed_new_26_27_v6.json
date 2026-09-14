@@ -218,7 +218,10 @@
   ],
   "evid": "INV-39437",
   "evid_note": null,
-  "line_map": null
+  "line_map": null,
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Fencing, bollards, rails & gates",
+  "coding_note": "Category restated at branch v11 from the printed job row (the v3 capture carried the Spring Mountain Reserve bush-track job on every Levai invoice; corrected by the generalised Levai parser)."
  },
  {
   "invoice": "INV-39435",
@@ -241,7 +244,10 @@
   ],
   "evid": "INV-39435",
   "evid_note": null,
-  "line_map": null
+  "line_map": null,
+  "nature_category": "Playground surfacing",
+  "theme_v3": "Playground equipment & softfall",
+  "coding_note": "Category restated at branch v11 from the printed job row (the v3 capture carried the Spring Mountain Reserve bush-track job on every Levai invoice; corrected by the generalised Levai parser)."
  },
  {
   "invoice": "INV-2620",
@@ -492,7 +498,10 @@
   ],
   "evid": "INV-39475",
   "evid_note": null,
-  "line_map": null
+  "line_map": null,
+  "nature_category": "Playground surfacing",
+  "theme_v3": "Playground equipment & softfall",
+  "coding_note": "Category restated at branch v11 from the printed job row (the v3 capture carried the Spring Mountain Reserve bush-track job on every Levai invoice; corrected by the generalised Levai parser)."
  },
  {
   "invoice": "INV-8754",
@@ -561,7 +570,10 @@
   ],
   "evid": "INV-39495",
   "evid_note": null,
-  "line_map": null
+  "line_map": null,
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Paths, courts, skate & hard surfaces",
+  "coding_note": "Category restated at branch v11 from the printed job row (the v3 capture carried the Spring Mountain Reserve bush-track job on every Levai invoice; corrected by the generalised Levai parser)."
  },
  {
   "invoice": "00015285",
@@ -789,7 +801,10 @@
   ],
   "evid": "INV-39542",
   "evid_note": null,
-  "line_map": null
+  "line_map": null,
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Fencing, bollards, rails & gates",
+  "coding_note": "Category restated at branch v11 from the printed job row (the v3 capture carried the Spring Mountain Reserve bush-track job on every Levai invoice; corrected by the generalised Levai parser)."
  },
  {
   "invoice": "186140216",
