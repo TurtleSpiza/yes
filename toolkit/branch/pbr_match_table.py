@@ -71,8 +71,12 @@ def main():
     sighted_stem = {s.split('/')[0] for s in sighted}
 
     out, held = [], []
+    dups = []
     for d in corpus['documents']:
         inv = d['invoice_no']
+        if d.get('duplicate_of'):
+            dups.append(inv)  # repeated copy of a document already in the corpus (prompt v6 11.4): never matched twice
+            continue
         if inv in sighted_stem:
             held.append(inv)
             continue
@@ -94,7 +98,7 @@ def main():
 
     json.dump(out, open(os.path.join(BDIR, f'match_{BATCH}_v6.json'), 'w'), indent=1)
     v = collections.Counter(e['variant'].split(' (')[0] for e in out)
-    print(f'{BATCH}: {len(out)} documents matched, {len(held)} held by the rule 12 evidence screen {held or ""}; variants {dict(v)}')
+    print(f'{BATCH}: {len(out)} documents matched, {len(held)} held by the rule 12 evidence screen {held or ""}, {len(dups)} duplicate copies skipped {dups or ""}; variants {dict(v)}')
     for e in out:
         if e['variant'] != 'standard':
             print(f'  {e["invoice"]:<12} {e["variant"].split(" (")[0]}: register {sum(l["amount"] for l in e["register_lines"]):,.2f} '
