@@ -1,0 +1,32 @@
+{
+ "check": "rule 19.2 per-vendor verbatim fidelity, independent source",
+ "method": "For each vendor template: take every row that is constant across this batch's documents for that vendor and carries no money token, and verify it against page text this project parsed independently from a real PDF. A row passes verbatim, or as a digit variant (invoice number, date) of a reference row. A row that is neither but is a near neighbour of a reference row is a silently altered template row and fails.",
+ "vendors": [
+  {
+   "vendor_template": "PLAYFORCE",
+   "batch_documents": 47,
+   "reference_documents": [
+    "mixed_new_26_27:INV-8550/pages30-32 (branch v3, Mixed_new_26-27.pdf, parse_mixed_new.py)",
+    "mixed_new_26_27:INV-8638/pages37-39 (branch v3, Mixed_new_26-27.pdf, parse_mixed_new.py)",
+    "mixed_new_26_27:INV-8648/pages40-42 (branch v3, Mixed_new_26-27.pdf, parse_mixed_new.py)",
+    "mixed_new_26_27:INV-8739/pages52-54 (branch v3, Mixed_new_26-27.pdf, parse_mixed_new.py)",
+    "mixed_new_26_27:INV-8754/pages56-58 (branch v3, Mixed_new_26-27.pdf, parse_mixed_new.py)"
+   ],
+   "batch_constant_template_rows": 217,
+   "verbatim_in_reference": 217,
+   "digit_variant_of_a_reference_row": 0,
+   "digit_variant_rows": [],
+   "unmatched_rows": 0,
+   "unmatched": [],
+   "altered_template_rows": [],
+   "reference_intersection_check": {
+    "reference_template_rows": 220,
+    "documents_missing_any": 0,
+    "misses": {},
+    "basis": "digit-masked comparison; a row differing only inside a digit run is not a miss"
+   }
+  }
+ ],
+ "verdict": "PASS",
+ "scope": "Proves the fixed template and boilerplate rows this batch carries are verbatim against an independent parse of the same vendor. It cannot prove per-invoice description text, which appears on no other document; that rests on the retained layout rows, the arithmetic tie on every invoice (all 40 reconcile to the printed subtotal to the cent) and the creditor history on the register line. Where a vendor contributes a single document to this batch, \"constant across the batch\" is that document's own rows, so the unmatched list for that vendor is its invoice-specific text."
+}

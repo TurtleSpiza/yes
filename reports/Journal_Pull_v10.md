@@ -1,6 +1,6 @@
-# Journal pull list, Parks Branch register FY2026/27 v7 (11-Sep-2026)
+# Journal pull list, Parks Branch register FY2026/27 v10 (14-Sep-2026)
 
-**Position:** 56 TechOne document files carry the 3,287 journal lines on the register. 7 sit in Tier A (no attachment, $329,026.00 absolute net). 12 document(s) across Tiers A and B carry an unanswered question and are the ones worth working first.
+**Position:** 56 TechOne document files carry the 3,287 journal lines on the register. 5 sit in Tier A (no attachment, $4,023.20 absolute net). 12 document(s) across Tiers A and B carry an unanswered question and are the ones worth working first.
 
 Tier A: no attachment in TechOne, so the Document Line Table IS the evidence route - pull these. Tier B: the document carries a TechOne attachment, so sight the attachment; a pull adds nothing. Tier C: RJ reversing journals, which net to exactly zero and are read as a pair under rules 5 and 6 - no pull unless a specific accrual question arises. Tier D: the document is already embedded in the PS & WP register v127 Journal_Sources; a re-pull is audited leg by leg, never re-captured (rule 12). Ranked within tier by ABSOLUTE net cost movement into branch O110-O115, not by gross, because gross double-counts both legs of a transfer.
 
@@ -8,23 +8,22 @@ Tier A: no attachment in TechOne, so the Document Line Table IS the evidence rou
 
 | Tier | Documents | Register lines | Net in scope | Gross in scope |
 |---|---:|---:|---:|---:|
-| A Pull required | 7 | 417 | 327,819.60 | 683,173.00 |
+| A Pull required | 5 | 8 | 2,816.80 | 358,170.20 |
 | B Sight attachment | 36 | 435 | -39,480.64 | 1,791,672.06 |
 | C RJ reversal, no pull | 6 | 196 | 0.00 | 3,819,401.22 |
 | D Held, already embedded in PS_WP v127 | 4 | 211 | -478,196.60 | 791,670.84 |
 | E Pulled and embedded at branch v6 | 3 | 2,028 | 509,510.42 | 516,097.34 |
+| F Reconstruction pulled and embedded at branch v9 | 2 | 409 | 325,002.80 | 325,002.80 |
 
 ## A Pull required
 
 | # | Document file | Journal ref(s) | Period(s) | Lines | Net in scope | Gross | Att | Pull value | Why it matters | Sections | Top accounts | Top PKs |
 |---|---|---|---|---:|---:|---:|---|---|---|---|---|---|
-| 1 | **1260709** | GJ080865 | 2 | 205 | 162,997.28 | 162,997.28 | N | Low | internal charge allocation on 7C111 Internal - Vehi: every one of the 205 legs is already on the register with its own narration, so the Document Line Table adds only the Council-side counterparty legs. Pull only if the allocation | Cemeteries; Depots; Natural Areas; Park Maintenance; Park Se | 7C111 Internal - Vehi | PK000012; PK000003; PK000431 |
-| 2 | **1253004** | GJ080501 | 1 | 204 | 162,005.52 | 162,005.52 | N | Low | internal charge allocation on 7C111 Internal - Vehi: every one of the 204 legs is already on the register with its own narration, so the Document Line Table adds only the Council-side counterparty legs. Pull only if the allocation | Cemeteries; Depots; Natural Areas; Park Maintenance; Park Se | 7C111 Internal - Vehi | PK000012; PK000003; PK000431 |
-| 3 | **1254118** | IJ075230 | 1 | 3 | 2,340.00 | 2,340.00 | N | Low | internal charge allocation on 7B411 Internal - IT E: every one of the 3 legs is already on the register with its own narration, so the Document Line Table adds only the Council-side counterparty legs. Pull only if the allocation b | Management; Planning, Design & Capital Delivery | 7B411 Internal - IT E | PK000087; PK000086; PK000082 |
-| 4 | **1250757** | GJ080426 | 1 | 1 | -603.20 | 603.20 | N | High | recode set does not net inside O110-O115, so the balancing leg sits outside this scope and the pull is the only way to find it (Open Item B-012) | Park Maintenance | 7C111 Internal - Vehi | PK000012 |
-| 5 | **1259933** | IJ075348 | 2 | 1 | 540.00 | 540.00 | N | Low | operational journal, narration carries the nature on every leg | Management | 7C111 Internal - Vehi | PK000087 |
-| 6 | **1253001** | IJ075167 | 1 | 1 | 540.00 | 540.00 | N | Low | operational journal, narration carries the nature on every leg | Park Maintenance | 7C111 Internal - Vehi | PK000003 |
-| 7 | **1261362** | GJ080948 | 3 | 2 | 0.00 | 354,147.00 | N | Low | internal charge allocation on 7B115 Internal - Garb: every one of the 2 legs is already on the register with its own narration, so the Document Line Table adds only the Council-side counterparty legs. Pull only if the allocation b | Park Services | 7B115 Internal - Garb | PK000002; PK000022 |
+| 1 | **1254118** | IJ075230 | 1 | 3 | 2,340.00 | 2,340.00 | N | Low | internal charge allocation on 7B411 Internal - IT E: every one of the 3 legs is already on the register with its own narration, so the Document Line Table adds only the Council-side counterparty legs. Pull only if the allocation b | Management; Planning, Design & Capital Delivery | 7B411 Internal - IT E | PK000087; PK000086; PK000082 |
+| 2 | **1250757** | GJ080426 | 1 | 1 | -603.20 | 603.20 | N | High | recode set does not net inside O110-O115, so the balancing leg sits outside this scope and the pull is the only way to find it (Open Item B-012) | Park Maintenance | 7C111 Internal - Vehi | PK000012 |
+| 3 | **1259933** | IJ075348 | 2 | 1 | 540.00 | 540.00 | N | Low | operational journal, narration carries the nature on every leg | Management | 7C111 Internal - Vehi | PK000087 |
+| 4 | **1253001** | IJ075167 | 1 | 1 | 540.00 | 540.00 | N | Low | operational journal, narration carries the nature on every leg | Park Maintenance | 7C111 Internal - Vehi | PK000003 |
+| 5 | **1261362** | GJ080948 | 3 | 2 | 0.00 | 354,147.00 | N | Low | internal charge allocation on 7B115 Internal - Garb: every one of the 2 legs is already on the register with its own narration, so the Document Line Table adds only the Council-side counterparty legs. Pull only if the allocation b | Park Services | 7B115 Internal - Garb | PK000002; PK000022 |
 
 ## B Sight attachment
 
@@ -95,6 +94,13 @@ Tier A: no attachment in TechOne, so the Document Line Table IS the evidence rou
 | 2 | **1248219** | GJ080309 | 1 | 3 | 51,121.41 | 51,121.41 | Y | Done | pulled at branch v6 and embedded verbatim on Journal_Sources rows 5:11; the document nets to $0.00 and its in-scope legs tie the register | Natural Areas | 7C111 Internal - Vehi | PK000068 |
 | 3 | **1245194** | GJ080153 | 1 | 5 | -3,289.09 | 3,289.09 | Y | High | pulled at branch v6 and embedded verbatim on Journal_Sources rows 12:42; the document nets to $0.00 and its in-scope legs tie the register; accrual reversal that does not pair inside FY2026/27; read against 26SLACT P12 before any  | Park Maintenance; Park Services; Trees | 7C111 Internal - Vehi; 7C112 Internal - Misc | PK000044; PK000003; PK000084 |
 
+## F Reconstruction pulled and embedded at branch v9
+
+| # | Document file | Journal ref(s) | Period(s) | Lines | Net in scope | Gross | Att | Pull value | Why it matters | Sections | Top accounts | Top PKs |
+|---|---|---|---|---:|---:|---:|---|---|---|---|---|---|
+| 1 | **1260709** | GJ080865 | 2 | 205 | 162,997.28 | 162,997.28 | N | Done | pulled at branch v9 as a TechOne Document Reconstruction (cross reference 202609031114916000000001) and embedded verbatim on Reconstruction_Sources rows 5:1962; the document nets to $0.00, its in-scope legs tie the register net of | Cemeteries; Depots; Natural Areas; Park Maintenance; Park Se | 7C111 Internal - Vehi | PK000012; PK000003; PK000431 |
+| 2 | **1253004** | GJ080501 | 1 | 204 | 162,005.52 | 162,005.52 | N | Done | pulled at branch v9 as a TechOne Document Reconstruction (cross reference 202607311107736000000001) and embedded verbatim on Reconstruction_Sources rows 1963:3914; the document nets to $0.00, its in-scope legs tie the register net | Cemeteries; Depots; Natural Areas; Park Maintenance; Park Se | 7C111 Internal - Vehi | PK000012; PK000003; PK000431 |
+
 ## How to use
 
 1. Work Tier A top down and pull one TechOne Document Line Table per **document file**, not per journal reference: one export covers every reference on the file.
@@ -102,4 +108,4 @@ Tier A: no attachment in TechOne, so the Document Line Table IS the evidence rou
 3. Embed each new document verbatim with leg-level in-scope flags, prove it nets to zero and that each in-scope leg sum ties its own register lines, then refresh this list (pipeline, per journal batch).
 4. Tier B needs no pull: sight the TechOne attachment on the document file. Tier C is RJ reversing journals, read as a pair under rules 5 and 6. Tier D is already embedded in the PS & WP register.
 
-Source: `Parks_Branch_Transaction_Register_FY2627_v7.xlsx`, Journal_Pull rows 5:60; generated by `toolkit/branch/pbr_journal_pull_report.py`.
+Source: `Parks_Branch_Transaction_Register_FY2627_v10.xlsx`, Journal_Pull rows 5:60; generated by `toolkit/branch/pbr_journal_pull_report.py`.

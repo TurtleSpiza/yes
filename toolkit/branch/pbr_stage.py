@@ -17,12 +17,13 @@ V127 = _os.environ.get('PBR_V127', _os.path.join(ROOT, 'registers', 'PS_WP_Trans
 CACHE = _os.path.join(ROOT, 'cache')
 HERE = os.path.dirname(os.path.abspath(__file__))
 RULES = json.load(open(os.path.join(HERE, 'pbr_rules_v1.json')))
-HIST = json.load(open(os.path.join(HERE, 'pbr_histories_v4.json')))  # APLEDGER creditor histories, branch v4 to v6 (content as data; 'added' names the version each was pulled for)
+HIST = json.load(open(os.path.join(HERE, 'pbr_histories_v4.json')))  # APLEDGER creditor histories, branch v4 to v10 (content as data; 'added' names the version each was pulled for)
 HIST_COLS = ['Reference', 'GST Date', 'Discount Date', 'On Hold', 'Has Note', 'Date', 'Description (Document Type)', 'Details', 'Outstanding', 'Applied',
              'Transaction Amount', 'Due Date', 'Ageing Date', 'Period', 'Ageing', 'Source', 'Units', 'Discount', 'Has Attachment', 'Payment Details', 'ABN',
              'Billing System', 'Work Order', 'Work Order Transaction Number', 'Work System']
-BATCHES = ('mixed_1', 'mixed_new_26_27', 'attach_1', 'attach_2', 'code', 'mix22', 'attach_3', 'mix222', 'binder11111')
+BATCHES = ('mixed_1', 'mixed_new_26_27', 'attach_1', 'attach_2', 'code', 'mix22', 'attach_3', 'mix222', 'binder11111', 'pla073_1')
 JOURNAL_BATCH = 'journal_1'  # TechOne Document Line Table pulls (rule 21, pipeline "per journal batch")
+RECON_BATCH = 'recon_1'      # TechOne Document Reconstruction pulls (rule 21, the counterparty route)
 NCOL = 148  # 146 PS/WP columns + 147 Src Note + 148 Register provenance
 
 def D(x):
@@ -128,7 +129,7 @@ def as_date(v):
 
 
 def load_histories():
-    """APLEDGER creditor histories (branch v4 to v6): one TechOne export per creditor account, verbatim rows keyed by export row."""
+    """APLEDGER creditor histories (branch v4 to v10): one TechOne export per creditor account, verbatim rows keyed by export row."""
     out = []
     for h in HIST['histories']:
         p = os.path.join(ROOT, HIST['dir'], h['file'])
@@ -145,8 +146,11 @@ def load_histories():
                 total = r; continue
             data.append((i, r))
         assert total is not None and sum(D(r[10]) for _, r in data) == D(total[10]), (h['code'], 'export total row does not tie')
-        abns = collections.Counter(str(r[20]).strip() for _, r in data)
-        assert abns.most_common(1)[0][0] == h['abn'], (h['code'], abns.most_common(3))
+        # dominant ABN over the rows that carry one: a blank is the absence of an ABN, not a competing value.
+        # Payment, funds-transfer and generated-transaction rows carry no ABN by design and can outnumber the
+        # invoice rows on a small creditor account (INT036: 2 invoice rows, 5 blanks).
+        abns = collections.Counter(a for a in (str(r[20]).strip() for _, r in data) if a)
+        assert abns and abns.most_common(1)[0][0] == h['abn'], (h['code'], abns.most_common(3))
         dates = [as_date(r[5]) for _, r in data]
         out.append(dict(h, path=p, md5=md5(p), params=str(rows[1][0]), hdr=hdr, data=data, total=total, n=len(data), first=min(dates), last=max(dates),
                         n_fy27=sum(1 for d_ in dates if d_ >= dt.date(2026, 7, 1)), abn_other=[a for a, _ in abns.most_common() if a != h['abn']]))
@@ -281,11 +285,15 @@ def main(dry=False):
     for i, r in enumerate(CL[4:], 5):
         if str(r[2]).strip():
             cl_by_ref[str(r[2]).strip()].append((i, r))
-    # branch v4 to v6 APLEDGER histories: reference -> (history index, export row, row)
+    # branch v4 to v10 APLEDGER histories: reference -> (history index, export row, row)
     hist_by_ref = collections.defaultdict(list)
     for k_, h in enumerate(H):
         for i, r in h['data']:
             hist_by_ref[clean_num_text(r[0]).strip()].append((k_, i, r))
+    # One label per creditor code (rule: a COUNTIF-keyed label must be canonical). Where a branch APLEDGER
+    # history is held, its researched label (with a label_basis on the entry) is authoritative for that code
+    # and supersedes the legacy "CODE (label)" rendering carried on the v127 Creditor_Lines.
+    hist_label = {h['code']: h['label'] for h in H}
     du_sum = collections.defaultdict(Decimal)
     for y in L['data']:
         du_sum[y[14]] += D(y[7])
@@ -316,7 +324,7 @@ def main(dry=False):
         V[50] = c[14] or None; V[51] = c[3] or None; V[52] = (str(c[19]) if c[19] not in (None, '') else '').strip() or None; V[53] = (str(c[21]) if c[21] not in (None, '') else '').strip() or None
         V[23] = c[7] or None
         hd = as_date(c[5])
-        ev = (f'Creditor history line (APLEDGER {hh["code"]} history pulled 11-Sep-2026, Creditor_Lines row {{CL:{k_}:{i}}}): {hh["code"]} ({hh["label"]}), reference {ref}, '
+        ev = (f'Creditor history line (APLEDGER {hh["code"]} history pulled {hh.get("pulled", "11-Sep-2026")}, Creditor_Lines row {{CL:{k_}:{i}}}): {hh["code"]} ({hh["label"]}), reference {ref}, '
               f'${D(c[10]):,} incl GST dated {hd.strftime("%d-%b-%Y") if hd else "(no date)"} against document net ${dsum:,} ex GST (x1.1 within 2c)'
               + (f', ABN {abn}' if abn else ', no ABN on the history line'))
         return abn, ev
@@ -564,7 +572,7 @@ def main(dry=False):
             if cred:
                 ci, c = cred
                 code, label = (c[0].split(' (', 1) + [''])[:2]
-                cont = label.rstrip(')') or code
+                cont = hist_label.get(code) or label.rstrip(')') or code
                 V[11] = code
                 abn_raw = clean_num_text(c[22]).strip()
                 abn = f'{abn_raw[:2]} {abn_raw[2:5]} {abn_raw[5:8]} {abn_raw[8:]}' if len(abn_raw) == 11 else None
@@ -643,7 +651,7 @@ def main(dry=False):
         meta['charge'] = charge
         rows.append(dict(V=V, meta=meta, lidx=i))
 
-    # ------------------------------------------------------------------ inherited AP lines identified from the branch v4 to v6 histories (rule 8 Tier 1; port to PS_WP)
+    # ------------------------------------------------------------------ inherited AP lines identified from the branch v4 to v10 histories (rule 8 Tier 1; port to PS_WP)
     weak = re.compile(r'Unidentified|series-inferred|confirm\)|\(named in', re.I)
     for r in rows:
         if not r['meta']['inherited']:
@@ -762,6 +770,29 @@ def main(dry=False):
     say(f'journal sources: {len(jsrc_docs)} document(s) embedded verbatim, '
         f'{jm["documents_audited_only"]} audited only (rule 12), {jupd} register line(s) restated from a pulled document')
 
+    # ------------------------------------------------------------------ reconstruction batch (rule 21, Document Reconstruction route)
+    # Same standard as the journal batch: the gate, the net-zero proof and the per-reference tie are re-asserted here,
+    # because the stage is where a gate belongs. A reconstruction reaches the Council-side counterparty legs a Document
+    # Line Table taken inside the branch never shows, and maps to a register line on the register's own Src Account.
+    rb = json.load(open(os.path.join(ROOT, 'batches', RECON_BATCH, f'{RECON_BATCH}_v9.json')))
+    rm = rb['manifest']
+    assert rm['gate'] == 'GREEN', rm['gate']
+    assert rm['all_documents_net_zero'] and rm['all_ties_true'], rm
+    rsrc_docs, rcited = [], set()
+    for d in rb['documents']:
+        assert d['nets_to_zero'] and d['all_ties_true'], d['cross_reference']
+        if d['capture'] != 'embed verbatim':
+            assert d.get('journal_audit') and d['journal_audit']['identical'], d['cross_reference']
+            continue
+        for leg in d['legs']:
+            if leg['in_branch_scope'] != 'Yes':
+                continue
+            assert leg['register_linekey'] in jkey, (d['cross_reference'], leg['register_linekey'])
+            rcited.add(leg['register_linekey'])
+        rsrc_docs.append(d)
+    say(f'reconstruction sources: {len(rsrc_docs)} document(s) embedded verbatim, '
+        f'{rm["documents_audited_only"]} audited only (rule 12), {len(rcited)} register line(s) evidenced by a reconstruction leg')
+
     # a sighted invoice (rule 17) supersedes a history identification on the same line: the green block carries the evidence
     for r in rows:
         if r['meta'].get('ident_v4') and r['V'][88]:
@@ -793,6 +824,31 @@ def main(dry=False):
         coll = {k: s for k, s in vals.items() if len(s) > 1}
         if coll:
             say(f'case-variant labels in col {c}: {sorted(map(sorted, coll.values()))}')
+
+    # ------------------------------------------------------------------ one contractor label per creditor code (COUNTIF canonical-label trap)
+    # Col 12 is COUNTIF/SUMIFS-keyed, so a code carrying two spellings splits every per-contractor rollup.
+    # Where a branch APLEDGER history is held its label is canonical for the code on every line, whatever the
+    # path that identified the line: a sighted capture keeps the name as printed in its evidence text (col 28),
+    # but col 12 carries the one researched label. This is the intent recorded on the THE289 label_basis at v5.
+    relabelled = collections.Counter()
+    for r in rows:
+        cc = r['V'][11]
+        canon = hist_label.get(cc.strip()) if isinstance(cc, str) else None
+        if canon and isinstance(r['V'][12], str) and r['V'][12].strip() != canon:
+            relabelled[(cc.strip(), r['V'][12].strip())] += 1
+            r['V'][12] = canon
+    if relabelled:
+        say(f'col 12 labels canonicalised to the branch history label: {dict(relabelled)}')
+
+    code_labels = collections.defaultdict(set)
+    for r in rows:
+        cc, lb = r['V'][11], r['V'][12]
+        if isinstance(cc, str) and cc.strip() and isinstance(lb, str) and lb.strip():
+            code_labels[cc.strip()].add(lb.strip())
+    split = {k: sorted(s) for k, s in code_labels.items() if len(s) > 1}
+    assert not split, ('creditor code carries more than one contractor label in col 12', split)
+    say(f'gate one contractor label per creditor code across {len(code_labels)} codes')
+
     attach_files = []
     for b in ('attach_1', 'attach_2', 'attach_3'):
         for sf in json.load(open(os.path.join(ROOT, 'batches', b, f'corpus_{b}_v6.json')))['manifest']['source_files']:
@@ -802,7 +858,8 @@ def main(dry=False):
                  unmatched_v=[(n, r) for n, r in unmatched_v], v2new=v2new, theme_v2=theme_v2, theme_v3=theme_v3,
                  svc_names=svc_names, na_names=na_names, sec_names=sec_names, flags=flags, oi_data=oi_data,
                  typo_rows=typo_rows, cred_new_matches=cred_new_matches, jnamed=stage_jnamed, log=log, jnet=jnet, jcount=jcount,
-                 journal_batch=jb, journal_docs=jsrc_docs, journal_lines=sorted(jcited))
+                 journal_batch=jb, journal_docs=jsrc_docs, journal_lines=sorted(jcited),
+                 recon_batch=rb, recon_docs=rsrc_docs, recon_lines=sorted(rcited))
     # carry evidence
     sighted = [r for r in rows if r['V'][88]]
     evids = collections.OrderedDict()
