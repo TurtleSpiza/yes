@@ -10,9 +10,34 @@ from python_calamine import CalamineWorkbook
 import os as _os
 ROOT = _os.environ.get('PBR_ROOT', _os.path.abspath(_os.path.join(_os.path.dirname(__file__), '..', '..')))
 UP = _os.environ.get('PBR_INPUTS', _os.path.join(ROOT, 'data', 'inputs_2026-09-11'))
-LEDGER = f'{UP}/Ledger_Accounts_Transactions_Table_-_2026-09-11T101136_185.xlsx'
-SE2 = {'Section': f'{UP}/SE2_-_2026-09-11T101056_724.xlsx', 'Natural Account': f'{UP}/SE2_-_2026-09-11T101046_254.xlsx',
+UP15 = _os.environ.get('PBR_INPUTS_15', _os.path.join(ROOT, 'data', 'inputs_2026-09-15'))
+# The register is pulled period by period, never section by section (rule: whole-branch pull). P3 was still open at
+# the 11-Sep pull, so the 15-Sep pull re-takes P3 on the identical criteria and supersedes the P3 block of the first
+# export. Each export contributes the periods named here, and load_ledger proves the superseded block is carried
+# forward verbatim before it is dropped, so no line can be lost in the substitution.
+LEDGERS = (
+    dict(path=f'{UP}/Ledger_Accounts_Transactions_Table_-_2026-09-11T101136_185.xlsx', pulled='11-Sep-2026',
+         label='27SLACT P1-3 pull, 11-Sep-2026', take=(1, 2), total=Decimal('4910566.68'), scope='periods 1 to 3'),
+    dict(path=f'{UP15}/Ledger_Accounts_Transactions_Table_-_2026-09-15T090832.246.xlsx', pulled='15-Sep-2026',
+         label='27SLACT P3 refresh, 15-Sep-2026', take=(3,), total=Decimal('380255.19'), scope='period 3 only'),
+)
+LEDGER = LEDGERS[0]['path']
+BASE_VINTAGE = LEDGERS[0]['label']   # Coverage panels A to C tie to the lines this pull carried (see SE2 below)
+BASE_TOTAL = Decimal('4910566.68')      # the 11-Sep vintage: every line pulled on 11-Sep, P3 as it then stood
+CONTROL_TOTAL = Decimal('5066518.69')   # the register total at v12: P1 and P2 from the 11-Sep pull, P3 from the refresh
+# SE2 views. Branch and Section were re-pulled with the P3 refresh and carry the current total; natural account,
+# WO Task and service were not, so they state the 11-Sep vintage and Coverage ties them to that subset of the
+# register (rule 11: an asymmetry is declared, never papered over).
+SE2 = {'Branch': f'{UP15}/SE2_-_2026-09-15T090836.010.xlsx', 'Section': f'{UP15}/SE2_-_2026-09-15T090852.454.xlsx',
+       'Natural Account': f'{UP}/SE2_-_2026-09-11T101046_254.xlsx',
        'WO Task': f'{UP}/SE2_-_2026-09-11T101103_345.xlsx', 'Service No': f'{UP}/SE2_-_2026-09-11T101109_717.xlsx'}
+SE2_PULLED = {'Branch': '15-Sep-2026', 'Section': '15-Sep-2026', 'Natural Account': '11-Sep-2026',
+              'WO Task': '11-Sep-2026', 'Service No': '11-Sep-2026'}
+# Creditor-history exports received again for a code already embedded. Rule 12: a re-pull is AUDITED against the
+# embedded copy and never re-captured, so these files are read, compared row by row and recorded, not added to
+# Creditor_Lines. A re-pull that carries new rows fails the audit and has to be embedded as a fresh history instead.
+REPULLS = ({'code': 'GXO001', 'path': f'{UP15}/creditor_histories/Ledger_Accounts_Transactions_Table_-_2026-09-15T090758.271.xlsx',
+            'pulled': '15-Sep-2026', 'received': '15-Sep-2026'},)
 V127 = _os.environ.get('PBR_V127', _os.path.join(ROOT, 'registers', 'PS_WP_Transaction_Register_3FY_v127_CANDIDATE.xlsx'))
 CACHE = _os.path.join(ROOT, 'cache')
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -24,7 +49,21 @@ HIST_COLS = ['Reference', 'GST Date', 'Discount Date', 'On Hold', 'Has Note', 'D
 BATCHES = ('mixed_1', 'mixed_new_26_27', 'attach_1', 'attach_2', 'code', 'mix22', 'attach_3', 'mix222', 'binder11111', 'pla073_1', 'ksadasd')
 JOURNAL_BATCH = 'journal_1'  # TechOne Document Line Table pulls (rule 21, pipeline "per journal batch")
 RECON_BATCH = 'recon_1'      # TechOne Document Reconstruction pulls (rule 21, the counterparty route)
-NCOL = 148  # 146 PS/WP columns + 147 Src Note + 148 Register provenance
+NCOL = 149  # 146 PS/WP columns + 147 Src Note + 148 Register provenance + 149 Source pull
+
+# The register is a Council record and every TechOne export is stamped in Council's own time. The container runs on
+# UTC, which is ten hours behind Brisbane, so a build run in the Queensland morning would otherwise date itself to the
+# previous day and disagree with the exports it just read.
+BNE = dt.timezone(dt.timedelta(hours=10))   # Australia/Brisbane, no daylight saving
+
+
+def today():
+    return dt.datetime.now(BNE).date()
+
+
+def stamp():
+    return today().strftime('%d-%b-%Y')
+
 
 def D(x):
     return Decimal(str(x)).quantize(Decimal('0.01'), ROUND_HALF_UP)
@@ -104,10 +143,8 @@ def parse_refs(narr):
     return out
 
 
-def load_ledger():
-    rows = sheet(LEDGER)
-    crit = rows[2][0]
-    hdr_code, hdr = rows[4], rows[5]
+def _read_ledger(path):
+    rows = sheet(path)
     data, total = [], None
     for r in rows[6:]:
         if all(c in ('', None) for c in r):
@@ -115,7 +152,52 @@ def load_ledger():
         if r[0] == '' and r[2] == '' and isinstance(r[7], float):
             total = D(r[7]); continue
         data.append(r)
-    return dict(params=rows[1][0], criteria=crit, hdr_code=hdr_code, hdr=hdr, data=data, total=total)
+    return dict(params=rows[1][0], criteria=rows[2][0], hdr_code=rows[4], hdr=rows[5], data=data, total=total)
+
+
+def load_ledger():
+    """The branch population, assembled from one export per period block (LEDGERS, newest pull last).
+
+    Every export is the same enquiry on the same criteria but for a different period range, so the layout must be
+    identical and each row lands in exactly one export's period block. A later pull that re-takes a period SUPERSEDES
+    the earlier one for that period, and the gate below proves the substitution loses nothing: every superseded row
+    must still be present, verbatim across all 35 columns, in the export that replaces it. A row that the refresh
+    dropped or restated fails the build rather than silently changing a shipped line.
+    """
+    files, data, pull, superseded, raw = [], [], [], [], []
+    for cfg in LEDGERS:
+        f = _read_ledger(cfg['path'])
+        assert f['total'] == cfg['total'], (cfg['label'], f['total'], cfg['total'])
+        assert sum(D(r[7]) for r in f['data']) == f['total'], cfg['label']
+        # identical enquiry, so identical layout: a column added or moved between pulls would silently shift the
+        # grey source block, and the register stores that block by position.
+        assert not raw or [str(c) for c in f['hdr']] == [str(c) for c in raw[0]['hdr']], (cfg['label'], 'layout differs from the first export')
+        assert not raw or [str(c) for c in f['hdr_code']] == [str(c) for c in raw[0]['hdr_code']], cfg['label']
+        raw.append(f)
+        files.append(dict(cfg, md5=md5(cfg['path']), params=f['params'], criteria=f['criteria'],
+                          rows=len(f['data']), file=os.path.basename(cfg['path'])))
+    for k, cfg in enumerate(LEDGERS):
+        f = raw[k]
+        for r in f['data']:
+            per = int(r[2]) if isinstance(r[2], float) else r[2]
+            if per in cfg['take']:
+                data.append(r); pull.append(cfg['label'])
+            else:
+                superseded.append((k, per, r))
+    # every superseded row is carried forward verbatim by the export that took its period
+    kept = collections.Counter(tuple(str(c) for c in r) for r in data)
+    seen = collections.Counter()
+    lost = []
+    for _, _, r in superseded:
+        key = tuple(str(c) for c in r)
+        seen[key] += 1
+        if seen[key] > kept.get(key, 0):
+            lost.append(r)
+    assert not lost, ('superseded ledger rows absent from the pull that replaces them', len(lost), lost[:3])
+    f0 = raw[0]
+    return dict(params=f0['params'], criteria=f0['criteria'], hdr_code=f0['hdr_code'], hdr=f0['hdr'],
+                data=data, pull=pull, total=sum(D(r[7]) for r in data), files=files,
+                superseded=len(superseded), superseded_value=sum(D(r[7]) for _, _, r in superseded))
 
 
 def as_date(v):
@@ -154,6 +236,35 @@ def load_histories():
         dates = [as_date(r[5]) for _, r in data]
         out.append(dict(h, path=p, md5=md5(p), params=str(rows[1][0]), hdr=hdr, data=data, total=total, n=len(data), first=min(dates), last=max(dates),
                         n_fy27=sum(1 for d_ in dates if d_ >= dt.date(2026, 7, 1)), abn_other=[a for a, _ in abns.most_common() if a != h['abn']]))
+    return out
+
+
+def audit_repulls(H):
+    """Rule 12: a creditor history received again is audited against the embedded copy, row by row, not re-captured."""
+    by_code = {h['code']: h for h in H}
+    out = []
+    for cfg in REPULLS:
+        h = by_code[cfg['code']]
+        rows = sheet(cfg['path'])
+        assert [str(c) for c in rows[4]][:25] == HIST_COLS, (cfg['code'], 'layout differs from the embedded export')
+        assert re.search(r'Account = (\w+)', str(rows[1][0])).group(1) == cfg['code'], cfg['path']
+        data, tot_row = [], None
+        for r in rows[5:]:
+            if all(c in ('', None) for c in r):
+                continue
+            if r[5] in ('', None) and isinstance(r[10], float):
+                tot_row = r; continue
+            data.append(r)
+        new_ = collections.Counter(tuple(str(c) for c in r) for r in data)
+        old_ = collections.Counter(tuple(str(c) for c in r) for _, r in h['data'])
+        only_new = sum(max(0, v - old_.get(k, 0)) for k, v in new_.items())
+        only_old = sum(max(0, v - new_.get(k, 0)) for k, v in old_.items())
+        out.append(dict(cfg, file=os.path.basename(cfg['path']), md5=md5(cfg['path']), embedded_file=os.path.basename(h['path']),
+                        embedded_pulled=h.get('added', 'v4'), label=h['label'], abn=h['abn'], rows_new=len(data), rows_embedded=h['n'],
+                        in_both=sum(min(v, old_.get(k, 0)) for k, v in new_.items()), only_in_repull=only_new, only_in_embedded=only_old,
+                        total_new=D(tot_row[10]) if tot_row is not None else None, total_embedded=D(h['total'][10]),
+                        verdict='identical, audited and not re-captured (rule 12)' if not only_new and not only_old
+                                else f'{only_new} row(s) only in the re-pull and {only_old} only in the embedded copy'))
     return out
 
 
@@ -206,26 +317,50 @@ def main(dry=False):
     say = lambda s: (log.append(s), print(s))
     ensure_v127_cache()
     L = load_ledger()
+    # The 11-Sep vintage is every line the first pull carried: its P1 and P2 rows, plus the P3 rows it took, which the
+    # refresh carries forward verbatim (load_ledger has already proved that). Coverage panels A, B and C tie to this
+    # subset, because their SE2 views were not re-pulled with P3.
+    _base_p3 = collections.Counter(tuple(str(c) for c in r) for r in _read_ledger(LEDGERS[0]['path'])['data']
+                                  if (int(r[2]) if isinstance(r[2], float) else r[2]) not in LEDGERS[0]['take'])
     se2 = load_se2()
     led_md5 = md5(LEDGER)
     H = load_histories()
     say(f'creditor histories loaded: {len(H)} files, {sum(h["n"] for h in H):,} lines')
+    repulls = audit_repulls(H)
+    for rp in repulls:
+        # A re-pull that is not identical is not a re-pull: it is a new history and must be embedded, not audited away.
+        assert not rp['only_in_repull'] and not rp['only_in_embedded'], ('rule 12 re-pull audit', rp['code'], rp['verdict'])
+        assert rp['total_new'] == rp['total_embedded'], (rp['code'], rp['total_new'], rp['total_embedded'])
+    say(f'rule 12 re-pull audit: ' + '; '.join(f'{rp["code"]} {rp["rows_new"]} rows, {rp["verdict"]}' for rp in repulls))
     say(f'ledger rows {len(L["data"])} total {L["total"]}')
     # ------------------------------------------------------------------ gate 1: extract ties
     tot = sum(D(r[7]) for r in L['data'])
-    assert tot == L['total'] == D(4910566.68), (tot, L['total'])
+    assert tot == L['total'] == CONTROL_TOTAL, (tot, L['total'])
+    base_tot = sum(D(r[7]) for r, pl in zip(L['data'], L['pull']) if pl == LEDGERS[0]['label'])
+    base_tot += sum(D(r[7]) for r, pl in zip(L['data'], L['pull']) if pl != LEDGERS[0]['label']
+                    and tuple(str(c) for c in r) in _base_p3)
+    assert base_tot == BASE_TOTAL, (base_tot, BASE_TOTAL)
     for k, s in se2.items():
+        want = CONTROL_TOTAL if SE2_PULLED[k] == '15-Sep-2026' else BASE_TOTAL
         st = D(s['total'][6])
-        assert st == tot, (k, st, tot)
-        assert sum(D(r[6]) for r in s['body']) == tot, k
-    say('gate1 extract ties: ledger = 4 SE2 reports = $4,910,566.68')
+        assert st == want, (k, st, want)
+        assert sum(D(r[6]) for r in s['body']) == want, k
+    base_n = sum(1 for r, pl in zip(L['data'], L['pull'])
+                 if pl == LEDGERS[0]['label'] or tuple(str(c) for c in r) in _base_p3)
+    say(f'gate1 extract ties: ledger {len(L["data"])} lines = SE2 Branch = SE2 Section = ${CONTROL_TOTAL:,.2f}; '
+        f'the 11-Sep vintage subset ({base_n} lines) = the three 11-Sep SE2 views = ${BASE_TOTAL:,.2f}')
 
     # ------------------------------------------------------------------ v127 FY2026/27 population
     v = pickle.load(open(_os.path.join(CACHE, 'v127.pkl'), 'rb'))
     VR = v['Register']
     # ------------------------------------------------------------------ rule 12 duplicate screen (md5 against v127 Data_Acquisition and this register's inputs)
     da127 = ' '.join(str(c) for r in v['Data_Acquisition'] for c in r if c)
-    known = {led_md5} | {s_['md5'] for s_ in se2.values()}
+    known = {f_['md5'] for f_ in L['files']} | {s_['md5'] for s_ in se2.values()}
+    for f_ in L['files']:
+        assert f_['md5'] not in da127, ('rule 12: ledger export already received', f_['file'], f_['md5'])
+    for rp in repulls:
+        assert rp['md5'] not in da127 and rp['md5'] not in known, ('rule 12: re-pull already received', rp['code'], rp['md5'])
+        known.add(rp['md5'])
     for h in H:
         assert h['md5'] not in da127 and h['md5'] not in known, ('rule 12: history already received', h['code'], h['md5'])
         known.add(h['md5'])
@@ -393,6 +528,8 @@ def main(dry=False):
         V[87] = '27SLACT'
         V[128] = x[34]  # __md5Row (blank in this export)
         V[147] = x[33]  # Note (LNTNoteNumber)
+        V[149] = L['pull'][i] if L['pull'][i] == LEDGERS[0]['label'] or tuple(str(c) for c in x) not in _base_p3 \
+            else f"{LEDGERS[0]['label']} (carried forward verbatim by the {LEDGERS[1]['pulled']} refresh)"
         if i in inherit:
             vrow, r = inherit[i]
             for c in list(range(1, 54)) + list(range(88, 128)) + list(range(129, 147)):
@@ -853,7 +990,8 @@ def main(dry=False):
     for b in ('attach_1', 'attach_2', 'attach_3'):
         for sf in json.load(open(os.path.join(ROOT, 'batches', b, f'corpus_{b}_v6.json')))['manifest']['source_files']:
             attach_files.append(dict(sf, batch=b))
-    stage = dict(rows=rows, L=L, se2=se2, led_md5=led_md5, v127_md5=md5(V127), inherit_n=len(inherit), hist=H, attach_files=attach_files, hist_matches=hist_matches,
+    stage = dict(rows=rows, L=L, se2=se2, led_md5=led_md5, led_files=L['files'], repulls=repulls, base_total=BASE_TOTAL,
+                 control_total=CONTROL_TOTAL, se2_pulled=SE2_PULLED, base_vintage_n=base_n, base_vintage_label=BASE_VINTAGE, v127_md5=md5(V127), inherit_n=len(inherit), hist=H, attach_files=attach_files, hist_matches=hist_matches,
                  hist_conflicts=hist_conflicts, hist_ambiguous=hist_ambiguous, hist_audit=hist_audit,
                  unmatched_v=[(n, r) for n, r in unmatched_v], v2new=v2new, theme_v2=theme_v2, theme_v3=theme_v3,
                  svc_names=svc_names, na_names=na_names, sec_names=sec_names, flags=flags, oi_data=oi_data,
