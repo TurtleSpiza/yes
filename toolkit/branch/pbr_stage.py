@@ -17,7 +17,7 @@ V127 = _os.environ.get('PBR_V127', _os.path.join(ROOT, 'registers', 'PS_WP_Trans
 CACHE = _os.path.join(ROOT, 'cache')
 HERE = os.path.dirname(os.path.abspath(__file__))
 RULES = json.load(open(os.path.join(HERE, 'pbr_rules_v1.json')))
-HIST = json.load(open(os.path.join(HERE, 'pbr_histories_v4.json')))  # APLEDGER creditor histories, branch v4 to v6 (content as data; 'added' names the version each was pulled for)
+HIST = json.load(open(os.path.join(HERE, 'pbr_histories_v4.json')))  # APLEDGER creditor histories, branch v4 to v8 (content as data; 'added' names the version each was pulled for)
 HIST_COLS = ['Reference', 'GST Date', 'Discount Date', 'On Hold', 'Has Note', 'Date', 'Description (Document Type)', 'Details', 'Outstanding', 'Applied',
              'Transaction Amount', 'Due Date', 'Ageing Date', 'Period', 'Ageing', 'Source', 'Units', 'Discount', 'Has Attachment', 'Payment Details', 'ABN',
              'Billing System', 'Work Order', 'Work Order Transaction Number', 'Work System']
@@ -128,7 +128,7 @@ def as_date(v):
 
 
 def load_histories():
-    """APLEDGER creditor histories (branch v4 to v6): one TechOne export per creditor account, verbatim rows keyed by export row."""
+    """APLEDGER creditor histories (branch v4 to v8): one TechOne export per creditor account, verbatim rows keyed by export row."""
     out = []
     for h in HIST['histories']:
         p = os.path.join(ROOT, HIST['dir'], h['file'])
@@ -145,8 +145,11 @@ def load_histories():
                 total = r; continue
             data.append((i, r))
         assert total is not None and sum(D(r[10]) for _, r in data) == D(total[10]), (h['code'], 'export total row does not tie')
-        abns = collections.Counter(str(r[20]).strip() for _, r in data)
-        assert abns.most_common(1)[0][0] == h['abn'], (h['code'], abns.most_common(3))
+        # dominant ABN over the rows that carry one: a blank is the absence of an ABN, not a competing value.
+        # Payment, funds-transfer and generated-transaction rows carry no ABN by design and can outnumber the
+        # invoice rows on a small creditor account (INT036: 2 invoice rows, 5 blanks).
+        abns = collections.Counter(a for a in (str(r[20]).strip() for _, r in data) if a)
+        assert abns and abns.most_common(1)[0][0] == h['abn'], (h['code'], abns.most_common(3))
         dates = [as_date(r[5]) for _, r in data]
         out.append(dict(h, path=p, md5=md5(p), params=str(rows[1][0]), hdr=hdr, data=data, total=total, n=len(data), first=min(dates), last=max(dates),
                         n_fy27=sum(1 for d_ in dates if d_ >= dt.date(2026, 7, 1)), abn_other=[a for a, _ in abns.most_common() if a != h['abn']]))
@@ -281,11 +284,15 @@ def main(dry=False):
     for i, r in enumerate(CL[4:], 5):
         if str(r[2]).strip():
             cl_by_ref[str(r[2]).strip()].append((i, r))
-    # branch v4 to v6 APLEDGER histories: reference -> (history index, export row, row)
+    # branch v4 to v8 APLEDGER histories: reference -> (history index, export row, row)
     hist_by_ref = collections.defaultdict(list)
     for k_, h in enumerate(H):
         for i, r in h['data']:
             hist_by_ref[clean_num_text(r[0]).strip()].append((k_, i, r))
+    # One label per creditor code (rule: a COUNTIF-keyed label must be canonical). Where a branch APLEDGER
+    # history is held, its researched label (with a label_basis on the entry) is authoritative for that code
+    # and supersedes the legacy "CODE (label)" rendering carried on the v127 Creditor_Lines.
+    hist_label = {h['code']: h['label'] for h in H}
     du_sum = collections.defaultdict(Decimal)
     for y in L['data']:
         du_sum[y[14]] += D(y[7])
@@ -316,7 +323,7 @@ def main(dry=False):
         V[50] = c[14] or None; V[51] = c[3] or None; V[52] = (str(c[19]) if c[19] not in (None, '') else '').strip() or None; V[53] = (str(c[21]) if c[21] not in (None, '') else '').strip() or None
         V[23] = c[7] or None
         hd = as_date(c[5])
-        ev = (f'Creditor history line (APLEDGER {hh["code"]} history pulled 11-Sep-2026, Creditor_Lines row {{CL:{k_}:{i}}}): {hh["code"]} ({hh["label"]}), reference {ref}, '
+        ev = (f'Creditor history line (APLEDGER {hh["code"]} history pulled {hh.get("pulled", "11-Sep-2026")}, Creditor_Lines row {{CL:{k_}:{i}}}): {hh["code"]} ({hh["label"]}), reference {ref}, '
               f'${D(c[10]):,} incl GST dated {hd.strftime("%d-%b-%Y") if hd else "(no date)"} against document net ${dsum:,} ex GST (x1.1 within 2c)'
               + (f', ABN {abn}' if abn else ', no ABN on the history line'))
         return abn, ev
@@ -564,7 +571,7 @@ def main(dry=False):
             if cred:
                 ci, c = cred
                 code, label = (c[0].split(' (', 1) + [''])[:2]
-                cont = label.rstrip(')') or code
+                cont = hist_label.get(code) or label.rstrip(')') or code
                 V[11] = code
                 abn_raw = clean_num_text(c[22]).strip()
                 abn = f'{abn_raw[:2]} {abn_raw[2:5]} {abn_raw[5:8]} {abn_raw[8:]}' if len(abn_raw) == 11 else None
@@ -643,7 +650,7 @@ def main(dry=False):
         meta['charge'] = charge
         rows.append(dict(V=V, meta=meta, lidx=i))
 
-    # ------------------------------------------------------------------ inherited AP lines identified from the branch v4 to v6 histories (rule 8 Tier 1; port to PS_WP)
+    # ------------------------------------------------------------------ inherited AP lines identified from the branch v4 to v8 histories (rule 8 Tier 1; port to PS_WP)
     weak = re.compile(r'Unidentified|series-inferred|confirm\)|\(named in', re.I)
     for r in rows:
         if not r['meta']['inherited']:
@@ -793,6 +800,31 @@ def main(dry=False):
         coll = {k: s for k, s in vals.items() if len(s) > 1}
         if coll:
             say(f'case-variant labels in col {c}: {sorted(map(sorted, coll.values()))}')
+
+    # ------------------------------------------------------------------ one contractor label per creditor code (COUNTIF canonical-label trap)
+    # Col 12 is COUNTIF/SUMIFS-keyed, so a code carrying two spellings splits every per-contractor rollup.
+    # Where a branch APLEDGER history is held its label is canonical for the code on every line, whatever the
+    # path that identified the line: a sighted capture keeps the name as printed in its evidence text (col 28),
+    # but col 12 carries the one researched label. This is the intent recorded on the THE289 label_basis at v5.
+    relabelled = collections.Counter()
+    for r in rows:
+        cc = r['V'][11]
+        canon = hist_label.get(cc.strip()) if isinstance(cc, str) else None
+        if canon and isinstance(r['V'][12], str) and r['V'][12].strip() != canon:
+            relabelled[(cc.strip(), r['V'][12].strip())] += 1
+            r['V'][12] = canon
+    if relabelled:
+        say(f'col 12 labels canonicalised to the branch history label: {dict(relabelled)}')
+
+    code_labels = collections.defaultdict(set)
+    for r in rows:
+        cc, lb = r['V'][11], r['V'][12]
+        if isinstance(cc, str) and cc.strip() and isinstance(lb, str) and lb.strip():
+            code_labels[cc.strip()].add(lb.strip())
+    split = {k: sorted(s) for k, s in code_labels.items() if len(s) > 1}
+    assert not split, ('creditor code carries more than one contractor label in col 12', split)
+    say(f'gate one contractor label per creditor code across {len(code_labels)} codes')
+
     attach_files = []
     for b in ('attach_1', 'attach_2', 'attach_3'):
         for sf in json.load(open(os.path.join(ROOT, 'batches', b, f'corpus_{b}_v6.json')))['manifest']['source_files']:
