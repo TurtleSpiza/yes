@@ -1,7 +1,7 @@
 {
- "version": "branch v8 (14-Sep-2026)",
+ "version": "branch v10 (14-Sep-2026)",
  "dir": "data/inputs_2026-09-11/creditor_histories",
- "pulled": "11-Sep-2026 12:34 to 13:16 (v4 and v5), 14:50 and 15:09 to 15:14 (v6); 14-Sep-2026 14:42 and 15:14 to 15:19 (v8)",
+ "pulled": "11-Sep-2026 12:34 to 13:16 (v4 and v5), 14:50 and 15:09 to 15:14 (v6); 14-Sep-2026 14:42 and 15:14 to 15:19 (v8); 15:59 and 16:00 (v10)",
  "tool": "TechOne Ledger Accounts Transactions Table export, Default Ledger Type = AP, Ledger Name = APLEDGER, one creditor account per file (no extraction tool)",
  "match_rule": "AP register line reference equals the history Reference; the history Transaction Amount (incl GST) is within 2c of the document net ex GST x 1.1 (all register lines on the Document Unique ID); the history Date is within 120 days of the register Doc Date; exactly one creditor code satisfies all three. Tier 1 where the history line carries an 11-digit ABN, else Tier 2 (rule 8).",
  "histories": [
@@ -203,6 +203,24 @@
    "label_basis": "Sighted invoice 8066/01480170 (branch v8): the face prints A.B.N 26 008 672 179, the Browns Plains Warehouse head, despatch BUNNINGS and trade account 2768, and the EFT block prints account name Wesfarmers Ltd on Westpac BSB 036-817 account 002768, which is the $PAY - WBC 036-817 002768 on 312 lines of this APLEDGER record. Label taken verbatim from the PS_WP v127 Vendor_Series canonical row for BUN007 (ABN 26 008 672 179).",
    "pulled": "14-Sep-2026",
    "added": "v8"
+  },
+  {
+   "file": "Ledger_Accounts_Transactions_Table_-_2026-09-14T155952.037.xlsx",
+   "code": "QPO001",
+   "label": "Q Power (Qld) Pty Ltd",
+   "abn": "82067507591",
+   "label_basis": "Sighted invoice 15222 (branch v10): the face prints ABN 82 067 507 591, qpower.com.au, 8/27 Allgas Street Slacks Creek and Licence # 69807, and the entity name Q Power (Qld) Pty Ltd prints in full in the quotation conditions and the signature block. Same label and ABN as the PS_WP v127 Vendor_Series canonical row for Q Power (168 lines). The ABN is the dominant ABN on this APLEDGER record (1,160 of 1,161 lines).",
+   "pulled": "14-Sep-2026",
+   "added": "v10"
+  },
+  {
+   "file": "Ledger_Accounts_Transactions_Table_-_2026-09-14T160039.031.xlsx",
+   "code": "KAC001",
+   "label": "Kachel Cleaning",
+   "abn": "77083786592",
+   "label_basis": "Sighted invoice 7719 (branch v10): the face prints ABN Number: 77 083 786 592 and the email stem kachelcleaning@live.com.au and no entity name at all, so the label is the trading name, as the PS_WP v127 Vendor_Series canonical row for KAC001 also carries (89 lines). This is the master-data check the open item \"Fuel levy coded to the cleaning account\" asked for: the APLEDGER account KAC001 carries the same ABN the invoice prints.",
+   "pulled": "14-Sep-2026",
+   "added": "v10"
   }
  ]
 }
