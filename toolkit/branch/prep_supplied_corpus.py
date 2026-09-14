@@ -1,8 +1,8 @@
 """prep_supplied_corpus.py - prepare a SUPPLIED extraction corpus (binder not supplied) for the branch build.
 
-Batches: mix22 (Savco, Heritage, Play Force, Kachel; 40 documents) and binder11111 (RST Systems t/a Vinton Tree
-Services; 13 documents). Both were extracted by M365 Copilot under prompt v5, both declare gate RED, and both fail the
-same way: rows carrying an amount in the item table's amount band were typed NARRATIVE, so documents reached OUT or
+Batches: mix22 (Savco, Heritage, Play Force, Kachel; 40 documents), binder11111 (RST Systems t/a Vinton Tree
+Services; 13 documents), mix222 (Harpley; 29) and pla073_1 (Play Force; 47). The first three were extracted by M365
+Copilot under prompt v5, declare gate RED, and fail the same way: rows carrying an amount in the item table's amount band were typed NARRATIVE, so documents reached OUT or
 carried no priced line at all. Under rule 19.2 neither can be built from as received.
 
 Every failure is a PARSE failure, not a tie failure, and every one is decidable from the corpus's own retained layout
@@ -22,7 +22,11 @@ Extraction defects repaired, each systematic:
   R3  line_type values outside the schema. binder11111 types repeated invoice copies "DUPLICATE" where the schema's
       closed list says DUPLICATE_COPY. Restated, and the copied page range recorded on the document.
 
-Then the housekeeping the corpus schema needs and this corpus lacks: vendor_template, page_text rebuilt from the
+pla073_1 is the first supplied corpus to arrive GREEN under prompt v6 runtime A: R1 to R3 are all no-ops on it, and only
+the housekeeping below and the rule 19.2 fidelity check do any work. A batch that needs no repair still comes through
+here, because the housekeeping and the independent verbatim check are what the build requires, not the repairs.
+
+Then the housekeeping the corpus schema needs and a supplied corpus lacks: vendor_template, page_text rebuilt from the
 retained rows, findings restated as text, ISO dates, source_md5.
 
 Finally the rule 19.2 per-vendor verbatim check, run against an INDEPENDENT source: the Savco, Heritage, Play Force and
@@ -54,6 +58,9 @@ BATCHES = {
         'Kachel Cleaning': 'KACHEL'}),
     'binder11111': dict(src='corpus_Binder11111.json', vendors={'RST Systems Pty Ltd': 'VINTON'}),
     'mix222': dict(src='corpus_mix222.json', vendors={'Harpley Services Pty Ltd': 'HARPLEY'}),
+    # pla073_1 is the first supplied corpus to arrive GREEN with no repair outstanding (runtime A, prompt v6):
+    # R1 to R3 are no-ops on it and only the housekeeping and the rule 19.2 fidelity check do any work.
+    'pla073_1': dict(src='corpus_pla073_1_as_supplied.json', vendors={'Play Force Australia Pty Ltd': 'PLAYFORCE'}),
 }
 CFG = BATCHES[BATCH]
 VENDOR = CFG['vendors']
@@ -207,7 +214,8 @@ def prepare(corpus):
         d['source_md5'] = None
         cap, sub = captured(d), D(d['printed_subtotal_ex_gst'])
         assert cap == sub, f'{d["doc_ref"]}: restated lines {cap} do not equal the printed subtotal {sub}'
-    log.append(f'batch: R1 restated {r1} rows over {sum(1 for d in corpus["documents"])} documents; R2 restated {r2} Savco totals')
+    log.append(f'batch: R1 restated {r1} amount-bearing rows over {sum(1 for d in corpus["documents"])} documents; '
+               f'R2 restated {r2} printed totals carrying the GST amount')
     return log
 
 
@@ -263,8 +271,15 @@ def fidelity(corpus, refs):
             failures.append((v, altered))
         two_way = None
         if len(rs) >= 3:  # enough independent documents to fix the template by intersection (prep_code_corpus precedent)
-            missing = {ref: sorted(ref_rows - rows) for ref, rows in docs if ref_rows - rows}
-            two_way = dict(reference_template_rows=len(ref_rows), documents_missing_any=len(missing), misses=missing)
+            # Compared on digit-masked rows, as the variant limb above already is. A reference template row whose digits
+            # legitimately differ is not a miss: a page-number footer moves with the document's own page count ("1 of 3"
+            # against "1 of 4"), as do invoice numbers and dates. A template row genuinely absent still fails, because
+            # masking only neutralises digit runs.
+            ref_rows_masked = {mask(x) for x in ref_rows}
+            missing = {ref: sorted(ref_rows_masked - {mask(x) for x in rows})
+                       for ref, rows in docs if ref_rows_masked - {mask(x) for x in rows}}
+            two_way = dict(reference_template_rows=len(ref_rows), documents_missing_any=len(missing), misses=missing,
+                           basis='digit-masked comparison; a row differing only inside a digit run is not a miss')
             if missing:
                 failures.append((v, missing))
         out.append(dict(vendor_template=v, batch_documents=len(docs), reference_documents=[f'{r["batch"]}:{r["doc"]} ({r["how"]})' for r in rs],
@@ -302,13 +317,13 @@ def main():
     # The verbatim check is a gate on what gets BUILT, so it runs after the corpus has passed its own gates. A held
     # corpus is not built from, and running it there would only report a second failure on a batch already stopped.
     rep = fidelity(corpus, references()) if res.gate == 'GREEN' else None
-    corpus['manifest'].setdefault('repair_log', []).insert(0, {'tool': 'prep_mix22_corpus.py', 'repairs': log})
+    corpus['manifest'].setdefault('repair_log', []).insert(0, {'tool': os.path.basename(__file__), 'repairs': log})
     corpus['manifest']['fidelity_check'] = rep or {
         'check': 'rule 19.2 per-vendor verbatim fidelity, independent source',
         'verdict': 'NOT RUN', 'scope': 'The corpus did not pass its own gates, so it is held and not built from (rule 19.2); '
                                        'the verbatim check runs on the re-extraction.'}
     corpus['manifest']['extraction_tool'] = (corpus['manifest'].get('extraction_tool', '') +
-                                             '; prepared and restated by prep_mix22_corpus.py (R1 band restatement, R2 Savco printed total)')
+                                             f'; prepared and restated by {os.path.basename(__file__)} (R1 band restatement, R2 printed total carrying the GST amount, R3 line_type)')
     os.makedirs(OUT, exist_ok=True)
     if res.gate != 'GREEN':
         # rule 19.2: a corpus that fails any of its own gates is logged, HELD and not part-built from.

@@ -17,11 +17,11 @@ V127 = _os.environ.get('PBR_V127', _os.path.join(ROOT, 'registers', 'PS_WP_Trans
 CACHE = _os.path.join(ROOT, 'cache')
 HERE = os.path.dirname(os.path.abspath(__file__))
 RULES = json.load(open(os.path.join(HERE, 'pbr_rules_v1.json')))
-HIST = json.load(open(os.path.join(HERE, 'pbr_histories_v4.json')))  # APLEDGER creditor histories, branch v4 to v8 (content as data; 'added' names the version each was pulled for)
+HIST = json.load(open(os.path.join(HERE, 'pbr_histories_v4.json')))  # APLEDGER creditor histories, branch v4 to v10 (content as data; 'added' names the version each was pulled for)
 HIST_COLS = ['Reference', 'GST Date', 'Discount Date', 'On Hold', 'Has Note', 'Date', 'Description (Document Type)', 'Details', 'Outstanding', 'Applied',
              'Transaction Amount', 'Due Date', 'Ageing Date', 'Period', 'Ageing', 'Source', 'Units', 'Discount', 'Has Attachment', 'Payment Details', 'ABN',
              'Billing System', 'Work Order', 'Work Order Transaction Number', 'Work System']
-BATCHES = ('mixed_1', 'mixed_new_26_27', 'attach_1', 'attach_2', 'code', 'mix22', 'attach_3', 'mix222', 'binder11111')
+BATCHES = ('mixed_1', 'mixed_new_26_27', 'attach_1', 'attach_2', 'code', 'mix22', 'attach_3', 'mix222', 'binder11111', 'pla073_1')
 JOURNAL_BATCH = 'journal_1'  # TechOne Document Line Table pulls (rule 21, pipeline "per journal batch")
 RECON_BATCH = 'recon_1'      # TechOne Document Reconstruction pulls (rule 21, the counterparty route)
 NCOL = 148  # 146 PS/WP columns + 147 Src Note + 148 Register provenance
@@ -129,7 +129,7 @@ def as_date(v):
 
 
 def load_histories():
-    """APLEDGER creditor histories (branch v4 to v8): one TechOne export per creditor account, verbatim rows keyed by export row."""
+    """APLEDGER creditor histories (branch v4 to v10): one TechOne export per creditor account, verbatim rows keyed by export row."""
     out = []
     for h in HIST['histories']:
         p = os.path.join(ROOT, HIST['dir'], h['file'])
@@ -285,7 +285,7 @@ def main(dry=False):
     for i, r in enumerate(CL[4:], 5):
         if str(r[2]).strip():
             cl_by_ref[str(r[2]).strip()].append((i, r))
-    # branch v4 to v8 APLEDGER histories: reference -> (history index, export row, row)
+    # branch v4 to v10 APLEDGER histories: reference -> (history index, export row, row)
     hist_by_ref = collections.defaultdict(list)
     for k_, h in enumerate(H):
         for i, r in h['data']:
@@ -651,7 +651,7 @@ def main(dry=False):
         meta['charge'] = charge
         rows.append(dict(V=V, meta=meta, lidx=i))
 
-    # ------------------------------------------------------------------ inherited AP lines identified from the branch v4 to v8 histories (rule 8 Tier 1; port to PS_WP)
+    # ------------------------------------------------------------------ inherited AP lines identified from the branch v4 to v10 histories (rule 8 Tier 1; port to PS_WP)
     weak = re.compile(r'Unidentified|series-inferred|confirm\)|\(named in', re.I)
     for r in rows:
         if not r['meta']['inherited']:
