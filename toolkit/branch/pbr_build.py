@@ -14,7 +14,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import pbr_stage
 
-VER = 'v8'
+VER = 'v9'
 OUTNAME = f'Parks_Branch_Transaction_Register_FY2627_{VER}.xlsx'
 CLTOK = re.compile(r'\{CL:(\d+):(\d+)\}')
 SCRATCH = os.path.join(pbr_stage.ROOT, 'cache', 'scratch')
@@ -243,6 +243,28 @@ def build(stage):
             jsc_cited += 1
     say(f'journal source citations written: {jsc_cited} register line(s) cite Journal_Sources rows {JSC_FIRST}:{JSC_LAST}')
 
+    # ============================================================== Reconstruction_Sources (rule 21, batch recon_1)
+    # The Document Reconstruction route. Laid out here for the same reason as Journal_Sources: the row span is a map,
+    # never a shift. A reconstruction is keyed to a Document Cross Reference, not a document file, so the span map is
+    # keyed that way too; rsc_file maps it back to the document file the Journal_Pull sheet tiers on.
+    RSC_FIRST = 5
+    rsc_docs, rsc_legs, n_ = [], [], RSC_FIRST
+    for d_ in stage.get('recon_docs', []):
+        a_ = n_
+        for leg in d_['legs']:
+            rsc_legs.append((d_, leg))
+            n_ += 1
+        rsc_docs.append(dict(d=d_, first=a_, last=n_ - 1, refs=d_['journal_references_covered']))
+    RSC_LAST = n_ - 1
+    RSC_P0 = RSC_LAST + 3            # per-document control panel
+    RSC_P1 = RSC_P0 + len(rsc_docs) - 1
+    rsc_span = {x['d']['cross_reference']: f'rows {x["first"]}:{x["last"]}' for x in rsc_docs}
+    rsc_file = {}                    # document file -> (cross reference, span), for the Journal_Pull tier
+    for x in rsc_docs:
+        for df_ in x['d']['document_files']:
+            rsc_file[df_] = (x['d']['cross_reference'], f'rows {x["first"]}:{x["last"]}')
+    rc_pulled = set(rsc_file)
+
     jp_doc = collections.defaultdict(list)
     for r in rows:
         if r['V'][137]:
@@ -256,6 +278,7 @@ def build(stage):
         all_rj = all(r_.startswith('RJ') for r_ in refs)
         acc = acc0 = collections.Counter('%s %s' % (x['V'][14], str(x['V'][15])[:22]) for x in jr)
         tier = ('E Pulled and embedded at branch v6' if df in js_pulled else
+                'F Reconstruction pulled and embedded at branch v9' if df in rc_pulled else
                 'D Held, already embedded in PS_WP v127' if df in jsrc_held else
                 'C RJ reversal, no pull' if all_rj else
                 'A Pull required' if att == 'N' else 'B Sight attachment')
@@ -267,6 +290,17 @@ def build(stage):
                        ('; the pull covers document ' + str(_d['document']) + ' of this file only, so the remaining references still need the same export without the Document filter'
                         if not _d['file_fully_covered'] else '; the document nets to $0.00 and its in-scope legs tie the register'))
             val = 'Done' if _d['file_fully_covered'] else 'Partial'
+        elif df in rc_pulled:
+            _x, _sp = rsc_file[df]
+            _d = next(d_ for d_ in stage['recon_docs'] if d_['cross_reference'] == _x)
+            _left = [r_ for r_ in _d['references_on_file_not_reached'] if r_ in refs or True]
+            why.append(f'pulled at branch v9 as a TechOne Document Reconstruction (cross reference {_x}) and embedded verbatim on Reconstruction_Sources {_sp}; '
+                       'the document nets to $0.00, its in-scope legs tie the register net of '
+                       + ', '.join(_d['journal_references_covered'])
+                       + (', and it reaches every journal reference this file carries' if not _d['references_on_file_not_reached']
+                          else f', and it reaches {len(_d["journal_references_covered"])} of the {len(_d["journal_references_on_file"])} references on this file'
+                               f' ({", ".join(_d["references_on_file_not_reached"])} still outstanding; see the open item "Journal pull taken with a Document filter")'))
+            val = 'Done' if not _d['references_on_file_not_reached'] else 'Partial'
         elif any(x['V'][31] == 'Review' for x in jr):
             why.append('recode set does not net inside O110-O115, so the balancing leg sits outside this scope and the pull is the only way to find it (Open Item B-012)'); val = 'High'
         if any(x['V'][134] == 'Accrual reversal' and jnet[str(x['V'][137])] != 0 for x in jr):
@@ -415,8 +449,8 @@ def build(stage):
                 'header block proven to add up and the residue test empty before emit. Every page the supplied corpora left with no line record (P3) '
                 'is a blank separator page and now carries one BLANK record. Invoice 19827 prints six identical copies and 19997 two; the first of '
                 'each is captured and the rest typed DUPLICATE_COPY, outside the arithmetic. '
-                'Findings: no ABN prints anywhere on any of the 13 RST Systems invoices (B-033), and four of the eight LCC Fuel Levy - Diesel lines '
-                'were recoded to PK000514 on 74189 by GJ080696 while four were not (B-034). Control total unchanged.'])
+                'Findings: no ABN prints anywhere on any of the 13 RST Systems invoices ("Supplier invoice prints no ABN" on Open_Items), and four of the eight LCC Fuel Levy - Diesel lines '
+                'were recoded to PK000514 on 74189 by GJ080696 while four were not ("Fuel levy recoded on some invoices and not others" on Open_Items). Control total unchanged.'])
     _jm = stage['journal_batch']['manifest']
     _h6 = [h for h in HISTS if h.get('added') == 'v6']; _hm6 = [m for m in _hm if HISTS[m['k']].get('added') == 'v6']
     ho.row([f'{VER}, {BUILD_DATE}',
@@ -452,7 +486,7 @@ def build(stage):
     sec_('2.0 Sources and control total',
          'One Ledger Accounts Transactions Table export (27SLACT, criteria verbatim on Data_Acquisition F1), 6,683 lines, export total $4,910,566.68. Four SE2 exports on the identical criteria, by Section, Natural Account, WO Task and Service No, each totalling $4,910,566.68 accumulated actual P1-3. The register total ties to all five to the cent (Controls group 1 and 2). The control total must never change on an identification, enrichment or capture build (rule 10).')
     sec_('3.0 Workbook structure',
-         'Handover | Method | Theme_Map (v2 axis, extended) | Register | Section_Summary | Summary (status, basis, verdict, tier by section) | Themes (v2 by section) | Themes_v3 (group and category by section) | Axes (Line Kind, Line Kind rule, Charge Source, Procurement route by section) | Coverage (A natural account, B WO Task, C service, each tied to its SE2 view with budget) | PK_Listing | Vendor_Series | Journal_Sets | Journal_Pull | Journal_Sources | Open_Items | Inheritance_Log | Creditor_Lines | SE2_Budget | Evidence_Invoices | Evidence_Invoice_Lines | EIL_Controls | Vendor_Boilerplate | Data_Acquisition | Config | Project_Instructions | Theme_Map_v3 | Controls.',
+         'Handover | Method | Theme_Map (v2 axis, extended) | Register | Section_Summary | Summary (status, basis, verdict, tier by section) | Themes (v2 by section) | Themes_v3 (group and category by section) | Axes (Line Kind, Line Kind rule, Charge Source, Procurement route by section) | Coverage (A natural account, B WO Task, C service, each tied to its SE2 view with budget) | PK_Listing | Vendor_Series | Journal_Sets | Journal_Pull | Journal_Sources | Reconstruction_Sources | Open_Items | Inheritance_Log | Creditor_Lines | SE2_Budget | Evidence_Invoices | Evidence_Invoice_Lines | EIL_Controls | Vendor_Boilerplate | Data_Acquisition | Config | Project_Instructions | Theme_Map_v3 | Controls.',
          'Not carried from the PS & WP register: site gazetteer, asset, inspection, CRM and pull-queue sheets (Sites through Theme_Review). They are Park Services instruments; the site columns DY:DZ are carried on inherited lines and set to a closed-list site basis on new lines.')
     sec_('4.0 Register column map',
          'Columns 1 to 146 are the PS & WP register map exactly (PSWP_Register_Schema section 2), so every toolkit script reads this register without change: 1-34 analysis, 35-44 parsed references, 45-53 creditor enquiry block, 54-87 grey source block verbatim (BB:CI), 88-127 rule 17 green block (CJ:DW), 128 Src __md5Row, 129-130 site, 131-133 theme v3, 134-136 Line Kind and Charge Source, 137-142 journal provenance, 143 assessment scope, 144 journal type, 145 treatment decision, 146 procurement route.',
@@ -907,6 +941,73 @@ def build(stage):
                      f'=COUNTIF(Register!$AB${FIRST}:$AB${LAST},"Journal_Sources rows*")', len(stage['journal_lines'])))
     say(f'journal sources: {len(jsc_legs)} legs from {len(jsc_docs)} document(s), rows {JSC_FIRST}:{JSC_LAST}, panel {JSC_P0}:{JSC_P1}')
 
+    # ============================================================== Reconstruction_Sources (rule 21, batch recon_1)
+    rsc = Sheet(wb, 'Reconstruction_Sources', {'A': 26, 'B': 14, 'C': 9, 'D': 22, 'E': 22, 'F': 12, 'G': 12, 'H': 12,
+                                               'I': 52, 'J': 8, 'K': 10, 'L': 12, 'M': 14, 'N': 30}, freeze='A5')
+    rsc.row(['Reconstruction source documents: the TechOne Document Reconstruction behind each pulled journal, embedded verbatim'], 'title')
+    rsc.row(['Verbatim embed (rule 3, rule 21): every leg of every pulled document, in export order, with the branch scope flag and the register LineKey the leg evidences. '
+             'A Document Reconstruction is keyed to a Document Cross Reference rather than a document file, and carries the internal ledger account (1-20361-7C111) where a '
+             'Document Line Table carries the external one (PK000092); the register holds the internal account verbatim in its own grey source block (Src Account), which is how a '
+             'leg reaches a register line here without any crosswalk being invented. Because the export reaches the whole Council rather than the branch alone, most legs are '
+             'counterparty legs and are retained as such: that is the evidence the Journal_Pull Tier A entries say is missing. A document already embedded on Journal_Sources '
+             'from a Document Line Table pull is audited and NOT re-captured (rule 12); it appears in the audit note below, not in this block.'], 'sub')
+    rsc.blank()
+    rsc.row(['Document cross reference', 'Journal ref', 'Ldg', 'Account number', 'Account description', 'Debit', 'Credit',
+             'Amount', 'Narration', 'Units', 'Jnl line', 'Transaction', 'In branch scope', 'Register LineKey'], 'blue')
+    for d_, leg in rsc_legs:
+        rsc.row([d_['cross_reference'], ', '.join(d_['journal_references_covered']) or None, leg['ledger'],
+                 leg['account'], leg['account_desc'], float(D(leg['debit'])), float(D(leg['credit'])),
+                 float(D(leg['amount'])), leg['narration'], leg['qty'], leg['journal_line'], leg['transaction'],
+                 leg['in_branch_scope'], leg['register_linekey'] or None], money_cols=(6, 7, 8))
+    dn('RSC_Xref', f'Reconstruction_Sources!$A${RSC_FIRST}:$A${RSC_LAST}')
+    dn('RSC_Amount', f'Reconstruction_Sources!$H${RSC_FIRST}:$H${RSC_LAST}')
+    dn('RSC_Scope', f'Reconstruction_Sources!$M${RSC_FIRST}:$M${RSC_LAST}')
+    rsc.blank()
+    rsc.row(['Document cross reference', 'Journal ref(s)', 'Legs', 'Net (live)', 'Nets to zero', 'In-scope legs',
+             'In-scope net (live)', 'Register net for the reference(s) (live)', 'In-scope legs tie the register'], 'blue')
+    for x in rsc_docs:
+        d_ = x['d']; xr_ = d_['cross_reference']
+        regsum = ('+'.join(f'ROUND(SUMIF(Reg_JRef,"{rf}",Reg_Amount),2)' for rf in x['refs'])) if x['refs'] else '0'
+        rsc.row([xr_, ', '.join(x['refs']) or 'no in-scope reference', len(d_['legs']),
+                 f'=ROUND(SUMPRODUCT((RSC_Xref="{xr_}")*RSC_Amount),2)',
+                 f'=IF(ROUND(SUMPRODUCT((RSC_Xref="{xr_}")*RSC_Amount),2)=0,"TRUE","FALSE")',
+                 f'=SUMPRODUCT((RSC_Xref="{xr_}")*(RSC_Scope="Yes"))',
+                 f'=ROUND(SUMPRODUCT((RSC_Xref="{xr_}")*(RSC_Scope="Yes")*RSC_Amount),2)',
+                 f'={regsum}',
+                 f'=IF(ROUND(SUMPRODUCT((RSC_Xref="{xr_}")*(RSC_Scope="Yes")*RSC_Amount),2)={regsum},"TRUE","FALSE")'],
+                money_cols=(4, 7, 8))
+    rsc.blank()
+    _rb = stage['recon_batch']
+    for d_ in _rb['documents']:
+        if d_['capture'] == 'embed verbatim':
+            continue
+        a_ = d_['journal_audit']
+        rsc.row([rsc.cell(f'Audited, not re-captured (rule 12): cross reference {d_["cross_reference"]} ({", ".join(d_["journal_references_covered"])}) is the same document as the '
+                          f'Document Line Table already embedded on Journal_Sources for document file {a_["held_document_file"]} ({a_["held_format"]}). Audit: {a_["pulled_legs"]} legs '
+                          f'against {a_["held_legs"]} held, identical multiset of leg amounts {a_["amounts_identical"]}, in-scope net {a_["held_in_scope_net"]} on both. {d_.get("finding", "")}', wrap=True)])
+    for d_ in _rb['documents']:
+        if d_.get('question_the_register_could_not_answer') and d_.get('answer'):
+            rsc.row([rsc.cell(f'{d_["cross_reference"]} ({", ".join(d_["journal_references_covered"]) or "no in-scope reference"}). '
+                              f'What the register could not answer: {d_["question_the_register_could_not_answer"]} '
+                              f'What the document says: {d_["answer"]}'
+                              + (f' Finding: {d_["finding"]}' if d_.get('finding') and d_['capture'] == 'embed verbatim' else '')
+                              + (f' Coverage: {d_["coverage_note"]}' if d_.get('coverage_note') else '')
+                              + (f' Note: {d_["note"]}' if d_.get('note') else ''), wrap=True)])
+    _rm = _rb['manifest']
+    rsc.row([rsc.cell(f'Batch {_rm["batch_id"]}: {_rm["exports_received"]} exports received, {len(_rm["duplicate_exports"])} of them duplicate copies of an export already read; '
+                      f'{_rm["documents"]} documents, {_rm["documents_embedded"]} embedded verbatim and {_rm["documents_audited_only"]} audited only under rule 12; '
+                      f'{_rm["legs_total"]:,} legs, {_rm["legs_in_scope"]} in branch scope matching {_rm["register_lines_matched"]} register lines one for one. '
+                      f'Matched against {_rm["register_matched_against"]}.', wrap=True)])
+    controls.append(('10. Reconstruction sources (rule 21)', 'Reconstruction_Sources', 'Reconstruction legs embedded verbatim equals the legs on the pulled documents', 'count',
+                     f'=COUNTA(Reconstruction_Sources!$A${RSC_FIRST}:$A${RSC_LAST})', len(rsc_legs)))
+    controls.append(('10. Reconstruction sources (rule 21)', 'Reconstruction_Sources', 'Every embedded reconstruction nets to $0.00 over all its legs', 'count',
+                     f'=SUMPRODUCT(--(Reconstruction_Sources!$E${RSC_P0}:$E${RSC_P1}="TRUE"))', len(rsc_docs)))
+    controls.append(('10. Reconstruction sources (rule 21)', 'Reconstruction_Sources', "Every reconstruction's in-scope legs tie the register net of its journal reference(s)", 'count',
+                     f'=SUMPRODUCT(--(Reconstruction_Sources!$I${RSC_P0}:$I${RSC_P1}="TRUE"))', len(rsc_docs)))
+    controls.append(('10. Reconstruction sources (rule 21)', 'Reconstruction_Sources', 'Legs flagged in branch scope equals the register lines they evidence', 'count',
+                     f'=SUMPRODUCT(--(Reconstruction_Sources!$M${RSC_FIRST}:$M${RSC_LAST}="Yes"))', sum(d_['in_scope_legs'] for d_ in stage['recon_docs'])))
+    say(f'reconstruction sources: {len(rsc_legs)} legs from {len(rsc_docs)} document(s), rows {RSC_FIRST}:{RSC_LAST}, panel {RSC_P0}:{RSC_P1}')
+
     # ============================================================== Open_Items
     oi = Sheet(wb, 'Open_Items', {'A': 10, 'B': 28, 'C': 16, 'D': 30, 'E': 8, 'F': 16, 'G': 90, 'H': 60})
     oi.row(['Open items, Parks Branch register FY2026/27'], 'title')
@@ -1045,6 +1146,29 @@ def build(stage):
                       '0.861% (19895, 17-Jul), 2.955% (19924, 19941, 19965) and 3.940% (19954, 19983, 19989, 19997), and the rate is not monotonic in date: '
                       '3.940% on 7-Aug, 2.955% on 13-Aug, 3.940% again on 24-Aug. A stepped and capped model banded on the diesel TGP cannot produce that from the work date alone.',
                       'Sighted invoices, Batch binder11111, read against the GJ080696 recode legs on the register (74189, PK000514) and the stepped and capped fuel levy model (Fact Sheet DM19338551).'))
+    # Identity findings from the v8 creditor histories, each already recorded on its history entry's
+    # label_basis. Driven off the register rows so the line count and value are the live ones, never a typed figure.
+    for _code, _area, _scope_default, _action, _basis in (
+        ('WOR035', 'Supplier invoice prints no registered entity name', 'Cemeteries',
+         'Ask the supplier to print its registered entity name on the invoice face. Neither sighted document carries one: tax invoice SI105621 and sales credit SC10927 print '
+         'ABN 19 100 960 227, the trading name Worssell, the Carole Park address, the website worssell.com.au and the remittance address michele@worssell.com.au, and no company name at all. '
+         'The register therefore carries the printed trading name rather than an entity name. Confirm the registered entity against master data before the label is relied on externally. '
+         'Same pattern as "Supplier invoice prints no ABN" (RST Systems / Vinton), except that here the ABN does print, so identification is Tier 1 and only the name is in doubt.',
+         'Sighted invoices SI105621 and SC10927 (branch v8), read against the APLEDGER WOR035 history: reference, date, incl-GST amount and ABN tie exactly, and the printed Suncorp '
+         'BSB 484-799 account 049681698 is the $PAY - MET 484-799 049681698 on 143 lines of that history.'),
+        ('INT036', 'Creditor code does not match the entity on the invoice', 'Trees',
+         'Confirm with Finance which entity AP account INT036 belongs to. The one sighted invoice on this account, 67855, prints Chalcedony Investments Pty Ltd, ABN 73 010 305 674, '
+         '51 Chetwynd Street Loganholme, with remittance to accounts.au@relyon.com, and the printed Westpac BSB 033-107 account 421367 is the $PAY - WPC 033-107 421367 on this history. '
+         'Nothing printed on the document begins with INT, so the code appears to carry a former or group trading name. The account is small and long-dormant: nine rows since 2017, of which '
+         'two are invoices. Check whether a second AP account exists for the same ABN before any further order is raised against this one.',
+         'Sighted invoice 67855 (branch v8) and the APLEDGER INT036 history pulled 14-Sep-2026.'),
+    ):
+        _rr = [r for r in rows if str(r['V'][11]).strip() == _code]
+        if _rr:
+            items.append((_area, 'Review', '; '.join(sorted({sec_names[str(r['V'][2])] for r in _rr})) or _scope_default,
+                          len(_rr), sum(D(r['V'][20]) for r in _rr), _action, _basis))
+    for o_ in stage['recon_batch'].get('open_items', []):
+        items.append((o_['area'], o_['status'], o_['scope'], o_['lines'], D(o_['amount']), o_['action'], o_['basis']))
     for k, it in enumerate(items, 1):
         oi.row([f'B-{k:03d}'] + list(it), money_cols=(6,))
     cited = collections.Counter()
