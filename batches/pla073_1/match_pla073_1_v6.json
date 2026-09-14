@@ -1,0 +1,1365 @@
+[
+ {
+  "invoice": "INV-8076",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 665.75,
+  "incl": 732.33,
+  "variant": "standard",
+  "target": [
+   "513168b6-73123-PK000023-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "513168b6-73123-PK000023-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000023",
+    "amount": 665.75,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8076",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground maintenance at Brabham Park - Crestmead (Ref 33401), job 3907014; contract LB304 (LocalBuy); order 717528; requesting officer Jessica Burke; completed 03-Jul-2026. Lines as printed: 1.00 MISC1 post cap/rocker handle/rubber @ $86.00 = $86.00; 5.50 L1 Maintenance Labour @ $105.41 = $579.75. Printed subtotal $665.75 ex GST, GST $66.58, total $732.33. Printed PK000023 matches the PK charged (PK000023).",
+  "follow_up": null,
+  "source_file": "pla073 1.pdf"
+ },
+ {
+  "invoice": "INV-8188",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 424.14,
+  "incl": 466.55,
+  "variant": "standard",
+  "target": [
+   "2bc4def5-73123-PK000023-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "2bc4def5-73123-PK000023-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000023",
+    "amount": 424.14,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8188",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground maintenance at Richter Park - Waterford West, job 3900012; contract LB304 (LocalBuy); order 717528; requesting officer Ryan McCorkindale; completed 16-Jul-2026. Lines as printed: 1.00 MISC1 HDPE @ $185.00 = $185.00; 4.00 NB214 M10 x 32mm Washer @ $0.26 = $1.04; 4.00 NB219 M10 Nyloc Nut @ $1.30 = $5.20; 4.00 TX202 M10 x 40mm Torx Security Bolt @ $5.52 = $22.08; 2.00 L1 Maintenance Labour @ $105.41 = $210.82. Printed subtotal $424.14 ex GST, GST $42.41, total $466.55. Printed PK000023 matches the PK charged (PK000023).",
+  "follow_up": null,
+  "source_file": "pla073 1.pdf"
+ },
+ {
+  "invoice": "INV-8199",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 338.83,
+  "incl": 372.71,
+  "variant": "standard",
+  "target": [
+   "bb9b6738-73123-PK000023-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "bb9b6738-73123-PK000023-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000023",
+    "amount": 338.83,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8199",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground maintenance at Roselea Park - Shailer Park (Ref 33559), job 3919220; contract LB304 (LocalBuy); order 717528; requesting officer Jessica Burke; completed 16-Jul-2026. Lines as printed: 1.00 MISC1 chain/heat shrink @ $48.00 = $48.00; 1.00 NB1158 M6 Nyloc Nut SS @ $0.95 = $0.95; 2.75 L1 Maintenance Labour @ $105.41 = $289.88. Printed subtotal $338.83 ex GST, GST $33.88, total $372.71. Printed PK000023 matches the PK charged (PK000023).",
+  "follow_up": null,
+  "source_file": "pla073 1.pdf"
+ },
+ {
+  "invoice": "INV-8211",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 719.64,
+  "incl": 791.6,
+  "variant": "standard",
+  "target": [
+   "f3407d37-73123-PK000023-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "f3407d37-73123-PK000023-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000023",
+    "amount": 719.64,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8211",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground maintenance at Discovery Park - Bahrs Scrub (Ref 33406), job 3902590; contract LB304 (LocalBuy); order 717528; requesting officer Jessica Burke; completed 17-Jul-2026. Lines as printed: 2.00 SCH781 Softfall Pine Bark @ $149.00 = $298.00; 4.00 L1 Maintenance Labour @ $105.41 = $421.64. Printed subtotal $719.64 ex GST, GST $71.96, total $791.60. Printed PK000023 matches the PK charged (PK000023).",
+  "follow_up": null,
+  "source_file": "pla073 1.pdf"
+ },
+ {
+  "invoice": "INV-8216",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 615.35,
+  "incl": 676.89,
+  "variant": "standard",
+  "target": [
+   "0420efe2-73123-PK000023-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "0420efe2-73123-PK000023-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000023",
+    "amount": 615.35,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8216",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground ms at Edenlea Park - Meadowbrook (Ref 33487), job 3915255; contract LB304 (LocalBuy); order 717528; requesting officer Jessica Burke; completed 17-Jul-2026. Lines as printed: 1.00 MISC1 Bearings @ $35.60 = $35.60; 5.50 L1 Maintenance Labour @ $105.41 = $579.75. Printed subtotal $615.35 ex GST, GST $61.54, total $676.89. Printed PK000023 matches the PK charged (PK000023).",
+  "follow_up": null,
+  "source_file": "pla073 1.pdf"
+ },
+ {
+  "invoice": "INV-8245",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 395.16,
+  "incl": 434.68,
+  "variant": "standard",
+  "target": [
+   "c37472ae-73123-PK000388-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "c37472ae-73123-PK000388-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000388",
+    "amount": 395.16,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8245",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground maintenance at Parfrey Road Park - Rochedale, job 3916519; contract LB304 (LocalBuy); order 717528; requesting officer Jessica Burke; completed 20-Jul-2026. Lines as printed: 1.00 MISC1 Striker @ $263.40 = $263.40; 1.25 L1 Maintenance Labour @ $105.41 = $131.76. Printed subtotal $395.16 ex GST, GST $39.52, total $434.68. Printed PK000388 matches the PK charged (PK000388).",
+  "follow_up": null,
+  "source_file": "pla073 1.pdf"
+ },
+ {
+  "invoice": "INV-8246",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 347.72,
+  "incl": 382.49,
+  "variant": "standard",
+  "target": [
+   "5ae0df5b-73123-PK000023-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "5ae0df5b-73123-PK000023-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000023",
+    "amount": 347.72,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8246",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground maintenance at Pinnington Park - Crestmead (Ref 33575), job 3917832; contract LB304 (LocalBuy); order 717528; requesting officer Jessica Burke; completed 20-Jul-2026. Lines as printed: 1.00 MISC1 New Rubber Bump stops @ $189.60 = $189.60; 1.50 L1 Maintenance Labour @ $105.41 = $158.12. Printed subtotal $347.72 ex GST, GST $34.77, total $382.49. Printed PK000023 matches the PK charged (PK000023).",
+  "follow_up": null,
+  "source_file": "pla073 1.pdf"
+ },
+ {
+  "invoice": "INV-8400",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 921.56,
+  "incl": 1013.72,
+  "variant": "standard",
+  "target": [
+   "c78dedf7-73123-PK000391-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "c78dedf7-73123-PK000391-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000391",
+    "amount": 921.56,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8400",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground maintenance at Mundoolun Park - Mundoolun, job 3915272; contract LB304 (LocalBuy); order 717528; requesting officer Jessica Burke; completed 31-Jul-2026. Lines as printed: 1.00 MISC1 Rubber @ $120.00 = $120.00; 4.00 MTN572 Sika Flex @ $35.00 = $140.00; 6.00 L1 Maintenance Labour @ $110.26 = $661.56. Printed subtotal $921.56 ex GST, GST $92.16, total $1,013.72. Printed PK000391 matches the PK charged (PK000391).",
+  "follow_up": null,
+  "source_file": "pla073 1.pdf"
+ },
+ {
+  "invoice": "INV-8457",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 628.51,
+  "incl": 691.36,
+  "variant": "standard",
+  "target": [
+   "1f40b81a-73123-PK000022-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "1f40b81a-73123-PK000022-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000022",
+    "amount": 628.51,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8457",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground maintenance at Sturdee Park - Loganlea (Ref 32526), job 3861282; contract LB304 (LocalBuy); order 717528; requesting officer Rene Harreman; completed 05-Aug-2026. Lines as printed: 4.00 TX202 M10 x 40mm Torx Security Bolt @ $5.52 = $22.08; 5.50 L1 Maintenance Labour @ $110.26 = $606.43. Printed subtotal $628.51 ex GST, GST $62.85, total $691.36. Printed PK000022 matches the PK charged (PK000022).",
+  "follow_up": null,
+  "source_file": "pla073 1.pdf"
+ },
+ {
+  "invoice": "INV-8459",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 590.26,
+  "incl": 649.29,
+  "variant": "standard",
+  "target": [
+   "30c69e44-73123-PK000023-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "30c69e44-73123-PK000023-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000023",
+    "amount": 590.26,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8459",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground maintenance at Ernie White Park - Crestmead, job 3923335; contract LB304 (LocalBuy); order 717528; requesting officer Shane Ohlsen; completed 05-Aug-2026. Lines as printed: 1.00 MISC1 Striker @ $480.00 = $480.00; 1.00 L1 Maintenance Labour @ $110.26 = $110.26. Printed subtotal $590.26 ex GST, GST $59.03, total $649.29. Printed PK000023 matches the PK charged (PK000023).",
+  "follow_up": null,
+  "source_file": "pla073 1.pdf"
+ },
+ {
+  "invoice": "INV-8461",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 612.87,
+  "incl": 674.16,
+  "variant": "standard",
+  "target": [
+   "5c16daac-73123-PK000022-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "5c16daac-73123-PK000022-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000022",
+    "amount": 612.87,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8461",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground bbb at Willow Park - Beenleigh (Ref 33608), job 3917166; contract LB304 (LocalBuy); order 717528; requesting officer Corey Stoops; completed 05-Aug-2026. Lines as printed: 3.00 NB214 M10 x 32mm Washer @ $0.26 = $0.78; 3.00 NB219 M10 Nyloc Nut @ $1.30 = $3.90; 3.00 TX204 M10 x 60mm Torx Security Bolt @ $6.40 = $19.20; 1.00 MISC1 Basket ball hoop @ $423.60 = $423.60; 1.50 L1 Maintenance Labour @ $110.26 = $165.39. Printed subtotal $612.87 ex GST, GST $61.29, total $674.16. Printed PK000022 matches the PK charged (PK000022).",
+  "follow_up": null,
+  "source_file": "pla073 1.pdf"
+ },
+ {
+  "invoice": "INV-8479",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 335.65,
+  "incl": 369.22,
+  "variant": "standard",
+  "target": [
+   "455e58df-73123-PK000391-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "455e58df-73123-PK000391-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000391",
+    "amount": 335.65,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8479",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground rub at Flindersia Riverside Park - Logan, job 3920753; contract LB304 (LocalBuy); order 717528; requesting officer Rene Harreman; completed 07-Aug-2026. Lines as printed: 1.00 MISC1 Rubber soft fall @ $60.00 = $60.00; 2.50 L1 Maintenance Labour @ $110.26 = $275.65. Printed subtotal $335.65 ex GST, GST $33.57, total $369.22. Printed PK000391 matches the PK charged (PK000391).",
+  "follow_up": null,
+  "source_file": "pla073 1.pdf"
+ },
+ {
+  "invoice": "INV-8494",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 1000.95,
+  "incl": 1101.05,
+  "variant": "standard",
+  "target": [
+   "1a394374-73123-PK000023-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "1a394374-73123-PK000023-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000023",
+    "amount": 1000.95,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "STANDING ORDER 25/26"
+   }
+  ],
+  "evid": "INV-8494",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground works; contract LB304 (LocalBuy); order 709828; requesting officer Shane Ohlsen; completed 11-Aug-2026. Lines as printed: 1.00 MISC1 Stain @ $174.00 = $174.00; 7.50 L1 Maintenance Labour @ $110.26 = $826.95. Printed subtotal $1,000.95 ex GST, GST $100.10, total $1,101.05. No PK is printed on the invoice face: the Account field prints \"undefined\". The charge sits on PK000023, which comes from the TechOne order, not from the document.",
+  "follow_up": "Ask Play Force to populate the Account field: this invoice prints \"undefined\" and states no PK, so the face cannot corroborate the PK charged.",
+  "source_file": "pla073 1.pdf"
+ },
+ {
+  "invoice": "INV-8500",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 420.9,
+  "incl": 462.99,
+  "variant": "standard",
+  "target": [
+   "2f6e9540-73123-PK000023-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "2f6e9540-73123-PK000023-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000023",
+    "amount": 420.9,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8500",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground maintenance at Newstead Park - Buccan (Ref 33836), job 3922492; contract LB304 (LocalBuy); order 717528; requesting officer Melina Turpin; completed 11-Aug-2026. Lines as printed: 1.00 TX205 M10 x 70mm Torx Security Bolt @ $7.10 = $7.10; 2.00 NB214 M10 x 32mm Washer @ $0.26 = $0.52; 1.00 NB219 M10 Nyloc Nut @ $1.30 = $1.30; 1.00 SW184 Infant Seat (short hinge) @ $81.20 = $81.20; 3.00 L1 Maintenance Labour @ $110.26 = $330.78. Printed subtotal $420.90 ex GST, GST $42.09, total $462.99. Printed PK000023 matches the PK charged (PK000023).",
+  "follow_up": null,
+  "source_file": "pla073 1.pdf"
+ },
+ {
+  "invoice": "INV-8523",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 861.3,
+  "incl": 947.43,
+  "variant": "standard",
+  "target": [
+   "13cb3b07-73123-PK000023-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "13cb3b07-73123-PK000023-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000023",
+    "amount": 861.3,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8523",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground maintenance at Cornubia Adventure Park - Shailer, job 3922724; contract LB304 (LocalBuy); order 717528; requesting officer Rene Harreman; completed 12-Aug-2026. Lines as printed: 2.00 MISC1 HDPE grip deck @ $155.00 = $310.00; 5.00 L1 Maintenance Labour @ $110.26 = $551.30. Printed subtotal $861.30 ex GST, GST $86.13, total $947.43. Printed PK000023 matches the PK charged (PK000023).",
+  "follow_up": null,
+  "source_file": "pla073 1.pdf"
+ },
+ {
+  "invoice": "INV-8537",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 426.18,
+  "incl": 468.8,
+  "variant": "standard",
+  "target": [
+   "6286775c-73123-PK000388-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "6286775c-73123-PK000388-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000388",
+    "amount": 426.18,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8537",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground maintenance at Mabel Park - Slacks Creek (Ref 33933), job 3936025; contract LB304 (LocalBuy); order 717528; requesting officer Melina Turpin; completed 14-Aug-2026. Lines as printed: 2.00 FX863 8mm D Shackle @ $7.10 = $14.20; 1.00 SW184 Infant Seat (short hinge) @ $81.20 = $81.20; 3.00 L1 Maintenance Labour @ $110.26 = $330.78. Printed subtotal $426.18 ex GST, GST $42.62, total $468.80. Printed PK000388 matches the PK charged (PK000388).",
+  "follow_up": null,
+  "source_file": "pla073 1.pdf"
+ },
+ {
+  "invoice": "INV-8566",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 620.42,
+  "incl": 682.46,
+  "variant": "standard",
+  "target": [
+   "ee4b713d-73123-PK000023-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "ee4b713d-73123-PK000023-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000023",
+    "amount": 620.42,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8566",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground maintenance at Larry Storey Park - Waterford, job 3922518; contract LB304 (LocalBuy); order 717528; requesting officer Melina Turpin; completed 18-Aug-2026. Lines as printed: 1.00 SW182 Strap Seat @ $69.38 = $69.38; 5.00 MISC1 Foot/handgrips @ $15.00 = $75.00; 1.00 MTN571 Touch-Up Paint @ $35.00 = $35.00; 4.00 L1 Maintenance Labour @ $110.26 = $441.04. Printed subtotal $620.42 ex GST, GST $62.04, total $682.46. Printed PK000023 matches the PK charged (PK000023).",
+  "follow_up": null,
+  "source_file": "pla073 1.pdf"
+ },
+ {
+  "invoice": "INV-8570",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 335.72,
+  "incl": 369.29,
+  "variant": "standard",
+  "target": [
+   "d5541aff-73123-PK000023-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "d5541aff-73123-PK000023-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000023",
+    "amount": 335.72,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8570",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground maintenance at Booran Park - Woodridge (Ref 33898), job 3931965; contract LB304 (LocalBuy); order 717528; requesting officer Dominic Unwin; completed 18-Aug-2026. Lines as printed: 1.00 MISC1 New bump stop @ $115.20 = $115.20; 2.00 L1 Maintenance Labour @ $110.26 = $220.52. Printed subtotal $335.72 ex GST, GST $33.57, total $369.29. Printed PK000023 matches the PK charged (PK000023).",
+  "follow_up": null,
+  "source_file": "pla073 1.pdf"
+ },
+ {
+  "invoice": "INV-8572",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 339.5,
+  "incl": 373.45,
+  "variant": "standard",
+  "target": [
+   "f8b34178-73123-PK000023-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "f8b34178-73123-PK000023-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000023",
+    "amount": 339.5,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8572",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground maintenance at Chris Green Park - Beenleigh (Ref 33937), job 3923363; contract LB304 (LocalBuy); order 717528; requesting officer Melina Turpin; completed 18-Aug-2026. Lines as printed: 8.00 NB214 M10 x 32mm Washer @ $0.26 = $2.08; 4.00 TX216 M10 x 20mm Cap Nut (Barrel nut) @ $6.70 = $26.80; 4.00 TX201 M10 x 30mm Torx Security Bolt @ $5.18 = $20.72; 1.00 SW182 Strap Seat @ $69.38 = $69.38; 2.00 L1 Maintenance Labour @ $110.26 = $220.52. Printed subtotal $339.50 ex GST, GST $33.95, total $373.45. Printed PK000023 matches the PK charged (PK000023).",
+  "follow_up": null,
+  "source_file": "pla073 1.pdf"
+ },
+ {
+  "invoice": "INV-8617",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 872.69,
+  "incl": 959.96,
+  "variant": "standard",
+  "target": [
+   "6e2a8d69-73123-PK000023-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "6e2a8d69-73123-PK000023-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000023",
+    "amount": 872.69,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8617",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground maintenance at Borrol Lookout Park - Yarrabilba, job 3922626; contract LB304 (LocalBuy); order 717528; requesting officer Rene Harreman; completed 23-Aug-2026. Lines as printed: 1.00 MISC1 New balance log/paint @ $156.00 = $156.00; 6.50 L1 Maintenance Labour @ $110.26 = $716.69. Printed subtotal $872.69 ex GST, GST $87.27, total $959.96. Printed PK000023 matches the PK charged (PK000023).",
+  "follow_up": null,
+  "source_file": "pla073 1.pdf"
+ },
+ {
+  "invoice": "INV-8654",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 911.68,
+  "incl": 1002.85,
+  "variant": "standard",
+  "target": [
+   "6f3d3be0-73123-PK000023-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "6f3d3be0-73123-PK000023-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000023",
+    "amount": 911.68,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8654",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground maintenance at Ainslie Park - Marsden (Ref 33985), job 3922884; contract LB304 (LocalBuy); order 717528; requesting officer Aisha Wilson; completed 25-Aug-2026. Lines as printed: 12.00 FX1226 M12 PVC Washer @ $0.65 = $7.80; 12.00 FX1225 M10 PVC Washer @ $0.65 = $7.80; 1.00 MTN571 Touch-Up Paint @ $35.00 = $35.00; 12.00 NB214 M10 x 32mm Washer @ $0.26 = $3.12; 12.00 FX1186 M12 Washer @ $0.55 = $6.60; 12.00 TX201 M10 x 30mm Torx Security Bolt @ $5.18 = $62.16; 12.00 TX216 M10 x 20mm Cap Nut (Barrel nut) @ $6.70 = $80.40; 7.00 CD189 30mm Black Conduit @ $22.50 = $157.50; 5.00 L1 Maintenance Labour @ $110.26 = $551.30. Printed subtotal $911.68 ex GST, GST $91.17, total $1,002.85. Printed PK000023 matches the PK charged (PK000023).",
+  "follow_up": null,
+  "source_file": "pla073 1.pdf"
+ },
+ {
+  "invoice": "INV-8656",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 993.29,
+  "incl": 1092.62,
+  "variant": "standard",
+  "target": [
+   "b74805d0-73123-PK000388-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "b74805d0-73123-PK000388-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000388",
+    "amount": 993.29,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8656",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground works; contract LB304 (LocalBuy); order 717528. Lines as printed: 1.00 MISC1 Swing mount @ $125.00 = $125.00; 1.00 SW182 Strap Seat @ $69.38 = $69.38; 4.00 FX1160 M8 Shackle SS @ $8.50 = $34.00; 4.00 CH186 6mm Stainless Chain @ $18.00 = $72.00; 2.00 FX194 M12 D Shackle @ $18.50 = $37.00; 4.00 CD189 30mm Black Conduit @ $22.50 = $90.00; 1.00 TX216 M10 x 20mm Cap Nut (Barrel nut) @ $6.70 = $6.70; 1.00 FX1186 M12 Washer @ $0.55 = $0.55; 1.00 NB214 M10 x 32mm Washer @ $0.26 = $0.26; 1.00 TX205 M10 x 70mm Torx Security Bolt @ $7.10 = $7.10; 5.00 L1 Maintenance Labour @ $110.26 = $551.30. Printed subtotal $993.29 ex GST, GST $99.33, total $1,092.62. Printed PK000388 matches the PK charged (PK000388).",
+  "follow_up": null,
+  "source_file": "pla073 1.pdf"
+ },
+ {
+  "invoice": "INV-8669",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 338.15,
+  "incl": 371.97,
+  "variant": "standard",
+  "target": [
+   "287b48af-73123-PK000023-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "287b48af-73123-PK000023-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000023",
+    "amount": 338.15,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8669",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground works; contract LB304 (LocalBuy); order 717528. Lines as printed: 2.00 SW182 Strap Seat @ $69.38 = $138.76; 4.00 FX1160 M8 Shackle SS @ $8.50 = $34.00; 1.50 L1 Maintenance Labour @ $110.26 = $165.39. Printed subtotal $338.15 ex GST, GST $33.82, total $371.97. Printed PK000023 matches the PK charged (PK000023).",
+  "follow_up": null,
+  "source_file": "pla073 1.pdf"
+ },
+ {
+  "invoice": "INV-8689",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 661.56,
+  "incl": 727.72,
+  "variant": "standard",
+  "target": [
+   "f2299910-73123-PK000022-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "f2299910-73123-PK000022-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000022",
+    "amount": 661.56,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8689",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground works; contract LB304 (LocalBuy); order 717528. Lines as printed: 6.00 L1 Maintenance Labour @ $110.26 = $661.56. Printed subtotal $661.56 ex GST, GST $66.16, total $727.72. Printed PK000022 matches the PK charged (PK000022).",
+  "follow_up": null,
+  "source_file": "pla073 1.pdf"
+ },
+ {
+  "invoice": "INV-8694",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 411.91,
+  "incl": 453.1,
+  "variant": "standard",
+  "target": [
+   "e3a1db92-73123-PK000023-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "e3a1db92-73123-PK000023-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000023",
+    "amount": 411.91,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8694",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground works; contract LB304 (LocalBuy); order 717528. Lines as printed: 1.00 MISC1 swags/wire @ $26.00 = $26.00; 3.50 L1 Maintenance Labour @ $110.26 = $385.91. Printed subtotal $411.91 ex GST, GST $41.19, total $453.10. Printed PK000023 matches the PK charged (PK000023).",
+  "follow_up": null,
+  "source_file": "pla073 1.pdf"
+ },
+ {
+  "invoice": "INV-8699",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 713.16,
+  "incl": 784.48,
+  "variant": "standard",
+  "target": [
+   "8b507fa9-73123-PK000023-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "8b507fa9-73123-PK000023-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000023",
+    "amount": 713.16,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8699",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground works; contract LB304 (LocalBuy); order 717528. Lines as printed: 1.00 MISC1 bearings @ $51.60 = $51.60; 6.00 L1 Maintenance Labour @ $110.26 = $661.56. Printed subtotal $713.16 ex GST, GST $71.32, total $784.48. Printed PK000023 matches the PK charged (PK000023).",
+  "follow_up": null,
+  "source_file": "pla073 1.pdf"
+ },
+ {
+  "invoice": "INV-8714",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 661.56,
+  "incl": 727.72,
+  "variant": "standard",
+  "target": [
+   "4d682efa-73123-PK000023-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "4d682efa-73123-PK000023-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000023",
+    "amount": 661.56,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8714",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground works; contract LB304 (LocalBuy); order 717528. Lines as printed: 6.00 L1 Maintenance Labour @ $110.26 = $661.56. Printed subtotal $661.56 ex GST, GST $66.16, total $727.72. Printed PK000023 matches the PK charged (PK000023).",
+  "follow_up": null,
+  "source_file": "pla073 1.pdf"
+ },
+ {
+  "invoice": "INV-8720",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 596.66,
+  "incl": 656.33,
+  "variant": "standard",
+  "target": [
+   "4c039208-73123-PK000023-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "4c039208-73123-PK000023-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000023",
+    "amount": 596.66,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8720",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground works; contract LB304 (LocalBuy); order 717528. Lines as printed: 1.50 CD189 30mm Black Conduit @ $22.50 = $33.75; 1.50 CH186 6mm Stainless Chain @ $18.00 = $27.00; 1.00 SW221 Pommel Seat Bracket @ $38.00 = $38.00; 1.00 SW183 245mm Pommel Seat @ $112.00 = $112.00; 3.50 L1 Maintenance Labour @ $110.26 = $385.91. Printed subtotal $596.66 ex GST, GST $59.67, total $656.33. No PK is printed on the invoice face: the Account field prints \"undefined\". The charge sits on PK000023, which comes from the TechOne order, not from the document.",
+  "follow_up": "Ask Play Force to populate the Account field: this invoice prints \"undefined\" and states no PK, so the face cannot corroborate the PK charged.",
+  "source_file": "pla073 1.pdf"
+ },
+ {
+  "invoice": "INV-8729",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 882.08,
+  "incl": 970.29,
+  "variant": "standard",
+  "target": [
+   "1e878019-73123-PK000023-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "1e878019-73123-PK000023-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000023",
+    "amount": 882.08,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8729",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground works; contract LB304 (LocalBuy); order 717528. Lines as printed: 8.00 L1 Maintenance Labour @ $110.26 = $882.08. Printed subtotal $882.08 ex GST, GST $88.21, total $970.29. Printed PK000023 matches the PK charged (PK000023).",
+  "follow_up": null,
+  "source_file": "pla073 1.pdf"
+ },
+ {
+  "invoice": "INV-8763",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 843.41,
+  "incl": 927.75,
+  "variant": "standard",
+  "target": [
+   "b6bf8e00-73123-PK000023-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "b6bf8e00-73123-PK000023-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000023",
+    "amount": 843.41,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8763",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground works; contract LB304 (LocalBuy); order 717528. Lines as printed: 1.00 MISC1 Pommel bracket (welded) and paint @ $107.00 = $107.00; 1.00 TX202 M10 x 40mm Torx Security Bolt @ $5.52 = $5.52; 2.00 FX863 8mm D Shackle @ $7.10 = $14.20; 6.50 L1 Maintenance Labour @ $110.26 = $716.69. Printed subtotal $843.41 ex GST, GST $84.34, total $927.75. Printed PK000023 matches the PK charged (PK000023).",
+  "follow_up": null,
+  "source_file": "pla073 1.pdf"
+ },
+ {
+  "invoice": "INV-8774",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 928.37,
+  "incl": 1021.21,
+  "variant": "standard",
+  "target": [
+   "1468a6b4-73123-PK000023-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "1468a6b4-73123-PK000023-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000023",
+    "amount": 928.37,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8774",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground works; contract LB304 (LocalBuy); order 717528. Lines as printed: 8.00 MISC1 6mm x 20mm stainles washer @ $0.40 = $3.20; 4.00 MISC1 6mm cap nut @ $4.00 = $16.00; 4.00 MISC1 6mm x40mm stainless bolt @ $3.80 = $15.20; 8.00 FX863 8mm D Shackle @ $7.10 = $56.80; 10.00 CH186 6mm Stainless Chain @ $18.00 = $180.00; 10.00 CD862 Fire Hose @ $16.10 = $161.00; 4.50 L1 Maintenance Labour @ $110.26 = $496.17. Printed subtotal $928.37 ex GST, GST $92.84, total $1,021.21. Printed PK000023 matches the PK charged (PK000023).",
+  "follow_up": null,
+  "source_file": "pla073 1.pdf"
+ },
+ {
+  "invoice": "INV-8778",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 1090.95,
+  "incl": 1200.05,
+  "variant": "standard",
+  "target": [
+   "63758543-73123-PK000023-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "63758543-73123-PK000023-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000023",
+    "amount": 1090.95,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8778",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground works; contract LB304 (LocalBuy); order 717528. Lines as printed: 4.00 PCP1202 Post Cap custom make @ $65.00 = $260.00; 1.00 SW182 Strap Seat @ $69.38 = $69.38; 1.00 NB223 M10 Do Nut Security Caps @ $2.90 = $2.90; 10.00 CD189 30mm Black Conduit @ $22.50 = $225.00; 6.00 FX1178 Washer M10 x 25 304 Stainless @ $0.65 = $3.90; 6.00 FX1225 M10 PVC Washer @ $0.65 = $3.90; 6.00 TX200 M10 x 25mm Torx Security Bolt @ $4.95 = $29.70; 4.50 L1 Maintenance Labour @ $110.26 = $496.17. Printed subtotal $1,090.95 ex GST, GST $109.10, total $1,200.05. Printed PK000023 matches the PK charged (PK000023).",
+  "follow_up": null,
+  "source_file": "pla073 1.pdf"
+ },
+ {
+  "invoice": "INV-8784",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 1023.56,
+  "incl": 1125.92,
+  "variant": "standard",
+  "target": [
+   "1bfb081f-73123-PK000023-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "1bfb081f-73123-PK000023-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000023",
+    "amount": 1023.56,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8784",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground maintenance at Stoneleigh Reserve Park - Logan, job 3937202; contract LB304 (LocalBuy); order 717528; requesting officer Aisha Wilson; completed 31-Aug-2026. Lines as printed: 1.00 MISC1 Gal post cap @ $7.20 = $7.20; 1.00 MISC1 Fixings/threaded rod @ $24.00 = $24.00; 2.00 NB223 M10 Do Nut Security Caps @ $2.90 = $5.80; 1.00 MISC1 Telescope @ $325.00 = $325.00; 6.00 L1 Maintenance Labour @ $110.26 = $661.56. Printed subtotal $1,023.56 ex GST, GST $102.36, total $1,125.92. Printed PK000023 matches the PK charged (PK000023).",
+  "follow_up": null,
+  "source_file": "pla073 1.pdf"
+ },
+ {
+  "invoice": "INV-8785",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 330.52,
+  "incl": 363.57,
+  "variant": "standard",
+  "target": [
+   "5dff8303-73123-PK000023-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "5dff8303-73123-PK000023-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000023",
+    "amount": 330.52,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8785",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground rub at Loganview Park - Logan Reserve, job 3924838; contract LB304 (LocalBuy); order 717528; requesting officer Shane Ohlsen; completed 31-Aug-2026. Lines as printed: 1.00 MISC1 Sika Flex/backing rod @ $110.00 = $110.00; 2.00 L1 Maintenance Labour @ $110.26 = $220.52. Printed subtotal $330.52 ex GST, GST $33.05, total $363.57. Printed PK000023 matches the PK charged (PK000023).",
+  "follow_up": null,
+  "source_file": "pla073 1.pdf"
+ },
+ {
+  "invoice": "INV-8786",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 2029.7,
+  "incl": 2232.67,
+  "variant": "standard",
+  "target": [
+   "d562ed28-73123-PK000023-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "d562ed28-73123-PK000023-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000023",
+    "amount": 2029.7,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8786",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground maintenance at Village Green - Logan Village (Ref 33667), job 3924331; contract LB304 (LocalBuy); order 717528; requesting officer Rene Harreman. Lines as printed: 1.00 MISC1 New trolley @ $1478.40 = $1478.40; 5.00 L1 Maintenance Labour @ $110.26 = $551.30. Printed subtotal $2,029.70 ex GST, GST $202.97, total $2,232.67. Printed PK000023 matches the PK charged (PK000023).",
+  "follow_up": null,
+  "source_file": "pla073 1.pdf"
+ },
+ {
+  "invoice": "INV-8787",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 102.61,
+  "incl": 112.87,
+  "variant": "standard",
+  "target": [
+   "3bde47b5-73123-PK000470-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "3bde47b5-73123-PK000470-01",
+    "section": "Water Parks",
+    "na": "73123",
+    "pk": "PK000470",
+    "amount": 102.61,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8787",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground works; contract LB304 (LocalBuy); order 717527; requesting officer Rene Harreman. Lines as printed: 1.00 I1132 Operational Inspection of park @ $102.61 = $102.61. Printed subtotal $102.61 ex GST, GST $10.26, total $112.87. Printed PK000470 matches the PK charged (PK000470).",
+  "follow_up": null,
+  "source_file": "pla073 1.pdf"
+ },
+ {
+  "invoice": "INV-8788",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 1212.12,
+  "incl": 1333.33,
+  "variant": "standard",
+  "target": [
+   "92028d85-73123-PK000411-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "92028d85-73123-PK000411-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000411",
+    "amount": 1212.12,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8788",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground works; contract LB304 (LocalBuy); order 717527; requesting officer Rene Harreman. Lines as printed: 12.00 I1132 Routine inspection of skate parks inclusing removal @ $101.01 = $1212.12. Printed subtotal $1,212.12 ex GST, GST $121.21, total $1,333.33. Printed PK000411 matches the PK charged (PK000411).",
+  "follow_up": null,
+  "source_file": "pla073 1.pdf"
+ },
+ {
+  "invoice": "INV-8792",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 441.04,
+  "incl": 485.14,
+  "variant": "standard",
+  "target": [
+   "abd3706f-73123-PK000441-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "abd3706f-73123-PK000441-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000441",
+    "amount": 441.04,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8792",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground maintenance at Darlington Parklands - Yarrabilba, job 3924053; contract LB304 (LocalBuy); order 717528; requesting officer Aisha Wilson; completed 01-Sep-2026. Lines as printed: 4.00 L1 Maintenance Labour @ $110.26 = $441.04. Printed subtotal $441.04 ex GST, GST $44.10, total $485.14. Printed PK000441 matches the PK charged (PK000441).",
+  "follow_up": null,
+  "source_file": "pla073 1.pdf"
+ },
+ {
+  "invoice": "INV-8799",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 595.91,
+  "incl": 655.5,
+  "variant": "standard",
+  "target": [
+   "e85b2759-73123-PK000022-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "e85b2759-73123-PK000022-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000022",
+    "amount": 595.91,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8799",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground maintenance at Mulberry park - Logan Reserve, job 3921272; contract LB304 (LocalBuy); order 717528; requesting officer Rene Harreman; completed 01-Sep-2026. Lines as printed: 6.00 MTN572 Sika Flex @ $35.00 = $210.00; 3.50 L1 Maintenance Labour @ $110.26 = $385.91. Printed subtotal $595.91 ex GST, GST $59.59, total $655.50. No PK is printed on the invoice face: the Account field prints \"undefined\". The charge sits on PK000022, which comes from the TechOne order, not from the document.",
+  "follow_up": "Ask Play Force to populate the Account field: this invoice prints \"undefined\" and states no PK, so the face cannot corroborate the PK charged.",
+  "source_file": "pla073 1.pdf"
+ },
+ {
+  "invoice": "INV-8816",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 1513.02,
+  "incl": 1664.32,
+  "variant": "standard",
+  "target": [
+   "286ad28b-73123-PK000023-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "286ad28b-73123-PK000023-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000023",
+    "amount": 1513.02,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8816",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground maintenance at Conquest Park - Flagstone (Ref 33705), job 3925683; contract LB304 (LocalBuy); order 717528; requesting officer Shane Ohlsen; completed 02-Sep-2026. Lines as printed: 1.00 MISC1 New bridge panel @ $1237.37 = $1237.37; 2.50 L1 Maintenance Labour @ $110.26 = $275.65. Printed subtotal $1,513.02 ex GST, GST $151.30, total $1,664.32. Printed PK000023 matches the PK charged (PK000023).",
+  "follow_up": null,
+  "source_file": "pla073 1.pdf"
+ },
+ {
+  "invoice": "INV-8830",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 1850.0,
+  "incl": 2035.0,
+  "variant": "standard",
+  "target": [
+   "4d774308-73123-PK000022-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "4d774308-73123-PK000022-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000022",
+    "amount": 1850.0,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8830",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground ms at Mundoolun Park - Mundoolun (Ref 34147), job 3943139; contract LB304 (LocalBuy); order 717528; requesting officer Shane Ohlsen. Lines as printed: 1.00 MISC1 Temp fence install @ $1850.00 = $1850.00. Printed subtotal $1,850.00 ex GST, GST $185.00, total $2,035.00. No PK is printed on the invoice face: the Account field prints \"undefined\". The charge sits on PK000022, which comes from the TechOne order, not from the document.",
+  "follow_up": "Ask Play Force to populate the Account field: this invoice prints \"undefined\" and states no PK, so the face cannot corroborate the PK charged.",
+  "source_file": "pla073 1.pdf"
+ },
+ {
+  "invoice": "INV-8828",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 2894.49,
+  "incl": 3183.94,
+  "variant": "standard",
+  "target": [
+   "f3d0915c-73123-PK000411-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "f3d0915c-73123-PK000411-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000411",
+    "amount": 2894.49,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8828",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground inspection at Logan City Council - Logan Central, job 717527; contract LB304 (LocalBuy); order 717527; requesting officer Rene Harreman; completed 03-Sep-2026. Lines as printed: 29.00 I1132 Division 12 Operational playground inspection @ $99.81 = $2894.49. Printed subtotal $2,894.49 ex GST, GST $289.45, total $3,183.94. No PK is printed on the invoice face: the Account field prints \"undefined\". The charge sits on PK000411, which comes from the TechOne order, not from the document.",
+  "follow_up": "Ask Play Force to populate the Account field: this invoice prints \"undefined\" and states no PK, so the face cannot corroborate the PK charged.",
+  "source_file": "pla073 1.pdf"
+ },
+ {
+  "invoice": "INV-8846",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 3094.11,
+  "incl": 3403.52,
+  "variant": "standard",
+  "target": [
+   "5d156260-73123-PK000411-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "5d156260-73123-PK000411-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000411",
+    "amount": 3094.11,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8846",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground inspection at Logan City Council - Logan Central, job 717527; contract LB304 (LocalBuy); order 717527; requesting officer Rene Harreman; completed 07-Sep-2026. Lines as printed: 31.00 I1132 Division 11 Operational playground inspection @ $99.81 = $3094.11. Printed subtotal $3,094.11 ex GST, GST $309.41, total $3,403.52. No PK is printed on the invoice face: the Account field prints \"undefined\". The charge sits on PK000411, which comes from the TechOne order, not from the document.",
+  "follow_up": "Ask Play Force to populate the Account field: this invoice prints \"undefined\" and states no PK, so the face cannot corroborate the PK charged.",
+  "source_file": "pla073 1.pdf"
+ },
+ {
+  "invoice": "INV-8850",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 2435.44,
+  "incl": 2678.98,
+  "variant": "standard",
+  "target": [
+   "e7e217f9-73123-PK000388-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "e7e217f9-73123-PK000388-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000388",
+    "amount": 2435.44,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8850",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground sld at Marsden Park - Marsden (Ref 33729), job 3926454; contract LB304 (LocalBuy); order 717528; requesting officer Shane Ohlsen; completed 07-Sep-2026. Lines as printed: 1.00 MISC1 New slide sections with fixings @ $1994.40 = $1994.40; 4.00 L1 Maintenance Labour @ $110.26 = $441.04. Printed subtotal $2,435.44 ex GST, GST $243.54, total $2,678.98. Printed PK000388 matches the PK charged (PK000388).",
+  "follow_up": null,
+  "source_file": "pla073 1.pdf"
+ },
+ {
+  "invoice": "INV-8856",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 1355.0,
+  "incl": 1490.5,
+  "variant": "standard",
+  "target": [
+   "bd509ce6-73123-PK000442-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "bd509ce6-73123-PK000442-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000442",
+    "amount": 1355.0,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8856",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground cst at Doug Larsen Park - Beenleigh (Ref 34169), job 717528; contract LB304 (LocalBuy); order 717528; requesting officer Nakita Bishop; completed 01-Sep-2026. Lines as printed: 1.00 MISC1 Weekly inspection/maintenance on going @ $1355.00 = $1355.00. Printed subtotal $1,355.00 ex GST, GST $135.50, total $1,490.50. Printed PK000442 matches the PK charged (PK000442).",
+  "follow_up": null,
+  "source_file": "pla073 1.pdf"
+ },
+ {
+  "invoice": "INV-8857",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 392.86,
+  "incl": 432.15,
+  "variant": "standard",
+  "target": [
+   "c5f04ad4-73123-PK000023-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "c5f04ad4-73123-PK000023-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000023",
+    "amount": 392.86,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8857",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground maintenance at Chambers Ridge Park - Chambers, job 3936828; contract LB304 (LocalBuy); order 717528; requesting officer Aisha Wilson; completed 07-Sep-2026. Lines as printed: 8.00 NB214 M10 x 32mm Washer @ $0.26 = $2.08; 8.00 TX203 M10 x 50mm Torx Security Bolt @ $4.25 = $34.00; 8.00 NB223 M10 Do Nut Security Caps (body & cap) @ $3.25 = $26.00; 3.00 L1 Maintenance Labour @ $110.26 = $330.78. Printed subtotal $392.86 ex GST, GST $39.29, total $432.15. Printed PK000023 matches the PK charged (PK000023).",
+  "follow_up": null,
+  "source_file": "pla073 1.pdf"
+ },
+ {
+  "invoice": "INV-8894",
+  "vendor": "Play Force Australia Pty Ltd",
+  "abn": "89 677 476 541",
+  "subtotal": 635.04,
+  "incl": 698.54,
+  "variant": "standard",
+  "target": [
+   "edf0fa04-73123-PK000022-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "edf0fa04-73123-PK000022-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000022",
+    "amount": 635.04,
+    "contractor": "Play Force Australia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-8894",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Playground maintenance at Logan River Parklands - Beenleigh, job 3945502; contract LB304 (LocalBuy); order 717528; requesting officer Aisha Wilson; completed 09-Sep-2026. Lines as printed: 1.00 MISC1 Diamond grip hip twist platform and fixings @ $194.00 = $194.00; 4.00 L1 Maintenance Labour @ $110.26 = $441.04. Printed subtotal $635.04 ex GST, GST $63.50, total $698.54. Printed PK000022 matches the PK charged (PK000022).",
+  "follow_up": null,
+  "source_file": "pla073 1.pdf"
+ }
+]

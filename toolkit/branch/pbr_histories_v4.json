@@ -1,7 +1,7 @@
 {
- "version": "branch v6 (11-Sep-2026)",
+ "version": "branch v10 (14-Sep-2026)",
  "dir": "data/inputs_2026-09-11/creditor_histories",
- "pulled": "11-Sep-2026 12:34 to 13:16 (v4 and v5), 14:50 and 15:09 to 15:14 (v6)",
+ "pulled": "11-Sep-2026 12:34 to 13:16 (v4 and v5), 14:50 and 15:09 to 15:14 (v6); 14-Sep-2026 14:42 and 15:14 to 15:19 (v8); 15:59 and 16:00 (v10)",
  "tool": "TechOne Ledger Accounts Transactions Table export, Default Ledger Type = AP, Ledger Name = APLEDGER, one creditor account per file (no extraction tool)",
  "match_rule": "AP register line reference equals the history Reference; the history Transaction Amount (incl GST) is within 2c of the document net ex GST x 1.1 (all register lines on the Document Unique ID); the history Date is within 120 days of the register Doc Date; exactly one creditor code satisfies all three. Tier 1 where the history line carries an 11-digit ABN, else Tier 2 (rule 8).",
  "histories": [
@@ -140,6 +140,87 @@
    "abn": "92626678635",
    "label_basis": "Sighted invoices INV-13892, INV-13576 and INV-14305 (branch v6, batch attach_3) letterhead \"MPDT (Tree Acq Pty Ltd)\", ABN 92 626 678 635 as on this APLEDGER record (630 of its 633 lines).",
    "added": "v6"
+  },
+  {
+   "file": "Ledger_Accounts_Transactions_Table_-_2026-09-14T144248.320.xlsx",
+   "code": "WOR035",
+   "label": "Worssell",
+   "abn": "19100960227",
+   "label_basis": "Sighted invoice SI105621 and sales credit SC10927 (branch v8): both print ABN 19 100 960 227, the trading name Worssell (70 Mica Street, Carole Park; www.worssell.com.au; remittance michele@worssell.com.au) and Suncorp BSB 484-799 account 049681698, which is the $PAY - MET 484-799 049681698 on 143 lines of this APLEDGER record. No registered entity name prints on either face, so the label is the printed trading name, not a company name Raised on Open_Items as \"Supplier invoice prints no registered entity name\" (the B-number renumbers as sections are identified, so it is not quoted here).",
+   "pulled": "14-Sep-2026",
+   "added": "v8"
+  },
+  {
+   "file": "Ledger_Accounts_Transactions_Table_-_2026-09-14T151433.266.xlsx",
+   "code": "GRE075",
+   "label": "Green Works",
+   "abn": "65727714118",
+   "label_basis": "Sighted invoices INV-25278 and INV-25298 (branch v8) letterhead: Green Works, ABN 65 727 714 118, Registered Office PO Box 866 Beenleigh QLD 4207, payment account name Green Works BSB 124-001 account 10647959, contact jason@crawshaw.com.au. The ABN is the dominant ABN on this APLEDGER record (16,146 lines).",
+   "pulled": "14-Sep-2026",
+   "added": "v8"
+  },
+  {
+   "file": "Ledger_Accounts_Transactions_Table_-_2026-09-14T151609.914.xlsx",
+   "code": "INT036",
+   "label": "Chalcedony Investments Pty Ltd",
+   "abn": "73010305674",
+   "label_basis": "Sighted invoice 67855 (branch v8) letterhead and EFT block: Chalcedony Investments Pty Ltd, 51 Chetwynd Street Loganholme QLD 4129, ABN 73 010 305 674, Westpac BSB 033-107 account 421367, which is the $PAY - WPC 033-107 421367 on this APLEDGER record. Remittance goes to accounts.au@relyon.com. The creditor code INT036 does not correspond to the printed entity name Raised on Open_Items as \"Creditor code does not match the entity on the invoice\" (the B-number renumbers as sections are identified, so it is not quoted here).",
+   "pulled": "14-Sep-2026",
+   "added": "v8"
+  },
+  {
+   "file": "Ledger_Accounts_Transactions_Table_-_2026-09-14T151713.553.xlsx",
+   "code": "PLA073",
+   "label": "Play Force Australia Pty Ltd",
+   "abn": "89677476541",
+   "label_basis": "Sighted invoice INV-8846 (branch v8) letterhead: Play Force Australia Pty Ltd | 89 677 476 541, 41 Industrial Ave Logan Village QLD 4207. Same label and ABN as the PS_WP v127 identification of PLA073 (v121, 933 lines).",
+   "pulled": "14-Sep-2026",
+   "added": "v8"
+  },
+  {
+   "file": "Ledger_Accounts_Transactions_Table_-_2026-09-14T151759.364.xlsx",
+   "code": "TOT034",
+   "label": "Total Environmental Concepts Pty Ltd",
+   "abn": "11600627343",
+   "label_basis": "Sighted invoice 3652 (branch v8) letterhead: Total Environmental Concepts Pty Ltd, PO Box 14 Jimboomba QLD 4280, ABN 11 600 627 343, NAB BSB 082-738 account 743930428, which is the $PAY - NAB CT 2738 082-738 743930428 on this APLEDGER record.",
+   "pulled": "14-Sep-2026",
+   "added": "v8"
+  },
+  {
+   "file": "Ledger_Accounts_Transactions_Table_-_2026-09-14T151922.066.xlsx",
+   "code": "GXO001",
+   "label": "GX Outdoors Pty Ltd",
+   "abn": "46129480977",
+   "label_basis": "Sighted invoice 122677 (branch v8) letterhead: GX Outdoors Pty Ltd, ABN 46 129 480 977, 55 Commercial Street Bundaberg QLD 4670, Westpac BSB 034-122 account 471025, which is the $PAY - WBC 034-122 471025 on this APLEDGER record.",
+   "pulled": "14-Sep-2026",
+   "added": "v8"
+  },
+  {
+   "file": "Ledger_Accounts_Transactions_Table_-_2026-09-14T151957.359.xlsx",
+   "code": "BUN007",
+   "label": "Bunnings Group Limited (trade account 2768)",
+   "abn": "26008672179",
+   "label_basis": "Sighted invoice 8066/01480170 (branch v8): the face prints A.B.N 26 008 672 179, the Browns Plains Warehouse head, despatch BUNNINGS and trade account 2768, and the EFT block prints account name Wesfarmers Ltd on Westpac BSB 036-817 account 002768, which is the $PAY - WBC 036-817 002768 on 312 lines of this APLEDGER record. Label taken verbatim from the PS_WP v127 Vendor_Series canonical row for BUN007 (ABN 26 008 672 179).",
+   "pulled": "14-Sep-2026",
+   "added": "v8"
+  },
+  {
+   "file": "Ledger_Accounts_Transactions_Table_-_2026-09-14T155952.037.xlsx",
+   "code": "QPO001",
+   "label": "Q Power (Qld) Pty Ltd",
+   "abn": "82067507591",
+   "label_basis": "Sighted invoice 15222 (branch v10): the face prints ABN 82 067 507 591, qpower.com.au, 8/27 Allgas Street Slacks Creek and Licence # 69807, and the entity name Q Power (Qld) Pty Ltd prints in full in the quotation conditions and the signature block. Same label and ABN as the PS_WP v127 Vendor_Series canonical row for Q Power (168 lines). The ABN is the dominant ABN on this APLEDGER record (1,160 of 1,161 lines).",
+   "pulled": "14-Sep-2026",
+   "added": "v10"
+  },
+  {
+   "file": "Ledger_Accounts_Transactions_Table_-_2026-09-14T160039.031.xlsx",
+   "code": "KAC001",
+   "label": "Kachel Cleaning",
+   "abn": "77083786592",
+   "label_basis": "Sighted invoice 7719 (branch v10): the face prints ABN Number: 77 083 786 592 and the email stem kachelcleaning@live.com.au and no entity name at all, so the label is the trading name, as the PS_WP v127 Vendor_Series canonical row for KAC001 also carries (89 lines). This is the master-data check the open item \"Fuel levy coded to the cleaning account\" asked for: the APLEDGER account KAC001 carries the same ABN the invoice prints.",
+   "pulled": "14-Sep-2026",
+   "added": "v10"
   }
  ]
 }
