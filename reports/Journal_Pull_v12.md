@@ -1,6 +1,6 @@
-# Journal pull list, Parks Branch register FY2026/27 v11 (14-Sep-2026)
+# Journal pull list, Parks Branch register FY2026/27 v12 (15-Sep-2026)
 
-**Position:** 56 TechOne document files carry the 3,287 journal lines on the register. 5 sit in Tier A (no attachment, $4,023.20 absolute net). 12 document(s) across Tiers A and B carry an unanswered question and are the ones worth working first.
+**Position:** 59 TechOne document files carry the 3,375 journal lines on the register. 5 sit in Tier A (no attachment, $4,023.20 absolute net). 12 document(s) across Tiers A and B carry an unanswered question and are the ones worth working first.
 
 Tier A: no attachment in TechOne, so the Document Line Table IS the evidence route - pull these. Tier B: the document carries a TechOne attachment, so sight the attachment; a pull adds nothing. Tier C: RJ reversing journals, which net to exactly zero and are read as a pair under rules 5 and 6 - no pull unless a specific accrual question arises. Tier D: the document is already embedded in the PS & WP register v127 Journal_Sources; a re-pull is audited leg by leg, never re-captured (rule 12). Ranked within tier by ABSOLUTE net cost movement into branch O110-O115, not by gross, because gross double-counts both legs of a transfer.
 
@@ -9,7 +9,7 @@ Tier A: no attachment in TechOne, so the Document Line Table IS the evidence rou
 | Tier | Documents | Register lines | Net in scope | Gross in scope |
 |---|---:|---:|---:|---:|
 | A Pull required | 5 | 8 | 2,816.80 | 358,170.20 |
-| B Sight attachment | 36 | 435 | -39,480.64 | 1,791,672.06 |
+| B Sight attachment | 39 | 523 | -39,480.64 | 2,098,292.14 |
 | C RJ reversal, no pull | 6 | 196 | 0.00 | 3,819,401.22 |
 | D Held, already embedded in PS_WP v127 | 4 | 211 | -478,196.60 | 791,670.84 |
 | E Pulled and embedded at branch v6 | 3 | 2,028 | 509,510.42 | 516,097.34 |
@@ -59,12 +59,15 @@ Tier A: no attachment in TechOne, so the Document Line Table IS the evidence rou
 | 28 | **1255178** | GJ080657 | 2 | 79 | 0.00 | 116,438.10 | Y | High | recode set does not net inside O110-O115, so the balancing leg sits outside this scope and the pull is the only way to find it (Open Item B-012); blank or non-descriptive journal narration, so the nature of the charge is not on th | Cemeteries; Depots; Natural Areas; Park Maintenance; Park Se | 72111 Minor Equipment; 73123 Maintenance Ser; 73127 Electrical Main | PK000412; PK000001; PK000493 |
 | 29 | **1247443** | IJ075005 | 1 | 12 | 0.00 | 106,187.78 | Y | Low | internal charge allocation on 7C111 Internal - Vehi: every one of the 12 legs is already on the register with its own narration, so the Document Line Table adds only the Council-side counterparty legs. Pull only if the allocation  | Cemeteries; Natural Areas; Park Maintenance; Park Services | 7C111 Internal - Vehi | PK000068; PK000396; PK000012 |
 | 30 | **1256722** | GJ080696 | 2 | 98 | 0.00 | 3,775.82 | Y | Low | set nets to $0.00 inside branch scope; pairing is already proven on the register | Natural Areas; No section (NA - Not Applicable); Trees | 73212 Major Contracts; 74189 Fuel Levy Surch | PK000514; PK000477; PK000482 |
-| 31 | **1255117** | GJ080652 | 2 | 7 | 0.00 | 184,239.12 | Y | Low | set nets to $0.00 inside branch scope; pairing is already proven on the register | Natural Areas; Park Maintenance | 73126 Landscapers & G | PK000385; PK000015; PK000019 |
-| 32 | **1255193** | GJ080659 | 2 | 15 | 0.00 | 502,527.48 | Y | Low | set nets to $0.00 inside branch scope; pairing is already proven on the register | Natural Areas; Park Maintenance | 73126 Landscapers & G | PK000052; PK000385; PK000014 |
-| 33 | **1259322** | GJ080788 | 2 | 31 | 0.00 | 588,686.48 | Y | High | blank or non-descriptive journal narration, so the nature of the charge is not on the register | Natural Areas; No section (NA - Not Applicable); Park Mainte | 73126 Landscapers & G; 73123 Maintenance Ser; 74189 Fuel Levy Surch | PK000052; PK000022; PK000385 |
-| 34 | **1252805** | GJ080496 | 1 | 2 | 0.00 | 20,895.60 | Y | Low | set nets to $0.00 inside branch scope; pairing is already proven on the register | Park Maintenance | 72112 Chemical, ferti | PK000012; PK000368 |
-| 35 | **1254662** | GJ080646 | 2 | 6 | 0.00 | 108,372.00 | Y | Low | set nets to $0.00 inside branch scope; pairing is already proven on the register | Park Services | 73121 Cleaning & Sani | PK000028; PK000025; PK000026 |
-| 36 | **1256099** | GJ080687 | 2 | 17 | 0.00 | 68,127.02 | Y | High | blank or non-descriptive journal narration, so the nature of the charge is not on the register | Park Services; Water Parks | 73123 Maintenance Ser | PK000022; PK000469; PK000470 |
+| 31 | **1263036** | GJ081002 | 3 | 72 | 0.00 | 5,365.60 | Y | Low | set nets to $0.00 inside branch scope; pairing is already proven on the register | Natural Areas; No section (NA - Not Applicable); Trees | 73212 Major Contracts; 74189 Fuel Levy Surch | PK000514; PK000477; PK000482 |
+| 32 | **1255117** | GJ080652 | 2 | 7 | 0.00 | 184,239.12 | Y | Low | set nets to $0.00 inside branch scope; pairing is already proven on the register | Natural Areas; Park Maintenance | 73126 Landscapers & G | PK000385; PK000015; PK000019 |
+| 33 | **1255193** | GJ080659 | 2 | 15 | 0.00 | 502,527.48 | Y | Low | set nets to $0.00 inside branch scope; pairing is already proven on the register | Natural Areas; Park Maintenance | 73126 Landscapers & G | PK000052; PK000385; PK000014 |
+| 34 | **1259322** | GJ080788 | 2 | 31 | 0.00 | 588,686.48 | Y | High | blank or non-descriptive journal narration, so the nature of the charge is not on the register | Natural Areas; No section (NA - Not Applicable); Park Mainte | 73126 Landscapers & G; 73123 Maintenance Ser; 74189 Fuel Levy Surch | PK000052; PK000022; PK000385 |
+| 35 | **1263037** | GJ081003 | 3 | 7 | 0.00 | 184,562.48 | Y | Low | set nets to $0.00 inside branch scope; pairing is already proven on the register | Natural Areas; Park Maintenance | 73126 Landscapers & G | PK000385; PK000015; PK000019 |
+| 36 | **1252805** | GJ080496 | 1 | 2 | 0.00 | 20,895.60 | Y | Low | set nets to $0.00 inside branch scope; pairing is already proven on the register | Park Maintenance | 72112 Chemical, ferti | PK000012; PK000368 |
+| 37 | **1254662** | GJ080646 | 2 | 6 | 0.00 | 108,372.00 | Y | Low | set nets to $0.00 inside branch scope; pairing is already proven on the register | Park Services | 73121 Cleaning & Sani | PK000028; PK000025; PK000026 |
+| 38 | **1262546** | GJ080985 | 3 | 9 | 0.00 | 116,692.00 | Y | Low | set nets to $0.00 inside branch scope; pairing is already proven on the register | Park Services | 73121 Cleaning & Sani | PK000028; PK000025; PK000026 |
+| 39 | **1256099** | GJ080687 | 2 | 17 | 0.00 | 68,127.02 | Y | High | blank or non-descriptive journal narration, so the nature of the charge is not on the register | Park Services; Water Parks | 73123 Maintenance Ser | PK000022; PK000469; PK000470 |
 
 ## C RJ reversal, no pull
 
@@ -108,4 +111,4 @@ Tier A: no attachment in TechOne, so the Document Line Table IS the evidence rou
 3. Embed each new document verbatim with leg-level in-scope flags, prove it nets to zero and that each in-scope leg sum ties its own register lines, then refresh this list (pipeline, per journal batch).
 4. Tier B needs no pull: sight the TechOne attachment on the document file. Tier C is RJ reversing journals, read as a pair under rules 5 and 6. Tier D is already embedded in the PS & WP register.
 
-Source: `Parks_Branch_Transaction_Register_FY2627_v11.xlsx`, Journal_Pull rows 5:60; generated by `toolkit/branch/pbr_journal_pull_report.py`.
+Source: `Parks_Branch_Transaction_Register_FY2627_v12.xlsx`, Journal_Pull rows 5:63; generated by `toolkit/branch/pbr_journal_pull_report.py`.

@@ -13,6 +13,9 @@ from python_calamine import CalamineWorkbook
 from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill, Alignment
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import pbr_stage
+
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 def latest_register():
     import glob
@@ -77,7 +80,7 @@ def main():
                                    posted=fmt_d(g(r0, 'Src Posted Date')))))
     out.sort(key=lambda s: -abs(s['amount']))
     os.makedirs(OUT, exist_ok=True)
-    stamp = dt.date.today().strftime('%d-%b-%Y')
+    stamp = pbr_stage.stamp()   # Brisbane date (pbr_stage.BNE), not the container's UTC day
     unid_amt = sum(s['amount'] for s in out)
     # ------------------------------------------------------------------ markdown
     md = [f'# Unidentified contractors, Parks Branch register FY2026/27 {ver} ({stamp})', '',
