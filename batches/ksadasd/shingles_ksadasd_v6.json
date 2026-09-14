@@ -1,0 +1,556 @@
+{
+ "corpus": {
+  "scope": "corpus",
+  "documents_checked": 68,
+  "shingles_tested": 325,
+  "failures": [],
+  "results": [
+   {
+    "doc_ref": "INV-39245",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39259",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-2598",
+    "vendor": "WEIS CONTRACTORS",
+    "shingles_tested": 7,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39285",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39284",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39302",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39301",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39303",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39311",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-2601",
+    "vendor": "WEIS CONTRACTORS",
+    "shingles_tested": 9,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39335",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 4,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39346",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39351",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39341",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 2,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39350",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39381",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39380",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39378",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39379",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39407",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 2,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39398",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 3,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39405",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 2,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39394",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39396",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39401",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-2610",
+    "vendor": "WEIS CONTRACTORS",
+    "shingles_tested": 9,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-2612",
+    "vendor": "WEIS CONTRACTORS",
+    "shingles_tested": 9,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-2613",
+    "vendor": "WEIS CONTRACTORS",
+    "shingles_tested": 9,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-2614",
+    "vendor": "WEIS CONTRACTORS",
+    "shingles_tested": 8,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-2615",
+    "vendor": "WEIS CONTRACTORS",
+    "shingles_tested": 12,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-2617",
+    "vendor": "WEIS CONTRACTORS",
+    "shingles_tested": 54,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-2618",
+    "vendor": "WEIS CONTRACTORS",
+    "shingles_tested": 28,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-2619",
+    "vendor": "WEIS CONTRACTORS",
+    "shingles_tested": 7,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39423",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39418",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 3,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39422",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39417",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39440",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 6,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39439",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 8,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39434",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 7,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-2621",
+    "vendor": "WEIS CONTRACTORS",
+    "shingles_tested": 25,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-2622",
+    "vendor": "WEIS CONTRACTORS",
+    "shingles_tested": 16,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-2625",
+    "vendor": "WEIS CONTRACTORS",
+    "shingles_tested": 9,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-2626",
+    "vendor": "WEIS CONTRACTORS",
+    "shingles_tested": 9,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39463",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39452",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39451",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39446",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39447",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39450",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 3,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39476",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 4,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39482",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 9,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39505",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39506",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39506",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 0,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39509",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39489",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 4,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39504",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39503",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39508",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39483",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 4,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39553",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39562",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 2,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39559",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 3,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39561",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 4,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39563",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39556",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 3,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39558",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 3,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   }
+  ],
+  "VERDICT": "PASS"
+ },
+ "VERDICT": "PASS"
+}

@@ -18,12 +18,14 @@ STAMPS = {'mixed_1': STAMP, 'mixed_new_26_27': '11-Sep-2026, branch v3, Batch mi
           'attach_3': '11-Sep-2026, branch v6, Batch attach_3 (TechOne attachments, raw-text route, corpus_attach_3_v6.json)',
           'mix222': '11-Sep-2026, branch v7, Batch mix222 (mix_222.pdf, raw-text route to extraction prompt v6, corpus_mix222_v6.json)',
           'binder11111': '11-Sep-2026, branch v7, Batch binder11111 (Binder11111.pdf, raw-text route to extraction prompt v6, corpus_binder11111_v6.json)',
-          'pla073_1': '14-Sep-2026, branch v10, Batch pla073_1 (pla073 1.pdf, supplied corpus to extraction prompt v6, runtime A, corpus_pla073_1_v6.json)'}
-BATCH_VER = {'mixed_1': 'v2', 'mixed_new_26_27': 'v3', 'attach_1': 'v4', 'attach_2': 'v5', 'code': 'v5', 'mix22': 'v6', 'attach_3': 'v6', 'mix222': 'v7', 'binder11111': 'v7', 'pla073_1': 'v10'}
+          'pla073_1': '14-Sep-2026, branch v10, Batch pla073_1 (pla073 1.pdf, supplied corpus to extraction prompt v6, runtime A, corpus_pla073_1_v6.json)',
+          'ksadasd': '14-Sep-2026, branch v11, Batch ksadasd (ksadasd.pdf, supplied corpus to extraction prompt v6, runtime A, corpus_ksadasd_v6.json)'}
+BATCH_VER = {'mixed_1': 'v2', 'mixed_new_26_27': 'v3', 'attach_1': 'v4', 'attach_2': 'v5', 'code': 'v5', 'mix22': 'v6', 'attach_3': 'v6', 'mix222': 'v7', 'binder11111': 'v7', 'pla073_1': 'v10', 'ksadasd': 'v11'}
 SRCS = {'mixed_1': 'Mixed_1.pdf (md5 b9ddf7fd6c56188a22181921b7b2c8ab), Batch mixed_1, corpus_mixed_1_v6.json', 'mixed_new_26_27': 'Mixed_new_26-27.pdf (md5 813f23077d1d5e77fb1e7150ad08b3cc), Batch mixed_new_26_27, corpus_mixed_new_26_27_v6.json',
         'code': 'code.pdf, 66 pages (binder not supplied; supplied corpus corpus_code.json md5 e256555fc9d22d46a9cce80f8e7bbe3b, M365 Copilot layout extraction), Batch code, corpus_code_v6.json',
         'mix22': 'mix 22.pdf, 81 pages (binder not supplied; supplied corpus corpus_mix22.json md5 e6782e55b5379dc3adcb6a1b5c7cebd4, M365 Copilot layout extraction, gate RED as supplied), Batch mix22, corpus_mix22_v6.json',
-        'pla073_1': 'pla073 1.pdf, 144 pages (binder not supplied; supplied corpus corpus_pla073_1_v6.json md5 8b9d6481fa8926c86d849d8e290106e3, M365 Copilot runtime A to extraction prompt v6, gate GREEN as supplied), Batch pla073_1, corpus_pla073_1_v6.json'}
+        'pla073_1': 'pla073 1.pdf, 144 pages (binder not supplied; supplied corpus corpus_pla073_1_v6.json md5 8b9d6481fa8926c86d849d8e290106e3, M365 Copilot runtime A to extraction prompt v6, gate GREEN as supplied), Batch pla073_1, corpus_pla073_1_v6.json',
+        'ksadasd': 'ksadasd.pdf, 71 pages (binder not supplied; supplied corpus corpus_ksadasd_as_supplied.json md5 1e8cdafcefd95cc88dec6696af6f32b4, M365 Copilot runtime A to extraction prompt v6, gate GREEN as supplied), Batch ksadasd, corpus_ksadasd_v6.json'}
 
 CAT = {  # vendor template -> (Nature Category v2, v3 category, theme rule)
     'LEVAI': ('Natural areas & bushland works', 'Bushland, weeds & fire', 'P2 sighted job, dominant scope'),
@@ -63,6 +65,18 @@ CAT = {  # vendor template -> (Nature Category v2, v3 category, theme rule)
     'PPG': ('Horticultural & landscape supplies', 'Materials & minor equipment', 'P1 account governs'),
     'VINTON': ('Tree operations', 'Trees & arboriculture', 'P2 sighted job, dominant scope'),
 }
+# Per-invoice category override (match table keys nature_category and theme_v3, authored as data in notes_<batch>_v6.json):
+# a vendor that prints several kinds of work under one contract (Levai: scheduled cleaning, fence and bollard repairs,
+# softfall top-ups, furniture and signs; Weis: pressure cleaning, sand softfall cleaning, coatings) is categorised per
+# document from its own printed scope, never from the vendor label. The v2 category is proven by the build's Theme_Map
+# lookup (an unmapped value fails the verify); the v3 category is proven here against the Theme_Map_v3 list.
+V3_CATS = {'Cleaning & pressure washing', 'Waste & bin collection', 'Drainage, waterways & civil structures', 'Fencing, bollards, rails & gates',
+           'Grounds, turf & vegetation', 'Locks, keys & access hardware', 'Painting & protective coatings', 'Park furniture, BBQ & bins',
+           'Paths, courts, skate & hard surfaces', 'Shade sails & shelters', 'Signage & wayfinding', 'Timber & structural carpentry',
+           'Water play & aquatic plant', 'Inspection & condition audit', 'Playground equipment & softfall', 'Amenities buildings & plumbing',
+           'Irrigation, taps & drinking water', 'Electrical, lighting & data', 'Rates, levies & insurance', 'Utilities supply',
+           'Materials & minor equipment', 'Plant, fleet & internal services', 'Trees & arboriculture', 'Bushland, weeds & fire',
+           'Cemetery operations', 'Staff, training & corporate', 'Refunds & recoveries'}
 BPK = {'ORIGIN': 'ORG', 'SEACRETE': 'SC', 'POOLSHOP': 'PSH', 'QPOWER': 'QP', 'PLAYFORCE': 'PF', 'FLAVELL': 'FD', 'WEIS': 'WC', 'ELEMENTAL': 'ELM', 'HIGGINS': 'HIG', 'HARPLEY': 'INV', 'C2C': 'C2C', 'KACHEL': 'KC', 'LEVAI': 'LEV', 'TEC': 'TEC', 'TREESCAPE': 'TRS', 'BUSHCARE': 'BSH', 'AUSTSPRAY': 'ASP', 'EMU': 'EMU', 'ACTIVECO': 'ACT', 'GURU': 'GDW', 'AUSTCARE': 'ACE', 'GLASCOTT': 'GLA', 'GLASCOTT_LM': 'GLA', 'ETSOL': 'ETS', 'PROVAC': 'PRV', 'SAVCO': 'SAV', 'HERITAGE': 'HTS', 'BURLY': 'BUR', 'CERTIFIED': 'CER', 'C2C_INCL': 'C2C', 'FLAVELL_ATT': 'FD', 'MPDT': 'MPD', 'HERITAGE_CN': 'HTS', 'PLAYFORCE_ATT': 'PF', 'PPG': 'PPG', 'VINTON': 'VTS'}
 PAY_RX = re.compile(r'BSB|\bAcc\b|Acc No|Account|Bank:|Bank\s|Name:|Please make all payments|Please remit|Payment can be made|Direct Deposit|Please include invoice|Please Mail Payment|Detach this section|Acc\. No|Acc\. Name', re.I)
 TERM_RX = re.compile(r'Terms of Payment|Payment Terms|Payment Due On Receipt|fee of|Security of Payment|Credits cards|processing fee|View and pay online|Please pay the total|questions concerning|THANK YOU|Net30|Net 30|View online', re.I)
@@ -82,9 +96,39 @@ def header_fields(d):
     t = '\n'.join(d['page_text'][k] for k in sorted(d['page_text'], key=int))
     v = d['vendor_template']; f = {}
     if v == 'LEVAI':
+        # DESCRIPTION | AMOUNT block: requesting officer, contract (PAR/...), PK, the job row (a 7-digit CR number, a
+        # quote number or SCHEDULED, then the park with its (Ref: n), then the work), a Completed row, then the item rows.
+        # Read row by row from the retained text; nothing is fixed per vendor (branch v2 to v10 fixed the Spring Mountain
+        # Reserve job on every Levai invoice, which mis-sited five v3 captures; corrected at v11).
+        rows_ = [x.strip() for x in t.splitlines()]
+        try:
+            h0 = next(i for i, x in enumerate(rows_) if re.match(r'DESCRIPTION\s+AMOUNT$', x))
+            h1 = next(i for i, x in enumerate(rows_) if i > h0 and x.startswith('Bank Details'))
+        except StopIteration:
+            h0, h1 = -1, -1
+        blk = [x for x in rows_[h0 + 1:h1] if x] if h0 >= 0 else []
+        job_rx = re.compile(r'\(Ref: \d+\)|^(?:SCHEDULED|CR#?\s?\d{7}|\d{7}|Quote No\.? ?\d+|QUOTE NO\.? ?\d+)\b', re.I)
+        officer, contract, acct, job, done, items = (blk[0] if blk else NP), NP, NP, None, NP, []
+        for x in blk[1:]:
+            if re.fullmatch(r'PAR/\S+', x): contract = x
+            elif re.fullmatch(r'PK\d{6}', x): acct = x
+            elif x.startswith('Completed - '): done = x
+            elif job is None and job_rx.search(x): job = x
+            elif job is None: officer = f'{officer} ({x})'
+            else: items.append(re.sub(r'\s+[\d,]+\.\d{2}$', '', x))
+        job = job or NP
+        toks = [y.strip() for y in job.split(' - ')]
+        lead = re.compile(r'^(?:SCHEDULED|CR#?\s?\d{7}|\d{7}(?: / \d{7})?|Quote No\.? ?\d+:?|QUOTE NO\.? ?\d+:?)$', re.I)
+        k0 = next((i for i, y in enumerate(toks) if not lead.match(y)), None)
+        kr = next((i for i, y in enumerate(toks) if '(Ref:' in y), None)
+        site = ' - '.join(toks[k0:(kr + 1) if kr is not None and kr >= k0 else k0 + 1]) if k0 is not None and job != NP else NP
         f.update(addr='41 Industrial Ave, LOGAN VILLAGE QLD 4207, AUSTRALIA', phone='Office: (07) 3803 0032; Email: admin@thlevai.com', po=first(r'YOUR REF\s+(\d+)', t),
-                 bill='Logan City Council, 150 Wembley Rd, PO Box 3226, LOGAN CENTRAL QLD 4114, AUSTRALIA', officer='Jamie Fisher (Fire Management)', site='Spring Mountain Reserve (Ref: 35715)',
-                 work='Bush Track Repair & Drainage Works; Completed - 29.06.2026', contract=NP, paid=first(r'Paid to Date\s+([\d,]+\.\d{2})', t), bal=first(r'Balance Due\s+([\d,]+\.\d{2})', t))
+                 bill='Logan City Council, 150 Wembley Rd, PO Box 3226, LOGAN CENTRAL QLD 4114, AUSTRALIA', officer=officer, site=site,
+                 work=' | '.join([x for x in [job, done if done != NP else ''] if x] + items) or NP,
+                 contract=contract, paid=first(r'Paid to Date\s+([\d,]+\.\d{2})', t), bal=first(r'Balance Due\s+([\d,]+\.\d{2})', t))
+        f['printed_account'] = acct
+        crs = re.findall(r'CR#?\s?\d{7}|\b\d{7}\b', job) + re.findall(r'Quote No\.? ?\d+', job, re.I)
+        f['crwo'] = '; '.join(crs) or NP
     elif v == 'TEC':
         f.update(addr='PO Box 14, JIMBOOMBA QLD 4280, AUSTRALIA', phone='E: admin@totalenviro.net.au; Peter Sands 0402 644380, peters@totalenviro.net.au', po=first(r'Reference\s*\n[^\n]*?\b(PO#?:? ?\d{6})', t),
                  bill='Logan City Council, PO Box 3226, LOGAN CITY DC QLD 4114, AUSTRALIA', officer=NP, site='Lyndale Reserve' if d['invoice_no'] == '3597' else 'Norman Drive',
@@ -163,9 +207,57 @@ def header_fields(d):
         f.update(addr='PO Box 5202, DAISY HILL QLD 4127', phone=first(r'(accounts@f82landscaping\.com\.au)', t) + ('; +61 0478186497' if '0478186497' in t else ''), po=first(r'PO#\s?(\d+)', t), bill='Logan City Council', officer=NP,
                  site=first(r'Reference\s*\n\s*(.+?)\s*\n\s*(?:Park|ABN)', t) if 'Bill to' not in t and 'einvoicing' not in t else first(r'CR# \d+ (.+?)\s*$', t), work=first(r'Reference\s*\n\s*(.+?)\s*\n', t) if 'einvoicing' not in t else first(r'(CR# \d+ .+?)\s*$', t), contract=NP, paid=NP, bal=first(r'Amount [Dd]ue\s+\$?([\d,]+\.\d{2})', t))
     elif v == 'WEIS':
-        f.update(addr='22 Crestview St, LOGANLEA QLD 4131, AUSTRALIA', phone='christine@weiscontractors.com.au' + ('; +61 433 824 633' if '433 824 633' in t else ''), po=first(r'P/O # (\d+)', t), bill='Logan City Council, PO Box 3226, LOGAN CITY DC QLD 4114, AUSTRALIA', officer=('nakitabishop@logan.qld.gov.au' if 'nakitabishop' in t else NP),
-                 site=first(r'(CR - Division \d+)', t), work=first(r'(Supply labour and equipment to machine clean sand soft[\s\S]*?cleaning)', t).replace('\n', ' '), contract=first(r'Contract # (\S+)', t), paid=NP, bal=first(r'Amount [Dd]ue\s+\$?([\d,]+\.\d{2})', t))
-        f['work'] = ' '.join(f['work'].split())
+        # Two printed layouts. A: "Bill to" header with an Amount due | Due date | Issue date | Invoice number | Reference
+        # strip, item text wrapping around the band row. B: Invoice Date / Invoice Number / Reference / ABN stacked in the
+        # right column (the Reference wraps onto the next rows), item table Description | Quantity | Unit Price | GST |
+        # Amount AUD with a date row and a site row per park printed as 1.00 / 0.00 / 0.00 and the description on the
+        # priced row with continuation rows under it. Both are read row by row from the retained text.
+        rows_ = t.splitlines()
+        bill_to = 'Bill to' in t
+        if bill_to:
+            ref = first(r'INV-\d+\s{2,}(CR[^\n]*?)\s*$', t)
+        else:
+            ref = NP
+            ri = next((i for i, x in enumerate(rows_) if re.match(r'^\s{30,}Reference\s*$', x)), None)
+            if ri is not None:
+                col = rows_[ri].index('Reference'); parts = []
+                for x in rows_[ri + 1:ri + 6]:
+                    if re.match(r'^\s{30,}ABN\b', x): break
+                    y = x[col:].strip()
+                    y = re.sub(r'\s*com\.au$', '', y).strip()
+                    if y: parts.append(y)
+                ref = ' '.join(parts) or NP
+        band = re.compile(r'\s{2,}1(?:\.00)?\s{2,}[\d,]+\.\d{2}\s{2,}\d+%\s{2,}[\d,]+\.\d{2}\s*$')
+        zero = re.compile(r'^\s*(\S.*?)\s{2,}1(?:\.00)?\s{2,}0\.00\s{2,}0\.00\s*$')
+        h0 = next((i for i, x in enumerate(rows_) if re.match(r'^\s*Description\s{2,}Quantity', x)), -1)
+        h1 = next((i for i, x in enumerate(rows_) if i > h0 and re.search(r'\bSubtotal\b', x)), len(rows_))
+        sites_, dates_, descs, cur, seen_band = [], [], [], [], False
+        for x in rows_[h0 + 1:h1]:
+            y = x.strip()
+            if not y or re.match(r'^(Contract #|P/O #|PK\d{6})', y): continue
+            z = zero.match(x)
+            if z:
+                (dates_ if re.match(r'^\d{1,2} \w+ 20\d\d$', z.group(1).strip()) else sites_).append(z.group(1).strip())
+                if cur: descs.append(' '.join(cur)); cur = []
+                seen_band = False
+                continue
+            if re.match(r'^\s*1(?:\.00)?\s{2,}[\d,]+\.\d{2}\s{2,}\d+%', x):
+                continue  # layout A: a band-only row inside a wrapped description
+            has_band = bool(band.search(x))
+            y = ' '.join(band.sub('', x).split())
+            if has_band and not bill_to and cur and seen_band:
+                descs.append(' '.join(cur)); cur = []   # layout B: a second priced row under the same site starts a new description
+            cur.append(y)
+            seen_band = seen_band or has_band
+        if cur: descs.append(' '.join(cur))
+        descs = list(dict.fromkeys(d_ for d_ in descs if d_))
+        f.update(addr='22 Crestview St, LOGANLEA QLD 4131, AUSTRALIA', phone='christine@weiscontractors.com.au' + ('; +61 433 824 633' if '433 824 633' in t else ''),
+                 po=first(r'P/O #\s*-?\s*(\d+)', t), bill='Logan City Council, PO Box 3226, LOGAN CITY DC QLD 4114, AUSTRALIA', officer=('nakitabishop@logan.qld.gov.au' if 'nakitabishop' in t else NP),
+                 site='; '.join(sites_) if sites_ else ref, work=' | '.join(descs) or NP,
+                 contract=first(r'Contract #\s*-?\s*(\S+)', t), paid=NP, bal=first(r'Amount [Dd]ue\s+\$?([\d,]+\.\d{2})', t))
+        f['reference'] = ref
+        f['crwo'] = '; '.join(re.findall(r'\b\d{7}\b', ref)) or NP
+        f['service_dates'] = '; '.join(dates_) or NP
     elif v == 'ELEMENTAL':
         f.update(addr='Unit 9 /1 Belvedere Drive Park Ridge brisbane 4215', phone='Phone: 32002914; info@elementalshades.com; QBSA #1159300', po=first(r'PURCHASE ORDER (\d+)', t), bill='Logan City Council, 34125595, 150 Wembly Rd Logan Central, Brisbane QLD 4114', officer=first(r'Requesting Officers - (.+?)\s{2,}', t),
                  site='Multiple sites (shade structures on sites with multiple / single shade structures)', work='2026- Shade sail inspections; Contract Reference LB304', contract='LB304', paid=first(r'Payments Received\s+\$([\d,]+\.\d{2})', t), bal=first(r'Invoice Balance\s+\$([\d,]+\.\d{2})', t))
@@ -461,6 +553,9 @@ def capture(rows, corpus_path, match_path, say, existing_keys=frozenset(), exist
         items = ' '.join(f'{i}. {" ".join(l["line_text"].split())}' for i, l in enumerate(priced, 1))
         if len(items) > 30000: items = items[:30000] + ' [trimmed at the cell cap; full lines on Evidence_Invoice_Lines]'
         cat, v3, trule = CAT[v]
+        if m.get('nature_category'):
+            cat = m['nature_category']; v3 = m.get('theme_v3') or v3
+            assert v3 in V3_CATS, (m['invoice'], v3)
         desc_top = '; '.join(' '.join(l['line_text'].split())[:80] for l in priced[:3])
         for t in targets:
             r = by_key[t]; V = r['V']
@@ -498,7 +593,7 @@ def capture(rows, corpus_path, match_path, say, existing_keys=frozenset(), exist
             pkp = own[0] if own else (d['pk_refs'][0] if d['pk_refs'] else hf.get('printed_account', NP))
             if pkp == 'undefined':
                 pkp = 'undefined (as printed)'
-            if batch in ('attach_1', 'attach_2', 'code', 'mix22', 'attach_3') and pkp not in (NP, 'undefined (as printed)') and pkp.replace(' ', '').replace('#', '') != str(V[17]):
+            if batch in ('attach_1', 'attach_2', 'code', 'mix22', 'attach_3', 'pla073_1', 'ksadasd') and pkp not in (NP, 'undefined (as printed)') and pkp.replace(' ', '').replace('#', '') != str(V[17]):
                 anom.append(f'Printed PK {pkp} differs from the PK charged {V[17]}; see the coding note. PK Charged stays the ledger Work Order (rule 1).')
             G = {88: evid, 89: d['supplier'], 90: d['supplier_abn'], 91: NP, 92: hf['addr'], 93: hf['phone'], 94: date_out(d['invoice_date']), 95: date_out(d.get('due_date')) if d.get('due_date') else NP,
                  96: hf['po'], 97: hf['contract'], 98: hf['bill'], 99: NP, 100: hf['officer'], 101: NP, 102: NP, 103: NP, 104: pkp, 105: pkp.replace(' ', '').replace('#', '') if pkp != NP else NP,

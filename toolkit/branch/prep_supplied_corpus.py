@@ -1,7 +1,7 @@
 """prep_supplied_corpus.py - prepare a SUPPLIED extraction corpus (binder not supplied) for the branch build.
 
 Batches: mix22 (Savco, Heritage, Play Force, Kachel; 40 documents), binder11111 (RST Systems t/a Vinton Tree
-Services; 13 documents), mix222 (Harpley; 29) and pla073_1 (Play Force; 47). The first three were extracted by M365
+Services; 13 documents), mix222 (Harpley; 29), pla073_1 (Play Force; 47) and ksadasd (T & H Levai, Weis; 68). The first three were extracted by M365
 Copilot under prompt v5, declare gate RED, and fail the same way: rows carrying an amount in the item table's amount band were typed NARRATIVE, so documents reached OUT or
 carried no priced line at all. Under rule 19.2 neither can be built from as received.
 
@@ -19,6 +19,9 @@ Extraction defects repaired, each systematic:
       in the total field ($452.25 where the page prints A$4,974.75): it matched the label TOTAL against the row GST
       TOTAL. Restated from the document's own printed TOTAL row, which must agree with the TOTAL DUE header and the
       BALANCE DUE footer, and must equal subtotal plus GST.
+  R4  invoice_date carrying another printed date. On all 14 Weis documents of ksadasd the header extractor put the
+      printed due date in invoice_date. Restated from the printed Invoice Date row (the label in the right column,
+      the value on the next row at the same column); a supplied date that agrees with the printed one is left alone.
   R3  line_type values outside the schema. binder11111 types repeated invoice copies "DUPLICATE" where the schema's
       closed list says DUPLICATE_COPY. Restated, and the copied page range recorded on the document.
 
@@ -61,6 +64,10 @@ BATCHES = {
     # pla073_1 is the first supplied corpus to arrive GREEN with no repair outstanding (runtime A, prompt v6):
     # R1 to R3 are no-ops on it and only the housekeeping and the rule 19.2 fidelity check do any work.
     'pla073_1': dict(src='corpus_pla073_1_as_supplied.json', vendors={'Play Force Australia Pty Ltd': 'PLAYFORCE'}),
+    # ksadasd (branch v11): 68 documents, T & H Levai (54) and Weis Contractors (14), runtime A, gate GREEN as supplied.
+    # The only restatement beyond housekeeping is the due date, which the corpus schema carries and this extraction
+    # omitted although every face prints it (DUE DATE / Due Date: row).
+    'ksadasd': dict(src='corpus_ksadasd_as_supplied.json', vendors={'T & H LEVAI PTY LTD': 'LEVAI', 'WEIS CONTRACTORS': 'WEIS'}),
 }
 CFG = BATCHES[BATCH]
 VENDOR = CFG['vendors']
@@ -68,6 +75,7 @@ SRC = sys.argv[2] if len(sys.argv) > 2 else os.path.join(ROOT, 'cache', CFG['src
 OUT = sys.argv[3] if len(sys.argv) > 3 else os.path.join(ROOT, 'batches', BATCH)
 # independently parsed reference corpora (page text retained, parsed from the real PDF by this project)
 REF_CORPORA = [
+    ('mixed_1', os.path.join(ROOT, 'batches', 'mixed_1', 'corpus_mixed_1_v6.json'), 'branch v2, Mixed_1.pdf, parse_mixed1.py'),
     ('attach_1', os.path.join(ROOT, 'batches', 'attach_1', 'corpus_attach_1_v6.json'), 'branch v4, TechOne attachment PDF, parse_attach1.py'),
     ('mixed_new_26_27', os.path.join(ROOT, 'batches', 'mixed_new_26_27', 'corpus_mixed_new_26_27_v6.json'), 'branch v3, Mixed_new_26-27.pdf, parse_mixed_new.py'),
 ]
@@ -87,6 +95,12 @@ BANDS = {
     # A: DESCRIPTION | EX AMOUNT | TAX CODE, with no quantity and no unit price at all.
     # QUANTITY | DESCRIPTION | UNIT PRICE(ex-GST) | TOTAL PRICE(ex-GST), quantity first
     'HARPLEY': [re.compile(r'^\s*(?P<qty>[\d,]+(?:\.\d+)?)\s{2,}(?P<desc>\S.*?)\s{2,}\$?(?P<rate>[\d,]+\.\d{2})\s{2,}\$?(?P<amt>-?[\d,]+\.\d{2})\s*$')],
+    # T & H Levai: DESCRIPTION | AMOUNT, item rows indented one space; the bank block at column 0 carries "Total" and is
+    # not an item row, so the single leading space is part of the band.
+    'LEVAI': [re.compile(r'^ (?P<desc>\S.*?)\s{2,}(?P<amt>-?[\d,]+\.\d{2})\s*$')],
+    # Weis: Description | Quantity | Unit Price | GST | Amount AUD; the date and site rows print 1.00 / 0.00 / 0.00 with
+    # no GST band and are narrative, so the GST band is mandatory here.
+    'WEIS': [re.compile(r'^(?P<desc>\S.*?)\s{2,}(?P<qty>[\d,]+\.\d{2})\s{2,}(?P<rate>[\d,]+\.\d{2})\s{2,}(?P<tax>\d{1,2}%)\s{2,}(?P<amt>-?[\d,]+\.\d{2})\s*$')],
     'VINTON': [re.compile(r'^\s*(?P<qty>[\d,]+(?:\.\d+)?)\s{2,}(?P<desc>\S.*?)\s{2,}\$(?P<rate>[\d,]+\.\d{2})\s{2,}\$(?P<amt>-?[\d,]+\.\d{2})\s*$'),
                re.compile(r'^(?P<desc>\S.*?)\s{2,}\$(?P<amt>-?[\d,]+\.\d{2})\s{2,}(?P<tax>GST|FRE|GST FREE)\s*$')],
 }
@@ -102,6 +116,7 @@ DIGITS = re.compile(r'\d+')
 
 norm = lambda s: re.sub(r'\s+', ' ', str(s or '')).strip()
 mask = lambda s: DIGITS.sub('#', norm(s))
+fmask = lambda s: ' '.join('#' if any(ch.isdigit() for ch in t) else t for t in norm(s).split(' '))
 
 
 def D(x):
@@ -169,8 +184,46 @@ def restate_savco_total(doc, log):
     return 1
 
 
+# R4: the printed invoice date per layout, read from the retained rows. Levai prints "DATE  30 Jun 2026" on the header
+# block; Weis layout B prints the label "Invoice Date" in the right column with the value on the next row at the same
+# column. A supplied invoice_date that is not the printed one is restated and logged; a supplied value that agrees is left.
+def printed_invoice_date(doc):
+    rows = [l['line_text'] for l in doc['lines'] if l['line_type'] not in ('DUPLICATE_COPY',)]
+    t = '\n'.join(rows)
+    v = doc['vendor_template']
+    if v == 'LEVAI':
+        m = re.search(r'(?<!DUE )\bDATE\s+(\d{1,2} \w{3} \d{4})\s*$', t, re.M)
+        return m.group(1) if m else None
+    if v == 'WEIS':
+        for i, x in enumerate(rows[:-1]):
+            if 'Invoice Date' in x:
+                col = x.index('Invoice Date')
+                nxt = rows[i + 1][col:]
+                m2 = re.match(r'\s*(\d{1,2} \w{3,4}\.? \d{4})', nxt)
+                if m2:
+                    return m2.group(1)
+        m = re.search(r'Issue date[^\n]*\n[^\n]*?\s{2,}(\d{1,2} \w{3,4}\.? \d{4})\s{2,}INV-', t)
+        return m.group(1) if m else None
+    return None
+
+
+def restate_invoice_date(doc, log):
+    if doc.get('duplicate_of'):
+        return 0
+    printed = printed_invoice_date(doc)
+    if printed is None:
+        return 0
+    have = str(doc.get('invoice_date') or '').strip()
+    if have == printed:
+        return 0
+    doc['invoice_date_as_supplied'] = have
+    doc['invoice_date'] = printed
+    log.append(f'{doc["doc_ref"]}: R4 invoice_date {have!r} as supplied is not the printed Invoice Date; restated {printed!r} from the printed row')
+    return 1
+
+
 def prepare(corpus):
-    log, r1, r2 = [], 0, 0
+    log, r1, r2, r4 = [], 0, 0, 0
     for d in corpus['documents']:
         d['vendor_template'] = VENDOR[d['supplier']]
         r1 += restate_lines(d, log)
@@ -193,6 +246,15 @@ def prepare(corpus):
         d['duplicate_copy_pages'] = dup
         if dup:
             log.append(f'{d["doc_ref"]}: duplicate invoice copies on page(s) {dup}, typed DUPLICATE_COPY and outside the arithmetic')
+        r4 += restate_invoice_date(d, log)
+        if not d.get('due_date'):
+            # The corpus schema carries due_date; a supplied extraction that left it out is restated from the retained
+            # rows only where exactly one printed due-date label is found in the document span (never inferred).
+            t_ = '\n'.join(l['line_text'] for l in d['lines'] if l['line_type'] != 'DUPLICATE_COPY')
+            found = sorted({x.strip() for x in re.findall(r'(?:DUE DATE|Due Date:?)\s+(\d{1,2} \w{3} \d{4})\s*$', t_, re.M)})
+            if len(found) == 1:
+                d['due_date'] = found[0]
+                log.append(f'{d["doc_ref"]}: due_date {found[0]} restated from the printed due-date row (absent from the supplied corpus)')
         for k in ('invoice_date', 'due_date'):
             v = str(d.get(k) or '').strip()
             if not v or re.fullmatch(r'\d{4}-\d{2}-\d{2}', v):
@@ -212,10 +274,16 @@ def prepare(corpus):
             d['printed_account_codes'] = d['pk_refs']
             log.append(f'{d["doc_ref"]}: pk_refs {bad} dropped, not of the PK000000 form')
         d['source_md5'] = None
+        if d.get('duplicate_of'):
+            # A repeated copy of an invoice already captured earlier in the binder (prompt v6 3.5): every row is typed
+            # DUPLICATE_COPY, it carries no priced line and sits outside the arithmetic; the match table skips it.
+            assert all(l['line_type'] in ('DUPLICATE_COPY', 'BLANK') for l in d['lines']), (d['doc_ref'], 'duplicate copy carrying a non-DUPLICATE_COPY row')
+            log.append(f'{d["doc_ref"]}: duplicate copy of the document at pages {d["duplicate_of"]}, every row typed DUPLICATE_COPY, outside the arithmetic and not captured again')
+            continue
         cap, sub = captured(d), D(d['printed_subtotal_ex_gst'])
         assert cap == sub, f'{d["doc_ref"]}: restated lines {cap} do not equal the printed subtotal {sub}'
     log.append(f'batch: R1 restated {r1} amount-bearing rows over {sum(1 for d in corpus["documents"])} documents; '
-               f'R2 restated {r2} printed totals carrying the GST amount')
+               f'R2 restated {r2} printed totals carrying the GST amount; R4 restated {r4} invoice dates from the printed Invoice Date row')
     return log
 
 
@@ -275,11 +343,32 @@ def fidelity(corpus, refs):
             # legitimately differ is not a miss: a page-number footer moves with the document's own page count ("1 of 3"
             # against "1 of 4"), as do invoice numbers and dates. A template row genuinely absent still fails, because
             # masking only neutralises digit runs.
-            ref_rows_masked = {mask(x) for x in ref_rows}
-            missing = {ref: sorted(ref_rows_masked - {mask(x) for x in rows})
-                       for ref, rows in docs if ref_rows_masked - {mask(x) for x in rows}}
+            # Field-masked: every token carrying a digit is neutralised (an order number, a contract reference such as
+            # PAR/340A/2026 whose letter suffix moves with the contract, a date), because the reference set is small
+            # enough for a per-invoice field to be constant across it and so look like template. A reference row still
+            # absent after masking is then looked for as a near neighbour (the same cutoff as the altered-row test):
+            # one found is the same row printed with a different field or a punctuation variant of the layout
+            # (Weis prints "P/O # 717316" on one invoice and "P/O # - 717316" on the next) and is reported as a
+            # field variant, not a miss; none found is a template row genuinely absent and fails.
+            ref_rows_masked = {fmask(x) for x in ref_rows}
+            missing, variants_2w = {}, {}
+            for ref, rows in docs:
+                have = {fmask(x) for x in rows}
+                gone = sorted(ref_rows_masked - have)
+                if not gone:
+                    continue
+                near_ok, truly = {}, []
+                for g in gone:
+                    near = difflib.get_close_matches(g, sorted(have), n=1, cutoff=0.85)
+                    (near_ok.__setitem__(g, near[0]) if near else truly.append(g))
+                if near_ok:
+                    variants_2w[ref] = near_ok
+                if truly:
+                    missing[ref] = truly
             two_way = dict(reference_template_rows=len(ref_rows), documents_missing_any=len(missing), misses=missing,
-                           basis='digit-masked comparison; a row differing only inside a digit run is not a miss')
+                           documents_with_field_variants=len(variants_2w), field_variants=variants_2w,
+                           basis='field-masked comparison (every digit-bearing token neutralised); a reference row absent after masking but '
+                                 'with a near neighbour in the document (cutoff 0.85) is a field or punctuation variant, not a miss')
             if missing:
                 failures.append((v, missing))
         out.append(dict(vendor_template=v, batch_documents=len(docs), reference_documents=[f'{r["batch"]}:{r["doc"]} ({r["how"]})' for r in rs],
@@ -295,7 +384,7 @@ def fidelity(corpus, refs):
                vendors=out, verdict='FAIL' if failures else 'PASS',
                scope=('Proves the fixed template and boilerplate rows this batch carries are verbatim against an independent parse of the '
                       'same vendor. It cannot prove per-invoice description text, which appears on no other document; that rests on the '
-                      'retained layout rows, the arithmetic tie on every invoice (all 40 reconcile to the printed subtotal to the cent) and '
+                      f'retained layout rows, the arithmetic tie on every invoice (all {sum(1 for d in corpus["documents"] if not d.get("duplicate_of"))} reconcile to the printed subtotal to the cent) and '
                       'the creditor history on the register line. Where a vendor contributes a single document to this batch, "constant '
                       'across the batch" is that document\'s own rows, so the unmatched list for that vendor is its invoice-specific text.'))
     assert rep['verdict'] == 'PASS', failures
@@ -328,7 +417,7 @@ def main():
     if res.gate != 'GREEN':
         # rule 19.2: a corpus that fails any of its own gates is logged, HELD and not part-built from.
         hold = dict(batch=BATCH, corpus=os.path.basename(SRC), corpus_md5=src_md5,
-                    received='11-Sep-2026', tool=corpus['manifest'].get('extraction_tool'),
+                    received=dt.date.today().strftime('%d-%b-%Y'), tool=corpus['manifest'].get('extraction_tool'),
                     declared_gate=corpus['manifest']['gate_as_supplied'],
                     repair_gate=f'{res.gate} after prep_supplied_corpus.py restatement',
                     repairs=log, documents=len(corpus['documents']),

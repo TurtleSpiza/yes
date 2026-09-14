@@ -1,0 +1,415 @@
+{
+ "_readme": [
+  "Authored content for Batch ksadasd (rule 18: content as data, never ad-hoc writes). One entry per sighted invoice.",
+  "Each coding_note restates what the invoice face prints for that document (job or quote number, site, contract, order,",
+  "contact, completion or visit date and the priced lines) and states whether the printed PK equals the PK charged on the register.",
+  "nature_category and theme_v3 are the per-invoice categories (Theme_Map v2 and Theme_Map_v3) read from the printed scope words,",
+  "because T & H Levai and Weis Contractors each print several kinds of work under one contract and a vendor-level category would misstate them.",
+  "No amount here is inferred: every figure is the printed one, and the corpus gates GREEN with all 68 documents at TIE."
+ ],
+ "INV-39245": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Cleaning & pressure washing",
+  "coding_verdict": "Correct",
+  "coding_note": "Scheduled high profile cleaning: SCHEDULED - Tygum Park (Ref: 35694) - High Profile Cleaning; contract PAR/335L/2023; order 709778; requesting officer Nakita Bishop; visit date 30.06.2026. Lines as printed: Visit date: 30.06.2026 = $600.00. Printed subtotal $600.00 ex GST, GST $60.00, total $660.00. Printed PK000417 matches the PK charged (PK000417)."
+ },
+ "INV-39259": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Fencing, bollards, rails & gates",
+  "coding_verdict": "Correct",
+  "coding_note": "Reactive park maintenance: 3899183 - Wearing Park (Ref: 35747); contract PAR/335L/2023; order 717529; requesting officer Ryan McCorkindale; completed 06.07.2026. Lines as printed: Reinstate bollard/repair fence = $528.00. Printed subtotal $528.00 ex GST, GST $52.80, total $580.80. Printed PK000118 matches the PK charged (PK000118)."
+ },
+ "INV-2598": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Cleaning & pressure washing",
+  "coding_verdict": "Correct",
+  "coding_note": "Weis Contractors, reference \"CR - Darlington Parklands\"; site(s) Darlington Parklands, Yarrabilba 4207; service date(s) 9 July 2026; contract PAR/340A/2026; order 717316. Lines as printed: Monthly high pressure clean of park assets 1.00 @ $671.00 = $671.00. Printed subtotal $671.00 ex GST, GST $67.10, total $738.10. Printed PK000441 matches the PK charged (PK000441)."
+ },
+ "INV-39285": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Fencing, bollards, rails & gates",
+  "coding_verdict": "Correct",
+  "coding_note": "Reactive park maintenance: 3909286 - Middle Park (Ref: 35743); contract PAR/335L/2023; order 717529; requesting officer Jessica Burke; completed 09.07.2026. Lines as printed: Repair post & rail = $537.22. Printed subtotal $537.22 ex GST, GST $53.72, total $590.94. Printed PK000022 matches the PK charged (PK000022)."
+ },
+ "INV-39284": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Fencing, bollards, rails & gates",
+  "coding_verdict": "Correct",
+  "coding_note": "Reactive park maintenance: 3906105 - Eagleby Wetlands (Ref: 35730); contract PAR/335L/2023; order 717529; requesting officer Jessica Burke; completed 09.07.2026. Lines as printed: Replace post & rail = $618.42. Printed subtotal $618.42 ex GST, GST $61.84, total $680.26. Printed PK000022 matches the PK charged (PK000022)."
+ },
+ "INV-39302": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Cleaning & pressure washing",
+  "coding_verdict": "Correct",
+  "coding_note": "Scheduled high profile cleaning: SCHEDULED - Tudor Park (Ref: 35697) - High Profile Cleaning; contract PAR/340B/2026; order 717317; requesting officer Nakita Bishop; visit date 06.07.2026. Lines as printed: Visit date: 06.07.2026 = $600.00. Printed subtotal $600.00 ex GST, GST $60.00, total $660.00. Printed PK000417 matches the PK charged (PK000417)."
+ },
+ "INV-39301": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Cleaning & pressure washing",
+  "coding_verdict": "Correct",
+  "coding_note": "Scheduled high profile cleaning: SCHEDULED - Crestmead Park (Ref: 35695) - High Profile Cleaning; contract PAR/340B/2026; order 717317; requesting officer Nakita Bishop; visit date 06.07.2026. Lines as printed: Visit date: 06.07.2026 = $600.00. Printed subtotal $600.00 ex GST, GST $60.00, total $660.00. Printed PK000417 matches the PK charged (PK000417)."
+ },
+ "INV-39303": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Cleaning & pressure washing",
+  "coding_verdict": "Correct",
+  "coding_note": "Scheduled high profile cleaning: SCHEDULED - Reserve Park (Ref: 35698) - High Profile Cleaning; contract PAR/340B/2026; order 717317; requesting officer Nakita Bishop; visit date 06.07.2026. Lines as printed: Visit date: 06.07.2026 = $600.00. Printed subtotal $600.00 ex GST, GST $60.00, total $660.00. Printed PK000417 matches the PK charged (PK000417)."
+ },
+ "INV-39311": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Fencing, bollards, rails & gates",
+  "coding_verdict": "Correct",
+  "coding_note": "Reactive park maintenance: 3910008 - Highland Park (Ref: 35789); contract PAR/335L/2023; order 717529; requesting officer Ryan McCorkindale; completed 06.07.2026. Lines as printed: Repair DOLA fence = $540.80. Printed subtotal $540.80 ex GST, GST $54.08, total $594.88. Printed PK000022 matches the PK charged (PK000022)."
+ },
+ "INV-2601": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Cleaning & pressure washing",
+  "coding_verdict": "Correct",
+  "coding_note": "Weis Contractors, reference \"CR - Cornubia Forest Park\"; site(s) Cornubia Forest Park, Cornubia; service date(s) 17 July 2026; contract PAR/340A/2026; order 717369. Lines as printed: Supply labour and equipment to remove various pink dots along path as directed 1.00 @ $545.00 = $545.00. Printed subtotal $545.00 ex GST, GST $54.50, total $599.50. Printed PK000022 matches the PK charged (PK000022)."
+ },
+ "INV-39335": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Fencing, bollards, rails & gates",
+  "coding_verdict": "Correct",
+  "coding_note": "Reactive park maintenance: 3894897 - Flaxton Reserve - Flaxton Dr. Yarrabilba (Ref: 35738); contract PAR/335L/2023; order 717529; requesting officer Rene Harreman; completed 20.07.2026. Lines as printed: Replace missing fence panel and repair others = $517.21. Printed subtotal $517.21 ex GST, GST $51.72, total $568.93. Printed PK000118 matches the PK charged (PK000118)."
+ },
+ "INV-39346": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Fencing, bollards, rails & gates",
+  "coding_verdict": "Correct",
+  "coding_note": "Reactive park maintenance: 3913016 - Harmony Park (Ref: 35788); contract PAR/335L/2023; order 717529; requesting officer Ryan McCorkindale; completed 20.07.2026. Lines as printed: Repair Post & Rail = $609.75. Printed subtotal $609.75 ex GST, GST $60.98, total $670.73. Printed PK000022 matches the PK charged (PK000022)."
+ },
+ "INV-39351": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Fencing, bollards, rails & gates",
+  "coding_verdict": "Correct",
+  "coding_note": "Reactive park maintenance: 3904427 - Freshwater Park (Ref: 35719); contract PAR/335L/2023; order 717529; requesting officer Ryan McCorkindale; completed 21.07.2026. Lines as printed: Replace yellow removable bollard = $636.11. Printed subtotal $636.11 ex GST, GST $63.61, total $699.72. Printed PK000022 matches the PK charged (PK000022)."
+ },
+ "INV-39341": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Fencing, bollards, rails & gates",
+  "coding_verdict": "Correct",
+  "coding_note": "Reactive park maintenance: 3916557 - Eridani Park (Ref: 35833); contract PAR/335L/2023; order 717529; requesting officer Dominic Unwin; completed 21.07.2026. Lines as printed: Repair Volley Ball court fence = $639.60. Printed subtotal $639.60 ex GST, GST $63.96, total $703.56. Printed PK000118 matches the PK charged (PK000118)."
+ },
+ "INV-39350": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Fencing, bollards, rails & gates",
+  "coding_verdict": "Correct",
+  "coding_note": "Reactive park maintenance: 3906647 - Glenlogan Park (Ref: 35721); contract PAR/335L/2023; order 717529; requesting officer Jessica Burke; completed 21.07.2026. Lines as printed: Replace missing sleeper bollard = $707.00. Printed subtotal $707.00 ex GST, GST $70.70, total $777.70. Printed PK000022 matches the PK charged (PK000022)."
+ },
+ "INV-39381": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Cleaning & pressure washing",
+  "coding_verdict": "Correct",
+  "coding_note": "Scheduled high profile cleaning: SCHEDULED - Springwood Park (Ref: 35696) - High Profile Cleaning; contract PAR/335L/2023; order 717317; requesting officer Nakita Bishop; visit date 22.07.2026. Lines as printed: Visit date: 22.07.2026 = $600.00. Printed subtotal $600.00 ex GST, GST $60.00, total $660.00. Printed PK000417 matches the PK charged (PK000417)."
+ },
+ "INV-39380": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Cleaning & pressure washing",
+  "coding_verdict": "Correct",
+  "coding_note": "Scheduled high profile cleaning: SCHEDULED - Woodlands District Park (Ref: 35693) - High Profile Cleaning; contract PAR/335L/2023; order 717317; requesting officer Nakita Bishop; visit date 22.07.2026. Lines as printed: Visit date: 22.07.2026 = $600.00. Printed subtotal $600.00 ex GST, GST $60.00, total $660.00. Printed PK000417 matches the PK charged (PK000417)."
+ },
+ "INV-39378": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Cleaning & pressure washing",
+  "coding_verdict": "Correct",
+  "coding_note": "Scheduled high profile cleaning: SCHEDULED - Underwood Park (Ref: 35691) - High Profile Cleaning; contract PAR/335L/2023; order 717317; requesting officer Nakita Bishop; visit date 22.07.2026. Lines as printed: Visit date: 22.07.2026 = $600.00. Printed subtotal $600.00 ex GST, GST $60.00, total $660.00. Printed PK000417 matches the PK charged (PK000417)."
+ },
+ "INV-39379": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Cleaning & pressure washing",
+  "coding_verdict": "Correct",
+  "coding_note": "Scheduled high profile cleaning: SCHEDULED - Skinners Park (Ref: 35692) - High Profile Cleaning; contract PAR/335L/2023; order 717317; requesting officer Nakita Bishop; visit date 21.07.2026. Lines as printed: Visit date: 21.07.2026 = $600.00. Printed subtotal $600.00 ex GST, GST $60.00, total $660.00. Printed PK000417 matches the PK charged (PK000417)."
+ },
+ "INV-39407": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Fencing, bollards, rails & gates",
+  "coding_verdict": "Correct",
+  "coding_note": "Quoted works: 3891645 - Quote No. 657869 - Amundsen Park (Ref: 35792) - Install 8 x dome top bollards; contract PAR/335L/2023; order 717529; requesting officer Rene Harreman; completed 03.08.2026. Lines as printed: Supply DBYD and services location. = $2,860.00; (continuation) Supply and install 8 x dome-top bollards. Printed subtotal $2,860.00 ex GST, GST $286.00, total $3,146.00. Printed PK000118 matches the PK charged (PK000118)."
+ },
+ "INV-39398": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Fencing, bollards, rails & gates",
+  "coding_verdict": "Correct",
+  "coding_note": "Reactive park maintenance: 3922732 - Argule Park (Ref: 35853); contract PAR/335L/2023; order 717529; requesting officer Jessica Burke; completed 04.08.2026. Lines as printed: Repair Post & Rail x 2 = $579.84. Printed subtotal $579.84 ex GST, GST $57.98, total $637.82. Printed PK000022 matches the PK charged (PK000022)."
+ },
+ "INV-39405": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Fencing, bollards, rails & gates",
+  "coding_verdict": "Correct",
+  "coding_note": "Quoted works: CR3925416 - Quote No. 657929 - Village Park (Ref: 35883) - Install bollards; contract PAR/335L/2023; order 717529; requesting officer Shane Ohlsen; completed 06.08.2026. Lines as printed: Provide DBYD and services location. = $2,320.00; (continuation) Supply and install 6 x 1200 x 150 mm dome-top timber bollards. Printed subtotal $2,320.00 ex GST, GST $232.00, total $2,552.00. Printed PK000022 matches the PK charged (PK000022)."
+ },
+ "INV-39394": {
+  "nature_category": "Playground surfacing",
+  "theme_v3": "Playground equipment & softfall",
+  "coding_verdict": "Correct",
+  "coding_note": "Reactive park maintenance: 3923348 - Chris Green Park (Ref: 35874); contract PAR/335L/2023; order 717529; requesting officer Jessica Burke; completed 31.07.2026. Lines as printed: Softfall dig-out & top-up due to excessive grass = $2,308.00. Printed subtotal $2,308.00 ex GST, GST $230.80, total $2,538.80. Printed PK000391 matches the PK charged (PK000391)."
+ },
+ "INV-39396": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Fencing, bollards, rails & gates",
+  "coding_verdict": "Correct",
+  "coding_note": "Reactive park maintenance: 3923378 - Henry Jordan Park (Ref: 35868); contract PAR/335L/2023; order 717529; requesting officer Shane Ohlsen; completed 04.08.2026. Lines as printed: Repair post & rail = $707.44. Printed subtotal $707.44 ex GST, GST $70.74, total $778.18. Printed PK000118 matches the PK charged (PK000118)."
+ },
+ "INV-39401": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Fencing, bollards, rails & gates",
+  "coding_verdict": "Correct",
+  "coding_note": "Reactive park maintenance: 3913886 - Timperley Park (Ref: 35793); contract PAR/335L/2023; order 717529; requesting officer Ryan McCorkindale; completed 04.08.2026. Lines as printed: Replace Post & Rail = $591.33. Printed subtotal $591.33 ex GST, GST $59.13, total $650.46. Printed PK000118 matches the PK charged (PK000118)."
+ },
+ "INV-2610": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Cleaning & pressure washing",
+  "coding_verdict": "Correct",
+  "coding_note": "Weis Contractors, reference \"CR - 3918594/Gamenya Park\"; site(s) Gamenya Park, Springwood; service date(s) 23 July 2026; contract PAR/340A/2026; order 717369. Lines as printed: Supply labour and equipment to high pressure clean park assets as directed 1.00 @ $578.00 = $578.00. Printed subtotal $578.00 ex GST, GST $57.80, total $635.80. Printed PK000022 matches the PK charged (PK000022)."
+ },
+ "INV-2612": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Painting & protective coatings",
+  "coding_verdict": "Correct",
+  "coding_note": "Weis Contractors, reference \"CR - 3925521/Doug Larsen Park\"; site(s) Doug Larsen Park, Beenleigh; service date(s) 3 August 2026; contract PAR/340A/2026; order 717369. Lines as printed: Supply labour and equipment to patch, repair coating and handrail 1.00 @ $1,298.00 = $1,298.00. Printed subtotal $1,298.00 ex GST, GST $129.80, total $1,427.80. Printed PK000442 matches the PK charged (PK000442)."
+ },
+ "INV-2613": {
+  "nature_category": "Playground surfacing",
+  "theme_v3": "Playground equipment & softfall",
+  "coding_verdict": "Correct",
+  "coding_note": "Weis Contractors, reference \"CR - 3920532/Carvers Park\"; site(s) Carvers Park, Park Ridge; service date(s) 3 August 2026; contract PAR/340C/2026; order 717531. Lines as printed: Supply labour and equipment to machine clean sand soft fall to remove overgrown grass 1.00 @ $1,798.00 = $1,798.00. Printed subtotal $1,798.00 ex GST, GST $179.80, total $1,977.80. Printed PK000391 matches the PK charged (PK000391)."
+ },
+ "INV-2614": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Cleaning & pressure washing",
+  "coding_verdict": "Review",
+  "follow_up": "Confirm the WO Task with Park Services: the face prints PK000022 for this site and TechOne charged PK000391; recode if PK000391 is not the intended WO Task. No effect on the register total.",
+  "coding_note": "Weis Contractors, reference \"CR - 3923293/Kilkenny Park\"; site(s) Kilkenny Park, Cornubia; service date(s) 4 August 2026; contract PAR/340A/2026; order 717369. Lines as printed: Supply labour and equipment to high pressure clean playground equipment 1.00 @ $498.00 = $498.00. Printed subtotal $498.00 ex GST, GST $49.80, total $547.80. Printed PK000022 differs from the PK charged (PK000391). PK Charged stays the ledger Work Order (rule 1)."
+ },
+ "INV-2615": {
+  "nature_category": "Playground surfacing",
+  "theme_v3": "Playground equipment & softfall",
+  "coding_verdict": "Correct",
+  "coding_note": "Weis Contractors, reference \"CR 0 3931522/Logan Gardens\"; site(s) Logan Gardens, Logan Central; service date(s) 6 August 2026; contract PAR/340C/2026; order 717531. Lines as printed: Supply labour and equipment to rake out bark soft fall - no glass found 1.00 @ $398.00 = $398.00. Printed subtotal $398.00 ex GST, GST $39.80, total $437.80. Printed PK000391 matches the PK charged (PK000391)."
+ },
+ "INV-2617": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Cleaning & pressure washing",
+  "coding_verdict": "Correct",
+  "coding_note": "Weis Contractors, reference \"CR - High Pressure Cleaning\"; site(s) Shailer Pioneer Park, Shailer Park 4128, Berrinba Wetlands Park, Browns Plains 4118, Forestglen Park, Browns Plains 4118, Lincoln Green Park, Forestdale 4118, Middle Park, Boronia Heights 4124, Mabel Park, Slacks Creek; service date(s) 13 August 2026; contract PAR/340A/2026; order 717316. Lines as printed: Supply labour and equipment to high pressure clean park assets 1.00 @ $454.00 = $454.00; Supply labour and equipment to high pressure clean park assets 1.00 @ $536.00 = $536.00; Supply labour and equipment to high pressure clean park assets 1.00 @ $344.00 = $344.00; Supply labour and equipment to high pressure clean park assets 1.00 @ $250.00 = $250.00; Supply labour and equipment to high pressure clean park assets 1.00 @ $275.00 = $275.00; Supply labour and equipment to high pressure clean park assets 1.00 @ $250.00 = $250.00. Printed subtotal $2,109.00 ex GST, GST $210.90, total $2,319.90. Printed PK000417 matches the PK charged (PK000417)."
+ },
+ "INV-2618": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Cleaning & pressure washing",
+  "coding_verdict": "Correct",
+  "coding_note": "Weis Contractors, reference \"CR - High Pressure Cleaning\"; site(s) Rotary Park, Jimboomba 4280, Flagstone Regional Park, Flagstone 4280, Teviot Downs, New Beith 4124, Village Green, Logan Village; service date(s) 13 August 2026; contract PAR/340A/2026; order 717316. Lines as printed: Fortnightly high pressure clean of park asseets 1.00 @ $250.00 = $250.00; Fortnightly high pressure clean of park assets 1.00 @ $448.00 = $448.00; Fortnightly high pressure clean of park assets 1.00 @ $337.00 = $337.00; Fortnightly high pressure clean of park assets 1.00 @ $244.00 = $244.00. Printed subtotal $1,279.00 ex GST, GST $127.90, total $1,406.90. Printed PK000417 matches the PK charged (PK000417)."
+ },
+ "INV-2619": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Cleaning & pressure washing",
+  "coding_verdict": "Correct",
+  "coding_note": "Weis Contractors, reference \"CR - Darlington Parklands\"; site(s) Darlington Parklands, Yarrabilba 4207; service date(s) 13 August 2026; contract PAR/340A/2026; order 717316. Lines as printed: Monthly high pressure clean of park assets 1.00 @ $671.00 = $671.00. Printed subtotal $671.00 ex GST, GST $67.10, total $738.10. Printed PK000441 matches the PK charged (PK000441)."
+ },
+ "INV-39423": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Fencing, bollards, rails & gates",
+  "coding_verdict": "Correct",
+  "coding_note": "Reactive park maintenance: 3910228 / 3928514 - Hugh Muntz Gardens (Ref: 35775) - Install bollards; contract PAR/335L/2023; order 717529; requesting officer Jessica Burke; completed 06.08.2026. Lines as printed: DBYD and services location. = $2,957.79; (continuation) Remove & dispose of concrete slab.; (continuation) Supply & install 4 x 1200 bollards & 3 x 1500 bollards. Printed subtotal $2,957.79 ex GST, GST $295.78, total $3,253.57. Printed PK000428 matches the PK charged (PK000428)."
+ },
+ "INV-39418": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Fencing, bollards, rails & gates",
+  "coding_verdict": "Correct",
+  "coding_note": "Reactive park maintenance: 3921843 - Crestmead Park (Ref: 35865); contract PAR/335L/2023; order 717529; requesting officer Rene Harreman; completed 11.08.2026. Lines as printed: Replace missing steel railing to fence = $1,444.03; (continuation) Repaint path at horse crossing. Printed subtotal $1,444.03 ex GST, GST $144.40, total $1,588.43. Printed PK000022 matches the PK charged (PK000022)."
+ },
+ "INV-39422": {
+  "nature_category": "Signage & park furniture",
+  "theme_v3": "Signage & wayfinding",
+  "coding_verdict": "Correct",
+  "coding_note": "Reactive park maintenance: 3917723 - Springwood Conservation Park (Ref: 35827); contract PAR/335L/2023; order 717529; requesting officer Jessica Burke; completed 06.08.2026. Lines as printed: Replace rotted timber sign = $1,641.53. Printed subtotal $1,641.53 ex GST, GST $164.15, total $1,805.68. Printed PK000022 matches the PK charged (PK000022)."
+ },
+ "INV-39417": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Park furniture, BBQ & bins",
+  "coding_verdict": "Correct",
+  "coding_note": "Reactive park maintenance: 3922637 - Orlando Park (Ref: 35875); contract PAR/335L/2023; order 717529; requesting officer Shane Ohlsen; completed 11.08.2026. Lines as printed: Remove broken football posts. = $1,131.08; (continuation) Remove and dispose of concrete footings. Printed subtotal $1,131.08 ex GST, GST $113.11, total $1,244.19. Printed PK000118 matches the PK charged (PK000118)."
+ },
+ "INV-39440": {
+  "nature_category": "Signage & park furniture",
+  "theme_v3": "Park furniture, BBQ & bins",
+  "coding_verdict": "Correct",
+  "follow_up": "Ask T & H Levai to print the PK on the face: this invoice states no PK, so the face cannot corroborate the PK charged (PK000118).",
+  "coding_note": "Quoted works: Quote No. 657868 - Tygum Park (Ref: 35742) - Replace 2 x Bench Seats; contract PAR/335L/2023; order 717486; requesting officer Melina Turpin; completed 17.08.2026. Lines as printed: Supply and install 2 x aluminium parkway bench seats. = $3,992.00; (continuation) PLANKS: OLIVE MIST; (continuation) FRAME & LEGS: HAWTHORNE GREEN. Printed subtotal $3,992.00 ex GST, GST $399.20, total $4,391.20. No PK is printed on the invoice face; the charge sits on PK000118, which comes from the TechOne order, not from the document."
+ },
+ "INV-39439": {
+  "nature_category": "Signage & park furniture",
+  "theme_v3": "Signage & wayfinding",
+  "coding_verdict": "Correct",
+  "coding_note": "Quoted works: 3906588 - Quote No. 657889 - Pauline Park (Ref: 35797) - Park Name Sign; contract PAR/335L/2023; order 717529; requesting officer Melina Turpin; no completion date printed. Lines as printed: Supply and install new park name sign on the existing posts. = $1,950.00. Printed subtotal $1,950.00 ex GST, GST $195.00, total $2,145.00. Printed PK000118 matches the PK charged (PK000118)."
+ },
+ "INV-39434": {
+  "nature_category": "Signage & park furniture",
+  "theme_v3": "Park furniture, BBQ & bins",
+  "coding_verdict": "Correct",
+  "coding_note": "Reactive park maintenance: 3909356 - Crestmead Park (Ref: 35776); contract PAR/335L/2023; order 717529; requesting officer Jessica Burke; completed 12.08.2026. Lines as printed: Remove both rusted BBQ’s and concrete slabs and lay turf. = $2,037.50. Printed subtotal $2,037.50 ex GST, GST $203.75, total $2,241.25. Printed PK000022 matches the PK charged (PK000022)."
+ },
+ "INV-2621": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Cleaning & pressure washing",
+  "coding_verdict": "Correct",
+  "coding_note": "Weis Contractors, reference \"CR - Rene Email/Bellevue Park\"; site(s) Bellevue Park, Greenbank; service date(s) 19 August 2026; contract PAR/340A/2026; order 717316. Lines as printed: Supply labour and equipment to scrub clean pickleball court 1.00 @ $568.00 = $568.00; Supply labour and equipment to scrub clean netball court 1.00 @ $869.00 = $869.00; Supply labour and equipment to scrub clean basketball court 1.00 @ $729.00 = $729.00. Printed subtotal $2,166.00 ex GST, GST $216.60, total $2,382.60. Printed PK000022 matches the PK charged (PK000022)."
+ },
+ "INV-2622": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Cleaning & pressure washing",
+  "coding_verdict": "Correct",
+  "coding_note": "Weis Contractors, reference \"CR - Rene Email/Alexander Clark\"; site(s) Alexander Clark Park, Loganholme; service date(s) 19 August 2026; contract PAR/340A/2026; order 717316. Lines as printed: Supply labour and equipment to scrub clean pickleball court 1.00 @ $568.00 = $568.00; Supply labour and equipment to scrub clean basketball court 1.00 @ $869.00 = $869.00. Printed subtotal $1,437.00 ex GST, GST $143.70, total $1,580.70. Printed PK000022 matches the PK charged (PK000022)."
+ },
+ "INV-2625": {
+  "nature_category": "Playground surfacing",
+  "theme_v3": "Playground equipment & softfall",
+  "coding_verdict": "Correct",
+  "coding_note": "Weis Contractors, reference \"CR - 3932012/Newstead Park\"; site(s) Newstead Park, Buccan; service date(s) 19 August 2026; contract PAR/340C/2026; order 717531. Lines as printed: Supply labour and equipment to decompact bark soft fall 1.00 @ $998.00 = $998.00. Printed subtotal $998.00 ex GST, GST $99.80, total $1,097.80. Printed PK000391 matches the PK charged (PK000391)."
+ },
+ "INV-2626": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Cleaning & pressure washing",
+  "coding_verdict": "Correct",
+  "coding_note": "Weis Contractors, reference \"CR - 3892428/Logan Gardens\"; site(s) Logan Gardens, Logan Central; service date(s) 24 July 2026; contract PAR/340C/2026; order 717369. Lines as printed: Supply labour and equipment to inspect and remove glass from play area 1.00 @ $427.00 = $427.00. Printed subtotal $427.00 ex GST, GST $42.70, total $469.70. Printed PK000022 matches the PK charged (PK000022)."
+ },
+ "INV-39463": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Fencing, bollards, rails & gates",
+  "coding_verdict": "Correct",
+  "coding_note": "Reactive park maintenance: 3921692 - Crestmead Park (Ref: 35941); contract PAR/335L/2023; order 717529; requesting officer Melina Turpin; completed 24.08.2026. Lines as printed: Replace post & rail = $581.88. Printed subtotal $581.88 ex GST, GST $58.19, total $640.07. Printed PK000022 matches the PK charged (PK000022)."
+ },
+ "INV-39452": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Fencing, bollards, rails & gates",
+  "coding_verdict": "Correct",
+  "coding_note": "Reactive park maintenance: 3912221 - Paradise Park (Ref: 35781); contract PAR/335L/2023; order 717529; requesting officer Jessica Burke; completed 19.08.2026. Lines as printed: Replace post & rail = $679.40. Printed subtotal $679.40 ex GST, GST $67.94, total $747.34. Printed PK000022 matches the PK charged (PK000022)."
+ },
+ "INV-39451": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Fencing, bollards, rails & gates",
+  "coding_verdict": "Correct",
+  "coding_note": "Reactive park maintenance: 3911988 - 15-17 Lorna Street, Browns Plains (Ref: 35783); contract PAR/335L/2023; order 717529; requesting officer Jessica Burke; completed 19.08.2026. Lines as printed: Repair post & rails = $556.00. Printed subtotal $556.00 ex GST, GST $55.60, total $611.60. Printed PK000022 matches the PK charged (PK000022)."
+ },
+ "INV-39446": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Fencing, bollards, rails & gates",
+  "coding_verdict": "Correct",
+  "coding_note": "Reactive park maintenance: 3937427 - Jimboomba Park (Ref: 35934); contract PAR/335L/2023; order 717529; requesting officer Aisha Wilson; completed 20.08.2026. Lines as printed: Repair Post & Rails = $495.32. Printed subtotal $495.32 ex GST, GST $49.53, total $544.85. Printed PK000022 matches the PK charged (PK000022)."
+ },
+ "INV-39447": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Fencing, bollards, rails & gates",
+  "coding_verdict": "Correct",
+  "coding_note": "Reactive park maintenance: 3923666 - Meakin Park (Ref: 35932); contract PAR/335L/2023; order 717529; requesting officer Aisha Wilson; completed 20.08.2026. Lines as printed: Repair steel pipe chicane = $539.39. Printed subtotal $539.39 ex GST, GST $53.94, total $593.33. Printed PK000022 matches the PK charged (PK000022)."
+ },
+ "INV-39450": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Fencing, bollards, rails & gates",
+  "coding_verdict": "Correct",
+  "coding_note": "Reactive park maintenance: 3925067 - Doug Larsen Park (Ref: 35862); contract PAR/335L/2023; order 717529; requesting officer Rene Harreman; completed 18.08.2026. Lines as printed: Repair post & rail x 5 = $2,484.84. Printed subtotal $2,484.84 ex GST, GST $248.48, total $2,733.32. Printed PK000118 matches the PK charged (PK000118)."
+ },
+ "INV-39476": {
+  "nature_category": "Playground surfacing",
+  "theme_v3": "Playground equipment & softfall",
+  "coding_verdict": "Correct",
+  "coding_note": "Quoted works: Quote No. 657925 - Goldmine Park (Ref: 35913) - BARK - Softfall Top-up (17M³); contract PAR/335L/2023; order 717529; requesting officer Dominic Unwin; completed 19.08.2026. Lines as printed: Clear softfall area of leaves and debris. = $4,420.00; (continuation) Top up softfall area with 17 M³ of softfall bark to the minimum depth of 300 mm.; (continuation) Softfall area approximately 110 M². Printed subtotal $4,420.00 ex GST, GST $442.00, total $4,862.00. Printed PK000391 matches the PK charged (PK000391)."
+ },
+ "INV-39482": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Timber & structural carpentry",
+  "coding_verdict": "Correct",
+  "coding_note": "Quoted works: 3910123 - Quote No. 657881 - Waller Park (Ref: 35770) - Retaining wall repairs; contract PAR/335L/2023; order 717529; requesting officer Rene Harreman; completed 20.08.2026. Lines as printed: Remove and dispose of 12 m of damaged timber sleeper retaining wall. = $5,760.00; (continuation) Supply and install a timber sleeper retaining wall with timber posts in concrete footings.; (continuation) Supply and install AG drain with 20 mm drainage gravel.; (continuation) Backfill retaining wall. Printed subtotal $5,760.00 ex GST, GST $576.00, total $6,336.00. Printed PK000022 matches the PK charged (PK000022)."
+ },
+ "INV-39505": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Cleaning & pressure washing",
+  "coding_verdict": "Correct",
+  "coding_note": "Scheduled high profile cleaning: SCHEDULED - Logan River Parklands (Ref: 35690) - High Profile Cleaning; contract PAR/340B/2026; order 717317; requesting officer Nakita Bishop; visit date 18.08.2026. Lines as printed: Visit date: 18.08.2026 = $600.00. Printed subtotal $600.00 ex GST, GST $60.00, total $660.00. Printed PK000417 matches the PK charged (PK000417)."
+ },
+ "INV-39506": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Cleaning & pressure washing",
+  "coding_verdict": "Correct",
+  "coding_note": "Scheduled high profile cleaning: SCHEDULED - Tygum Park (Ref: 35694) - High Profile Cleaning; contract PAR/340B/2026; order 717317; requesting officer Nakita Bishop; visit date 19.08.2026. Lines as printed: Visit date: 19.08.2026 = $600.00. Printed subtotal $600.00 ex GST, GST $60.00, total $660.00. Printed PK000417 matches the PK charged (PK000417)."
+ },
+ "INV-39509": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Cleaning & pressure washing",
+  "coding_verdict": "Correct",
+  "coding_note": "Scheduled high profile cleaning: SCHEDULED - Reserve Park (Ref: 35698) - High Profile Cleaning; contract PAR/340B/2026; order 717317; requesting officer Nakita Bishop; visit date 19.08.2026. Lines as printed: Visit date: 19.08.2026 = $600.00. Printed subtotal $600.00 ex GST, GST $60.00, total $660.00. Printed PK000417 matches the PK charged (PK000417)."
+ },
+ "INV-39489": {
+  "nature_category": "Signage & park furniture",
+  "theme_v3": "Park furniture, BBQ & bins",
+  "coding_verdict": "Correct",
+  "coding_note": "Reactive park maintenance: 3889532 - Everleigh Park (Ref: 35567) - Replace bin door; contract PAR/335L/2023; order 717529; requesting officer Rene Harreman; completed 28.08.2026. Lines as printed: New bin door manufactured and powder coated. = $1,695.41; (continuation) Powder coated existing door to match.; (continuation) Custom made locks for bin due to non standard locking mechanism. Printed subtotal $1,695.41 ex GST, GST $169.54, total $1,864.95. Printed PK000118 matches the PK charged (PK000118)."
+ },
+ "INV-39504": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Cleaning & pressure washing",
+  "coding_verdict": "Correct",
+  "coding_note": "Scheduled high profile cleaning: SCHEDULED - Doug Larsen Park (Ref: 35689) - High Profile Cleaning; contract PAR/340B/2026; order 717317; requesting officer Nakita Bishop; visit date 17.08.2026. Lines as printed: Visit date: 17.08.2026 = $600.00. Printed subtotal $600.00 ex GST, GST $60.00, total $660.00. Printed PK000417 matches the PK charged (PK000417)."
+ },
+ "INV-39503": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Cleaning & pressure washing",
+  "coding_verdict": "Correct",
+  "coding_note": "Scheduled high profile cleaning: SCHEDULED - Noyer Park (Ref: 35688) - High Profile Cleaning; contract PAR/340B/2026; order 717317; requesting officer Nakita Bishop; visit date 14.08.2026. Lines as printed: Visit date: 14.08.2026 = $600.00. Printed subtotal $600.00 ex GST, GST $60.00, total $660.00. Printed PK000417 matches the PK charged (PK000417)."
+ },
+ "INV-39508": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Cleaning & pressure washing",
+  "coding_verdict": "Correct",
+  "coding_note": "Scheduled high profile cleaning: SCHEDULED - Tudor Park (Ref: 35697) - High Profile Cleaning; contract PAR/340B/2026; order 717317; requesting officer Nakita Bishop; visit date 18.08.2026. Lines as printed: Visit date: 18.08.2026 = $600.00. Printed subtotal $600.00 ex GST, GST $60.00, total $660.00. Printed PK000417 matches the PK charged (PK000417)."
+ },
+ "INV-39483": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Fencing, bollards, rails & gates",
+  "coding_verdict": "Correct",
+  "coding_note": "Reactive park maintenance: 3922157 - Lincoln Green Park (Ref: 35987); contract PAR/335L/2023; order 717529; requesting officer Shane Ohlsen; completed 28.08.2026. Lines as printed: Install new post & rails x 2 = $1,231.51. Printed subtotal $1,231.51 ex GST, GST $123.15, total $1,354.66. Printed PK000022 matches the PK charged (PK000022)."
+ },
+ "INV-39553": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Fencing, bollards, rails & gates",
+  "coding_verdict": "Correct",
+  "coding_note": "Reactive park maintenance: 3939906 - Hugh Muntz Gardens (Ref: 35991); contract PAR/335L/2023; order 717529; requesting officer Aisha Wilson; completed 08.09.2026. Lines as printed: Replace missing bollard = $666.57. Printed subtotal $666.57 ex GST, GST $66.66, total $733.23. Printed PK000428 matches the PK charged (PK000428)."
+ },
+ "INV-39562": {
+  "nature_category": "Playground surfacing",
+  "theme_v3": "Playground equipment & softfall",
+  "coding_verdict": "Correct",
+  "coding_note": "Reactive park maintenance: 3922446 - Huggins Park (Ref: 35958); contract PAR/340D/2026; order 717236; requesting officer Melina Turpin; completed 07.09.2026. Lines as printed: Decompact Bark - Add 5M³ = $1,624.63. Printed subtotal $1,624.63 ex GST, GST $162.46, total $1,787.09. Printed PK000391 matches the PK charged (PK000391)."
+ },
+ "INV-39559": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Fencing, bollards, rails & gates",
+  "coding_verdict": "Correct",
+  "coding_note": "Reactive park maintenance: 3924026 - Freshwater Park (Ref: 35980); contract PAR/335L/2023; order 717529; requesting officer Aisha Wilson; completed 08.09.2026. Lines as printed: Replace rotted sleeper bollards x 2 = $843.78. Printed subtotal $843.78 ex GST, GST $84.38, total $928.16. Printed PK000022 matches the PK charged (PK000022)."
+ },
+ "INV-39561": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Playground equipment & softfall",
+  "coding_verdict": "Correct",
+  "follow_up": "Ask T & H Levai to print the PK on the face: this invoice states no PK, so the face cannot corroborate the PK charged (PK000022).",
+  "coding_note": "Reactive park maintenance: 3935577 - Valley View Park (Ref: 35978); contract PAR/335L/2023; order 717529; requesting officer Aisha Wilson; completed 04.09.2026. Lines as printed: Replace missing wall capping around play equipment = $1,420.92. Printed subtotal $1,420.92 ex GST, GST $142.09, total $1,563.01. No PK is printed on the invoice face; the charge sits on PK000022, which comes from the TechOne order, not from the document."
+ },
+ "INV-39563": {
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Fencing, bollards, rails & gates",
+  "coding_verdict": "Correct",
+  "coding_note": "Reactive park maintenance: 3931153 - Ewing Park (Ref: 35894); contract PAR/335L/2023; order 717529; requesting officer Dominic Unwin; completed 08.09.2026. Lines as printed: Replace missing gate/repair others = $1,661.67. Printed subtotal $1,661.67 ex GST, GST $166.17, total $1,827.84. Printed PK000118 matches the PK charged (PK000118)."
+ },
+ "INV-39556": {
+  "nature_category": "Playground surfacing",
+  "theme_v3": "Playground equipment & softfall",
+  "coding_verdict": "Correct",
+  "coding_note": "Reactive park maintenance: 3923269 - Sebring Park (Ref: 35983); contract PAR/340D/2026; order 717236; requesting officer Aisha Wilson; completed 07.09.2026. Lines as printed: TAKURA - Decompact & top-up (5m³) = $1,650.00. Printed subtotal $1,650.00 ex GST, GST $165.00, total $1,815.00. Printed PK000391 matches the PK charged (PK000391)."
+ },
+ "INV-39558": {
+  "nature_category": "Playground surfacing",
+  "theme_v3": "Playground equipment & softfall",
+  "coding_verdict": "Correct",
+  "coding_note": "Reactive park maintenance: 3926365 - Bronzewing Park (Ref: 35981); contract PAR/340D/2026; order 717236; requesting officer Aisha Wilson; completed 07.09.2026. Lines as printed: TAKURA - decompact & top-up (2M³) = $788.79. Printed subtotal $788.79 ex GST, GST $78.88, total $867.67. Printed PK000391 matches the PK charged (PK000391)."
+ }
+}

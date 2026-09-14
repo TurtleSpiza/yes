@@ -14,12 +14,13 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import pbr_stage
 
-VER = 'v10'
+VER = 'v11'
 OUTNAME = f'Parks_Branch_Transaction_Register_FY2627_{VER}.xlsx'
+SUPPLIED_GREEN = ('pla073_1', 'ksadasd')  # supplied corpora that arrived GREEN under prompt v6 runtime A; prep does housekeeping only
 CLTOK = re.compile(r'\{CL:(\d+):(\d+)\}')
 SCRATCH = os.path.join(pbr_stage.ROOT, 'cache', 'scratch')
 OUTDIR = os.environ.get('PBR_OUTDIR', os.path.join(pbr_stage.ROOT, 'registers'))
-BUILD_DATE = '11-Sep-2026'
+BUILD_DATE = '14-Sep-2026'
 MONEY = '$#,##0.00;($#,##0.00);"-"'
 DATEF = 'd-mmm-yyyy'
 T0 = time.time()
@@ -423,6 +424,14 @@ def build(stage):
             'e6782e55b5379dc3adcb6a1b5c7cebd4, gate RED as supplied (11 P1, 16 documents at OUT), restated to corpus_mix22_v6.json by prep_supplied_corpus.py and gated GREEN; '
             'the rule 19.2 per-vendor verbatim check ran against independently parsed Savco, Heritage, Play Force and Kachel page text (Data_Acquisition).'])
     ho.row(['code.pdf (66 pages, binder not supplied)', 'Evidence_Invoices / Evidence_Invoice_Lines / Register green block (Batch code): supplied corpus corpus_code.json md5 e256555fc9d22d46a9cce80f8e7bbe3b, prepared to corpus_code_v6.json with page text rebuilt from the retained layout rows and the rule 19.2 per-vendor verbatim check run against an independent source (Data_Acquisition).'])
+    # supplied corpora that arrived GREEN under extraction prompt v6 runtime A (v10 onward): one row each, facts from the manifest
+    _sup = {b: json.load(open(os.path.join(pbr_stage.ROOT, 'batches', b, f'corpus_{b}_v6.json')))['manifest'] for b in SUPPLIED_GREEN if b in pbr_stage.BATCHES}
+    for _b, _m in _sup.items():
+        _sf = _m['source_files'][0]
+        ho.row([f'{_sf["name"]} ({_sf["pages"]} pages, binder not supplied)',
+                f'Evidence_Invoices / Evidence_Invoice_Lines / Register green block (Batch {_b}): supplied corpus corpus_{_b}_as_supplied.json md5 {_m["supplied_corpus_md5"]}, '
+                f'gate {_m["gate_as_supplied"]} as supplied ({_m["documents_found"]} documents, {_m["documents_out_as_supplied"]} at OUT), prepared to corpus_{_b}_v6.json by prep_supplied_corpus.py '
+                f'(housekeeping only, no amount restated) and gated {_m["gate"]}; rule 19.2 per-vendor verbatim check {_m["fidelity_check"]["verdict"]} against independently parsed page text; the PDF is not embedded (rule 15).'])
     ho.blank()
     ho.row(['Next steps (priority order, detail on Open_Items)', ''], 'blue')
     top = sorted(unid_by_sec.items(), key=lambda kv: -kv[1][1])[:3]
@@ -440,8 +449,26 @@ def build(stage):
     _hm = stage['hist_matches']
     _b7 = {b: json.load(open(os.path.join(pbr_stage.ROOT, 'batches', b, f'corpus_{b}_v6.json')))['manifest']
            for b in ('mix222', 'binder11111') if os.path.exists(os.path.join(pbr_stage.ROOT, 'batches', b, f'corpus_{b}_v6.json'))}
-    if _b7:
+    _k = _sup.get('ksadasd'); _p = _sup.get('pla073_1')
+    _kr = [r for r in sighted if 'Batch ksadasd' in str(r['V'][126] or '')]
+    if _k:
         ho.row([f'{VER}, {BUILD_DATE}',
+                f'Batch ksadasd captured: {_k["documents_found"] - 1} invoices over {_k["source_files"][0]["pages"]} pages (54 T & H Levai, 14 Weis Contractors, one repeated copy of INV-39506 typed DUPLICATE_COPY and not captured twice), '
+                f'{fmt_money(_k["captured_ex_gst_total"])} ex GST, {len(_kr)} green blocks one to one on Park Services lines at 73123, every line already identified from the LEV002 history or the PS & WP label and now sighted (rule 17). '
+                f'Supplied corpus gate {_k["gate_as_supplied"]} as supplied, {_k["documents_tie"]} of {_k["documents_found"]} at TIE, no amount restated; two header restatements from the retained rows: the due date every face prints was omitted by the extraction and is restated from the printed row, and on all 14 Weis documents the extraction carried the printed due date in the invoice-date field, restated from the printed Invoice Date row (R4). Rule 19.2 shingle check and per-vendor fidelity check both PASS. '
+                f'Nature category is now per invoice where a vendor prints several kinds of work under one contract (match-table keys nature_category and theme_v3): scheduled high profile cleaning, fence and bollard repairs, softfall top-ups, furniture and signs on the Levai contract; pressure cleaning, sand softfall cleaning and coatings on the Weis contracts. '
+                f'The Levai header parser fixed the Spring Mountain Reserve job on every invoice at v2 to v10; five v3 captures (INV-39437, INV-39435, INV-39475, INV-39495, INV-39542) now carry their own printed site, job and category. '
+                f'Findings: Weis INV-2614 prints PK000022 for Kilkenny Park and is charged PK000391 (verdict Review); Levai INV-39440 and INV-39561 print no PK. Control total unchanged.'])
+    if _p:
+        _pr = [r for r in sighted if 'Batch pla073_1' in str(r['V'][126] or '')]
+        ho.row(['v10, 14-Sep-2026',
+                f'Batch pla073_1 captured: {_p["documents_found"]} Play Force Australia invoices over {_p["source_files"][0]["pages"]} pages, {fmt_money(_p["captured_ex_gst_total"])} ex GST, {len(_pr)} green blocks one to one. '
+                f'First supplied corpus to arrive GREEN with nothing to repair; shingle check and per-vendor fidelity check PASS. Six invoices print "undefined" in the Account field (Open_Items). '
+                f'Two more APLEDGER histories (QPO001, KAC001). Finding: Kachel invoice 7719 allocates $3,530.00 to PK000030 and $630.00 to PK000028 on its face and TechOne posts the whole $4,160.00 to PK000028 (Open_Items). Control total unchanged.'])
+    ho.row(['v9, 14-Sep-2026', 'Document Reconstruction journal route added (rule 21): Reconstruction_Sources carries the Council-side counterparty legs of four documents, every document nets to $0.00 and every reference ties its register net. Findings: the internal plant hire SLA is a fixed monthly charge per plant unit; document file 1252466 still only partly evidenced (Open_Items). Control total unchanged.'])
+    ho.row(['v8, 14-Sep-2026', 'Seven APLEDGER creditor histories added (WOR035, GRE075, INT036, PLA073, TOT034, GXO001, BUN007), identification from 1,053 to 1,218 lines. Findings: Worssell prints no registered entity name; creditor code INT036 does not match the printed entity (Open_Items). Control total unchanged.'])
+    if _b7:
+        ho.row(['v7, 11-Sep-2026',
                 'The two binders held at v6 were supplied and built. Batches ' + ' and '.join(
                     f'{b} ({m["documents_found"]} invoices, {m["source_files"][0]["file"]}, {m["source_files"][0]["pages"]} pages, '
                     f'captured {fmt_money(m["captured_ex_gst_total"])} ex GST)' for b, m in _b7.items()) + '. '
@@ -453,7 +480,7 @@ def build(stage):
                 'were recoded to PK000514 on 74189 by GJ080696 while four were not ("Fuel levy recoded on some invoices and not others" on Open_Items). Control total unchanged.'])
     _jm = stage['journal_batch']['manifest']
     _h6 = [h for h in HISTS if h.get('added') == 'v6']; _hm6 = [m for m in _hm if HISTS[m['k']].get('added') == 'v6']
-    ho.row([f'{VER}, {BUILD_DATE}',
+    ho.row(['v6, 11-Sep-2026',
             f'Journal batch journal_1 (rule 21, first journal pull on this register): {_jm["exports_received"]} TechOne Document Line Table exports received, '
             f'{len(_jm["duplicate_exports"])} of them duplicate copies; {_jm["documents"]} documents; {_jm["documents_embedded"]} embedded verbatim on the new Journal_Sources sheet '
             f'({_jm["legs_total"]} legs, {_jm["legs_in_scope"]} in branch scope) and {_jm["documents_audited_only"]} audited leg by leg against the PS & WP v127 embed and NOT re-captured (rule 12). '
@@ -541,6 +568,11 @@ def build(stage):
          'Match rule (pbr_histories_v4.json, held as data): the AP register line reference equals the history Reference; the history Transaction Amount (incl GST) is within 2c of the document net ex GST x 1.1 summed over every register line on the Document Unique ID; the history Date is within 120 days of the register Doc Date; exactly one creditor code satisfies all three (numeric references collide across creditors, e.g. Harpley and Eco Technology Solutions both issue reference 11913). Tier 1 where the history line carries an 11-digit ABN. The register line takes the creditor code (col K), the label from the manifest (col L, canonical per printed ABN), the ABN grouped (col M), the enquiry block (cols W, AS:BA) and an Evidence sentence citing the Creditor_Lines row. Status stays Partial and verdict Confirm: an AP line is never Confirmed without rule 17.',
          f'Inherited Park Services lines carried from PS_WP v127 as Unidentified, series-inferred or vendor-inferred are identified the same way ({len(ident_rows)} lines; a sighted invoice on the same line supersedes the identification); their provenance (col ER) reads "contractor identified at branch v4" (or v5, v6) and the v127 evidence sentence is kept inside the new one. Sighted (Tier 1, rule 17) lines are never re-identified. Label conflicts, where the v127 label named a different vendor: {len(stage["hist_conflicts"])} (Open_Items). Correction carried in the match table: at v3 register line f386b8d0-73212-PK000415-01 (reference 00015225, $240.00) was tagged a cents companion of Q Power 15225; it is on a different TechOne document and HAR073 shows it is Harpley invoice 00015225, so the tag is withdrawn (match_mixed_new_26_27_v6.json evid_note).',
          'Batch attach_1 (v4): five single-invoice TechOne attachment PDFs (EzeScan exports, file name = attachment id) parsed by parse_attach1.py (pdftotext -layout, page text retained, five templates ETSOL, GLASCOTT_LM, PROVAC, SAVCO, HERITAGE), gated GREEN (P9 page-coverage test now runs per source file when a corpus carries several), 254 five-word shingles clean, match table match_attach_1_v6.json (five standard variants, one register line each, coding verdict and note per invoice as data). Printed PK versus PK charged is recorded on three invoices (Eco Technology Solutions 11913, Provac INV-00042754, Savco SV007924); PK Charged stays the ledger Work Order (rule 1).')
+    sec_('15.0 Supplied-corpus batches under extraction prompt v6 (v10 pla073_1, v11 ksadasd)',
+         'A corpus supplied by the extraction tool (binder not supplied) enters through prep_supplied_corpus.py: the md5 of the file as supplied is stamped and screened (rule 12), the vendor template is assigned, page text is rebuilt from the retained rows, dates are made ISO, findings are restated as text, and the rule 19.2 gates run: pswp_json_repair (P1 to P13) on the corpus\'s own arithmetic, the five-word shingle check on every priced row against its own retained page text, and the per-vendor verbatim fidelity check against page text this project parsed independently from a real PDF of the same vendor. A corpus failing any gate is held (rule 19.2); these two arrived GREEN and were built.',
+         'Header restatements a supplied corpus may need are families of prep_supplied_corpus.py, each decided from the retained rows and logged per document in the corpus manifest: R1 amount-bearing rows typed NARRATIVE, R2 a printed total carrying the GST amount, R3 a line_type outside the closed list, R4 an invoice date that is not the printed Invoice Date (ksadasd: all 14 Weis documents carried the printed due date there). Nothing is inferred; a document whose restated lines do not equal its printed subtotal is refused.',
+         'A repeated copy of an invoice inside the binder is a separate document record carrying duplicate_of (prompt v6 11.4): every row typed DUPLICATE_COPY, no arithmetic, never matched or captured twice (ksadasd INV-39506, page 58). The gate, the rule 16 reconciliation and the match table honour that field from v11.',
+         'Nature category is data per invoice where a vendor prints several kinds of work under one contract (match-table keys nature_category and theme_v3, authored in notes_<batch>_v6.json from the printed job row and item rows): the build proves the v2 value on Theme_Map and the driver proves the v3 value on the Theme_Map_v3 list. Levai and Weis are categorised this way from v11; the vendor-level default stays for single-scope vendors.')
     for h, p in M:
         if h:
             me.row([h, ''], 'blue')
@@ -1102,11 +1134,12 @@ def build(stage):
     if stage['hist_ambiguous']:
         items.append(('Ambiguous history references', 'Note', 'Branch', len(stage['hist_ambiguous']), None,
                       'References where more than one creditor history ties by amount and date, left unidentified: ' + '; '.join(f'{r_} ({", ".join(c_)})' for r_, c_ in stage['hist_ambiguous'][:20]) + '.', 'Match rule, Method 12.0.'))
-    _pk = [r for r in sighted if re.match(r'11-Sep-2026, branch v[456]', str(r['V'][126] or '')) and r['V'][104] not in (None, '(not printed)', 'undefined (as printed)') and str(r['V'][104]).replace(' ', '') != str(r['V'][17])]
+    _pk = [r for r in sighted if re.match(r'(11-Sep-2026, branch v[456]|14-Sep-2026, branch v1[01])\b', str(r['V'][126] or '')) and r['V'][104] not in (None, '(not printed)', 'undefined (as printed)') and str(r['V'][104]).replace(' ', '') != str(r['V'][17])]
     if _pk:
-        items.append(('Printed PK differs from PK charged (sighted invoices, branch v4 to v10)', 'Housekeeping', '; '.join(sorted({sec_names[str(r['V'][2])] for r in _pk})), len(_pk), sum(D(r['V'][20]) for r in _pk),
-                      '; '.join(f'{r["V"][88]} prints {r["V"][104]}, charged {r["V"][17]}' for r in _pk) + '. The invoice text supports the PK charged in each case except Play Force INV-8502, where the printed PK000338 is not a WO Task in this register (see the coding note on that line). Ask each supplier to quote the charged WO Task. No financial effect.',
-                      'Sighted invoices, Batches attach_1, attach_2, code, mix22 and attach_3.'))
+        _exc = ['Play Force INV-8502, where the printed PK000338 is not a WO Task in this register'] + [f'{r["V"][12]} {r["V"][88]}, verdict Review' for r in _pk if r['V'][31] == 'Review']
+        items.append(('Printed PK differs from PK charged (sighted invoices, branch v4 to v11)', 'Housekeeping', '; '.join(sorted({sec_names[str(r['V'][2])] for r in _pk})), len(_pk), sum(D(r['V'][20]) for r in _pk),
+                      '; '.join(f'{r["V"][88]} prints {r["V"][104]}, charged {r["V"][17]}' for r in _pk) + '. The invoice text supports the PK charged in each case except ' + '; '.join(_exc) + ' (see the coding note and follow-up on each line). Ask each supplier to quote the charged WO Task. No financial effect.',
+                      'Sighted invoices, Batches attach_1, attach_2, code, mix22, attach_3, pla073_1 and ksadasd.'))
     _undef = [r for r in sighted if str(r['V'][104]) == 'undefined (as printed)']
     if _undef:
         items.append(('Supplier invoice prints no PK ("undefined")', 'Housekeeping', 'Park Services', len(_undef), sum(D(r['V'][20]) for r in _undef),
@@ -1348,6 +1381,14 @@ def build(stage):
                  f'Restated by prep_supplied_corpus.py from the corpus\'s own retained layout rows and gated {_mix.get("gate")}: 32 amount-bearing rows typed NARRATIVE were retyped PRICED from their own band text (R1) and 13 Savco printed totals '
                  f'that carried the printed GST total were restated from the printed TOTAL row (R2). Every one of the 40 documents now reconciles to its printed subtotal to the cent. '
                  f'Rule 19.2 per-vendor verbatim check against an independent source: {_mix["fidelity_check"]["verdict"]}. Scope of that check: {_mix["fidelity_check"]["scope"]} | Batch mix22')
+    for _i, (_b, _m) in enumerate(_sup.items(), _n0 + len(stage['journal_batch']['documents']) + 1):
+        _sf = _m['source_files'][0]; _fc = _m['fidelity_check']
+        lines.append(f'F{_i} | 14-Sep-2026 | corpus_{_b}_as_supplied.json | md5 {_m["supplied_corpus_md5"]} | Supplied extraction corpus for {_sf["name"]} ({_sf["pages"]} pages, binder not supplied). '
+                     f'Extraction tool as declared: {_m.get("extraction_tool")}. Gate as supplied: {_m.get("gate_as_supplied")}, {_m["documents_found"]} documents, {_m["documents_out_as_supplied"]} at OUT. '
+                     f'Prepared by prep_supplied_corpus.py (vendor template, page text rebuilt from the retained rows, ISO dates, due date restated from the printed row where the extraction omitted it, '
+                     f'{sum(1 for x_ in _m["repair_log"][0]["repairs"] if ": R4 " in x_)} invoice date(s) restated from the printed Invoice Date row where the extraction carried another date (R4); no amount restated) and gated {_m["gate"]}, '
+                     f'{_m["documents_tie"]} at TIE, {_m["lines_captured"]:,} line records, captured ex GST {fmt_money(_m["captured_ex_gst_total"])}. Rule 19.2 five-word shingle check PASS on every document (shingles_{_b}_v6.json); '
+                     f'per-vendor verbatim check against an independent source: {_fc["verdict"]} (' + '; '.join(f'{v_["vendor_template"]} {v_["batch_constant_template_rows"]} constant template rows, {v_["verbatim_in_reference"]} verbatim' for v_ in _fc['vendors']) + f'). Scope of that check: {_fc["scope"]} | Batch {_b}')
     for _hb in ('binder11111', 'mix222'):
         _hp = os.path.join(pbr_stage.ROOT, 'batches', _hb, f'hold_{_hb}_v5.json')
         _cp = os.path.join(pbr_stage.ROOT, 'batches', _hb, f'corpus_{_hb}_v6.json')
@@ -1364,7 +1405,7 @@ def build(stage):
                          f'parse_binders.py to extraction prompt v6 ({_c["extraction_tool"]}); gate {_c["gate"]}, {_c["documents_found"]} documents all at TIE, '
                          f'{_c["lines_captured"]:,} line records, captured ex GST {fmt_money(_c["captured_ex_gst_total"])}. Every page the supplied corpus left with no '
                          f'record is a blank separator page and now carries one BLANK record (prompt v6 3.9).' if _c else ''))
-    lines.append(f'Rule 12 screen at v4 to v10: every md5 above was screened against the PS & WP v127 Data_Acquisition and this register\'s inputs; none had been received before. Re-pulls audited against the v127 embedded histories and not re-captured: HAR073 at v4 (5-Aug-2026 pull, F26 there) and LEV002 at v6 (2-Sep-2026 re-pull, F127 there): {stage.get("hist_audit")}. '
+    lines.append(f'Rule 12 screen at v4 to v11: every md5 above was screened against the PS & WP v127 Data_Acquisition and this register\'s inputs; none had been received before. Re-pulls audited against the v127 embedded histories and not re-captured: HAR073 at v4 (5-Aug-2026 pull, F26 there) and LEV002 at v6 (2-Sep-2026 re-pull, F127 there): {stage.get("hist_audit")}. '
                  f'The seven histories added at v8 (WOR035, GRE075, INT036, PLA073, TOT034, GXO001, BUN007) and the two added at v10 (QPO001, KAC001) were pulled 14-Sep-2026; PLA073 and BUN007 are the branch-scope pulls of two creditor '
                  f'accounts already identified in the PS & WP register, and each carries the canonical PS_WP v127 Vendor_Series label.')
     lines.append('ABR public register lookups (v6, 11-Sep-2026, abr.business.gov.au ABN View): 52 010 996 175 Mimeway Pty. Ltd., trading name Mimeway Pty. Ltd. t/as Nuway Landscape Supplies (NUW001); 49 600 618 657 Greenway Solutions Pty Ltd (GRE083); 38 081 222 675 P.K. Consulting Pty Ltd, QLD 4133 (WAT088). Each is the ABN carried on the APLEDGER export for that creditor code; the lookup names the entity, it is not invoice evidence (rule 8: Tier 1 on the creditor history with ABR ABN; nature stays unconfirmed until an invoice is sighted under rule 17).')

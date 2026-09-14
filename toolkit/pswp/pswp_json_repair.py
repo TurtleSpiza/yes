@@ -385,6 +385,8 @@ def f13_stems(corpus: dict, out: GateResult) -> None:
     """
     seen: dict[str, str] = {}
     for doc in corpus.get("documents", []):
+        if doc.get("duplicate_of"):
+            continue  # a repeated copy shares its original's stem by design; it is never captured
         ref = str(doc.get("doc_ref", ""))
         stem = str(doc.get("evidence_stem") or "")
         amt = "%.2f" % D(doc.get("printed_total_incl_gst") or 0)
@@ -421,6 +423,12 @@ def f13_stems(corpus: dict, out: GateResult) -> None:
 
 def retie(doc: dict, out: GateResult) -> None:
     """Recompute captured, then run the ladder rungs that are decidable from the corpus."""
+    if doc.get("duplicate_of"):
+        # prompt v6 11.4: a separate record for a repeated copy carries duplicate_of, every row DUPLICATE_COPY and
+        # no arithmetic; it is not re-tied and not counted as OUT.
+        doc["captured_ex_gst"] = f2(captured(doc))
+        doc["self_tie"] = "TIE"
+        return
     cap = captured(doc)
     doc["captured_ex_gst"] = f2(cap)
     sub = doc.get("printed_subtotal_ex_gst")
@@ -444,7 +452,7 @@ def assess(corpus: dict) -> list[Pathology]:
         p = priced(doc)
         sub = doc.get("printed_subtotal_ex_gst")
         pr = doc.get("page_range") or [0, 0]
-        if sub is not None and D(sub) != 0 and not p:
+        if sub is not None and D(sub) != 0 and not p and not doc.get("duplicate_of"):
             pats.append(Pathology("P1", ref, pr[0], "printed subtotal %s with zero priced lines" % fmt(sub)))
         for l in p:
             if line_amount(l) is None:
@@ -559,6 +567,8 @@ def rule16_check(corpus: dict) -> list[str]:
     """Rule 16(b): every invoice's captured lines reconcile to its printed target."""
     bad = []
     for doc in corpus.get("documents", []):
+        if doc.get("duplicate_of"):
+            continue  # repeated copy, outside the arithmetic (prompt v6 11.4)
         basis = doc.get("tie_basis", "ex_gst")
         target = doc.get("printed_total_incl_gst") if basis == "incl_gst" else doc.get("printed_subtotal_ex_gst")
         if not ties(captured(doc), target, "0.02"):
