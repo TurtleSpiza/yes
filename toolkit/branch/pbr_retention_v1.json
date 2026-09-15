@@ -1,0 +1,33 @@
+{
+  "_readme": [
+    "Which shipped registers the repository keeps. Content is data (rule: corpora, match tables and rules live",
+    "in JSON); the mechanic is pbr_retention.py and the driver calls it in the ship leg.",
+    "keep_newest is per family. A register below that line is superseded UNLESS it is pinned here or still named",
+    "literally by a toolkit script, which pbr_retention.py scans for and will not prune over."
+  ],
+  "keep_newest": 1,
+  "families": [
+    {
+      "id": "branch",
+      "label": "Parks Branch FY2026/27",
+      "glob": "Parks_Branch_Transaction_Register_FY2627_v*.xlsx",
+      "version_re": "_v(\\d+)(?:_([A-Z]+))?\\.xlsx$"
+    },
+    {
+      "id": "pswp",
+      "label": "Park Services & Water Parks 3FY",
+      "glob": "PS_WP_Transaction_Register_3FY_v*.xlsx",
+      "version_re": "_v(\\d+)(?:_([A-Z]+))?\\.xlsx$"
+    }
+  ],
+  "pinned": [
+    {
+      "file": "PS_WP_Transaction_Register_3FY_v127_CANDIDATE.xlsx",
+      "why": "Inheritance source for EVERY branch build (pbr_stage.V127). Read on every run and its md5 is stamped into the shipped workbook, so it is a build input, not a superseded output, despite sorting below v128 and v129."
+    }
+  ],
+  "reference_scan": {
+    "roots": ["toolkit"],
+    "suffixes": [".py", ".json"]
+  }
+}
