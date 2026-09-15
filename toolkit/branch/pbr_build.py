@@ -14,7 +14,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import pbr_stage
 
-VER = 'v16'
+VER = 'v17'
 OUTNAME = f'Parks_Branch_Transaction_Register_FY2627_{VER}.xlsx'
 SUPPLIED_GREEN = ('pla073_1', 'ksadasd', 'playforce_new', 'harp_new', 'vinton_new', 'trees_new')  # supplied corpora that arrived GREEN under prompt v6 runtime A; prep does housekeeping only
 CLTOK = re.compile(r'\{CL:(\d+):(\d+)\}')
@@ -460,13 +460,42 @@ def build(stage):
     _nl = N - BASE_N
     _pfn = _sup.get('playforce_new')
     _pfr = [r for r in sighted if 'Batch playforce_new' in str(r['V'][126] or '')]
+    _a4p = os.path.join(pbr_stage.ROOT, 'batches', 'attach_4', 'corpus_attach_4_v6.json')
+    _a4 = json.load(open(_a4p))['manifest'] if os.path.exists(_a4p) else None
+    if _a4:
+        _a4r = [r for r in sighted if 'Batch attach_4' in str(r['V'][126] or '')]
+        _a4o = json.load(open(os.path.join(pbr_stage.ROOT, 'batches', 'attach_4', 'outside_attach_4_v6.json')))
+        _ele = next((h for h in HISTS if h['code'] == 'ELE013'), None)
+        _gla = next((h for h in HISTS if h['code'] == 'GLA009'), None)
+        _unid = [r for r in rows if str(r['V'][12]) == UNID]
+        ho.row([f'{VER}, {BUILD_DATE}',
+                f'Batch attach_4 captured and two APLEDGER creditor histories embedded, between them the largest single fall in unidentified '
+                f'contractor spend this register has had. {len(_a4["source_files"])} TechOne attachment PDFs (EzeScan exports) were received and parsed on the raw-text '
+                f'route, {fmt_money(_a4["captured_ex_gst_total"])} ex GST, all {_a4["documents_tie"]} at TIE and gate GREEN with no repair; eighteen are T & H Levai invoices '
+                f'and the other two are the faces behind the two largest unidentified series, Glascott 012195 and Elemental Shade Structures 6491. '
+                f'{len(_a4o)} of the Levai documents ({fmt_money(sum(o["subtotal"] for o in _a4o))} ex GST) carry no line here, every one dated before 1-Jul-2026, leaving {len(_a4r)} new green blocks '
+                f'({fmt_money(sum(D(r["V"][20]) for r in _a4r))} ex GST). Control total unchanged. '
+                + (f'ELE013 ({_ele["label"]}, ABN {_ele["abn"]}, {_ele["n"]:,} lines) is new and rests on the sighted 6491, whose face prints that ABN and names the legal entities '
+                   f'behind the business name in its footer. ' if _ele else '')
+                + (f'GLA009 was re-pulled and carries eight PUR Cred Invoices the 11-Sep pull did not (012192 to 012201): rule 12 does not let an audit dispose of a re-pull that adds rows, so it is '
+                   f'embedded in place of the 11-Sep export, and the stage proves the substitution before making it, every one of the {_gla["superseded"]["rows_superseded"]} superseded rows present verbatim across all 25 columns. '
+                   if _gla and _gla.get('superseded') else '')
+                + f'The two together identify nine register lines worth $90,182.65 that read Unidentified at v16, and contractor unidentified falls to {len(_unid):,} lines. '
+                f'Two vendor readers were fixing values they should have read and are corrected here: ELEMENTAL asserted "2026- Shade sail inspections" as the work description of every Elemental '
+                f'invoice, which is the whole of the one sighted before this batch and none of 6491 (twelve shade repairs, each naming its park, request number and completion date), and cut the '
+                f'requesting-officer list at the first double space; GLASCOTT missed its own order reference because the label prints with runs of spaces inside it. '
+                f'Finding: the Glascott attached schedule is not cut to the invoice it is attached to. On 012195 the 22 schedule rows total $36,339.53 against a face of $35,866.01, and the $473.52 '
+                f'difference is exactly the one Windaroo Lake Park Rubbish Removal row, coded PK000382, which the face does not charge and which Glascott bills separately as 012196; the same row is '
+                f'the same difference on 012191. Every schedule row is captured as an ATTACHMENT line (rule 16d), excluded from check 1. '
+                f'Elemental prints its Total column GST INCLUSIVE, so the ex-GST line amount is quantity times unit price; reading the Total column would overstate every line by a tenth. '
+                f'Levai INV-39164 prints no PK at all and is charged PK000057 in Trees, and its face commits Council to twelve months of watering and mulch top-up billed monthly as completed.'])
     _tn = _sup.get('trees_new')
     _tnr = [r for r in sighted if 'Batch trees_new' in str(r['V'][126] or '')]
     if _tn:
         _tout = json.load(open(os.path.join(pbr_stage.ROOT, 'batches', 'trees_new', 'outside_trees_new_v6.json')))
         _tfid = _tn['fidelity_check']
         _tvint = sum(len(v_.get('vintage_variant_rows') or []) for v_ in _tfid.get('vendors', []))
-        ho.row([f'{VER}, {BUILD_DATE}',
+        ho.row(['v16, 15-Sep-2026',   # the version this change SHIPPED in, never f'{VER}' (see the note above)
                 f'Batch trees_new captured: a {_tn["source_files"][0]["pages"]}-page binder of {_tn["documents_found"]} documents from three suppliers '
                 f'(25 Higgins Coatings, 11 Treescape Australasia, 9 Kachel Cleaning), {fmt_money(_tn["captured_ex_gst_total"])} ex GST, all at TIE and gate GREEN as supplied. '
                 f'The binder is not cut to this register\'s year: {len(_tout)} documents ({fmt_money(sum(o["subtotal"] for o in _tout))} ex GST) carry no line here, every one of them dated '
@@ -643,8 +672,8 @@ def build(stage):
          'Monthly accruals (DM 18989758) reverse in the following period; P3 accruals still open at the pull will net only when P4 loads. The P1 EOY 2025/26 accrual reversals are cross-FY and must not be read as FY2026/27 underspend (rule 5).',
          'Site attribution is not performed for new lines. Supply-point text on electricity lines is parsed into column 42 only.')
     sec_('12.0 Creditor histories (branch v4 to v10)',
-         f'{len(HISTS)} APLEDGER creditor histories (TechOne Ledger Accounts Transactions Table, Default Ledger Type AP, one creditor account per export) pulled 11-Sep-2026 and embedded verbatim on Creditor_Lines (the version each was added at in brackets): ' + '; '.join(f'{h["code"]} {h["label"]} ({h.get("added", "v4")}, {h["n"]:,} lines, {h["first"].strftime("%d-%b-%Y")} to {h["last"].strftime("%d-%b-%Y")}, ABN {h["abn"]})' for h in HISTS) + '. Each file md5 is screened against the PS & WP v127 Data_Acquisition and this register\'s inputs before use (rule 12). Re-pulls of histories already embedded in PS_WP v127 are audited against the v127 Creditor_Lines by reference, date and amount and never re-captured: HAR073 (v4) supersedes the 5-Aug-2026 pull and LEV002 (v6) the 2-Sep-2026 re-pull (audit: ' + str(stage.get('hist_audit')) + '; v127 carries only the lines it matched, so new_only counts the unmatched balance as well as the later postings).',
-         'Label basis per history is data in the manifest and is restated on Data_Acquisition. At v6 three creditors have no sighted invoice yet (NUW001, GRE083, WAT088): the label is the ABR public register entity name read on 11-Sep-2026 against the 11-digit ABN carried on the export (rule 8 Tier 1, creditor history with ABR ABN), with the trading name where the ABR or the APLEDGER narrations print one; the legal-entity and trading-name form is confirmed from the first sighted invoice. Where an export carries a second ABN on a handful of old lines (2022 to 2023 on LEV002, NUW001 and GRE083) those lines are outside FY2026/27 and no register line takes an ABN from them.',
+         f'{len(HISTS)} APLEDGER creditor histories (TechOne Ledger Accounts Transactions Table, Default Ledger Type AP, one creditor account per export) pulled 11-Sep-2026, 14-Sep-2026 and 15-Sep-2026 and embedded verbatim on Creditor_Lines (the version each was added at in brackets): ' + '; '.join(f'{h["code"]} {h["label"]} ({h.get("added", "v4")}, {h["n"]:,} lines, {h["first"].strftime("%d-%b-%Y")} to {h["last"].strftime("%d-%b-%Y")}, ABN {h["abn"]})' for h in HISTS) + '. Each file md5 is screened against the PS & WP v127 Data_Acquisition and this register\'s inputs before use (rule 12). Re-pulls of histories already embedded in PS_WP v127 are audited against the v127 Creditor_Lines by reference, date and amount and never re-captured: HAR073 (v4) supersedes the 5-Aug-2026 pull and LEV002 (v6) the 2-Sep-2026 re-pull (audit: ' + str(stage.get('hist_audit')) + '; v127 carries only the lines it matched, so new_only counts the unmatched balance as well as the later postings).',
+         'Label basis per history is data in the manifest and is restated on Data_Acquisition. At v6 three creditors have no sighted invoice yet (NUW001, GRE083, WAT088): the label is the ABR public register entity name read on 11-Sep-2026 against the 11-digit ABN carried on the export (rule 8 Tier 1, creditor history with ABR ABN), with the trading name where the ABR or the APLEDGER narrations print one; the legal-entity and trading-name form is confirmed from the first sighted invoice. Where an export carries a second ABN on a handful of old lines (2022 to 2023 on LEV002, NUW001, GRE083 and ELE013, whose one such line is invoice 5186 of 5-Oct-2022) those lines are outside FY2026/27 and no register line takes an ABN from them.',
          'Match rule (pbr_histories_v4.json, held as data): the AP register line reference equals the history Reference; the history Transaction Amount (incl GST) is within 2c of the document net ex GST x 1.1 summed over every register line on the Document Unique ID; the history Date is within 120 days of the register Doc Date; exactly one creditor code satisfies all three (numeric references collide across creditors, e.g. Harpley and Eco Technology Solutions both issue reference 11913). Tier 1 where the history line carries an 11-digit ABN. The register line takes the creditor code (col K), the label from the manifest (col L, canonical per printed ABN), the ABN grouped (col M), the enquiry block (cols W, AS:BA) and an Evidence sentence citing the Creditor_Lines row. Status stays Partial and verdict Confirm: an AP line is never Confirmed without rule 17.',
          f'Inherited Park Services lines carried from PS_WP v127 as Unidentified, series-inferred or vendor-inferred are identified the same way ({len(ident_rows)} lines; a sighted invoice on the same line supersedes the identification); their provenance (col ER) reads "contractor identified at branch v4" (or v5, v6) and the v127 evidence sentence is kept inside the new one. Sighted (Tier 1, rule 17) lines are never re-identified. Label conflicts, where the v127 label named a different vendor: {len(stage["hist_conflicts"])} (Open_Items). Correction carried in the match table: at v3 register line f386b8d0-73212-PK000415-01 (reference 00015225, $240.00) was tagged a cents companion of Q Power 15225; it is on a different TechOne document and HAR073 shows it is Harpley invoice 00015225, so the tag is withdrawn (match_mixed_new_26_27_v6.json evid_note).',
          'Batch attach_1 (v4): five single-invoice TechOne attachment PDFs (EzeScan exports, file name = attachment id) parsed by parse_attach1.py (pdftotext -layout, page text retained, five templates ETSOL, GLASCOTT_LM, PROVAC, SAVCO, HERITAGE), gated GREEN (P9 page-coverage test now runs per source file when a corpus carries several), 254 five-word shingles clean, match table match_attach_1_v6.json (five standard variants, one register line each, coding verdict and note per invoice as data). Printed PK versus PK charged is recorded on three invoices (Eco Technology Solutions 11913, Provac INV-00042754, Savco SV007924); PK Charged stays the ledger Work Order (rule 1).')
@@ -1240,8 +1269,11 @@ def build(stage):
         items.append(('Spend against an unphased budget', 'Housekeeping', 'Branch', len(zeroytd), sum(D(e[6]) for _, e in zeroytd),
                       'WO Tasks with an annual budget but a nil P1-3 phased budget and material spend: ' + '; '.join(f'{k} {fmt_money(e[6])} of {fmt_money(e[10])} annual' for k, e in sorted(zeroytd, key=lambda x: -x[1][6])[:8]) + '. YTD variance on these reads as overspend by construction; review the phasing.',
                       'SE2 by WO Task.'))
-    items.append(('Glascott schedule v face', 'Review', 'Natural Areas', 2, 57695.07,
-                  'Invoices 012191 and 012197 bill $32,477.92 and $25,217.15 on the face; the attached schedules total $32,951.44 and $27,073.64 ($473.52 and $1,856.49 more) and carry rows on PK000382, PK000383 and PK000379 outside PK000378. Confirm with Natural Areas whether the face or the schedule is the agreed claim, and whether the other-PK rows were billed elsewhere. Letterhead prints Technigro ABN 97 001 281 572 with a Glascott bank account. Entity resolved at v4: APLEDGER GLA009 carries ABN 97001281572, so the creditor record is Glascott Landscape and Civil Pty Limited (rule 8).',
+    items.append(('Glascott schedule v face', 'Review', 'Natural Areas', 3, 93561.08,
+                  'Invoices 012191, 012197 and 012195 bill $32,477.92, $25,217.15 and $35,866.01 on the face; the attached schedules total $32,951.44, $27,073.64 and $36,339.53 ($473.52, $1,856.49 and $473.52 more) and carry rows on PK000382, PK000383 and PK000379 outside PK000378. '
+                  'The 012195 capture at v17 answers the shape of it on two of the three: the difference there is EXACTLY the one Windaroo Lake Park Rubbish Removal row, coded PK000382, which the face does not charge and which Glascott bills separately as 012196 ($473.52, 20-Aug-2026, a register line of its own); the $473.52 on 012191 is the same row. '
+                  'So the schedule is not cut to the invoice it is attached to, and its total cannot be reconciled to the face without reading the cost account on every row. Ask Glascott to issue one schedule per invoice or to mark the rows each invoice charges, and confirm with Natural Areas what the $1,856.49 on 012197 covers. '
+                  'Letterhead prints Technigro ABN 97 001 281 572 with a Glascott bank account. Entity resolved at v4: APLEDGER GLA009 carries ABN 97001281572, so the creditor record is Glascott Landscape and Civil Pty Limited (rule 8).',
                   'Sighted invoices GLASCOTT 012191/012197 and attachments (rule 16d).'))
     items.append(('Activeco INV-9360 date error', 'Housekeeping', 'Natural Areas', 1, 51704.65,
                   'Invoice dated 31-Mar-2026, due 30-Apr-2026, for July 2026 treatments, posted 24-Jul-2026. Ask Activeco to reissue with the correct date; no financial effect. FY (Service) reads Jul-2026 from the treatment dates.',
@@ -1275,12 +1307,12 @@ def build(stage):
     if stage['hist_ambiguous']:
         items.append(('Ambiguous history references', 'Note', 'Branch', len(stage['hist_ambiguous']), None,
                       'References where more than one creditor history ties by amount and date, left unidentified: ' + '; '.join(f'{r_} ({", ".join(c_)})' for r_, c_ in stage['hist_ambiguous'][:20]) + '.', 'Match rule, Method 12.0.'))
-    _pk = [r for r in sighted if re.match(r'(11-Sep-2026, branch v[456]|14-Sep-2026, branch v1[01]|15-Sep-2026, branch v1[346])\b', str(r['V'][126] or '')) and r['V'][104] not in (None, '(not printed)', 'undefined (as printed)') and str(r['V'][104]).replace(' ', '') != str(r['V'][17])]
+    _pk = [r for r in sighted if re.match(r'(11-Sep-2026, branch v[456]|14-Sep-2026, branch v1[01]|15-Sep-2026, branch v1[3467])\b', str(r['V'][126] or '')) and r['V'][104] not in (None, '(not printed)', 'undefined (as printed)') and str(r['V'][104]).replace(' ', '') != str(r['V'][17])]
     if _pk:
         _exc = ['Play Force INV-8502, where the printed PK000338 is not a WO Task in this register'] + [f'{r["V"][12]} {r["V"][88]}, verdict Review' for r in _pk if r['V'][31] == 'Review']
         items.append(('Printed PK differs from PK charged (sighted invoices, branch v4 to v16)', 'Housekeeping', '; '.join(sorted({sec_names[str(r['V'][2])] for r in _pk})), len(_pk), sum(D(r['V'][20]) for r in _pk),
                       '; '.join(f'{r["V"][88]} prints {r["V"][104]}, charged {r["V"][17]}' for r in _pk) + '. The invoice text supports the PK charged in each case except ' + '; '.join(_exc) + ' (see the coding note and follow-up on each line). Ask each supplier to quote the charged WO Task. No financial effect.',
-                      'Sighted invoices, Batches attach_1, attach_2, code, mix22, attach_3, pla073_1, ksadasd, playforce_new, vinton_new, savco_new and trees_new.'))
+                      'Sighted invoices, Batches attach_1, attach_2, code, mix22, attach_3, pla073_1, ksadasd, playforce_new, vinton_new, savco_new, trees_new and attach_4.'))
     _undef = [r for r in sighted if str(r['V'][104]) == 'undefined (as printed)']
     if _undef:
         items.append(('Supplier invoice prints no PK ("undefined")', 'Housekeeping', 'Park Services', len(_undef), sum(D(r['V'][20]) for r in _undef),
@@ -1581,7 +1613,13 @@ def build(stage):
     lines.append(f'{F()} | 11-Sep-2026 | {os.path.basename(pbr_stage.V127)} | md5 {stage["v127_md5"]} | Inheritance source, read with python-calamine; not embedded (the PS & WP register remains its own record). 3,372 FY2026/27 lines screened, 3,365 inherited, 7 absent.')
     for hh in HISTS:
         k_ = F()
-        lines.append(f'{k_} | {hh.get("pulled", "11-Sep-2026")} | {os.path.basename(hh["path"])} | md5 {hh["md5"]} | TechOne Ledger Accounts Transactions Table export, APLEDGER creditor history {hh["code"]} ({hh["label"]}, ABN {hh["abn"]}), no extraction tool | {hh["n"]:,} lines {hh["first"].strftime("%d-%b-%Y")} to {hh["last"].strftime("%d-%b-%Y")}, export total row ${D(hh["total"][10]):,} | {hh["params"]} | label basis: {hh["label_basis"]}')
+        _hsup = hh.get('superseded')
+        _supt = ('' if not _hsup else
+                 f' SUPERSEDES {_hsup["file"]} (md5 {_hsup["md5"]}, {_hsup["rows_superseded"]:,} lines, embedded at {hh.get("added", "v4")}): re-pulled on the identical criteria and '
+                 f'embedded as a fresh history because it carries new rows, which rule 12 does not let an audit dispose of. The substitution is gated before it is made: '
+                 f'every one of the {_hsup["rows_superseded"]:,} superseded rows is present in this export verbatim across all 25 columns, and it adds {_hsup["rows_added"]} more, so no '
+                 f'Creditor_Lines row and no identification made from the superseded export is lost.')
+        lines.append(f'{k_} | {hh.get("pulled", "11-Sep-2026")} | {os.path.basename(hh["path"])} | md5 {hh["md5"]} | TechOne Ledger Accounts Transactions Table export, APLEDGER creditor history {hh["code"]} ({hh["label"]}, ABN {hh["abn"]}), no extraction tool | {hh["n"]:,} lines {hh["first"].strftime("%d-%b-%Y")} to {hh["last"].strftime("%d-%b-%Y")}, export total row ${D(hh["total"][10]):,} | {hh["params"]} | label basis: {hh["label_basis"]}{_supt}')
     for m_ in stage.get('attach_files', []):
         b_ = m_.get('batch', 'attach_1')
         lines.append(f'{F()} | 11-Sep-2026 | {m_["file"]} | md5 {m_["md5"]} | TechOne attachment PDF (EzeScan Server21 export, {m_["pages"]} page(s)); parsed by parse_{b_}.py, pdftotext -layout, page text retained in corpus_{b_}_v6.json; gate GREEN; the PDF is not embedded (rule 15) | Batch {b_}')
