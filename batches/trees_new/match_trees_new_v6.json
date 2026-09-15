@@ -1,0 +1,488 @@
+[
+ {
+  "invoice": "36101",
+  "vendor": "Australasia Pty Ltd",
+  "abn": "20 117 830 118",
+  "subtotal": 1611.0,
+  "incl": 1772.1,
+  "variant": "standard",
+  "target": [
+   "ddc534da-73212-PK000057-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "ddc534da-73212-PK000057-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000057",
+    "amount": 1611.0,
+    "contractor": "Treescape Australasia Pty Ltd",
+    "narr": "STANDING ORDER 25/26"
+   }
+  ],
+  "evid": "36101",
+  "evid_note": "Identity on this letterhead: the word 'Treescape' is printed as an image and the text layer carries only 'Australasia Pty Ltd', so the green block records that as the printed vendor (prep R7 withdrew the fuller name the extraction asserted; the claim is retained in the corpus as supplier_as_supplied). The printed ABN 20 117 830 118 is in the text layer and decides identity (rule 8), and the register label comes from the APLEDGER TRE010 history, not from the document.",
+  "line_map": null,
+  "coding_verdict": "Review",
+  "coding_note": "Contract Planting - Logan City Council - 20579, Logan Contract Planting - MAINTENANCE, 01.03.26 - 31.03.26; order 709807; our job no 205790101; contact Aaron Fritz; attention SAM FORBES. One printed line of $1,611.00 in the amount column, with a printed breakdown of fourteen street tree sites under it (Murrajong Road Springwood, Amy Drive Beenleigh, Mount Lindesay Highway Greenbank, Bella Vista Cct Edens Landing, Chay Street Shailer Park, City Road Beenleigh, Dendron and Mandew Streets Shailer Park, Lilygreen Court Springwood, Menora Road Bahrs Scrub, Ratz Park Mount Warren Park, Reading Street Logan Central, Springwood Rd Springwood, Summerview Avenue Yarrabilba, Towns Avenue Logan Village). THE PRINTED BREAKDOWN DOES NOT SUM TO THE PRINTED INVOICE AMOUNT: the fourteen site figures total $1,089.90 against the printed $1,611.00, a difference of $521.10 that the face does not explain. Printed subtotal $1,611.00 ex GST, GST $161.10, total $1,772.10; the invoice's own header arithmetic is correct and the charge ties the ledger line. The face also prints the cost account three ways on the same page: PK000057, PK00057 (five digits, Bella Vista Cct) and PK#000057 (Menora Road). Printed PK000057 matches the PK charged (PK000057).",
+  "follow_up": "Ask Treescape to reconcile the $521.10 between the fourteen printed site figures ($1,089.90) and the printed invoice amount ($1,611.00) on invoice 36101, and to print one consistent PK format. Amount paid is not in question; what each site was charged is.",
+  "source_file": "trees new.pdf",
+  "nature_category": "Tree operations",
+  "theme_v3": "Trees & arboriculture"
+ },
+ {
+  "invoice": "36107",
+  "vendor": "Australasia Pty Ltd",
+  "abn": "20 117 830 118",
+  "subtotal": 3145.68,
+  "incl": 3460.25,
+  "variant": "standard",
+  "target": [
+   "5ae11918-73212-PK000501-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "5ae11918-73212-PK000501-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000501",
+    "amount": 3145.68,
+    "contractor": "Treescape Australasia Pty Ltd",
+    "narr": "STANDING ORDER 25/26"
+   }
+  ],
+  "evid": "36107",
+  "evid_note": "Identity on this letterhead: the word 'Treescape' is printed as an image and the text layer carries only 'Australasia Pty Ltd', so the green block records that as the printed vendor (prep R7 withdrew the fuller name the extraction asserted; the claim is retained in the corpus as supplier_as_supplied). The printed ABN 20 117 830 118 is in the text layer and decides identity (rule 8), and the register label comes from the APLEDGER TRE010 history, not from the document.",
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Contract Planting - Logan City Council - 20579, Logan Contract Planting - MAINTENANCE, 01.03.26 - 31.03.26; order 709807; our job no 205790101; contact Aaron Fritz; attention SAM FORBES. One printed line of $3,145.68 with five sites under it, all PK000501 Berrinba and Crestmead: Demeio Road 5 visits / 55 trees $1,421.75, Gilmore Road 2 visits / 100 trees $982.30, Sirett Street 2 visits / 23 trees $260.82, Third Avenue 1 visit / 5 trees $258.50, Trulson Drive 1 visit / 43 trees $222.31. The five figures sum to the printed $3,145.68 exactly. Printed subtotal $3,145.68 ex GST, GST $314.57, total $3,460.25. Printed PK000501 matches the PK charged (PK000501).",
+  "follow_up": null,
+  "source_file": "trees new.pdf",
+  "nature_category": "Tree operations",
+  "theme_v3": "Trees & arboriculture"
+ },
+ {
+  "invoice": "36116",
+  "vendor": "Australasia Pty Ltd",
+  "abn": "20 117 830 118",
+  "subtotal": 1835.35,
+  "incl": 2018.89,
+  "variant": "standard",
+  "target": [
+   "ac1033a5-73212-PK000501-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "ac1033a5-73212-PK000501-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000501",
+    "amount": 1835.35,
+    "contractor": "Treescape Australasia Pty Ltd",
+    "narr": "STANDING ORDER 25/26"
+   }
+  ],
+  "evid": "36116",
+  "evid_note": "Identity on this letterhead: the word 'Treescape' is printed as an image and the text layer carries only 'Australasia Pty Ltd', so the green block records that as the printed vendor (prep R7 withdrew the fuller name the extraction asserted; the claim is retained in the corpus as supplier_as_supplied). The printed ABN 20 117 830 118 is in the text layer and decides identity (rule 8), and the register label comes from the APLEDGER TRE010 history, not from the document.",
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Contract Planting - Logan City Council - 20579, Logan Contract Planting - MAINTENANCE, 01.04.26 - 30.04.26; order 709807; our job no 205790101. Two sites, both PK000501 Berrinba: Demeio Road 3 visits / 55 trees $853.05 and Gilmore Road 2 visits / 100 trees $982.30, summing to the printed $1,835.35 exactly. Printed subtotal $1,835.35 ex GST, GST $183.54, total $2,018.89. Printed PK000501 matches the PK charged (PK000501).",
+  "follow_up": null,
+  "source_file": "trees new.pdf",
+  "nature_category": "Tree operations",
+  "theme_v3": "Trees & arboriculture"
+ },
+ {
+  "invoice": "36122",
+  "vendor": "Australasia Pty Ltd",
+  "abn": "20 117 830 118",
+  "subtotal": 2326.5,
+  "incl": 2559.15,
+  "variant": "standard",
+  "target": [
+   "e2b53a86-73212-PK000501-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "e2b53a86-73212-PK000501-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000501",
+    "amount": 2326.5,
+    "contractor": "Treescape Australasia Pty Ltd",
+    "narr": "STANDING ORDER 25/26"
+   }
+  ],
+  "evid": "36122",
+  "evid_note": "Identity on this letterhead: the word 'Treescape' is printed as an image and the text layer carries only 'Australasia Pty Ltd', so the green block records that as the printed vendor (prep R7 withdrew the fuller name the extraction asserted; the claim is retained in the corpus as supplier_as_supplied). The printed ABN 20 117 830 118 is in the text layer and decides identity (rule 8), and the register label comes from the APLEDGER TRE010 history, not from the document.",
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Contract Planting - Logan City Council - 20579, Logan Contract Planting - MAINTENANCE, 01.05.26 - 31.05.26; order 709807; our job no 205790101. Two sites, both PK000501 Berrinba: Demeio Road 3 visits / 55 trees $853.05 and Gilmore Road 3 visits / 100 trees $1,473.45, summing to the printed $2,326.50 exactly. Printed subtotal $2,326.50 ex GST, GST $232.65, total $2,559.15. Printed PK000501 matches the PK charged (PK000501).",
+  "follow_up": null,
+  "source_file": "trees new.pdf",
+  "nature_category": "Tree operations",
+  "theme_v3": "Trees & arboriculture"
+ },
+ {
+  "invoice": "36136",
+  "vendor": "Australasia Pty Ltd",
+  "abn": "20 117 830 118",
+  "subtotal": 406.36,
+  "incl": 447.0,
+  "variant": "standard",
+  "target": [
+   "31aa6555-73212-PK000057-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "31aa6555-73212-PK000057-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000057",
+    "amount": 406.36,
+    "contractor": "Treescape Australasia Pty Ltd",
+    "narr": "STANDING ORDER 25/26"
+   }
+  ],
+  "evid": "36136",
+  "evid_note": "Identity on this letterhead: the word 'Treescape' is printed as an image and the text layer carries only 'Australasia Pty Ltd', so the green block records that as the printed vendor (prep R7 withdrew the fuller name the extraction asserted; the claim is retained in the corpus as supplier_as_supplied). The printed ABN 20 117 830 118 is in the text layer and decides identity (rule 8), and the register label comes from the APLEDGER TRE010 history, not from the document.",
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Contract Planting - Logan City Council - 20579, Logan Contract Planting - JUNE; order 709807; our job no 205790101. Two supply and install jobs, both PK000057: CR#3723625, 31 Soapstone Cres Yarrabilba, 1 x 45L Buckinghamia Celsissima $190.02, and CR#3783205, 31 Westmoreland Boulevard Springwood, 2 x 25L Buckinghamia $216.34, summing to the printed $406.36 exactly. Printed subtotal $406.36 ex GST, GST $40.64, total $447.00. Printed PK000057 matches the PK charged (PK000057).",
+  "follow_up": null,
+  "source_file": "trees new.pdf",
+  "nature_category": "Tree operations",
+  "theme_v3": "Trees & arboriculture"
+ },
+ {
+  "invoice": "36218",
+  "vendor": "Australasia Pty Ltd",
+  "abn": "20 117 830 118",
+  "subtotal": 7206.0,
+  "incl": 7926.6,
+  "variant": "standard",
+  "target": [
+   "a24618a3-73212-PK000501-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "a24618a3-73212-PK000501-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000501",
+    "amount": 7206.0,
+    "contractor": "Treescape Australasia Pty Ltd",
+    "narr": "STANDING ORDER 25/26"
+   }
+  ],
+  "evid": "36218",
+  "evid_note": "Identity on this letterhead: the word 'Treescape' is printed as an image and the text layer carries only 'Australasia Pty Ltd', so the green block records that as the printed vendor (prep R7 withdrew the fuller name the extraction asserted; the claim is retained in the corpus as supplier_as_supplied). The printed ABN 20 117 830 118 is in the text layer and decides identity (rule 8), and the register label comes from the APLEDGER TRE010 history, not from the document.",
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Contract Planting - Logan City Council - 20579, printed 'Logan Contract Planting - Amendment to Inv 35328'; order 709807; our job no 205790101; PK000501, Demeio Road Berrinba, CR#3714869. Two printed components: supply 45ltr 25 x $127.56 with install only 45ltr 25 x $62.46 = $4,750.50, and upgrade from 25lt to 45lt x 30 = $2,455.50, summing to the printed $7,206.00 exactly. Printed subtotal $7,206.00 ex GST, GST $720.60, total $7,926.60. Printed PK000501 matches the PK charged (PK000501). The document restates its own amount at the left margin as '= $7,206.00'; the extraction typed that restatement as the priced line and left the item row narrative, and prep restated it (R8) so the register carries the item row.",
+  "follow_up": "Invoice 36218 is an amendment to Treescape invoice 35328, which is not in this binder and carries no line on this register. Sight 35328 and confirm the amendment adds to it rather than repeating it.",
+  "source_file": "trees new.pdf",
+  "nature_category": "Tree operations",
+  "theme_v3": "Trees & arboriculture"
+ },
+ {
+  "invoice": "36242",
+  "vendor": "Australasia Pty Ltd",
+  "abn": "20 117 830 118",
+  "subtotal": 924.81,
+  "incl": 1017.29,
+  "variant": "standard",
+  "target": [
+   "1c520bfe-73212-PK000302-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "1c520bfe-73212-PK000302-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000302",
+    "amount": 924.81,
+    "contractor": "Treescape Australasia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "36242",
+  "evid_note": "Identity on this letterhead: the word 'Treescape' is printed as an image and the text layer carries only 'Australasia Pty Ltd', so the green block records that as the printed vendor (prep R7 withdrew the fuller name the extraction asserted; the claim is retained in the corpus as supplier_as_supplied). The printed ABN 20 117 830 118 is in the text layer and decides identity (rule 8), and the register label comes from the APLEDGER TRE010 history, not from the document.",
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Contract tree work - Logan City Council - 20580; order 709807; our job no 205800101; attention NGAMETUA RUATOE. PK000302 - Treeworks, 27.03.26, 9 Tahan Cres Tanah Merah, CR# 3862971: climber x 2, ground person, truck and chipper - NH, 3hrs @ $308.27 p/hr = the printed $924.81 exactly. Printed subtotal $924.81 ex GST, GST $92.48, total $1,017.29. Printed PK000302 matches the PK charged (PK000302).",
+  "follow_up": null,
+  "source_file": "trees new.pdf",
+  "nature_category": "Tree operations",
+  "theme_v3": "Trees & arboriculture"
+ },
+ {
+  "invoice": "36301",
+  "vendor": "Australasia Pty Ltd",
+  "abn": "20 117 830 118",
+  "subtotal": 5600.0,
+  "incl": 6160.0,
+  "variant": "standard",
+  "target": [
+   "c43d7cfd-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "c43d7cfd-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 5600.0,
+    "contractor": "Treescape Australasia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "36301",
+  "evid_note": "Identity on this letterhead: the word 'Treescape' is printed as an image and the text layer carries only 'Australasia Pty Ltd', so the green block records that as the printed vendor (prep R7 withdrew the fuller name the extraction asserted; the claim is retained in the corpus as supplier_as_supplied). The printed ABN 20 117 830 118 is in the text layer and decides identity (rule 8), and the register label comes from the APLEDGER TRE010 history, not from the document.",
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Quote - CR# 3783678 - Redgum Park, Redgum Drive, Regents Park - 237600101; order 717575; site address Redgum Park, Redgum Drive, Regents Park; SP2 PK000482; contact Lee-Anne Niblett. Twelve numbered work specifications are printed (canopy reductions, hanger removal, four removals with stump grinding, canopy lifts and deadwooding) with 'Mulch all debris & remove from site' and '$5,600.00 +GST'. One priced line of $5,600.00. Printed subtotal $5,600.00 ex GST, GST $560.00, total $6,160.00. Printed PK000482 matches the PK charged (PK000482).",
+  "follow_up": null,
+  "source_file": "trees new.pdf",
+  "nature_category": "Tree operations",
+  "theme_v3": "Trees & arboriculture"
+ },
+ {
+  "invoice": "36346",
+  "vendor": "Australasia Pty Ltd",
+  "abn": "20 117 830 118",
+  "subtotal": 466.95,
+  "incl": 513.65,
+  "variant": "standard",
+  "target": [
+   "66789926-73212-PK000057-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "66789926-73212-PK000057-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000057",
+    "amount": 466.95,
+    "contractor": "Treescape Australasia Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "36346",
+  "evid_note": "Identity on this letterhead: the word 'Treescape' is printed as an image and the text layer carries only 'Australasia Pty Ltd', so the green block records that as the printed vendor (prep R7 withdrew the fuller name the extraction asserted; the claim is retained in the corpus as supplier_as_supplied). The printed ABN 20 117 830 118 is in the text layer and decides identity (rule 8), and the register label comes from the APLEDGER TRE010 history, not from the document.",
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Contract Planting - Logan City Council - 20579; order 717575; our job no 205790101; PK000057. Three supply and install jobs: CR#3848926 Sawmill Drive Greenbank, 1 x 300mm, 1 x (42.52+44.39) = $86.91; CR#3883346 5 Tuscan Cct Greenbank, 1 x 45L (upgraded), 1 x (127.56+62.46) = $190.02; CR#3870396 45 Bonello cct Flagstone, 1 x 45L, 1 x (127.56+62.46) = $190.02. The three sum to the printed $466.95 exactly. Printed subtotal $466.95 ex GST, GST $46.70, total $513.65. Printed PK000057 matches the PK charged (PK000057).",
+  "follow_up": null,
+  "source_file": "trees new.pdf",
+  "nature_category": "Tree operations",
+  "theme_v3": "Trees & arboriculture"
+ },
+ {
+  "invoice": "50829771",
+  "vendor": "Treescape Australasia Pty Ltd",
+  "abn": "20 117 830 118",
+  "subtotal": 8700.0,
+  "incl": 9570.0,
+  "variant": "standard",
+  "target": [
+   "3b09f4e8-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "3b09f4e8-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 8700.0,
+    "contractor": "Treescape Australasia Pty Ltd",
+    "narr": "STANDING ORDER 25/26"
+   }
+  ],
+  "evid": "50829771",
+  "evid_note": "Second Treescape printed layout (template TREESCAPE_NEW): a Code / Description / Requested Qty. / Actual Qty. / Unit Price / Amount item table, a PAYMENT ADVICE page and the invoice date in long form. First sighting on this register.",
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Current Treescape letterhead (Wacol), customer reference 'Quote - 23809 - 48-50 CAIRNS STREET LOGANHOLME'; PO numbers 709807; PK numbers PK000477; CR#3599545. Work specification as printed: 3 x dead Eucalyptus remove and stump grind, 1 x heavy leaning Eucalyptus remove and stump grind, traffic management required and included in pricing. One priced line, Quote, requested qty 1.00, actual qty 1.00, unit price $8,700.00 = $8,700.00. Printed subtotal $8,700.00 ex GST, GST $870.00, total $9,570.00. Printed PK000477 matches the PK charged (PK000477).",
+  "follow_up": null,
+  "source_file": "trees new.pdf",
+  "nature_category": "Tree operations",
+  "theme_v3": "Trees & arboriculture"
+ },
+ {
+  "invoice": "51974591",
+  "vendor": "Treescape Australasia Pty Ltd",
+  "abn": "20 117 830 118",
+  "subtotal": 1658.26,
+  "incl": 1824.09,
+  "variant": "standard",
+  "target": [
+   "899aa798-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "899aa798-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 1658.26,
+    "contractor": "Treescape Australasia Pty Ltd",
+    "narr": "STANDING ORDER 25/26"
+   }
+  ],
+  "evid": "51974591",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Review",
+  "coding_note": "Current Treescape letterhead (Wacol), customer reference Q1LT20580; PO numbers 709807; CR#3599545. Job description as printed: remove and grind 9 x leopard trees along property frontage and 1 next door, removal for replacement of trees on frontage so please ensure grinding is sufficient for replant. Two priced lines: 3 crew T&C NH, truck and chipper, actual qty 4.00 @ $273.34 = $1,093.36, and 2 crew Stump NH, stump grinder, actual qty 3.00 @ $188.30 = $564.90, summing to the printed $1,658.26 exactly. Printed subtotal $1,658.26 ex GST, GST $165.83, total $1,824.09. THE PRINTED PK DIFFERS FROM THE PK CHARGED: the face prints PK numbers PK000474 and TechOne charges PK000477. PK Charged stays the ledger Work Order (rule 1); the difference is recorded, not corrected here. Both sit in the Trees section at 73212 and the control total is unaffected.",
+  "follow_up": "Confirm with Trees whether invoice 51974591 belongs to PK000474 as the face prints or to PK000477 as charged, and recode if the face is right. Folded into the printed-versus-charged PK open item.",
+  "source_file": "trees new.pdf",
+  "nature_category": "Tree operations",
+  "theme_v3": "Trees & arboriculture"
+ },
+ {
+  "invoice": "7718",
+  "vendor": "Kachel Cleaning",
+  "abn": "77 083 786 592",
+  "subtotal": 4150.0,
+  "incl": 4565.0,
+  "variant": "standard",
+  "target": [
+   "5972258f-73121-PK000028-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "5972258f-73121-PK000028-01",
+    "section": "Park Services",
+    "na": "73121",
+    "pk": "PK000028",
+    "amount": 4150.0,
+    "contractor": "Kachel Cleaning",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "7718",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Kachel Cleaning, extra services for Contract No PAR/377/2025; purchase order 709779; Hugh Muntz PK000028. One printed line: additional services (toilet and BBQ) at Hugh Muntz due to campers and homeless moving back into the park for the month of August 2026 = $4,150.00. Printed subtotal $4,150.00 ex GST, GST $415.00, total $4,565.00. Printed PK000028 matches the PK charged (PK000028). This is the fifth identically worded Hugh Muntz 'extra services' claim in this binder: 7481 (September 2025) $4,150.00, 7487 (October 2025) $4,150.00, 7511 (January 2026) $4,150.00, 7612 (June 2026) $4,280.00 and this one, the first four of which are PS & WP register lines outside this register's year.",
+  "follow_up": "A flat monthly 'extra services' charge of $4,150.00 at Hugh Muntz has now run for at least a year alongside the PAR/377/2025 scheduled cleaning. Ask Park Services whether it is a standing variation with an agreed rate or a series of ad hoc claims, and on what authority the rate moved to $4,280.00 in June 2026.",
+  "source_file": "trees new.pdf"
+ },
+ {
+  "invoice": "7719",
+  "vendor": "Kachel Cleaning",
+  "abn": "77 083 786 592",
+  "subtotal": 4160.0,
+  "incl": 4576.0,
+  "variant": "standard",
+  "target": [
+   "4872dd6f-73121-PK000028-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "4872dd6f-73121-PK000028-01",
+    "section": "Park Services",
+    "na": "73121",
+    "pk": "PK000028",
+    "amount": 4160.0,
+    "contractor": "Kachel Cleaning",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "7719",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Review",
+  "coding_note": "Kachel Cleaning, extra services for Contract No PAR/377/2025; purchase order 709779. THE FACE SPLITS THE CLAIM ACROSS TWO PARKS AND TECHONE POSTS IT WHOLE: Tully Mem. Pk PK000030, extra services for August 2026 due to campers and homeless, $3,530.00, and Croydon Pk PK000028, extra services for August 2026, $630.00, summing to the printed $4,160.00. TechOne charges the whole $4,160.00 to PK000028. Printed subtotal $4,160.00 ex GST, GST $416.00, total $4,576.00. This is the sighted invoice behind open item B-035, which the period 3 refresh already answered on the ledger side: GJ080985 reverses 7719 off PK000028 and re-posts $3,530.00 to PK000429 and $630.00 to PK000028, so the Tully Memorial Park share went to PK000429 rather than the printed PK000030. The register line is the original posting; the journal that corrects it is on Journal_Sources.",
+  "follow_up": "The B-035 correcting journal GJ080985 sends the Tully Memorial Park share to PK000429, not to the PK000030 the face prints. Confirm with Park Services which cost account Tully Memorial Park cleaning belongs to.",
+  "source_file": "trees new.pdf"
+ },
+ {
+  "invoice": "7720",
+  "vendor": "Kachel Cleaning",
+  "abn": "77 083 786 592",
+  "subtotal": 240.0,
+  "incl": 264.0,
+  "variant": "standard",
+  "target": [
+   "de209de5-73121-PK000022-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "de209de5-73121-PK000022-01",
+    "section": "Park Services",
+    "na": "73121",
+    "pk": "PK000022",
+    "amount": 240.0,
+    "contractor": "Kachel Cleaning",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "7720",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Review",
+  "coding_note": "Kachel Cleaning, extra services for August 2026 for Contract No PAR/377/2025; purchase order 709779. Two printed lines, one per customer request: Customer Request # 3929030 $120.00 and Customer Request # 3944052 $120.00, summing to the printed $240.00. Printed subtotal $240.00 ex GST, GST $24.00, total $264.00. NO PK IS PRINTED ON THE FACE: this is the only claim in the batch that names neither a park nor a cost account, and TechOne charges PK000022. The charge is evidenced by the two customer request numbers and by the APLEDGER KAC001 history line, not by a printed PK.",
+  "follow_up": "Ask Kachel to print the PK and the park on ad hoc customer request claims, as it does on every other claim in this binder. Folded into the printed PK open item.",
+  "source_file": "trees new.pdf"
+ },
+ {
+  "invoice": "7721",
+  "vendor": "Kachel Cleaning",
+  "abn": "77 083 786 592",
+  "subtotal": 1650.0,
+  "incl": 1815.0,
+  "variant": "standard",
+  "target": [
+   "1514a918-73121-PK000515-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "1514a918-73121-PK000515-01",
+    "section": "No section (NA - Not Applicable)",
+    "na": "73121",
+    "pk": "PK000515",
+    "amount": 1650.0,
+    "contractor": "Kachel Cleaning",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "7721",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Review",
+  "coding_note": "Kachel Cleaning, 'Claim for Fuel levy August 2026'; purchase order 709779; the only printed detail under the claim is PK000515 and the figure. One printed line of $1,650.00. Printed subtotal $1,650.00 ex GST, GST $165.00, total $1,815.00. Printed PK000515 matches the PK charged (PK000515). TWO THINGS SIT ON THIS DOCUMENT. First, the levy cannot be tested against the Council stepped and capped fuel levy model: the face prints no work value, no fuel component percentage, no fuel escalation percentage and no diesel band, so there is nothing on it to recompute from. Second, invoice 7715 (31-Jul-2026, batch mix22, already sighted) claims the same $1,650.00 on the same PK000515 for 'Fuel levy from April to June 2026', a three month period, where this one claims $1,650.00 for the single month of August 2026. The charge sits on 73121 Cleaning & Sanitary, the same account the existing fuel levy coding open item was raised on.",
+  "follow_up": "Ask Kachel for the calculation behind the $1,650.00 fuel levy, and for the period each levy claim covers: 7715 charges $1,650.00 for April to June 2026 and 7721 charges $1,650.00 for August 2026 alone. Confirm with Finance whether a contract fuel levy belongs on 73121 Cleaning & Sanitary or on 74189, where the Vinton levy lines were recoded.",
+  "source_file": "trees new.pdf"
+ },
+ {
+  "invoice": "7722",
+  "vendor": "Kachel Cleaning",
+  "abn": "77 083 786 592",
+  "subtotal": 2160.0,
+  "incl": 2376.0,
+  "variant": "standard",
+  "target": [
+   "597decf4-73121-PK000022-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "597decf4-73121-PK000022-01",
+    "section": "Park Services",
+    "na": "73121",
+    "pk": "PK000022",
+    "amount": 2160.0,
+    "contractor": "Kachel Cleaning",
+    "narr": "STANDING ORDER 25/26"
+   }
+  ],
+  "evid": "7722",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Kachel Cleaning, cleaning of the public facilities for Contract No PAR/377/2025 for the month of August 2026, with additional services at Oates Park, cleaning of bodily fluids etc., total of services for August 24 dates; purchase order 709779. One printed line against PK000022 at a printed rate of 90 for 24 dates = $2,160.00, which is the printed subtotal exactly. Printed subtotal $2,160.00 ex GST, GST $216.00, total $2,376.00. Printed PK000022 matches the PK charged (PK000022). The face names Oates Park in the claim text rather than on the site row, so the site row carries only the cost account.",
+  "follow_up": null,
+  "source_file": "trees new.pdf"
+ }
+]

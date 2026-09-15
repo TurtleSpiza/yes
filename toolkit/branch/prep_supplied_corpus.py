@@ -85,6 +85,17 @@ BATCHES = {
                        vendors={'R. S. T. Systems Pty. Limited Trading as Vinton Tree Services': 'VINTON'}),
     'playforce_new': dict(src='corpus_playforce_new_as_supplied.json', vendors={'Play Force Australia Pty Ltd': 'PLAYFORCE'},
                           layouts=[('PLAYFORCE_XERO', re.compile(r'^Description\s{2,}Quantity\s{2,}Unit Price\s{2,}GST\s{2,}Amount AUD', re.M))]),
+    # trees_new (branch v16): 45 documents over 51 pages, runtime A, gate GREEN as supplied. Three vendors, and
+    # Treescape prints TWO layouts in this binder, so it carries two templates for the reason playforce_new already
+    # met: the fidelity check works on the rows CONSTANT across a vendor's documents, and mixing two layouts makes
+    # each one's letterhead look like per-invoice text on the other. TREESCAPE is the legacy Ellen Grove letterhead
+    # ("Description of Work carried out", one amount column at the right); TREESCAPE_NEW is the current Wacol
+    # letterhead, which prints a Code / Description / Requested Qty. / Actual Qty. / Unit Price / Amount table, a
+    # PAYMENT ADVICE page and its invoice date in long form ("September 2, 2026").
+    'trees_new': dict(src='corpus_trees_new_as_supplied.json',
+                      vendors={'Higgins Coatings Pty Ltd': 'HIGGINS', 'Kachel Cleaning': 'KACHEL',
+                               'Treescape Australasia Pty Ltd': 'TREESCAPE'},
+                      layouts=[('TREESCAPE_NEW', re.compile(r'Requested Qty\.\s{2,}Actual Qty\.'))]),
 }
 CFG = BATCHES[BATCH]
 VENDOR = CFG['vendors']
@@ -122,7 +133,26 @@ BANDS = {
     'WEIS': [re.compile(r'^(?P<desc>\S.*?)\s{2,}(?P<qty>[\d,]+\.\d{2})\s{2,}(?P<rate>[\d,]+\.\d{2})\s{2,}(?P<tax>\d{1,2}%)\s{2,}(?P<amt>-?[\d,]+\.\d{2})\s*$')],
     'VINTON': [re.compile(r'^\s*(?P<qty>[\d,]+(?:\.\d+)?)\s{2,}(?P<desc>\S.*?)\s{2,}\$(?P<rate>[\d,]+\.\d{2})\s{2,}\$(?P<amt>-?[\d,]+\.\d{2})\s*$'),
                re.compile(r'^(?P<desc>\S.*?)\s{2,}\$(?P<amt>-?[\d,]+\.\d{2})\s{2,}(?P<tax>GST|FRE|GST FREE)\s*$')],
+    # Higgins: DESCRIPTION OF SUPPLY | AMOUNT, the item rows indented under the header and no quantity or rate column
+    # at all. The header block below the table prints "Invoice Amount : n", "Plus GST : n" and "Total including GST : n"
+    # in the same amount column, so the colon is part of the band: an item row never carries one and every header row does.
+    'HIGGINS': [re.compile(r'^\s{10,}(?P<desc>[^:\n]*?)\s{2,}(?P<amt>-?[\d,]+\.\d{2})\s*$')],
+    # Treescape legacy: the work description block prints ONE item row carrying the invoice amount in the right-hand
+    # column, and everything under it (the per-site breakdown, the "= $n" summary) is narrative at the left margin.
+    # The item row starts at column 0, so the leading \S is what separates it from the Subtotal, GST, Total and
+    # payment-slip rows, which the page indents.
+    'TREESCAPE': [re.compile(r'^(?P<desc>\S.*?)\s{2,}\$(?P<amt>-?[\d,]+\.\d{2})\s*$')],
+    # Treescape current letterhead: Code | Description | Requested Qty. | Actual Qty. | Unit Price | Amount. The code
+    # column is blank on a quoted job, so it is optional; ACTUAL quantity is the billed one (4.00 x $273.34 = $1,093.36).
+    'TREESCAPE_NEW': [re.compile(r'^\s*(?:(?P<code>\S.*?)\s{2,})?(?P<desc>\S.*?)\s{2,}(?P<requested_qty>[\d,]+\.\d{2})'
+                                 r'\s{2,}(?P<qty>[\d,]+\.\d{2})\s{2,}\$(?P<rate>[\d,]+\.\d{2})\s{2,}\$(?P<amt>-?[\d,]+\.\d{2})\s*$')],
 }
+# R8: templates whose item table prints every amount in ONE declared column band, so a priced row OUTSIDE that band
+# is a restatement of an item row rather than an item row itself. The band comes from the document's own
+# table_headers (extraction prompt v6 makes the column bands mandatory and gated); the value here is the tolerance in
+# columns, because the header label is left-aligned in the band and the figures under it are right-aligned.
+BAND_TOL = {'TREESCAPE': 12}
+MONEY_END = re.compile(r'\$?-?[\d,]+\.\d{2}\s*$')
 SKIP_TYPES = ('PRICED', 'TABLE_HEADER', 'TOTALS', 'BLANK', 'PAYMENT_ADVICE', 'DUPLICATE', 'DUPLICATE_COPY')
 LINE_TYPES = ('PRICED', 'NARRATIVE', 'TABLE_HEADER', 'TOTALS', 'FOOTER', 'TERMS', 'BLANK', 'OCR_DUPLICATE',
               'IMAGE_TEXT', 'ANNOTATION', 'DUPLICATE_COPY', 'PAYMENT_ADVICE')
@@ -186,6 +216,43 @@ def restate_lines(doc, log):
         log.append(f'{doc["doc_ref"]}: R1 retyped {n} amount-bearing row(s) NARRATIVE -> PRICED, '
                    f'captured {captured(doc)} against printed subtotal {D(doc["printed_subtotal_ex_gst"])}')
     return n
+
+
+def restate_priced_outside_band(doc, log):
+    """R8: a summary row typed PRICED where the item row it restates was typed NARRATIVE.
+
+    Treescape 36218 prints its item row "Contract Planting - Logan City Council - 20579 ... $7,206.00" in the item
+    table's amount column and then restates the same figure at the left margin as "= $7,206.00". The extraction typed
+    the summary row PRICED and the item row NARRATIVE. The document tied either way and every gate returned GREEN,
+    because both rows print the same amount, but the register would carry "= $7,206.00" as the printed line item and
+    lose the description of what was bought. R1 retypes the item row from its band; this then demotes the restatement,
+    and only when the in-band rows ALONE equal the printed subtotal, so no amount is dropped on a guess.
+    """
+    tol = BAND_TOL.get(doc['vendor_template'])
+    th = next((h for h in doc.get('table_headers') or [] if (h.get('bands') or {}).get('amount') is not None), None)
+    if tol is None or th is None:
+        return 0
+    col = th['bands']['amount'] - tol
+    inband, outband = [], []
+    for l in doc['lines']:
+        if l['line_type'] != 'PRICED':
+            continue
+        m = MONEY_END.search(l['line_text'] or '')
+        (inband if m and m.start() >= col else outband).append(l)
+    if not inband or not outband:
+        return 0
+    if sum((D(l['line_ex_gst']) for l in inband if l['line_ex_gst'] is not None), Decimal('0')) != D(doc['printed_subtotal_ex_gst']):
+        return 0
+    for l in outband:
+        l['line_type'] = 'NARRATIVE'
+        l['line_ex_gst'] = None
+        l['note'] = ('R8: the row restates an item-table amount at the left margin and was typed PRICED by the extractor, '
+                     "leaving the item row it restates NARRATIVE. Retyped NARRATIVE; line_text untouched. The item row(s) "
+                     f"in the printed amount band (column {th['bands']['amount']}) carry the whole printed subtotal.")
+    log.append(f'{doc["doc_ref"]}: R8 demoted {len(outband)} priced row(s) outside the printed amount band '
+               f'(column {th["bands"]["amount"]}) to NARRATIVE; the {len(inband)} in-band item row(s) carry the printed '
+               f'subtotal {D(doc["printed_subtotal_ex_gst"])}')
+    return len(outband)
 
 
 def restate_savco_total(doc, log):
@@ -381,7 +448,7 @@ def restate_invoice_date(doc, log):
 
 
 def prepare(corpus):
-    log, r1, r2, r4, r5, r6, r7 = [], 0, 0, 0, 0, 0, 0
+    log, r1, r2, r4, r5, r6, r7, r8 = [], 0, 0, 0, 0, 0, 0, 0
     # Retained OCR for this batch, where this project has rendered the binder itself (ocr_image_letterhead.py).
     _op = os.path.join(OUT, f'ocr_{BATCH}_v6.json')
     ocr = json.load(open(_op)) if os.path.exists(_op) else None
@@ -400,6 +467,7 @@ def prepare(corpus):
                 log.append(f'{d["doc_ref"]}: layout {tpl_} (the supplier prints more than one; assigned from the printed item-table header)')
                 break
         r1 += restate_lines(d, log)
+        r8 += restate_priced_outside_band(d, log)
         if d['vendor_template'] == 'SAVCO':
             r2 += restate_savco_total(d, log)
         pages = collections.defaultdict(list)
@@ -427,7 +495,8 @@ def prepare(corpus):
             # The corpus schema carries due_date; a supplied extraction that left it out is restated from the retained
             # rows only where exactly one printed due-date label is found in the document span (never inferred).
             t_ = '\n'.join(l['line_text'] for l in d['lines'] if l['line_type'] != 'DUPLICATE_COPY')
-            found = sorted({x.strip() for x in re.findall(r'(?:DUE DATE|Due Date:?)\s+(\d{1,2} \w{3} \d{4})\s*$', t_, re.M)})
+            found = sorted({x.strip() for x in re.findall(
+                r'(?:DUE DATE|Due Date)\s*:?\s+(\d{1,2} \w{3} \d{4}|\d{1,2}/\d{1,2}/\d{2,4})\s*$', t_, re.M)})
             if len(found) == 1:
                 d['due_date'] = found[0]
                 log.append(f'{d["doc_ref"]}: due_date {found[0]} restated from the printed due-date row (absent from the supplied corpus)')
@@ -435,7 +504,7 @@ def prepare(corpus):
             v = str(d.get(k) or '').strip()
             if not v or re.fullmatch(r'\d{4}-\d{2}-\d{2}', v):
                 continue
-            for fmt in ('%d/%m/%Y', '%d-%b-%Y', '%d %b %Y', '%d/%m/%y', '%d.%m.%Y'):
+            for fmt in ('%d/%m/%Y', '%d-%b-%Y', '%d %b %Y', '%d/%m/%y', '%d.%m.%Y', '%B %d, %Y'):
                 try:
                     d[k] = dt.datetime.strptime(v, fmt).date().isoformat()
                     break
@@ -480,7 +549,8 @@ def prepare(corpus):
             assert cap == sub, f'{d["doc_ref"]}: restated lines {cap} do not equal the printed subtotal {sub}'
     log.append(f'batch: R1 restated {r1} amount-bearing rows over {sum(1 for d in corpus["documents"])} documents; '
                f'R2 restated {r2} printed totals carrying the GST amount; R4 restated {r4} invoice dates from the printed Invoice Date row; '
-               f'R5 restated {r5} GST amounts carrying the printed total; R6 restated {r6} empty pk_refs from a PK printed on the face')
+               f'R5 restated {r5} GST amounts carrying the printed total; R6 restated {r6} empty pk_refs from a PK printed on the face; '
+               f'R8 demoted {r8} priced row(s) restating an item-table amount outside the printed amount band')
     return log
 
 
@@ -528,11 +598,24 @@ def fidelity(corpus, refs):
         verbatim = [x for x in template if x in ref_all]
         variant = [x for x in template if x not in ref_all and mask(x) in ref_masked]
         rest = [x for x in template if x not in ref_all and mask(x) not in ref_masked]
-        altered = []
+        # A near neighbour of a reference row is a template row this batch prints DIFFERENTLY from the independent
+        # parse, which is the silently-altered case and fails. The one exception is the mirror of the vintage rule the
+        # two-way limb below already states, and it is bounded the same way: where EVERY document of this vendor in
+        # the batch is older than EVERY reference document, the vendor's stationery has had time to change between the
+        # two and a near neighbour is a vintage variant, not an alteration. Higgins is the case that raised it: the
+        # 2026 reference prints its logo word twice ("Higgins Higgins Coatings Pty Ltd") and its BSB spaced
+        # ("BSB : 083 004") where these 2024 to May-2026 invoices print the name once and the BSB hyphenated. The rows
+        # are listed one by one either way, so a reader sees exactly what differed; nothing passes silently, and a
+        # batch that overlaps the reference vintage at all still fails.
+        ref_from_ = min((r['date'] for r in rs if r['date']), default='')
+        batch_to_ = max((str(dates.get(ref_, '')) for ref_, _ in docs), default='')
+        older_than_reference = bool(ref_from_ and batch_to_ and batch_to_ < ref_from_)
+        altered, vintage = [], []
         for x in rest:
             near = difflib.get_close_matches(mask(x), sorted(ref_masked), n=1, cutoff=0.85)
             if near:
-                altered.append(dict(batch_row=x, nearest_reference_row=near[0]))
+                (vintage if older_than_reference else altered).append(
+                    dict(batch_row=x, nearest_reference_row=near[0]))
         if altered:
             failures.append((v, altered))
         two_way = None
@@ -589,6 +672,11 @@ def fidelity(corpus, refs):
                         batch_constant_template_rows=len(template), verbatim_in_reference=len(verbatim),
                         digit_variant_of_a_reference_row=len(variant), digit_variant_rows=variant,
                         unmatched_rows=len(rest), unmatched=rest, altered_template_rows=altered,
+                        vintage_variant_rows=vintage,
+                        vintage_basis=(f'every document of this vendor in the batch (to {batch_to_}) is older than every reference '
+                                       f'document (from {ref_from_}), so a near neighbour of a reference row is a change of '
+                                       f'stationery between the two vintages and is listed here rather than failing'
+                                       if vintage else None),
                         reference_intersection_check=two_way))
     rep = dict(check='rule 19.2 per-vendor verbatim fidelity, independent source',
                method=('For each vendor template: take every row that is constant across this batch\'s documents for that vendor and '

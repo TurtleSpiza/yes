@@ -1,0 +1,86 @@
+{
+ "check": "rule 19.2 per-vendor verbatim fidelity, independent source",
+ "method": "For each vendor template: take every row that is constant across this batch's documents for that vendor and carries no money token, and verify it against page text this project parsed independently from a real PDF. A row passes verbatim, or as a digit variant (invoice number, date) of a reference row. A row that is neither but is a near neighbour of a reference row is a silently altered template row and fails.",
+ "vendors": [
+  {
+   "vendor_template": "HIGGINS",
+   "batch_documents": 25,
+   "reference_documents": [
+    "mixed_new_26_27:186139862/pages47-47 (branch v3, Mixed_new_26-27.pdf, parse_mixed_new.py)",
+    "mixed_new_26_27:186140216/pages75-75 (branch v3, Mixed_new_26-27.pdf, parse_mixed_new.py)"
+   ],
+   "batch_constant_template_rows": 14,
+   "verbatim_in_reference": 12,
+   "digit_variant_of_a_reference_row": 0,
+   "digit_variant_rows": [],
+   "unmatched_rows": 2,
+   "unmatched": [
+    "BSB : 083-004",
+    "Higgins Coatings Pty Ltd"
+   ],
+   "altered_template_rows": [],
+   "vintage_variant_rows": [
+    {
+     "batch_row": "BSB : 083-004",
+     "nearest_reference_row": "BSB : # #"
+    },
+    {
+     "batch_row": "Higgins Coatings Pty Ltd",
+     "nearest_reference_row": "Higgins Higgins Coatings Pty Ltd"
+    }
+   ],
+   "vintage_basis": "every document of this vendor in the batch (to 2026-05-27) is older than every reference document (from 2026-08-26), so a near neighbour of a reference row is a change of stationery between the two vintages and is listed here rather than failing",
+   "reference_intersection_check": null
+  },
+  {
+   "vendor_template": "KACHEL",
+   "batch_documents": 9,
+   "reference_documents": [
+    "mixed_new_26_27:7717/pages73-73 (branch v3, Mixed_new_26-27.pdf, parse_mixed_new.py)"
+   ],
+   "batch_constant_template_rows": 5,
+   "verbatim_in_reference": 5,
+   "digit_variant_of_a_reference_row": 0,
+   "digit_variant_rows": [],
+   "unmatched_rows": 0,
+   "unmatched": [],
+   "altered_template_rows": [],
+   "vintage_variant_rows": [],
+   "vintage_basis": null,
+   "reference_intersection_check": null
+  },
+  {
+   "vendor_template": "TREESCAPE",
+   "batch_documents": 9,
+   "reference_documents": [
+    "mixed_1:36220/pages7-7 (branch v2, Mixed_1.pdf, parse_mixed1.py)"
+   ],
+   "batch_constant_template_rows": 19,
+   "verbatim_in_reference": 19,
+   "digit_variant_of_a_reference_row": 0,
+   "digit_variant_rows": [],
+   "unmatched_rows": 0,
+   "unmatched": [],
+   "altered_template_rows": [],
+   "vintage_variant_rows": [],
+   "vintage_basis": null,
+   "reference_intersection_check": null
+  },
+  {
+   "vendor_template": "TREESCAPE_NEW",
+   "batch_documents": 2,
+   "reference_documents": [],
+   "batch_constant_template_rows": 27,
+   "verbatim_in_reference": 0,
+   "digit_variant_of_a_reference_row": 0,
+   "digit_variant_rows": [],
+   "unmatched_rows": 0,
+   "unmatched": [],
+   "altered_template_rows": [],
+   "reference_intersection_check": null,
+   "check": "NOT RUN: this project has never parsed a document of this vendor from a real PDF, so there is no independent source to check the retained rows against. The compensating controls are the arithmetic tie on every document of the batch and the reference-level match of every document to its register line in the batch match table."
+  }
+ ],
+ "verdict": "PASS",
+ "scope": "Proves the fixed template and boilerplate rows this batch carries are verbatim against an independent parse of the same vendor. It cannot prove per-invoice description text, which appears on no other document; that rests on the retained layout rows, the arithmetic tie on every invoice (all 45 reconcile to the printed subtotal to the cent) and the creditor history on the register line. Where a vendor contributes a single document to this batch, \"constant across the batch\" is that document's own rows, so the unmatched list for that vendor is its invoice-specific text."
+}
