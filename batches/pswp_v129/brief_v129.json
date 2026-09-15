@@ -12,23 +12,1231 @@
  "workbook_out": "PS_WP_Transaction_Register_3FY_v129.xlsx",
  "output_dir": "/home/user/yes/registers",
  "match_table": "match_v129.json",
- "corpora": [],
- "documents": {},
- "held": [],
- "held_reasons": {},
- "vendor_boilerplate": [],
+ "corpora": [
+  "../mixed_new_26_27/corpus_mixed_new_26_27_v6.json",
+  "../ksadasd/corpus_ksadasd_v6.json",
+  "../playforce_new/corpus_playforce_new_v6.json"
+ ],
+ "documents": {
+  "1026099/pages1-5": {
+   "nature_category": "Electricity supply",
+   "nature_detail": "Your Business Electricity Tax Invoice; consolidated invoice summary: Energy, Network, Regulated, Environmental, Metering, Retail Service charges; Additional Charges, Credits & Adjustments",
+   "address": "Origin Energy Electricity Limited, GPO Box 3125, Sydney NSW 2001 (payment address)",
+   "phone": "13 23 34; originenergy.com.au",
+   "bill_to": "LOGAN CITY COUNCIL, PO BOX 3226, LOGAN CITY DC QLD 4114; Customer ABN 21 627 796 435; Account No. 25001690911; Agreement No. 2484832",
+   "requesting_officer": "(not printed)",
+   "sites": "Consolidated invoice, 47 sites (one printed per line); Parks carries Logan Garden Park, Civic Parade, Logan Central QLD 4114 (NMI QB10790446 8, account 50002940795)",
+   "work_description": "Your Business Electricity Tax Invoice; consolidated invoice summary: Energy, Network, Regulated, Environmental, Metering, Retail Service charges; Additional Charges, Credits & Adjustments",
+   "payments_made": "(not printed)",
+   "balance_due": "621,879.10",
+   "pk_normalised": "(not printed)",
+   "due_date": "16-Sep-2026",
+   "payment_details_key": "BP:ORG-P1",
+   "terms_key": "BP:ORG-T1",
+   "boilerplate_keys": [
+    "BP:ORG-P1",
+    "BP:ORG-T1"
+   ],
+   "target_row": 31003,
+   "variants": [
+    "check2 split",
+    "check3 sumgst"
+   ],
+   "doc_type_allowed": "DIR Cred Invoice",
+   "line_map": [
+    [
+     "e23a62cd-73312-PK000469-01",
+     "QB10790446"
+    ]
+   ],
+   "printed": [
+    "565345.00",
+    "56534.10",
+    "621879.10"
+   ]
+  },
+  "INV-5621/pages18-19": {
+   "nature_category": "Parks maintenance (contract/reactive)",
+   "nature_detail": "Multiple water play sites, one printed per line (see line items)",
+   "address": "233 Ernest Street, Lota QLD 4179",
+   "phone": "Jon 0407 766 860; operations@poolshopqld.com.au",
+   "bill_to": "Logan City Council, 138-158 Wembley Rd, LOGAN CENTRAL QLD 4114, ABN: 21 627 796 435",
+   "requesting_officer": "(not printed)",
+   "sites": "Multiple water play sites, one printed per line (see line items)",
+   "work_description": "Multiple water play sites, one printed per line (see line items)",
+   "payments_made": "(not printed)",
+   "balance_due": "(not printed)",
+   "pk_normalised": "PK00022",
+   "due_date": "25-Aug-2026",
+   "payment_details_key": "BP:PSH-P1",
+   "terms_key": "(not printed)",
+   "boilerplate_keys": [
+    "BP:PSH-P1"
+   ],
+   "target_row": 30955,
+   "variants": [
+    "check2 tol1c",
+    "check3 tol1cgst"
+   ],
+   "printed": [
+    "34063.51",
+    "3406.34",
+    "37469.85"
+   ]
+  },
+  "INV-0342/pages33-33": {
+   "nature_category": "Parks maintenance (contract/reactive)",
+   "nature_detail": "Noyer Park - Fenced Dog",
+   "address": "PO Box 5202, DAISY HILL QLD 4127",
+   "phone": "(not printed)",
+   "bill_to": "Logan City Council",
+   "requesting_officer": "(not printed)",
+   "sites": "Noyer Park - Fenced Dog",
+   "work_description": "Noyer Park - Fenced Dog",
+   "payments_made": "(not printed)",
+   "balance_due": "6,446.00",
+   "pk_normalised": "(not printed)",
+   "due_date": "21-Aug-2026",
+   "payment_details_key": "BP:FD-P1",
+   "terms_key": "BP:FD-T1",
+   "boilerplate_keys": [
+    "BP:FD-P1",
+    "BP:FD-T1"
+   ],
+   "target_row": 30980,
+   "variants": [
+    "check2 sumtie"
+   ],
+   "sibling_rows": [
+    17841,
+    30980
+   ],
+   "printed": [
+    "5860.00",
+    "586.00",
+    "6446.00"
+   ]
+  },
+  "INV-2620/pages36-36": {
+   "nature_category": "Parks maintenance (contract/reactive)",
+   "nature_detail": "Supply labour and equipment to machine clean sand soft fall for Division 5. Sand to be cleaned to a depth of approximately 100 mm with 6 mm screen. Price includes weed spraying prior to cleaning",
+   "address": "22 Crestview St, LOGANLEA QLD 4131, AUSTRALIA",
+   "phone": "christine@weiscontractors.com.au",
+   "bill_to": "Logan City Council, PO Box 3226, LOGAN CITY DC QLD 4114, AUSTRALIA",
+   "requesting_officer": "(not printed)",
+   "sites": "CR - Division 5",
+   "work_description": "Supply labour and equipment to machine clean sand soft fall for Division 5. Sand to be cleaned to a depth of approximately 100 mm with 6 mm screen. Price includes weed spraying prior to cleaning",
+   "payments_made": "(not printed)",
+   "balance_due": "10,494.00",
+   "pk_normalised": "PK000391",
+   "due_date": "30-Sep-2026",
+   "payment_details_key": "BP:WC-P1",
+   "terms_key": "(not printed)",
+   "boilerplate_keys": [
+    "BP:WC-P1"
+   ],
+   "target_row": 30963,
+   "variants": [
+    "check2 sumtie"
+   ],
+   "sibling_rows": [
+    16837,
+    30963
+   ],
+   "printed": [
+    "9540.00",
+    "954.00",
+    "10494.00"
+   ]
+  },
+  "INV-5668/pages45-46": {
+   "nature_category": "Parks maintenance (contract/reactive)",
+   "nature_detail": "Multiple water play sites, one printed per line (see line items)",
+   "address": "233 Ernest Street, Lota QLD 4179",
+   "phone": "Jon 0407 766 860; operations@poolshopqld.com.au",
+   "bill_to": "Logan City Council, 138-158 Wembley Rd, LOGAN CENTRAL QLD 4114, ABN: 21 627 796 435",
+   "requesting_officer": "(not printed)",
+   "sites": "Multiple water play sites, one printed per line (see line items)",
+   "work_description": "Multiple water play sites, one printed per line (see line items)",
+   "payments_made": "(not printed)",
+   "balance_due": "37,140.95",
+   "pk_normalised": "PK00022",
+   "due_date": "25-Sep-2026",
+   "payment_details_key": "BP:PSH-P1",
+   "terms_key": "(not printed)",
+   "boilerplate_keys": [
+    "BP:PSH-P1"
+   ],
+   "target_row": 30956,
+   "variants": [
+    "check2 tol1c",
+    "check3 tol1cgst"
+   ],
+   "printed": [
+    "33764.51",
+    "3376.44",
+    "37140.95"
+   ]
+  },
+  "INV-2598": {
+   "nature_category": "Parks maintenance (contract/reactive)",
+   "nature_detail": "Monthly high pressure clean of park assets",
+   "address": "22 Crestview St, LOGANLEA QLD 4131, AUSTRALIA",
+   "phone": "christine@weiscontractors.com.au",
+   "bill_to": "Logan City Council, PO Box 3226, LOGAN CITY DC QLD 4114, AUSTRALIA",
+   "requesting_officer": "(not printed)",
+   "sites": "Darlington Parklands, Yarrabilba 4207",
+   "work_description": "Monthly high pressure clean of park assets",
+   "payments_made": "(not printed)",
+   "balance_due": "738.10",
+   "pk_normalised": "PK000441",
+   "due_date": "30-Aug-2026",
+   "payment_details_key": "BP:WC-P1",
+   "terms_key": "(not printed)",
+   "boilerplate_keys": [
+    "BP:WC-P1"
+   ],
+   "target_row": 2870,
+   "variants": [
+    "check2 sumtie"
+   ],
+   "sibling_rows": [
+    2870,
+    16832
+   ],
+   "coding_note": "Weis Contractors, reference \"CR - Darlington Parklands\"; site(s) Darlington Parklands, Yarrabilba 4207; service date(s) 9 July 2026; contract PAR/340A/2026; order 717316. Lines as printed: Monthly high pressure clean of park assets 1.00 @ $671.00 = $671.00. Printed subtotal $671.00 ex GST, GST $67.10, total $738.10. Printed PK000441 matches the PK charged (PK000441).",
+   "verdict": "Correct",
+   "printed": [
+    "671.00",
+    "67.10",
+    "738.10"
+   ]
+  },
+  "INV-2614": {
+   "nature_category": "Parks maintenance (contract/reactive)",
+   "nature_detail": "Supply labour and equipment to high pressure clean playground equipment",
+   "address": "22 Crestview St, LOGANLEA QLD 4131, AUSTRALIA",
+   "phone": "christine@weiscontractors.com.au",
+   "bill_to": "Logan City Council, PO Box 3226, LOGAN CITY DC QLD 4114, AUSTRALIA",
+   "requesting_officer": "(not printed)",
+   "sites": "Kilkenny Park, Cornubia",
+   "work_description": "Supply labour and equipment to high pressure clean playground equipment",
+   "payments_made": "(not printed)",
+   "balance_due": "547.80",
+   "pk_normalised": "PK000022",
+   "due_date": "30-Sep-2026",
+   "payment_details_key": "BP:WC-P1",
+   "terms_key": "(not printed)",
+   "boilerplate_keys": [
+    "BP:WC-P1"
+   ],
+   "target_row": 31091,
+   "variants": [
+    "check2 sumtie"
+   ],
+   "sibling_rows": [
+    16842,
+    31091
+   ],
+   "coding_note": "Weis Contractors, reference \"CR - 3923293/Kilkenny Park\"; site(s) Kilkenny Park, Cornubia; service date(s) 4 August 2026; contract PAR/340A/2026; order 717369. Lines as printed: Supply labour and equipment to high pressure clean playground equipment 1.00 @ $498.00 = $498.00. Printed subtotal $498.00 ex GST, GST $49.80, total $547.80. Printed PK000022 differs from the PK charged (PK000391). PK Charged stays the ledger Work Order (rule 1).",
+   "verdict": "Review",
+   "printed": [
+    "498.00",
+    "49.80",
+    "547.80"
+   ]
+  },
+  "INV-2615": {
+   "nature_category": "Parks maintenance (contract/reactive)",
+   "nature_detail": "Supply labour and equipment to rake out bark soft fall - no glass found",
+   "address": "22 Crestview St, LOGANLEA QLD 4131, AUSTRALIA",
+   "phone": "christine@weiscontractors.com.au",
+   "bill_to": "Logan City Council, PO Box 3226, LOGAN CITY DC QLD 4114, AUSTRALIA",
+   "requesting_officer": "(not printed)",
+   "sites": "Logan Gardens, Logan Central",
+   "work_description": "Supply labour and equipment to rake out bark soft fall - no glass found",
+   "payments_made": "(not printed)",
+   "balance_due": "437.80",
+   "pk_normalised": "PK000391",
+   "due_date": "30-Sep-2026",
+   "payment_details_key": "BP:WC-P1",
+   "terms_key": "(not printed)",
+   "boilerplate_keys": [
+    "BP:WC-P1"
+   ],
+   "target_row": 31115,
+   "variants": [
+    "check2 sumtie"
+   ],
+   "sibling_rows": [
+    16841,
+    31115
+   ],
+   "coding_note": "Weis Contractors, reference \"CR 0 3931522/Logan Gardens\"; site(s) Logan Gardens, Logan Central; service date(s) 6 August 2026; contract PAR/340C/2026; order 717531. Lines as printed: Supply labour and equipment to rake out bark soft fall - no glass found 1.00 @ $398.00 = $398.00. Printed subtotal $398.00 ex GST, GST $39.80, total $437.80. Printed PK000391 matches the PK charged (PK000391).",
+   "verdict": "Correct",
+   "printed": [
+    "398.00",
+    "39.80",
+    "437.80"
+   ]
+  },
+  "INV-2617": {
+   "nature_category": "Parks maintenance (contract/reactive)",
+   "nature_detail": "Supply labour and equipment to high pressure clean park assets",
+   "address": "22 Crestview St, LOGANLEA QLD 4131, AUSTRALIA",
+   "phone": "christine@weiscontractors.com.au",
+   "bill_to": "Logan City Council, PO Box 3226, LOGAN CITY DC QLD 4114, AUSTRALIA",
+   "requesting_officer": "(not printed)",
+   "sites": "Shailer Pioneer Park, Shailer Park 4128; Berrinba Wetlands Park, Browns Plains 4118; Forestglen Park, Browns Plains 4118; Lincoln Green Park, Forestdale 4118; Middle Park, Boronia Heights 4124; Mabel Park, Slacks Creek",
+   "work_description": "Supply labour and equipment to high pressure clean park assets",
+   "payments_made": "(not printed)",
+   "balance_due": "2,319.90",
+   "pk_normalised": "PK000417",
+   "due_date": "30-Sep-2026",
+   "payment_details_key": "BP:WC-P1",
+   "terms_key": "(not printed)",
+   "boilerplate_keys": [
+    "BP:WC-P1"
+   ],
+   "target_row": 31013,
+   "variants": [
+    "check2 sumtie"
+   ],
+   "sibling_rows": [
+    16839,
+    31013
+   ],
+   "coding_note": "Weis Contractors, reference \"CR - High Pressure Cleaning\"; site(s) Shailer Pioneer Park, Shailer Park 4128, Berrinba Wetlands Park, Browns Plains 4118, Forestglen Park, Browns Plains 4118, Lincoln Green Park, Forestdale 4118, Middle Park, Boronia Heights 4124, Mabel Park, Slacks Creek; service date(s) 13 August 2026; contract PAR/340A/2026; order 717316. Lines as printed: Supply labour and equipment to high pressure clean park assets 1.00 @ $454.00 = $454.00; Supply labour and equipment to high pressure clean park assets 1.00 @ $536.00 = $536.00; Supply labour and equipment to high pressure clean park assets 1.00 @ $344.00 = $344.00; Supply labour and equipment to high pressure clean park assets 1.00 @ $250.00 = $250.00; Supply labour and equipment to high pressure clean park assets 1.00 @ $275.00 = $275.00; Supply labour and equipment to high pressure clean park assets 1.00 @ $250.00 = $250.00. Printed subtotal $2,109.00 ex GST, GST $210.90, total $2,319.90. Printed PK000417 matches the PK charged (PK000417).",
+   "verdict": "Correct",
+   "printed": [
+    "2109.00",
+    "210.90",
+    "2319.90"
+   ]
+  },
+  "INV-2618": {
+   "nature_category": "Parks maintenance (contract/reactive)",
+   "nature_detail": "Fortnightly high pressure clean of park asseets | Fortnightly high pressure clean of park assets",
+   "address": "22 Crestview St, LOGANLEA QLD 4131, AUSTRALIA",
+   "phone": "christine@weiscontractors.com.au",
+   "bill_to": "Logan City Council, PO Box 3226, LOGAN CITY DC QLD 4114, AUSTRALIA",
+   "requesting_officer": "(not printed)",
+   "sites": "Rotary Park, Jimboomba 4280; Flagstone Regional Park, Flagstone 4280; Teviot Downs, New Beith 4124; Village Green, Logan Village",
+   "work_description": "Fortnightly high pressure clean of park asseets | Fortnightly high pressure clean of park assets",
+   "payments_made": "(not printed)",
+   "balance_due": "1,406.90",
+   "pk_normalised": "PK000417",
+   "due_date": "30-Sep-2026",
+   "payment_details_key": "BP:WC-P1",
+   "terms_key": "(not printed)",
+   "boilerplate_keys": [
+    "BP:WC-P1"
+   ],
+   "target_row": 31036,
+   "variants": [
+    "check2 sumtie"
+   ],
+   "sibling_rows": [
+    16838,
+    31036
+   ],
+   "coding_note": "Weis Contractors, reference \"CR - High Pressure Cleaning\"; site(s) Rotary Park, Jimboomba 4280, Flagstone Regional Park, Flagstone 4280, Teviot Downs, New Beith 4124, Village Green, Logan Village; service date(s) 13 August 2026; contract PAR/340A/2026; order 717316. Lines as printed: Fortnightly high pressure clean of park asseets 1.00 @ $250.00 = $250.00; Fortnightly high pressure clean of park assets 1.00 @ $448.00 = $448.00; Fortnightly high pressure clean of park assets 1.00 @ $337.00 = $337.00; Fortnightly high pressure clean of park assets 1.00 @ $244.00 = $244.00. Printed subtotal $1,279.00 ex GST, GST $127.90, total $1,406.90. Printed PK000417 matches the PK charged (PK000417).",
+   "verdict": "Correct",
+   "printed": [
+    "1279.00",
+    "127.90",
+    "1406.90"
+   ]
+  },
+  "INV-2625": {
+   "nature_category": "Parks maintenance (contract/reactive)",
+   "nature_detail": "Supply labour and equipment to decompact bark soft fall",
+   "address": "22 Crestview St, LOGANLEA QLD 4131, AUSTRALIA",
+   "phone": "christine@weiscontractors.com.au",
+   "bill_to": "Logan City Council, PO Box 3226, LOGAN CITY DC QLD 4114, AUSTRALIA",
+   "requesting_officer": "(not printed)",
+   "sites": "Newstead Park, Buccan",
+   "work_description": "Supply labour and equipment to decompact bark soft fall",
+   "payments_made": "(not printed)",
+   "balance_due": "1,097.80",
+   "pk_normalised": "PK000391",
+   "due_date": "30-Sep-2026",
+   "payment_details_key": "BP:WC-P1",
+   "terms_key": "(not printed)",
+   "boilerplate_keys": [
+    "BP:WC-P1"
+   ],
+   "target_row": 31045,
+   "variants": [
+    "check2 sumtie"
+   ],
+   "sibling_rows": [
+    16835,
+    31045
+   ],
+   "coding_note": "Weis Contractors, reference \"CR - 3932012/Newstead Park\"; site(s) Newstead Park, Buccan; service date(s) 19 August 2026; contract PAR/340C/2026; order 717531. Lines as printed: Supply labour and equipment to decompact bark soft fall 1.00 @ $998.00 = $998.00. Printed subtotal $998.00 ex GST, GST $99.80, total $1,097.80. Printed PK000391 matches the PK charged (PK000391).",
+   "verdict": "Correct",
+   "printed": [
+    "998.00",
+    "99.80",
+    "1097.80"
+   ]
+  },
+  "INV-3932": {
+   "nature_category": "Parks maintenance (contract/reactive)",
+   "nature_detail": "Printed line items: Maintenance Labour; Sand 25m3; Birdnest swing; Infant Seat (short hinge)",
+   "address": null,
+   "phone": null,
+   "bill_to": null,
+   "requesting_officer": null,
+   "sites": null,
+   "work_description": null,
+   "payments_made": null,
+   "balance_due": null,
+   "pk_normalised": "PK000023",
+   "due_date": "11-Jul-2025",
+   "payment_details_key": "(not printed)",
+   "terms_key": "(not printed)",
+   "boilerplate_keys": [],
+   "target_row": 21916,
+   "variants": [
+    "check2 sumtie"
+   ],
+   "sibling_rows": [
+    18789,
+    21916
+   ],
+   "printed": [
+    "4051.40",
+    "405.14",
+    "4456.54"
+   ]
+  },
+  "INV-3937": {
+   "nature_category": "Parks maintenance (contract/reactive)",
+   "nature_detail": "Printed line items: Division 10 Comprehensive playground inspections",
+   "address": null,
+   "phone": null,
+   "bill_to": null,
+   "requesting_officer": null,
+   "sites": null,
+   "work_description": null,
+   "payments_made": null,
+   "balance_due": null,
+   "pk_normalised": "(not printed)",
+   "due_date": "11-Jul-2025",
+   "payment_details_key": "(not printed)",
+   "terms_key": "(not printed)",
+   "boilerplate_keys": [],
+   "target_row": 21874,
+   "variants": [
+    "check2 sumtie"
+   ],
+   "sibling_rows": [
+    18774,
+    21874
+   ],
+   "printed": [
+    "4851.00",
+    "485.10",
+    "5336.10"
+   ]
+  },
+  "INV-3911": {
+   "nature_category": "Parks maintenance (contract/reactive)",
+   "nature_detail": "Printed line items: Division 8 Comprehensive playground inspections",
+   "address": null,
+   "phone": null,
+   "bill_to": null,
+   "requesting_officer": null,
+   "sites": null,
+   "work_description": null,
+   "payments_made": null,
+   "balance_due": null,
+   "pk_normalised": "(not printed)",
+   "due_date": "10-Jul-2025",
+   "payment_details_key": "(not printed)",
+   "terms_key": "(not printed)",
+   "boilerplate_keys": [],
+   "target_row": 21684,
+   "variants": [
+    "check2 sumtie"
+   ],
+   "sibling_rows": [
+    18804,
+    21684
+   ],
+   "printed": [
+    "7938.00",
+    "793.80",
+    "8731.80"
+   ]
+  },
+  "INV-4534": {
+   "nature_category": "Parks maintenance (contract/reactive)",
+   "nature_detail": "Contact: Jessica Burke | Account: PK000023 | Contract: LB304 (LocalBuy) | Date Completed: 28-Aug-2025 | 3727232 - MTN - Buxton Park - Yarrabilba (Ref: 29276)",
+   "address": "41 Industrial Ave, Logan Village QLD 4207",
+   "phone": "Office: (07) 3803 1788; Email: team@playforce.com.au; Web: playforce.com.au",
+   "bill_to": "Logan City Council, 150 Wembley Rd, Logan Central QLD 4114, Australia",
+   "requesting_officer": "Jessica Burke",
+   "sites": "Buxton Park - Yarrabilba (Ref: 29276)",
+   "work_description": "Contact: Jessica Burke | Account: PK000023 | Contract: LB304 (LocalBuy) | Date Completed: 28-Aug-2025 | 3727232 - MTN - Buxton Park - Yarrabilba (Ref: 29276)",
+   "payments_made": "(not printed)",
+   "balance_due": "(not printed)",
+   "pk_normalised": "PK000023",
+   "due_date": "(not printed)",
+   "payment_details_key": "BP:PF-P1",
+   "terms_key": "BP:PF-T1",
+   "boilerplate_keys": [
+    "BP:PF-P1",
+    "BP:PF-T1"
+   ],
+   "target_row": 21625,
+   "variants": [
+    "check2 sumtie"
+   ],
+   "sibling_rows": [
+    18687,
+    21625
+   ],
+   "printed": [
+    "12020.58",
+    "1202.06",
+    "13222.64"
+   ]
+  },
+  "INV-4567": {
+   "nature_category": "Parks maintenance (contract/reactive)",
+   "nature_detail": "Contact: Kahn Helms | Account: PK000023 | Contract: LB304 (LocalBuy) | Date Completed: 29-Aug-2025 | 3621162 - MTN - Saunders Park - Cedar Vale (Ref: 26821)",
+   "address": "41 Industrial Ave, Logan Village QLD 4207",
+   "phone": "Office: (07) 3803 1788; Email: team@playforce.com.au; Web: playforce.com.au",
+   "bill_to": "Logan City Council, 150 Wembley Rd, Logan Central QLD 4114, Australia",
+   "requesting_officer": "Kahn Helms",
+   "sites": "Saunders Park - Cedar Vale (Ref: 26821)",
+   "work_description": "Contact: Kahn Helms | Account: PK000023 | Contract: LB304 (LocalBuy) | Date Completed: 29-Aug-2025 | 3621162 - MTN - Saunders Park - Cedar Vale (Ref: 26821)",
+   "payments_made": "(not printed)",
+   "balance_due": "(not printed)",
+   "pk_normalised": "PK000023",
+   "due_date": "(not printed)",
+   "payment_details_key": "BP:PF-P1",
+   "terms_key": "BP:PF-T1",
+   "boilerplate_keys": [
+    "BP:PF-P1",
+    "BP:PF-T1"
+   ],
+   "target_row": 21906,
+   "variants": [
+    "check2 sumtie"
+   ],
+   "sibling_rows": [
+    18665,
+    21906
+   ],
+   "printed": [
+    "4150.00",
+    "415.00",
+    "4565.00"
+   ]
+  },
+  "INV-4571": {
+   "nature_category": "Parks maintenance (contract/reactive)",
+   "nature_detail": "Contact: Corey Stoops | Account: PK000023 | Contract: LB304 (LocalBuy) | Date Completed: 01-Sep-2025 | 3691619 - MTN - Middle Park - Boronia Heights | (Ref: 28570)",
+   "address": "41 Industrial Ave, Logan Village QLD 4207",
+   "phone": "Office: (07) 3803 1788; Email: team@playforce.com.au; Web: playforce.com.au",
+   "bill_to": "Logan City Council, 150 Wembley Rd, Logan Central QLD 4114, Australia",
+   "requesting_officer": "Corey Stoops",
+   "sites": "Middle Park - Boronia Heights",
+   "work_description": "Contact: Corey Stoops | Account: PK000023 | Contract: LB304 (LocalBuy) | Date Completed: 01-Sep-2025 | 3691619 - MTN - Middle Park - Boronia Heights | (Ref: 28570)",
+   "payments_made": "(not printed)",
+   "balance_due": "(not printed)",
+   "pk_normalised": "PK000023",
+   "due_date": "(not printed)",
+   "payment_details_key": "BP:PF-P1",
+   "terms_key": "BP:PF-T1",
+   "boilerplate_keys": [
+    "BP:PF-P1",
+    "BP:PF-T1"
+   ],
+   "target_row": 21917,
+   "variants": [
+    "check2 sumtie"
+   ],
+   "sibling_rows": [
+    18673,
+    21917
+   ],
+   "printed": [
+    "4018.09",
+    "401.81",
+    "4419.90"
+   ]
+  },
+  "INV-4664": {
+   "nature_category": "Parks maintenance (contract/reactive)",
+   "nature_detail": "Contact: Melina Turpin | Account: | Contract: LB304 (LocalBuy) | Date Completed: 12-Sep-2025 | 709828 - MTN - Neumann Park - Yarrabilba (Ref: 29806)",
+   "address": "41 Industrial Ave, Logan Village QLD 4207",
+   "phone": "Office: (07) 3803 1788; Email: team@playforce.com.au; Web: playforce.com.au",
+   "bill_to": "Logan City Council, 150 Wembley Rd, Logan Central QLD 4114, Australia",
+   "requesting_officer": "Melina Turpin",
+   "sites": "Neumann Park - Yarrabilba (Ref: 29806)",
+   "work_description": "Contact: Melina Turpin | Account: | Contract: LB304 (LocalBuy) | Date Completed: 12-Sep-2025 | 709828 - MTN - Neumann Park - Yarrabilba (Ref: 29806)",
+   "payments_made": "(not printed)",
+   "balance_due": "(not printed)",
+   "pk_normalised": "(not printed)",
+   "due_date": "(not printed)",
+   "payment_details_key": "BP:PF-P1",
+   "terms_key": "BP:PF-T1",
+   "boilerplate_keys": [
+    "BP:PF-P1",
+    "BP:PF-T1"
+   ],
+   "target_row": 21882,
+   "variants": [
+    "check2 sumtie"
+   ],
+   "sibling_rows": [
+    18644,
+    21882
+   ],
+   "printed": [
+    "4556.00",
+    "455.60",
+    "5011.60"
+   ]
+  },
+  "INV-4868": {
+   "nature_category": "Parks maintenance (contract/reactive)",
+   "nature_detail": "Contact: Melina Turpin | Account: PK000023 | Contract: LB304 (LocalBuy) | Date Completed: 02-Oct-2025 | 3757539 - MTN - Village Green - Logan Village (Ref: 29898)",
+   "address": "41 Industrial Ave, Logan Village QLD 4207",
+   "phone": "Office: (07) 3803 1788; Email: team@playforce.com.au; Web: playforce.com.au",
+   "bill_to": "Logan City Council, 150 Wembley Rd, Logan Central QLD 4114, Australia",
+   "requesting_officer": "Melina Turpin",
+   "sites": "Village Green - Logan Village (Ref: 29898)",
+   "work_description": "Contact: Melina Turpin | Account: PK000023 | Contract: LB304 (LocalBuy) | Date Completed: 02-Oct-2025 | 3757539 - MTN - Village Green - Logan Village (Ref: 29898)",
+   "payments_made": "(not printed)",
+   "balance_due": "(not printed)",
+   "pk_normalised": "PK000023",
+   "due_date": "(not printed)",
+   "payment_details_key": "BP:PF-P1",
+   "terms_key": "BP:PF-T1",
+   "boilerplate_keys": [
+    "BP:PF-P1",
+    "BP:PF-T1"
+   ],
+   "target_row": 21954,
+   "variants": [
+    "check2 sumtie"
+   ],
+   "sibling_rows": [
+    18585,
+    21954
+   ],
+   "printed": [
+    "3504.92",
+    "350.49",
+    "3855.41"
+   ]
+  },
+  "INV-4920": {
+   "nature_category": "Parks maintenance (contract/reactive)",
+   "nature_detail": "Contact: Jessica Burke | Account: PK000023 | Contract: LB304 (LocalBuy) | Date Completed: 10-Oct-2025 | 3740232 - MTN - Underwood Park - Priestdale (Ref: 29744)",
+   "address": "41 Industrial Ave, Logan Village QLD 4207",
+   "phone": "Office: (07) 3803 1788; Email: team@playforce.com.au; Web: playforce.com.au",
+   "bill_to": "Logan City Council, 150 Wembley Rd, Logan Central QLD 4114, Australia",
+   "requesting_officer": "Jessica Burke",
+   "sites": "Underwood Park - Priestdale (Ref: 29744)",
+   "work_description": "Contact: Jessica Burke | Account: PK000023 | Contract: LB304 (LocalBuy) | Date Completed: 10-Oct-2025 | 3740232 - MTN - Underwood Park - Priestdale (Ref: 29744)",
+   "payments_made": "(not printed)",
+   "balance_due": "(not printed)",
+   "pk_normalised": "PK000023",
+   "due_date": "(not printed)",
+   "payment_details_key": "BP:PF-P1",
+   "terms_key": "BP:PF-T1",
+   "boilerplate_keys": [
+    "BP:PF-P1",
+    "BP:PF-T1"
+   ],
+   "target_row": 21887,
+   "variants": [
+    "check2 sumtie"
+   ],
+   "sibling_rows": [
+    18573,
+    21887
+   ],
+   "printed": [
+    "4436.56",
+    "443.66",
+    "4880.22"
+   ]
+  },
+  "INV-5376": {
+   "nature_category": "Parks maintenance (contract/reactive)",
+   "nature_detail": "Contact: Jessica Burke | Account: PK000391 | Contract: LB304 (LocalBuy) | Date Completed: 12-Nov-2025 | 3728412 - CBK - Darlington Parklands - Yarrabilba | (Ref: 29535)",
+   "address": "41 Industrial Ave, Logan Village QLD 4207",
+   "phone": "Office: (07) 3803 1788; Email: team@playforce.com.au; Web: playforce.com.au",
+   "bill_to": "Logan City Council, 150 Wembley Rd, Logan Central QLD 4114, Australia",
+   "requesting_officer": "Jessica Burke",
+   "sites": "Darlington Parklands - Yarrabilba",
+   "work_description": "Contact: Jessica Burke | Account: PK000391 | Contract: LB304 (LocalBuy) | Date Completed: 12-Nov-2025 | 3728412 - CBK - Darlington Parklands - Yarrabilba | (Ref: 29535)",
+   "payments_made": "(not printed)",
+   "balance_due": "(not printed)",
+   "pk_normalised": "PK000391",
+   "due_date": "(not printed)",
+   "payment_details_key": "BP:PF-P1",
+   "terms_key": "BP:PF-T1",
+   "boilerplate_keys": [
+    "BP:PF-P1",
+    "BP:PF-T1"
+   ],
+   "target_row": 21924,
+   "variants": [
+    "check2 sumtie"
+   ],
+   "sibling_rows": [
+    18445,
+    21924
+   ],
+   "printed": [
+    "3750.00",
+    "375.00",
+    "4125.00"
+   ]
+  },
+  "INV-5997": {
+   "nature_category": "Parks maintenance (contract/reactive)",
+   "nature_detail": "Contact: Jessica Burke | Account: PK000023 | Contract: LB304 (LocalBuy) | Date Completed: | 3759300 - MTN - Crestmead Park - Crestmead (Ref: 30508)",
+   "address": "41 Industrial Ave, Logan Village QLD 4207",
+   "phone": "Office: (07) 3803 1788; Email: team@playforce.com.au; Web: playforce.com.au",
+   "bill_to": "Logan City Council, 150 Wembley Rd, Logan Central QLD 4114, Australia",
+   "requesting_officer": "Jessica Burke",
+   "sites": "Crestmead Park - Crestmead (Ref: 30508)",
+   "work_description": "Contact: Jessica Burke | Account: PK000023 | Contract: LB304 (LocalBuy) | Date Completed: | 3759300 - MTN - Crestmead Park - Crestmead (Ref: 30508)",
+   "payments_made": "(not printed)",
+   "balance_due": "(not printed)",
+   "pk_normalised": "PK000023",
+   "due_date": "(not printed)",
+   "payment_details_key": "BP:PF-P1",
+   "terms_key": "BP:PF-T1",
+   "boilerplate_keys": [
+    "BP:PF-P1",
+    "BP:PF-T1"
+   ],
+   "target_row": 21886,
+   "variants": [
+    "check2 sumtie"
+   ],
+   "sibling_rows": [
+    18285,
+    21886
+   ],
+   "printed": [
+    "4481.64",
+    "448.16",
+    "4929.80"
+   ]
+  },
+  "INV-6222": {
+   "nature_category": "Parks maintenance (contract/reactive)",
+   "nature_detail": "Contact: Rene Harreman | Account: undefined | Contract: LB304 (LocalBuy) | Date Completed: 13-Feb-2026 | 709935 - AUD - Logan City Council - Logan Central | (Ref: 31294)",
+   "address": "41 Industrial Ave, Logan Village QLD 4207",
+   "phone": "Office: (07) 3803 1788; Email: team@playforce.com.au; Web: playforce.com.au",
+   "bill_to": "Logan City Council, 150 Wembley Rd, Logan Central QLD 4114, Australia",
+   "requesting_officer": "Rene Harreman",
+   "sites": "Logan City Council - Logan Central",
+   "work_description": "Contact: Rene Harreman | Account: undefined | Contract: LB304 (LocalBuy) | Date Completed: 13-Feb-2026 | 709935 - AUD - Logan City Council - Logan Central | (Ref: 31294)",
+   "payments_made": "(not printed)",
+   "balance_due": "(not printed)",
+   "pk_normalised": "undefined(asprinted)",
+   "due_date": "(not printed)",
+   "payment_details_key": "BP:PF-P1",
+   "terms_key": "BP:PF-T1",
+   "boilerplate_keys": [
+    "BP:PF-P1",
+    "BP:PF-T1"
+   ],
+   "target_row": 21651,
+   "variants": [
+    "check2 sumtie"
+   ],
+   "sibling_rows": [
+    18210,
+    21651
+   ],
+   "printed": [
+    "10290.20",
+    "1029.02",
+    "11319.22"
+   ]
+  },
+  "INV-6643": {
+   "nature_category": "Parks maintenance (contract/reactive)",
+   "nature_detail": "Contact: Jessica Burke | Account: PK000470 | Contract: LB304 (LocalBuy) | Date Completed: 10-Mar-2026 | 3820270 - MTN - Flagstone Parklands - Flagstone | (Ref: 31231)",
+   "address": "41 Industrial Ave, Logan Village QLD 4207",
+   "phone": "Office: (07) 3803 1788; Email: team@playforce.com.au; Web: playforce.com.au",
+   "bill_to": "Logan City Council, 150 Wembley Rd, Logan Central QLD 4114, Australia",
+   "requesting_officer": "Jessica Burke",
+   "sites": "Flagstone Parklands - Flagstone",
+   "work_description": "Contact: Jessica Burke | Account: PK000470 | Contract: LB304 (LocalBuy) | Date Completed: 10-Mar-2026 | 3820270 - MTN - Flagstone Parklands - Flagstone | (Ref: 31231)",
+   "payments_made": "(not printed)",
+   "balance_due": "(not printed)",
+   "pk_normalised": "PK000470",
+   "due_date": "(not printed)",
+   "payment_details_key": "BP:PF-P1",
+   "terms_key": "BP:PF-T1",
+   "boilerplate_keys": [
+    "BP:PF-P1",
+    "BP:PF-T1"
+   ],
+   "target_row": 21622,
+   "variants": [
+    "check2 sumtie"
+   ],
+   "sibling_rows": [
+    18102,
+    21622
+   ],
+   "printed": [
+    "12301.32",
+    "1230.13",
+    "13531.45"
+   ]
+  }
+ },
+ "held": [
+  "00015285/pages64-66",
+  "00015301/pages67-67",
+  "00015349/pages48-50",
+  "1026231/pages11-15",
+  "1026231/pages6-10",
+  "15186/pages20-23",
+  "15225/pages26-29",
+  "15253/pages59-62",
+  "158853/pages44-44",
+  "186139862/pages47-47",
+  "186140216/pages75-75",
+  "6276/pages43-43",
+  "7558/pages16-17",
+  "7564/pages24-25",
+  "7717/pages73-73",
+  "INV-0367/pages70-70",
+  "INV-11834/pages51-51",
+  "INV-11835/pages68-68",
+  "INV-2601",
+  "INV-2610",
+  "INV-2612",
+  "INV-2613",
+  "INV-2619",
+  "INV-2621",
+  "INV-2622",
+  "INV-2626",
+  "INV-2628/pages69-69",
+  "INV-2632/pages71-71",
+  "INV-2634/pages72-72",
+  "INV-3876",
+  "INV-39245",
+  "INV-39259",
+  "INV-39284",
+  "INV-39285",
+  "INV-39301",
+  "INV-39302",
+  "INV-39303",
+  "INV-39311",
+  "INV-39335",
+  "INV-39341",
+  "INV-39346",
+  "INV-39350",
+  "INV-39351",
+  "INV-39378",
+  "INV-39379",
+  "INV-3938",
+  "INV-39380",
+  "INV-39381",
+  "INV-3939",
+  "INV-39394",
+  "INV-39396",
+  "INV-39398",
+  "INV-39401",
+  "INV-39405",
+  "INV-39407",
+  "INV-39417",
+  "INV-39418",
+  "INV-39422",
+  "INV-39423",
+  "INV-39434",
+  "INV-39435/pages35-35",
+  "INV-39437/pages34-34",
+  "INV-39439",
+  "INV-39440",
+  "INV-39446",
+  "INV-39447",
+  "INV-39450",
+  "INV-39451",
+  "INV-39452",
+  "INV-39463",
+  "INV-39475/pages55-55",
+  "INV-39476",
+  "INV-39482",
+  "INV-39483",
+  "INV-39489",
+  "INV-39495/pages63-63",
+  "INV-39503",
+  "INV-39504",
+  "INV-39505",
+  "INV-39506",
+  "INV-39508",
+  "INV-39509",
+  "INV-39542/pages74-74",
+  "INV-39553",
+  "INV-39556",
+  "INV-39558",
+  "INV-39559",
+  "INV-39561",
+  "INV-39562",
+  "INV-39563",
+  "INV-4807",
+  "INV-5784",
+  "INV-5877",
+  "INV-6065",
+  "INV-6072",
+  "INV-6239",
+  "INV-6419",
+  "INV-6726",
+  "INV-6756",
+  "INV-6924",
+  "INV-6955",
+  "INV-6981",
+  "INV-7064",
+  "INV-7073",
+  "INV-7111",
+  "INV-7217",
+  "INV-7327",
+  "INV-7366",
+  "INV-7387",
+  "INV-7414",
+  "INV-7478",
+  "INV-7552",
+  "INV-7557",
+  "INV-7562",
+  "INV-7566",
+  "INV-7568",
+  "INV-7582",
+  "INV-7592",
+  "INV-7594",
+  "INV-7601",
+  "INV-7606",
+  "INV-7608",
+  "INV-7613",
+  "INV-7646",
+  "INV-7670",
+  "INV-7672",
+  "INV-7682",
+  "INV-7687",
+  "INV-7763",
+  "INV-7789",
+  "INV-7803",
+  "INV-7807",
+  "INV-7888",
+  "INV-7908",
+  "INV-7909",
+  "INV-7910",
+  "INV-7911",
+  "INV-7912",
+  "INV-7913",
+  "INV-7914",
+  "INV-7916",
+  "INV-7928",
+  "INV-7976",
+  "INV-8006",
+  "INV-8009",
+  "INV-8025",
+  "INV-8031",
+  "INV-8034",
+  "INV-8035",
+  "INV-8036",
+  "INV-8059",
+  "INV-8115",
+  "INV-8194",
+  "INV-8206",
+  "INV-8210",
+  "INV-8256",
+  "INV-8299",
+  "INV-8304",
+  "INV-8325",
+  "INV-8331",
+  "INV-8399",
+  "INV-8417",
+  "INV-8445",
+  "INV-8449",
+  "INV-8465",
+  "INV-8548",
+  "INV-8550",
+  "INV-8550/pages30-32",
+  "INV-8563",
+  "INV-8564",
+  "INV-8624",
+  "INV-8638",
+  "INV-8638/pages37-39",
+  "INV-8648",
+  "INV-8648/pages40-42",
+  "INV-8680",
+  "INV-8693",
+  "INV-8739",
+  "INV-8739/pages52-54",
+  "INV-8754",
+  "INV-8754/pages56-58",
+  "INV-8776",
+  "INV-8846",
+  "INV-8895",
+  "INV-8906",
+  "INV-8907",
+  "INV-8919",
+  "INV-8921"
+ ],
+ "held_reasons": {
+  "1026231/pages6-10": "no line on this register: the binder spans years and sections this register does not cover",
+  "1026231/pages11-15": "repeated copy of the document at pages 1026231/pages6-10; never captured twice (prompt v6 11.4)",
+  "7558/pages16-17": "register row 205 already carries EvID SC-7558; a re-sighting is not re-captured (rule 12)",
+  "15186/pages20-23": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "7564/pages24-25": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "15225/pages26-29": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-8550/pages30-32": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-39437/pages34-34": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-39435/pages35-35": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-8638/pages37-39": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-8648/pages40-42": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "6276/pages43-43": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "158853/pages44-44": "no line on this register: the binder spans years and sections this register does not cover",
+  "186139862/pages47-47": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "00015349/pages48-50": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-11834/pages51-51": "no line on this register: the binder spans years and sections this register does not cover",
+  "INV-8739/pages52-54": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-39475/pages55-55": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-8754/pages56-58": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "15253/pages59-62": "no line on this register: the binder spans years and sections this register does not cover",
+  "INV-39495/pages63-63": "no line on this register: the binder spans years and sections this register does not cover",
+  "00015285/pages64-66": "no line on this register: the binder spans years and sections this register does not cover",
+  "00015301/pages67-67": "no line on this register: the binder spans years and sections this register does not cover",
+  "INV-11835/pages68-68": "no line on this register: the binder spans years and sections this register does not cover",
+  "INV-2628/pages69-69": "no line on this register: the binder spans years and sections this register does not cover",
+  "INV-0367/pages70-70": "no line on this register: the binder spans years and sections this register does not cover",
+  "INV-2632/pages71-71": "no line on this register: the binder spans years and sections this register does not cover",
+  "INV-2634/pages72-72": "no line on this register: the binder spans years and sections this register does not cover",
+  "7717/pages73-73": "no line on this register: the binder spans years and sections this register does not cover",
+  "INV-39542/pages74-74": "no line on this register: the binder spans years and sections this register does not cover",
+  "186140216/pages75-75": "no line on this register: the binder spans years and sections this register does not cover",
+  "INV-39245": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-39259": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-39285": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-39284": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-39302": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-39301": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-39303": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-39311": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-2601": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-39335": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-39346": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-39351": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-39341": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-39350": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-39381": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-39380": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-39378": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-39379": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-39407": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-39398": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-39405": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-39394": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-39396": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-39401": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-2610": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-2612": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-2613": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-2619": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-39423": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-39418": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-39422": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-39417": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-39440": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-39439": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-39434": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-2621": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-2622": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-2626": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-39463": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-39452": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-39451": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-39446": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-39447": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-39450": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-39476": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-39482": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-39505": "no line on this register: the binder spans years and sections this register does not cover",
+  "INV-39506": "repeated copy of the document at pages [57, 57]; never captured twice (prompt v6 11.4)",
+  "INV-39509": "no line on this register: the binder spans years and sections this register does not cover",
+  "INV-39489": "no line on this register: the binder spans years and sections this register does not cover",
+  "INV-39504": "no line on this register: the binder spans years and sections this register does not cover",
+  "INV-39503": "no line on this register: the binder spans years and sections this register does not cover",
+  "INV-39508": "no line on this register: the binder spans years and sections this register does not cover",
+  "INV-39483": "no line on this register: the binder spans years and sections this register does not cover",
+  "INV-39553": "no line on this register: the binder spans years and sections this register does not cover",
+  "INV-39562": "no line on this register: the binder spans years and sections this register does not cover",
+  "INV-39559": "no line on this register: the binder spans years and sections this register does not cover",
+  "INV-39561": "no line on this register: the binder spans years and sections this register does not cover",
+  "INV-39563": "no line on this register: the binder spans years and sections this register does not cover",
+  "INV-39556": "no line on this register: the binder spans years and sections this register does not cover",
+  "INV-39558": "no line on this register: the binder spans years and sections this register does not cover",
+  "INV-3876": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-3939": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-3938": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-4807": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-5784": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-5877": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-6065": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-6072": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-6239": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-6419": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-6726": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-6756": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-6924": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-6955": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-6981": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-7064": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-7073": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-7111": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-7217": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-7327": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-7366": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-7387": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-7414": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-7478": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-7552": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-7557": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-7562": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-7566": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-7568": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-7582": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-7592": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-7594": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-7601": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-7606": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-7608": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-7613": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-7646": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-7670": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-7672": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-7682": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-7687": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-7763": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-7789": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-7803": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-7807": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-7888": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-7908": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-7909": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-7910": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-7911": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-7912": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-7913": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-7914": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-7916": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-7928": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-7976": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-8006": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-8009": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-8025": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-8031": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-8034": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-8036": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-8035": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-8059": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-8115": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-8206": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-8210": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-8194": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-8256": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-8299": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-8304": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-8325": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-8331": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-8399": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-8417": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-8445": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-8449": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-8465": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-8548": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-8550": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-8563": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-8564": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-8624": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-8638": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-8648": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-8680": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-8693": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-8739": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-8754": "already on Evidence_Invoices; a re-sighting is not re-captured (rule 12)",
+  "INV-8776": "no line on this register: the binder spans years and sections this register does not cover",
+  "INV-8846": "register row 6659 carries reference INV-8846 for STAR CARPENTRY (FY2023/24, 237.00), not for Play Force Australia Pty Ltd: the reference collides across creditors and years, so this is a different document and is never captured here",
+  "INV-8895": "no line on this register: the binder spans years and sections this register does not cover",
+  "INV-8906": "no line on this register: the binder spans years and sections this register does not cover",
+  "INV-8907": "register row 6625 carries reference INV-8907 for STAR CARPENTRY (FY2023/24, 239.00), not for Play Force Australia Pty Ltd: the reference collides across creditors and years, so this is a different document and is never captured here",
+  "INV-8919": "no line on this register: the binder spans years and sections this register does not cover",
+  "INV-8921": "no line on this register: the binder spans years and sections this register does not cover"
+ },
+ "vendor_boilerplate": [
+  {
+   "key": "BP:ORG-P1",
+   "field": "Payment details",
+   "first_sighting": "1026099/pages1-5",
+   "vendor": "Origin Energy Electricity Limited",
+   "sightings": null,
+   "text": "HOW TO PAY | DIRECT DEBIT Call 13 23 34 to arrange automatic payment of future invoices or for further information. | BPAY Make this payment via internet or phone banking Biller Code: 747428 Ref: 2500 1690 9112 | Visa, Mastercard or American Express Call 1300 593 687 or visit www.origin.com.au/CI-pay | MAIL Send the payment slip with your cheque made payable to: Origin Energy, GPO Box 3125, Sydney NSW 2001"
+  },
+  {
+   "key": "BP:ORG-T1",
+   "field": "Terms & notices",
+   "first_sighting": "1026099/pages1-5",
+   "vendor": "Origin Energy Electricity Limited",
+   "sightings": null,
+   "text": "^Payments received after the due date may incur late payment interest charges, which will be reflected in your next invoice. | *Payment processing fees (incl GST) of total payment amount. Visa Debit 0.27% Visa Credit 0.87% Mastercard Debit 0.23% Mastercard Credit 0.94% American Express 0.95%"
+  },
+  {
+   "key": "BP:PSH-P1",
+   "field": "Payment details",
+   "first_sighting": "INV-5621/pages18-19",
+   "vendor": "Pool Shop QLD Pty Ltd",
+   "sightings": null,
+   "text": "EFT Payment Details | BSB 032-108 | Account 163043 | Please email remittance to xero@office21.com.au"
+  }
+ ],
+ "header_fixes": [
+  {
+   "sheet": "Vendor_Boilerplate",
+   "row": 4,
+   "column": 3,
+   "expect": "Vendor (printed, first sighting)",
+   "to": "First-sighting invoice (Ev ID)"
+  },
+  {
+   "sheet": "Vendor_Boilerplate",
+   "row": 4,
+   "column": 4,
+   "expect": "First-sighting invoice (Ev ID)",
+   "to": "Vendor (printed, first sighting)"
+  }
+ ],
  "capture_stamp": "15-Sep-2026",
- "handover": "v128 change (15-Sep-2026): the branch capture programme ported back. 0 tax invoices sighted at branch v2 to v13 sit on lines of THIS register, and every one is now captured here at line-item granularity with all three rule 17 checks live: 0 evidence lines over 0 corpora, all gated GREEN. The two registers now state the same printed fields for the same documents, because both read them with the same reader. The control total does not move: this is a capture build (rule 10). 0 documents in those corpora are NOT captured here and each is held with its reason in the brief: 216 carry no line on this register, 301 are already sighted here, 21 resolve to more than one row and need a declared SUM-TIE or split variant, 8 differ in amount (two are zero-amount companion rows, which are never green-blocked) and one is a DIR rather than a PUR line.",
- "method": "Capture from the branch corpora (v128). The Nature Category on a captured row is THE ONE THE ROW ALREADY CARRIES. A capture build proves what a document says; it does not re-categorise the register, and all 0 target rows already carry a category on Theme_Map A5:A31. Where a branch batch read an invoice into a branch-extension heading this register has no row for (Signage & park furniture, Horticultural & landscape supplies), the row keeps its own category and the branch reading is written into the coding note, where it states a fact rather than keying a COUNTIF. The printed green-block fields are read by pbr_capture.header_fields, the same reader the branch register uses, so the two registers cannot disagree about what a document prints and the branch provenance gate covers both. Boilerplate for a vendor this register has not carried before is appended to Vendor_Boilerplate and cited by key (rule 17 Amendment 2); a vendor that prints no terms block cites no key and the column reads (not printed).",
- "data_acquisition": "v128: 0 gated corpora built from, all GREEN, listed in the brief. No new source file is acquired: every corpus was received and md5-screened at the branch register build that first used it, and this build re-gates each one rather than trusting that record.",
+ "handover": "v129 change (15-Sep-2026): the documents v128 held are settled and captured. %d invoices, %d evidence lines. Twenty-one resolve to two register lines each that sum to the printed subtotal to the cent and take the ratified SUM-TIE form of check 2; two differ from their line by one cent and take the ratified tolerance; one is the Origin Council-wide consolidated electricity invoice, a DIR line carrying one site row out of a $565,345.00 face, which ties that row by the NMI the page prints and the register narration names, and proves its GST against the sum of the printed per-line GST rather than 10%% of the subtotal. Control total unchanged (rule 10). Six documents remain held and both reasons are permanent: four carry a reference that collides with another creditor's invoice (Play Force numbers INV-8846, INV-8850 and INV-8907 are also STAR CARPENTRY FY2023/24 references, and a green block there would tie this evidence to another supplier's line), and two target zero-amount companion rows, which rule 17 never green-blocks.",
+ "method": "Check variants are READ FROM THE FIGURES, never chosen. A document whose register lines sum to its printed subtotal takes SUM-TIE; one within a cent takes the ratified tolerance; one whose printed GST is the sum of its own per-line GST takes check3 sumgst, which is the form an invoice that prints GST per line actually supports and the form the branch register has proved this document with since its v3 build. A consolidated invoice maps its site row by a string the PAGE prints and the REGISTER NARRATION also names, so the association is evidence on both sides rather than a position in a list. Anything the figures do not settle stays held. A reference that matches a row belonging to a DIFFERENT creditor is refused outright rather than offered a variant: invoice numbers repeat across creditors and years, and a variant there would tie a green block to another supplier. A row labelled Unidentified is not a different creditor, it is an unidentified one, and still takes its capture.",
+ "data_acquisition": "v129: no new source file. Every corpus built from was received and md5-screened at the branch build that first used it, and is re-gated here.",
  "open_items": [
   {
    "fy": "All",
    "status": "Open",
    "series": "Documents held at v128",
-   "lines": 0,
+   "lines": 188,
    "amount": null,
-   "action": "0 documents in the v128 corpora are not captured: 21 resolve to more than one register row and need a declared SUM-TIE or split variant, 8 differ in amount from their row (two are zero-amount companion rows), one is a DIR rather than a PUR line, and the rest carry no line here or are already sighted. Each is listed with its reason in brief_v128.json; settle the variants and capture them at v129."
+   "action": "188 documents in the v128 corpora are not captured: 0 resolve to more than one register row and need a declared SUM-TIE or split variant, 0 differ in amount from their row (two are zero-amount companion rows), one is a DIR rather than a PUR line, and the rest carry no line here or are already sighted. Each is listed with its reason in brief_v128.json; settle the variants and capture them at v129."
   },
   {
    "fy": "All",
