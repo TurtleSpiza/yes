@@ -14,9 +14,9 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import pbr_stage
 
-VER = 'v12'
+VER = 'v13'
 OUTNAME = f'Parks_Branch_Transaction_Register_FY2627_{VER}.xlsx'
-SUPPLIED_GREEN = ('pla073_1', 'ksadasd')  # supplied corpora that arrived GREEN under prompt v6 runtime A; prep does housekeeping only
+SUPPLIED_GREEN = ('pla073_1', 'ksadasd', 'playforce_new')  # supplied corpora that arrived GREEN under prompt v6 runtime A; prep does housekeeping only
 CLTOK = re.compile(r'\{CL:(\d+):(\d+)\}')
 SCRATCH = os.path.join(pbr_stage.ROOT, 'cache', 'scratch')
 OUTDIR = os.environ.get('PBR_OUTDIR', os.path.join(pbr_stage.ROOT, 'registers'))
@@ -458,6 +458,21 @@ def build(stage):
     _b7 = {b: json.load(open(os.path.join(pbr_stage.ROOT, 'batches', b, f'corpus_{b}_v6.json')))['manifest']
            for b in ('mix222', 'binder11111') if os.path.exists(os.path.join(pbr_stage.ROOT, 'batches', b, f'corpus_{b}_v6.json'))}
     _nl = N - BASE_N
+    _pfn = _sup.get('playforce_new')
+    _pfr = [r for r in sighted if 'Batch playforce_new' in str(r['V'][126] or '')]
+    if _pfn:
+        _out = json.load(open(os.path.join(pbr_stage.ROOT, 'batches', 'playforce_new', 'outside_playforce_new_v6.json')))
+        ho.row([f'{VER}, {BUILD_DATE}',
+                f'Batch playforce_new captured: a {_pfn["source_files"][0]["pages"]}-page Play Force binder, {_pfn["documents_found"]} documents, '
+                f'{fmt_money(_pfn["captured_ex_gst_total"])} ex GST, all at TIE and gate GREEN. The binder is the vendor\'s own file and is not cut to this '
+                f'register\'s year, so most of it does not belong here and is not forced onto a line: {len(_out)} documents '
+                f'({fmt_money(sum(o["subtotal"] for o in _out))} ex GST) carry no line on this register and every one of them is dated before 1-Jul-2026 '
+                f'(outside_playforce_new_v6.json); 22 more are already sighted here and are held by the rule 12 evidence screen rather than captured twice. '
+                f'That leaves {len(_pfr)} new green blocks on Park Services 73123 lines under contract LB304, every one a standard variant at an exact tie. '
+                f'Control total unchanged. Play Force prints two layouts in this binder and they are carried as two templates (Method 15.0): the current '
+                f'letterhead and PLAYFORCE_XERO, the legacy Xero block on the six FY2024/25 documents. Findings: INV-8906 prints "Account: undefined" and so '
+                f'states no PK, against PK000022 charged (follow-up on the line); INV-7327 does not foot by one cent on its own face, because its subtotal '
+                f'carries the unrounded quantity times unit price where the line column prints it truncated, and both figures are captured as printed.'])
     ho.row([f'{VER}, {BUILD_DATE}',
             f'Period 3 refreshed. P3 was still open at the 11-Sep-2026 pull, so 27SLACT was re-taken for period 3 alone on the identical criteria '
             f'({stage["led_files"][1]["file"]}, {stage["led_files"][1]["rows"]:,} lines, ${stage["led_files"][1]["total"]:,.2f}). The refresh carries every one of the '
@@ -608,10 +623,28 @@ def build(stage):
          'Match rule (pbr_histories_v4.json, held as data): the AP register line reference equals the history Reference; the history Transaction Amount (incl GST) is within 2c of the document net ex GST x 1.1 summed over every register line on the Document Unique ID; the history Date is within 120 days of the register Doc Date; exactly one creditor code satisfies all three (numeric references collide across creditors, e.g. Harpley and Eco Technology Solutions both issue reference 11913). Tier 1 where the history line carries an 11-digit ABN. The register line takes the creditor code (col K), the label from the manifest (col L, canonical per printed ABN), the ABN grouped (col M), the enquiry block (cols W, AS:BA) and an Evidence sentence citing the Creditor_Lines row. Status stays Partial and verdict Confirm: an AP line is never Confirmed without rule 17.',
          f'Inherited Park Services lines carried from PS_WP v127 as Unidentified, series-inferred or vendor-inferred are identified the same way ({len(ident_rows)} lines; a sighted invoice on the same line supersedes the identification); their provenance (col ER) reads "contractor identified at branch v4" (or v5, v6) and the v127 evidence sentence is kept inside the new one. Sighted (Tier 1, rule 17) lines are never re-identified. Label conflicts, where the v127 label named a different vendor: {len(stage["hist_conflicts"])} (Open_Items). Correction carried in the match table: at v3 register line f386b8d0-73212-PK000415-01 (reference 00015225, $240.00) was tagged a cents companion of Q Power 15225; it is on a different TechOne document and HAR073 shows it is Harpley invoice 00015225, so the tag is withdrawn (match_mixed_new_26_27_v6.json evid_note).',
          'Batch attach_1 (v4): five single-invoice TechOne attachment PDFs (EzeScan exports, file name = attachment id) parsed by parse_attach1.py (pdftotext -layout, page text retained, five templates ETSOL, GLASCOTT_LM, PROVAC, SAVCO, HERITAGE), gated GREEN (P9 page-coverage test now runs per source file when a corpus carries several), 254 five-word shingles clean, match table match_attach_1_v6.json (five standard variants, one register line each, coding verdict and note per invoice as data). Printed PK versus PK charged is recorded on three invoices (Eco Technology Solutions 11913, Provac INV-00042754, Savco SV007924); PK Charged stays the ledger Work Order (rule 1).')
-    sec_('15.0 Supplied-corpus batches under extraction prompt v6 (v10 pla073_1, v11 ksadasd)',
+    sec_('15.0 Supplied-corpus batches under extraction prompt v6 (v10 pla073_1, v11 ksadasd, v13 playforce_new)',
          'A corpus supplied by the extraction tool (binder not supplied) enters through prep_supplied_corpus.py: the md5 of the file as supplied is stamped and screened (rule 12), the vendor template is assigned, page text is rebuilt from the retained rows, dates are made ISO, findings are restated as text, and the rule 19.2 gates run: pswp_json_repair (P1 to P13) on the corpus\'s own arithmetic, the five-word shingle check on every priced row against its own retained page text, and the per-vendor verbatim fidelity check against page text this project parsed independently from a real PDF of the same vendor. A corpus failing any gate is held (rule 19.2); these two arrived GREEN and were built.',
          'Header restatements a supplied corpus may need are families of prep_supplied_corpus.py, each decided from the retained rows and logged per document in the corpus manifest: R1 amount-bearing rows typed NARRATIVE, R2 a printed total carrying the GST amount, R3 a line_type outside the closed list, R4 an invoice date that is not the printed Invoice Date (ksadasd: all 14 Weis documents carried the printed due date there). Nothing is inferred; a document whose restated lines do not equal its printed subtotal is refused.',
          'A repeated copy of an invoice inside the binder is a separate document record carrying duplicate_of (prompt v6 11.4): every row typed DUPLICATE_COPY, no arithmetic, never matched or captured twice (ksadasd INV-39506, page 58). The gate, the rule 16 reconciliation and the match table honour that field from v11.',
+         'A supplier that prints more than one layout carries ONE TEMPLATE PER LAYOUT, assigned per document from the printed item-table header and held as data '
+         'in the batch config. Play Force prints two in the playforce_new binder: the current letterhead, and PLAYFORCE_XERO, the legacy Xero block on the six '
+         'FY2024/25 documents, which prints no letterhead, no terms pages and the item table in the Xero "Description / Quantity / Unit Price / GST / Amount AUD" '
+         'shape. They are separated because the fidelity check works on the rows CONSTANT across a vendor\'s documents: mixing two layouts makes one layout\'s '
+         'letterhead and terms look like per-invoice text and the check stops proving anything.',
+         'The reference-intersection limb of the fidelity check runs against documents of the REFERENCE\'S OWN VINTAGE only. That limb asks the opposite question '
+         'to the main one: not whether a row this batch carries is real, but whether a document still carries the rows the independent reference has. A vendor '
+         'rewrites its terms and changes its remittance block over time, so the question is only answerable against a document of the same vintage. Play Force '
+         'added a safety-inspection scope clause and dropped the "Account Name" row between 2025 and the Aug-2026 reference; requiring those rows on a 2025 '
+         'invoice would fail the document for printing what it actually printed. Documents older than the earliest reference are counted and declared in the '
+         'fidelity report (rule 11), and still go through the main limb, which is the one that catches a fabricated or silently altered row.',
+         'A binder is not cut to this register\'s year. Every document whose reference carries no line here is recorded with its printed invoice date and held, '
+         'never dropped silently and never forced onto a line; the batch record states how many are dated inside FY2026/27, because a document inside the year '
+         'with no register line is a different question (an invoice the ledger never received) from one outside it. On playforce_new all 76 are outside.',
+         'A page that does not foot on its own face is captured as printed and declared, never restated. INV-7327 prints 7.50 x 105.41 as 790.57 in the line '
+         'column and carries the unrounded 790.575 into its subtotal, so the printed lines come to $3,543.37 against a printed Total (Ex. GST) of $3,543.38. '
+         'The allowance is narrow and provable from the page\'s own figures: the difference must be at most one cent AND the unrounded quantity times unit '
+         'price summed over the priced rows must equal the printed subtotal exactly. Anything else still stops the build.',
          'Nature category is data per invoice where a vendor prints several kinds of work under one contract (match-table keys nature_category and theme_v3, authored in notes_<batch>_v6.json from the printed job row and item rows): the build proves the v2 value on Theme_Map and the driver proves the v3 value on the Theme_Map_v3 list. Levai and Weis are categorised this way from v11; the vendor-level default stays for single-scope vendors.')
     sec_('16.0 Green-block provenance gate (new at v12)',
          f'Every printed field written to the green block is tested against the retained page text of the document it cites, on every build, before anything is written. '

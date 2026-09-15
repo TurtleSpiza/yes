@@ -71,7 +71,7 @@ def main():
     sighted_stem = {s.split('/')[0] for s in sighted}
 
     out, held = [], []
-    dups = []
+    dups, outside = [], []
     for d in corpus['documents']:
         inv = d['invoice_no']
         if d.get('duplicate_of'):
@@ -81,7 +81,17 @@ def main():
             held.append(inv)
             continue
         rows = by_ref.get(inv, [])
-        assert rows, f'{inv}: no register line carries this reference'
+        if not rows:
+            # A binder is a vendor's own file and is not cut to this register's year. Every document whose reference
+            # carries no line here is recorded with its printed invoice date and held, never dropped silently and never
+            # forced onto a line: the branch register is FY2026/27 only, so a document printed before 1-Jul-2026 has no
+            # line to sit on and belongs to the PS & WP register's earlier years. A document INSIDE the year with no
+            # line would be a different matter (an invoice the ledger never received) and is listed the same way for
+            # the batch record to answer.
+            outside.append(dict(invoice=inv, invoice_date=d.get('invoice_date'), subtotal=float(D(d['printed_subtotal_ex_gst'])),
+                                in_register_year=str(d.get('invoice_date') or '') >= '2026-07-01',
+                                pages=d.get('page_range')))
+            continue
         amounts = [D(r[C_AMOUNT - 1]) for r in rows]
         sub, incl = D(d['printed_subtotal_ex_gst']), D(d['printed_total_incl_gst'])
         var = variant_of(amounts, sub, incl)
@@ -97,6 +107,12 @@ def main():
         out.append(entry)
 
     json.dump(out, open(os.path.join(BDIR, f'match_{BATCH}_v6.json'), 'w'), indent=1)
+    if outside:
+        json.dump(outside, open(os.path.join(BDIR, f'outside_{BATCH}_v6.json'), 'w'), indent=1)
+        inyear = [o for o in outside if o['in_register_year']]
+        print(f'{BATCH}: {len(outside)} document(s) carry no line on this register '
+              f'(${sum(o["subtotal"] for o in outside):,.2f} ex GST), of which {len(inyear)} are dated inside FY2026/27 '
+              f'{[o["invoice"] for o in inyear] or ""}; listed in outside_{BATCH}_v6.json')
     v = collections.Counter(e['variant'].split(' (')[0] for e in out)
     print(f'{BATCH}: {len(out)} documents matched, {len(held)} held by the rule 12 evidence screen {held or ""}, {len(dups)} duplicate copies skipped {dups or ""}; variants {dict(v)}')
     for e in out:
