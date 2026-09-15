@@ -1,15 +1,15 @@
 # Contractor pull list, both registers (15-Sep-2026)
 
-**Position:** 146 contractors carry AP-ledger spend across the two registers. 84 of them have an open evidence gap worth $4,695,691.35 ex GST over 10,517 lines. The table is ranked on that figure, so the top of it is the largest exposure the register itself still calls Partial or Pending evidence.
+**Position:** 146 contractors carry AP-ledger spend across the two registers. 84 of them have an open evidence gap worth $4,421,720.98 ex GST over 10,474 lines. The table is ranked on that figure, so the top of it is the largest exposure the register itself still calls Partial or Pending evidence.
 
 ## What is and is not outstanding
 
 | Measure | Lines | $ ex GST |
 |---|---:|---:|
 | AP-ledger spend, both registers | 21,530 | 15,639,294.83 |
-| On a sighted invoice (rule 17 green block) | 4,123 | 10,660,571.08 |
+| On a sighted invoice (rule 17 green block) | 4,166 | 10,934,541.45 |
 | No green block, register status Confirmed on another basis | 6,890 | 283,032.40 |
-| **No green block, Partial or Pending evidence: the queue** | **10,517** | **4,695,691.35** |
+| **No green block, Partial or Pending evidence: the queue** | **10,474** | **4,421,720.98** |
 
 A line without a green block is not automatically an open question. A utility resting on the system record and a journal leg confirmed by pairing are Confirmed without an invoice and rule 17 does not ask for one, so they are shown above and excluded from the ranking. What is left is the queue.
 
@@ -18,7 +18,7 @@ A line without a green block is not automatically an open question. A utility re
 | Register | Scope | Lines | $ ex GST |
 |---|---|---:|---:|
 | `Parks_Branch_Transaction_Register_FY2627_v15.xlsx` v15 | FY2026/27, branch 4090000, all ten sections | 6,872 | 5,066,518.69 |
-| `PS_WP_Transaction_Register_3FY_v127_CANDIDATE.xlsx` v123 | FY2023/24 to FY2025/26, Park Services and Water Parks | 27,988 | 15,668,203.13 |
+| `PS_WP_Transaction_Register_3FY_v129.xlsx` v129 | FY2023/24 to FY2025/26, Park Services and Water Parks | 27,988 | 15,668,203.13 |
 | **Combined** | four financial years, nothing counted twice | **34,860** | **20,734,721.82** |
 
 The branch register inherits the PS & WP FY2026/27 block line by line and supersedes it, so the 3,372 PS & WP FY2026/27 lines ($1,236,949.24) are not read here. The handful the branch pull did not carry are on the branch Inheritance_Log, a difference between two pulls rather than a separate population.
@@ -30,7 +30,7 @@ Identity is the printed ABN (rule 8), so one supplier is one row even where the 
 | # | Contractor | ABN | Codes | History | Lines | $ ex GST | $ open | Sighted | Cover | Route | Pull: register | Document File | Ref | $ line | Att |
 |---|---|---|---|---|---:|---:|---:|---:|---:|---|---|---|---|---:|---|
 | 1 | T & H Levai Pty Ltd (flagged) | 65 100 395 480 | LEV002 | both registers | 2,598 | 2,540,125.18 | 1,160,621.92 | 690 | 54% | Spot-check | PS & WP assessed years | **1231840** | INV-38967 | 46,550.00 | Y |
-| 2 | Play Force Australia Pty Ltd | 89 677 476 541 | PLA073 | both registers | 1,958 | 1,617,233.22 | 864,204.15 | 302 | 47% | Continue the capture | PS & WP assessed years | **1235284** | INV-7613 | 23,718.00 | Y |
+| 2 | Play Force Australia Pty Ltd | 89 677 476 541 | PLA073 | both registers | 1,958 | 1,617,233.22 | 590,233.78 | 345 | 63% | Spot-check | PS & WP assessed years | **1235284** | INV-7613 | 23,718.00 | Y |
 | 3 | Unidentified (FY2026/27 branch-wide, not yet c | - | - | none held | 178 | 359,595.09 | 359,595.09 | 0 | 0% | Identify the creditor, then pull its APLEDGER history | Branch FY2026/27 | **1263361** | 012195 | 35,866.01 | Y |
 | 4 | Heritage Tree Services Pty Ltd ATF Rowan Famil | 32 416 129 034 | HER025 | branch only | 410 | 364,056.85 | 275,982.04 | 15 | 24% | Continue the capture | Branch FY2026/27 | **1248595** | INV-47222 | 4,160.00 | Y |
 | 5 | Harpley Services Pty Ltd | 22 162 601 694 | HAR073 | both registers | 1,674 | 1,463,642.58 | 223,494.24 | 612 | 85% | Spot-check | PS & WP assessed years | **1072707** | 00013669 | 675.00 | Y |
@@ -155,7 +155,7 @@ Identity is the printed ABN (rule 8), so one supplier is one row even where the 
 ## Why each row is on the list
 
 1. **T & H Levai Pty Ltd** (Spot-check). 690 invoice(s) sighted covering 54% of $2,540,125.18 of AP spend. Nature and identity are both settled; $1,162,234.44 is uncaptured volume, not an open question. Both registers carry unsighted spend: $1,108,401.73 in the assessed years and $53,832.71 in FY2026/27. Flag: label spelled 2 ways across the registers (T & H LEVAI PTY LTD; T & H Levai Pty Ltd); a COUNTIF-keyed column must carry one canonical label. Spend: 2,444 lines $2,338,516.03 in the assessed years, 154 lines $201,609.15 in FY2026/27, 30-Jun-2023 to 09-Sep-2026.
-2. **Play Force Australia Pty Ltd** (Continue the capture). 302 invoice(s) sighted, but only 47% of $1,617,233.22 of AP spend sits on a green block. Nature is settled; what is missing is coverage, so this is a batch to capture rather than a single sighting. Both registers carry unsighted spend: $844,713.25 in the assessed years and $20,226.92 in FY2026/27. Spend: 1,700 lines $1,349,259.44 in the assessed years, 258 lines $267,973.78 in FY2026/27, 15-Sep-2023 to 11-Sep-2026.
+2. **Play Force Australia Pty Ltd** (Spot-check). 345 invoice(s) sighted covering 63% of $1,617,233.22 of AP spend. Nature and identity are both settled; $590,969.80 is uncaptured volume, not an open question. Both registers carry unsighted spend: $570,742.88 in the assessed years and $20,226.92 in FY2026/27. Spend: 1,700 lines $1,349,259.44 in the assessed years, 258 lines $267,973.78 in FY2026/27, 15-Sep-2023 to 11-Sep-2026.
 3. **Unidentified (FY2026/27 branch-wide, not yet cleared)** (Identify the creditor, then pull its APLEDGER history). No contractor evidence on any line (Tier 3). No creditor code is carried on these lines, so an attachment has to name the creditor first. This label is a queue, not one counterparty: 178 lines that have not been separated into suppliers yet. One sighting does not close it. The series breakdown, one invoice to sight per supplier series, is in Unidentified_Contractors_v15. Spend: 0 lines $0.00 in the assessed years, 178 lines $359,595.09 in FY2026/27, 03-Dec-2025 to 10-Sep-2026.
 4. **Heritage Tree Services Pty Ltd ATF Rowan Family Trust** (Continue the capture). 15 invoice(s) sighted, but only 24% of $364,056.85 of AP spend sits on a green block. Nature is settled; what is missing is coverage, so this is a batch to capture rather than a single sighting. The assessed years are fully captured; the $275,982.04 outstanding is all FY2026/27. Spend: 0 lines $0.00 in the assessed years, 410 lines $364,056.85 in FY2026/27, 13-Mar-2026 to 10-Sep-2026.
 5. **Harpley Services Pty Ltd** (Spot-check). 612 invoice(s) sighted covering 85% of $1,463,642.58 of AP spend. Nature and identity are both settled; $223,494.24 is uncaptured volume, not an open question. Both registers carry unsighted spend: $215,984.04 in the assessed years and $7,510.20 in FY2026/27. Spend: 1,586 lines $1,367,666.56 in the assessed years, 88 lines $95,976.02 in FY2026/27, 01-Mar-2023 to 27-Aug-2026.
@@ -314,6 +314,6 @@ Both registers are in view here and nowhere else, so these show up only on this 
 
 ## The workbook
 
-`Contractor_Pull_v15.xlsx` carries three sheets. **Contractors** is the table above, one row per supplier, filterable. **References** is every AP reference behind it, 12,289 rows over 21,530 register lines: one row per contractor, register and invoice number, so a request can be made invoice by invoice. Filter column A on "Yes" for the 7,073 references that still carry unevidenced value; "$ ex GST" is the whole reference and "$ open" is only the unevidenced part, which sums to $4,695,691.35. **Not a contractor route** is the journal, inventory, payroll and internal billing labels no supplier document can close.
+`Contractor_Pull_v15.xlsx` carries three sheets. **Contractors** is the table above, one row per supplier, filterable. **References** is every AP reference behind it, 12,289 rows over 21,530 register lines: one row per contractor, register and invoice number, so a request can be made invoice by invoice. Filter column A on "Yes" for the 7,030 references that still carry unevidenced value; "$ ex GST" is the whole reference and "$ open" is only the unevidenced part, which sums to $4,421,720.98. **Not a contractor route** is the journal, inventory, payroll and internal billing labels no supplier document can close.
 
-Sources: `Parks_Branch_Transaction_Register_FY2627_v15.xlsx` Register rows 5:6876; `PS_WP_Transaction_Register_3FY_v127_CANDIDATE.xlsx` Register rows 5:31364. Generated by `toolkit/branch/pbr_contractor_pull.py`.
+Sources: `Parks_Branch_Transaction_Register_FY2627_v15.xlsx` Register rows 5:6876; `PS_WP_Transaction_Register_3FY_v129.xlsx` Register rows 5:31364. Generated by `toolkit/branch/pbr_contractor_pull.py`.

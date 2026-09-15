@@ -7,7 +7,11 @@ supplier, across everything the project holds, what is still unevidenced and wha
 
 Scope: both registers, partitioned so nothing is counted twice.
 
-    FY2023/24, FY2024/25, FY2025/26   PS & WP register v127 (Park Services and Water Parks, the assessed years)
+    FY2023/24, FY2024/25, FY2025/26   the NEWEST shipped PS & WP register (Park Services and Water Parks, the
+                                       assessed years). Not the v127 candidate the branch register inherits from:
+                                       that pin is the branch build's inheritance source (pbr_stage.V127) and is
+                                       deliberately frozen, but a pull list read off it asks Finance for documents
+                                       v128 and v129 have already sighted.
     FY2026/27                          Parks Branch register (all ten sections; it inherits the PS & WP FY2026/27
                                        block line by line and supersedes it, so PS & WP FY2026/27 is NOT read here)
 
@@ -60,6 +64,26 @@ def latest_branch():
     return reg[-1]
 
 
+def latest_pswp():
+    """The newest shipped PS & WP register. Both registers move independently: v128 ported the branch capture
+    programme back (182 invoices) and v129 settled every held document, neither of which touched the branch
+    register, so pinning this side freezes the evidence coverage of three of the four financial years."""
+    import glob
+    reg = glob.glob(os.path.join(ROOT, 'registers', 'PS_WP_Transaction_Register_3FY_v*.xlsx'))
+    assert reg, 'no PS & WP register shipped'
+    # ties on the same number prefer the shipped file over a CANDIDATE of the same version
+    return sorted(reg, key=lambda p: (int(re.search(r'_v(\d+)', os.path.basename(p)).group(1)),
+                                      'CANDIDATE' not in os.path.basename(p)))[-1]
+
+
+def file_ver(path):
+    """The version in the shipped filename. The PS & WP workbook's own Config stamp stopped being maintained at
+    v123 and v127, v128 and v129 all still carry it, so the filename is the only version marker that moves and
+    the one this report must quote: it names the file it actually read."""
+    m = re.search(r'_v(\d+)', os.path.basename(path))
+    return f'v{m.group(1)}' if m else 'v?'
+
+
 def txt(v):
     if v is None:
         return ''
@@ -82,14 +106,14 @@ def abn_print(d):
     return f'{d[:2]} {d[2:5]} {d[5:8]} {d[8:]}' if len(d) == 11 else (d or '')
 
 
-def load_register(path, tag):
+def load_register(path, tag, ver=None):
     wb = CalamineWorkbook.from_path(path)
     cfg = {r[0]: r[1] for r in wb.get_sheet_by_name('Config').to_python(skip_empty_area=False) if r and r[0]}
     R = wb.get_sheet_by_name('Register').to_python(skip_empty_area=False)
     ix = {txt(h): i for i, h in enumerate(R[3])}
     a, b = (int(x) for x in str(cfg['REGISTER_DATA']).split(':'))
     rows = [r for r in R[a - 1:b] if txt(r[0])]
-    return dict(tag=tag, path=path, file=os.path.basename(path), ver=txt(cfg.get('WORKBOOK_VERSION', 'v?')),
+    return dict(tag=tag, path=path, file=os.path.basename(path), ver=ver or txt(cfg.get('WORKBOOK_VERSION', 'v?')),
                 cfg=cfg, ix=ix, rows=rows, span=f'{a}:{b}',
                 total=sum(D(r[ix['Amount ex GST']]) for r in rows), wb=wb)
 
@@ -114,11 +138,11 @@ def pswp_history_codes(reg):
 
 def main():
     bpath = sys.argv[1] if len(sys.argv) > 1 else latest_branch()
-    ppath = sys.argv[2] if len(sys.argv) > 2 else os.path.join(ROOT, 'registers', 'PS_WP_Transaction_Register_3FY_v127_CANDIDATE.xlsx')
+    ppath = sys.argv[2] if len(sys.argv) > 2 else latest_pswp()
     OUT = sys.argv[3] if len(sys.argv) > 3 else os.path.join(ROOT, 'reports')
 
     B = load_register(bpath, 'Branch FY2026/27')
-    P = load_register(ppath, 'PS & WP assessed years')
+    P = load_register(ppath, 'PS & WP assessed years', ver=file_ver(ppath))
     ver = B['ver']
     BH = histories_held()
     PH = pswp_history_codes(P)
