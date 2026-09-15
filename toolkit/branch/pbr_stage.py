@@ -50,6 +50,9 @@ BATCHES = ('mixed_1', 'mixed_new_26_27', 'attach_1', 'attach_2', 'code', 'mix22'
 JOURNAL_BATCH = 'journal_1'  # TechOne Document Line Table pulls (rule 21, pipeline "per journal batch")
 RECON_BATCH = 'recon_1'      # TechOne Document Reconstruction pulls (rule 21, the counterparty route)
 NCOL = 149  # 146 PS/WP columns + 147 Src Note + 148 Register provenance + 149 Source pull
+# The green-block provenance gate stops the build on an untraceable printed field. Set PBR_PROV=report to run it
+# and print the findings without stopping, which is how a new vendor template is brought in.
+PROV_STRICT = _os.environ.get('PBR_PROV', 'strict') != 'report'
 
 # The register is a Council record and every TechOne export is stamped in Council's own time. The container runs on
 # UTC, which is ten hours behind Brisbane, so a build run in the Queensland morning would otherwise date itself to the
@@ -875,6 +878,24 @@ def main(dry=False):
     for batch in BATCHES:
         ev_new, cap_variants = pbr_capture.capture(rows, os.path.join(ROOT, 'batches', batch, f'corpus_{batch}_v6.json'), os.path.join(ROOT, 'batches', batch, f'match_{batch}_v6.json'), say, _keys, _text, ev_new, cap_variants)
 
+    # ------------------------------------------------------------------ green-block provenance (rule 3, rule 16a)
+    # The arithmetic gate proves the money and the shingle check proves the priced-row wording. Neither looks at the
+    # printed header fields, which are most of the green block, so a reader that returns a constant or a value left
+    # over from another invoice used to ship silently (Levai carried one job on every invoice from v2 to v10). Every
+    # printed field must now be traceable to the page text of the document it cites, or the build stops here.
+    import pbr_provenance
+    prov_fail, prov_fields, prov_rungs = [], 0, collections.Counter()
+    for evid, pv in sorted(ev_new.get('prov', {}).items()):
+        prov_fields += sum(1 for c in pbr_provenance.FIELDS if pv['fields'].get(c) not in (None, ''))
+        fails, rungs = pbr_provenance.check_document(evid, pv['fields'], pv['page_text'], pv['vendor'])
+        prov_fail += fails; prov_rungs += rungs
+    say(pbr_provenance.report(prov_fail, len(ev_new.get('prov', {})), prov_fields, prov_rungs))
+    if PROV_STRICT:
+        assert not prov_fail, ('green-block provenance: a printed field is not traceable to its own document',
+                               [(f['evid'], f['field'], f['missing'][:1]) for f in prov_fail[:8]])
+    prov_stat = dict(docs=len(ev_new.get('prov', {})), fields=prov_fields, failures=len(prov_fail),
+                     rungs=dict(prov_rungs))
+
     # ------------------------------------------------------------------ journal source documents (rule 21, batch journal_1)
     # The batch driver has already proved each document nets to zero, that every in-scope leg ties its own register
     # line, and that a re-pull of a document already embedded in PS_WP v127 is identical leg by leg (rule 12). Those
@@ -997,7 +1018,7 @@ def main(dry=False):
                  svc_names=svc_names, na_names=na_names, sec_names=sec_names, flags=flags, oi_data=oi_data,
                  typo_rows=typo_rows, cred_new_matches=cred_new_matches, jnamed=stage_jnamed, log=log, jnet=jnet, jcount=jcount,
                  journal_batch=jb, journal_docs=jsrc_docs, journal_lines=sorted(jcited),
-                 recon_batch=rb, recon_docs=rsrc_docs, recon_lines=sorted(rcited))
+                 recon_batch=rb, recon_docs=rsrc_docs, recon_lines=sorted(rcited), prov=prov_stat)
     # carry evidence
     sighted = [r for r in rows if r['V'][88]]
     evids = collections.OrderedDict()
