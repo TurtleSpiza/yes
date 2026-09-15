@@ -66,7 +66,7 @@
    "code": "VIN003",
    "label": "Vinton Tree Services",
    "abn": "84008552538",
-   "label_basis": "Named as Vinton Tree Services in Council recode journals on 49 branch register lines (branch v1, Tier 2); ABN 84 008 552 538 from this APLEDGER record. Legal entity suffix to be confirmed from the first sighted invoice.",
+   "label_basis": "Named as Vinton Tree Services in Council recode journals on 49 branch register lines (branch v1, Tier 2); ABN 84 008 552 538 from this APLEDGER record, which passes the ATO modulus-89 checksum (verified branch v15). The legal entity is corroborated at branch v15 by the retained text layer of all 42 vinton_new invoices, which prints \"RST Systems Pty Ltd\" in the bank block; no Vinton invoice prints an ABN in its text layer, and the vinton_new extraction reported an OCR read of an image-borne letterhead without retaining the OCR text, so that read is recorded on the corpus and is not treated as printed (rule 8).",
    "added": "v4"
   },
   {

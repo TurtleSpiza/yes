@@ -328,7 +328,8 @@
    "evidence_stem": "Vinton Invoice Jul-2026 4908.83",
    "duplicate_of": null,
    "findings": [
-    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $4,908.83."
+    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $4,908.83.",
+    "Supplier identity: the extraction reports \"R. S. T. Systems Pty. Limited Trading as Vinton Tree Services\" and ABN 84 008 552 538 read by OCR from an image-borne letterhead, and retained no OCR text, so neither string appears anywhere in this corpus and neither is treated as printed (prep R7). Corroboration from sources this project DOES hold: the claimed ABN passes the ATO modulus-89 checksum and is carried verbatim by APLEDGER history VIN003, and the retained text layer prints \"RST Systems Pty Ltd\" in the bank block on every document, which is consistent with the R.S.T. Systems entity. Identity therefore rests on the creditor history (rule 8 Tier 1, an 11-digit ABN on the history) and not on this document. Reinstating the OCR read needs the binder."
    ],
    "notes": "Detailed template line amounts are ex GST.",
    "lines": [
@@ -925,7 +926,7 @@
      "source": "TEXT",
      "page": 1,
      "line_no": 32,
-     "line_text": "               - 1 Bushland Drive \u2013 tree is on Vansittart Road - 360\u00b0 crown lift tree for",
+     "line_text": "               - 1 Bushland Drive – tree is on Vansittart Road - 360° crown lift tree for",
      "line_type": "NARRATIVE",
      "ocr_only": false,
      "ocr_status": "not_required",
@@ -1571,7 +1572,7 @@
    ],
    "vendor_template": "VINTON",
    "page_text": {
-    "1": "                                                                                                       Tax Invoice\n\n                                                                                            Invoice No.: 19402\n\n                                                                                            Date:             2/07/2026\n\n                                                                                            PO:               717574\n\n                                                                                            Contract          PAR/329E/2021\n                                                                                            No:\n\n\n\n                                                                       Site Address:\n   Billing Address:\n  Logan City Council                                                   Logan City Council\n  A/C Payable Department                                               Attention:\n  PO Box 3226\n  Logan City DC QLD 4114\n\n\n\n   HRS         DESCRIPTION                                                                    UNIT PRICE         TOTAL PRICE (ex-\n                                                                                                (ex-GST)                    GST)\n               CR# 3735053 PK000477\n               Completed 01/07/2026\n               Vansittart Road, Regents Park\n               Melaleuca Trees:\n\n               - 78 Vansittart Road - Remove tree in poor health\n               - 86 Vansittart Road - Remove poorly structure tree\n               - 1 Bushland Drive \u2013 tree is on Vansittart Road - 360\u00b0 crown lift tree for\n               high vehicle access and remove basal epi growth\n               - 140 Vansittart Road - Remove tree leaning over road\n\n     5         4 person crew for Tree Maintenance                                                   $315.00               $1,575.00\n\n\n     5         EWP up to 28m                                                                        $190.00                $950.00\n\n     3         Stump grinding                                                                       $180.00                $540.00\n\n     1         Note: 2 hours charged pro-rata - see attached bill                                   $611.23                $611.23\n     1         LCC Permit Fee, LCC Permit Submission Administration Fee and Police                  $786.34                $786.34\n               Permit Administration Fee - bill attached\n\n\n\n\nBANK DETAIL FOR EFT PAYMENT\nRST Systems Pty Ltd                                                                          Subtotal:                      $4,462.57\nANZ Underwood\nBSB - 014279                                                                                                                  $446.26\n                                                                                             GST:\nACC No - 260818618\nPlease email remittance Advice to\nadmin@vintontreeservices.com.au                                                              Total (inc-GST):               $4,908.83\n                                                                                               Balance Due:                $4,908.83",
+    "1": "                                                                                                       Tax Invoice\n\n                                                                                            Invoice No.: 19402\n\n                                                                                            Date:             2/07/2026\n\n                                                                                            PO:               717574\n\n                                                                                            Contract          PAR/329E/2021\n                                                                                            No:\n\n\n\n                                                                       Site Address:\n   Billing Address:\n  Logan City Council                                                   Logan City Council\n  A/C Payable Department                                               Attention:\n  PO Box 3226\n  Logan City DC QLD 4114\n\n\n\n   HRS         DESCRIPTION                                                                    UNIT PRICE         TOTAL PRICE (ex-\n                                                                                                (ex-GST)                    GST)\n               CR# 3735053 PK000477\n               Completed 01/07/2026\n               Vansittart Road, Regents Park\n               Melaleuca Trees:\n\n               - 78 Vansittart Road - Remove tree in poor health\n               - 86 Vansittart Road - Remove poorly structure tree\n               - 1 Bushland Drive – tree is on Vansittart Road - 360° crown lift tree for\n               high vehicle access and remove basal epi growth\n               - 140 Vansittart Road - Remove tree leaning over road\n\n     5         4 person crew for Tree Maintenance                                                   $315.00               $1,575.00\n\n\n     5         EWP up to 28m                                                                        $190.00                $950.00\n\n     3         Stump grinding                                                                       $180.00                $540.00\n\n     1         Note: 2 hours charged pro-rata - see attached bill                                   $611.23                $611.23\n     1         LCC Permit Fee, LCC Permit Submission Administration Fee and Police                  $786.34                $786.34\n               Permit Administration Fee - bill attached\n\n\n\n\nBANK DETAIL FOR EFT PAYMENT\nRST Systems Pty Ltd                                                                          Subtotal:                      $4,462.57\nANZ Underwood\nBSB - 014279                                                                                                                  $446.26\n                                                                                             GST:\nACC No - 260818618\nPlease email remittance Advice to\nadmin@vintontreeservices.com.au                                                              Total (inc-GST):               $4,908.83\n                                                                                               Balance Due:                $4,908.83",
     "2": "How to pay                                                  Invoice number: 19402   Due date: 16/07/26   Balance due: $4,908.83\n\n\n                     Pay online\n\n             Scan the QR code or click the link to view this invoice online"
    },
    "duplicate_copy_pages": [],
@@ -1627,7 +1628,8 @@
    "evidence_stem": "Vinton Invoice Jul-2026 3333.00",
    "duplicate_of": null,
    "findings": [
-    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $3,333.00."
+    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $3,333.00.",
+    "Supplier identity: the extraction reports \"R. S. T. Systems Pty. Limited Trading as Vinton Tree Services\" and ABN 84 008 552 538 read by OCR from an image-borne letterhead, and retained no OCR text, so neither string appears anywhere in this corpus and neither is treated as printed (prep R7). Corroboration from sources this project DOES hold: the claimed ABN passes the ATO modulus-89 checksum and is carried verbatim by APLEDGER history VIN003, and the retained text layer prints \"RST Systems Pty Ltd\" in the bank block on every document, which is consistent with the R.S.T. Systems entity. Identity therefore rests on the creditor history (rule 8 Tier 1, an 11-digit ABN on the history) and not on this document. Reinstating the OCR read needs the binder."
    ],
    "notes": "Detailed template line amounts are ex GST.",
    "lines": [
@@ -2739,7 +2741,8 @@
    "evidence_stem": "Vinton Invoice Jul-2026 4048.00",
    "duplicate_of": null,
    "findings": [
-    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $4,048.00."
+    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $4,048.00.",
+    "Supplier identity: the extraction reports \"R. S. T. Systems Pty. Limited Trading as Vinton Tree Services\" and ABN 84 008 552 538 read by OCR from an image-borne letterhead, and retained no OCR text, so neither string appears anywhere in this corpus and neither is treated as printed (prep R7). Corroboration from sources this project DOES hold: the claimed ABN passes the ATO modulus-89 checksum and is carried verbatim by APLEDGER history VIN003, and the retained text layer prints \"RST Systems Pty Ltd\" in the bank block on every document, which is consistent with the R.S.T. Systems entity. Identity therefore rests on the creditor history (rule 8 Tier 1, an 11-digit ABN on the history) and not on this document. Reinstating the OCR read needs the binder."
    ],
    "notes": "Detailed template line amounts are ex GST.",
    "lines": [
@@ -3794,7 +3797,8 @@
    "evidence_stem": "Vinton Invoice Jul-2026 2222.00",
    "duplicate_of": null,
    "findings": [
-    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $2,222.00."
+    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $2,222.00.",
+    "Supplier identity: the extraction reports \"R. S. T. Systems Pty. Limited Trading as Vinton Tree Services\" and ABN 84 008 552 538 read by OCR from an image-borne letterhead, and retained no OCR text, so neither string appears anywhere in this corpus and neither is treated as printed (prep R7). Corroboration from sources this project DOES hold: the claimed ABN passes the ATO modulus-89 checksum and is carried verbatim by APLEDGER history VIN003, and the retained text layer prints \"RST Systems Pty Ltd\" in the bank block on every document, which is consistent with the R.S.T. Systems entity. Identity therefore rests on the creditor history (rule 8 Tier 1, an 11-digit ABN on the history) and not on this document. Reinstating the OCR read needs the binder."
    ],
    "notes": "Detailed template line amounts are ex GST.",
    "lines": [
@@ -4834,7 +4838,8 @@
    "evidence_stem": "Vinton Invoice Jul-2026 2975.50",
    "duplicate_of": null,
    "findings": [
-    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $2,975.50."
+    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $2,975.50.",
+    "Supplier identity: the extraction reports \"R. S. T. Systems Pty. Limited Trading as Vinton Tree Services\" and ABN 84 008 552 538 read by OCR from an image-borne letterhead, and retained no OCR text, so neither string appears anywhere in this corpus and neither is treated as printed (prep R7). Corroboration from sources this project DOES hold: the claimed ABN passes the ATO modulus-89 checksum and is carried verbatim by APLEDGER history VIN003, and the retained text layer prints \"RST Systems Pty Ltd\" in the bank block on every document, which is consistent with the R.S.T. Systems entity. Identity therefore rests on the creditor history (rule 8 Tier 1, an 11-digit ABN on the history) and not on this document. Reinstating the OCR read needs the binder."
    ],
    "notes": "Detailed template line amounts are ex GST.",
    "lines": [
@@ -5992,7 +5997,8 @@
    "evidence_stem": "Vinton Invoice Jul-2026 3520.00",
    "duplicate_of": null,
    "findings": [
-    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $3,520.00."
+    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $3,520.00.",
+    "Supplier identity: the extraction reports \"R. S. T. Systems Pty. Limited Trading as Vinton Tree Services\" and ABN 84 008 552 538 read by OCR from an image-borne letterhead, and retained no OCR text, so neither string appears anywhere in this corpus and neither is treated as printed (prep R7). Corroboration from sources this project DOES hold: the claimed ABN passes the ATO modulus-89 checksum and is carried verbatim by APLEDGER history VIN003, and the retained text layer prints \"RST Systems Pty Ltd\" in the bank block on every document, which is consistent with the R.S.T. Systems entity. Identity therefore rests on the creditor history (rule 8 Tier 1, an 11-digit ABN on the history) and not on this document. Reinstating the OCR read needs the binder."
    ],
    "notes": "Detailed template line amounts are ex GST.",
    "lines": [
@@ -7009,7 +7015,8 @@
    "evidence_stem": "Vinton Invoice Jul-2026 2552.00",
    "duplicate_of": null,
    "findings": [
-    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $2,552.00."
+    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $2,552.00.",
+    "Supplier identity: the extraction reports \"R. S. T. Systems Pty. Limited Trading as Vinton Tree Services\" and ABN 84 008 552 538 read by OCR from an image-borne letterhead, and retained no OCR text, so neither string appears anywhere in this corpus and neither is treated as printed (prep R7). Corroboration from sources this project DOES hold: the claimed ABN passes the ATO modulus-89 checksum and is carried verbatim by APLEDGER history VIN003, and the retained text layer prints \"RST Systems Pty Ltd\" in the bank block on every document, which is consistent with the R.S.T. Systems entity. Identity therefore rests on the creditor history (rule 8 Tier 1, an 11-digit ABN on the history) and not on this document. Reinstating the OCR read needs the binder."
    ],
    "notes": "Detailed template line amounts are ex GST.",
    "lines": [
@@ -8007,7 +8014,8 @@
    "evidence_stem": "Vinton Invoice Jul-2026 3286.25",
    "duplicate_of": null,
    "findings": [
-    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $3,286.25."
+    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $3,286.25.",
+    "Supplier identity: the extraction reports \"R. S. T. Systems Pty. Limited Trading as Vinton Tree Services\" and ABN 84 008 552 538 read by OCR from an image-borne letterhead, and retained no OCR text, so neither string appears anywhere in this corpus and neither is treated as printed (prep R7). Corroboration from sources this project DOES hold: the claimed ABN passes the ATO modulus-89 checksum and is carried verbatim by APLEDGER history VIN003, and the retained text layer prints \"RST Systems Pty Ltd\" in the bank block on every document, which is consistent with the R.S.T. Systems entity. Identity therefore rests on the creditor history (rule 8 Tier 1, an 11-digit ABN on the history) and not on this document. Reinstating the OCR read needs the binder."
    ],
    "notes": "Detailed template line amounts are ex GST.",
    "lines": [
@@ -9181,7 +9189,8 @@
    "evidence_stem": "Vinton Invoice Jul, Jul-2026, 3520.00",
    "duplicate_of": null,
    "findings": [
-    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $3,520.00."
+    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $3,520.00.",
+    "Supplier identity: the extraction reports \"R. S. T. Systems Pty. Limited Trading as Vinton Tree Services\" and ABN 84 008 552 538 read by OCR from an image-borne letterhead, and retained no OCR text, so neither string appears anywhere in this corpus and neither is treated as printed (prep R7). Corroboration from sources this project DOES hold: the claimed ABN passes the ATO modulus-89 checksum and is carried verbatim by APLEDGER history VIN003, and the retained text layer prints \"RST Systems Pty Ltd\" in the bank block on every document, which is consistent with the R.S.T. Systems entity. Identity therefore rests on the creditor history (rule 8 Tier 1, an 11-digit ABN on the history) and not on this document. Reinstating the OCR read needs the binder."
    ],
    "notes": "Detailed template line amounts are ex GST.",
    "lines": [
@@ -10139,7 +10148,8 @@
    "evidence_stem": "Vinton Invoice Jul-2026 4444.00",
    "duplicate_of": null,
    "findings": [
-    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $4,444.00."
+    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $4,444.00.",
+    "Supplier identity: the extraction reports \"R. S. T. Systems Pty. Limited Trading as Vinton Tree Services\" and ABN 84 008 552 538 read by OCR from an image-borne letterhead, and retained no OCR text, so neither string appears anywhere in this corpus and neither is treated as printed (prep R7). Corroboration from sources this project DOES hold: the claimed ABN passes the ATO modulus-89 checksum and is carried verbatim by APLEDGER history VIN003, and the retained text layer prints \"RST Systems Pty Ltd\" in the bank block on every document, which is consistent with the R.S.T. Systems entity. Identity therefore rests on the creditor history (rule 8 Tier 1, an 11-digit ABN on the history) and not on this document. Reinstating the OCR read needs the binder."
    ],
    "notes": "Detailed template line amounts are ex GST.",
    "lines": [
@@ -11198,7 +11208,8 @@
    "evidence_stem": "Vinton Invoice Jul-2026 3570.88",
    "duplicate_of": null,
    "findings": [
-    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $3,570.88."
+    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $3,570.88.",
+    "Supplier identity: the extraction reports \"R. S. T. Systems Pty. Limited Trading as Vinton Tree Services\" and ABN 84 008 552 538 read by OCR from an image-borne letterhead, and retained no OCR text, so neither string appears anywhere in this corpus and neither is treated as printed (prep R7). Corroboration from sources this project DOES hold: the claimed ABN passes the ATO modulus-89 checksum and is carried verbatim by APLEDGER history VIN003, and the retained text layer prints \"RST Systems Pty Ltd\" in the bank block on every document, which is consistent with the R.S.T. Systems entity. Identity therefore rests on the creditor history (rule 8 Tier 1, an 11-digit ABN on the history) and not on this document. Reinstating the OCR read needs the binder."
    ],
    "notes": "Detailed template line amounts are ex GST.",
    "lines": [
@@ -12337,7 +12348,8 @@
    "evidence_stem": "Vinton Invoice Jul-2026 2406.25",
    "duplicate_of": null,
    "findings": [
-    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $2,406.25."
+    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $2,406.25.",
+    "Supplier identity: the extraction reports \"R. S. T. Systems Pty. Limited Trading as Vinton Tree Services\" and ABN 84 008 552 538 read by OCR from an image-borne letterhead, and retained no OCR text, so neither string appears anywhere in this corpus and neither is treated as printed (prep R7). Corroboration from sources this project DOES hold: the claimed ABN passes the ATO modulus-89 checksum and is carried verbatim by APLEDGER history VIN003, and the retained text layer prints \"RST Systems Pty Ltd\" in the bank block on every document, which is consistent with the R.S.T. Systems entity. Identity therefore rests on the creditor history (rule 8 Tier 1, an 11-digit ABN on the history) and not on this document. Reinstating the OCR read needs the binder."
    ],
    "notes": "Detailed template line amounts are ex GST.",
    "lines": [
@@ -13316,7 +13328,8 @@
    "evidence_stem": "Vinton Invoice Jul-2026 2916.38",
    "duplicate_of": null,
    "findings": [
-    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $2,916.38."
+    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $2,916.38.",
+    "Supplier identity: the extraction reports \"R. S. T. Systems Pty. Limited Trading as Vinton Tree Services\" and ABN 84 008 552 538 read by OCR from an image-borne letterhead, and retained no OCR text, so neither string appears anywhere in this corpus and neither is treated as printed (prep R7). Corroboration from sources this project DOES hold: the claimed ABN passes the ATO modulus-89 checksum and is carried verbatim by APLEDGER history VIN003, and the retained text layer prints \"RST Systems Pty Ltd\" in the bank block on every document, which is consistent with the R.S.T. Systems entity. Identity therefore rests on the creditor history (rule 8 Tier 1, an 11-digit ABN on the history) and not on this document. Reinstating the OCR read needs the binder."
    ],
    "notes": "Detailed template line amounts are ex GST.",
    "lines": [
@@ -14356,7 +14369,8 @@
    "evidence_stem": "Vinton Invoice Jul-2026 2243.89",
    "duplicate_of": null,
    "findings": [
-    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $2,243.89."
+    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $2,243.89.",
+    "Supplier identity: the extraction reports \"R. S. T. Systems Pty. Limited Trading as Vinton Tree Services\" and ABN 84 008 552 538 read by OCR from an image-borne letterhead, and retained no OCR text, so neither string appears anywhere in this corpus and neither is treated as printed (prep R7). Corroboration from sources this project DOES hold: the claimed ABN passes the ATO modulus-89 checksum and is carried verbatim by APLEDGER history VIN003, and the retained text layer prints \"RST Systems Pty Ltd\" in the bank block on every document, which is consistent with the R.S.T. Systems entity. Identity therefore rests on the creditor history (rule 8 Tier 1, an 11-digit ABN on the history) and not on this document. Reinstating the OCR read needs the binder."
    ],
    "notes": "Detailed template line amounts are ex GST.",
    "lines": [
@@ -15457,7 +15471,8 @@
    "evidence_stem": "Vinton Invoice Jul-2026 3225.59",
    "duplicate_of": null,
    "findings": [
-    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $3,225.59."
+    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $3,225.59.",
+    "Supplier identity: the extraction reports \"R. S. T. Systems Pty. Limited Trading as Vinton Tree Services\" and ABN 84 008 552 538 read by OCR from an image-borne letterhead, and retained no OCR text, so neither string appears anywhere in this corpus and neither is treated as printed (prep R7). Corroboration from sources this project DOES hold: the claimed ABN passes the ATO modulus-89 checksum and is carried verbatim by APLEDGER history VIN003, and the retained text layer prints \"RST Systems Pty Ltd\" in the bank block on every document, which is consistent with the R.S.T. Systems entity. Identity therefore rests on the creditor history (rule 8 Tier 1, an 11-digit ABN on the history) and not on this document. Reinstating the OCR read needs the binder."
    ],
    "notes": "Detailed template line amounts are ex GST.",
    "lines": [
@@ -16577,7 +16592,8 @@
    "evidence_stem": "Vinton Invoice Jul-2026 2804.86",
    "duplicate_of": null,
    "findings": [
-    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $2,804.86."
+    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $2,804.86.",
+    "Supplier identity: the extraction reports \"R. S. T. Systems Pty. Limited Trading as Vinton Tree Services\" and ABN 84 008 552 538 read by OCR from an image-borne letterhead, and retained no OCR text, so neither string appears anywhere in this corpus and neither is treated as printed (prep R7). Corroboration from sources this project DOES hold: the claimed ABN passes the ATO modulus-89 checksum and is carried verbatim by APLEDGER history VIN003, and the retained text layer prints \"RST Systems Pty Ltd\" in the bank block on every document, which is consistent with the R.S.T. Systems entity. Identity therefore rests on the creditor history (rule 8 Tier 1, an 11-digit ABN on the history) and not on this document. Reinstating the OCR read needs the binder."
    ],
    "notes": "Detailed template line amounts are ex GST.",
    "lines": [
@@ -17678,7 +17694,8 @@
    "evidence_stem": "Vinton Invoice Jul-2026 2265.77",
    "duplicate_of": null,
    "findings": [
-    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $2,265.77."
+    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $2,265.77.",
+    "Supplier identity: the extraction reports \"R. S. T. Systems Pty. Limited Trading as Vinton Tree Services\" and ABN 84 008 552 538 read by OCR from an image-borne letterhead, and retained no OCR text, so neither string appears anywhere in this corpus and neither is treated as printed (prep R7). Corroboration from sources this project DOES hold: the claimed ABN passes the ATO modulus-89 checksum and is carried verbatim by APLEDGER history VIN003, and the retained text layer prints \"RST Systems Pty Ltd\" in the bank block on every document, which is consistent with the R.S.T. Systems entity. Identity therefore rests on the creditor history (rule 8 Tier 1, an 11-digit ABN on the history) and not on this document. Reinstating the OCR read needs the binder."
    ],
    "notes": "Detailed template line amounts are ex GST.",
    "lines": [
@@ -18817,7 +18834,8 @@
    "evidence_stem": "Vinton Invoice Jul-2026 3197.91",
    "duplicate_of": null,
    "findings": [
-    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $3,197.91."
+    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $3,197.91.",
+    "Supplier identity: the extraction reports \"R. S. T. Systems Pty. Limited Trading as Vinton Tree Services\" and ABN 84 008 552 538 read by OCR from an image-borne letterhead, and retained no OCR text, so neither string appears anywhere in this corpus and neither is treated as printed (prep R7). Corroboration from sources this project DOES hold: the claimed ABN passes the ATO modulus-89 checksum and is carried verbatim by APLEDGER history VIN003, and the retained text layer prints \"RST Systems Pty Ltd\" in the bank block on every document, which is consistent with the R.S.T. Systems entity. Identity therefore rests on the creditor history (rule 8 Tier 1, an 11-digit ABN on the history) and not on this document. Reinstating the OCR read needs the binder."
    ],
    "notes": "Detailed template line amounts are ex GST.",
    "lines": [
@@ -20063,7 +20081,8 @@
    "evidence_stem": "Vinton Invoice Jul-2026 3073.33",
    "duplicate_of": null,
    "findings": [
-    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $3,073.33."
+    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $3,073.33.",
+    "Supplier identity: the extraction reports \"R. S. T. Systems Pty. Limited Trading as Vinton Tree Services\" and ABN 84 008 552 538 read by OCR from an image-borne letterhead, and retained no OCR text, so neither string appears anywhere in this corpus and neither is treated as printed (prep R7). Corroboration from sources this project DOES hold: the claimed ABN passes the ATO modulus-89 checksum and is carried verbatim by APLEDGER history VIN003, and the retained text layer prints \"RST Systems Pty Ltd\" in the bank block on every document, which is consistent with the R.S.T. Systems entity. Identity therefore rests on the creditor history (rule 8 Tier 1, an 11-digit ABN on the history) and not on this document. Reinstating the OCR read needs the binder."
    ],
    "notes": "Detailed template line amounts are ex GST.",
    "lines": [
@@ -21187,7 +21206,8 @@
    "evidence_stem": "Vinton Invoice Jul-2026 7014.74",
    "duplicate_of": null,
    "findings": [
-    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $7,014.74."
+    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $7,014.74.",
+    "Supplier identity: the extraction reports \"R. S. T. Systems Pty. Limited Trading as Vinton Tree Services\" and ABN 84 008 552 538 read by OCR from an image-borne letterhead, and retained no OCR text, so neither string appears anywhere in this corpus and neither is treated as printed (prep R7). Corroboration from sources this project DOES hold: the claimed ABN passes the ATO modulus-89 checksum and is carried verbatim by APLEDGER history VIN003, and the retained text layer prints \"RST Systems Pty Ltd\" in the bank block on every document, which is consistent with the R.S.T. Systems entity. Identity therefore rests on the creditor history (rule 8 Tier 1, an 11-digit ABN on the history) and not on this document. Reinstating the OCR read needs the binder."
    ],
    "notes": "Detailed template line amounts are ex GST.",
    "lines": [
@@ -22302,7 +22322,8 @@
    "evidence_stem": "Vinton Invoice Jul-2026 2378.26",
    "duplicate_of": null,
    "findings": [
-    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $2,378.26."
+    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $2,378.26.",
+    "Supplier identity: the extraction reports \"R. S. T. Systems Pty. Limited Trading as Vinton Tree Services\" and ABN 84 008 552 538 read by OCR from an image-borne letterhead, and retained no OCR text, so neither string appears anywhere in this corpus and neither is treated as printed (prep R7). Corroboration from sources this project DOES hold: the claimed ABN passes the ATO modulus-89 checksum and is carried verbatim by APLEDGER history VIN003, and the retained text layer prints \"RST Systems Pty Ltd\" in the bank block on every document, which is consistent with the R.S.T. Systems entity. Identity therefore rests on the creditor history (rule 8 Tier 1, an 11-digit ABN on the history) and not on this document. Reinstating the OCR read needs the binder."
    ],
    "notes": "Detailed template line amounts are ex GST.",
    "lines": [
@@ -23243,7 +23264,8 @@
    "evidence_stem": "Vinton Invoice Jul-2026 3574.47",
    "duplicate_of": null,
    "findings": [
-    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $3,574.47."
+    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $3,574.47.",
+    "Supplier identity: the extraction reports \"R. S. T. Systems Pty. Limited Trading as Vinton Tree Services\" and ABN 84 008 552 538 read by OCR from an image-borne letterhead, and retained no OCR text, so neither string appears anywhere in this corpus and neither is treated as printed (prep R7). Corroboration from sources this project DOES hold: the claimed ABN passes the ATO modulus-89 checksum and is carried verbatim by APLEDGER history VIN003, and the retained text layer prints \"RST Systems Pty Ltd\" in the bank block on every document, which is consistent with the R.S.T. Systems entity. Identity therefore rests on the creditor history (rule 8 Tier 1, an 11-digit ABN on the history) and not on this document. Reinstating the OCR read needs the binder."
    ],
    "notes": "Detailed template line amounts are ex GST.",
    "lines": [
@@ -24325,7 +24347,8 @@
    "evidence_stem": "Vinton Invoice Aug-2026 2628.18",
    "duplicate_of": null,
    "findings": [
-    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $2,628.18."
+    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $2,628.18.",
+    "Supplier identity: the extraction reports \"R. S. T. Systems Pty. Limited Trading as Vinton Tree Services\" and ABN 84 008 552 538 read by OCR from an image-borne letterhead, and retained no OCR text, so neither string appears anywhere in this corpus and neither is treated as printed (prep R7). Corroboration from sources this project DOES hold: the claimed ABN passes the ATO modulus-89 checksum and is carried verbatim by APLEDGER history VIN003, and the retained text layer prints \"RST Systems Pty Ltd\" in the bank block on every document, which is consistent with the R.S.T. Systems entity. Identity therefore rests on the creditor history (rule 8 Tier 1, an 11-digit ABN on the history) and not on this document. Reinstating the OCR read needs the binder."
    ],
    "notes": "Detailed template line amounts are ex GST.",
    "lines": [
@@ -25437,7 +25460,8 @@
    "evidence_stem": "Vinton Invoice Aug-2026 7048.69",
    "duplicate_of": null,
    "findings": [
-    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $7,048.69."
+    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $7,048.69.",
+    "Supplier identity: the extraction reports \"R. S. T. Systems Pty. Limited Trading as Vinton Tree Services\" and ABN 84 008 552 538 read by OCR from an image-borne letterhead, and retained no OCR text, so neither string appears anywhere in this corpus and neither is treated as printed (prep R7). Corroboration from sources this project DOES hold: the claimed ABN passes the ATO modulus-89 checksum and is carried verbatim by APLEDGER history VIN003, and the retained text layer prints \"RST Systems Pty Ltd\" in the bank block on every document, which is consistent with the R.S.T. Systems entity. Identity therefore rests on the creditor history (rule 8 Tier 1, an 11-digit ABN on the history) and not on this document. Reinstating the OCR read needs the binder."
    ],
    "notes": "Detailed template line amounts are ex GST.",
    "lines": [
@@ -26488,7 +26512,8 @@
    "evidence_stem": "Vinton Invoice Aug-2026 8580.00",
    "duplicate_of": null,
    "findings": [
-    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $8,580.00."
+    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $8,580.00.",
+    "Supplier identity: the extraction reports \"R. S. T. Systems Pty. Limited Trading as Vinton Tree Services\" and ABN 84 008 552 538 read by OCR from an image-borne letterhead, and retained no OCR text, so neither string appears anywhere in this corpus and neither is treated as printed (prep R7). Corroboration from sources this project DOES hold: the claimed ABN passes the ATO modulus-89 checksum and is carried verbatim by APLEDGER history VIN003, and the retained text layer prints \"RST Systems Pty Ltd\" in the bank block on every document, which is consistent with the R.S.T. Systems entity. Identity therefore rests on the creditor history (rule 8 Tier 1, an 11-digit ABN on the history) and not on this document. Reinstating the OCR read needs the binder."
    ],
    "notes": "Detailed template line amounts are ex GST.",
    "lines": [
@@ -27370,7 +27395,8 @@
    "evidence_stem": "Vinton Invoice Aug-2026 5083.53",
    "duplicate_of": null,
    "findings": [
-    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $5,083.53."
+    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $5,083.53.",
+    "Supplier identity: the extraction reports \"R. S. T. Systems Pty. Limited Trading as Vinton Tree Services\" and ABN 84 008 552 538 read by OCR from an image-borne letterhead, and retained no OCR text, so neither string appears anywhere in this corpus and neither is treated as printed (prep R7). Corroboration from sources this project DOES hold: the claimed ABN passes the ATO modulus-89 checksum and is carried verbatim by APLEDGER history VIN003, and the retained text layer prints \"RST Systems Pty Ltd\" in the bank block on every document, which is consistent with the R.S.T. Systems entity. Identity therefore rests on the creditor history (rule 8 Tier 1, an 11-digit ABN on the history) and not on this document. Reinstating the OCR read needs the binder."
    ],
    "notes": "Detailed template line amounts are ex GST.",
    "lines": [
@@ -28528,7 +28554,8 @@
    "evidence_stem": "Vinton Invoice Aug-2026 2304.64",
    "duplicate_of": null,
    "findings": [
-    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $2,304.64."
+    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $2,304.64.",
+    "Supplier identity: the extraction reports \"R. S. T. Systems Pty. Limited Trading as Vinton Tree Services\" and ABN 84 008 552 538 read by OCR from an image-borne letterhead, and retained no OCR text, so neither string appears anywhere in this corpus and neither is treated as printed (prep R7). Corroboration from sources this project DOES hold: the claimed ABN passes the ATO modulus-89 checksum and is carried verbatim by APLEDGER history VIN003, and the retained text layer prints \"RST Systems Pty Ltd\" in the bank block on every document, which is consistent with the R.S.T. Systems entity. Identity therefore rests on the creditor history (rule 8 Tier 1, an 11-digit ABN on the history) and not on this document. Reinstating the OCR read needs the binder."
    ],
    "notes": "Detailed template line amounts are ex GST.",
    "lines": [
@@ -29652,7 +29679,8 @@
    "evidence_stem": "Vinton Invoice Aug-2026 4715.47",
    "duplicate_of": null,
    "findings": [
-    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $4,715.47."
+    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $4,715.47.",
+    "Supplier identity: the extraction reports \"R. S. T. Systems Pty. Limited Trading as Vinton Tree Services\" and ABN 84 008 552 538 read by OCR from an image-borne letterhead, and retained no OCR text, so neither string appears anywhere in this corpus and neither is treated as printed (prep R7). Corroboration from sources this project DOES hold: the claimed ABN passes the ATO modulus-89 checksum and is carried verbatim by APLEDGER history VIN003, and the retained text layer prints \"RST Systems Pty Ltd\" in the bank block on every document, which is consistent with the R.S.T. Systems entity. Identity therefore rests on the creditor history (rule 8 Tier 1, an 11-digit ABN on the history) and not on this document. Reinstating the OCR read needs the binder."
    ],
    "notes": "Detailed template line amounts are ex GST.",
    "lines": [
@@ -30811,7 +30839,8 @@
    "evidence_stem": "Vinton Invoice Aug-2026 3080.00",
    "duplicate_of": null,
    "findings": [
-    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $3,080.00."
+    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $3,080.00.",
+    "Supplier identity: the extraction reports \"R. S. T. Systems Pty. Limited Trading as Vinton Tree Services\" and ABN 84 008 552 538 read by OCR from an image-borne letterhead, and retained no OCR text, so neither string appears anywhere in this corpus and neither is treated as printed (prep R7). Corroboration from sources this project DOES hold: the claimed ABN passes the ATO modulus-89 checksum and is carried verbatim by APLEDGER history VIN003, and the retained text layer prints \"RST Systems Pty Ltd\" in the bank block on every document, which is consistent with the R.S.T. Systems entity. Identity therefore rests on the creditor history (rule 8 Tier 1, an 11-digit ABN on the history) and not on this document. Reinstating the OCR read needs the binder."
    ],
    "notes": "Detailed template line amounts are ex GST.",
    "lines": [
@@ -31712,7 +31741,8 @@
    "evidence_stem": "Vinton Invoice Aug-2026 2859.57",
    "duplicate_of": null,
    "findings": [
-    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $2,859.57."
+    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $2,859.57.",
+    "Supplier identity: the extraction reports \"R. S. T. Systems Pty. Limited Trading as Vinton Tree Services\" and ABN 84 008 552 538 read by OCR from an image-borne letterhead, and retained no OCR text, so neither string appears anywhere in this corpus and neither is treated as printed (prep R7). Corroboration from sources this project DOES hold: the claimed ABN passes the ATO modulus-89 checksum and is carried verbatim by APLEDGER history VIN003, and the retained text layer prints \"RST Systems Pty Ltd\" in the bank block on every document, which is consistent with the R.S.T. Systems entity. Identity therefore rests on the creditor history (rule 8 Tier 1, an 11-digit ABN on the history) and not on this document. Reinstating the OCR read needs the binder."
    ],
    "notes": "Detailed template line amounts are ex GST.",
    "lines": [
@@ -32813,7 +32843,8 @@
    "evidence_stem": "Vinton Invoice Aug-2026 4266.09",
    "duplicate_of": null,
    "findings": [
-    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $4,266.09."
+    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $4,266.09.",
+    "Supplier identity: the extraction reports \"R. S. T. Systems Pty. Limited Trading as Vinton Tree Services\" and ABN 84 008 552 538 read by OCR from an image-borne letterhead, and retained no OCR text, so neither string appears anywhere in this corpus and neither is treated as printed (prep R7). Corroboration from sources this project DOES hold: the claimed ABN passes the ATO modulus-89 checksum and is carried verbatim by APLEDGER history VIN003, and the retained text layer prints \"RST Systems Pty Ltd\" in the bank block on every document, which is consistent with the R.S.T. Systems entity. Identity therefore rests on the creditor history (rule 8 Tier 1, an 11-digit ABN on the history) and not on this document. Reinstating the OCR read needs the binder."
    ],
    "notes": "Detailed template line amounts are ex GST.",
    "lines": [
@@ -33865,7 +33896,8 @@
    "evidence_stem": "Vinton Invoice Aug-2026 2515.35",
    "duplicate_of": null,
    "findings": [
-    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $2,515.35."
+    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $2,515.35.",
+    "Supplier identity: the extraction reports \"R. S. T. Systems Pty. Limited Trading as Vinton Tree Services\" and ABN 84 008 552 538 read by OCR from an image-borne letterhead, and retained no OCR text, so neither string appears anywhere in this corpus and neither is treated as printed (prep R7). Corroboration from sources this project DOES hold: the claimed ABN passes the ATO modulus-89 checksum and is carried verbatim by APLEDGER history VIN003, and the retained text layer prints \"RST Systems Pty Ltd\" in the bank block on every document, which is consistent with the R.S.T. Systems entity. Identity therefore rests on the creditor history (rule 8 Tier 1, an 11-digit ABN on the history) and not on this document. Reinstating the OCR read needs the binder."
    ],
    "notes": "Detailed template line amounts are ex GST.",
    "lines": [
@@ -35003,7 +35035,8 @@
    "evidence_stem": "Vinton Invoice Aug-2026 4400.00",
    "duplicate_of": null,
    "findings": [
-    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $4,400.00."
+    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $4,400.00.",
+    "Supplier identity: the extraction reports \"R. S. T. Systems Pty. Limited Trading as Vinton Tree Services\" and ABN 84 008 552 538 read by OCR from an image-borne letterhead, and retained no OCR text, so neither string appears anywhere in this corpus and neither is treated as printed (prep R7). Corroboration from sources this project DOES hold: the claimed ABN passes the ATO modulus-89 checksum and is carried verbatim by APLEDGER history VIN003, and the retained text layer prints \"RST Systems Pty Ltd\" in the bank block on every document, which is consistent with the R.S.T. Systems entity. Identity therefore rests on the creditor history (rule 8 Tier 1, an 11-digit ABN on the history) and not on this document. Reinstating the OCR read needs the binder."
    ],
    "notes": "Detailed template line amounts are ex GST.",
    "lines": [
@@ -35923,7 +35956,8 @@
    "evidence_stem": "Vinton Invoice Aug-2026 4327.54",
    "duplicate_of": null,
    "findings": [
-    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $4,327.54."
+    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $4,327.54.",
+    "Supplier identity: the extraction reports \"R. S. T. Systems Pty. Limited Trading as Vinton Tree Services\" and ABN 84 008 552 538 read by OCR from an image-borne letterhead, and retained no OCR text, so neither string appears anywhere in this corpus and neither is treated as printed (prep R7). Corroboration from sources this project DOES hold: the claimed ABN passes the ATO modulus-89 checksum and is carried verbatim by APLEDGER history VIN003, and the retained text layer prints \"RST Systems Pty Ltd\" in the bank block on every document, which is consistent with the R.S.T. Systems entity. Identity therefore rests on the creditor history (rule 8 Tier 1, an 11-digit ABN on the history) and not on this document. Reinstating the OCR read needs the binder."
    ],
    "notes": "Detailed template line amounts are ex GST.",
    "lines": [
@@ -37013,7 +37047,8 @@
    "evidence_stem": "Vinton Invoice Aug-2026 3744.43",
    "duplicate_of": null,
    "findings": [
-    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $3,744.43."
+    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $3,744.43.",
+    "Supplier identity: the extraction reports \"R. S. T. Systems Pty. Limited Trading as Vinton Tree Services\" and ABN 84 008 552 538 read by OCR from an image-borne letterhead, and retained no OCR text, so neither string appears anywhere in this corpus and neither is treated as printed (prep R7). Corroboration from sources this project DOES hold: the claimed ABN passes the ATO modulus-89 checksum and is carried verbatim by APLEDGER history VIN003, and the retained text layer prints \"RST Systems Pty Ltd\" in the bank block on every document, which is consistent with the R.S.T. Systems entity. Identity therefore rests on the creditor history (rule 8 Tier 1, an 11-digit ABN on the history) and not on this document. Reinstating the OCR read needs the binder."
    ],
    "notes": "Detailed template line amounts are ex GST.",
    "lines": [
@@ -38080,7 +38115,8 @@
    "evidence_stem": "Vinton Invoice Aug-2026 4662.01",
    "duplicate_of": null,
    "findings": [
-    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $4,662.01."
+    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $4,662.01.",
+    "Supplier identity: the extraction reports \"R. S. T. Systems Pty. Limited Trading as Vinton Tree Services\" and ABN 84 008 552 538 read by OCR from an image-borne letterhead, and retained no OCR text, so neither string appears anywhere in this corpus and neither is treated as printed (prep R7). Corroboration from sources this project DOES hold: the claimed ABN passes the ATO modulus-89 checksum and is carried verbatim by APLEDGER history VIN003, and the retained text layer prints \"RST Systems Pty Ltd\" in the bank block on every document, which is consistent with the R.S.T. Systems entity. Identity therefore rests on the creditor history (rule 8 Tier 1, an 11-digit ABN on the history) and not on this document. Reinstating the OCR read needs the binder."
    ],
    "notes": "Detailed template line amounts are ex GST.",
    "lines": [
@@ -39288,7 +39324,8 @@
    "evidence_stem": "Vinton Invoice Aug-2026 2936.96",
    "duplicate_of": null,
    "findings": [
-    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $2,936.96."
+    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $2,936.96.",
+    "Supplier identity: the extraction reports \"R. S. T. Systems Pty. Limited Trading as Vinton Tree Services\" and ABN 84 008 552 538 read by OCR from an image-borne letterhead, and retained no OCR text, so neither string appears anywhere in this corpus and neither is treated as printed (prep R7). Corroboration from sources this project DOES hold: the claimed ABN passes the ATO modulus-89 checksum and is carried verbatim by APLEDGER history VIN003, and the retained text layer prints \"RST Systems Pty Ltd\" in the bank block on every document, which is consistent with the R.S.T. Systems entity. Identity therefore rests on the creditor history (rule 8 Tier 1, an 11-digit ABN on the history) and not on this document. Reinstating the OCR read needs the binder."
    ],
    "notes": "Detailed template line amounts are ex GST.",
    "lines": [
@@ -40412,7 +40449,8 @@
    "evidence_stem": "Vinton Invoice Sep-2026 2143.77",
    "duplicate_of": null,
    "findings": [
-    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $2,143.77."
+    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $2,143.77.",
+    "Supplier identity: the extraction reports \"R. S. T. Systems Pty. Limited Trading as Vinton Tree Services\" and ABN 84 008 552 538 read by OCR from an image-borne letterhead, and retained no OCR text, so neither string appears anywhere in this corpus and neither is treated as printed (prep R7). Corroboration from sources this project DOES hold: the claimed ABN passes the ATO modulus-89 checksum and is carried verbatim by APLEDGER history VIN003, and the retained text layer prints \"RST Systems Pty Ltd\" in the bank block on every document, which is consistent with the R.S.T. Systems entity. Identity therefore rests on the creditor history (rule 8 Tier 1, an 11-digit ABN on the history) and not on this document. Reinstating the OCR read needs the binder."
    ],
    "notes": "Detailed template line amounts are ex GST.",
    "lines": [
@@ -41536,7 +41574,8 @@
    "evidence_stem": "Vinton Invoice Sep-2026 2439.60",
    "duplicate_of": null,
    "findings": [
-    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $2,439.60."
+    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $2,439.60.",
+    "Supplier identity: the extraction reports \"R. S. T. Systems Pty. Limited Trading as Vinton Tree Services\" and ABN 84 008 552 538 read by OCR from an image-borne letterhead, and retained no OCR text, so neither string appears anywhere in this corpus and neither is treated as printed (prep R7). Corroboration from sources this project DOES hold: the claimed ABN passes the ATO modulus-89 checksum and is carried verbatim by APLEDGER history VIN003, and the retained text layer prints \"RST Systems Pty Ltd\" in the bank block on every document, which is consistent with the R.S.T. Systems entity. Identity therefore rests on the creditor history (rule 8 Tier 1, an 11-digit ABN on the history) and not on this document. Reinstating the OCR read needs the binder."
    ],
    "notes": "Detailed template line amounts are ex GST.",
    "lines": [
@@ -42739,7 +42778,8 @@
    "evidence_stem": "Vinton Invoice Sep-2026 7370.00",
    "duplicate_of": null,
    "findings": [
-    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $7,370.00."
+    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $7,370.00.",
+    "Supplier identity: the extraction reports \"R. S. T. Systems Pty. Limited Trading as Vinton Tree Services\" and ABN 84 008 552 538 read by OCR from an image-borne letterhead, and retained no OCR text, so neither string appears anywhere in this corpus and neither is treated as printed (prep R7). Corroboration from sources this project DOES hold: the claimed ABN passes the ATO modulus-89 checksum and is carried verbatim by APLEDGER history VIN003, and the retained text layer prints \"RST Systems Pty Ltd\" in the bank block on every document, which is consistent with the R.S.T. Systems entity. Identity therefore rests on the creditor history (rule 8 Tier 1, an 11-digit ABN on the history) and not on this document. Reinstating the OCR read needs the binder."
    ],
    "notes": "Detailed template line amounts are ex GST.",
    "lines": [
@@ -44191,7 +44231,8 @@
    "evidence_stem": "Vinton Invoice Sep-2026 3359.99",
    "duplicate_of": null,
    "findings": [
-    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $3,359.99."
+    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $3,359.99.",
+    "Supplier identity: the extraction reports \"R. S. T. Systems Pty. Limited Trading as Vinton Tree Services\" and ABN 84 008 552 538 read by OCR from an image-borne letterhead, and retained no OCR text, so neither string appears anywhere in this corpus and neither is treated as printed (prep R7). Corroboration from sources this project DOES hold: the claimed ABN passes the ATO modulus-89 checksum and is carried verbatim by APLEDGER history VIN003, and the retained text layer prints \"RST Systems Pty Ltd\" in the bank block on every document, which is consistent with the R.S.T. Systems entity. Identity therefore rests on the creditor history (rule 8 Tier 1, an 11-digit ABN on the history) and not on this document. Reinstating the OCR read needs the binder."
    ],
    "notes": "Detailed template line amounts are ex GST.",
    "lines": [
@@ -45346,7 +45387,8 @@
    "evidence_stem": "Vinton Invoice Sep-2026 4048.00",
    "duplicate_of": null,
    "findings": [
-    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $4,048.00."
+    "[F_NO_PK] No PK reference is printed on the invoice face. Amount $4,048.00.",
+    "Supplier identity: the extraction reports \"R. S. T. Systems Pty. Limited Trading as Vinton Tree Services\" and ABN 84 008 552 538 read by OCR from an image-borne letterhead, and retained no OCR text, so neither string appears anywhere in this corpus and neither is treated as printed (prep R7). Corroboration from sources this project DOES hold: the claimed ABN passes the ATO modulus-89 checksum and is carried verbatim by APLEDGER history VIN003, and the retained text layer prints \"RST Systems Pty Ltd\" in the bank block on every document, which is consistent with the R.S.T. Systems entity. Identity therefore rests on the creditor history (rule 8 Tier 1, an 11-digit ABN on the history) and not on this document. Reinstating the OCR read needs the binder."
    ],
    "notes": "Detailed template line amounts are ex GST.",
    "lines": [
