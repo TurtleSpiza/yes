@@ -315,14 +315,31 @@ def _loose(x):
     return re.sub(r'[^0-9a-z]', '', str(x or '').lower())
 
 
-def restate_identity(doc, log):
+def restate_identity(doc, log, ocr=None):
     if not doc.get('page_text'):
         return 0
     t = '\n'.join(doc['page_text'][k] for k in sorted(doc['page_text'], key=int))
+    # RETAINED OCR IS EVIDENCE; a reported OCR read is not. Where this project has rendered the pages itself and kept
+    # the text, that text is part of what the document evidences and identity can rest on it (rule 8: the printed ABN
+    # decides, and an image-borne ABN is still printed). The sidecar is the single source, so this stays idempotent
+    # however often prep re-runs, and the corpus carries the text so the provenance gate can trace the fields to it.
+    if ocr:
+        pages = {str(p): ocr['pages_read'][str(p)]['ocr_text']
+                 for p in range(doc['page_range'][0], doc['page_range'][1] + 1) if str(p) in ocr['pages_read']}
+        if pages:
+            doc['ocr_pages'] = pages
+            doc['ocr_tool'] = ocr.get('tool')
+            doc['ocr_basis'] = ocr.get('basis')
+            t = t + '\n' + '\n'.join(pages[k] for k in sorted(pages, key=int))
     tl = _loose(t)
     name, abn = str(doc.get('supplier') or ''), str(doc.get('supplier_abn') or '')
     n = 0
-    if abn and _loose(abn) not in tl:
+    if abn and _loose(abn) in tl and doc.get('ocr_pages'):
+        doc['abn_source'] = 'image-borne letterhead, read by this project at two resolutions and retained (ocr_pages)'
+        log.append(f'{doc["doc_ref"]}: supplier ABN {abn} is evidenced by the RETAINED OCR of this document\'s own '
+                   f'pages; identity rests on the printed ABN (rule 8)')
+        n += 1
+    elif abn and _loose(abn) not in tl:
         doc['supplier_abn_as_supplied'] = abn
         doc['supplier_abn'] = None
         doc['abn_source'] = 'absent from the retained text; the extraction reports an OCR read whose text was not retained'
@@ -365,6 +382,15 @@ def restate_invoice_date(doc, log):
 
 def prepare(corpus):
     log, r1, r2, r4, r5, r6, r7 = [], 0, 0, 0, 0, 0, 0
+    # Retained OCR for this batch, where this project has rendered the binder itself (ocr_image_letterhead.py).
+    _op = os.path.join(OUT, f'ocr_{BATCH}_v6.json')
+    ocr = json.load(open(_op)) if os.path.exists(_op) else None
+    if ocr:
+        ocr.setdefault('tool', 'tesseract')
+        ocr.setdefault('basis', f'each page rendered at {ocr.get("dpis")} dpi and read independently; a value is '
+                                f'retained only where both reads agree')
+        log.append(f'batch: retained OCR for {len(ocr["pages_read"])} page(s) read into the corpus from '
+                   f'ocr_{BATCH}_v6.json ({len(ocr.get("disagreements") or [])} field(s) refused for disagreeing)')
     for d in corpus['documents']:
         d['vendor_template'] = VENDOR[d['supplier']]
         # A supplier that prints more than one layout carries one template per layout (see the batch config).
@@ -396,7 +422,7 @@ def prepare(corpus):
         r4 += restate_invoice_date(d, log)
         r5 += restate_gst(d, log)
         r6 += restate_pk_refs(d, log)
-        r7 += restate_identity(d, log)
+        r7 += restate_identity(d, log, ocr)
         if not d.get('due_date'):
             # The corpus schema carries due_date; a supplied extraction that left it out is restated from the retained
             # rows only where exactly one printed due-date label is found in the document span (never inferred).
