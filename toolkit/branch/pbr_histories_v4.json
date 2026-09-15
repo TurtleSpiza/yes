@@ -6,12 +6,21 @@
  "match_rule": "AP register line reference equals the history Reference; the history Transaction Amount (incl GST) is within 2c of the document net ex GST x 1.1 (all register lines on the Document Unique ID); the history Date is within 120 days of the register Doc Date; exactly one creditor code satisfies all three. Tier 1 where the history line carries an 11-digit ABN, else Tier 2 (rule 8).",
  "histories": [
   {
-   "file": "Ledger_Accounts_Transactions_Table__20260911T123621.463.xlsx",
+   "file": "Ledger_Accounts_Transactions_Table_-_2026-09-15T180159.971.xlsx",
    "code": "GLA009",
    "label": "Glascott Landscape and Civil Pty Limited",
    "abn": "97001281572",
-   "label_basis": "Sighted invoices 012191, 012197 (branch v2) and 012313 (branch v4): payment account name Glascott Landscape and Civil Pty Limited; letterhead prints Technigro ABN 97 001 281 572, which is the ABN on this APLEDGER record.",
-   "added": "v4"
+   "label_basis": "Sighted invoices 012191, 012197 (branch v2) and 012313 (branch v4): payment account name Glascott Landscape and Civil Pty Limited; letterhead prints Technigro ABN 97 001 281 572, which is the ABN on this APLEDGER record. Invoice 012195 (branch v17, Batch attach_4) sighted against this export.",
+   "added": "v4",
+   "dir": "data/inputs_2026-09-15/creditor_histories",
+   "refreshed": "v17",
+   "supersedes": {
+    "dir": "data/inputs_2026-09-11/creditor_histories",
+    "file": "Ledger_Accounts_Transactions_Table__20260911T123621.463.xlsx",
+    "md5": "357d63402fdc1c3d7732caff51b53503",
+    "rows": 73,
+    "basis": "Re-pulled 15-Sep-2026 on the identical criteria. Rule 12 says a re-pull carrying new rows is embedded as a fresh history rather than audited away, so this export replaces the v4 one and the stage proves the substitution before it is made: every one of the 73 superseded rows must be present in it verbatim across all 25 columns or the build stops. It adds 33 rows and loses none, eight of them PUR Cred Invoices (012192 to 012201, 20-Jul-2026 to 31-Aug-2026) that the 11-Sep pull did not carry."
+   }
   },
   {
    "file": "Ledger_Accounts_Transactions_Table__20260911T123710.455.xlsx",
@@ -221,6 +230,15 @@
    "label_basis": "Sighted invoice 7719 (branch v10): the face prints ABN Number: 77 083 786 592 and the email stem kachelcleaning@live.com.au and no entity name at all, so the label is the trading name, as the PS_WP v127 Vendor_Series canonical row for KAC001 also carries (89 lines). This is the master-data check the open item \"Fuel levy coded to the cleaning account\" asked for: the APLEDGER account KAC001 carries the same ABN the invoice prints.",
    "pulled": "14-Sep-2026",
    "added": "v10"
+  },
+  {
+   "dir": "data/inputs_2026-09-15/creditor_histories",
+   "file": "Ledger_Accounts_Transactions_Table_-_2026-09-15T180059.355.xlsx",
+   "code": "ELE013",
+   "label": "Elemental Shade Structures",
+   "abn": "99292107173",
+   "label_basis": "Sighted invoice 6491 (branch v17, Batch attach_4): the face heads \"Elemental Shade Structures\", prints A.B.N.: 99 292 107 173, QBSA #1159300 and the payment account name Elemental Shade Structures, and its footer names the legal entities behind the business name, \"Dice Canvas Pty Ltd ATF The Dice Trust & SSAR Australia Pty Ltd ATF The Mark West Trust\". The printed ABN decides identity (rule 8) and matches the dominant ABN on this APLEDGER record (430 of the 431 invoice rows).",
+   "added": "v17"
   }
  ]
 }
