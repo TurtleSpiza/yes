@@ -453,6 +453,7 @@ def build(stage):
         ho.row(['', s_])
     ho.blank()
     ho.row(['Change log', ''], 'blue')
+    PV = stage['prov']
     _hm = stage['hist_matches']
     _b7 = {b: json.load(open(os.path.join(pbr_stage.ROOT, 'batches', b, f'corpus_{b}_v6.json')))['manifest']
            for b in ('mix222', 'binder11111') if os.path.exists(os.path.join(pbr_stage.ROOT, 'batches', b, f'corpus_{b}_v6.json'))}
@@ -470,6 +471,12 @@ def build(stage):
             f'reverses and reallocates the two Glascott zone invoices. No sighted line is touched: no line in the refresh carries a reference already on Evidence_Invoices, so the '
             f'416 green blocks over 409 invoices stand unchanged. A re-pull of the GXO001 creditor history was received and audited row by row against the copy embedded at v8 '
             f'(identical; not re-captured, rule 12). Contractor identification does not keep pace with the new spend: unidentified rises to {len([r for r in rows if str(r["V"][12]) == UNID]):,} lines.'])
+    ho.row([f'{VER}, {BUILD_DATE}',
+            f'Green-block provenance gate added and now runs on every build (Method 16.0): each printed field written to the green block must be traceable to the retained page text of the '
+            f'document it cites, or the build stops. {PV["docs"]} documents, {PV["fields"]:,} printed fields, {PV["failures"]} not traceable. It closes the hole that let the Levai site and work '
+            f'description ship wrong from v2 to v10 with every other gate GREEN. On its first run it found five capture defects of that same class, all corrected here: AustCare address and phone '
+            f'written from a letterhead the invoices do not print (3 documents), Higgins debtor code hardcoded QR6891 where 186140216 prints QR6892, a Vinton declaration sitting in a printed '
+            f'column, a Kachel contract and site asserted where invoice 7715 prints neither, and a generic Pool Shop work description. No amount changed and the control total is unaffected.'])
     _k = _sup.get('ksadasd'); _p = _sup.get('pla073_1')
     _kr = [r for r in sighted if 'Batch ksadasd' in str(r['V'][126] or '')]
     if _k:
@@ -606,6 +613,35 @@ def build(stage):
          'Header restatements a supplied corpus may need are families of prep_supplied_corpus.py, each decided from the retained rows and logged per document in the corpus manifest: R1 amount-bearing rows typed NARRATIVE, R2 a printed total carrying the GST amount, R3 a line_type outside the closed list, R4 an invoice date that is not the printed Invoice Date (ksadasd: all 14 Weis documents carried the printed due date there). Nothing is inferred; a document whose restated lines do not equal its printed subtotal is refused.',
          'A repeated copy of an invoice inside the binder is a separate document record carrying duplicate_of (prompt v6 11.4): every row typed DUPLICATE_COPY, no arithmetic, never matched or captured twice (ksadasd INV-39506, page 58). The gate, the rule 16 reconciliation and the match table honour that field from v11.',
          'Nature category is data per invoice where a vendor prints several kinds of work under one contract (match-table keys nature_category and theme_v3, authored in notes_<batch>_v6.json from the printed job row and item rows): the build proves the v2 value on Theme_Map and the driver proves the v3 value on the Theme_Map_v3 list. Levai and Weis are categorised this way from v11; the vendor-level default stays for single-scope vendors.')
+    sec_('16.0 Green-block provenance gate (new at v12)',
+         f'Every printed field written to the green block is tested against the retained page text of the document it cites, on every build, before anything is written. '
+         f'{PV["docs"]} documents and {PV["fields"]:,} printed fields at v12, {PV["failures"]} not traceable. The gate closes a hole the other gates leave open: pswp_json_repair proves the '
+         f'arithmetic (captured lines equal the printed subtotal to the cent) and pswp_shingle_check proves the wording of the priced rows, but neither looks at the printed header fields, '
+         f'and those are most of the green block: vendor address, phone, purchase order, contract, bill-to, requesting officer, CR/WO number, site details, work description and the printed PK. '
+         f'Nothing compared them to the document. The cost of that was nine versions of a wrong answer: the Levai reader read the site and work description by fixed string, so every Levai '
+         f'invoice from v2 to v10 carried "Spring Mountain Reserve (Ref: 35715) - Bush Track Repair & Drainage Works" whatever the invoice said, and five captures shipped wrong with every '
+         f'gate GREEN throughout.',
+         'Tracing runs as a ladder and the rung each field passes on is counted, because the rungs are not equally strong and reporting one number would hide the weak ones. verbatim: the whole '
+         'value appears in the page text, whitespace normalised. component: every part does, splitting on the separators the driver composes with. label: every part does once a fragment is '
+         'split from its own label, which is the two-column case, where an invoice printing "Bill To:" and "Ship To:" side by side prints neither label beside its own value. gloss: every part '
+         'does once a trailing parenthetical is stripped, that parenthetical being this project\'s comment on what it read and not a claim about the page. tokens: every distinctive word appears '
+         'somewhere on the page, which is the reassembled case, a value rebuilt from rows the page prints in separate columns. declared: the value is one of the listed evidence states which say '
+         'in terms that no single value is printed ("Multiple parks, one printed per line"). placeholder: "(not printed)", "(blank as printed)", "undefined (as printed)". A field reaching no '
+         'rung is invented or carried from another document and the build stops. v12 rungs: ' + ', '.join(f'{k} {v:,}' for k, v in PV['rungs'].items()) + '.',
+         'Deliberately not checked, and why. Dates (columns 94, 95) are reformatted to D-Mon-YYYY on the way in, so a substring test would fail on every document; they are already tied to the '
+         'gated corpus. The money columns (113 to 115) are the printed subtotal, GST and total, which rule 16(b) reconciles to the captured lines to the cent and the three live rule 17 checks '
+         're-prove on the register itself. The structural columns (evidence id, line count, boilerplate keys, page span, source stamp, anomalies note) are this project\'s own text about the '
+         'document, not the document\'s text.',
+         'What it does not prove. This is a completeness check on provenance, not on meaning: it proves a field came from the document, not that it is the right part of the document, so a reader '
+         'picking the wrong line still passes if that line is really on the page. What it removes is the whole class of failure where a value is a constant, a leftover, or a value belonging to '
+         'another invoice. The check carries a self-test (pbr_env_check --all) that replays the v2-to-v10 Levai values against a real Levai invoice about other work and requires them refused, '
+         'because a check nobody has seen fail is not a check.',
+         'Five capture defects were found by it on first run and are corrected at v12, each of the same class. AustCare: a street address and phone block were written from a letterhead these '
+         'invoices do not print, on three documents; now read from the page, with the phone recorded as not printed. Higgins: the bill-to string carried debtor code QR6891 as a constant, where '
+         'invoice 186140216 prints QR6892; now read per document. Vinton: the phone column carried the sentence "no letterhead address prints", which is a declaration and not a printed value; '
+         'the declaration moved to the anomalies note and the column now carries the printed email only. Kachel: contract PAR/377/2025 and a site description were asserted on every document, '
+         'where invoice 7715 prints neither; both are now read from the page. Pool Shop: a generic work description replaced by the statement the document supports. No amount changed on any '
+         'line, the control total is unaffected, and the corrected values are the ones now shipped.')
     for h, p in M:
         if h:
             me.row([h, ''], 'blue')

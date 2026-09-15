@@ -132,9 +132,21 @@ def check_compile():
     rec('toolkit byte-compiles', ok, 'every module in toolkit/ parses', 'fix the syntax error printed above')
 
 
+def check_provenance():
+    """The green-block provenance gate must be able to fail: replay the v2-to-v10 Levai values on a real invoice."""
+    try:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        import pbr_provenance
+        ok, msg = pbr_provenance.selftest()
+    except Exception as e:                                        # noqa: BLE001
+        ok, msg = False, f'{type(e).__name__}: {e}'
+    rec('provenance self-test', bool(ok), str(msg)[:90],
+        'pbr_provenance no longer refuses a field that is absent from its own document; do not ship until it does')
+
+
 def main():
     quiet = '--quiet' in sys.argv
-    check_python(); check_imports(); check_toolkit(); check_recalc(); check_poppler()
+    check_python(); check_imports(); check_toolkit(); check_recalc(); check_poppler(); check_provenance()
     if '--all' in sys.argv:
         check_compile()
     hard_bad = [r for r in rows if r['hard'] and not r['ok']]

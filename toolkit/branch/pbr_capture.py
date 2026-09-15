@@ -7,6 +7,8 @@ Evidence_Invoice_Lines, EIL_Controls and Vendor_Boilerplate. Formulas for DQ:DT 
 import collections, datetime as dt, json, re
 from decimal import Decimal, ROUND_HALF_UP
 
+import pbr_provenance
+
 D = lambda x: Decimal(str(x)).quantize(Decimal('0.01'), ROUND_HALF_UP)
 NP = '(not printed)'; BL = '(blank as printed)'
 STAMP = '11-Sep-2026, branch v2, Batch mixed_1 (raw-text route, corpus_mixed_1_v6.json)'
@@ -162,7 +164,11 @@ def header_fields(d):
                  bill='Logan City Council, 177 Chambers Flat Rd, MARSDEN QLD 4132' + (', einvoicing@logan.qld.gov.au, 07 34123412' if 'Bill to' in t else ', AUSTRALIA'),
                  officer='Peter Salisnew - Parks Communities Officer', site='Underwood Park, Priestdale', work='XCO#3 Mountain Bike Trail Maintenance; PO717368 Cost Account PK000381', contract=NP, paid=NP, bal=first(r'Amount due\s+\$([\d,]+\.\d{2})', t))
     elif v == 'AUSTCARE':
-        f.update(addr='HEAD OFFICE 234 Newnham Road, Upper Mt Gravatt, Queensland 4122', phone='T 1300 138 096; F (07) 3420 3093; E admin@austcare.net.au; W www.austcare.net.au',
+        # Read from the page, not from a letterhead. These invoices print the street and the suburb line inside the
+        # How To Pay block and carry no telephone, fax, email or website anywhere: the block that used to sit here
+        # ("HEAD OFFICE ... T 1300 138 096 ... www.austcare.net.au") appears on none of them (provenance gate, v13).
+        f.update(addr='; '.join(x for x in (first(r'^\s*(234 Newnham Road)\b', t, ''), first(r'^\s*(UPPER MT GRAVATT QLD \d{4})\s*$', t, '')) if x) or NP,
+                 phone=NP,
                  po=', '.join(sorted(set(re.findall(r'\b(?:70\d{4}|80\d{4})\b', t)))), bill='Logan City Council, 177 Chambers Flat Road, Marsden Qld 4132', officer=first(r'Site Contact:\s+([^\n]+?)\s{2,}|Site Contact:\s+([^\n]+)$', t),
                  site='Multiple parks, one printed per line (see line items)', work=first(r'Description\s*\n\s*(Portion \d[^\n]*\n[^\n]*)', t).replace('\n', '; '), contract=NP, paid=first(r'Amount Applied\s+\$([\d,]+\.\d{2})', t), bal=first(r'Balance Due\s+\$([\d,]+\.\d{2})', t))
         f['officer'] = 'Site Contact: Lisa Hodgson; Salesperson: ' + first(r'Salesperson:\s+([^\n]+)', t)
@@ -180,7 +186,9 @@ def header_fields(d):
                  site=first(r'^\s*(Logan garden water park|.*?water park)', t, NP), work=first(r'Code\s+Description[^\n]*\n\s*(.+?)\s{2,}\d+\s+\$', t), contract=NP, paid=first(r'Paid\s+\$([\d,]+\.\d{2})', t), bal=first(r'Balance Due\s+\$([\d,]+\.\d{2})', t))
     elif v == 'POOLSHOP':
         f.update(addr='233 Ernest Street, Lota QLD 4179', phone='Jon 0407 766 860; operations@poolshopqld.com.au', po=first(r'Reference\s*\n\s*(\d{6})', t) if 'Bill to' not in t else first(r'(\d{6})\s*$', t.split('Reference')[1].split('View')[0]),
-                 bill='Logan City Council, 138-158 Wembley Rd, LOGAN CENTRAL QLD 4114, ABN: 21 627 796 435', officer=NP, site='Multiple water play sites, one printed per line (see line items)', work='Monthly water play maintenance and chemicals', contract=NP, paid=NP, bal=first(r'Amount due\s+\$([\d,]+\.\d{2})', t))
+                 bill='Logan City Council, 138-158 Wembley Rd, LOGAN CENTRAL QLD 4114, ABN: 21 627 796 435', officer=NP, site='Multiple water play sites, one printed per line (see line items)',
+                 # the page itemises each site and prints no single work description (provenance gate, v13)
+                 work='Multiple water play sites, one printed per line (see line items)', contract=NP, paid=NP, bal=first(r'Amount due\s+\$([\d,]+\.\d{2})', t))
     elif v == 'QPOWER':
         f.update(addr='8/27 Allgas Street, Slacks Creek QLD 4127', phone='Tel. 07 3155 4225; qpower.com.au; Licence # 69807', po=first(r'Order No\.:\s+(\d+)', t), bill='Logan City Council, PO Box 3226, Logan City DC QLD 4114', officer=first(r'^\s*(.+?)\s*\n\s*Service Estimator', t),
                  site=first(r'Site:\s+(.+?)\s*\n\s*(?:.*?)\s*Site Address:\s+(?:.+)', t) + '; ' + first(r'Site Address:\s+(.+)', t), work=first(r'Description\s*\n\s*(\d{4}-\d+ - .+)', t), contract=NP, paid=first(r'Amount Applied\s+\$([\d,]+\.\d{2})', t), bal=first(r'Balance Due\s+\$([\d,]+\.\d{2})', t))
@@ -262,7 +270,9 @@ def header_fields(d):
         f.update(addr='Unit 9 /1 Belvedere Drive Park Ridge brisbane 4215', phone='Phone: 32002914; info@elementalshades.com; QBSA #1159300', po=first(r'PURCHASE ORDER (\d+)', t), bill='Logan City Council, 34125595, 150 Wembly Rd Logan Central, Brisbane QLD 4114', officer=first(r'Requesting Officers - (.+?)\s{2,}', t),
                  site='Multiple sites (shade structures on sites with multiple / single shade structures)', work='2026- Shade sail inspections; Contract Reference LB304', contract='LB304', paid=first(r'Payments Received\s+\$([\d,]+\.\d{2})', t), bal=first(r'Invoice Balance\s+\$([\d,]+\.\d{2})', t))
     elif v == 'HIGGINS':
-        f.update(addr='PO Box 272, Port Melbourne, VIC 3207, Australia', phone='Phone: 03 9646 9999; Fax: 03 9646 5333', po=first(r'Order Ref\s+:\s+(\S+)', t), bill='LOGAN CITY COUNCIL, melinaturpin@logan.qld.gov.au, 150 WEMBLEY ROAD, LOGAN CENTRAL, QLD 4114, Email: einvoicing@logan.qld.gov.au; Debtor Code QR6891',
+        f.update(addr='PO Box 272, Port Melbourne, VIC 3207, Australia', phone='Phone: 03 9646 9999; Fax: 03 9646 5333', po=first(r'Order Ref\s+:\s+(\S+)', t), bill='LOGAN CITY COUNCIL, melinaturpin@logan.qld.gov.au, 150 WEMBLEY ROAD, LOGAN CENTRAL, QLD 4114, Email: einvoicing@logan.qld.gov.au; Debtor Code '
+                      # read, not fixed: 186140216 prints QR6892 where this was hardcoded QR6891 (provenance gate, v13)
+                      + first(r'Debtor Code\s*:\s*(\S+)', t),
                  officer='melinaturpin@logan.qld.gov.au (bill-to contact)', site=first(r'Works 100% completed\s*\n\s*(.+?)\s{2,}', t), work=first(r'Job: (.+?)\s*$', t) + '; ' + first(r'Works 100% completed\s*\n\s*.+?\s{2,}(.+?)\s{2,}[\d,]+\.\d{2}', t), contract=NP, paid=NP, bal=NP)
     elif v == 'HARPLEY':
         f.update(addr='PO Box 126, Kingston QLD 4114', phone='0421 213 216; A.C.N. 162 601 694', po=first(r'Purchase Order:\s+(\d+)', t), bill='Logan City Council, Po Box 3226, Logan City DC QLD 4114; Ship To: Logan City Council, Parks Depot, 177 Chambers Flat Road, Marsden QLD 4132',
@@ -272,8 +282,14 @@ def header_fields(d):
         f.update(addr='35 Leahy Road, CABOOLTURE QLD 4510, AUSTRALIA', phone='0437 777 141; admin@c2cgg.com; +61 437777141', po=first(r'Purchase Order:\s+(\d+)', t), bill='Logan City Council (LCC) Parks Depot, 177 Chambers Flat Road, Marsden Qld 4132, einvoicing@logan.qld.gov.au', officer=NP,
                  site=first(r'(MZ\d+ STANDARD GROWTH - CUT \d)', t), work=first(r'(MZ\d+ STANDARD GROWTH - CUT \d)', t) + '; Vendor No: COA030; ' + first(r'(Reference: PAR/\S+)', t), contract=first(r'Reference: (PAR/\S+)', t), paid=NP, bal=first(r'Amount due\s+\$([\d,]+\.\d{2})', t))
     elif v == 'KACHEL':
-        f.update(addr=NP, phone='Mobile: 0408 846964; Email:kachelcleaning@live.com.au', po=first(r'Purchase Order No:\s+(\d+)', t), bill='To CEO, Logan City Council, Wembley Road, WOODRIDGE QLD 4114', officer=NP, site='Zone 1 and Zone 2 toilets and BBQs; sanitary bins',
-                 work=first(r'(Cleaning of the Public Facilities and Sanitary Bins for Contract No\s*\n?\s*PAR/377/2025 for the month of \w+ 2026\.)', t).replace('\n', ' '), contract='PAR/377/2025', paid=NP, bal=NP)
+        # Read the contract and the sites from the claim block rather than asserting them. Not every Kachel invoice
+        # carries either: 7715 (the fuel levy claim) prints no contract number and names no site, where the monthly
+        # cleaning claims print both (provenance gate, v13).
+        _zones = '; '.join(dict.fromkeys(re.findall(r'^\s*(Zone \d [A-Za-z\u2019\']+|Sanitary Bin[^:]*)\s*:', t, re.M)))
+        f.update(addr=NP, phone='Mobile: 0408 846964; Email:kachelcleaning@live.com.au', po=first(r'Purchase Order No:\s+(\d+)', t), bill='To CEO, Logan City Council, Wembley Road, WOODRIDGE QLD 4114', officer=NP,
+                 site=_zones or NP,
+                 work=first(r'(Cleaning of the Public Facilities and Sanitary Bins for Contract No\s*\n?\s*PAR/377/2025 for the month of \w+ 2026\.)', t).replace('\n', ' '),
+                 contract=first(r'(PAR/\d{3}/\d{4})', t), paid=NP, bal=NP)
         f['work'] = ' '.join(f['work'].split())
     elif v == 'BURLY':
         f.update(addr='PO BOX 206, Biggera Waters, QLD 4216', phone='0420 371 884; accounts@burlyholdings.com.au', po=first(r'Order#\s*(\d+)', t),
@@ -320,7 +336,7 @@ def header_fields(d):
                  contract=first(r'CONTRACT NUMBER - (PAR/\d{3}/\d{4})', t), paid=NP, bal=first(r'BALANCE DUE\s*\n\s*(A\$[\d,]+\.\d{2})', t))
         f['crwo'] = first(r'(CR#\d+)', t)
     elif v == 'VINTON':
-        f.update(addr=NP, phone='admin@vintontreeservices.com.au (remittance address); no letterhead address prints',
+        f.update(addr=NP, phone=first(r'^\s*(admin@vintontreeservices\.com\.au)\s*$', t) + ' (remittance address)',
                  po=first(r'PO:\s+(\d+)', t), bill='Logan City Council, A/C Payable Department, PO Box 3226, Logan City DC QLD 4114',
                  officer=first(r'Attention:\s*\n\s*(\S.+?)\s*$', t),
                  site=first(r'^\s{10,}(\d+[\w \-/,]+(?:Street|St|Road|Rd|Drive|Dr|Court|Ct|Avenue|Ave|Parade|Crescent|Way|Place|Pl|Highway|Hwy)[^\n]*)$', t),
@@ -457,7 +473,7 @@ def capture(rows, corpus_path, match_path, say, existing_keys=frozenset(), exist
             canon.setdefault(_re.sub(r'\D', '', str(r['V'][13])), r['V'][12])
     def label(d):
         return canon.get(_re.sub(r'\D', '', str(d['supplier_abn'])), d['supplier'].split(' (')[0])
-    ev = ev if ev is not None else dict(order=[], ei={}, eil=[], basis={}, vb=[], vb_keys={})
+    ev = ev if ev is not None else dict(order=[], ei={}, eil=[], basis={}, vb=[], vb_keys={}, prov={})
     variants = variants if variants is not None else {}
     ids = collections.Counter()
     for row in ev['vb']:
@@ -545,7 +561,8 @@ def capture(rows, corpus_path, match_path, say, existing_keys=frozenset(), exist
             if 'Printed GST' not in fnd: anom.append(fnd)
         if v == 'GLASCOTT': anom.append('Letterhead prints Technigro ABN 97 001 281 572; payment account name is Glascott Landscape and Civil Pty Limited. Printed ABN decides identity (rule 8); confirm the creditor entity against the APLEDGER record.')
         if v == 'GLASCOTT_LM': anom.append('Letterhead prints Technigro ABN 97 001 281 572; payment account name is Glascott Landscape and Civil Pty Limited. APLEDGER GLA009 (branch v4) carries ABN 97001281572, so the creditor entity is the Glascott record (rule 8, printed ABN decides).')
-        if v == 'VINTON': anom.append('No ABN is printed anywhere on this invoice and no entity name prints on the face; the only supplier identification is "RST Systems Pty Ltd" in the bank block and the remittance address admin@vintontreeservices.com.au. The register label and ABN come from the APLEDGER history VIN003 (Vinton Tree Services, ABN 84 008 552 538), not from this document (rule 8).')
+        if v == 'VINTON': anom.append('No letterhead address prints on this invoice: the only supplier contact on the face is the remittance address. '
+                                      'No ABN is printed anywhere on this invoice and no entity name prints on the face; the only supplier identification is "RST Systems Pty Ltd" in the bank block and the remittance address admin@vintontreeservices.com.au. The register label and ABN come from the APLEDGER history VIN003 (Vinton Tree Services, ABN 84 008 552 538), not from this document (rule 8).')
         if v == 'SAVCO': anom.append('ABN printed ungrouped (78161366749); register column M carries the grouped form.')
         if m['invoice'] == 'INV-9360': anom.append('Invoice date 31-Mar-2026 and due 30-Apr-2026 print against July 2026 treatment dates and a 24-Jul-2026 posting; supplier-side date error, service period Jul-2026.')
         if m.get('evid_note'): anom.append(m['evid_note'])
@@ -602,6 +619,13 @@ def capture(rows, corpus_path, match_path, say, existing_keys=frozenset(), exist
                  120: f'{d["page_range"][1] - d["page_range"][0] + 1} page(s) ({pdfname} pp {d["page_range"][0]}-{d["page_range"][1]})', 125: src, 126: stamp,
                  127: ' '.join(anom) or None}
             for c, val in G.items(): V[c] = val
+            if v == 'HARPLEY':
+                G.update({101: hf['request_date'], 102: hf['via'], 103: hf['crwo'], 107: hf['site_contact'], 109: hf['technician']})
+            # Provenance: every printed field on this block must be traceable to this document's own page text.
+            # Collected per target row, deduplicated by evidence id, and gated in the stage where the gates live.
+            ev.setdefault('prov', {})[evid] = dict(fields={c: G.get(c) for c in pbr_provenance.FIELDS},
+                                                   page_text='\n'.join(d['page_text'][k] for k in sorted(d['page_text'], key=int)),
+                                                   vendor=v)
             variants[t] = dict(kind=('bykey_deriv' if v == 'ORIGIN' else 'sumtie' if 'SUM-TIE' in var else 'bykey' if ('PARTIAL-SCOPE' in var or 'split-posting' in var) else 'deriv' if 'derivation' in var else 'tol1c' if 'one-cent' in var else 'std'), siblings=targets, chk3=chk3)
             if v == 'HARPLEY':
                 V[101] = hf['request_date']; V[102] = hf['via']; V[103] = hf['crwo']; V[107] = hf['site_contact']; V[109] = hf['technician']
