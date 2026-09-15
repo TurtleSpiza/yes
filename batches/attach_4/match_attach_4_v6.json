@@ -1,0 +1,184 @@
+[
+ {
+  "invoice": "INV-39164",
+  "vendor": "T & H LEVAI PTY LTD",
+  "abn": "65 100 395 480",
+  "subtotal": 5160.0,
+  "incl": 5676.0,
+  "variant": "standard",
+  "target": [
+   "3b3e91e0-73211-PK000057-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "3b3e91e0-73211-PK000057-01",
+    "section": "Trees",
+    "na": "73211",
+    "pk": "PK000057",
+    "amount": 5160.0,
+    "contractor": "T & H Levai Pty Ltd",
+    "narr": "Quote 657857"
+   }
+  ],
+  "evid": "INV-39164",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Review",
+  "coding_note": "T & H Levai, contract PAR/335L/2023; order 717208; requesting officer Douglas Walker; Quote No. 657857 - Yolla Street, Eagleby (Ref: 35679) - Plants and mulching; completed 19.06.2026. Printed scope: Yolla Street, Eagleby from the intersection of Zackery Street to Greenfield Street Pocket Park; supply and spread mulch around the existing 27 semi-mature Qld Brush Box trees; supply and plant 11 x 300 mm pots of Qld Brush Box with stakes and mulch; initial deep water; then 12 months of watering maintenance and mulch top-up (24 visits) TO BE INVOICED MONTHLY AS COMPLETED. Two printed lines, $5,160.00 in all. Printed subtotal $5,160.00 ex GST, GST $516.00, total $5,676.00. NO PK IS PRINTED ON THE FACE: the charge is on PK000057 in the Trees section and the face names the quote and the street, not a cost account.",
+  "follow_up": "Ask T & H Levai to print the PK on quoted works as it does on the standing-order claims; invoice 39164 names the quote and the street only. Folded into the printed PK open item. The face also commits Council to 12 months of watering maintenance and mulch top-up billed monthly as completed: confirm with Trees that the later monthly claims are being matched back to quote 657857.",
+  "source_file": "C00301238 (1).pdf",
+  "nature_category": "Tree operations",
+  "theme_v3": "Trees & arboriculture"
+ },
+ {
+  "invoice": "INV-39436",
+  "vendor": "T & H LEVAI PTY LTD",
+  "abn": "65 100 395 480",
+  "subtotal": 2230.0,
+  "incl": 2453.0,
+  "variant": "standard",
+  "target": [
+   "15d88d94-73126-PK000366-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "15d88d94-73126-PK000366-01",
+    "section": "Park Maintenance",
+    "na": "73126",
+    "pk": "PK000366",
+    "amount": 2230.0,
+    "contractor": "T & H Levai Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-39436",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "T & H Levai, contract PAR/335L/2023; order 717534; requesting officer Billy Bevan; PK000366; Quote No. 657938 - Anakie Drive, Cornubia (Ref: 35893) - Replacement planting; completed 12.08.2026. One printed line of $2,230.00 covering the whole printed scope: treat 40 surviving plants with soil drench insecticide for Lace Bug; supply and plant 30 x 200 mm pots of Azaleas; delivery of plants; initial deep watering; then water twice a week for four weeks (8 visits) TO BE INVOICED ON COMPLETION. Printed subtotal $2,230.00 ex GST, GST $223.00, total $2,453.00. Printed PK000366 matches the PK charged (PK000366).",
+  "follow_up": null,
+  "source_file": "C00314456.pdf",
+  "nature_category": "Contract landscape maintenance",
+  "theme_v3": "Grounds, turf & vegetation"
+ },
+ {
+  "invoice": "INV-39480",
+  "vendor": "T & H LEVAI PTY LTD",
+  "abn": "65 100 395 480",
+  "subtotal": 4245.0,
+  "incl": 4669.5,
+  "variant": "standard",
+  "target": [
+   "a1818dc9-73123-PK000368-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "a1818dc9-73123-PK000368-01",
+    "section": "Park Maintenance",
+    "na": "73123",
+    "pk": "PK000368",
+    "amount": 4245.0,
+    "contractor": "T & H Levai Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-39480",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "T & H Levai, contract PAR/335L/2023; order 717382; requesting officer Renee Noon; PK000368; Quote No. 657639 - Valley View Park (Ref: 35826) - Concrete edging (37LM); completed 25.08.2026. One printed line of $4,245.00 covering: provide DBYD and services location (the face records \"too many underground services in the garden bed\"); prepare base for edging; supply and lay 37 lineal metres of concrete garden edging; backfill edging. Printed subtotal $4,245.00 ex GST, GST $424.50, total $4,669.50. Printed PK000368 matches the PK charged (PK000368).",
+  "follow_up": null,
+  "source_file": "C00316920.pdf",
+  "nature_category": "Parks maintenance (contract/reactive)",
+  "theme_v3": "Paths, courts, skate & hard surfaces"
+ },
+ {
+  "invoice": "INV-39477",
+  "vendor": "T & H LEVAI PTY LTD",
+  "abn": "65 100 395 480",
+  "subtotal": 12230.0,
+  "incl": 13453.0,
+  "variant": "standard",
+  "target": [
+   "7c48ff6d-73123-PK000368-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "7c48ff6d-73123-PK000368-01",
+    "section": "Park Maintenance",
+    "na": "73123",
+    "pk": "PK000368",
+    "amount": 12230.0,
+    "contractor": "T & H Levai Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-39477",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "T & H Levai, contract PAR/335L/2023; order 717382; requesting officer Renee Noon; PK000368; Quote No. 657919 - Underwood Park (Ref: 35864) - Zen Garden Refurbishment. Two printed lines: $10,430.00 against five scope rows (pressure clean all hard surfaces including sandstone and concrete; cut down bamboo to 2.5 m and remove the cuttings; supply and plant 300 x Ophiopogon japonicus nana 140 mm; supply and spread mulch on garden beds; supply and install premium garden mix to planting holes) and $1,800.00 for watering once a week for ten weeks (10 visits), summing to the printed $12,230.00 exactly. The category is the dominant scope of the refurbishment rather than the pressure cleaning alone, because the $10,430.00 is one amount against all five scope rows and not a cleaning price. Printed subtotal $12,230.00 ex GST, GST $1,223.00, total $13,453.00. Printed PK000368 matches the PK charged (PK000368).",
+  "follow_up": null,
+  "source_file": "C00317046.pdf",
+  "nature_category": "Contract landscape maintenance",
+  "theme_v3": "Grounds, turf & vegetation"
+ },
+ {
+  "invoice": "012195",
+  "vendor": "Glascott Landscape and Civil Pty Limited (letterhead prints \"Technigro ABN 97 001 281 572\")",
+  "abn": "97 001 281 572",
+  "subtotal": 35866.01,
+  "incl": 39452.61,
+  "variant": "standard",
+  "target": [
+   "7424c206-73212-PK000378-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "7424c206-73212-PK000378-01",
+    "section": "Natural Areas",
+    "na": "73212",
+    "pk": "PK000378",
+    "amount": 35866.01,
+    "contractor": "Unidentified (FY2026/27 branch-wide, not yet cleared)",
+    "narr": "CON ORDER"
+   }
+  ],
+  "evid": "012195",
+  "evid_note": "This invoice was an unidentified contractor line until this build. The GLA009 APLEDGER history was re-pulled on 15-Sep-2026 and now carries it; the re-pull is embedded in place of the 11-Sep one after the stage proved every superseded row present verbatim.",
+  "line_map": null,
+  "coding_verdict": "Review",
+  "coding_note": "Glascott Landscape and Civil Pty Limited, invoice 012195 of 31-Aug-2026; order ref 802902; attention Lisa Hodgson. Face: Natural Areas Maintenance of Portion 4, Rotation 2 (PK000378), treatment date August 2026, \"please refer to attached sheet for details\", $35,866.01. Printed subtotal $35,866.01 ex GST, GST $3,586.60, total $39,452.61. Printed PK000378 matches the PK charged (PK000378). THE ATTACHED SCHEDULE IS CAPTURED AND IT RESOLVES THE SCHEDULE-VERSUS-FACE DIFFERENCE THIS REGISTER HAS CARRIED SINCE BRANCH V2: the 22 schedule rows total $36,339.53 ex GST against the face of $35,866.01, and the $473.52 difference is exactly the one Windaroo Lake Park Rubbish Removal row, which is coded PK000382 and not PK000378. The face charges the 21 PK000378 rows only. The PK000382 row is invoiced separately as 012196, $473.52 on 20-Aug-2026, which is a register line of its own. The same pattern is on 012191 (branch v2), where the difference was also exactly $473.52 and also the Windaroo Lake Park Rubbish Removal row. Every schedule row is captured as an ATTACHMENT line (rule 16d) with its park, work type, site code, cost account, rotation and treatment date, and is excluded from check 1, which ties the face.",
+  "follow_up": "The Glascott schedule is not cut to the invoice it is attached to: it carries a cost account the face does not charge, and that account is billed on a separate invoice. Ask Glascott to issue one schedule per invoice, or to mark the rows each invoice charges. Until then the schedule total cannot be reconciled to the face without reading the cost account on every row.",
+  "source_file": "C00318419.pdf"
+ },
+ {
+  "invoice": "6491",
+  "vendor": "Elemental Shade Structures (Dice Canvas Pty Ltd ATF The Dice Trust & SSAR Australia Pty Ltd ATF The Mark West Trust)",
+  "abn": "99 292 107 173",
+  "subtotal": 14529.2,
+  "incl": 15982.12,
+  "variant": "standard",
+  "target": [
+   "463b9008-73123-PK000024-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "463b9008-73123-PK000024-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000024",
+    "amount": 14529.2,
+    "contractor": "Unidentified (FY2026/27 branch-wide, not yet cleared)",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "6491",
+  "evid_note": "First sighted Elemental Shade Structures invoice on this register and the evidence behind the new ELE013 APLEDGER history: the face prints A.B.N. 99 292 107 173, QBSA #1159300 and the payment account name Elemental Shade Structures, and its footer names the legal entities behind the business name, Dice Canvas Pty Ltd ATF The Dice Trust and SSAR Australia Pty Ltd ATF The Mark West Trust. The printed ABN decides identity (rule 8) and is the dominant ABN on the APLEDGER record.",
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Elemental Shade Structures, invoice 6491 of 7-Sep-2026; purchase order 709833; contract reference LB304; PK000024; requesting officers Brad Powel, Dan Obrian, Jess Burke, Melina Turpin, Rene Hareman. Twelve priced lines, one per customer request, each naming the park and the completion date: Pinnington Park Crestmead remove 2 shades for cleaning, restitch and reinstall $6,130.20 (30.07.26); Pebble Creek Parklands South Maclean remove debris $408.00 (24.08.26); Redgum Park remove 1 shade for cleaning, restitch and reinstall $1,548.36 (03.08.26); Seymore Park restitch the sail and remove debris $918.00 (24.08.26); Lyrebird Park remove debris $663.00 (24.08.26); Chambers Ridge Park remove sails for repair $561.00 (24.08.26); Amundsen Park remove for repair $918.00 (25.08.26); Albert River Park Eagleby repair onsite and retension $204.00 (27.08.26); Isle of Ely Park Heritage Park install secondary safety chains $220.32 (02.09.26); Homestead Park Shailer Park repair safety chains $204.32 (02.09.26); Doug Larsen Park remove 4 shades for repair $1,836.00 (31.08.26); Doug Larsen Park Beenleigh remove for repairs $918.00 (24.08.26). Those sum to the printed $14,529.20 exactly. Printed subtotal $14,529.20 ex GST, GST $1,452.92, total $15,982.12. Printed PK000024 matches the PK charged (PK000024). The layout prints its Total column GST INCLUSIVE (unit price plus the GST printed on the same row), so the ex-GST line amount captured is quantity times unit price; reading the Total column as the line amount would overstate every line by a tenth.",
+  "follow_up": null,
+  "source_file": "C00319023.pdf"
+ }
+]

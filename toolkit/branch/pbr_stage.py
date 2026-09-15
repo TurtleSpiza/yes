@@ -46,7 +46,7 @@ HIST = json.load(open(os.path.join(HERE, 'pbr_histories_v4.json')))  # APLEDGER 
 HIST_COLS = ['Reference', 'GST Date', 'Discount Date', 'On Hold', 'Has Note', 'Date', 'Description (Document Type)', 'Details', 'Outstanding', 'Applied',
              'Transaction Amount', 'Due Date', 'Ageing Date', 'Period', 'Ageing', 'Source', 'Units', 'Discount', 'Has Attachment', 'Payment Details', 'ABN',
              'Billing System', 'Work Order', 'Work Order Transaction Number', 'Work System']
-BATCHES = ('mixed_1', 'mixed_new_26_27', 'attach_1', 'attach_2', 'code', 'mix22', 'attach_3', 'mix222', 'binder11111', 'pla073_1', 'ksadasd', 'playforce_new', 'harp_new', 'vinton_new', 'savco_new', 'trees_new')
+BATCHES = ('mixed_1', 'mixed_new_26_27', 'attach_1', 'attach_2', 'code', 'mix22', 'attach_3', 'mix222', 'binder11111', 'pla073_1', 'ksadasd', 'playforce_new', 'harp_new', 'vinton_new', 'savco_new', 'trees_new', 'attach_4')
 JOURNAL_BATCH = 'journal_1'  # TechOne Document Line Table pulls (rule 21, pipeline "per journal batch")
 RECON_BATCH = 'recon_1'      # TechOne Document Reconstruction pulls (rule 21, the counterparty route)
 NCOL = 149  # 146 PS/WP columns + 147 Src Note + 148 Register provenance + 149 Source pull
@@ -213,31 +213,61 @@ def as_date(v):
     return None
 
 
+def _hist_rows(rows):
+    """The data rows and the export's own total row, from a loaded creditor-history sheet."""
+    data, total = [], None
+    for i, r in enumerate(rows[5:], 6):
+        if all(c in ('', None) for c in r):
+            continue
+        if r[5] in ('', None) and isinstance(r[10], float):
+            total = r; continue
+        data.append((i, r))
+    return data, total
+
+
 def load_histories():
-    """APLEDGER creditor histories (branch v4 to v10): one TechOne export per creditor account, verbatim rows keyed by export row."""
+    """APLEDGER creditor histories (branch v4 to v17): one TechOne export per creditor account, verbatim rows keyed by export row.
+
+    A code already embedded can be RE-PULLED. Where the re-pull is identical it is audited and thrown away
+    (audit_repulls, rule 12). Where it carries new rows there is nothing to audit away: rule 12 says it is embedded as
+    a fresh history instead, and the manifest entry then carries a `supersedes` block naming the export it replaces.
+    The substitution is gated before it is made, the way the period 3 ledger refresh is: every row of the superseded
+    export must be present in the new one VERBATIM across all 25 columns, or the build stops. That makes the
+    replacement provably additive, so no Creditor_Lines row and no identification made from the old export is lost.
+    """
     out = []
     for h in HIST['histories']:
-        p = os.path.join(ROOT, HIST['dir'], h['file'])
+        p = os.path.join(ROOT, h.get('dir', HIST['dir']), h['file'])
         rows = sheet(p)
         hdr = [str(c) for c in rows[4]]
         assert hdr[:25] == HIST_COLS, (h['file'], hdr)
         code = re.search(r'Account = (\w+)', str(rows[1][0])).group(1)
         assert code == h['code'], (h['file'], code, h['code'])
-        data, total = [], None
-        for i, r in enumerate(rows[5:], 6):
-            if all(c in ('', None) for c in r):
-                continue
-            if r[5] in ('', None) and isinstance(r[10], float):
-                total = r; continue
-            data.append((i, r))
+        data, total = _hist_rows(rows)
         assert total is not None and sum(D(r[10]) for _, r in data) == D(total[10]), (h['code'], 'export total row does not tie')
+        sup = None
+        if h.get('supersedes'):
+            sp = h['supersedes']
+            spath = os.path.join(ROOT, sp.get('dir', HIST['dir']), sp['file'])
+            sold = sheet(spath)
+            assert [str(c) for c in sold[4]][:25] == HIST_COLS, (h['code'], 'superseded export layout differs')
+            sdata, _stot = _hist_rows(sold)
+            assert len(sdata) == sp['rows'], (h['code'], 'superseded export row count', len(sdata), sp['rows'])
+            new_ = collections.Counter(tuple(str(c) for c in r) for _, r in data)
+            old_ = collections.Counter(tuple(str(c) for c in r) for _, r in sdata)
+            lost = sorted(k for k, v in old_.items() if v > new_.get(k, 0))
+            assert not lost, (h['code'], f'rule 12: the re-pull loses {len(lost)} row(s) the embedded export carries; '
+                                         f'first {lost[0][:3]}. A substitution is only made when it is provably additive.')
+            sup = dict(sp, md5_seen=md5(spath), rows_superseded=len(sdata), rows_now=len(data),
+                       rows_added=len(data) - len(sdata), verdict='every superseded row present verbatim; substitution is additive')
+            assert sup['md5_seen'] == sp['md5'], (h['code'], 'superseded export md5 differs from the manifest')
         # dominant ABN over the rows that carry one: a blank is the absence of an ABN, not a competing value.
         # Payment, funds-transfer and generated-transaction rows carry no ABN by design and can outnumber the
         # invoice rows on a small creditor account (INT036: 2 invoice rows, 5 blanks).
         abns = collections.Counter(a for a in (str(r[20]).strip() for _, r in data) if a)
         assert abns and abns.most_common(1)[0][0] == h['abn'], (h['code'], abns.most_common(3))
         dates = [as_date(r[5]) for _, r in data]
-        out.append(dict(h, path=p, md5=md5(p), params=str(rows[1][0]), hdr=hdr, data=data, total=total, n=len(data), first=min(dates), last=max(dates),
+        out.append(dict(h, path=p, md5=md5(p), params=str(rows[1][0]), hdr=hdr, data=data, total=total, n=len(data), first=min(dates), last=max(dates), superseded=sup,
                         n_fy27=sum(1 for d_ in dates if d_ >= dt.date(2026, 7, 1)), abn_other=[a for a, _ in abns.most_common() if a != h['abn']]))
     return out
 
@@ -329,6 +359,11 @@ def main(dry=False):
     led_md5 = md5(LEDGER)
     H = load_histories()
     say(f'creditor histories loaded: {len(H)} files, {sum(h["n"] for h in H):,} lines')
+    for h_ in H:
+        if h_.get('superseded'):
+            _s = h_['superseded']
+            say(f'rule 12 supersession {h_["code"]}: the re-pull carries all {_s["rows_superseded"]:,} rows of {_s["file"]} verbatim '
+                f'and adds {_s["rows_added"]}; substitution is additive and the export replaces it on Creditor_Lines')
     repulls = audit_repulls(H)
     for rp in repulls:
         # A re-pull that is not identical is not a re-pull: it is a new history and must be embedded, not audited away.
@@ -1008,7 +1043,7 @@ def main(dry=False):
     say(f'gate one contractor label per creditor code across {len(code_labels)} codes')
 
     attach_files = []
-    for b in ('attach_1', 'attach_2', 'attach_3'):
+    for b in ('attach_1', 'attach_2', 'attach_3', 'attach_4'):
         for sf in json.load(open(os.path.join(ROOT, 'batches', b, f'corpus_{b}_v6.json')))['manifest']['source_files']:
             attach_files.append(dict(sf, batch=b))
     stage = dict(rows=rows, L=L, se2=se2, led_md5=led_md5, led_files=L['files'], repulls=repulls, base_total=BASE_TOTAL,
