@@ -340,6 +340,30 @@ def line_items_text(doc: dict) -> str:
     return " ".join(parts)
 
 
+def _line_key(facts: dict, line: dict, tgt: dict | None) -> str:
+    """The register LineKey this printed line belongs to.
+
+    Every line of an ordinary invoice belongs to the one row the document ties, and that is the default. A CONSOLIDATED
+    invoice does not: Origin bills the whole Council on one face and this register carries a single site's row out of
+    it, so check 2 ties that row by summing only ITS lines (the PARTIAL-SCOPE variant). The brief maps those lines by a
+    string the page itself prints and that the register narration also names, an NMI or a site name, so the association
+    is evidence on both sides rather than a position in a list. A line matching no entry keeps the default.
+    """
+    text = " ".join((line.get("line_text") or "").split())
+    lmap = facts.get("line_map") or []
+    for key, needle in lmap:
+        if needle and needle in text:
+            return key
+    if lmap:
+        # A DECLARED MAP IS EXHAUSTIVE for this register. The unmapped lines of a consolidated invoice belong to other
+        # parts of the Council, not to the row being captured, so they must carry NO LineKey: defaulting them to the
+        # target key made check 2 sum the whole $565,345.00 face against a $2,752.17 line. They are still captured
+        # verbatim on Evidence_Invoice_Lines, because the printed face is captured in full (rule 3); they simply tie
+        # no line here.
+        return ""
+    return tgt["record"]["target_linekey"] if tgt else ""
+
+
 def anomalies_text(brief: Brief, doc: dict) -> str:
     f = brief.doc_facts(str(doc["doc_ref"]))
     bits = list(f.get("anomalies", []))
@@ -381,6 +405,13 @@ def chk_formulas(row: int, variants: list[str], sibling_rows: list[int] | None =
         c2 = '=IF(ROUND(%s,2)=%s,"TRUE","FALSE")' % (terms, di)
     if "check3 gstfree" in variants:
         c3 = '=IF(OR(%s=ROUND(%s*0.1,2),%s=0),"TRUE","FALSE")' % (dj, di, dj)
+    if "check3 sumgst" in variants:
+        # An invoice that prints GST PER LINE does not carry 10% of its subtotal as a total: the printed total is the
+        # sum of the per-line roundings, and on a consolidated electricity invoice it differs by tens of cents
+        # (Origin 1026099 prints $56,534.10 against $56,534.50). The right test is the one the page supports, so
+        # check 3 proves the printed GST against the sum of the captured per-line GST. The branch register has proved
+        # this document this way since its v3 build; this is the same form, not a new one.
+        c3 = '=IF(ROUND(%s,2)=ROUND(SUMIF(EIL_Invoice,%s,EIL_GST),2),"TRUE","FALSE")' % (dj, cj)
     if "check3 tol1cgst" in variants:
         c3 = '=IF(ROUND(ABS(%s-ROUND(%s*0.1,2)),2)<=0.01,"TRUE","FALSE")' % (dj, di)
     if "check3 tol2c" in variants:
@@ -596,7 +627,7 @@ def build(brief: Brief, dry_run: bool = False, log=print) -> int:
                 l.get("gst") if l.get("gst") is not None else ("10%" if not basis_incl else "(incl)"),
                 f2(amt),
                 (l.get("note") or "") and "" or NOT_PRINTED,
-                "", (tgt["record"]["target_linekey"] if tgt else ""),
+                "", _line_key(f, l, tgt),
                 l.get("note") or ("amounts print GST inclusive on this template" if basis_incl else ""),
             ]
             for c, v in enumerate(vals, start=1):
@@ -805,6 +836,7 @@ def build(brief: Brief, dry_run: bool = False, log=print) -> int:
     _append_text(wb["Data_Acquisition"], brief.get("data_acquisition"))
     _append_open_items(wb["Open_Items"], brief.get("open_items", []))
     _append_boilerplate(wb["Vendor_Boilerplate"], brief.get("vendor_boilerplate", []), log)
+    _fix_headers(wb, brief.get("header_fixes", []), log)
 
     # ---------------- save, recalc, verify, ship ----------------
     json.dump(rewrite_audit, open(os.path.join(out_dir, "rewrite_audit_%s.json" % brief["version_to"]), "w"), indent=1)
@@ -849,6 +881,26 @@ def _append_text(ws, text: str | None) -> None:
     if not text:
         return
     ws.cell(row=ws.max_row + 1, column=1, value=condense(text)[0])
+
+
+def _fix_headers(wb, fixes: list[dict], log) -> None:
+    """Relabel a header cell whose wording contradicts its own column, and only where it does.
+
+    A header is a LABEL, not data: changing one moves no value and breaks no citation. But a relabel is still a
+    decision about the register, so it is declared one cell at a time in the brief with the wording it must currently
+    carry, and the driver refuses to write if the cell does not still read that way. A header someone has already
+    corrected is therefore left alone rather than overwritten from a stale brief.
+    """
+    for fx in fixes or []:
+        ws = wb[fx["sheet"]]
+        cell = ws.cell(row=int(fx["row"]), column=int(fx["column"]))
+        now = "" if cell.value is None else str(cell.value).strip()
+        if now != str(fx["expect"]).strip():
+            log("header fix SKIPPED %s!R%sC%s: reads %r, brief expected %r"
+                % (fx["sheet"], fx["row"], fx["column"], now, fx["expect"]))
+            continue
+        cell.value = fx["to"]
+        log("header fix %s!R%sC%s: %r -> %r" % (fx["sheet"], fx["row"], fx["column"], now, fx["to"]))
 
 
 def _append_boilerplate(ws, rows: list[dict], log) -> None:

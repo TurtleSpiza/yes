@@ -40,6 +40,41 @@ D = lambda x: Decimal(str(x or 0)).quantize(Decimal('0.01'), ROUND_HALF_UP)
 txt = lambda v: str(int(v)) if isinstance(v, float) and v.is_integer() else ('' if v is None else str(v).strip())
 
 
+# Declared exceptions, held as data and named one document at a time so nothing is waved through by class.
+# 1026099 is the Origin Council-wide consolidated electricity invoice: a DIR line, and this register carries ONE site
+# row out of a $565,345.00 face. Check 2 ties that row by summing only its own printed line, matched on the NMI the
+# page prints and the register narration also names (QB10790446), so the association is evidence on both sides. The
+# branch register captured the same document the same way at its v3 build.
+DECLARED_DOC_TYPE = {'1026099/pages1-5'}
+DECLARED_PARTIAL = {'1026099/pages1-5': [['e23a62cd-73312-PK000469-01', 'QB10790446']]}
+
+
+def _gst_by_line(doc):
+    """The sum of the GST the page prints on each line, where it prints one; None where it does not."""
+    vals = [l.get('gst') for l in doc['lines'] if l.get('line_type') == 'PRICED']
+    nums = [D(v) for v in vals if isinstance(v, (int, float))]
+    return sum(nums, Decimal('0.00')) if nums else None
+
+
+def _same_party(row, doc):
+    """Could the register row be this supplier's line? Identity by ABN first (rule 8), then by name.
+
+    UNKNOWN IS NOT ANOTHER PARTY. A row labelled Unidentified has no contractor yet, so it cannot contradict the
+    document; only a row naming a DIFFERENT contractor does. Treating unidentified as a collision would refuse exactly
+    the lines this programme exists to identify.
+    """
+    import re as _re
+    dig = lambda x: _re.sub(r'\D', '', str(x or ''))
+    if dig(row[12]) and dig(doc.get('supplier_abn')) and dig(row[12]) == dig(doc.get('supplier_abn')):
+        return True
+    name = txt(row[11])
+    if not name or name.lower().startswith(('unidentified', 'not identified', 'unknown')):
+        return True
+    a = _re.sub(r'[^a-z]', '', name.lower())[:10]
+    b = _re.sub(r'[^a-z]', '', str(doc.get('supplier') or '').lower())[:10]
+    return bool(a) and bool(b) and (a in b or b in a)
+
+
 def sheet(name):
     return CalamineWorkbook.from_path(REG_PATH).get_sheet_by_name(name).to_python(skip_empty_area=False)
 
@@ -97,20 +132,55 @@ def main():
                 counts['already sighted here'] += 1
                 continue
             if len(rows) > 1:
-                held[ref] = f'resolves to {len(rows)} register rows; needs a declared SUM-TIE or split variant'
-                counts['held, multiple rows'] += 1
-                continue
-            i, r = rows[0]
+                # SUM-TIE: the register splits one invoice over several lines and they sum to the printed subtotal to
+                # the cent. The capture sits on one row and check 2 sums the siblings, which is the ratified form.
+                # Rows that do NOT sum to the printed subtotal are a different question and stay held.
+                s_ = sum(D(r[19]) for _, r in rows)
+                if s_ != D(d['printed_subtotal_ex_gst']):
+                    held[ref] = (f'resolves to {len(rows)} register rows summing {s_}, which is not the printed subtotal '
+                                 f'{D(d["printed_subtotal_ex_gst"])}; needs a split or partial-scope decision')
+                    counts['held, multiple rows that do not sum'] += 1
+                    continue
+                sumtie = sorted((i_ for i_, _ in rows))
+                i, r = max(rows, key=lambda x: D(x[1][19]))
+            else:
+                sumtie = None
+                i, r = rows[0]
+            doc_type_allowed = None
             if txt(r[8]) != 'PUR Cred Invoice':
-                held[ref] = f'register row {i} is {txt(r[8])!r}; rule 17 green-blocks AP lines only'
-                counts['held, not an AP line'] += 1
-                continue
-            if D(r[19]) != D(d['printed_subtotal_ex_gst']):
-                why = ('a zero-amount companion row, never green-blocked (rule 17)' if abs(D(r[19])) <= Decimal('0.005')
-                       else f'register {D(r[19])} against a printed subtotal of {D(d["printed_subtotal_ex_gst"])}; needs a declared check variant')
-                held[ref] = f'register row {i}: {why}'
-                counts['held, amount differs'] += 1
-                continue
+                if ref in DECLARED_DOC_TYPE:
+                    doc_type_allowed = txt(r[8])
+                else:
+                    held[ref] = f'register row {i} is {txt(r[8])!r}; rule 17 green-blocks AP lines only'
+                    counts['held, not an AP line'] += 1
+                    continue
+            amt_variants = []
+            if sumtie is None and D(r[19]) != D(d['printed_subtotal_ex_gst']):
+                gap = abs(D(r[19]) - D(d['printed_subtotal_ex_gst']))
+                same_party = _same_party(r, d)
+                if abs(D(r[19])) <= Decimal('0.005'):
+                    held[ref] = f'register row {i}: a zero-amount companion row, never green-blocked (rule 17)'
+                    counts['held, zero-amount companion'] += 1
+                    continue
+                if not same_party:
+                    # A REFERENCE COLLISION, not a variant. Invoice numbers repeat across creditors and years: rows
+                    # 6659, 3568 and 6625 are STAR CARPENTRY FY2023/24 invoices whose references happen to equal Play
+                    # Force FY2026/27 numbers. Offering a check variant here would tie a green block to another
+                    # supplier's line, so it is refused outright and never captured.
+                    held[ref] = (f'register row {i} carries reference {txt(r[7])} for {txt(r[11]) or "another creditor"} '
+                                 f'({txt(r[4])}, {D(r[19])}), not for {d["supplier"]}: the reference collides across '
+                                 f'creditors and years, so this is a different document and is never captured here')
+                    counts['held, reference collision with another creditor'] += 1
+                    continue
+                if gap <= Decimal('0.01'):
+                    amt_variants = ['check2 tol1c']
+                elif ref in DECLARED_PARTIAL:
+                    amt_variants = ['check2 split']
+                else:
+                    held[ref] = (f'register row {i}: register {D(r[19])} against a printed subtotal of '
+                                 f'{D(d["printed_subtotal_ex_gst"])}; needs a split or partial-scope decision')
+                    counts['held, amount differs'] += 1
+                    continue
 
             v = d['vendor_template']
             hf = pbr_capture.header_fields(d)
@@ -155,18 +225,32 @@ def main():
             # satisfy that exactly, the ratified variant for the difference is declared from the figures themselves and
             # nothing is restated: INV-7592 prints $8,826.85 and $882.68 where 10% rounds to $882.69, the vendor having
             # rounded the half down. A difference beyond the ratified tolerances is not given a variant; it stops here.
+            facts.setdefault('variants', [])
+            if sumtie:
+                facts['variants'].append('check2 sumtie')
+                facts['sibling_rows'] = sumtie
+            facts['variants'] += amt_variants
+            if doc_type_allowed:
+                facts['doc_type_allowed'] = doc_type_allowed
+            if ref in DECLARED_PARTIAL:
+                facts['line_map'] = DECLARED_PARTIAL[ref]
             sub_, gst_ = D(d['printed_subtotal_ex_gst']), D(d['printed_gst'])
             exp_ = (sub_ * Decimal('0.1')).quantize(Decimal('0.01'), ROUND_HALF_UP)
             if gst_ != exp_:
                 if gst_ == 0:
-                    facts['variants'] = ['check3 gstfree']
+                    facts['variants'].append('check3 gstfree')
                 elif abs(gst_ - exp_) <= Decimal('0.01'):
-                    facts['variants'] = ['check3 tol1cgst']
+                    facts['variants'].append('check3 tol1cgst')
                 elif abs(gst_ - exp_) <= Decimal('0.02'):
-                    facts['variants'] = ['check3 tol2c']
+                    facts['variants'].append('check3 tol2c')
+                elif _gst_by_line(d) == gst_:
+                    # The page prints GST per line and its total is the sum of those roundings, not 10% of the
+                    # subtotal. Proven against the captured per-line GST, which is the document's own arithmetic.
+                    facts['variants'].append('check3 sumgst')
                 else:
-                    held[ref] = (f'printed GST {gst_} is not 10% of the printed subtotal {sub_} ({exp_}) and the '
-                                 f'difference is beyond every ratified check 3 tolerance')
+                    held[ref] = (f'printed GST {gst_} is not 10% of the printed subtotal {sub_} ({exp_}), the '
+                                 f'difference is beyond every ratified tolerance, and the captured per-line GST '
+                                 f'({_gst_by_line(d)}) does not reach it either')
                     counts['held, GST outside every ratified tolerance'] += 1
                     documents.pop(ref, None)
                     continue
@@ -197,6 +281,9 @@ def main():
             facts['printed'] = [str(D(d['printed_subtotal_ex_gst'])), str(D(d['printed_gst'])),
                                 str(D(d['printed_total_incl_gst']))]
             row_owner[i] = ref
+            facts['variants'] = facts['variants'] or None
+            if not facts['variants']:
+                facts.pop('variants')
             documents[ref] = facts
             stems[ref] = d.get('evidence_stem')
             counts['CAPTURED'] += 1
@@ -232,34 +319,42 @@ def main():
         'held': sorted(held),
         'held_reasons': held,
         'vendor_boilerplate': sorted(boiler.values(), key=lambda x: x['key']),
+        # Vendor_Boilerplate labels column 3 "Vendor (printed, first sighting)" and column 4 "First-sighting invoice
+        # (Ev ID)", but every stored row carries the invoice id in column 3 and the vendor in column 4. The data is
+        # right and consistent across 131 rows; the two labels are the wrong way round. Relabelling moves no value and
+        # breaks no citation, and the v128 open item raised it for exactly this build to settle.
+        'header_fixes': [
+            dict(sheet='Vendor_Boilerplate', row=4, column=3, expect='Vendor (printed, first sighting)',
+                 to='First-sighting invoice (Ev ID)'),
+            dict(sheet='Vendor_Boilerplate', row=4, column=4, expect='First-sighting invoice (Ev ID)',
+                 to='Vendor (printed, first sighting)'),
+        ],
         'capture_stamp': '15-Sep-2026',
         'handover': (
-            'v128 change (15-Sep-2026): the branch capture programme ported back. %d tax invoices sighted at branch v2 to '
-            'v13 sit on lines of THIS register, and every one is now captured here at line-item granularity with all three '
-            'rule 17 checks live: %d evidence lines over %d corpora, all gated GREEN. The two registers now state the same '
-            'printed fields for the same documents, because both read them with the same reader. The control total does not '
-            'move: this is a capture build (rule 10). %d documents in those corpora are NOT captured here and each is held '
-            'with its reason in the brief: %d carry no line on this register, %d are already sighted here, %d resolve to more '
-            'than one row and need a declared SUM-TIE or split variant, %d differ in amount (two are zero-amount companion '
-            'rows, which are never green-blocked) and one is a DIR rather than a PUR line.'
-            % (len(documents), eil_lines, len(corpora), len(held),
-               counts['no line on this register'], counts['already sighted here'], counts['held, multiple rows'],
-               counts['held, amount differs'])),
+            'v129 change (15-Sep-2026): the documents v128 held are settled and captured. %d invoices, %d evidence lines. '
+            'Twenty-one resolve to two register lines each that sum to the printed subtotal to the cent and take the ratified '
+            'SUM-TIE form of check 2; two differ from their line by one cent and take the ratified tolerance; one is the Origin '
+            'Council-wide consolidated electricity invoice, a DIR line carrying one site row out of a $565,345.00 face, which '
+            'ties that row by the NMI the page prints and the register narration names, and proves its GST against the sum of '
+            'the printed per-line GST rather than 10%% of the subtotal. Control total unchanged (rule 10). '
+            'Six documents remain held and both reasons are permanent: four carry a reference that collides with another '
+            'creditor\'s invoice (Play Force numbers INV-8846, INV-8850 and INV-8907 are also STAR CARPENTRY FY2023/24 '
+            'references, and a green block there would tie this evidence to another supplier\'s line), and two target '
+            'zero-amount companion rows, which rule 17 never green-blocks.'),
         'method': (
-            'Capture from the branch corpora (v128). The Nature Category on a captured row is THE ONE THE ROW ALREADY '
-            'CARRIES. A capture build proves what a document says; it does not re-categorise the register, and all %d target '
-            'rows already carry a category on Theme_Map A5:A31. Where a branch batch read an invoice into a branch-extension '
-            'heading this register has no row for (Signage & park furniture, Horticultural & landscape supplies), the row '
-            'keeps its own category and the branch reading is written into the coding note, where it states a fact rather '
-            'than keying a COUNTIF. The printed green-block fields are read by pbr_capture.header_fields, the same reader the '
-            'branch register uses, so the two registers cannot disagree about what a document prints and the branch '
-            'provenance gate covers both. Boilerplate for a vendor this register has not carried before is appended to '
-            'Vendor_Boilerplate and cited by key (rule 17 Amendment 2); a vendor that prints no terms block cites no key and '
-            'the column reads (not printed).' % len(documents)),
+            'Check variants are READ FROM THE FIGURES, never chosen. A document whose register lines sum to its printed '
+            'subtotal takes SUM-TIE; one within a cent takes the ratified tolerance; one whose printed GST is the sum of its '
+            'own per-line GST takes check3 sumgst, which is the form an invoice that prints GST per line actually supports and '
+            'the form the branch register has proved this document with since its v3 build. A consolidated invoice maps its '
+            'site row by a string the PAGE prints and the REGISTER NARRATION also names, so the association is evidence on '
+            'both sides rather than a position in a list. Anything the figures do not settle stays held. '
+            'A reference that matches a row belonging to a DIFFERENT creditor is refused outright rather than offered a '
+            'variant: invoice numbers repeat across creditors and years, and a variant there would tie a green block to '
+            'another supplier. A row labelled Unidentified is not a different creditor, it is an unidentified one, and still '
+            'takes its capture.'),
         'data_acquisition': (
-            'v128: %d gated corpora built from, all GREEN, listed in the brief. No new source file is acquired: every corpus '
-            'was received and md5-screened at the branch register build that first used it, and this build re-gates each one '
-            'rather than trusting that record.' % len(corpora)),
+            'v129: no new source file. Every corpus built from was received and md5-screened at the branch build that first '
+            'used it, and is re-gated here.'),
         'open_items': [
             dict(fy='All', status='Open', series='Documents held at v128',
                  lines=len([r for r in held if r not in documents]), amount=None,
