@@ -21,13 +21,15 @@ STAMPS = {'mixed_1': STAMP, 'mixed_new_26_27': '11-Sep-2026, branch v3, Batch mi
           'mix222': '11-Sep-2026, branch v7, Batch mix222 (mix_222.pdf, raw-text route to extraction prompt v6, corpus_mix222_v6.json)',
           'binder11111': '11-Sep-2026, branch v7, Batch binder11111 (Binder11111.pdf, raw-text route to extraction prompt v6, corpus_binder11111_v6.json)',
           'pla073_1': '14-Sep-2026, branch v10, Batch pla073_1 (pla073 1.pdf, supplied corpus to extraction prompt v6, runtime A, corpus_pla073_1_v6.json)',
-          'ksadasd': '14-Sep-2026, branch v11, Batch ksadasd (ksadasd.pdf, supplied corpus to extraction prompt v6, runtime A, corpus_ksadasd_v6.json)'}
-BATCH_VER = {'mixed_1': 'v2', 'mixed_new_26_27': 'v3', 'attach_1': 'v4', 'attach_2': 'v5', 'code': 'v5', 'mix22': 'v6', 'attach_3': 'v6', 'mix222': 'v7', 'binder11111': 'v7', 'pla073_1': 'v10', 'ksadasd': 'v11'}
+          'ksadasd': '14-Sep-2026, branch v11, Batch ksadasd (ksadasd.pdf, supplied corpus to extraction prompt v6, runtime A, corpus_ksadasd_v6.json)',
+          'playforce_new': '15-Sep-2026, branch v13, Batch playforce_new (playforce new.pdf, supplied corpus, runtime A, corpus_playforce_new_v6.json)'}
+BATCH_VER = {'mixed_1': 'v2', 'mixed_new_26_27': 'v3', 'attach_1': 'v4', 'attach_2': 'v5', 'code': 'v5', 'mix22': 'v6', 'attach_3': 'v6', 'mix222': 'v7', 'binder11111': 'v7', 'pla073_1': 'v10', 'ksadasd': 'v11', 'playforce_new': 'v13'}
 SRCS = {'mixed_1': 'Mixed_1.pdf (md5 b9ddf7fd6c56188a22181921b7b2c8ab), Batch mixed_1, corpus_mixed_1_v6.json', 'mixed_new_26_27': 'Mixed_new_26-27.pdf (md5 813f23077d1d5e77fb1e7150ad08b3cc), Batch mixed_new_26_27, corpus_mixed_new_26_27_v6.json',
         'code': 'code.pdf, 66 pages (binder not supplied; supplied corpus corpus_code.json md5 e256555fc9d22d46a9cce80f8e7bbe3b, M365 Copilot layout extraction), Batch code, corpus_code_v6.json',
         'mix22': 'mix 22.pdf, 81 pages (binder not supplied; supplied corpus corpus_mix22.json md5 e6782e55b5379dc3adcb6a1b5c7cebd4, M365 Copilot layout extraction, gate RED as supplied), Batch mix22, corpus_mix22_v6.json',
         'pla073_1': 'pla073 1.pdf, 144 pages (binder not supplied; supplied corpus corpus_pla073_1_v6.json md5 8b9d6481fa8926c86d849d8e290106e3, M365 Copilot runtime A to extraction prompt v6, gate GREEN as supplied), Batch pla073_1, corpus_pla073_1_v6.json',
-        'ksadasd': 'ksadasd.pdf, 71 pages (binder not supplied; supplied corpus corpus_ksadasd_as_supplied.json md5 1e8cdafcefd95cc88dec6696af6f32b4, M365 Copilot runtime A to extraction prompt v6, gate GREEN as supplied), Batch ksadasd, corpus_ksadasd_v6.json'}
+        'ksadasd': 'ksadasd.pdf, 71 pages (binder not supplied; supplied corpus corpus_ksadasd_as_supplied.json md5 1e8cdafcefd95cc88dec6696af6f32b4, M365 Copilot runtime A to extraction prompt v6, gate GREEN as supplied), Batch ksadasd, corpus_ksadasd_v6.json',
+        'playforce_new': 'playforce new.pdf, 319 pages (binder not supplied; supplied corpus corpus_playforce_new_as_supplied.json md5 af53da1c8f40fd2c84cfb038d00dfa72, M365 Copilot runtime A, gate GREEN as supplied), Batch playforce_new, corpus_playforce_new_v6.json'}
 
 CAT = {  # vendor template -> (Nature Category v2, v3 category, theme rule)
     'LEVAI': ('Natural areas & bushland works', 'Bushland, weeds & fire', 'P2 sighted job, dominant scope'),
@@ -610,7 +612,7 @@ def capture(rows, corpus_path, match_path, say, existing_keys=frozenset(), exist
             pkp = own[0] if own else (d['pk_refs'][0] if d['pk_refs'] else hf.get('printed_account', NP))
             if pkp == 'undefined':
                 pkp = 'undefined (as printed)'
-            if batch in ('attach_1', 'attach_2', 'code', 'mix22', 'attach_3', 'pla073_1', 'ksadasd') and pkp not in (NP, 'undefined (as printed)') and pkp.replace(' ', '').replace('#', '') != str(V[17]):
+            if batch in ('attach_1', 'attach_2', 'code', 'mix22', 'attach_3', 'pla073_1', 'ksadasd', 'playforce_new') and pkp not in (NP, 'undefined (as printed)') and pkp.replace(' ', '').replace('#', '') != str(V[17]):
                 anom.append(f'Printed PK {pkp} differs from the PK charged {V[17]}; see the coding note. PK Charged stays the ledger Work Order (rule 1).')
             G = {88: evid, 89: d['supplier'], 90: d['supplier_abn'], 91: NP, 92: hf['addr'], 93: hf['phone'], 94: date_out(d['invoice_date']), 95: date_out(d.get('due_date')) if d.get('due_date') else NP,
                  96: hf['po'], 97: hf['contract'], 98: hf['bill'], 99: NP, 100: hf['officer'], 101: NP, 102: NP, 103: NP, 104: pkp, 105: pkp.replace(' ', '').replace('#', '') if pkp != NP else NP,

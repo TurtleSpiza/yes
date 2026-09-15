@@ -68,6 +68,17 @@ BATCHES = {
     # The only restatement beyond housekeeping is the due date, which the corpus schema carries and this extraction
     # omitted although every face prints it (DUE DATE / Due Date: row).
     'ksadasd': dict(src='corpus_ksadasd_as_supplied.json', vendors={'T & H LEVAI PTY LTD': 'LEVAI', 'WEIS CONTRACTORS': 'WEIS'}),
+    # playforce_new (branch v13): 109 Play Force documents over 319 pages, runtime A, gate GREEN as supplied. The
+    # extraction returned the literal "(not printed)" for invoice_date on all 109 although every face prints it, in
+    # two layouts: the legacy Xero block (label "Invoice Date" in the right column, value on the next row at the same
+    # column) and the current letterhead ("Date  28-Aug-2025" at the right of the Billing block). R4 restates it.
+    # Play Force prints two layouts in this binder and they are separate templates, because the fidelity check works by
+    # taking the rows CONSTANT across a vendor's documents: mixing two layouts makes the letterhead and the terms pages
+    # look like per-invoice text on one and template on the other. PLAYFORCE_XERO is the legacy Xero block (6 documents,
+    # all FY2024/25): no letterhead, no terms pages, and the item table in the Xero
+    # "Description / Quantity / Unit Price / GST / Amount AUD" shape rather than the current "Qty / Item / Description".
+    'playforce_new': dict(src='corpus_playforce_new_as_supplied.json', vendors={'Play Force Australia Pty Ltd': 'PLAYFORCE'},
+                          layouts=[('PLAYFORCE_XERO', re.compile(r'^Description\s{2,}Quantity\s{2,}Unit Price\s{2,}GST\s{2,}Amount AUD', re.M))]),
 }
 CFG = BATCHES[BATCH]
 VENDOR = CFG['vendors']
@@ -89,6 +100,8 @@ BANDS = {
     'HERITAGE': [re.compile(r'^(?P<desc>\S.*?)\s{2,}(?P<qty>[\d,]+\.\d{2})\s{2,}(?P<rate>[\d,]+\.\d{2})\s{2,}(?:(?P<tax>\d{1,2}%)\s{2,})?(?P<amt>-?[\d,]+\.\d{2})\s*$')],
     # Qty  Item  Description  Unit Price  Price (Ex. GST)
     'PLAYFORCE': [re.compile(r'^\s*(?P<qty>\d+\.\d{2})\s{2,}(?P<item>\S+)\s{2,}(?P<desc>.*?)\s{2,}(?P<rate>[\d,]+(?:\.\d+)?)\s{2,}(?P<amt>-?[\d,]+\.\d{2})\s*$')],
+    # Legacy Play Force (Xero): Description  Quantity  Unit Price  GST  Amount AUD
+    'PLAYFORCE_XERO': [re.compile(r'^(?P<desc>\S.*?)\s{2,}(?P<qty>[\d,]+\.\d{2})\s{2,}(?P<rate>[\d,]+\.\d{2})\s{2,}(?:(?P<tax>\d{1,2}%)\s{2,})?(?P<amt>-?[\d,]+\.\d{2})\s*$')],
     # <indent> description <indent> amount, in the claim block only
     'KACHEL': [re.compile(r'^\s{10,}(?P<desc>\S.*?)\s{10,}(?P<amt>-?[\d,]+\.\d{2})\s*$')],
     # RST Systems t/a Vinton prints two layouts. B: HRS | DESCRIPTION | UNIT PRICE (ex-GST) | TOTAL PRICE (ex-GST).
@@ -204,7 +217,27 @@ def printed_invoice_date(doc):
                     return m2.group(1)
         m = re.search(r'Issue date[^\n]*\n[^\n]*?\s{2,}(\d{1,2} \w{3,4}\.? \d{4})\s{2,}INV-', t)
         return m.group(1) if m else None
+    if v in ('PLAYFORCE', 'PLAYFORCE_XERO'):
+        # Current letterhead: the Billing block prints "Date" and the value at the right of the same row.
+        m = re.search(r'(?<!Completed: )\bDate\s{2,}(\d{1,2}-\w{3}-\d{4})\s*$', t, re.M)
+        if m:
+            return m.group(1)
+        # Legacy Xero block: the label sits in the right column and the value on the next row at the same column.
+        for i, x in enumerate(rows[:-1]):
+            if 'Invoice Date' in x:
+                m2 = re.match(r'\s*(\d{1,2} \w{3} \d{4})', rows[i + 1][x.index('Invoice Date'):])
+                if m2:
+                    return m2.group(1)
+        return None
     return None
+
+
+def rounding_basket(doc):
+    """The printed subtotal a page would carry if it summed qty x unit price unrounded, from the printed figures only."""
+    pr = [l for l in doc['lines'] if l['line_type'] == 'PRICED']
+    if not pr or any(l.get('qty') is None or l.get('unit_price_ex_gst') is None for l in pr):
+        return None
+    return sum(D(l['qty']) * D(l['unit_price_ex_gst']) for l in pr).quantize(Decimal('0.01'), ROUND_HALF_UP)
 
 
 def restate_invoice_date(doc, log):
@@ -226,6 +259,12 @@ def prepare(corpus):
     log, r1, r2, r4 = [], 0, 0, 0
     for d in corpus['documents']:
         d['vendor_template'] = VENDOR[d['supplier']]
+        # A supplier that prints more than one layout carries one template per layout (see the batch config).
+        for tpl_, rx_ in CFG.get('layouts', []):
+            if rx_.search('\n'.join(l['line_text'] for l in d['lines'])):
+                d['vendor_template'] = tpl_
+                log.append(f'{d["doc_ref"]}: layout {tpl_} (the supplier prints more than one; assigned from the printed item-table header)')
+                break
         r1 += restate_lines(d, log)
         if d['vendor_template'] == 'SAVCO':
             r2 += restate_savco_total(d, log)
@@ -281,7 +320,20 @@ def prepare(corpus):
             log.append(f'{d["doc_ref"]}: duplicate copy of the document at pages {d["duplicate_of"]}, every row typed DUPLICATE_COPY, outside the arithmetic and not captured again')
             continue
         cap, sub = captured(d), D(d['printed_subtotal_ex_gst'])
-        assert cap == sub, f'{d["doc_ref"]}: restated lines {cap} do not equal the printed subtotal {sub}'
+        if cap != sub and rounding_basket(d) == sub and abs(cap - sub) <= D('0.01'):
+            # The PAGE does not foot, and its own figures say why: the vendor's subtotal carries the unrounded
+            # qty x unit price where the line column shows it truncated (INV-7327 prints 7.50 x 105.41 as 790.57
+            # and totals 790.575). Nothing is restated and no amount is inferred: the printed line and the printed
+            # subtotal are both captured as printed, and the cent is declared here and carried as an anomaly so the
+            # match table takes the per-line rounding variant rather than an exact tie.
+            d.setdefault('findings', []).append(
+                f'The printed lines sum to {cap} and the printed Total (Ex. GST) is {sub}: the invoice does not foot '
+                f'by {abs(cap - sub)}, because the subtotal carries the unrounded quantity x unit price '
+                f'({rounding_basket(d)}) where the line column prints it truncated. Both figures are captured as printed.')
+            log.append(f'{d["doc_ref"]}: printed lines {cap} against printed subtotal {sub}; the difference is the '
+                       f'vendor\'s own per-line rounding and is declared, not restated')
+        else:
+            assert cap == sub, f'{d["doc_ref"]}: restated lines {cap} do not equal the printed subtotal {sub}'
     log.append(f'batch: R1 restated {r1} amount-bearing rows over {sum(1 for d in corpus["documents"])} documents; '
                f'R2 restated {r2} printed totals carrying the GST amount; R4 restated {r4} invoice dates from the printed Invoice Date row')
     return log
@@ -298,13 +350,14 @@ def references():
         for d in json.load(open(path))['documents']:
             v = d.get('vendor_template')
             if v in VENDOR.values() and d.get('page_text'):
-                refs[v].append(dict(batch=batch, how=how, doc=d['doc_ref'],
+                refs[v].append(dict(batch=batch, how=how, doc=d['doc_ref'], date=str(d.get('invoice_date') or ''),
                                     rows={norm(x) for k in d['page_text'] for x in d['page_text'][k].splitlines() if norm(x)}))
     return refs
 
 
 def fidelity(corpus, refs):
     """Every row constant across a vendor's documents in this batch, verified against an independent reference."""
+    dates = {d['doc_ref']: str(d.get('invoice_date') or '') for d in corpus['documents']}
     by_vendor = collections.defaultdict(list)
     for d in corpus['documents']:
         by_vendor[d['vendor_template']].append((d['doc_ref'], {norm(l['line_text']) for l in d['lines'] if norm(l['line_text'])}))
@@ -352,7 +405,19 @@ def fidelity(corpus, refs):
             # field variant, not a miss; none found is a template row genuinely absent and fails.
             ref_rows_masked = {fmask(x) for x in ref_rows}
             missing, variants_2w = {}, {}
+            # A reference document fixes ONE VINTAGE of the vendor's template. This limb asks the opposite question to
+            # the one above: not "is this batch's row real", but "does this batch's document still carry the rows the
+            # reference has". That question is only answerable against a document of the same vintage. A vendor rewrites
+            # its terms and changes its remittance block: Play Force added a safety-inspection scope clause and dropped
+            # the "Account Name" row between 2025 and the Aug-2026 reference, so requiring the reference's rows on a
+            # 2025 invoice would fail the document for printing what it actually printed. Documents older than the
+            # earliest reference are declared here and left to the limb above, which is the one that catches a
+            # fabricated or silently altered row. Rule 11: the asymmetry is declared, not papered over.
+            ref_from = min((r['date'] for r in rs if r['date']), default='')
+            older = sorted(ref_ for ref_, _ in docs if ref_from and str(dates.get(ref_, '')) < ref_from)
             for ref, rows in docs:
+                if ref in set(older):
+                    continue
                 have = {fmask(x) for x in rows}
                 gone = sorted(ref_rows_masked - have)
                 if not gone:
@@ -365,10 +430,14 @@ def fidelity(corpus, refs):
                     variants_2w[ref] = near_ok
                 if truly:
                     missing[ref] = truly
-            two_way = dict(reference_template_rows=len(ref_rows), documents_missing_any=len(missing), misses=missing,
+            two_way = dict(reference_template_rows=len(ref_rows),
+                           reference_vintage_from=ref_from, documents_tested=len(docs) - len(older),
+                           documents_older_than_the_reference=len(older), older_documents=older[:40],
+                           documents_missing_any=len(missing), misses=missing,
                            documents_with_field_variants=len(variants_2w), field_variants=variants_2w,
                            basis='field-masked comparison (every digit-bearing token neutralised); a reference row absent after masking but '
-                                 'with a near neighbour in the document (cutoff 0.85) is a field or punctuation variant, not a miss')
+                                 'with a near neighbour in the document (cutoff 0.85) is a field or punctuation variant, not a miss; a reference row '
+                                 'still absent is a miss and fails')
             if missing:
                 failures.append((v, missing))
         out.append(dict(vendor_template=v, batch_documents=len(docs), reference_documents=[f'{r["batch"]}:{r["doc"]} ({r["how"]})' for r in rs],
