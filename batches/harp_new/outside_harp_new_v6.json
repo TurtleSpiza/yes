@@ -1,0 +1,472 @@
+[
+ {
+  "invoice": "00013396",
+  "invoice_date": "2024-04-26",
+  "subtotal": 15100.0,
+  "in_register_year": false,
+  "pages": [
+   1,
+   1
+  ]
+ },
+ {
+  "invoice": "00013760",
+  "invoice_date": "2024-10-10",
+  "subtotal": 15945.0,
+  "in_register_year": false,
+  "pages": [
+   2,
+   2
+  ]
+ },
+ {
+  "invoice": "00013885",
+  "invoice_date": "2024-11-13",
+  "subtotal": 33292.62,
+  "in_register_year": false,
+  "pages": [
+   3,
+   8
+  ]
+ },
+ {
+  "invoice": "00014206",
+  "invoice_date": "2025-05-15",
+  "subtotal": 16932.94,
+  "in_register_year": false,
+  "pages": [
+   9,
+   9
+  ]
+ },
+ {
+  "invoice": "00014236",
+  "invoice_date": "2025-06-01",
+  "subtotal": 45073.0,
+  "in_register_year": false,
+  "pages": [
+   10,
+   11
+  ]
+ },
+ {
+  "invoice": "00014262",
+  "invoice_date": "2025-06-19",
+  "subtotal": 78010.0,
+  "in_register_year": false,
+  "pages": [
+   12,
+   13
+  ]
+ },
+ {
+  "invoice": "00014316",
+  "invoice_date": "2025-05-10",
+  "subtotal": 8890.0,
+  "in_register_year": false,
+  "pages": [
+   14,
+   15
+  ]
+ },
+ {
+  "invoice": "00014324",
+  "invoice_date": "2025-07-27",
+  "subtotal": 4348.9,
+  "in_register_year": false,
+  "pages": [
+   16,
+   17
+  ]
+ },
+ {
+  "invoice": "00014327",
+  "invoice_date": "2025-07-27",
+  "subtotal": 1620.0,
+  "in_register_year": false,
+  "pages": [
+   18,
+   19
+  ]
+ },
+ {
+  "invoice": "00014328",
+  "invoice_date": "2025-07-27",
+  "subtotal": 11981.75,
+  "in_register_year": false,
+  "pages": [
+   20,
+   20
+  ]
+ },
+ {
+  "invoice": "00014329",
+  "invoice_date": "2025-07-27",
+  "subtotal": 2880.0,
+  "in_register_year": false,
+  "pages": [
+   21,
+   22
+  ]
+ },
+ {
+  "invoice": "00014350",
+  "invoice_date": "2025-08-11",
+  "subtotal": 24085.0,
+  "in_register_year": false,
+  "pages": [
+   23,
+   24
+  ]
+ },
+ {
+  "invoice": "00014397",
+  "invoice_date": "2025-09-08",
+  "subtotal": 10057.85,
+  "in_register_year": false,
+  "pages": [
+   25,
+   25
+  ]
+ },
+ {
+  "invoice": "00014410",
+  "invoice_date": "2025-09-29",
+  "subtotal": 10735.0,
+  "in_register_year": false,
+  "pages": [
+   26,
+   28
+  ]
+ },
+ {
+  "invoice": "00014416",
+  "invoice_date": "2025-08-19",
+  "subtotal": 5512.99,
+  "in_register_year": false,
+  "pages": [
+   29,
+   30
+  ]
+ },
+ {
+  "invoice": "00014418",
+  "invoice_date": "2025-09-30",
+  "subtotal": 2170.0,
+  "in_register_year": false,
+  "pages": [
+   31,
+   33
+  ]
+ },
+ {
+  "invoice": "00014421",
+  "invoice_date": "2025-09-30",
+  "subtotal": 4344.0,
+  "in_register_year": false,
+  "pages": [
+   34,
+   35
+  ]
+ },
+ {
+  "invoice": "00014433",
+  "invoice_date": "2025-09-30",
+  "subtotal": 8396.0,
+  "in_register_year": false,
+  "pages": [
+   36,
+   38
+  ]
+ },
+ {
+  "invoice": "00014514",
+  "invoice_date": "2025-10-12",
+  "subtotal": 4105.75,
+  "in_register_year": false,
+  "pages": [
+   39,
+   39
+  ]
+ },
+ {
+  "invoice": "00014570",
+  "invoice_date": "2025-11-05",
+  "subtotal": 13709.85,
+  "in_register_year": false,
+  "pages": [
+   40,
+   40
+  ]
+ },
+ {
+  "invoice": "00014569",
+  "invoice_date": "2025-11-05",
+  "subtotal": 6393.75,
+  "in_register_year": false,
+  "pages": [
+   41,
+   41
+  ]
+ },
+ {
+  "invoice": "00014602",
+  "invoice_date": "2025-11-24",
+  "subtotal": 1802.5,
+  "in_register_year": false,
+  "pages": [
+   42,
+   43
+  ]
+ },
+ {
+  "invoice": "00014639",
+  "invoice_date": "2025-12-10",
+  "subtotal": 2725.0,
+  "in_register_year": false,
+  "pages": [
+   44,
+   44
+  ]
+ },
+ {
+  "invoice": "00014640",
+  "invoice_date": "2025-12-10",
+  "subtotal": 8060.26,
+  "in_register_year": false,
+  "pages": [
+   45,
+   45
+  ]
+ },
+ {
+  "invoice": "00014642",
+  "invoice_date": "2025-12-10",
+  "subtotal": 6220.5,
+  "in_register_year": false,
+  "pages": [
+   46,
+   46
+  ]
+ },
+ {
+  "invoice": "00014710",
+  "invoice_date": "2025-12-31",
+  "subtotal": 6274.95,
+  "in_register_year": false,
+  "pages": [
+   47,
+   47
+  ]
+ },
+ {
+  "invoice": "00014711",
+  "invoice_date": "2025-12-31",
+  "subtotal": 12218.25,
+  "in_register_year": false,
+  "pages": [
+   48,
+   48
+  ]
+ },
+ {
+  "invoice": "00014727",
+  "invoice_date": "2026-01-11",
+  "subtotal": 1499.0,
+  "in_register_year": false,
+  "pages": [
+   49,
+   50
+  ]
+ },
+ {
+  "invoice": "00014735",
+  "invoice_date": "2026-01-11",
+  "subtotal": 1998.45,
+  "in_register_year": false,
+  "pages": [
+   51,
+   52
+  ]
+ },
+ {
+  "invoice": "00014787",
+  "invoice_date": "2026-01-22",
+  "subtotal": 5525.0,
+  "in_register_year": false,
+  "pages": [
+   53,
+   53
+  ]
+ },
+ {
+  "invoice": "00014862",
+  "invoice_date": "2026-02-11",
+  "subtotal": 5199.7,
+  "in_register_year": false,
+  "pages": [
+   54,
+   55
+  ]
+ },
+ {
+  "invoice": "00014863",
+  "invoice_date": "2026-02-11",
+  "subtotal": 11176.55,
+  "in_register_year": false,
+  "pages": [
+   56,
+   56
+  ]
+ },
+ {
+  "invoice": "00014867",
+  "invoice_date": "2026-02-12",
+  "subtotal": 11940.0,
+  "in_register_year": false,
+  "pages": [
+   57,
+   58
+  ]
+ },
+ {
+  "invoice": "00014918",
+  "invoice_date": "2026-03-06",
+  "subtotal": 8482.38,
+  "in_register_year": false,
+  "pages": [
+   59,
+   59
+  ]
+ },
+ {
+  "invoice": "00014919",
+  "invoice_date": "2026-03-06",
+  "subtotal": 10903.75,
+  "in_register_year": false,
+  "pages": [
+   60,
+   60
+  ]
+ },
+ {
+  "invoice": "00014920",
+  "invoice_date": "2026-03-06",
+  "subtotal": 3909.1,
+  "in_register_year": false,
+  "pages": [
+   61,
+   63
+  ]
+ },
+ {
+  "invoice": "00014923",
+  "invoice_date": "2026-03-08",
+  "subtotal": 9798.6,
+  "in_register_year": false,
+  "pages": [
+   64,
+   64
+  ]
+ },
+ {
+  "invoice": "00014975",
+  "invoice_date": "2026-04-11",
+  "subtotal": 10991.5,
+  "in_register_year": false,
+  "pages": [
+   65,
+   65
+  ]
+ },
+ {
+  "invoice": "00014976",
+  "invoice_date": "2026-04-11",
+  "subtotal": 6061.0,
+  "in_register_year": false,
+  "pages": [
+   66,
+   66
+  ]
+ },
+ {
+  "invoice": "00015045",
+  "invoice_date": "2026-05-04",
+  "subtotal": 7409.47,
+  "in_register_year": false,
+  "pages": [
+   67,
+   67
+  ]
+ },
+ {
+  "invoice": "00015046",
+  "invoice_date": "2026-05-04",
+  "subtotal": 10539.27,
+  "in_register_year": false,
+  "pages": [
+   68,
+   68
+  ]
+ },
+ {
+  "invoice": "00015108",
+  "invoice_date": "2026-05-24",
+  "subtotal": 2598.15,
+  "in_register_year": false,
+  "pages": [
+   69,
+   70
+  ]
+ },
+ {
+  "invoice": "00015150",
+  "invoice_date": "2026-05-16",
+  "subtotal": 5330.0,
+  "in_register_year": false,
+  "pages": [
+   71,
+   71
+  ]
+ },
+ {
+  "invoice": "00015149",
+  "invoice_date": "2026-06-23",
+  "subtotal": 23840.63,
+  "in_register_year": false,
+  "pages": [
+   72,
+   72
+  ]
+ },
+ {
+  "invoice": "00015157",
+  "invoice_date": "2026-06-25",
+  "subtotal": 8546.95,
+  "in_register_year": false,
+  "pages": [
+   73,
+   75
+  ]
+ },
+ {
+  "invoice": "00015144",
+  "invoice_date": "2026-06-14",
+  "subtotal": 12461.91,
+  "in_register_year": false,
+  "pages": [
+   76,
+   76
+  ]
+ },
+ {
+  "invoice": "00015143",
+  "invoice_date": "2026-06-14",
+  "subtotal": 6223.8,
+  "in_register_year": false,
+  "pages": [
+   77,
+   77
+  ]
+ }
+]

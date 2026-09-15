@@ -33,8 +33,8 @@ sys.path.insert(0, os.path.join(ROOT, 'toolkit', 'branch'))
 import pbr_capture  # noqa: E402
 import pbr_stage  # noqa: E402
 
-REG_PATH = os.path.join(ROOT, 'registers', 'PS_WP_Transaction_Register_3FY_v127_CANDIDATE.xlsx')
-OUT = sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, 'batches', 'pswp_v128', 'brief_v128.json')
+REG_PATH = os.path.join(ROOT, 'registers', os.environ.get('PSWP_IN', 'PS_WP_Transaction_Register_3FY_v128.xlsx'))
+OUT = sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, 'batches', os.environ.get('PSWP_BATCH', 'pswp_v129'), f'brief_{os.environ.get("PSWP_VER", "v129")}.json')
 NP = pbr_capture.NP
 D = lambda x: Decimal(str(x or 0)).quantize(Decimal('0.01'), ROUND_HALF_UP)
 txt = lambda v: str(int(v)) if isinstance(v, float) and v.is_integer() else ('' if v is None else str(v).strip())
@@ -220,13 +220,13 @@ def main():
             'register row each document sits on, and the batches\' own authored notes. No coding judgement is formed here:',
             'the Nature Category is the one the register row already carries, because a capture build proves what a',
             'document says and does not re-categorise the register.'],
-        'batch_id': 'pswp_v128',
-        'batch_label': 'Branch batches ported to PS & WP at v128',
-        'version_to': 'v128',
+        'batch_id': os.environ.get('PSWP_BATCH', 'pswp_v129'),
+        'batch_label': f'Branch batches ported to PS & WP at {os.environ.get("PSWP_VER", "v129")}',
+        'version_to': os.environ.get('PSWP_VER', 'v129'),
         'workbook_in': os.path.relpath(REG_PATH, os.path.dirname(OUT)),
-        'workbook_out': 'PS_WP_Transaction_Register_3FY_v128.xlsx',
+        'workbook_out': f'PS_WP_Transaction_Register_3FY_{os.environ.get("PSWP_VER", "v129")}.xlsx',
         'output_dir': os.path.join(ROOT, 'registers'),
-        'match_table': 'match_v128.json',
+        'match_table': f'match_{os.environ.get("PSWP_VER", "v129")}.json',
         'corpora': corpora,
         'documents': documents,
         'held': sorted(held),
@@ -277,10 +277,10 @@ def main():
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     json.dump(brief, open(OUT, 'w'), indent=1, ensure_ascii=False)
 
-    match = {'batches': {'pswp_v128': [
+    match = {'batches': {os.environ.get('PSWP_BATCH', 'pswp_v129'): [
         {'doc_ref': ref, 'target_row': f['target_row'], 'target_count': 1,
          'target_linekey': txt(reg[f['target_row'] - 1][0])} for ref, f in sorted(documents.items())]}}
-    json.dump(match, open(os.path.join(os.path.dirname(OUT), 'match_v128.json'), 'w'), indent=1)
+    json.dump(match, open(os.path.join(os.path.dirname(OUT), f'match_{os.environ.get("PSWP_VER", "v129")}.json'), 'w'), indent=1)
 
     for k, n in counts.most_common():
         print(f'{n:5}  {k}')
