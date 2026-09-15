@@ -13,6 +13,7 @@ from python_calamine import CalamineWorkbook
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import pbr_stage
+import pbr_retention
 
 VER = 'v17'
 OUTNAME = f'Parks_Branch_Transaction_Register_FY2627_{VER}.xlsx'
@@ -1839,3 +1840,8 @@ if __name__ == '__main__':
     os.makedirs(OUTDIR, exist_ok=True)
     shutil.copy(out, os.path.join(OUTDIR, OUTNAME))
     say(f'VERIFY CLEAN: {facts}. Shipped {OUTNAME}')
+    # Retention runs only here: after a clean verify and a completed ship, never on a failed or partial
+    # run. It can prune nothing but branch registers strictly below the version just shipped, so the
+    # file this run produced and the PS & WP side are both out of its reach. PBR_RETAIN=all disables it.
+    pruned = pbr_retention.prune_after_ship(OUTDIR, 'branch', VER.lstrip('v'), log=say)
+    say(f'retention: {len(pruned)} superseded register(s) pruned; the tree carries {OUTNAME} alone')
