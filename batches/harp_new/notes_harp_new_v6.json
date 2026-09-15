@@ -1,0 +1,8 @@
+{
+ "_readme": [
+  "Authored content for Batch harp_new (rule 18: content as data, never ad-hoc writes). One entry per matched invoice.",
+  "Each coding_note restates what the invoice face prints for that document, read by the same reader that fills the",
+  "register green block (pbr_capture.header_fields), and states whether the printed PK equals the PK charged.",
+  "No amount is inferred: every figure is the printed one and the corpus gates GREEN with every document at TIE."
+ ]
+}

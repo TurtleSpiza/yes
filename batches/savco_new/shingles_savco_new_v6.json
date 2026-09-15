@@ -1,0 +1,212 @@
+{
+ "corpus": {
+  "scope": "corpus",
+  "documents_checked": 25,
+  "shingles_tested": 552,
+  "failures": [],
+  "results": [
+   {
+    "doc_ref": "SV007817",
+    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
+    "shingles_tested": 10,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "SV007827",
+    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
+    "shingles_tested": 10,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "SV007830",
+    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
+    "shingles_tested": 10,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "SV007833",
+    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
+    "shingles_tested": 10,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "SV007874",
+    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
+    "shingles_tested": 23,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "SV007878",
+    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
+    "shingles_tested": 17,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "SV007920",
+    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
+    "shingles_tested": 17,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "SV007947",
+    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
+    "shingles_tested": 51,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "SV007961",
+    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
+    "shingles_tested": 25,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "SV007963",
+    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
+    "shingles_tested": 24,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "SV007965",
+    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
+    "shingles_tested": 24,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "SV007967",
+    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
+    "shingles_tested": 10,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "SV008003",
+    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
+    "shingles_tested": 27,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "SV008006",
+    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
+    "shingles_tested": 24,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "SV008007",
+    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
+    "shingles_tested": 34,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "SV008034",
+    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
+    "shingles_tested": 9,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "SV008036",
+    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
+    "shingles_tested": 34,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "SV008045",
+    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
+    "shingles_tested": 15,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "SV008050",
+    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
+    "shingles_tested": 24,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "SV008058",
+    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
+    "shingles_tested": 26,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "SV008068",
+    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
+    "shingles_tested": 24,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "SV008078",
+    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
+    "shingles_tested": 34,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "SV008081",
+    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
+    "shingles_tested": 17,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "SV008096",
+    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
+    "shingles_tested": 36,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "SV008097",
+    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
+    "shingles_tested": 17,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   }
+  ],
+  "VERDICT": "PASS"
+ },
+ "VERDICT": "PASS"
+}

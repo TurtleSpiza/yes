@@ -70,6 +70,15 @@ def main():
     sighted = {txt(r[0]) for r in sheet(REG, 'Evidence_Invoices')[4:] if txt(r[0])}
     sighted_stem = {s.split('/')[0] for s in sighted}
 
+    def already_sighted(inv):
+        """Rule 12, PREFIX AWARE. An EvID carries the batch's own prefix in front of the printed reference, so the
+        bare reference alone is not the screen: invoice 00015202A is already held here as INV-00015202A, inherited
+        from the PS & WP register, and a bare comparison re-captures it onto a line that already has a green block.
+        A prefix is short by construction (the PS/WP driver uses the same five-character bound)."""
+        if inv in sighted_stem:
+            return True
+        return any(e.endswith(inv) and 0 < len(e) - len(inv) <= 5 for e in sighted_stem)
+
     out, held = [], []
     dups, outside = [], []
     for d in corpus['documents']:
@@ -77,7 +86,7 @@ def main():
         if d.get('duplicate_of'):
             dups.append(inv)  # repeated copy of a document already in the corpus (prompt v6 11.4): never matched twice
             continue
-        if inv in sighted_stem:
+        if already_sighted(inv):
             held.append(inv)
             continue
         rows = by_ref.get(inv, [])

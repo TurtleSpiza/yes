@@ -1,0 +1,42 @@
+{
+ "_readme": [
+  "PS & WP v128 capture brief (rule 20). Authored by pswp_v128_brief.py from the gated corpora, the v127",
+  "register row each document sits on, and the batches' own authored notes. No coding judgement is formed here:",
+  "the Nature Category is the one the register row already carries, because a capture build proves what a",
+  "document says and does not re-categorise the register."
+ ],
+ "batch_id": "pswp_v129",
+ "batch_label": "Branch batches ported to PS & WP at v129",
+ "version_to": "v129",
+ "workbook_in": "../../registers/PS_WP_Transaction_Register_3FY_v128.xlsx",
+ "workbook_out": "PS_WP_Transaction_Register_3FY_v129.xlsx",
+ "output_dir": "/home/user/yes/registers",
+ "match_table": "match_v129.json",
+ "corpora": [],
+ "documents": {},
+ "held": [],
+ "held_reasons": {},
+ "vendor_boilerplate": [],
+ "capture_stamp": "15-Sep-2026",
+ "handover": "v128 change (15-Sep-2026): the branch capture programme ported back. 0 tax invoices sighted at branch v2 to v13 sit on lines of THIS register, and every one is now captured here at line-item granularity with all three rule 17 checks live: 0 evidence lines over 0 corpora, all gated GREEN. The two registers now state the same printed fields for the same documents, because both read them with the same reader. The control total does not move: this is a capture build (rule 10). 0 documents in those corpora are NOT captured here and each is held with its reason in the brief: 216 carry no line on this register, 301 are already sighted here, 21 resolve to more than one row and need a declared SUM-TIE or split variant, 8 differ in amount (two are zero-amount companion rows, which are never green-blocked) and one is a DIR rather than a PUR line.",
+ "method": "Capture from the branch corpora (v128). The Nature Category on a captured row is THE ONE THE ROW ALREADY CARRIES. A capture build proves what a document says; it does not re-categorise the register, and all 0 target rows already carry a category on Theme_Map A5:A31. Where a branch batch read an invoice into a branch-extension heading this register has no row for (Signage & park furniture, Horticultural & landscape supplies), the row keeps its own category and the branch reading is written into the coding note, where it states a fact rather than keying a COUNTIF. The printed green-block fields are read by pbr_capture.header_fields, the same reader the branch register uses, so the two registers cannot disagree about what a document prints and the branch provenance gate covers both. Boilerplate for a vendor this register has not carried before is appended to Vendor_Boilerplate and cited by key (rule 17 Amendment 2); a vendor that prints no terms block cites no key and the column reads (not printed).",
+ "data_acquisition": "v128: 0 gated corpora built from, all GREEN, listed in the brief. No new source file is acquired: every corpus was received and md5-screened at the branch register build that first used it, and this build re-gates each one rather than trusting that record.",
+ "open_items": [
+  {
+   "fy": "All",
+   "status": "Open",
+   "series": "Documents held at v128",
+   "lines": 0,
+   "amount": null,
+   "action": "0 documents in the v128 corpora are not captured: 21 resolve to more than one register row and need a declared SUM-TIE or split variant, 8 differ in amount from their row (two are zero-amount companion rows), one is a DIR rather than a PUR line, and the rest carry no line here or are already sighted. Each is listed with its reason in brief_v128.json; settle the variants and capture them at v129."
+  },
+  {
+   "fy": "All",
+   "status": "Open",
+   "series": "Vendor_Boilerplate header",
+   "lines": 1,
+   "amount": null,
+   "action": "Vendor_Boilerplate labels column 3 \"Vendor (printed, first sighting)\" and column 4 \"First-sighting invoice (Ev ID)\", but all stored rows carry the invoice id in column 3 and the vendor in column 4. The v128 append follows the data, not the header. Relabel the two headers (no data moves)."
+  }
+ ]
+}

@@ -14,9 +14,9 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import pbr_stage
 
-VER = 'v13'
+VER = 'v14'
 OUTNAME = f'Parks_Branch_Transaction_Register_FY2627_{VER}.xlsx'
-SUPPLIED_GREEN = ('pla073_1', 'ksadasd', 'playforce_new')  # supplied corpora that arrived GREEN under prompt v6 runtime A; prep does housekeeping only
+SUPPLIED_GREEN = ('pla073_1', 'ksadasd', 'playforce_new', 'harp_new', 'vinton_new')  # supplied corpora that arrived GREEN under prompt v6 runtime A; prep does housekeeping only
 CLTOK = re.compile(r'\{CL:(\d+):(\d+)\}')
 SCRATCH = os.path.join(pbr_stage.ROOT, 'cache', 'scratch')
 OUTDIR = os.environ.get('PBR_OUTDIR', os.path.join(pbr_stage.ROOT, 'registers'))
