@@ -17,7 +17,7 @@ Both registers follow the same column map (PS/WP schema, 146 columns; the branch
 - `batches/` per batch: the Copilot v5 corpus and report as received, the raw-text v6 corpus (page text retained, gate GREEN), the match table, capture report or hold record.
 - `docs/` project instructions, PS/WP schema and history, the invoice extraction prompt (v6 is current; v5 is retained because two held batches were extracted under it), branch schema.
 - `data/inputs_2026-09-11/` the 27SLACT ledger export (periods 1 to 3) and four SE2 exports the branch register was first built from; `data/inputs_2026-09-15/` the period 3 refresh and the two SE2 views re-pulled with it; `creditor_histories/` the twenty-six APLEDGER creditor history exports (v4 to v10); `journal_pulls/` the TechOne Document Line Table exports embedded on Journal_Sources; `reconstructions/` the TechOne Document Reconstruction exports embedded on Reconstruction_Sources.
-- `reports/` derived reports regenerated from the shipped register: `Unidentified_Contractors_v12.md/.xlsx`, the identification queue with one invoice to sight per supplier series; `Journal_Pull_v12.md/.xlsx`, the rule 21 journal pull list, one row per TechOne document file.
+- `reports/` derived reports regenerated from the shipped registers: `Unidentified_Contractors_v12.md/.xlsx`, the identification queue with one invoice to sight per supplier series; `Journal_Pull_v12.md/.xlsx`, the rule 21 journal pull list, one row per TechOne document file; `Contractor_Pull_v12.md/.xlsx`, the same queue cut by contractor across BOTH registers, with the identification gap and the evidence gap separated and one action per supplier.
 - `cache/` scratch (calamine pickles, recalc output). Not committed.
 
 ## Session setup
