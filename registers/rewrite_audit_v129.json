@@ -1,0 +1,156 @@
+[
+ {
+  "sheet": "Evidence_Invoices",
+  "from": "I4059",
+  "to": "I4083",
+  "was": "=SUM(I5:I4057)",
+  "now": "=SUM(I5:I4081)"
+ },
+ {
+  "sheet": "Evidence_Invoices",
+  "from": "J4059",
+  "to": "J4083",
+  "was": "=SUM(J5:J4057)",
+  "now": "=SUM(J5:J4081)"
+ },
+ {
+  "sheet": "Evidence_Invoices",
+  "from": "K4059",
+  "to": "K4083",
+  "was": "=SUM(K5:K4057)",
+  "now": "=SUM(K5:K4081)"
+ },
+ {
+  "sheet": "Evidence_Invoices",
+  "from": "L4059",
+  "to": "L4083",
+  "was": "=SUM(L5:L4057)",
+  "now": "=SUM(L5:L4081)"
+ },
+ {
+  "sheet": "Evidence_Invoices",
+  "from": "C4070",
+  "to": "C4094",
+  "was": "=COUNTIF(Register!$AA$5:$AA$31364,\"Sighted invoice line\")",
+  "now": "=COUNTIF(Register!$AA$5:$AA$31364,\"Sighted invoice line\")"
+ },
+ {
+  "sheet": "Evidence_Invoices",
+  "from": "C4071",
+  "to": "C4095",
+  "was": "=COUNTIFS(Register!$AA$5:$AA$31364,\"Sighted invoice line\",Reg_EvID,\"<>\")",
+  "now": "=COUNTIFS(Register!$AA$5:$AA$31364,\"Sighted invoice line\",Reg_EvID,\"<>\")"
+ },
+ {
+  "sheet": "Evidence_Invoices",
+  "from": "C4072",
+  "to": "C4096",
+  "was": "=IF(AND(C4070=3922,C4070=C4071),\"TRUE\",\"FALSE\")",
+  "now": "=IF(AND(C4094=3946,C4094=C4095),\"TRUE\",\"FALSE\")"
+ },
+ {
+  "sheet": "Evidence_Invoices",
+  "from": "C4073",
+  "to": "C4097",
+  "was": "=IF(SUMPRODUCT(--(Register!$DR$5:$DR$31364=\"TRUE\"))=C4070,\"TRUE\",\"FALSE\")",
+  "now": "=IF(SUMPRODUCT(--(Register!$DR$5:$DR$31364=\"TRUE\"))=C4094,\"TRUE\",\"FALSE\")"
+ },
+ {
+  "sheet": "Evidence_Invoices",
+  "from": "C4074",
+  "to": "C4098",
+  "was": "=IF(SUMPRODUCT(--(Register!$DS$5:$DS$31364=\"TRUE\"))=C4070,\"TRUE\",\"FALSE\")",
+  "now": "=IF(SUMPRODUCT(--(Register!$DS$5:$DS$31364=\"TRUE\"))=C4094,\"TRUE\",\"FALSE\")"
+ },
+ {
+  "sheet": "Evidence_Invoices",
+  "from": "C4075",
+  "to": "C4099",
+  "was": "=IF(SUMPRODUCT(--(Register!$DT$5:$DT$31364=\"TRUE\"))=C4070,\"TRUE\",\"FALSE\")",
+  "now": "=IF(SUMPRODUCT(--(Register!$DT$5:$DT$31364=\"TRUE\"))=C4094,\"TRUE\",\"FALSE\")"
+ },
+ {
+  "sheet": "Evidence_Invoices",
+  "from": "C4076",
+  "to": "C4100",
+  "was": "=IF(ROUND(Register!$T$31366,2)=16905152.37,\"TRUE\",\"FALSE\")",
+  "now": "=IF(ROUND(Register!$T$31366,2)=16905152.37,\"TRUE\",\"FALSE\")"
+ },
+ {
+  "sheet": "Evidence_Invoices",
+  "from": "C4077",
+  "to": "C4101",
+  "was": "=IF(ROUND(J4059,2)=ROUND(SUM(Evidence_Invoice_Lines!$G$5:$G$9858)-46420.92,2),\"TRUE\",\"FALSE\")",
+  "now": "=IF(ROUND(J4083,2)=ROUND(SUM(Evidence_Invoice_Lines!$G$5:$G$9981)-46420.92,2),\"TRUE\",\"FALSE\")"
+ },
+ {
+  "sheet": "Evidence_Invoices",
+  "from": "C4078",
+  "to": "C4102",
+  "was": "=IF(COUNTIF($N$5:$N$11,\"Complete on the register line*\")=7,\"TRUE\",\"FALSE\")",
+  "now": "=IF(COUNTIF($N$5:$N$11,\"Complete on the register line*\")=7,\"TRUE\",\"FALSE\")"
+ },
+ {
+  "sheet": "Evidence_Invoices",
+  "from": "C4079",
+  "to": "C4103",
+  "was": "=IF(SUMPRODUCT(--(EIL_Controls!$E$5:$E$4057=\"TRUE\"))=4053,\"TRUE\",\"FALSE\")",
+  "now": "=IF(SUMPRODUCT(--(EIL_Controls!$E$5:$E$4081=\"TRUE\"))=4077,\"TRUE\",\"FALSE\")"
+ },
+ {
+  "sheet": "Evidence_Invoices",
+  "from": "C4080",
+  "to": "C4104",
+  "was": "=IF(COUNTIF(Register!$DW$5:$DW$31364,\"*[check variant]*\")>=933,\"TRUE\",\"FALSE\")",
+  "now": "=IF(COUNTIF(Register!$DW$5:$DW$31364,\"*[check variant]*\")>=933,\"TRUE\",\"FALSE\")"
+ },
+ {
+  "sheet": "Evidence_Invoices",
+  "from": "C4081",
+  "to": "C4105",
+  "was": "=IF(ROUND(Coverage!$C$165,2)=ROUND(Register!$T$31366,2),\"TRUE\",\"FALSE\")",
+  "now": "=IF(ROUND(Coverage!$C$165,2)=ROUND(Register!$T$31366,2),\"TRUE\",\"FALSE\")"
+ },
+ {
+  "sheet": "Evidence_Invoices",
+  "from": "C4082",
+  "to": "C4106",
+  "was": "=IF(SUMPRODUCT((LEFT(Register!$DN$5:$DN$31364,3)=\"BP:\")*(COUNTIF(Vendor_Boilerplate!$A$5:$A$300,Register!$DN$5:$DN$31364)=0))+SUMPRODUCT((LEFT(Register!$DO$5:$DO$31364,3)=\"BP:\")*(COUNTIF(Vendor_Boilerplate!$A$5:$A$300,Register!$DO$5:$DO$31364)=0))=0,\"TRUE\",\"FALSE\")",
+  "now": "=IF(SUMPRODUCT((LEFT(Register!$DN$5:$DN$31364,3)=\"BP:\")*(COUNTIF(Vendor_Boilerplate!$A$5:$A$300,Register!$DN$5:$DN$31364)=0))+SUMPRODUCT((LEFT(Register!$DO$5:$DO$31364,3)=\"BP:\")*(COUNTIF(Vendor_Boilerplate!$A$5:$A$300,Register!$DO$5:$DO$31364)=0))=0,\"TRUE\",\"FALSE\")"
+ },
+ {
+  "sheet": "Evidence_Invoices",
+  "from": "C4083",
+  "to": "C4107",
+  "was": "=IF(COUNTIF($AF$5:$AF$4058,\"STAGED - out of loaded register scope*\")=658,\"TRUE\",\"FALSE\")",
+  "now": "=IF(COUNTIF($AF$5:$AF$4082,\"STAGED - out of loaded register scope*\")=658,\"TRUE\",\"FALSE\")"
+ },
+ {
+  "sheet": "EIL_Controls",
+  "from": "B4059",
+  "to": "B4083",
+  "was": "=COUNTIF(E5:E4057,\"TRUE\")",
+  "now": "=COUNTIF(E5:E4081,\"TRUE\")"
+ },
+ {
+  "sheet": "EIL_Controls",
+  "from": "C4059",
+  "to": "C4083",
+  "was": "=COUNTA(A5:A4057)",
+  "now": "=COUNTA(A5:A4081)"
+ },
+ {
+  "sheet": "EIL_Controls",
+  "from": "D4059",
+  "to": "D4083",
+  "was": "=IF(B4059=C4059,\"TRUE\",\"FALSE\")",
+  "now": "=IF(B4083=C4083,\"TRUE\",\"FALSE\")"
+ },
+ {
+  "sheet": "EIL_Controls",
+  "from": "E4059",
+  "to": "E4083",
+  "was": "=IF(B4059=C4059,\"TRUE\",\"FALSE\")",
+  "now": "=IF(B4083=C4083,\"TRUE\",\"FALSE\")"
+ }
+]

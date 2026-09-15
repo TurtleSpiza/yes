@@ -2,7 +2,7 @@
 stage (pbr_stage.main) -> write (openpyxl write-only) -> convert-route recalc -> calamine verify -> ship.
 A partial run is discarded: the workbook is written to a scratch name and promoted only on a clean verify.
 """
-import collections, datetime as dt, gc, json, os, pickle, re, shutil, subprocess, sys, tempfile, time
+import itertools, collections, datetime as dt, gc, json, os, pickle, re, shutil, subprocess, sys, tempfile, time
 from decimal import Decimal
 from openpyxl import Workbook
 from openpyxl.cell import WriteOnlyCell
@@ -14,13 +14,13 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import pbr_stage
 
-VER = 'v11'
+VER = 'v15'
 OUTNAME = f'Parks_Branch_Transaction_Register_FY2627_{VER}.xlsx'
-SUPPLIED_GREEN = ('pla073_1', 'ksadasd')  # supplied corpora that arrived GREEN under prompt v6 runtime A; prep does housekeeping only
+SUPPLIED_GREEN = ('pla073_1', 'ksadasd', 'playforce_new', 'harp_new', 'vinton_new')  # supplied corpora that arrived GREEN under prompt v6 runtime A; prep does housekeeping only
 CLTOK = re.compile(r'\{CL:(\d+):(\d+)\}')
 SCRATCH = os.path.join(pbr_stage.ROOT, 'cache', 'scratch')
 OUTDIR = os.environ.get('PBR_OUTDIR', os.path.join(pbr_stage.ROOT, 'registers'))
-BUILD_DATE = '14-Sep-2026'
+BUILD_DATE = pbr_stage.stamp()   # Brisbane date, the timezone every TechOne export is stamped in
 MONEY = '$#,##0.00;($#,##0.00);"-"'
 DATEF = 'd-mmm-yyyy'
 T0 = time.time()
@@ -113,7 +113,9 @@ def build(stage):
     T9 = [b for a, b in theme_v2 if b.startswith('T9')][0]
     INH, NEW = 'Inherited from PS_WP register v127', 'New at branch v1 (not in the PS_WP register)'
     total = sum(D(r['V'][20]) for r in rows)
-    assert total == D('4910566.68')
+    CONTROL, BASE = pbr_stage.CONTROL_TOTAL, pbr_stage.BASE_TOTAL
+    BASE_N, BASE_PULL = stage['base_vintage_n'], stage['base_vintage_label']
+    assert total == CONTROL, (total, CONTROL)
 
     # ---------------------------------------------------------------- consistency gates on the analysis keys
     for r in rows:
@@ -341,7 +343,7 @@ def build(stage):
     for nm, c in dict(Reg_LineKey=1, Reg_Section=2, Reg_Contractor=12, Reg_NA=14, Reg_PKHeader=16, Reg_PK=17, Reg_Service=19,
                       Reg_Amount=20, Reg_Cat=24, Reg_Theme=26, Reg_Basis=27, Reg_Tier=29, Reg_Verdict=31, Reg_Status=33,
                       Reg_EvID=88, Reg_V3Group=131, Reg_V3Cat=132, Reg_LineKind=134, Reg_Charge=136, Reg_JRef=137,
-                      Reg_Route=146, Reg_Prov=148).items():
+                      Reg_Route=146, Reg_Prov=148, Reg_Pull=149).items():
         dn(nm, reg(c))
     dn('ThemeMap_Cat', f'Theme_Map!$A$5:$A${TM_LAST}'); dn('ThemeMap_Group', f'Theme_Map!$B$5:$B${TM_LAST}')
     dn('ThemeMapV3_Cat', f'Theme_Map_v3!$A$5:$A${T3_LAST}'); dn('ThemeMapV3_Group', f'Theme_Map_v3!$B$5:$B${T3_LAST}')
@@ -389,9 +391,10 @@ def build(stage):
     ho.row(['Self-contained workbook. Every source export is embedded verbatim; the PS & WP register v127 FY2026/27 analysis is inherited line by line; every figure below is live or restated from the embedded sources.'], 'sub')
     ho.blank()
     ho.row(['Position at handover', ''], 'blue')
-    pos = [('Scope', 'Branch 4090000, LCC OP/AP codes O110 to O115, expense type 1, ledger 27SLACT, periods 1 to 3 posted (as pulled 11-Sep-2026 10:11).'),
+    pos = [('Scope', 'Branch 4090000, LCC OP/AP codes O110 to O115, expense type 1, ledger 27SLACT, periods 1 to 3 posted. '
+                     'Periods 1 and 2 as pulled 11-Sep-2026 10:11; period 3 as re-pulled 15-Sep-2026 09:08, because P3 was still open at the first pull (Method 2.0).'),
            ('Register lines', '=COUNT(Reg_Amount)'), ('Register total ex GST (live)', f'=Register!T{TOT}'),
-           ('Control total (ledger export and all four SE2 reports)', 4910566.68), ('Master control verdict', '=Controls!B4'),
+           ('Control total (both ledger exports, SE2 by Branch and SE2 by Section)', float(CONTROL)), ('Master control verdict', '=Controls!B4'),
            ('Lines inherited from PS_WP v127', f'=COUNTIF(Reg_Prov,"{INH}*")'), ('Lines new at branch v1', f'=COUNTIF(Reg_Prov,"{NEW}")'),
            ('$ Confirmed (live)', '=SUMIFS(Reg_Amount,Reg_Status,"Confirmed")'), ('$ Partial (live)', '=SUMIFS(Reg_Amount,Reg_Status,"Partial")'),
            ('$ Pending evidence (live)', '=SUMIFS(Reg_Amount,Reg_Status,"Pending evidence")'),
@@ -403,10 +406,13 @@ def build(stage):
     ho.blank()
     ho.row(['Source file', 'Where it lives in this workbook'], 'blue')
     ho.row([os.path.basename(pbr_stage.LEDGER), f'Register grey block (cols BB:CI, CX, EQ), all 35 export columns verbatim; md5 {stage["led_md5"]}; Data_Acquisition F1.'])
+    for f_ in stage['led_files']:
+        ho.row([f_['file'], f'Register grey source block verbatim, {f_["rows"]:,} rows, {f_["scope"]} (27SLACT pulled {f_["pulled"]}, total ${f_["total"]:,.2f}); md5 {f_["md5"]}; Data_Acquisition.'])
     for k, s in se2.items():
-        ho.row([os.path.basename(s['path']), f'SE2_Budget sheet verbatim (SE2 by {k}); md5 {s["md5"]}; Coverage and Section_Summary tie to it.'])
+        ho.row([os.path.basename(s['path']), f'SE2_Budget sheet verbatim (SE2 by {k}, pulled {stage["se2_pulled"][k]}, total ${D(s["total"][6]):,.2f}); md5 {s["md5"]}; '
+                + ('Section_Summary and the control total tie to it.' if k in ('Branch', 'Section') else 'Coverage ties its panel to it on the 11-Sep-2026 vintage subset.')])
     ho.row([os.path.basename(pbr_stage.V127), f'Inheritance source only (not embedded): FY2026/27 analysis, green blocks, evidence lines and matched creditor lines; md5 {stage["v127_md5"]}; Inheritance_Log.'])
-    for k_, hh in enumerate(HISTS, 7):
+    for k_, hh in enumerate(HISTS, len(stage['led_files']) + len(se2) + 2):
         ho.row([os.path.basename(hh['path']), f'Creditor_Lines (APLEDGER {hh["code"]} {hh["label"]}, {hh["n"]:,} lines {hh["first"].strftime("%d-%b-%Y")} to {hh["last"].strftime("%d-%b-%Y")}, verbatim); md5 {hh["md5"]}; Data_Acquisition F{k_}.'])
     for m_ in stage.get('attach_files', []):
         ho.row([m_['file'], f'Evidence_Invoices / Evidence_Invoice_Lines / Register green block (Batch {m_.get("batch", "attach_1")}, corpus_{m_.get("batch", "attach_1")}_v6.json with page text retained); md5 {m_["md5"]}; the PDF itself is not embedded (rule 15).'])
@@ -440,19 +446,56 @@ def build(stage):
              '2. Pair the FY2025/26 EOY AP accrual reversals posted in P1 against 26SLACT P12 for the non-PS/WP sections before reading any section net (rule 5).',
              '3. Re-adjudicate the inherited PS/WP journal sets that now net to zero once the other branch legs are in scope (Open_Items).',
              '4. Confirm the service-to-section mapping for service 20821 (61 lines on Section NA, no WO Task).',
-             '5. Load P4 when it closes; this register refreshes as a whole-branch pull, never section by section.',
-             f'6. Port to PS_WP v128: the branch v3/v4 captures on inherited lines and the {len(ident_rows)} inherited Park Services lines identified at branch v4 to v10 from the APLEDGER histories (Register col ER).']
+             '5. Load P4 when it closes, and re-take P3 with it if P3 is still moving: this register refreshes as a whole-branch pull, period block by period block, never section by section.',
+             '6. Re-pull the SE2 views by natural account, WO Task and service so Coverage panels A to C tie to the current position rather than the 11-Sep-2026 vintage subset.',
+             f'7. Port to PS_WP v128: the branch v3/v4 captures on inherited lines and the {len(ident_rows)} inherited Park Services lines identified at branch v4 to v10 from the APLEDGER histories (Register col ER).']
     for s_ in steps:
         ho.row(['', s_])
     ho.blank()
     ho.row(['Change log', ''], 'blue')
+    PV = stage['prov']
     _hm = stage['hist_matches']
     _b7 = {b: json.load(open(os.path.join(pbr_stage.ROOT, 'batches', b, f'corpus_{b}_v6.json')))['manifest']
            for b in ('mix222', 'binder11111') if os.path.exists(os.path.join(pbr_stage.ROOT, 'batches', b, f'corpus_{b}_v6.json'))}
+    _nl = N - BASE_N
+    _pfn = _sup.get('playforce_new')
+    _pfr = [r for r in sighted if 'Batch playforce_new' in str(r['V'][126] or '')]
+    if _pfn:
+        _out = json.load(open(os.path.join(pbr_stage.ROOT, 'batches', 'playforce_new', 'outside_playforce_new_v6.json')))
+        ho.row([f'{VER}, {BUILD_DATE}',
+                f'Batch playforce_new captured: a {_pfn["source_files"][0]["pages"]}-page Play Force binder, {_pfn["documents_found"]} documents, '
+                f'{fmt_money(_pfn["captured_ex_gst_total"])} ex GST, all at TIE and gate GREEN. The binder is the vendor\'s own file and is not cut to this '
+                f'register\'s year, so most of it does not belong here and is not forced onto a line: {len(_out)} documents '
+                f'({fmt_money(sum(o["subtotal"] for o in _out))} ex GST) carry no line on this register and every one of them is dated before 1-Jul-2026 '
+                f'(outside_playforce_new_v6.json); 22 more are already sighted here and are held by the rule 12 evidence screen rather than captured twice. '
+                f'That leaves {len(_pfr)} new green blocks on Park Services 73123 lines under contract LB304, every one a standard variant at an exact tie. '
+                f'Control total unchanged. Play Force prints two layouts in this binder and they are carried as two templates (Method 15.0): the current '
+                f'letterhead and PLAYFORCE_XERO, the legacy Xero block on the six FY2024/25 documents. Findings: INV-8906 prints "Account: undefined" and so '
+                f'states no PK, against PK000022 charged (follow-up on the line); INV-7327 does not foot by one cent on its own face, because its subtotal '
+                f'carries the unrounded quantity times unit price where the line column prints it truncated, and both figures are captured as printed.'])
+    ho.row([f'{VER}, {BUILD_DATE}',
+            f'Period 3 refreshed. P3 was still open at the 11-Sep-2026 pull, so 27SLACT was re-taken for period 3 alone on the identical criteria '
+            f'({stage["led_files"][1]["file"]}, {stage["led_files"][1]["rows"]:,} lines, ${stage["led_files"][1]["total"]:,.2f}). The refresh carries every one of the '
+            f'{L["superseded"]:,} period 3 lines the first pull had, verbatim across all 35 columns, and adds {_nl} more worth ${CONTROL - BASE:,.2f}. '
+            f'The register goes from 6,683 lines and ${BASE:,.2f} to {N:,} lines and ${CONTROL:,.2f}, tied to the SE2 by Branch and SE2 by Section views re-pulled with it. '
+            f'Natural account, WO Task and service were not re-pulled, so Coverage panels A to C tie to the {BASE_N:,} lines the 11-Sep pull carried and say so in their own headings; '
+            f'Register column ES names the export each line came in on. Section movement: Natural Areas +$82,488.39, Trees +$36,409.74, Park Services +$22,016.87, Cemeteries +$8,449.00, '
+            f'Park Maintenance +$3,803.74, no section (NA) +$2,682.80, Depots +$87.17, Management +$14.30; Water Parks and Planning unchanged. '
+            f'The refresh answers three open items. GJ080985 reverses Kachel invoice 7719 off PK000028 and re-posts the split its own face prints, and splits the September zone claim '
+            f'(reference 7717, $54,186.00) across the five zone PKs; GJ081002 recodes the last four Vinton fuel levy lines to PK000514 on 74189, settling that question; GJ081003 '
+            f'reverses and reallocates the two Glascott zone invoices. No sighted line is touched: no line in the refresh carries a reference already on Evidence_Invoices, so the '
+            f'416 green blocks over 409 invoices stand unchanged. A re-pull of the GXO001 creditor history was received and audited row by row against the copy embedded at v8 '
+            f'(identical; not re-captured, rule 12). Contractor identification does not keep pace with the new spend: unidentified rises to {len([r for r in rows if str(r["V"][12]) == UNID]):,} lines.'])
+    ho.row([f'{VER}, {BUILD_DATE}',
+            f'Green-block provenance gate added and now runs on every build (Method 16.0): each printed field written to the green block must be traceable to the retained page text of the '
+            f'document it cites, or the build stops. {PV["docs"]} documents, {PV["fields"]:,} printed fields, {PV["failures"]} not traceable. It closes the hole that let the Levai site and work '
+            f'description ship wrong from v2 to v10 with every other gate GREEN. On its first run it found five capture defects of that same class, all corrected here: AustCare address and phone '
+            f'written from a letterhead the invoices do not print (3 documents), Higgins debtor code hardcoded QR6891 where 186140216 prints QR6892, a Vinton declaration sitting in a printed '
+            f'column, a Kachel contract and site asserted where invoice 7715 prints neither, and a generic Pool Shop work description. No amount changed and the control total is unaffected.'])
     _k = _sup.get('ksadasd'); _p = _sup.get('pla073_1')
     _kr = [r for r in sighted if 'Batch ksadasd' in str(r['V'][126] or '')]
     if _k:
-        ho.row([f'{VER}, {BUILD_DATE}',
+        ho.row(['v11, 14-Sep-2026',
                 f'Batch ksadasd captured: {_k["documents_found"] - 1} invoices over {_k["source_files"][0]["pages"]} pages (54 T & H Levai, 14 Weis Contractors, one repeated copy of INV-39506 typed DUPLICATE_COPY and not captured twice), '
                 f'{fmt_money(_k["captured_ex_gst_total"])} ex GST, {len(_kr)} green blocks one to one on Park Services lines at 73123, every line already identified from the LEV002 history or the PS & WP label and now sighted (rule 17). '
                 f'Supplied corpus gate {_k["gate_as_supplied"]} as supplied, {_k["documents_tie"]} of {_k["documents_found"]} at TIE, no amount restated; two header restatements from the retained rows: the due date every face prints was omitted by the extraction and is restated from the printed row, and on all 14 Weis documents the extraction carried the printed due date in the invoice-date field, restated from the printed Invoice Date row (R4). Rule 19.2 shingle check and per-vendor fidelity check both PASS. '
@@ -511,7 +554,19 @@ def build(stage):
          'Transaction-level register of every FY2026/27 operating expense line in Parks Branch 4090000 at LCC OP/AP codes O110 to O115 (expense type 1): who was paid, what for, on what evidence, whether the coding reads correctly, which PK carries it, and which theme it belongs to. It extends the PS & WP register method (Park Services 4090240 and Water Parks 4090260) to all ten section values: Management, Depots, Natural Areas, Park Maintenance, Park Services, Trees, Water Parks, Cemeteries, Planning Design & Capital Delivery, and lines TechOne carries with Section NA.',
          'Single financial year, so there is no cross-year scope asymmetry (rule 11). Periods 1 to 3 are posted; P3 was still open at the pull (11-Sep-2026 10:11). The standing rules of the PS & WP programme apply unchanged (Project_Instructions sheet); the only departures are the declared extensions in 6.0 and 7.0.')
     sec_('2.0 Sources and control total',
-         'One Ledger Accounts Transactions Table export (27SLACT, criteria verbatim on Data_Acquisition F1), 6,683 lines, export total $4,910,566.68. Four SE2 exports on the identical criteria, by Section, Natural Account, WO Task and Service No, each totalling $4,910,566.68 accumulated actual P1-3. The register total ties to all five to the cent (Controls group 1 and 2). The control total must never change on an identification, enrichment or capture build (rule 10).')
+         f'Two Ledger Accounts Transactions Table exports (27SLACT), one per period block, criteria verbatim on Data_Acquisition F1 and F2. The 11-Sep-2026 pull covers periods 1 to 3 '
+         f'(6,683 lines, ${BASE:,.2f}); period 3 was still open when it was taken, so the 15-Sep-2026 pull re-takes period 3 alone on the identical criteria '
+         f'({stage["led_files"][1]["rows"]:,} lines, ${stage["led_files"][1]["total"]:,.2f}) and supersedes the period 3 block of the first. The register is the first export\'s periods 1 and 2 '
+         f'plus the whole of the second: {N:,} lines, ${CONTROL:,.2f}.',
+         f'The substitution is gated before it is made. Every one of the {L["superseded"]:,} superseded period 3 rows (${L["superseded_value"]:,.2f}) must be present in the refresh verbatim across all 35 '
+         f'columns, or the build stops: a row the refresh dropped or restated would otherwise change a shipped line silently. None was: the refresh is purely additive, {N - BASE_N} lines and '
+         f'${CONTROL - BASE:,.2f}. Register column ES (Source pull) names the export each line came in on, so the two vintages are separable on the face of the register.',
+         f'Five SE2 exports on the identical criteria. Branch and Section were re-pulled with the period 3 refresh and carry ${CONTROL:,.2f} accumulated actual P1-3; the register total ties to both '
+         f'to the cent (Controls group 1 and 2). Natural account, WO Task and service were not re-pulled and carry ${BASE:,.2f}, the position before the refresh, so Coverage panels A to C count only the '
+         f'{BASE_N:,} lines the 11-Sep pull carried and tie to that figure. Each panel states its SE2 pull date and the population it covers (rule 11: an asymmetry is declared, not papered over). '
+         f'Re-pulling those three views is the first item on the Data_Acquisition gaps queue.',
+         'The control total must never change on an identification, enrichment or capture build (rule 10). It changes here because the source itself was re-pulled, which is a new acquisition and not an '
+         'enrichment: a period that was open when it was first taken is re-taken whole, never patched line by line, and the superseded block is proved carried forward before it is dropped.')
     sec_('3.0 Workbook structure',
          'Handover | Method | Theme_Map (v2 axis, extended) | Register | Section_Summary | Summary (status, basis, verdict, tier by section) | Themes (v2 by section) | Themes_v3 (group and category by section) | Axes (Line Kind, Line Kind rule, Charge Source, Procurement route by section) | Coverage (A natural account, B WO Task, C service, each tied to its SE2 view with budget) | PK_Listing | Vendor_Series | Journal_Sets | Journal_Pull | Journal_Sources | Reconstruction_Sources | Open_Items | Inheritance_Log | Creditor_Lines | SE2_Budget | Evidence_Invoices | Evidence_Invoice_Lines | EIL_Controls | Vendor_Boilerplate | Data_Acquisition | Config | Project_Instructions | Theme_Map_v3 | Controls.',
          'Not carried from the PS & WP register: site gazetteer, asset, inspection, CRM and pull-queue sheets (Sites through Theme_Review). They are Park Services instruments; the site columns DY:DZ are carried on inherited lines and set to a closed-list site basis on new lines.')
@@ -568,11 +623,58 @@ def build(stage):
          'Match rule (pbr_histories_v4.json, held as data): the AP register line reference equals the history Reference; the history Transaction Amount (incl GST) is within 2c of the document net ex GST x 1.1 summed over every register line on the Document Unique ID; the history Date is within 120 days of the register Doc Date; exactly one creditor code satisfies all three (numeric references collide across creditors, e.g. Harpley and Eco Technology Solutions both issue reference 11913). Tier 1 where the history line carries an 11-digit ABN. The register line takes the creditor code (col K), the label from the manifest (col L, canonical per printed ABN), the ABN grouped (col M), the enquiry block (cols W, AS:BA) and an Evidence sentence citing the Creditor_Lines row. Status stays Partial and verdict Confirm: an AP line is never Confirmed without rule 17.',
          f'Inherited Park Services lines carried from PS_WP v127 as Unidentified, series-inferred or vendor-inferred are identified the same way ({len(ident_rows)} lines; a sighted invoice on the same line supersedes the identification); their provenance (col ER) reads "contractor identified at branch v4" (or v5, v6) and the v127 evidence sentence is kept inside the new one. Sighted (Tier 1, rule 17) lines are never re-identified. Label conflicts, where the v127 label named a different vendor: {len(stage["hist_conflicts"])} (Open_Items). Correction carried in the match table: at v3 register line f386b8d0-73212-PK000415-01 (reference 00015225, $240.00) was tagged a cents companion of Q Power 15225; it is on a different TechOne document and HAR073 shows it is Harpley invoice 00015225, so the tag is withdrawn (match_mixed_new_26_27_v6.json evid_note).',
          'Batch attach_1 (v4): five single-invoice TechOne attachment PDFs (EzeScan exports, file name = attachment id) parsed by parse_attach1.py (pdftotext -layout, page text retained, five templates ETSOL, GLASCOTT_LM, PROVAC, SAVCO, HERITAGE), gated GREEN (P9 page-coverage test now runs per source file when a corpus carries several), 254 five-word shingles clean, match table match_attach_1_v6.json (five standard variants, one register line each, coding verdict and note per invoice as data). Printed PK versus PK charged is recorded on three invoices (Eco Technology Solutions 11913, Provac INV-00042754, Savco SV007924); PK Charged stays the ledger Work Order (rule 1).')
-    sec_('15.0 Supplied-corpus batches under extraction prompt v6 (v10 pla073_1, v11 ksadasd)',
+    sec_('15.0 Supplied-corpus batches under extraction prompt v6 (v10 pla073_1, v11 ksadasd, v13 playforce_new)',
          'A corpus supplied by the extraction tool (binder not supplied) enters through prep_supplied_corpus.py: the md5 of the file as supplied is stamped and screened (rule 12), the vendor template is assigned, page text is rebuilt from the retained rows, dates are made ISO, findings are restated as text, and the rule 19.2 gates run: pswp_json_repair (P1 to P13) on the corpus\'s own arithmetic, the five-word shingle check on every priced row against its own retained page text, and the per-vendor verbatim fidelity check against page text this project parsed independently from a real PDF of the same vendor. A corpus failing any gate is held (rule 19.2); these two arrived GREEN and were built.',
          'Header restatements a supplied corpus may need are families of prep_supplied_corpus.py, each decided from the retained rows and logged per document in the corpus manifest: R1 amount-bearing rows typed NARRATIVE, R2 a printed total carrying the GST amount, R3 a line_type outside the closed list, R4 an invoice date that is not the printed Invoice Date (ksadasd: all 14 Weis documents carried the printed due date there). Nothing is inferred; a document whose restated lines do not equal its printed subtotal is refused.',
          'A repeated copy of an invoice inside the binder is a separate document record carrying duplicate_of (prompt v6 11.4): every row typed DUPLICATE_COPY, no arithmetic, never matched or captured twice (ksadasd INV-39506, page 58). The gate, the rule 16 reconciliation and the match table honour that field from v11.',
+         'A supplier that prints more than one layout carries ONE TEMPLATE PER LAYOUT, assigned per document from the printed item-table header and held as data '
+         'in the batch config. Play Force prints two in the playforce_new binder: the current letterhead, and PLAYFORCE_XERO, the legacy Xero block on the six '
+         'FY2024/25 documents, which prints no letterhead, no terms pages and the item table in the Xero "Description / Quantity / Unit Price / GST / Amount AUD" '
+         'shape. They are separated because the fidelity check works on the rows CONSTANT across a vendor\'s documents: mixing two layouts makes one layout\'s '
+         'letterhead and terms look like per-invoice text and the check stops proving anything.',
+         'The reference-intersection limb of the fidelity check runs against documents of the REFERENCE\'S OWN VINTAGE only. That limb asks the opposite question '
+         'to the main one: not whether a row this batch carries is real, but whether a document still carries the rows the independent reference has. A vendor '
+         'rewrites its terms and changes its remittance block over time, so the question is only answerable against a document of the same vintage. Play Force '
+         'added a safety-inspection scope clause and dropped the "Account Name" row between 2025 and the Aug-2026 reference; requiring those rows on a 2025 '
+         'invoice would fail the document for printing what it actually printed. Documents older than the earliest reference are counted and declared in the '
+         'fidelity report (rule 11), and still go through the main limb, which is the one that catches a fabricated or silently altered row.',
+         'A binder is not cut to this register\'s year. Every document whose reference carries no line here is recorded with its printed invoice date and held, '
+         'never dropped silently and never forced onto a line; the batch record states how many are dated inside FY2026/27, because a document inside the year '
+         'with no register line is a different question (an invoice the ledger never received) from one outside it. On playforce_new all 76 are outside.',
+         'A page that does not foot on its own face is captured as printed and declared, never restated. INV-7327 prints 7.50 x 105.41 as 790.57 in the line '
+         'column and carries the unrounded 790.575 into its subtotal, so the printed lines come to $3,543.37 against a printed Total (Ex. GST) of $3,543.38. '
+         'The allowance is narrow and provable from the page\'s own figures: the difference must be at most one cent AND the unrounded quantity times unit '
+         'price summed over the priced rows must equal the printed subtotal exactly. Anything else still stops the build.',
          'Nature category is data per invoice where a vendor prints several kinds of work under one contract (match-table keys nature_category and theme_v3, authored in notes_<batch>_v6.json from the printed job row and item rows): the build proves the v2 value on Theme_Map and the driver proves the v3 value on the Theme_Map_v3 list. Levai and Weis are categorised this way from v11; the vendor-level default stays for single-scope vendors.')
+    sec_('16.0 Green-block provenance gate (new at v12)',
+         f'Every printed field written to the green block is tested against the retained page text of the document it cites, on every build, before anything is written. '
+         f'{PV["docs"]} documents and {PV["fields"]:,} printed fields at v12, {PV["failures"]} not traceable. The gate closes a hole the other gates leave open: pswp_json_repair proves the '
+         f'arithmetic (captured lines equal the printed subtotal to the cent) and pswp_shingle_check proves the wording of the priced rows, but neither looks at the printed header fields, '
+         f'and those are most of the green block: vendor address, phone, purchase order, contract, bill-to, requesting officer, CR/WO number, site details, work description and the printed PK. '
+         f'Nothing compared them to the document. The cost of that was nine versions of a wrong answer: the Levai reader read the site and work description by fixed string, so every Levai '
+         f'invoice from v2 to v10 carried "Spring Mountain Reserve (Ref: 35715) - Bush Track Repair & Drainage Works" whatever the invoice said, and five captures shipped wrong with every '
+         f'gate GREEN throughout.',
+         'Tracing runs as a ladder and the rung each field passes on is counted, because the rungs are not equally strong and reporting one number would hide the weak ones. verbatim: the whole '
+         'value appears in the page text, whitespace normalised. component: every part does, splitting on the separators the driver composes with. label: every part does once a fragment is '
+         'split from its own label, which is the two-column case, where an invoice printing "Bill To:" and "Ship To:" side by side prints neither label beside its own value. gloss: every part '
+         'does once a trailing parenthetical is stripped, that parenthetical being this project\'s comment on what it read and not a claim about the page. tokens: every distinctive word appears '
+         'somewhere on the page, which is the reassembled case, a value rebuilt from rows the page prints in separate columns. declared: the value is one of the listed evidence states which say '
+         'in terms that no single value is printed ("Multiple parks, one printed per line"). placeholder: "(not printed)", "(blank as printed)", "undefined (as printed)". A field reaching no '
+         'rung is invented or carried from another document and the build stops. v12 rungs: ' + ', '.join(f'{k} {v:,}' for k, v in PV['rungs'].items()) + '.',
+         'Deliberately not checked, and why. Dates (columns 94, 95) are reformatted to D-Mon-YYYY on the way in, so a substring test would fail on every document; they are already tied to the '
+         'gated corpus. The money columns (113 to 115) are the printed subtotal, GST and total, which rule 16(b) reconciles to the captured lines to the cent and the three live rule 17 checks '
+         're-prove on the register itself. The structural columns (evidence id, line count, boilerplate keys, page span, source stamp, anomalies note) are this project\'s own text about the '
+         'document, not the document\'s text.',
+         'What it does not prove. This is a completeness check on provenance, not on meaning: it proves a field came from the document, not that it is the right part of the document, so a reader '
+         'picking the wrong line still passes if that line is really on the page. What it removes is the whole class of failure where a value is a constant, a leftover, or a value belonging to '
+         'another invoice. The check carries a self-test (pbr_env_check --all) that replays the v2-to-v10 Levai values against a real Levai invoice about other work and requires them refused, '
+         'because a check nobody has seen fail is not a check.',
+         'Five capture defects were found by it on first run and are corrected at v12, each of the same class. AustCare: a street address and phone block were written from a letterhead these '
+         'invoices do not print, on three documents; now read from the page, with the phone recorded as not printed. Higgins: the bill-to string carried debtor code QR6891 as a constant, where '
+         'invoice 186140216 prints QR6892; now read per document. Vinton: the phone column carried the sentence "no letterhead address prints", which is a declaration and not a printed value; '
+         'the declaration moved to the anomalies note and the column now carries the printed email only. Kachel: contract PAR/377/2025 and a site description were asserted on every document, '
+         'where invoice 7715 prints neither; both are now read from the page. Pool Shop: a generic work description replaced by the statement the document supports. No amount changed on any '
+         'line, the control total is unaffected, and the corrected values are the ones now shipped.')
     for h, p in M:
         if h:
             me.row([h, ''], 'blue')
@@ -590,19 +692,20 @@ def build(stage):
 
     # ============================================================== Register
     rg = Sheet(wb, 'Register', freeze='B5')
-    hdr = list(v127['Register'][3][:146]) + ['Src Note (LNTNoteNumber)', 'Register provenance']
+    hdr = list(v127['Register'][3][:146]) + ['Src Note (LNTNoteNumber)', 'Register provenance', 'Source pull (27SLACT export this line came in on)']
     widths = {1: 30, 3: 18, 12: 34, 22: 48, 24: 30, 25: 60, 28: 50, 32: 40, 34: 50, 60: 48, 111: 60, 127: 50}
-    for c in range(1, 149):
+    widths[149] = 46
+    for c in range(1, 150):
         rg.ws.column_dimensions[CL(c)].width = widths.get(c, 14)
-    rg.row(['Parks Branch transaction register, FY2026/27, LCC OP/AP O110-O115, periods 1-3 (27SLACT pulled 11-Sep-2026)'], 'title')
-    rg.row([f'{N:,} lines. Blue headers: register analysis. Grey: source extract verbatim. Green (CJ:DW): rule 17 sighted-invoice capture. Purple: axes and provenance. Column ER says whether a line inherits PS & WP v127 analysis or was classified at branch v1.'], 'sub')
+    rg.row(['Parks Branch transaction register, FY2026/27, LCC OP/AP O110-O115, periods 1-3 (27SLACT: P1 and P2 pulled 11-Sep-2026, P3 refreshed 15-Sep-2026)'], 'title')
+    rg.row([f'{N:,} lines. Blue headers: register analysis. Grey: source extract verbatim. Green (CJ:DW): rule 17 sighted-invoice capture. Purple: axes and provenance. Column ER says whether a line inherits PS & WP v127 analysis or was classified at branch v1; column ES names the 27SLACT export the line came in on.'], 'sub')
     rg.blank()
     styles = []
-    for c in range(1, 149):
+    for c in range(1, 150):
         styles.append('grey' if (54 <= c <= 87 or c in (128, 147)) else 'green' if 88 <= c <= 127 else 'axis' if c >= 129 else 'blue')
     rg.ws.append([rg.cell(h, F_HDR, s) for h, s in zip(hdr, styles)]); rg.n += 1
     try:
-        rg.ws.auto_filter.ref = f'A4:{CL(148)}{LAST}'
+        rg.ws.auto_filter.ref = f'A4:{CL(149)}{LAST}'
     except Exception:
         pass
     money_cols = {20, 21, 45, 48, 49, 61, 113, 114, 115, 116, 117, 121}
@@ -628,7 +731,7 @@ def build(stage):
         V[143] = f'=IF($E{rr}="FY2026/27","In scope, FY2026/27 branch register","Out of scope")'
         V[144] = f'=IF($EG{rr}="","Not a journal",IF(LEFT($EG{rr},2)="RJ","RJ system reversing journal","Manual journal, "&LEFT($EG{rr},2)&" series"))'
         vals = []
-        for c in range(1, 149):
+        for c in range(1, 150):
             v = V[c]
             if v == '':
                 v = None
@@ -642,10 +745,10 @@ def build(stage):
                 vals.append(v)
         rg.ws.append(vals); rg.n += 1
     rg.blank()
-    rg.ws.append([rg.cell('Register total (control total $4,910,566.68)', F_BOLD, 'tot')] + [None] * 18 +
+    rg.ws.append([rg.cell(f'Register total (control total ${CONTROL:,.2f})', F_BOLD, 'tot')] + [None] * 18 +
                  [rg.cell(f'=SUM(T{FIRST}:T{LAST})', F_BOLD, 'tot', MONEY)]); rg.n += 1
     assert rg.n == TOT
-    controls.append(('1. Control total', 'Register', 'Register total row equals the control total (ledger export total row)', 'value', f'=Register!T{TOT}', 4910566.68))
+    controls.append(('1. Control total', 'Register', 'Register total row equals the control total (ledger export total row)', 'value', f'=Register!T{TOT}', float(CONTROL)))
     controls.append(('1. Control total', 'Register', 'Register data rows carrying an amount', 'count', '=COUNT(Reg_Amount)', N))
     controls.append(('1. Control total', 'Register', 'Lines inherited from PS_WP register v127', 'count', f'=COUNTIF(Reg_Prov,"{INH}*")', stage['inherit_n']))
     controls.append(('1. Control total', 'Register', 'Lines new at branch v1', 'count', f'=COUNTIF(Reg_Prov,"{NEW}")', N - stage['inherit_n']))
@@ -685,7 +788,7 @@ def build(stage):
     summary_ties.append(('Section_Summary', f'D{st}'))
     controls.append(('2. Coverage ties', 'Section_Summary', 'Every section ties to the SE2 by Section export', 'count', f'=SUMPRODUCT(--(Section_Summary!O{s0}:O{s1}="TRUE"))', len(SECTIONS)))
     controls.append(('2. Coverage ties', 'Section_Summary', 'Status partition (Confirmed + Partial + Pending) ties on every section', 'count', f'=SUMPRODUCT(--(Section_Summary!J{s0}:J{s1}="TRUE"))', len(SECTIONS)))
-    controls.append(('1. Control total', 'Section_Summary', 'SE2 by Section total equals the control total', 'value', f'=Section_Summary!N{st}', 4910566.68))
+    controls.append(('1. Control total', 'Section_Summary', 'SE2 by Section total equals the control total', 'value', f'=Section_Summary!N{st}', float(CONTROL)))
 
     # ============================================================== generic panel writer (value x section)
     def panel(sh, title, values, name, label_hdr, note=None, crit=lambda v: f'"{v}"', value_cell=lambda v: v):
@@ -706,7 +809,7 @@ def build(stage):
         sh.row(['Total'] + [f'=SUM({CL(c)}{a}:{CL(c)}{b})' for c in range(2, 4 + len(SECTIONS))], 'tot', money_cols=tuple(range(2, 3 + len(SECTIONS))))
         tc = CL(2 + len(SECTIONS))
         summary_ties.append((sh.name, f'{tc}{t}'))
-        controls.append(('3. Summary ties', sh.name, f'{title}: total equals the register total', 'value', f"='{sh.name}'!{tc}{t}" if ' ' in sh.name else f'={sh.name}!{tc}{t}', 4910566.68))
+        controls.append(('3. Summary ties', sh.name, f'{title}: total equals the register total', 'value', f"='{sh.name}'!{tc}{t}" if ' ' in sh.name else f'={sh.name}!{tc}{t}', float(CONTROL)))
         controls.append(('3. Summary ties', sh.name, f'{title}: line count equals the register line count', 'count', f'={sh.name}!{CL(3 + len(SECTIONS))}{t}', N))
         sh.blank()
         return a, b, t
@@ -771,10 +874,21 @@ def build(stage):
     # ============================================================== Coverage
     cv = Sheet(wb, 'Coverage', {'A': 16, 'B': 44, **{CL(c): 17 for c in range(3, 15)}})
     cv.row(['Coverage: register against each SE2 view, with evidence position and budget'], 'title')
-    cv.row(['Panel A natural account, panel B WO Task, panel C service. Every key in the SE2 export appears, including budget-only keys with no actual. SE2 columns are verbatim (blue).'], 'sub')
+    cv.row(['Panel A natural account, panel B WO Task, panel C service. Every key in the SE2 export appears, including budget-only keys with no actual. SE2 columns are verbatim (blue). '
+            'Each panel states the date its SE2 view was pulled and the register population it ties to: the three views below were not re-pulled with the 15-Sep-2026 P3 refresh, so they tie to the 11-Sep-2026 vintage subset (rule 11, declared asymmetry).'], 'sub')
     cv.blank()
     def cov_panel(title, kind, regname, keyfn):
-        cv.row([title, ''], 'bold')
+        # A panel ties the register to its SE2 view, so it must compare like with like. Branch and Section were
+        # re-pulled with the P3 refresh and tie to the whole register; natural account, WO Task and service state the
+        # 11-Sep position, so those panels count only the lines the 11-Sep pull carried (column ES) and tie to the
+        # 11-Sep vintage total. The panel says so in its own heading, and the vintage column proves the split.
+        vintage = stage['se2_pulled'][kind] != '15-Sep-2026'
+        crit = f',Reg_Pull,"{esc(BASE_PULL)}*"' if vintage else ''
+        want_total, want_lines = (BASE, BASE_N) if vintage else (CONTROL, N)
+        cv.row([title, f'SE2 pulled {stage["se2_pulled"][kind]}. ' + (
+            f'This view was not re-pulled with the P3 refresh, so the panel counts only the {BASE_N:,} lines the '
+            f'11-Sep-2026 pull carried (Register column ES) and ties to ${BASE:,.2f}.' if vintage else
+            f'Re-pulled with the P3 refresh; the panel covers all {N:,} register lines and ties to ${CONTROL:,.2f}.')], 'bold')
         cv.row(['Key', 'Name', 'Lines', '$ register net', '$ T9', '$ Confirmed', '$ Pending evidence', 'SE2 YTD actual', 'Register = SE2',
                 'SE2 YTD budget', 'YTD variance (budget less actual)', 'SE2 annual budget', '% of annual spent'], 'blue')
         a = cv.n + 1
@@ -788,17 +902,19 @@ def build(stage):
         reg_keys = {keyfn_reg(r) for r in rows} if False else None
         for k, nm, e in keys_se2:
             rr = cv.n + 1
-            cv.row([k, nm, f'=COUNTIF({regname},$A{rr})', f'=ROUND(SUMIFS(Reg_Amount,{regname},$A{rr}),2)',
-                    f'=ROUND(SUMIFS(Reg_Amount,{regname},$A{rr},Reg_Theme,"{T9}"),2)', f'=ROUND(SUMIFS(Reg_Amount,{regname},$A{rr},Reg_Status,"Confirmed"),2)',
-                    f'=ROUND(SUMIFS(Reg_Amount,{regname},$A{rr},Reg_Status,"Pending evidence"),2)', e[6], f'=IF(ROUND(D{rr}-H{rr},2)=0,"TRUE","FALSE")',
+            cv.row([k, nm, f'=COUNTIFS({regname},$A{rr}{crit})', f'=ROUND(SUMIFS(Reg_Amount,{regname},$A{rr}{crit}),2)',
+                    f'=ROUND(SUMIFS(Reg_Amount,{regname},$A{rr},Reg_Theme,"{T9}"{crit}),2)', f'=ROUND(SUMIFS(Reg_Amount,{regname},$A{rr},Reg_Status,"Confirmed"{crit}),2)',
+                    f'=ROUND(SUMIFS(Reg_Amount,{regname},$A{rr},Reg_Status,"Pending evidence"{crit}),2)', e[6], f'=IF(ROUND(D{rr}-H{rr},2)=0,"TRUE","FALSE")',
                     e[7], f'=J{rr}-D{rr}', e[10], f'=IF(L{rr}=0,0,D{rr}/L{rr})'],
                    money_cols=(4, 5, 6, 7, 8, 10, 11, 12), input_cols=(8, 10, 12))
         b = cv.n; t = b + 1
         cv.row(['Total', ''] + [f'=SUM({CL(c)}{a}:{CL(c)}{b})' if c not in (9, 13) else None for c in range(3, 14)], 'tot', money_cols=(4, 5, 6, 7, 8, 10, 11, 12))
         cv.blank()
         controls.append(('2. Coverage ties', 'Coverage', f'{title}: every key ties to its SE2 row', 'count', f'=SUMPRODUCT(--(Coverage!I{a}:I{b}="TRUE"))', b - a + 1))
-        controls.append(('2. Coverage ties', 'Coverage', f'{title}: panel total equals the control total', 'value', f'=Coverage!D{t}', 4910566.68))
-        controls.append(('2. Coverage ties', 'Coverage', f'{title}: panel line count equals the register line count', 'count', f'=Coverage!C{t}', N))
+        controls.append(('2. Coverage ties', 'Coverage', f'{title}: panel total equals the '
+                         + ('11-Sep vintage total' if vintage else 'control total'), 'value', f'=Coverage!D{t}', float(want_total)))
+        controls.append(('2. Coverage ties', 'Coverage', f'{title}: panel line count equals the register line count'
+                         + (' (11-Sep vintage)' if vintage else ''), 'count', f'=Coverage!C{t}', want_lines))
         return [k for k, _, _ in keys_se2]
     split = lambda s: tuple((s.split(' - ', 1) + [''])[:2])
     na_keys = cov_panel('Panel A, natural account', 'Natural Account', 'Reg_NA', split)
@@ -822,7 +938,7 @@ def build(stage):
                 f'=ROUND(SUMIFS(Reg_Amount,Reg_Section,$A{rr},Reg_Service,$B{rr},Reg_PKHeader,$D{rr},Reg_PK,$E{rr}),2)'], money_cols=(7,))
     b = pk.n; t = b + 1
     pk.row(['Total', '', '', '', '', f'=SUM(F{a}:F{b})', f'=SUM(G{a}:G{b})'], 'tot', money_cols=(7,))
-    controls.append(('3. Summary ties', 'PK_Listing', 'PK listing total equals the register total', 'value', f'=PK_Listing!G{t}', 4910566.68))
+    controls.append(('3. Summary ties', 'PK_Listing', 'PK listing total equals the register total', 'value', f'=PK_Listing!G{t}', float(CONTROL)))
     controls.append(('3. Summary ties', 'PK_Listing', 'PK listing line count equals the register line count', 'count', f'=PK_Listing!F{t}', N))
 
     # ============================================================== Vendor_Series
@@ -849,7 +965,7 @@ def build(stage):
                 ', '.join(sorted(g['tiers'])), '; '.join(sorted(g['secs'])), note], money_cols=(5,))
     b = vs.n; t = b + 1
     vs.row(['Total', '', '', f'=SUM(D{a}:D{b})', f'=SUM(E{a}:E{b})'], 'tot', money_cols=(5,))
-    controls.append(('3. Summary ties', 'Vendor_Series', 'Vendor series total equals the register total', 'value', f'=Vendor_Series!E{t}', 4910566.68))
+    controls.append(('3. Summary ties', 'Vendor_Series', 'Vendor series total equals the register total', 'value', f'=Vendor_Series!E{t}', float(CONTROL)))
     controls.append(('3. Summary ties', 'Vendor_Series', 'Vendor series line count equals the register line count', 'count', f'=Vendor_Series!D{t}', N))
 
     # ============================================================== Journal_Sets
@@ -1171,14 +1287,40 @@ def build(stage):
                       'from the APLEDGER history, not from the document.'))
     _levy = [r for r in sighted if 'LCC Fuel Levy - Diesel' in str(r['V'][111] or '')]
     if _levy:
-        items.append(('Fuel levy recoded on some invoices and not others', 'Review', 'Trees / Park Maintenance', len(_levy), D('587.31'),
-                      'Eight Vinton invoices in Batch binder11111 carry an LCC Fuel Levy - Diesel line, $829.03 in total. GJ080696 recoded four of them to PK000514 on '
-                      '74189 Fuel Levy Surcharge (19895 $63.93, 19924 $6.65, 19941 $138.04, 19954 $33.10) and left four on 73212 with the work (19965 $134.31, '
-                      '19983 $253.69, 19989 $184.39, 19997 $14.92, $587.31 in all). Ask Finance which treatment is intended and recode the rest to match. '
-                      'Then verify the levy itself: as a percentage of the work ex levy these invoices print three different rates in six weeks on one contract, '
+        # Which of the sighted levy invoices carry a recode leg is read from the register, never typed: the v11 text
+        # named four still sitting on 73212 with the work, and the 15-Sep-2026 P3 refresh brought GJ081002, which took them.
+        _lv = {'19895': D('63.93'), '19924': D('6.65'), '19941': D('138.04'), '19954': D('33.10'),
+               '19965': D('134.31'), '19983': D('253.69'), '19989': D('184.39'), '19997': D('14.92')}
+        _vinv = re.compile(r'\bINV(\d{5})\b')
+        _rc, _sweep = {}, collections.Counter()
+        for r in rows:
+            if str(r['V'][14]) == '74189' and str(r['V'][17]) == 'PK000514' and D(r['V'][20]) > 0:
+                m_ = _vinv.search(str(r['V'][22] or ''))
+                if not m_:
+                    continue
+                _sweep[str(r['V'][8])] += 1
+                if m_.group(1) in _lv:
+                    _rc[m_.group(1)] = str(r['V'][8])
+        _left = {k_: v_ for k_, v_ in _lv.items() if k_ not in _rc}
+        _jnls = ', '.join(sorted(set(_rc.values())))
+        _money = lambda d_: ', '.join(f'{k_} ${v_:,.2f}' for k_, v_ in sorted(d_.items()))
+        if _left:
+            _state = (f'{len(_rc)} are recoded to PK000514 on 74189 Fuel Levy Surcharge ({_jnls}) and {len(_left)} still sit on 73212 with the work '
+                      f'({_money(_left)}, ${sum(_left.values()):,.2f} in all). Ask Finance which treatment is intended and recode the rest to match. ')
+        else:
+            _late = {k_: v_ for k_, v_ in _lv.items() if _rc[k_] != 'GJ080696'}
+            _state = (f'All eight are now recoded to PK000514 on 74189 Fuel Levy Surcharge. GJ080696 took four at branch v7 '
+                      f'({_money({k_: v_ for k_, v_ in _lv.items() if _rc[k_] == "GJ080696"})}) and GJ081002, which arrived with the 15-Sep-2026 P3 refresh, took the remaining four '
+                      f'({_money(_late)}). GJ081002 recodes {_sweep["GJ081002"]} Vinton levy legs in all, off PK000477, PK000482 and PK000073. '
+                      f'The treatment question is settled: the levy belongs on 74189, not with the work. ')
+        items.append(('Fuel levy recoded on some invoices and not others', 'Review' if _left else 'Resolved at v12',
+                      'Trees / Park Maintenance', len(_levy), sum(_left.values()) if _left else sum(_lv.values()),
+                      f'Eight Vinton invoices in Batch binder11111 carry an LCC Fuel Levy - Diesel line, ${sum(_lv.values()):,.2f} in total. ' + _state +
+                      'What remains is the levy itself: as a percentage of the work ex levy these invoices print three different rates in six weeks on one contract, '
                       '0.861% (19895, 17-Jul), 2.955% (19924, 19941, 19965) and 3.940% (19954, 19983, 19989, 19997), and the rate is not monotonic in date: '
-                      '3.940% on 7-Aug, 2.955% on 13-Aug, 3.940% again on 24-Aug. A stepped and capped model banded on the diesel TGP cannot produce that from the work date alone.',
-                      'Sighted invoices, Batch binder11111, read against the GJ080696 recode legs on the register (74189, PK000514) and the stepped and capped fuel levy model (Fact Sheet DM19338551).'))
+                      '3.940% on 7-Aug, 2.955% on 13-Aug, 3.940% again on 24-Aug. A stepped and capped model banded on the diesel TGP cannot produce that from the work date alone. '
+                      'Verify each claim against the Fact Sheet model before the next payment.',
+                      f'Sighted invoices, Batch binder11111, read against the recode legs on the register (74189, PK000514: {_jnls}) and the stepped and capped fuel levy model (Fact Sheet DM19338551).'))
     # Identity findings from the v8 creditor histories, each already recorded on its history entry's
     # label_basis. Driven off the register rows so the line count and value are the live ones, never a typed figure.
     for _code, _area, _scope_default, _action, _basis in (
@@ -1202,14 +1344,41 @@ def build(stage):
                           len(_rr), sum(D(r['V'][20]) for r in _rr), _action, _basis))
     _k7719 = [r for r in rows if str(r['V'][8]).strip() == '7719' and str(r['V'][14]).strip() == '73121']
     if _k7719:
-        items.append(('Invoice split across two parks posted wholly to one', 'Review',
+        # The 15-Sep-2026 P3 refresh brought GJ080985, which recodes this invoice and the September zone claim.
+        # Whether it did is read off the register, so the item states the position rather than a frozen sentence.
+        _rc19 = [r for r in rows if str(r['V'][8]).strip() == 'GJ080985' and '7719' in str(r['V'][22] or '')]
+        _pos = {str(r['V'][17]): D(r['V'][20]) for r in _rc19 if D(r['V'][20]) > 0}
+        _done = sum(D(r['V'][20]) for r in _rc19) == 0 and len(_rc19) >= 3
+        items.append(('Invoice split across two parks posted wholly to one', 'Resolved at v12' if _done else 'Review',
                       '; '.join(sorted({sec_names[str(r['V'][2])] for r in _k7719})), len(_k7719), sum(D(r['V'][20]) for r in _k7719),
-                      'Split Kachel Cleaning invoice 7719 across the two parks its own face allocates it to. The invoice prints an ACCOUNT NUMBER block with two rows: '
-                      'Tully Mem. Pk PK000030, "Extra services for August 2026 due to campers & homeless", $3,530.00; and Croydon Pk PK000028, "Extra services for August 2026", '
-                      '$630.00, subtotal $4,160.00 plus $416.00 GST. TechOne posts the whole $4,160.00 as one line on PK000028, so $3,530.00 of Tully Memorial Park cleaning sits '
-                      'on Croydon Park and Tully Memorial Park is understated by the same amount. Recode $3,530.00 to PK000030 and ask AP to enter this supplier\'s invoices line '
-                      'by line, since the face carries the PK against each amount. Same pattern as the PS & WP Pool Shop five-PK split charged wholly to PK000022.',
-                      'Sighted invoice 7719 (branch v10, TechOne attachment C00319374), contract PAR/377/2025, order 709779, read against the register line for reference 7719.'))
+                      'Kachel Cleaning invoice 7719 prints an ACCOUNT NUMBER block with two rows: Tully Mem. Pk PK000030, "Extra services for August 2026 due to campers & homeless", '
+                      '$3,530.00; and Croydon Pk PK000028, "Extra services for August 2026", $630.00, subtotal $4,160.00 plus $416.00 GST. TechOne posted the whole $4,160.00 as one '
+                      'line on PK000028 (raised at branch v10). ' + (
+                          'GJ080985, which arrived with the 15-Sep-2026 P3 refresh, reverses the $4,160.00 off PK000028 and re-posts it '
+                          + ', '.join(f'${v_:,.2f} to {k_}' for k_, v_ in sorted(_pos.items(), key=lambda kv: -kv[1]))
+                          + ', so the split the face asks for is now on the ledger. One point to confirm: the Tully Memorial Park share went to PK000429, the 20394 '
+                            'overnight-stays WO Task Council also used for the identical claim on invoice 7712 (PSWP-86), not to the PK000030 the invoice prints. '
+                            'Ask Park Services which of the two is the correct WO Task for this work, and ask AP to enter this supplier\'s invoices line by line, since the '
+                            'face carries the PK against each amount.'
+                          if _done else
+                          'Recode $3,530.00 to PK000030 and ask AP to enter this supplier\'s invoices line by line, since the face carries the PK against each amount. '
+                          'Same pattern as the PS & WP Pool Shop five-PK split charged wholly to PK000022.'),
+                      'Sighted invoice 7719 (branch v10, TechOne attachment C00319374), contract PAR/377/2025, order 709779, read against the register line for reference 7719'
+                      + (' and the GJ080985 recode legs brought in by the 15-Sep-2026 P3 refresh.' if _done else '.')))
+    # The same five-zone split, one invoice later. 7710 (July) still posts whole to PK000028 (PSWP-85); 7717 (September)
+    # posted whole to PK000025 and GJ080985 then split it across the five zone PKs the face prints.
+    _z = [r for r in rows if str(r['V'][8]).strip() == 'GJ080985' and '7717' in str(r['V'][22] or '')]
+    _z1 = [r for r in rows if str(r['V'][8]).strip() == '7710']
+    if _z and _z1:
+        _zp = {str(r['V'][17]): D(r['V'][20]) for r in _z if D(r['V'][20]) > 0}
+        items.append(('Zone cleaning claim split by journal on one invoice and not the one before it', 'Review', 'Park Services',
+                      len(_z1), sum(D(r['V'][20]) for r in _z1),
+                      f'Kachel Cleaning bills the same five-zone claim each month under PAR/377/2025 and AP posts it as one line. GJ080985, new with the 15-Sep-2026 P3 refresh, '
+                      f'reverses the September claim (reference 7717, $54,186.00 posted whole to PK000025) and re-posts it across the five zone PKs the face prints ('
+                      + ', '.join(f'{k_} ${v_:,.2f}' for k_, v_ in sorted(_zp.items(), key=lambda kv: -kv[1])) +
+                      '). The July claim, reference 7710, is the identical invoice and still sits whole on PK000028 (PSWP-85), so four zone PKs are understated for July and '
+                      'PK000028 overstated by $34,470.00. Apply the GJ080985 treatment to 7710, and ask AP to post this supplier monthly claim by zone at entry.',
+                      'Register lines for references 7710 and 7717 read against the GJ080985 recode legs; invoice 7710 sighted at PS & WP v127 (PSWP-85).'))
     for o_ in stage['recon_batch'].get('open_items', []):
         items.append((o_['area'], o_['status'], o_['scope'], o_['lines'], D(o_['amount']), o_['action'], o_['basis']))
     for k, it in enumerate(items, 1):
@@ -1266,7 +1435,8 @@ def build(stage):
     # ============================================================== SE2_Budget
     sb = Sheet(wb, 'SE2_Budget', {'A': 44})
     sb.row(['SE2 budget vs actual exports, FY2026/27 P1-3, verbatim'], 'title')
-    sb.row(['Four exports on identical criteria (Branch 4090000, O110-O115, expense type 1), pulled 11-Sep-2026. Each block reproduces the export cell for cell.'], 'sub')
+    sb.row([f'{len(se2)} exports on identical criteria (Branch 4090000, O110-O115, expense type 1). Branch and Section were pulled 15-Sep-2026 with the P3 refresh and carry the current total ${CONTROL:,.2f}; '
+            f'natural account, WO Task and service were pulled 11-Sep-2026 and carry ${BASE:,.2f}, the position before the refresh. Each block reproduces the export cell for cell.'], 'sub')
     for k, s in se2.items():
         sb.blank()
         sb.row([f'SE2 by {k}: {os.path.basename(s["path"])}, md5 {s["md5"]}'], 'blue')
@@ -1347,43 +1517,55 @@ def build(stage):
     da.row(['Data acquisition register, Parks Branch FY2026/27 (embedded)'], 'title')
     da.row(['Every upload logged with md5, tool identity and criteria verbatim. Rule 12 duplicate screen: each md5 below was screened against the PS & WP register v127 Data_Acquisition; none had been received before.'], 'sub')
     da.blank()
-    lines = [f'F1 | 11-Sep-2026 | {os.path.basename(pbr_stage.LEDGER)} | md5 {stage["led_md5"]} | TechOne Ledger Accounts Transactions Table export (no extraction tool) | {len(L["data"]):,} lines, export total row $4,910,566.68 | {L["params"]}',
-             f'F1 criteria (verbatim): {L["criteria"]}']
-    for k_, (k, s) in enumerate(se2.items(), 2):
-        lines.append(f'F{k_} | 11-Sep-2026 | {os.path.basename(s["path"])} | md5 {s["md5"]} | TechOne SE2 enquiry export, by {k} | {len(s["body"])} body rows, accumulated actual P1-3 $4,910,566.68 | criteria (verbatim): {s["criteria"]}')
-    lines.append(f'F6 | 11-Sep-2026 | {os.path.basename(pbr_stage.V127)} | md5 {stage["v127_md5"]} | Inheritance source, read with python-calamine; not embedded (the PS & WP register remains its own record). 3,372 FY2026/27 lines screened, 3,365 inherited, 7 absent.')
-    for k_, hh in enumerate(HISTS, 7):
-        lines.append(f'F{k_} | 11-Sep-2026 | {os.path.basename(hh["path"])} | md5 {hh["md5"]} | TechOne Ledger Accounts Transactions Table export, APLEDGER creditor history {hh["code"]} ({hh["label"]}, ABN {hh["abn"]}), no extraction tool | {hh["n"]:,} lines {hh["first"].strftime("%d-%b-%Y")} to {hh["last"].strftime("%d-%b-%Y")}, export total row ${D(hh["total"][10]):,} | {hh["params"]} | label basis: {hh["label_basis"]}')
-    for k_, m_ in enumerate(stage.get('attach_files', []), 7 + len(HISTS)):
+    # F numbers run in the order the files were received, so a new source at the top of the register (a second ledger
+    # export, a fifth SE2 view) renumbers everything below it rather than colliding with a fixed offset.
+    _fseq = itertools.count(1)
+    F = lambda: f'F{next(_fseq)}'
+    lines = []
+    for f_ in stage['led_files']:
+        _f = F()
+        lines.append(f'{_f} | {f_["pulled"]} | {f_["file"]} | md5 {f_["md5"]} | TechOne Ledger Accounts Transactions Table export (no extraction tool), {f_["scope"]} | '
+                     f'{f_["rows"]:,} lines, export total row ${f_["total"]:,.2f} | {f_["params"]}')
+        lines.append(f'{_f} criteria (verbatim): {f_["criteria"]}')
+    lines.append(f'The register population is the {stage["led_files"][0]["file"]} rows for periods 1 and 2 plus every row of {stage["led_files"][1]["file"]}: '
+                 f'period 3 was still open at the first pull and the refresh re-takes it on the identical criteria. The build proves the substitution loses nothing before it makes it: '
+                 f'all {L["superseded"]:,} superseded period 3 rows (${L["superseded_value"]:,.2f}) are present verbatim across all 35 columns in the refresh, which adds '
+                 f'{len(L["data"]) - stage["base_vintage_n"]:,} lines and ${CONTROL - BASE:,.2f}. Register column ES names the export each line came in on.')
+    for k, s in se2.items():
+        lines.append(f'{F()} | {stage["se2_pulled"][k]} | {os.path.basename(s["path"])} | md5 {s["md5"]} | TechOne SE2 enquiry export, by {k} | {len(s["body"])} body rows, accumulated actual P1-3 ${D(s["total"][6]):,.2f} | criteria (verbatim): {s["criteria"]}')
+    lines.append(f'{F()} | 11-Sep-2026 | {os.path.basename(pbr_stage.V127)} | md5 {stage["v127_md5"]} | Inheritance source, read with python-calamine; not embedded (the PS & WP register remains its own record). 3,372 FY2026/27 lines screened, 3,365 inherited, 7 absent.')
+    for hh in HISTS:
+        k_ = F()
+        lines.append(f'{k_} | {hh.get("pulled", "11-Sep-2026")} | {os.path.basename(hh["path"])} | md5 {hh["md5"]} | TechOne Ledger Accounts Transactions Table export, APLEDGER creditor history {hh["code"]} ({hh["label"]}, ABN {hh["abn"]}), no extraction tool | {hh["n"]:,} lines {hh["first"].strftime("%d-%b-%Y")} to {hh["last"].strftime("%d-%b-%Y")}, export total row ${D(hh["total"][10]):,} | {hh["params"]} | label basis: {hh["label_basis"]}')
+    for m_ in stage.get('attach_files', []):
         b_ = m_.get('batch', 'attach_1')
-        lines.append(f'F{k_} | 11-Sep-2026 | {m_["file"]} | md5 {m_["md5"]} | TechOne attachment PDF (EzeScan Server21 export, {m_["pages"]} page(s)); parsed by parse_{b_}.py, pdftotext -layout, page text retained in corpus_{b_}_v6.json; gate GREEN; the PDF is not embedded (rule 15) | Batch {b_}')
+        lines.append(f'{F()} | 11-Sep-2026 | {m_["file"]} | md5 {m_["md5"]} | TechOne attachment PDF (EzeScan Server21 export, {m_["pages"]} page(s)); parsed by parse_{b_}.py, pdftotext -layout, page text retained in corpus_{b_}_v6.json; gate GREEN; the PDF is not embedded (rule 15) | Batch {b_}')
     _fid = json.load(open(os.path.join(pbr_stage.ROOT, 'batches', 'code', 'corpus_code_v6.json')))['manifest']
-    lines.append(f'F{7 + len(HISTS) + len(stage.get("attach_files", []))} | 11-Sep-2026 | corpus_code.json | md5 {_fid.get("supplied_corpus_md5")} | Supplied extraction corpus for code.pdf (66 pages, binder not supplied). Extraction tool as declared: {_fid.get("extraction_tool")}. '
+    lines.append(f'{F()} | 11-Sep-2026 | corpus_code.json | md5 {_fid.get("supplied_corpus_md5")} | Supplied extraction corpus for code.pdf (66 pages, binder not supplied). Extraction tool as declared: {_fid.get("extraction_tool")}. '
                  f'Prepared by prep_code_corpus.py (page text rebuilt from the retained layout rows; findings restated as text; pk_refs restricted to PK000000 form, dropping the payment-block bank account) and gated GREEN in container. '
                  f'Rule 19.2 per-vendor verbatim check against an independent source: {_fid["fidelity_check"]["verdict"]}, {_fid["fidelity_check"]["template_rows"]} fixed template rows from {_fid["fidelity_check"]["source"]} present verbatim in all {_fid["fidelity_check"]["documents_tested"]} documents, terms page identical as an ordered sequence. '
                  f'Scope of that check: {_fid["fidelity_check"]["scope"]} | Batch code')
-    _n0 = 8 + len(HISTS) + len(stage.get('attach_files', []))
     _jbm = stage['journal_batch']['manifest']
-    for k_, d_ in enumerate(stage['journal_docs'], _n0):
-        lines.append(f'F{k_} | 11-Sep-2026 | {d_["source_file"]} | md5 {d_["source_md5"]} | TechOne Document Line Table export (no extraction tool), {d_["params_verbatim"]} | '
+    for d_ in stage['journal_docs']:
+        lines.append(f'{F()} | 11-Sep-2026 | {d_["source_file"]} | md5 {d_["source_md5"]} | TechOne Document Line Table export (no extraction tool), {d_["params_verbatim"]} | '
                      f'{d_["legs_total"]} legs, net $0.00, {d_["in_scope_legs"]} in branch scope tying the register net of {", ".join(d_["journal_references_covered"])}; embedded verbatim on Journal_Sources {jsc_span[d_["document_file"]]} | Batch journal_1')
     for d_ in stage['journal_batch']['documents']:
         if d_['capture'] == 'embed verbatim':
             continue
-        lines.append(f'F{_n0 + len(stage["journal_docs"])} | 11-Sep-2026 | {d_["source_file"]} | md5 {d_["source_md5"]} | TechOne Document Line Table export, {d_["params_verbatim"]} | '
+        lines.append(f'{F()} | 11-Sep-2026 | {d_["source_file"]} | md5 {d_["source_md5"]} | TechOne Document Line Table export, {d_["params_verbatim"]} | '
                      f'Re-pull of a document already embedded in PS_WP v127 Journal_Sources; audited leg by leg and NOT re-captured (rule 12): {d_["v127_audit"]["verdict"]} | Batch journal_1')
     for x_ in _jbm['duplicate_exports']:
         lines.append(f'Duplicate export screened out (rule 12): {x_["file"]} md5 {x_["md5"]} carries body rows identical to {x_["duplicate_of"]} '
                      f'(document file {x_["document_file"]}, document {x_["document"]}); read once.')
     _mix = json.load(open(os.path.join(pbr_stage.ROOT, 'batches', 'mix22', 'corpus_mix22_v6.json')))['manifest']
-    lines.append(f'F{_n0 + len(stage["journal_batch"]["documents"])} | 11-Sep-2026 | corpus_mix22.json | md5 {_mix.get("supplied_corpus_md5")} | Supplied extraction corpus for mix 22.pdf (81 pages, binder not supplied). '
+    lines.append(f'{F()} | 11-Sep-2026 | corpus_mix22.json | md5 {_mix.get("supplied_corpus_md5")} | Supplied extraction corpus for mix 22.pdf (81 pages, binder not supplied). '
                  f'Extraction tool as declared: {_mix.get("extraction_tool")}. Gate as supplied: {_mix.get("gate_as_supplied")} on 11 P1 pathologies with {_mix.get("documents_out_as_supplied")} of 40 documents at OUT. '
                  f'Restated by prep_supplied_corpus.py from the corpus\'s own retained layout rows and gated {_mix.get("gate")}: 32 amount-bearing rows typed NARRATIVE were retyped PRICED from their own band text (R1) and 13 Savco printed totals '
                  f'that carried the printed GST total were restated from the printed TOTAL row (R2). Every one of the 40 documents now reconciles to its printed subtotal to the cent. '
                  f'Rule 19.2 per-vendor verbatim check against an independent source: {_mix["fidelity_check"]["verdict"]}. Scope of that check: {_mix["fidelity_check"]["scope"]} | Batch mix22')
-    for _i, (_b, _m) in enumerate(_sup.items(), _n0 + len(stage['journal_batch']['documents']) + 1):
+    for _b, _m in _sup.items():
         _sf = _m['source_files'][0]; _fc = _m['fidelity_check']
-        lines.append(f'F{_i} | 14-Sep-2026 | corpus_{_b}_as_supplied.json | md5 {_m["supplied_corpus_md5"]} | Supplied extraction corpus for {_sf["name"]} ({_sf["pages"]} pages, binder not supplied). '
+        lines.append(f'{F()} | 14-Sep-2026 | corpus_{_b}_as_supplied.json | md5 {_m["supplied_corpus_md5"]} | Supplied extraction corpus for {_sf["name"]} ({_sf["pages"]} pages, binder not supplied). '
                      f'Extraction tool as declared: {_m.get("extraction_tool")}. Gate as supplied: {_m.get("gate_as_supplied")}, {_m["documents_found"]} documents, {_m["documents_out_as_supplied"]} at OUT. '
                      f'Prepared by prep_supplied_corpus.py (vendor template, page text rebuilt from the retained rows, ISO dates, due date restated from the printed row where the extraction omitted it, '
                      f'{sum(1 for x_ in _m["repair_log"][0]["repairs"] if ": R4 " in x_)} invoice date(s) restated from the printed Invoice Date row where the extraction carried another date (R4); no amount restated) and gated {_m["gate"]}, '
@@ -1405,11 +1587,19 @@ def build(stage):
                          f'parse_binders.py to extraction prompt v6 ({_c["extraction_tool"]}); gate {_c["gate"]}, {_c["documents_found"]} documents all at TIE, '
                          f'{_c["lines_captured"]:,} line records, captured ex GST {fmt_money(_c["captured_ex_gst_total"])}. Every page the supplied corpus left with no '
                          f'record is a blank separator page and now carries one BLANK record (prompt v6 3.9).' if _c else ''))
-    lines.append(f'Rule 12 screen at v4 to v11: every md5 above was screened against the PS & WP v127 Data_Acquisition and this register\'s inputs; none had been received before. Re-pulls audited against the v127 embedded histories and not re-captured: HAR073 at v4 (5-Aug-2026 pull, F26 there) and LEV002 at v6 (2-Sep-2026 re-pull, F127 there): {stage.get("hist_audit")}. '
+    for rp in stage.get('repulls', []):
+        lines.append(f'{F()} | {rp["received"]} | {rp["file"]} | md5 {rp["md5"]} | TechOne Ledger Accounts Transactions Table export, APLEDGER creditor history {rp["code"]} '
+                     f'({rp["label"]}, ABN {rp["abn"]}), pulled {rp["pulled"]} | RE-PULL of a history already embedded at branch {rp["embedded_pulled"]} ({rp["embedded_file"]}): '
+                     f'{rp["rows_new"]} rows against {rp["rows_embedded"]} embedded, {rp["in_both"]} identical across all 25 columns, {rp["only_in_repull"]} only in the re-pull, '
+                     f'{rp["only_in_embedded"]} only in the embedded copy, export total ${rp["total_new"]:,.2f} against ${rp["total_embedded"]:,.2f}. '
+                     f'Audited and NOT re-captured (rule 12): {rp["verdict"]}. Creditor_Lines is unchanged and the file is not embedded a second time.')
+    lines.append(f'Rule 12 screen at v4 to v12: every md5 above was screened against the PS & WP v127 Data_Acquisition and this register\'s inputs; none had been received before. Re-pulls audited against the v127 embedded histories and not re-captured: HAR073 at v4 (5-Aug-2026 pull, F26 there) and LEV002 at v6 (2-Sep-2026 re-pull, F127 there): {stage.get("hist_audit")}. '
                  f'The seven histories added at v8 (WOR035, GRE075, INT036, PLA073, TOT034, GXO001, BUN007) and the two added at v10 (QPO001, KAC001) were pulled 14-Sep-2026; PLA073 and BUN007 are the branch-scope pulls of two creditor '
-                 f'accounts already identified in the PS & WP register, and each carries the canonical PS_WP v127 Vendor_Series label.')
+                 f'accounts already identified in the PS & WP register, and each carries the canonical PS_WP v127 Vendor_Series label. '
+                 f'At v12 the two 27SLACT exports are screened the same way, and the creditor histories received again are audited above rather than embedded twice.')
     lines.append('ABR public register lookups (v6, 11-Sep-2026, abr.business.gov.au ABN View): 52 010 996 175 Mimeway Pty. Ltd., trading name Mimeway Pty. Ltd. t/as Nuway Landscape Supplies (NUW001); 49 600 618 657 Greenway Solutions Pty Ltd (GRE083); 38 081 222 675 P.K. Consulting Pty Ltd, QLD 4133 (WAT088). Each is the ABN carried on the APLEDGER export for that creditor code; the lookup names the entity, it is not invoice evidence (rule 8: Tier 1 on the creditor history with ABR ABN; nature stays unconfirmed until an invoice is sighted under rule 17).')
-    lines.append(f'Gaps and priority queue (branch): 1. APLEDGER creditor histories for the remaining unidentified supplier series (Open_Items B-001 onward; the queue with one invoice to sight per series is reports/Unidentified_Contractors_{VER}.md). 2. Sight one invoice per newly identified creditor series to confirm nature (rule 17). 3. 26SLACT P12 for the non-PS/WP sections, to pair the P1 EOY reversals. 4. 27SLACT P4 whole-branch pull when P4 closes, same criteria. 5. Document Line Tables for the recode sets that do not net in scope.')
+    lines.append(f'Gaps and priority queue (branch): 1. APLEDGER creditor histories for the remaining unidentified supplier series (Open_Items B-001 onward; the queue with one invoice to sight per series is reports/Unidentified_Contractors_{VER}.md, and the same queue cut by contractor across this register and the PS & WP register is reports/Contractor_Pull_{VER}.md). 2. Sight one invoice per newly identified creditor series to confirm nature (rule 17). 3. 26SLACT P12 for the non-PS/WP sections, to pair the P1 EOY reversals. 4. The three SE2 views not re-pulled with the 15-Sep-2026 P3 refresh (natural account, WO Task, service), so Coverage panels A to C can tie to the current position instead of the 11-Sep-2026 vintage subset. '
+                 f'5. 27SLACT P4 whole-branch pull when P4 closes, same criteria, and a P3 re-pull with it if P3 is still moving. 6. Document Line Tables for the recode sets that do not net in scope.')
     for t_ in lines:
         da.row([da.cell(t_, wrap=True)])
 
@@ -1417,7 +1607,7 @@ def build(stage):
     cf = Sheet(wb, 'Config', {'A': 30, 'B': 60})
     cf.row(['Config: toolkit positions (rule 19.6). One occurrence per key.'], 'title')
     cfg = [('WORKBOOK_VERSION', VER), ('WORKBOOK_NAME', OUTNAME), ('REGISTER_DATA', f'{FIRST}:{LAST}'), ('REGISTER_TOTAL_ROW', TOT),
-           ('REGISTER_COLS', 148), ('GREEN_BLOCK_COLS', '88:127'), ('CONTROL_TOTAL', 4910566.68), ('LINES', N),
+           ('REGISTER_COLS', 149), ('GREEN_BLOCK_COLS', '88:127'), ('CONTROL_TOTAL', float(CONTROL)), ('CONTROL_TOTAL_11SEP_VINTAGE', float(BASE)), ('LINES', N),
            ('INHERITED_LINES', stage['inherit_n']), ('NEW_LINES', N - stage['inherit_n']), ('THEME_MAP_RANGE', f'A5:B{TM_LAST}'),
            ('THEME_MAP_V3_RANGE', f'A5:C{T3_LAST}'), ('EI_DATA', f'5:{EI_LAST}'), ('EI_TOTALS_ROW', EI_TOT), ('EIL_DATA', f'5:{EIL_LAST}'),
            ('EIL_CONTROLS', f'5:{EI_LAST} summary {EI_TOT}'), ('SIGHTED_COUNT', len(sighted)), ('RECON_COUNT', len(ev_order)),
@@ -1471,6 +1661,7 @@ def build(stage):
     say(f'controls registered {len(controls)}')
     wb.save(os.path.join(SCRATCH, OUTNAME))
     meta = dict(FIRST=FIRST, LAST=LAST, TOT=TOT, N=N, EI_LAST=EI_LAST, EI_TOT=EI_TOT, ncontrols=len(controls), C0=C0, C1=C1,
+                CONTROL=str(CONTROL), PIN_PS=str(D(se2sec['4090240'][6])),
                 sighted_rows=[r['row'] for r in sighted], sections=SECTIONS, reclass=len(reclass), js_zero=js_zero, jrefs=len(jrefs),
                 cite=dict(cite_changes), items=len(items), unid=sum(v[1] for v in unid_by_sec.values()), unid_n=sum(v[0] for v in unid_by_sec.values()),
                 status_amt={k: float(v) for k, v in status_amt.items()}, hist=dict(files=len(HISTS), lines=len(clrow), matched=len(hist_matches), matched_amt=float(sum(m['amount'] for m in hist_matches)), inherited=sum(1 for m in hist_matches if m['inherited']), cited=hist_cited, conflicts=len(stage['hist_conflicts'])))
@@ -1517,7 +1708,7 @@ def verify(path, meta):
             fails.append(f'control {k}: {r[2]} got {r[4]!r} want {r[5]!r} -> {r[6]!r}')
     R = get('Register')
     tot = R[meta['TOT'] - 1][19]
-    if D(tot) != D('4910566.68'):
+    if D(tot) != D(meta['CONTROL']):
         fails.append(f'register total {tot}')
     for rr in meta['sighted_rows']:
         row = R[rr - 1]
@@ -1533,7 +1724,7 @@ def verify(path, meta):
             fails.append(f'EIL_Controls row {rr}')
     pin = get('Section_Summary')
     ps = [r for r in pin if r and r[0] == '4090240'][0]
-    if D(ps[3]) != D('1485304.02'):
+    if D(ps[3]) != D(meta['PIN_PS']):
         fails.append(f'pin: Park Services net {ps[3]!r} (a cached or stale file would not carry this)')
     errs = 0
     for s in wb.sheet_names:

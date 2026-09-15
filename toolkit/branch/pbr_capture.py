@@ -7,6 +7,8 @@ Evidence_Invoice_Lines, EIL_Controls and Vendor_Boilerplate. Formulas for DQ:DT 
 import collections, datetime as dt, json, re
 from decimal import Decimal, ROUND_HALF_UP
 
+import pbr_provenance
+
 D = lambda x: Decimal(str(x)).quantize(Decimal('0.01'), ROUND_HALF_UP)
 NP = '(not printed)'; BL = '(blank as printed)'
 STAMP = '11-Sep-2026, branch v2, Batch mixed_1 (raw-text route, corpus_mixed_1_v6.json)'
@@ -19,13 +21,21 @@ STAMPS = {'mixed_1': STAMP, 'mixed_new_26_27': '11-Sep-2026, branch v3, Batch mi
           'mix222': '11-Sep-2026, branch v7, Batch mix222 (mix_222.pdf, raw-text route to extraction prompt v6, corpus_mix222_v6.json)',
           'binder11111': '11-Sep-2026, branch v7, Batch binder11111 (Binder11111.pdf, raw-text route to extraction prompt v6, corpus_binder11111_v6.json)',
           'pla073_1': '14-Sep-2026, branch v10, Batch pla073_1 (pla073 1.pdf, supplied corpus to extraction prompt v6, runtime A, corpus_pla073_1_v6.json)',
-          'ksadasd': '14-Sep-2026, branch v11, Batch ksadasd (ksadasd.pdf, supplied corpus to extraction prompt v6, runtime A, corpus_ksadasd_v6.json)'}
-BATCH_VER = {'mixed_1': 'v2', 'mixed_new_26_27': 'v3', 'attach_1': 'v4', 'attach_2': 'v5', 'code': 'v5', 'mix22': 'v6', 'attach_3': 'v6', 'mix222': 'v7', 'binder11111': 'v7', 'pla073_1': 'v10', 'ksadasd': 'v11'}
+          'ksadasd': '14-Sep-2026, branch v11, Batch ksadasd (ksadasd.pdf, supplied corpus to extraction prompt v6, runtime A, corpus_ksadasd_v6.json)',
+          'playforce_new': '15-Sep-2026, branch v13, Batch playforce_new (playforce new.pdf, supplied corpus, runtime A, corpus_playforce_new_v6.json)',
+          'harp_new': '15-Sep-2026, branch v14, Batch harp_new (harp new.pdf, supplied corpus, runtime A, corpus_harp_new_v6.json)',
+          'vinton_new': '15-Sep-2026, branch v14, Batch vinton_new (vinton new.pdf, supplied corpus, runtime A, corpus_vinton_new_v6.json)',
+          'savco_new': '15-Sep-2026, branch v14, Batch savco_new (25 TechOne attachment PDFs, raw-text route, corpus_savco_new_v6.json)'}
+BATCH_VER = {'mixed_1': 'v2', 'mixed_new_26_27': 'v3', 'attach_1': 'v4', 'attach_2': 'v5', 'code': 'v5', 'mix22': 'v6', 'attach_3': 'v6', 'mix222': 'v7', 'binder11111': 'v7', 'pla073_1': 'v10', 'ksadasd': 'v11', 'playforce_new': 'v13', 'harp_new': 'v14', 'vinton_new': 'v14', 'savco_new': 'v14'}
 SRCS = {'mixed_1': 'Mixed_1.pdf (md5 b9ddf7fd6c56188a22181921b7b2c8ab), Batch mixed_1, corpus_mixed_1_v6.json', 'mixed_new_26_27': 'Mixed_new_26-27.pdf (md5 813f23077d1d5e77fb1e7150ad08b3cc), Batch mixed_new_26_27, corpus_mixed_new_26_27_v6.json',
         'code': 'code.pdf, 66 pages (binder not supplied; supplied corpus corpus_code.json md5 e256555fc9d22d46a9cce80f8e7bbe3b, M365 Copilot layout extraction), Batch code, corpus_code_v6.json',
         'mix22': 'mix 22.pdf, 81 pages (binder not supplied; supplied corpus corpus_mix22.json md5 e6782e55b5379dc3adcb6a1b5c7cebd4, M365 Copilot layout extraction, gate RED as supplied), Batch mix22, corpus_mix22_v6.json',
         'pla073_1': 'pla073 1.pdf, 144 pages (binder not supplied; supplied corpus corpus_pla073_1_v6.json md5 8b9d6481fa8926c86d849d8e290106e3, M365 Copilot runtime A to extraction prompt v6, gate GREEN as supplied), Batch pla073_1, corpus_pla073_1_v6.json',
-        'ksadasd': 'ksadasd.pdf, 71 pages (binder not supplied; supplied corpus corpus_ksadasd_as_supplied.json md5 1e8cdafcefd95cc88dec6696af6f32b4, M365 Copilot runtime A to extraction prompt v6, gate GREEN as supplied), Batch ksadasd, corpus_ksadasd_v6.json'}
+        'ksadasd': 'ksadasd.pdf, 71 pages (binder not supplied; supplied corpus corpus_ksadasd_as_supplied.json md5 1e8cdafcefd95cc88dec6696af6f32b4, M365 Copilot runtime A to extraction prompt v6, gate GREEN as supplied), Batch ksadasd, corpus_ksadasd_v6.json',
+        'harp_new': 'harp new.pdf, 123 pages (binder not supplied; supplied corpus corpus_harp_new_as_supplied.json md5 7a066810556ad73865737f46d1f585d1, M365 Copilot runtime A, gate GREEN as supplied), Batch harp_new, corpus_harp_new_v6.json',
+        'vinton_new': 'vinton new.pdf, 84 pages (binder not supplied; supplied corpus corpus_vinton_new_as_supplied.json md5 38c724884ee20710a99c52d1c12a3664, M365 Copilot runtime A, gate GREEN as supplied), Batch vinton_new, corpus_vinton_new_v6.json',
+        'savco_new': '25 TechOne attachment PDFs (EzeScan exports, C00303340 to C00319666), parsed on the raw-text route by parse_savco_new.py, page text retained, gate GREEN with no repair, Batch savco_new, corpus_savco_new_v6.json',
+        'playforce_new': 'playforce new.pdf, 319 pages (binder not supplied; supplied corpus corpus_playforce_new_as_supplied.json md5 af53da1c8f40fd2c84cfb038d00dfa72, M365 Copilot runtime A, gate GREEN as supplied), Batch playforce_new, corpus_playforce_new_v6.json'}
 
 CAT = {  # vendor template -> (Nature Category v2, v3 category, theme rule)
     'LEVAI': ('Natural areas & bushland works', 'Bushland, weeds & fire', 'P2 sighted job, dominant scope'),
@@ -85,6 +95,31 @@ TERM_RX = re.compile(r'Terms of Payment|Payment Terms|Payment Due On Receipt|fee
 def first(rx, text, default=NP, flags=re.M):
     m = re.search(rx, text, flags)
     return m.group(1).strip() if m else default
+
+
+def _col_value(t, label, span=3):
+    """The value printed at a label's OWN COLUMN, on its row or just below it.
+
+    A two-column header defeats a label-then-next-row read: Vinton prints "Attention:" in the right-hand Site Address
+    block, and the next PHYSICAL row belongs to the left-hand Billing Address block, so the naive read returned
+    "PO Box 3226" as the requesting officer on every vinton_new document. The page text is on the page, so no
+    provenance check can catch that; only reading at the right column can. Blank as printed where the label prints
+    with nothing under it.
+    """
+    rows = t.splitlines()
+    for i, r in enumerate(rows):
+        c = r.find(label)
+        if c < 0:
+            continue
+        tail = r[c + len(label):].strip()
+        if tail:
+            return tail
+        for x in rows[i + 1:i + 1 + span]:
+            v = x[c:c + 60].strip() if len(x) > c else ''
+            if v:
+                return v
+        return BL
+    return NP
 
 
 def date_out(iso):
@@ -162,7 +197,11 @@ def header_fields(d):
                  bill='Logan City Council, 177 Chambers Flat Rd, MARSDEN QLD 4132' + (', einvoicing@logan.qld.gov.au, 07 34123412' if 'Bill to' in t else ', AUSTRALIA'),
                  officer='Peter Salisnew - Parks Communities Officer', site='Underwood Park, Priestdale', work='XCO#3 Mountain Bike Trail Maintenance; PO717368 Cost Account PK000381', contract=NP, paid=NP, bal=first(r'Amount due\s+\$([\d,]+\.\d{2})', t))
     elif v == 'AUSTCARE':
-        f.update(addr='HEAD OFFICE 234 Newnham Road, Upper Mt Gravatt, Queensland 4122', phone='T 1300 138 096; F (07) 3420 3093; E admin@austcare.net.au; W www.austcare.net.au',
+        # Read from the page, not from a letterhead. These invoices print the street and the suburb line inside the
+        # How To Pay block and carry no telephone, fax, email or website anywhere: the block that used to sit here
+        # ("HEAD OFFICE ... T 1300 138 096 ... www.austcare.net.au") appears on none of them (provenance gate, v13).
+        f.update(addr='; '.join(x for x in (first(r'^\s*(234 Newnham Road)\b', t, ''), first(r'^\s*(UPPER MT GRAVATT QLD \d{4})\s*$', t, '')) if x) or NP,
+                 phone=NP,
                  po=', '.join(sorted(set(re.findall(r'\b(?:70\d{4}|80\d{4})\b', t)))), bill='Logan City Council, 177 Chambers Flat Road, Marsden Qld 4132', officer=first(r'Site Contact:\s+([^\n]+?)\s{2,}|Site Contact:\s+([^\n]+)$', t),
                  site='Multiple parks, one printed per line (see line items)', work=first(r'Description\s*\n\s*(Portion \d[^\n]*\n[^\n]*)', t).replace('\n', '; '), contract=NP, paid=first(r'Amount Applied\s+\$([\d,]+\.\d{2})', t), bal=first(r'Balance Due\s+\$([\d,]+\.\d{2})', t))
         f['officer'] = 'Site Contact: Lisa Hodgson; Salesperson: ' + first(r'Salesperson:\s+([^\n]+)', t)
@@ -180,7 +219,9 @@ def header_fields(d):
                  site=first(r'^\s*(Logan garden water park|.*?water park)', t, NP), work=first(r'Code\s+Description[^\n]*\n\s*(.+?)\s{2,}\d+\s+\$', t), contract=NP, paid=first(r'Paid\s+\$([\d,]+\.\d{2})', t), bal=first(r'Balance Due\s+\$([\d,]+\.\d{2})', t))
     elif v == 'POOLSHOP':
         f.update(addr='233 Ernest Street, Lota QLD 4179', phone='Jon 0407 766 860; operations@poolshopqld.com.au', po=first(r'Reference\s*\n\s*(\d{6})', t) if 'Bill to' not in t else first(r'(\d{6})\s*$', t.split('Reference')[1].split('View')[0]),
-                 bill='Logan City Council, 138-158 Wembley Rd, LOGAN CENTRAL QLD 4114, ABN: 21 627 796 435', officer=NP, site='Multiple water play sites, one printed per line (see line items)', work='Monthly water play maintenance and chemicals', contract=NP, paid=NP, bal=first(r'Amount due\s+\$([\d,]+\.\d{2})', t))
+                 bill='Logan City Council, 138-158 Wembley Rd, LOGAN CENTRAL QLD 4114, ABN: 21 627 796 435', officer=NP, site='Multiple water play sites, one printed per line (see line items)',
+                 # the page itemises each site and prints no single work description (provenance gate, v13)
+                 work='Multiple water play sites, one printed per line (see line items)', contract=NP, paid=NP, bal=first(r'Amount due\s+\$([\d,]+\.\d{2})', t))
     elif v == 'QPOWER':
         f.update(addr='8/27 Allgas Street, Slacks Creek QLD 4127', phone='Tel. 07 3155 4225; qpower.com.au; Licence # 69807', po=first(r'Order No\.:\s+(\d+)', t), bill='Logan City Council, PO Box 3226, Logan City DC QLD 4114', officer=first(r'^\s*(.+?)\s*\n\s*Service Estimator', t),
                  site=first(r'Site:\s+(.+?)\s*\n\s*(?:.*?)\s*Site Address:\s+(?:.+)', t) + '; ' + first(r'Site Address:\s+(.+)', t), work=first(r'Description\s*\n\s*(\d{4}-\d+ - .+)', t), contract=NP, paid=first(r'Amount Applied\s+\$([\d,]+\.\d{2})', t), bal=first(r'Balance Due\s+\$([\d,]+\.\d{2})', t))
@@ -262,7 +303,9 @@ def header_fields(d):
         f.update(addr='Unit 9 /1 Belvedere Drive Park Ridge brisbane 4215', phone='Phone: 32002914; info@elementalshades.com; QBSA #1159300', po=first(r'PURCHASE ORDER (\d+)', t), bill='Logan City Council, 34125595, 150 Wembly Rd Logan Central, Brisbane QLD 4114', officer=first(r'Requesting Officers - (.+?)\s{2,}', t),
                  site='Multiple sites (shade structures on sites with multiple / single shade structures)', work='2026- Shade sail inspections; Contract Reference LB304', contract='LB304', paid=first(r'Payments Received\s+\$([\d,]+\.\d{2})', t), bal=first(r'Invoice Balance\s+\$([\d,]+\.\d{2})', t))
     elif v == 'HIGGINS':
-        f.update(addr='PO Box 272, Port Melbourne, VIC 3207, Australia', phone='Phone: 03 9646 9999; Fax: 03 9646 5333', po=first(r'Order Ref\s+:\s+(\S+)', t), bill='LOGAN CITY COUNCIL, melinaturpin@logan.qld.gov.au, 150 WEMBLEY ROAD, LOGAN CENTRAL, QLD 4114, Email: einvoicing@logan.qld.gov.au; Debtor Code QR6891',
+        f.update(addr='PO Box 272, Port Melbourne, VIC 3207, Australia', phone='Phone: 03 9646 9999; Fax: 03 9646 5333', po=first(r'Order Ref\s+:\s+(\S+)', t), bill='LOGAN CITY COUNCIL, melinaturpin@logan.qld.gov.au, 150 WEMBLEY ROAD, LOGAN CENTRAL, QLD 4114, Email: einvoicing@logan.qld.gov.au; Debtor Code '
+                      # read, not fixed: 186140216 prints QR6892 where this was hardcoded QR6891 (provenance gate, v13)
+                      + first(r'Debtor Code\s*:\s*(\S+)', t),
                  officer='melinaturpin@logan.qld.gov.au (bill-to contact)', site=first(r'Works 100% completed\s*\n\s*(.+?)\s{2,}', t), work=first(r'Job: (.+?)\s*$', t) + '; ' + first(r'Works 100% completed\s*\n\s*.+?\s{2,}(.+?)\s{2,}[\d,]+\.\d{2}', t), contract=NP, paid=NP, bal=NP)
     elif v == 'HARPLEY':
         f.update(addr='PO Box 126, Kingston QLD 4114', phone='0421 213 216; A.C.N. 162 601 694', po=first(r'Purchase Order:\s+(\d+)', t), bill='Logan City Council, Po Box 3226, Logan City DC QLD 4114; Ship To: Logan City Council, Parks Depot, 177 Chambers Flat Road, Marsden QLD 4132',
@@ -272,8 +315,14 @@ def header_fields(d):
         f.update(addr='35 Leahy Road, CABOOLTURE QLD 4510, AUSTRALIA', phone='0437 777 141; admin@c2cgg.com; +61 437777141', po=first(r'Purchase Order:\s+(\d+)', t), bill='Logan City Council (LCC) Parks Depot, 177 Chambers Flat Road, Marsden Qld 4132, einvoicing@logan.qld.gov.au', officer=NP,
                  site=first(r'(MZ\d+ STANDARD GROWTH - CUT \d)', t), work=first(r'(MZ\d+ STANDARD GROWTH - CUT \d)', t) + '; Vendor No: COA030; ' + first(r'(Reference: PAR/\S+)', t), contract=first(r'Reference: (PAR/\S+)', t), paid=NP, bal=first(r'Amount due\s+\$([\d,]+\.\d{2})', t))
     elif v == 'KACHEL':
-        f.update(addr=NP, phone='Mobile: 0408 846964; Email:kachelcleaning@live.com.au', po=first(r'Purchase Order No:\s+(\d+)', t), bill='To CEO, Logan City Council, Wembley Road, WOODRIDGE QLD 4114', officer=NP, site='Zone 1 and Zone 2 toilets and BBQs; sanitary bins',
-                 work=first(r'(Cleaning of the Public Facilities and Sanitary Bins for Contract No\s*\n?\s*PAR/377/2025 for the month of \w+ 2026\.)', t).replace('\n', ' '), contract='PAR/377/2025', paid=NP, bal=NP)
+        # Read the contract and the sites from the claim block rather than asserting them. Not every Kachel invoice
+        # carries either: 7715 (the fuel levy claim) prints no contract number and names no site, where the monthly
+        # cleaning claims print both (provenance gate, v13).
+        _zones = '; '.join(dict.fromkeys(re.findall(r'^\s*(Zone \d [A-Za-z\u2019\']+|Sanitary Bin[^:]*)\s*:', t, re.M)))
+        f.update(addr=NP, phone='Mobile: 0408 846964; Email:kachelcleaning@live.com.au', po=first(r'Purchase Order No:\s+(\d+)', t), bill='To CEO, Logan City Council, Wembley Road, WOODRIDGE QLD 4114', officer=NP,
+                 site=_zones or NP,
+                 work=first(r'(Cleaning of the Public Facilities and Sanitary Bins for Contract No\s*\n?\s*PAR/377/2025 for the month of \w+ 2026\.)', t).replace('\n', ' '),
+                 contract=first(r'(PAR/\d{3}/\d{4})', t), paid=NP, bal=NP)
         f['work'] = ' '.join(f['work'].split())
     elif v == 'BURLY':
         f.update(addr='PO BOX 206, Biggera Waters, QLD 4216', phone='0420 371 884; accounts@burlyholdings.com.au', po=first(r'Order#\s*(\d+)', t),
@@ -320,9 +369,9 @@ def header_fields(d):
                  contract=first(r'CONTRACT NUMBER - (PAR/\d{3}/\d{4})', t), paid=NP, bal=first(r'BALANCE DUE\s*\n\s*(A\$[\d,]+\.\d{2})', t))
         f['crwo'] = first(r'(CR#\d+)', t)
     elif v == 'VINTON':
-        f.update(addr=NP, phone='admin@vintontreeservices.com.au (remittance address); no letterhead address prints',
+        f.update(addr=NP, phone=first(r'^\s*(admin@vintontreeservices\.com\.au)\s*$', t) + ' (remittance address)',
                  po=first(r'PO:\s+(\d+)', t), bill='Logan City Council, A/C Payable Department, PO Box 3226, Logan City DC QLD 4114',
-                 officer=first(r'Attention:\s*\n\s*(\S.+?)\s*$', t),
+                 officer=_col_value(t, 'Attention:'),
                  site=first(r'^\s{10,}(\d+[\w \-/,]+(?:Street|St|Road|Rd|Drive|Dr|Court|Ct|Avenue|Ave|Parade|Crescent|Way|Place|Pl|Highway|Hwy)[^\n]*)$', t),
                  work='; '.join(' '.join(x.split()) for x in re.findall(r'^\s*((?:CR ?#\s?\d+[^\n]*|Completed \d{2}/\d{2}/\d{4}|Provide [^\n]+|Remove [^\n]+|Stump grind[^\n]*|Supply [^\n]+|Prune [^\n]+))\s*$', t, re.M)),
                  contract=first(r'(PAR/\d{3}[A-Z]?/\d{4})', t), paid=NP, bal=first(r'Balance Due:\s+\$([\d,]+\.\d{2})', t))
@@ -457,7 +506,7 @@ def capture(rows, corpus_path, match_path, say, existing_keys=frozenset(), exist
             canon.setdefault(_re.sub(r'\D', '', str(r['V'][13])), r['V'][12])
     def label(d):
         return canon.get(_re.sub(r'\D', '', str(d['supplier_abn'])), d['supplier'].split(' (')[0])
-    ev = ev if ev is not None else dict(order=[], ei={}, eil=[], basis={}, vb=[], vb_keys={})
+    ev = ev if ev is not None else dict(order=[], ei={}, eil=[], basis={}, vb=[], vb_keys={}, prov={})
     variants = variants if variants is not None else {}
     ids = collections.Counter()
     for row in ev['vb']:
@@ -545,7 +594,22 @@ def capture(rows, corpus_path, match_path, say, existing_keys=frozenset(), exist
             if 'Printed GST' not in fnd: anom.append(fnd)
         if v == 'GLASCOTT': anom.append('Letterhead prints Technigro ABN 97 001 281 572; payment account name is Glascott Landscape and Civil Pty Limited. Printed ABN decides identity (rule 8); confirm the creditor entity against the APLEDGER record.')
         if v == 'GLASCOTT_LM': anom.append('Letterhead prints Technigro ABN 97 001 281 572; payment account name is Glascott Landscape and Civil Pty Limited. APLEDGER GLA009 (branch v4) carries ABN 97001281572, so the creditor entity is the Glascott record (rule 8, printed ABN decides).')
-        if v == 'VINTON': anom.append('No ABN is printed anywhere on this invoice and no entity name prints on the face; the only supplier identification is "RST Systems Pty Ltd" in the bank block and the remittance address admin@vintontreeservices.com.au. The register label and ABN come from the APLEDGER history VIN003 (Vinton Tree Services, ABN 84 008 552 538), not from this document (rule 8).')
+        if v == 'VINTON':
+            # Two Vinton positions, and the anomaly states which this document is. binder11111 prints no ABN and no
+            # entity name anywhere, so its identity rests on the creditor history. vinton_new prints both in an
+            # IMAGE-BORNE letterhead, which this project has now rendered at two resolutions and retained, so its
+            # identity rests on the printed ABN (rule 8) and the retained read is the evidence for it.
+            if d.get('ocr_pages') and d.get('supplier_abn'):
+                anom.append(f'The supplier letterhead prints as an IMAGE and carries nothing into the text layer: no ABN and no '
+                            f'entity name appear in the text of this invoice, and the only supplier identification there is '
+                            f'"RST Systems Pty Ltd" in the bank block and the remittance address admin@vintontreeservices.com.au. '
+                            f'The letterhead was rendered at 300 and 400 dpi and read independently at branch v15, and the two '
+                            f'reads agree on ABN {d["supplier_abn"]} and on the entity name; the OCR text is retained on the '
+                            f'corpus (ocr_pages), so identity rests on the printed ABN (rule 8) and not on the creditor history. '
+                            f'It agrees with APLEDGER VIN003, which carries the same ABN.')
+            else:
+                anom.append('No letterhead address prints on this invoice: the only supplier contact on the face is the remittance address. '
+                        'No ABN is printed anywhere on this invoice and no entity name prints on the face; the only supplier identification is "RST Systems Pty Ltd" in the bank block and the remittance address admin@vintontreeservices.com.au. The register label and ABN come from the APLEDGER history VIN003 (Vinton Tree Services, ABN 84 008 552 538), not from this document (rule 8).')
         if v == 'SAVCO': anom.append('ABN printed ungrouped (78161366749); register column M carries the grouped form.')
         if m['invoice'] == 'INV-9360': anom.append('Invoice date 31-Mar-2026 and due 30-Apr-2026 print against July 2026 treatment dates and a 24-Jul-2026 posting; supplier-side date error, service period Jul-2026.')
         if m.get('evid_note'): anom.append(m['evid_note'])
@@ -593,7 +657,7 @@ def capture(rows, corpus_path, match_path, say, existing_keys=frozenset(), exist
             pkp = own[0] if own else (d['pk_refs'][0] if d['pk_refs'] else hf.get('printed_account', NP))
             if pkp == 'undefined':
                 pkp = 'undefined (as printed)'
-            if batch in ('attach_1', 'attach_2', 'code', 'mix22', 'attach_3', 'pla073_1', 'ksadasd') and pkp not in (NP, 'undefined (as printed)') and pkp.replace(' ', '').replace('#', '') != str(V[17]):
+            if batch in ('attach_1', 'attach_2', 'code', 'mix22', 'attach_3', 'pla073_1', 'ksadasd', 'playforce_new', 'harp_new', 'vinton_new', 'savco_new') and pkp not in (NP, 'undefined (as printed)') and pkp.replace(' ', '').replace('#', '') != str(V[17]):
                 anom.append(f'Printed PK {pkp} differs from the PK charged {V[17]}; see the coding note. PK Charged stays the ledger Work Order (rule 1).')
             G = {88: evid, 89: d['supplier'], 90: d['supplier_abn'], 91: NP, 92: hf['addr'], 93: hf['phone'], 94: date_out(d['invoice_date']), 95: date_out(d.get('due_date')) if d.get('due_date') else NP,
                  96: hf['po'], 97: hf['contract'], 98: hf['bill'], 99: NP, 100: hf['officer'], 101: NP, 102: NP, 103: NP, 104: pkp, 105: pkp.replace(' ', '').replace('#', '') if pkp != NP else NP,
@@ -602,6 +666,18 @@ def capture(rows, corpus_path, match_path, say, existing_keys=frozenset(), exist
                  120: f'{d["page_range"][1] - d["page_range"][0] + 1} page(s) ({pdfname} pp {d["page_range"][0]}-{d["page_range"][1]})', 125: src, 126: stamp,
                  127: ' '.join(anom) or None}
             for c, val in G.items(): V[c] = val
+            if v == 'HARPLEY':
+                G.update({101: hf['request_date'], 102: hf['via'], 103: hf['crwo'], 107: hf['site_contact'], 109: hf['technician']})
+            # Provenance: every printed field on this block must be traceable to this document's own page text.
+            # Collected per target row, deduplicated by evidence id, and gated in the stage where the gates live.
+            # The document's RETAINED TEXT is its text layer plus any OCR this project rendered and kept. A letterhead
+            # printed as an image is still printed, and a field read from it is traceable exactly when that read is
+            # held; a reported read that was never retained still traces to nothing and is still refused.
+            _pt = '\n'.join(d['page_text'][k] for k in sorted(d['page_text'], key=int))
+            if d.get('ocr_pages'):
+                _pt += '\n' + '\n'.join(d['ocr_pages'][k] for k in sorted(d['ocr_pages'], key=int))
+            ev.setdefault('prov', {})[evid] = dict(fields={c: G.get(c) for c in pbr_provenance.FIELDS},
+                                                   page_text=_pt, vendor=v)
             variants[t] = dict(kind=('bykey_deriv' if v == 'ORIGIN' else 'sumtie' if 'SUM-TIE' in var else 'bykey' if ('PARTIAL-SCOPE' in var or 'split-posting' in var) else 'deriv' if 'derivation' in var else 'tol1c' if 'one-cent' in var else 'std'), siblings=targets, chk3=chk3)
             if v == 'HARPLEY':
                 V[101] = hf['request_date']; V[102] = hf['via']; V[103] = hf['crwo']; V[107] = hf['site_contact']; V[109] = hf['technician']

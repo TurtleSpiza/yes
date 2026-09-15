@@ -1,0 +1,1220 @@
+[
+ {
+  "invoice": "19402",
+  "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+  "abn": "84 008 552 538",
+  "subtotal": 4462.57,
+  "incl": 4908.83,
+  "variant": "standard",
+  "target": [
+   "46838525-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "46838525-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 4462.57,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19402",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services: work CR# 3735053 PK000477; Completed 01/07/2026; contract PAR/329E/2021; order 717574; requesting officer (blank as printed). Lines as printed: 5 4 person crew for Tree Maintenance $315.00 = $1,575.00; 5 EWP up to 28m $190.00 = $950.00; 3 Stump grinding $180.00 = $540.00; 1 Note: 2 hours charged pro-rata - see attached bill $611.23 = $611.23; 1 LCC Permit Fee, LCC Permit Submission Administration Fee and Police $786.34 = $786.34. Printed subtotal $4,462.57 ex GST, GST $446.26, total $4,908.83. Printed PK000477 matches the PK charged (PK000477).",
+  "follow_up": null,
+  "source_file": "vinton new.pdf"
+ },
+ {
+  "invoice": "19836",
+  "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+  "abn": "84 008 552 538",
+  "subtotal": 3030.0,
+  "incl": 3333.0,
+  "variant": "standard",
+  "target": [
+   "516532d5-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "516532d5-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 3030.0,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19836",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services: work CR# 3810234 PK000477; Completed 02/07/2026; contract PAR/329E/2021; order 717574; requesting officer (blank as printed). Lines as printed: 6 4 person crew for Tree Maintenance $315.00 = $1,890.00; 6 EWP up to 28m $190.00 = $1,140.00. Printed subtotal $3,030.00 ex GST, GST $303.00, total $3,333.00. Printed PK000477 matches the PK charged (PK000477).",
+  "follow_up": null,
+  "source_file": "vinton new.pdf"
+ },
+ {
+  "invoice": "19839",
+  "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+  "abn": "84 008 552 538",
+  "subtotal": 3680.0,
+  "incl": 4048.0,
+  "variant": "standard",
+  "target": [
+   "ff7db8f6-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "ff7db8f6-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 3680.0,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19839",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services: site 18 Silverleigh Court, Woodhill; work CR# 3852788; Completed 03/07/2026; contract PAR/329E/2021; order 717574; requesting officer (blank as printed). Lines as printed: 11.5 Cut and disperse rate inclusive of 3 person crew- including a climber and $320.00 = $3,680.00. Printed subtotal $3,680.00 ex GST, GST $368.00, total $4,048.00. No PK is printed on the invoice face; the charge sits on PK000477, which comes from the TechOne order, not from the document.",
+  "follow_up": "Ask R. S. T. Systems Pty. Limited Trading As Vinton Tree Services to print the PK on the face: this invoice states no PK, so the face cannot corroborate the PK charged (PK000477).",
+  "source_file": "vinton new.pdf"
+ },
+ {
+  "invoice": "19840",
+  "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+  "abn": "84 008 552 538",
+  "subtotal": 2020.0,
+  "incl": 2222.0,
+  "variant": "standard",
+  "target": [
+   "290b5db0-73212-PK000073-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "290b5db0-73212-PK000073-01",
+    "section": "Natural Areas",
+    "na": "73212",
+    "pk": "PK000073",
+    "amount": 2020.0,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19840",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services: work CR# 3780042 PK000073; Completed 03/07/2026; Remove deadwood wood and general tidy of Eucs x 4 behind property; contract PAR/329E/2021; order 717574; requesting officer (blank as printed). Lines as printed: 4 4 person crew for Tree Maintenance $315.00 = $1,260.00; 4 EWP up to 28m $190.00 = $760.00. Printed subtotal $2,020.00 ex GST, GST $202.00, total $2,222.00. Printed PK000073 matches the PK charged (PK000073).",
+  "follow_up": null,
+  "source_file": "vinton new.pdf"
+ },
+ {
+  "invoice": "19845",
+  "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+  "abn": "84 008 552 538",
+  "subtotal": 2705.0,
+  "incl": 2975.5,
+  "variant": "standard",
+  "target": [
+   "713eb854-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "713eb854-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 2705.0,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19845",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services: work CR# 3781112 PK000482; Completed 06/07/2026; contract PAR/329E/2021; order 717574; requesting officer (blank as printed). Lines as printed: 5 4 person crew for Tree Maintenance $315.00 = $1,575.00; 5 EWP up to 28m $190.00 = $950.00; 1 Stump grinding $180.00 = $180.00. Printed subtotal $2,705.00 ex GST, GST $270.50, total $2,975.50. Printed PK000482 matches the PK charged (PK000482).",
+  "follow_up": null,
+  "source_file": "vinton new.pdf"
+ },
+ {
+  "invoice": "19848",
+  "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+  "abn": "84 008 552 538",
+  "subtotal": 3200.0,
+  "incl": 3520.0,
+  "variant": "standard",
+  "target": [
+   "77558374-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "77558374-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 3200.0,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19848",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services: work CR# 3895229 PK000477; Completed 07/07/2026; contract PAR/329E/2021; order 717574; requesting officer (blank as printed). Lines as printed: 10 Cut and disperse rate inclusive of 3 person crew- including a climber and $320.00 = $3,200.00. Printed subtotal $3,200.00 ex GST, GST $320.00, total $3,520.00. Printed PK000477 matches the PK charged (PK000477).",
+  "follow_up": null,
+  "source_file": "vinton new.pdf"
+ },
+ {
+  "invoice": "19850",
+  "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+  "abn": "84 008 552 538",
+  "subtotal": 2320.0,
+  "incl": 2552.0,
+  "variant": "standard",
+  "target": [
+   "c15bab2c-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "c15bab2c-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 2320.0,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19850",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services: work CR# 3869110 PK000482; Completed 08/07/2026; contract PAR/329E/2021; order 717574; requesting officer (blank as printed). Lines as printed: 7.25 Cut and disperse rate inclusive of 3 person crew- including a climber and $320.00 = $2,320.00. Printed subtotal $2,320.00 ex GST, GST $232.00, total $2,552.00. Printed PK000482 matches the PK charged (PK000482).",
+  "follow_up": null,
+  "source_file": "vinton new.pdf"
+ },
+ {
+  "invoice": "19847",
+  "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+  "abn": "84 008 552 538",
+  "subtotal": 2987.5,
+  "incl": 3286.25,
+  "variant": "standard",
+  "target": [
+   "e216aded-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "e216aded-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 2987.5,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19847",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services: work CR# 3821450 PK000477; Completed 06/07/2026; Remove and grind 2 x declining Wattle outside church entrance on; contract PAR/329E/2021; order 717574; requesting officer (blank as printed). Lines as printed: 2.5 4 person crew for Tree Maintenance $315.00 = $787.50; 2.5 EWP up to 28m $190.00 = $475.00; 3 Cut and disperse rate inclusive of 3 person crew- including a climber and $320.00 = $960.00; 4.25 Stump grinding $180.00 = $765.00. Printed subtotal $2,987.50 ex GST, GST $298.75, total $3,286.25. Printed PK000477 matches the PK charged (PK000477).",
+  "follow_up": null,
+  "source_file": "vinton new.pdf"
+ },
+ {
+  "invoice": "19871",
+  "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+  "abn": "84 008 552 538",
+  "subtotal": 3200.0,
+  "incl": 3520.0,
+  "variant": "standard",
+  "target": [
+   "28366107-73212-PK000055-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "28366107-73212-PK000055-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000055",
+    "amount": 3200.0,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19871",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services: work Provide Level 5 Scoping Arborist to provide services to Logan City Council Parks $3,200.00 GST; contract PAR/329E/2021; order 717574; requesting officer (blank as printed). Lines as printed: Provide Level 5 Scoping Arborist to provide services to Logan City Council Parks $3,200.00 GST = $3,200.00. Printed subtotal $3,200.00 ex GST, GST $320.00, total $3,520.00. No PK is printed on the invoice face; the charge sits on PK000055, which comes from the TechOne order, not from the document.",
+  "follow_up": "Ask R. S. T. Systems Pty. Limited Trading As Vinton Tree Services to print the PK on the face: this invoice states no PK, so the face cannot corroborate the PK charged (PK000055).",
+  "source_file": "vinton new.pdf"
+ },
+ {
+  "invoice": "19876",
+  "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+  "abn": "84 008 552 538",
+  "subtotal": 4040.0,
+  "incl": 4444.0,
+  "variant": "standard",
+  "target": [
+   "2482ea1e-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "2482ea1e-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 4040.0,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19876",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services: work CR# 3866589 PK000482; Completed 08/07/2026; Remove dead Euc to fence height asap to access being required from; contract PAR/329E/2021; order 717574; requesting officer (blank as printed). Lines as printed: 8 4 person crew for Tree Maintenance $315.00 = $2,520.00; 8 EWP up to 28m $190.00 = $1,520.00. Printed subtotal $4,040.00 ex GST, GST $404.00, total $4,444.00. Printed PK000482 matches the PK charged (PK000482).",
+  "follow_up": null,
+  "source_file": "vinton new.pdf"
+ },
+ {
+  "invoice": "19878",
+  "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+  "abn": "84 008 552 538",
+  "subtotal": 3246.25,
+  "incl": 3570.88,
+  "variant": "standard",
+  "target": [
+   "d557a24f-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "d557a24f-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 3246.25,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19878",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services: work CR# 3743354 PK000477; Completed 10/07/2026; Remove and poison Fig in multistemmed Euc, cut where possible. Remove; contract PAR/329E/2021; order 717574; requesting officer (blank as printed). Lines as printed: 0.25 4 person crew for Tree Maintenance $315.00 = $78.75; 0.25 EWP up to 28m $190.00 = $47.50; 9.75 Cut and disperse rate inclusive of 3 person crew- including a climber and $320.00 = $3,120.00. Printed subtotal $3,246.25 ex GST, GST $324.63, total $3,570.88. Printed PK000477 matches the PK charged (PK000477).",
+  "follow_up": null,
+  "source_file": "vinton new.pdf"
+ },
+ {
+  "invoice": "19879",
+  "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+  "abn": "84 008 552 538",
+  "subtotal": 2187.5,
+  "incl": 2406.25,
+  "variant": "standard",
+  "target": [
+   "1bf833df-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "1bf833df-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 2187.5,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19879",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services: site 6 Charles Glen Street, Daisy Hill; work CR# 3782517 PK000477; Completed 10/07/2026; contract PAR/329E/2021; order 717574; requesting officer (blank as printed). Lines as printed: 8.75 3 person crew for Tree Maintenance $250.00 = $2,187.50. Printed subtotal $2,187.50 ex GST, GST $218.75, total $2,406.25. Printed PK000477 matches the PK charged (PK000477).",
+  "follow_up": null,
+  "source_file": "vinton new.pdf"
+ },
+ {
+  "invoice": "19883",
+  "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+  "abn": "84 008 552 538",
+  "subtotal": 2651.25,
+  "incl": 2916.38,
+  "variant": "standard",
+  "target": [
+   "fb19e123-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "fb19e123-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 2651.25,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19883",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services: site 49-51 Daintree Drive, Logan Village; work CR# 3827433 PK000477; Completed 13/07/2026; Remove leaning trees over shed and reduce height of dead trees; contract PAR/329E/2021; order 717574; requesting officer (blank as printed). Lines as printed: 5.25 4 person crew for Tree Maintenance $315.00 = $1,653.75; 5.25 EWP up to 28m $190.00 = $997.50. Printed subtotal $2,651.25 ex GST, GST $265.13, total $2,916.38. Printed PK000477 matches the PK charged (PK000477).",
+  "follow_up": null,
+  "source_file": "vinton new.pdf"
+ },
+ {
+  "invoice": "19890",
+  "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+  "abn": "84 008 552 538",
+  "subtotal": 2039.9,
+  "incl": 2243.89,
+  "variant": "standard",
+  "target": [
+   "e44f9af7-73212-PK000073-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "e44f9af7-73212-PK000073-01",
+    "section": "Natural Areas",
+    "na": "73212",
+    "pk": "PK000073",
+    "amount": 2039.9,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19890",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services: site 24 Sugarwood Place, Cornubia; work CR# 3745161 PK000073; Completed 15/07/2026; Remove and disperse approx 10 trees marked. First spotted gum beside; contract PAR/329E/2021; order 717574; requesting officer (blank as printed). Lines as printed: 4 4 person crew for Tree Maintenance $315.00 = $1,260.00; 4 EWP up to 28m $190.00 = $760.00; 1 LCC Fuel Levy - Diesel $19.90 = $19.90. Printed subtotal $2,039.90 ex GST, GST $203.99, total $2,243.89. Printed PK000073 matches the PK charged (PK000073).",
+  "follow_up": null,
+  "source_file": "vinton new.pdf"
+ },
+ {
+  "invoice": "19892",
+  "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+  "abn": "84 008 552 538",
+  "subtotal": 2932.35,
+  "incl": 3225.59,
+  "variant": "standard",
+  "target": [
+   "1db0e0c9-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "1db0e0c9-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 2932.35,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19892",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services: site 106 St Andrews Drive, Cornubia; work CR# 3774124 PK000477; Completed 16/07/2026; contract PAR/329E/2021; order 717574; requesting officer (blank as printed). Lines as printed: 5.75 4 person crew for Tree Maintenance $315.00 = $1,811.25; 5.75 EWP up to 28m $190.00 = $1,092.50; 1 LCC Fuel Levy - Diesel $28.60 = $28.60. Printed subtotal $2,932.35 ex GST, GST $293.24, total $3,225.59. Printed PK000477 matches the PK charged (PK000477).",
+  "follow_up": null,
+  "source_file": "vinton new.pdf"
+ },
+ {
+  "invoice": "19899",
+  "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+  "abn": "84 008 552 538",
+  "subtotal": 2549.87,
+  "incl": 2804.86,
+  "variant": "standard",
+  "target": [
+   "d2cdbb21-73212-PK000073-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "d2cdbb21-73212-PK000073-01",
+    "section": "Natural Areas",
+    "na": "73212",
+    "pk": "PK000073",
+    "amount": 2549.87,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19899",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services: work CR# 3841778 PK000073; Completed 17/07/2026; contract PAR/329E/2021; order 717574; requesting officer (blank as printed). Lines as printed: 5 4 person crew for Tree Maintenance $315.00 = $1,575.00; 5 EWP up to 28m $190.00 = $950.00; 1 LCC Fuel Levy - Diesel $24.87 = $24.87. Printed subtotal $2,549.87 ex GST, GST $254.99, total $2,804.86. Printed PK000073 matches the PK charged (PK000073).",
+  "follow_up": null,
+  "source_file": "vinton new.pdf"
+ },
+ {
+  "invoice": "19901",
+  "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+  "abn": "84 008 552 538",
+  "subtotal": 2059.79,
+  "incl": 2265.77,
+  "variant": "standard",
+  "target": [
+   "d2f80a41-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "d2f80a41-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 2059.79,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19901",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services: work CR# 3812209 PK000477; Completed 20/07/2026; contract PAR/329E/2021; order 717574; requesting officer (blank as printed). Lines as printed: 4 4 person crew for Tree Maintenance $315.00 = $1,260.00; 4 EWP up to 28m $190.00 = $760.00; 1 LCC Fuel Levy - Diesel $39.79 = $39.79. Printed subtotal $2,059.79 ex GST, GST $205.98, total $2,265.77. Printed PK000477 matches the PK charged (PK000477).",
+  "follow_up": null,
+  "source_file": "vinton new.pdf"
+ },
+ {
+  "invoice": "19921",
+  "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+  "abn": "84 008 552 538",
+  "subtotal": 2907.19,
+  "incl": 3197.91,
+  "variant": "standard",
+  "target": [
+   "b3a93ed1-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "b3a93ed1-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 2907.19,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19921",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services: work CR# 3870544 PK000482; Completed 27/07/2026; Remove all palms and stump grind. Remove and stump grind heavy; contract PAR/329E/2021; order 717574; requesting officer (blank as printed). Lines as printed: 4.75 4 person crew for Tree Maintenance $315.00 = $1,496.25; 4.75 EWP up to 28m $190.00 = $902.50; 0.25 3 person crew for Tree Maintenance $250.00 = $62.50; 0.25 EWP up to 28m $190.00 = $47.50; 1.75 Stump grinding $180.00 = $315.00; 1 LCC Fuel Levy - Diesel $83.44 = $83.44. Printed subtotal $2,907.19 ex GST, GST $290.72, total $3,197.91. Printed PK000482 matches the PK charged (PK000482).",
+  "follow_up": null,
+  "source_file": "vinton new.pdf"
+ },
+ {
+  "invoice": "19923",
+  "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+  "abn": "84 008 552 538",
+  "subtotal": 2793.94,
+  "incl": 3073.33,
+  "variant": "standard",
+  "target": [
+   "102f1740-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "102f1740-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 2793.94,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19923",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services: work CR# 3719303 PK000482; Completed 27/07/2026; Remove and grind Ironbark beside 6 Presley; contract PAR/329E/2021; order 717574; requesting officer (blank as printed). Lines as printed: 4.75 4 person crew for Tree Maintenance $315.00 = $1,496.25; 4.75 EWP up to 28m $190.00 = $902.50; 1.75 Stump grinding $180.00 = $315.00; 1 LCC Fuel Levy - Diesel $80.19 = $80.19. Printed subtotal $2,793.94 ex GST, GST $279.39, total $3,073.33. Printed PK000482 matches the PK charged (PK000482).",
+  "follow_up": null,
+  "source_file": "vinton new.pdf"
+ },
+ {
+  "invoice": "19925",
+  "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+  "abn": "84 008 552 538",
+  "subtotal": 6377.04,
+  "incl": 7014.74,
+  "variant": "standard",
+  "target": [
+   "94d867cb-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "94d867cb-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 6377.04,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19925",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services: work CR# 3848081 PK000482; Completed 24/07/2026; Remove dead Silky Oak in garden area between playground and property,; contract PAR/329E/2021; order 717574; requesting officer (blank as printed). Lines as printed: 12.25 4 person crew for Tree Maintenance $315.00 = $3,858.75; 12.25 EWP up to 28m $190.00 = $2,327.50; 1.5 LCC Fuel Levy - Diesel $127.19 = $190.79. Printed subtotal $6,377.04 ex GST, GST $637.70, total $7,014.74. Printed PK000482 matches the PK charged (PK000482).",
+  "follow_up": null,
+  "source_file": "vinton new.pdf"
+ },
+ {
+  "invoice": "19461",
+  "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+  "abn": "84 008 552 538",
+  "subtotal": 2162.05,
+  "incl": 2378.26,
+  "variant": "standard",
+  "target": [
+   "91d14b48-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "91d14b48-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 2162.05,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19461",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services: work CR#3806539 - 100-110 Murray Road, Logan Village GST; contract PAR/329E/2021; order 717574; requesting officer Sam Forbes. Lines as printed: - Prune other trees encroaching over fence/property and lift over nature strip for mower $2,100.00 GST = $2,100.00; Fuel Levy $62.05 GST = $62.05. Printed subtotal $2,162.05 ex GST, GST $216.21, total $2,378.26. No PK is printed on the invoice face; the charge sits on PK000477, which comes from the TechOne order, not from the document.",
+  "follow_up": "Ask R. S. T. Systems Pty. Limited Trading As Vinton Tree Services to print the PK on the face: this invoice states no PK, so the face cannot corroborate the PK charged (PK000477).",
+  "source_file": "vinton new.pdf"
+ },
+ {
+  "invoice": "19930",
+  "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+  "abn": "84 008 552 538",
+  "subtotal": 3249.52,
+  "incl": 3574.47,
+  "variant": "standard",
+  "target": [
+   "ee2dca97-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "ee2dca97-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 3249.52,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19930",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services: site 22 Short Street, Waterford West; work CR# 3868853 PK000477; Completed 28/07/2026; contract PAR/329E/2021; order 717574; requesting officer (blank as printed). Lines as printed: 6.25 4 person crew for Tree Maintenance $315.00 = $1,968.75; 6.25 EWP up to 28m $190.00 = $1,187.50; 1 LCC Fuel Levy - Diesel $93.27 = $93.27. Printed subtotal $3,249.52 ex GST, GST $324.95, total $3,574.47. Printed PK000477 matches the PK charged (PK000477).",
+  "follow_up": null,
+  "source_file": "vinton new.pdf"
+ },
+ {
+  "invoice": "19948",
+  "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+  "abn": "84 008 552 538",
+  "subtotal": 2389.25,
+  "incl": 2628.18,
+  "variant": "standard",
+  "target": [
+   "22863ec3-73212-PK000479-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "22863ec3-73212-PK000479-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000479",
+    "amount": 2389.25,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19948",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services: work CR# 3865516 PK000479; Completed 31/07/2026; Remove sapling marked. Remove debris on ground. Reduce Ironbark.; contract PAR/329E/2021; order 717574; requesting officer (blank as printed). Lines as printed: 4.75 4 person crew for Tree Maintenance $315.00 = $1,496.25; 4.7 EWP up to 28m $190.00 = $893.00. Printed subtotal $2,389.25 ex GST, GST $238.93, total $2,628.18. Printed PK000479 matches the PK charged (PK000479).",
+  "follow_up": null,
+  "source_file": "vinton new.pdf"
+ },
+ {
+  "invoice": "19955",
+  "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+  "abn": "84 008 552 538",
+  "subtotal": 6407.9,
+  "incl": 7048.69,
+  "variant": "standard",
+  "target": [
+   "9aa354f8-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "9aa354f8-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 6407.9,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19955",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services: site 31 Skinners Road, Carbrook; work CR# 3860295; Completed 06/08/2026; contract PAR/329E/2021; order 717574; requesting officer (blank as printed). Lines as printed: 9 4 person crew for Tree Maintenance $315.00 = $2,835.00; 9 EWP up to 28m $190.00 = $1,710.00; 4 Crane Truck with Operator $180.00 = $720.00; 5 Stump grinding $180.00 = $900.00; 1 LCC Fuel Levy - Diesel $242.90 = $242.90. Printed subtotal $6,407.90 ex GST, GST $640.79, total $7,048.69. No PK is printed on the invoice face; the charge sits on PK000477, which comes from the TechOne order, not from the document.",
+  "follow_up": "Ask R. S. T. Systems Pty. Limited Trading As Vinton Tree Services to print the PK on the face: this invoice states no PK, so the face cannot corroborate the PK charged (PK000477).",
+  "source_file": "vinton new.pdf"
+ },
+ {
+  "invoice": "19823",
+  "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+  "abn": "84 008 552 538",
+  "subtotal": 7800.0,
+  "incl": 8580.0,
+  "variant": "standard",
+  "target": [
+   "70446ec2-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "70446ec2-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 7800.0,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19823",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services: work CR#3882877 - PK000477 - 4 Mulligan Way, Edens Landing $7,800.00 GST; Provide EWP crew and stump grinder crew to remove 10x Agathia robusta and stump; Completed 12/08/2026; contract PAR/329E/2021; order 717574; requesting officer Scott Kane. Lines as printed: CR#3882877 - PK000477 - 4 Mulligan Way, Edens Landing $7,800.00 GST = $7,800.00. Printed subtotal $7,800.00 ex GST, GST $780.00, total $8,580.00. Printed PK000477 matches the PK charged (PK000477).",
+  "follow_up": null,
+  "source_file": "vinton new.pdf"
+ },
+ {
+  "invoice": "19970",
+  "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+  "abn": "84 008 552 538",
+  "subtotal": 4621.39,
+  "incl": 5083.53,
+  "variant": "standard",
+  "target": [
+   "94d44792-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "94d44792-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 4621.39,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19970",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services: site 64 Mossman Parade, Waterford; work CR# 3917620 PK000477; Completed 13/08/2026; Remove dead trees at #64 and #63 Mossman Parade (one bear driveway; contract PAR/329E/2021; order 717574; requesting officer (blank as printed). Lines as printed: 6.75 4 person crew for Tree Maintenance $315.00 = $2,126.25; 6.75 EWP up to 28m $190.00 = $1,282.50; 6 Stump grinding $180.00 = $1,080.00; 1 LCC Fuel Levy - Diesel $132.64 = $132.64. Printed subtotal $4,621.39 ex GST, GST $462.14, total $5,083.53. Printed PK000477 matches the PK charged (PK000477).",
+  "follow_up": null,
+  "source_file": "vinton new.pdf"
+ },
+ {
+  "invoice": "19972",
+  "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+  "abn": "84 008 552 538",
+  "subtotal": 2095.13,
+  "incl": 2304.64,
+  "variant": "standard",
+  "target": [
+   "09265025-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "09265025-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 2095.13,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19972",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services: work CR# 3881622; Completed 13/08/2026; Stump grinder to remove 2x Melaleuca outside #5 and #13 Blossom Street.; contract PAR/329E/2021; order 717574; requesting officer (blank as printed). Lines as printed: 3.5 3 person crew for Tree Maintenance $250.00 = $875.00; 2.75 Stump grinding $180.00 = $495.00; 3.5 EWP up to 28m $190.00 = $665.00; 1 LCC Fuel Levy - Diesel $60.13 = $60.13. Printed subtotal $2,095.13 ex GST, GST $209.51, total $2,304.64. No PK is printed on the invoice face; the charge sits on PK000477, which comes from the TechOne order, not from the document.",
+  "follow_up": "Ask R. S. T. Systems Pty. Limited Trading As Vinton Tree Services to print the PK on the face: this invoice states no PK, so the face cannot corroborate the PK charged (PK000477).",
+  "source_file": "vinton new.pdf"
+ },
+ {
+  "invoice": "19973",
+  "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+  "abn": "84 008 552 538",
+  "subtotal": 4286.79,
+  "incl": 4715.47,
+  "variant": "standard",
+  "target": [
+   "6593c298-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "6593c298-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 4286.79,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19973",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services: site 128-132 Carbrook Road, Cornubia; work CR# 3668079 PK000482; Completed 13/08/2026; Remove Grey Gum closest to teh house, deadwood other Grey Gum; contract PAR/329E/2021; order 717574; requesting officer (blank as printed). Lines as printed: 5.75 4 person crew for Tree Maintenance $315.00 = $1,811.25; 5.75 EWP up to 28m $190.00 = $1,092.50; 3.5 Crane Truck with Operator $180.00 = $630.00; 3.5 Stump grinding $180.00 = $630.00; 1 LCC Fuel Levy - Diesel $123.04 = $123.04. Printed subtotal $4,286.79 ex GST, GST $428.68, total $4,715.47. Printed PK000482 matches the PK charged (PK000482).",
+  "follow_up": null,
+  "source_file": "vinton new.pdf"
+ },
+ {
+  "invoice": "19976",
+  "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+  "abn": "84 008 552 538",
+  "subtotal": 2800.0,
+  "incl": 3080.0,
+  "variant": "standard",
+  "target": [
+   "81b1da61-73212-PK000055-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "81b1da61-73212-PK000055-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000055",
+    "amount": 2800.0,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19976",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services: work Provide Level 5 Scoping Arborist to provide services to Logan City Council Parks $2,800.00 GST; contract PAR/329E/2021; order 717574; requesting officer (blank as printed). Lines as printed: Provide Level 5 Scoping Arborist to provide services to Logan City Council Parks $2,800.00 GST = $2,800.00. Printed subtotal $2,800.00 ex GST, GST $280.00, total $3,080.00. No PK is printed on the invoice face; the charge sits on PK000055, which comes from the TechOne order, not from the document.",
+  "follow_up": "Ask R. S. T. Systems Pty. Limited Trading As Vinton Tree Services to print the PK on the face: this invoice states no PK, so the face cannot corroborate the PK charged (PK000055).",
+  "source_file": "vinton new.pdf"
+ },
+ {
+  "invoice": "19977",
+  "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+  "abn": "84 008 552 538",
+  "subtotal": 2599.61,
+  "incl": 2859.57,
+  "variant": "standard",
+  "target": [
+   "a2db6458-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "a2db6458-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 2599.61,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19977",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services: work CR# 3607360 PK000482; Completed 17/08/2026; contract PAR/329E/2021; order 717574; requesting officer (blank as printed). Lines as printed: 5 4 person crew for Tree Maintenance $315.00 = $1,575.00; 5 EWP up to 28m $190.00 = $950.00; 1 LCC Fuel Levy - Diesel $74.61 = $74.61. Printed subtotal $2,599.61 ex GST, GST $259.96, total $2,859.57. Printed PK000482 matches the PK charged (PK000482).",
+  "follow_up": null,
+  "source_file": "vinton new.pdf"
+ },
+ {
+  "invoice": "19981",
+  "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+  "abn": "84 008 552 538",
+  "subtotal": 3878.26,
+  "incl": 4266.09,
+  "variant": "standard",
+  "target": [
+   "c39aa4f3-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "c39aa4f3-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 3878.26,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19981",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services: work CR# 3819803 PK000482; Completed 19/08/2026; Remove six trees marked, four behind 28 Southgate, two at start of Park; contract PAR/329E/2021; order 717574; requesting officer (blank as printed). Lines as printed: 5.25 4 person crew for Tree Maintenance $315.00 = $1,653.75; 5.25 EWP up to 28m $190.00 = $997.50; 3.5 Stump grinding $180.00 = $630.00; 2.5 Crane Truck with Operator $180.00 = $450.00; 1 LCC Fuel Levy - Diesel $147.01 = $147.01. Printed subtotal $3,878.26 ex GST, GST $387.83, total $4,266.09. Printed PK000482 matches the PK charged (PK000482).",
+  "follow_up": null,
+  "source_file": "vinton new.pdf"
+ },
+ {
+  "invoice": "19990",
+  "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+  "abn": "84 008 552 538",
+  "subtotal": 2286.68,
+  "incl": 2515.35,
+  "variant": "standard",
+  "target": [
+   "4a1db237-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "4a1db237-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 2286.68,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19990",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services: site 36 Ridgepointe Drive, Cornubia; work CR# 3846261 PK000477; Completed 20/08/2026; contract PAR/329E/2021; order 717574; requesting officer (blank as printed). Lines as printed: 4 4 person crew for Tree Maintenance $315.00 = $1,260.00; 4 EWP up to 28m $190.00 = $760.00; 1 Stump grinding $180.00 = $180.00; 1 LCC Fuel Levy - Diesel $86.68 = $86.68. Printed subtotal $2,286.68 ex GST, GST $228.67, total $2,515.35. Printed PK000477 matches the PK charged (PK000477).",
+  "follow_up": null,
+  "source_file": "vinton new.pdf"
+ },
+ {
+  "invoice": "19456",
+  "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+  "abn": "84 008 552 538",
+  "subtotal": 4000.0,
+  "incl": 4400.0,
+  "variant": "standard",
+  "target": [
+   "6c13d213-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "6c13d213-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 4000.0,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19456",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services: work CR#3823509 - Blue-Gum Drive (Wattle Street) Marsden; Completed 20/08/2026; contract PAR/329E/2021; order 717574; requesting officer Sam Forbes. Lines as printed: - Check structual integrity of other habitat tree near Beech Street enterence $4,000.00 GST = $4,000.00. Printed subtotal $4,000.00 ex GST, GST $400.00, total $4,400.00. No PK is printed on the invoice face; the charge sits on PK000477, which comes from the TechOne order, not from the document.",
+  "follow_up": "Ask R. S. T. Systems Pty. Limited Trading As Vinton Tree Services to print the PK on the face: this invoice states no PK, so the face cannot corroborate the PK charged (PK000477).",
+  "source_file": "vinton new.pdf"
+ },
+ {
+  "invoice": "19998",
+  "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+  "abn": "84 008 552 538",
+  "subtotal": 3934.13,
+  "incl": 4327.54,
+  "variant": "standard",
+  "target": [
+   "27492928-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "27492928-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 3934.13,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19998",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services: site 10 Carlton Road Greenbank; work CR# 3879636 PK000482; Completed 26/08/2026; Remove any debris piled around trunk. Remove Iron Bark, log to be cut; contract PAR/329E/2021; order 717574; requesting officer (blank as printed). Lines as printed: 5 4 person crew for Tree Maintenance $315.00 = $1,575.00; 5 EWP up to 28m $190.00 = $950.00; 4 Crane Truck with Operator $180.00 = $720.00; 3 Stump grinding $180.00 = $540.00; 1 LCC Fuel Levy - Diesel $149.13 = $149.13. Printed subtotal $3,934.13 ex GST, GST $393.41, total $4,327.54. Printed PK000482 matches the PK charged (PK000482).",
+  "follow_up": null,
+  "source_file": "vinton new.pdf"
+ },
+ {
+  "invoice": "19999",
+  "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+  "abn": "84 008 552 538",
+  "subtotal": 3404.03,
+  "incl": 3744.43,
+  "variant": "standard",
+  "target": [
+   "c916a0d3-73212-PK000073-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "c916a0d3-73212-PK000073-01",
+    "section": "Natural Areas",
+    "na": "73212",
+    "pk": "PK000073",
+    "amount": 3404.03,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19999",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services: work CR# 3908344 PK000073; Completed 25/08/2026; contract PAR/329E/2021; order 717574; requesting officer (blank as printed). Lines as printed: 5 4 person crew for Tree Maintenance $315.00 = $1,575.00; 5 EWP up to 28m $190.00 = $950.00; 5 Ute $150.00 = $750.00; 1 LCC Fuel Levy - Diesel $129.03 = $129.03. Printed subtotal $3,404.03 ex GST, GST $340.40, total $3,744.43. Printed PK000073 matches the PK charged (PK000073).",
+  "follow_up": null,
+  "source_file": "vinton new.pdf"
+ },
+ {
+  "invoice": "20000",
+  "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+  "abn": "84 008 552 538",
+  "subtotal": 4238.19,
+  "incl": 4662.01,
+  "variant": "standard",
+  "target": [
+   "8db8aa09-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "8db8aa09-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 4238.19,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "20000",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services: work CR# 3839982 PK000477; Completed 18/08/2026; contract PAR/329E/2021; order 717574; requesting officer (blank as printed). Lines as printed: 6 4 person crew for Tree Maintenance $315.00 = $1,890.00; 6 EWP up to 28m $190.00 = $1,140.00; 1.25 Crane Truck with Operator $180.00 = $225.00; 2.75 Stump grinding $180.00 = $495.00; 1 Tio fees - attached $340.44 = $340.44; 1 LCC Fuel Levy - Diesel $147.75 = $147.75. Printed subtotal $4,238.19 ex GST, GST $423.82, total $4,662.01. Printed PK000477 matches the PK charged (PK000477).",
+  "follow_up": null,
+  "source_file": "vinton new.pdf"
+ },
+ {
+  "invoice": "20002",
+  "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+  "abn": "84 008 552 538",
+  "subtotal": 2669.96,
+  "incl": 2936.96,
+  "variant": "standard",
+  "target": [
+   "54d772ad-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "54d772ad-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 2669.96,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "20002",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services: site 26 Charnley Court, Shailer Park; work CR# 3848280 PK000482; Completed 27/08/2026; contract PAR/329E/2021; order 717574; requesting officer (blank as printed). Lines as printed: 3.75 4 person crew for Tree Maintenance $315.00 = $1,181.25; 3.75 EWP up to 28m $190.00 = $712.50; 3.75 Stump grinding $180.00 = $675.00; 1 LCC Fuel Levy - Diesel $101.21 = $101.21. Printed subtotal $2,669.96 ex GST, GST $267.00, total $2,936.96. Printed PK000482 matches the PK charged (PK000482).",
+  "follow_up": null,
+  "source_file": "vinton new.pdf"
+ },
+ {
+  "invoice": "20018",
+  "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+  "abn": "84 008 552 538",
+  "subtotal": 1948.88,
+  "incl": 2143.77,
+  "variant": "standard",
+  "target": [
+   "2e9a4a4d-73212-PK000325-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "2e9a4a4d-73212-PK000325-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000325",
+    "amount": 1948.88,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "20018",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services: site 6 Monash Road, Loganlea; work CR# 3944827 PK000325; Completed 07/09/2026; contract PAR/329E/2021; order 717574; requesting officer (blank as printed). Lines as printed: 3 4 person crew for Tree Maintenance $315.00 = $945.00; 3 EWP up to 28m $190.00 = $570.00; 2 Stump grinding $180.00 = $360.00; 1 LCC Fuel Levy - Diesel $73.88 = $73.88. Printed subtotal $1,948.88 ex GST, GST $194.89, total $2,143.77. Printed PK000325 matches the PK charged (PK000325).",
+  "follow_up": null,
+  "source_file": "vinton new.pdf"
+ },
+ {
+  "invoice": "20022",
+  "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+  "abn": "84 008 552 538",
+  "subtotal": 2217.82,
+  "incl": 2439.6,
+  "variant": "standard",
+  "target": [
+   "38b3a0a2-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "38b3a0a2-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 2217.82,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "20022",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services: work CR# 3920200 PK000477; Completed 08/09/2026; contract PAR/329E/2021; order 717574; requesting officer (blank as printed). Lines as printed: 1.25 4 person crew for Tree Maintenance $315.00 = $393.75; 1.25 EWP up to 28m $190.00 = $237.50; 4.75 3 person crew for Tree Maintenance $250.00 = $1,187.50; 1.75 Stump grinding $180.00 = $315.00; 1 LCC Fuel Levy - Diesel $84.07 = $84.07. Printed subtotal $2,217.82 ex GST, GST $221.78, total $2,439.60. Printed PK000477 matches the PK charged (PK000477).",
+  "follow_up": null,
+  "source_file": "vinton new.pdf"
+ },
+ {
+  "invoice": "19960",
+  "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+  "abn": "84 008 552 538",
+  "subtotal": 6700.0,
+  "incl": 7370.0,
+  "variant": "standard",
+  "target": [
+   "fbdf0779-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "fbdf0779-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 6700.0,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19960",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Review",
+  "coding_note": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services: work CR#3931720 PK000475 $6,700.00 GST; Completed 08/09/2026; Provide EWP and chipper crew to multiple streets.; contract PAR/329E/2021; order 717574; requesting officer Lee-Anne Niblet. Lines as printed: CR#3931720 PK000475 $6,700.00 GST = $6,700.00. Printed subtotal $6,700.00 ex GST, GST $670.00, total $7,370.00. Printed PK000475 differs from the PK charged (PK000477). PK Charged stays the ledger Work Order (rule 1).",
+  "follow_up": "Confirm the WO Task with Park Services: the face prints PK000475 for this site and TechOne charged PK000477; recode if PK000477 is not the intended WO Task. No effect on the total.",
+  "source_file": "vinton new.pdf"
+ },
+ {
+  "invoice": "20021",
+  "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+  "abn": "84 008 552 538",
+  "subtotal": 3054.54,
+  "incl": 3359.99,
+  "variant": "standard",
+  "target": [
+   "54e93b16-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "54e93b16-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 3054.54,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "20021",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services: work CR# 3929393 PK000482; Completed 08/09/2026; Remove marked dead tree. Lift low hanging branches in car park. Remove; contract PAR/329E/2021; order 717574; requesting officer (blank as printed). Lines as printed: 4.75 4 person crew for Tree Maintenance $315.00 = $1,496.25; 4.75 EWP up to 28m $190.00 = $902.50; 3 Stump grinding $180.00 = $540.00; 1 LCC Fuel Levy - Diesel $115.79 = $115.79. Printed subtotal $3,054.54 ex GST, GST $305.45, total $3,359.99. Printed PK000482 matches the PK charged (PK000482).",
+  "follow_up": null,
+  "source_file": "vinton new.pdf"
+ },
+ {
+  "invoice": "20015",
+  "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+  "abn": "84 008 552 538",
+  "subtotal": 3680.0,
+  "incl": 4048.0,
+  "variant": "standard",
+  "target": [
+   "21382908-73212-PK000055-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "21382908-73212-PK000055-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000055",
+    "amount": 3680.0,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "20015",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services: work Provide Level 5 Scoping Arborist to provide services to Logan City Council Parks $3,680.00 GST; contract PAR/329E/2021; order 717574; requesting officer (blank as printed). Lines as printed: Provide Level 5 Scoping Arborist to provide services to Logan City Council Parks $3,680.00 GST = $3,680.00. Printed subtotal $3,680.00 ex GST, GST $368.00, total $4,048.00. No PK is printed on the invoice face; the charge sits on PK000055, which comes from the TechOne order, not from the document.",
+  "follow_up": "Ask R. S. T. Systems Pty. Limited Trading As Vinton Tree Services to print the PK on the face: this invoice states no PK, so the face cannot corroborate the PK charged (PK000055).",
+  "source_file": "vinton new.pdf"
+ }
+]

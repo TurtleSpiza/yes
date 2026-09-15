@@ -1,0 +1,1882 @@
+{
+ "_readme": [
+  "Rule 12 audit of Batch harp_new against BOTH shipped registers. The binder is a RE-SUPPLY: every document of it that",
+  "sits on a line of either register was already captured there, so none is captured again. A re-pull is audited, never",
+  "ke-captured; this file is that audit and it is the batch record."
+ ],
+ "summary": {
+  "documents": 70,
+  "already_sighted_legs": 85,
+  "identical": 85,
+  "differing": 0,
+  "documents_on_no_register_line": 0,
+  "verdict": "AUDITED: every re-supplied document that sits on a sighted line states the same printed subtotal, GST and total as the capture already shipped, so nothing is re-captured (rule 12)"
+ },
+ "documents": [
+  {
+   "invoice": "00013396",
+   "subtotal": 15100.0,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 224,
+     "evid": "INV-00013396",
+     "captured": "31-Jul-2026, rule 17 capture (v12 build)",
+     "register_figures": [
+      "15100.00",
+      "1510.00",
+      "16610.00"
+     ],
+     "resupplied_figures": [
+      "15100.00",
+      "1510.00",
+      "16610.00"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00013760",
+   "subtotal": 15945.0,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 11041,
+     "evid": "INV-00013760",
+     "captured": "30-Jul-2026, rule 17 capture (v11 batch build)",
+     "register_figures": [
+      "15945.00",
+      "1594.50",
+      "17539.50"
+     ],
+     "resupplied_figures": [
+      "15945.00",
+      "1594.50",
+      "17539.50"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00013885",
+   "subtotal": 33292.62,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 10095,
+     "evid": "INV-00013885",
+     "captured": "30-Jul-2026, rule 17 capture (v11 batch build)",
+     "register_figures": [
+      "33292.62",
+      "3329.26",
+      "36621.88"
+     ],
+     "resupplied_figures": [
+      "33292.62",
+      "3329.26",
+      "36621.88"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00014206",
+   "subtotal": 16932.94,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 6878,
+     "evid": "INV-00014206",
+     "captured": "30-Jul-2026, rule 17 capture (v11 batch build)",
+     "register_figures": [
+      "16932.94",
+      "1693.29",
+      "18626.23"
+     ],
+     "resupplied_figures": [
+      "16932.94",
+      "1693.29",
+      "18626.23"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00014236",
+   "subtotal": 45073.0,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 6551,
+     "evid": "INV-00014236",
+     "captured": "30-Jul-2026, rule 17 capture (v11 batch build)",
+     "register_figures": [
+      "45073.00",
+      "4507.30",
+      "49580.30"
+     ],
+     "resupplied_figures": [
+      "45073.00",
+      "4507.30",
+      "49580.30"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00014262",
+   "subtotal": 78010.0,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 6198,
+     "evid": "INV-00014262",
+     "captured": "30-Jul-2026, rule 17 capture (v11 batch build)",
+     "register_figures": [
+      "78010.00",
+      "7801.00",
+      "85811.00"
+     ],
+     "resupplied_figures": [
+      "78010.00",
+      "7801.00",
+      "85811.00"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00014316",
+   "subtotal": 8890.0,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 19152,
+     "evid": "INV-00014316",
+     "captured": "Captured 4-Aug-2026 (v16 build)",
+     "register_figures": [
+      "8890.00",
+      "889.00",
+      "9779.00"
+     ],
+     "resupplied_figures": [
+      "8890.00",
+      "889.00",
+      "9779.00"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00014324",
+   "subtotal": 4348.9,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 18991,
+     "evid": "INV-00014324",
+     "captured": "5-Aug-2026, rule 17 capture (v28 batch build)",
+     "register_figures": [
+      "4348.90",
+      "434.89",
+      "4783.79"
+     ],
+     "resupplied_figures": [
+      "4348.90",
+      "434.89",
+      "4783.79"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00014327",
+   "subtotal": 1620.0,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 18990,
+     "evid": "INV-00014327",
+     "captured": "5-Aug-2026, rule 17 capture (v28 batch build)",
+     "register_figures": [
+      "1620.00",
+      "162.00",
+      "1782.00"
+     ],
+     "resupplied_figures": [
+      "1620.00",
+      "162.00",
+      "1782.00"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00014328",
+   "subtotal": 11981.75,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 18989,
+     "evid": "INV-00014328",
+     "captured": "Captured 4-Aug-2026 (v16 build)",
+     "register_figures": [
+      "11981.75",
+      "1198.18",
+      "13179.93"
+     ],
+     "resupplied_figures": [
+      "11981.75",
+      "1198.18",
+      "13179.93"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00014329",
+   "subtotal": 2880.0,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 18987,
+     "evid": "INV-00014329",
+     "captured": "5-Aug-2026, rule 17 capture (v28 batch build)",
+     "register_figures": [
+      "2880.00",
+      "288.00",
+      "3168.00"
+     ],
+     "resupplied_figures": [
+      "2880.00",
+      "288.00",
+      "3168.00"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00014350",
+   "subtotal": 24085.0,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 21531,
+     "evid": "INV-00014350",
+     "captured": "2-Sep-2026, rule 17 capture (v119 batch build)",
+     "register_figures": [
+      "24085.00",
+      "2408.50",
+      "26493.50"
+     ],
+     "resupplied_figures": [
+      "24085.00",
+      "2408.50",
+      "26493.50"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00014397",
+   "subtotal": 10057.85,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 18425,
+     "evid": "INV-00014397",
+     "captured": "Captured 4-Aug-2026 (v16 build)",
+     "register_figures": [
+      "10057.85",
+      "1005.79",
+      "11063.64"
+     ],
+     "resupplied_figures": [
+      "10057.85",
+      "1005.79",
+      "11063.64"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00014410",
+   "subtotal": 10735.0,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 18316,
+     "evid": "INV-00014410",
+     "captured": "Captured 4-Aug-2026 (v16 build)",
+     "register_figures": [
+      "10735.00",
+      "1073.50",
+      "11808.50"
+     ],
+     "resupplied_figures": [
+      "10735.00",
+      "1073.50",
+      "11808.50"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00014416",
+   "subtotal": 5512.99,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 18315,
+     "evid": "INV-00014416",
+     "captured": "11-Aug-2026, rule 17 capture (v31 batch build)",
+     "register_figures": [
+      "5512.99",
+      "551.30",
+      "6064.29"
+     ],
+     "resupplied_figures": [
+      "5512.99",
+      "551.30",
+      "6064.29"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00014418",
+   "subtotal": 2170.0,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 17859,
+     "evid": "INV-00014418",
+     "captured": "5-Aug-2026, rule 17 capture (v28 batch build)",
+     "register_figures": [
+      "2170.00",
+      "217.00",
+      "2387.00"
+     ],
+     "resupplied_figures": [
+      "2170.00",
+      "217.00",
+      "2387.00"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00014421",
+   "subtotal": 4344.0,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 21891,
+     "evid": "INV-00014421",
+     "captured": "2-Sep-2026, rule 17 capture (v119 batch build)",
+     "register_figures": [
+      "4344.00",
+      "434.40",
+      "4778.40"
+     ],
+     "resupplied_figures": [
+      "4344.00",
+      "434.40",
+      "4778.40"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00014433",
+   "subtotal": 8396.0,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 17895,
+     "evid": "INV-00014433",
+     "captured": "Captured 4-Aug-2026 (v16 build)",
+     "register_figures": [
+      "8396.00",
+      "839.60",
+      "9235.60"
+     ],
+     "resupplied_figures": [
+      "8396.00",
+      "839.60",
+      "9235.60"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00014514",
+   "subtotal": 4105.75,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 21913,
+     "evid": "INV-00014514",
+     "captured": "2-Sep-2026, rule 17 capture (v119 batch build)",
+     "register_figures": [
+      "4105.75",
+      "410.58",
+      "4516.33"
+     ],
+     "resupplied_figures": [
+      "4105.75",
+      "410.58",
+      "4516.33"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00014570",
+   "subtotal": 13709.85,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 17524,
+     "evid": "INV-00014570",
+     "captured": "Captured 4-Aug-2026 (v16 build)",
+     "register_figures": [
+      "13709.85",
+      "1370.99",
+      "15080.84"
+     ],
+     "resupplied_figures": [
+      "13709.85",
+      "1370.99",
+      "15080.84"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00014569",
+   "subtotal": 6393.75,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 21764,
+     "evid": "INV-00014569",
+     "captured": "2-Sep-2026, rule 17 capture (v119 batch build)",
+     "register_figures": [
+      "6393.75",
+      "639.38",
+      "7033.13"
+     ],
+     "resupplied_figures": [
+      "6393.75",
+      "639.38",
+      "7033.13"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00014602",
+   "subtotal": 1802.5,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 17385,
+     "evid": "INV-00014602",
+     "captured": "5-Aug-2026, rule 17 capture (v28 batch build)",
+     "register_figures": [
+      "1802.50",
+      "180.25",
+      "1982.75"
+     ],
+     "resupplied_figures": [
+      "1802.50",
+      "180.25",
+      "1982.75"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00014639",
+   "subtotal": 2725.0,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 17226,
+     "evid": "INV-00014639",
+     "captured": "5-Aug-2026, rule 17 capture (v28 batch build)",
+     "register_figures": [
+      "2725.00",
+      "272.50",
+      "2997.50"
+     ],
+     "resupplied_figures": [
+      "2725.00",
+      "272.50",
+      "2997.50"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00014640",
+   "subtotal": 8060.26,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 17225,
+     "evid": "INV-00014640",
+     "captured": "Captured 4-Aug-2026 (v16 build)",
+     "register_figures": [
+      "8060.26",
+      "806.03",
+      "8866.29"
+     ],
+     "resupplied_figures": [
+      "8060.26",
+      "806.03",
+      "8866.29"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00014642",
+   "subtotal": 6220.5,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 21774,
+     "evid": "INV-00014642",
+     "captured": "2-Sep-2026, rule 17 capture (v119 batch build)",
+     "register_figures": [
+      "6220.50",
+      "622.05",
+      "6842.55"
+     ],
+     "resupplied_figures": [
+      "6220.50",
+      "622.05",
+      "6842.55"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00014710",
+   "subtotal": 6274.95,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 21772,
+     "evid": "INV-00014710",
+     "captured": "2-Sep-2026, rule 17 capture (v119 batch build)",
+     "register_figures": [
+      "6274.95",
+      "627.50",
+      "6902.45"
+     ],
+     "resupplied_figures": [
+      "6274.95",
+      "627.50",
+      "6902.45"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00014711",
+   "subtotal": 12218.25,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 17063,
+     "evid": "INV-00014711",
+     "captured": "Captured 4-Aug-2026 (v16 build)",
+     "register_figures": [
+      "12218.25",
+      "1221.83",
+      "13440.08"
+     ],
+     "resupplied_figures": [
+      "12218.25",
+      "1221.83",
+      "13440.08"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00014727",
+   "subtotal": 1499.0,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 16817,
+     "evid": "INV-00014727",
+     "captured": "5-Aug-2026, rule 17 capture (v28 batch build)",
+     "register_figures": [
+      "1499.00",
+      "149.90",
+      "1648.90"
+     ],
+     "resupplied_figures": [
+      "1499.00",
+      "149.90",
+      "1648.90"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00014735",
+   "subtotal": 1998.45,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 16807,
+     "evid": "INV-00014735",
+     "captured": "11-Aug-2026, rule 17 capture (v31 batch build)",
+     "register_figures": [
+      "1998.45",
+      "199.85",
+      "2198.30"
+     ],
+     "resupplied_figures": [
+      "1998.45",
+      "199.85",
+      "2198.30"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00014787",
+   "subtotal": 5525.0,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 16726,
+     "evid": "INV-00014787",
+     "captured": "Captured 4-Aug-2026 (v16 build)",
+     "register_figures": [
+      "5525.00",
+      "552.50",
+      "6077.50"
+     ],
+     "resupplied_figures": [
+      "5525.00",
+      "552.50",
+      "6077.50"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00014862",
+   "subtotal": 5199.7,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 21849,
+     "evid": "INV-00014862",
+     "captured": "2-Sep-2026, rule 17 capture (v119 batch build)",
+     "register_figures": [
+      "5199.70",
+      "519.97",
+      "5719.67"
+     ],
+     "resupplied_figures": [
+      "5199.70",
+      "519.97",
+      "5719.67"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00014863",
+   "subtotal": 11176.55,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 15729,
+     "evid": "INV-00014863",
+     "captured": "Captured 4-Aug-2026 (v16 build)",
+     "register_figures": [
+      "11176.55",
+      "1117.66",
+      "12294.21"
+     ],
+     "resupplied_figures": [
+      "11176.55",
+      "1117.66",
+      "12294.21"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00014867",
+   "subtotal": 11940.0,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 15727,
+     "evid": "INV-00014867",
+     "captured": "Captured 4-Aug-2026 (v16 build)",
+     "register_figures": [
+      "11940.00",
+      "1194.00",
+      "13134.00"
+     ],
+     "resupplied_figures": [
+      "11940.00",
+      "1194.00",
+      "13134.00"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00014918",
+   "subtotal": 8482.38,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 21675,
+     "evid": "INV-00014918",
+     "captured": "2-Sep-2026, rule 17 capture (v119 batch build)",
+     "register_figures": [
+      "8482.38",
+      "848.24",
+      "9330.62"
+     ],
+     "resupplied_figures": [
+      "8482.38",
+      "848.24",
+      "9330.62"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00014919",
+   "subtotal": 10903.75,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 15283,
+     "evid": "INV-00014919",
+     "captured": "Captured 4-Aug-2026 (v16 build)",
+     "register_figures": [
+      "10903.75",
+      "1090.38",
+      "11994.13"
+     ],
+     "resupplied_figures": [
+      "10903.75",
+      "1090.38",
+      "11994.13"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00014920",
+   "subtotal": 3909.1,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 15287,
+     "evid": "INV-00014920",
+     "captured": "5-Aug-2026, rule 17 capture (v28 batch build)",
+     "register_figures": [
+      "3909.10",
+      "390.91",
+      "4300.01"
+     ],
+     "resupplied_figures": [
+      "3909.10",
+      "390.91",
+      "4300.01"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00014923",
+   "subtotal": 9798.6,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 15281,
+     "evid": "INV-00014923",
+     "captured": "Captured 4-Aug-2026 (v16 build)",
+     "register_figures": [
+      "9798.60",
+      "979.86",
+      "10778.46"
+     ],
+     "resupplied_figures": [
+      "9798.60",
+      "979.86",
+      "10778.46"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00014975",
+   "subtotal": 10991.5,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 14900,
+     "evid": "INV-00014975",
+     "captured": "Captured 4-Aug-2026 (v16 build)",
+     "register_figures": [
+      "10991.50",
+      "1099.15",
+      "12090.65"
+     ],
+     "resupplied_figures": [
+      "10991.50",
+      "1099.15",
+      "12090.65"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00014976",
+   "subtotal": 6061.0,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 21799,
+     "evid": "INV-00014976",
+     "captured": "2-Sep-2026, rule 17 capture (v119 batch build)",
+     "register_figures": [
+      "6061.00",
+      "606.10",
+      "6667.10"
+     ],
+     "resupplied_figures": [
+      "6061.00",
+      "606.10",
+      "6667.10"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00015045",
+   "subtotal": 7409.47,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 21697,
+     "evid": "INV-00015045",
+     "captured": "2-Sep-2026, rule 17 capture (v119 batch build)",
+     "register_figures": [
+      "7409.47",
+      "740.95",
+      "8150.42"
+     ],
+     "resupplied_figures": [
+      "7409.47",
+      "740.95",
+      "8150.42"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00015046",
+   "subtotal": 10539.27,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 14788,
+     "evid": "INV-00015046",
+     "captured": "Captured 4-Aug-2026 (v16 build)",
+     "register_figures": [
+      "10539.27",
+      "1053.93",
+      "11593.20"
+     ],
+     "resupplied_figures": [
+      "10539.27",
+      "1053.93",
+      "11593.20"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00015108",
+   "subtotal": 2598.15,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 14621,
+     "evid": "INV-00015108",
+     "captured": "5-Aug-2026, rule 17 capture (v28 batch build)",
+     "register_figures": [
+      "2598.15",
+      "259.82",
+      "2857.97"
+     ],
+     "resupplied_figures": [
+      "2598.15",
+      "259.82",
+      "2857.97"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00015150",
+   "subtotal": 5330.0,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 21823,
+     "evid": "INV-00015150",
+     "captured": "2-Sep-2026, rule 17 capture (v119 batch build)",
+     "register_figures": [
+      "5330.00",
+      "533.00",
+      "5863.00"
+     ],
+     "resupplied_figures": [
+      "5330.00",
+      "533.00",
+      "5863.00"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00015149",
+   "subtotal": 23840.63,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 21538,
+     "evid": "INV-00015149",
+     "captured": "2-Sep-2026, rule 17 capture (v119 batch build)",
+     "register_figures": [
+      "23840.63",
+      "2384.06",
+      "26224.69"
+     ],
+     "resupplied_figures": [
+      "23840.63",
+      "2384.06",
+      "26224.69"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00015157",
+   "subtotal": 8546.95,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 14157,
+     "evid": "INV-00015157",
+     "captured": "Captured 4-Aug-2026 (v16 build)",
+     "register_figures": [
+      "8546.95",
+      "854.70",
+      "9401.65"
+     ],
+     "resupplied_figures": [
+      "8546.95",
+      "854.70",
+      "9401.65"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00015144",
+   "subtotal": 12461.91,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 14087,
+     "evid": "INV-00015144",
+     "captured": "Captured 4-Aug-2026 (v16 build)",
+     "register_figures": [
+      "12461.91",
+      "1246.19",
+      "13708.10"
+     ],
+     "resupplied_figures": [
+      "12461.91",
+      "1246.19",
+      "13708.10"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00015143",
+   "subtotal": 6223.8,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 14104,
+     "evid": "INV-00015143",
+     "captured": "Captured 4-Aug-2026 (v16 build)",
+     "register_figures": [
+      "6223.80",
+      "622.38",
+      "6846.18"
+     ],
+     "resupplied_figures": [
+      "6223.80",
+      "622.38",
+      "6846.18"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00015202A",
+   "subtotal": 1963.89,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 13967,
+     "evid": "INV-00015202A",
+     "captured": "11-Aug-2026, rule 17 capture (v30 batch build)",
+     "register_figures": [
+      "1963.89",
+      "196.39",
+      "2160.28"
+     ],
+     "resupplied_figures": [
+      "1963.89",
+      "196.39",
+      "2160.28"
+     ],
+     "identical": true
+    },
+    {
+     "register": "Parks Branch v14",
+     "row": 4032,
+     "evid": "INV-00015202A",
+     "captured": "11-Aug-2026, rule 17 capture (v30 batch build)",
+     "register_figures": [
+      "1963.89",
+      "196.39",
+      "2160.28"
+     ],
+     "resupplied_figures": [
+      "1963.89",
+      "196.39",
+      "2160.28"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00015203",
+   "subtotal": 2526.5,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 13369,
+     "evid": "INV-00015203",
+     "captured": "30-Jul-2026, rule 17 capture",
+     "register_figures": [
+      "2526.50",
+      "252.65",
+      "2779.15"
+     ],
+     "resupplied_figures": [
+      "2526.50",
+      "252.65",
+      "2779.15"
+     ],
+     "identical": true
+    },
+    {
+     "register": "Parks Branch v14",
+     "row": 4033,
+     "evid": "INV-00015203",
+     "captured": "30-Jul-2026, rule 17 capture",
+     "register_figures": [
+      "2526.50",
+      "252.65",
+      "2779.15"
+     ],
+     "resupplied_figures": [
+      "2526.50",
+      "252.65",
+      "2779.15"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00015198",
+   "subtotal": 9016.15,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 13367,
+     "evid": "INV-00015198",
+     "captured": "5-Aug-2026, rule 17 capture (v28 batch build)",
+     "register_figures": [
+      "9016.15",
+      "901.62",
+      "9917.77"
+     ],
+     "resupplied_figures": [
+      "9016.15",
+      "901.62",
+      "9917.77"
+     ],
+     "identical": true
+    },
+    {
+     "register": "Parks Branch v14",
+     "row": 5249,
+     "evid": "INV-00015198",
+     "captured": "5-Aug-2026, rule 17 capture (v28 batch build)",
+     "register_figures": [
+      "9016.15",
+      "901.62",
+      "9917.77"
+     ],
+     "resupplied_figures": [
+      "9016.15",
+      "901.62",
+      "9917.77"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00015200",
+   "subtotal": 31223.34,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 13365,
+     "evid": "INV-00015200",
+     "captured": "30-Jul-2026, rule 17 capture",
+     "register_figures": [
+      "31223.34",
+      "3122.33",
+      "34345.67"
+     ],
+     "resupplied_figures": [
+      "31223.34",
+      "3122.33",
+      "34345.67"
+     ],
+     "identical": true
+    },
+    {
+     "register": "Parks Branch v14",
+     "row": 4031,
+     "evid": "INV-00015200",
+     "captured": "30-Jul-2026, rule 17 capture",
+     "register_figures": [
+      "31223.34",
+      "3122.33",
+      "34345.67"
+     ],
+     "resupplied_figures": [
+      "31223.34",
+      "3122.33",
+      "34345.67"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00015199",
+   "subtotal": 12914.55,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 13366,
+     "evid": "INV-00015199",
+     "captured": "5-Aug-2026, rule 17 capture (v28 batch build)",
+     "register_figures": [
+      "12914.55",
+      "1291.46",
+      "14206.01"
+     ],
+     "resupplied_figures": [
+      "12914.55",
+      "1291.46",
+      "14206.01"
+     ],
+     "identical": true
+    },
+    {
+     "register": "Parks Branch v14",
+     "row": 4030,
+     "evid": "INV-00015199",
+     "captured": "5-Aug-2026, rule 17 capture (v28 batch build)",
+     "register_figures": [
+      "12914.55",
+      "1291.46",
+      "14206.01"
+     ],
+     "resupplied_figures": [
+      "12914.55",
+      "1291.46",
+      "14206.01"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00015210",
+   "subtotal": 581.58,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 3173,
+     "evid": "00015210",
+     "captured": "15-Sep-2026, rule 17 capture (Branch batches ported to PS & WP at v128)",
+     "register_figures": [
+      "581.58",
+      "58.16",
+      "639.74"
+     ],
+     "resupplied_figures": [
+      "581.58",
+      "58.16",
+      "639.74"
+     ],
+     "identical": true
+    },
+    {
+     "register": "Parks Branch v14",
+     "row": 4038,
+     "evid": "00015210",
+     "captured": "11-Sep-2026, branch v7, Batch mix222 (mix_222.pdf, raw-text route to extraction prompt v6, corpus_mix222_v6.json)",
+     "register_figures": [
+      "581.58",
+      "58.16",
+      "639.74"
+     ],
+     "resupplied_figures": [
+      "581.58",
+      "58.16",
+      "639.74"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00015220",
+   "subtotal": 944.19,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 1935,
+     "evid": "00015220",
+     "captured": "15-Sep-2026, rule 17 capture (Branch batches ported to PS & WP at v128)",
+     "register_figures": [
+      "944.19",
+      "94.42",
+      "1038.61"
+     ],
+     "resupplied_figures": [
+      "944.19",
+      "94.42",
+      "1038.61"
+     ],
+     "identical": true
+    },
+    {
+     "register": "Parks Branch v14",
+     "row": 4046,
+     "evid": "00015220",
+     "captured": "11-Sep-2026, branch v7, Batch mix222 (mix_222.pdf, raw-text route to extraction prompt v6, corpus_mix222_v6.json)",
+     "register_figures": [
+      "944.19",
+      "94.42",
+      "1038.61"
+     ],
+     "resupplied_figures": [
+      "944.19",
+      "94.42",
+      "1038.61"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00015261",
+   "subtotal": 780.0,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 31057,
+     "evid": "00015261",
+     "captured": "15-Sep-2026, rule 17 capture (Branch batches ported to PS & WP at v128)",
+     "register_figures": [
+      "780.00",
+      "78.00",
+      "858.00"
+     ],
+     "resupplied_figures": [
+      "780.00",
+      "78.00",
+      "858.00"
+     ],
+     "identical": true
+    },
+    {
+     "register": "Parks Branch v14",
+     "row": 4066,
+     "evid": "00015261",
+     "captured": "11-Sep-2026, branch v7, Batch mix222 (mix_222.pdf, raw-text route to extraction prompt v6, corpus_mix222_v6.json)",
+     "register_figures": [
+      "780.00",
+      "78.00",
+      "858.00"
+     ],
+     "resupplied_figures": [
+      "780.00",
+      "78.00",
+      "858.00"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00015258",
+   "subtotal": 690.0,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 31063,
+     "evid": "00015258",
+     "captured": "15-Sep-2026, rule 17 capture (Branch batches ported to PS & WP at v128)",
+     "register_figures": [
+      "690.00",
+      "69.00",
+      "759.00"
+     ],
+     "resupplied_figures": [
+      "690.00",
+      "69.00",
+      "759.00"
+     ],
+     "identical": true
+    },
+    {
+     "register": "Parks Branch v14",
+     "row": 4063,
+     "evid": "00015258",
+     "captured": "11-Sep-2026, branch v7, Batch mix222 (mix_222.pdf, raw-text route to extraction prompt v6, corpus_mix222_v6.json)",
+     "register_figures": [
+      "690.00",
+      "69.00",
+      "759.00"
+     ],
+     "resupplied_figures": [
+      "690.00",
+      "69.00",
+      "759.00"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00015277",
+   "subtotal": 465.0,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 31101,
+     "evid": "00015277",
+     "captured": "15-Sep-2026, rule 17 capture (Branch batches ported to PS & WP at v128)",
+     "register_figures": [
+      "465.00",
+      "46.50",
+      "511.50"
+     ],
+     "resupplied_figures": [
+      "465.00",
+      "46.50",
+      "511.50"
+     ],
+     "identical": true
+    },
+    {
+     "register": "Parks Branch v14",
+     "row": 4082,
+     "evid": "00015277",
+     "captured": "11-Sep-2026, branch v7, Batch mix222 (mix_222.pdf, raw-text route to extraction prompt v6, corpus_mix222_v6.json)",
+     "register_figures": [
+      "465.00",
+      "46.50",
+      "511.50"
+     ],
+     "resupplied_figures": [
+      "465.00",
+      "46.50",
+      "511.50"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00015267",
+   "subtotal": 514.8,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 31089,
+     "evid": "00015267",
+     "captured": "15-Sep-2026, rule 17 capture (Branch batches ported to PS & WP at v128)",
+     "register_figures": [
+      "514.80",
+      "51.48",
+      "566.28"
+     ],
+     "resupplied_figures": [
+      "514.80",
+      "51.48",
+      "566.28"
+     ],
+     "identical": true
+    },
+    {
+     "register": "Parks Branch v14",
+     "row": 4072,
+     "evid": "00015267",
+     "captured": "11-Sep-2026, branch v7, Batch mix222 (mix_222.pdf, raw-text route to extraction prompt v6, corpus_mix222_v6.json)",
+     "register_figures": [
+      "514.80",
+      "51.48",
+      "566.28"
+     ],
+     "resupplied_figures": [
+      "514.80",
+      "51.48",
+      "566.28"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00015271",
+   "subtotal": 465.0,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 31100,
+     "evid": "00015271",
+     "captured": "15-Sep-2026, rule 17 capture (Branch batches ported to PS & WP at v128)",
+     "register_figures": [
+      "465.00",
+      "46.50",
+      "511.50"
+     ],
+     "resupplied_figures": [
+      "465.00",
+      "46.50",
+      "511.50"
+     ],
+     "identical": true
+    },
+    {
+     "register": "Parks Branch v14",
+     "row": 4076,
+     "evid": "00015271",
+     "captured": "11-Sep-2026, branch v7, Batch mix222 (mix_222.pdf, raw-text route to extraction prompt v6, corpus_mix222_v6.json)",
+     "register_figures": [
+      "465.00",
+      "46.50",
+      "511.50"
+     ],
+     "resupplied_figures": [
+      "465.00",
+      "46.50",
+      "511.50"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00015268",
+   "subtotal": 945.0,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 31047,
+     "evid": "00015268",
+     "captured": "15-Sep-2026, rule 17 capture (Branch batches ported to PS & WP at v128)",
+     "register_figures": [
+      "945.00",
+      "94.50",
+      "1039.50"
+     ],
+     "resupplied_figures": [
+      "945.00",
+      "94.50",
+      "1039.50"
+     ],
+     "identical": true
+    },
+    {
+     "register": "Parks Branch v14",
+     "row": 4073,
+     "evid": "00015268",
+     "captured": "11-Sep-2026, branch v7, Batch mix222 (mix_222.pdf, raw-text route to extraction prompt v6, corpus_mix222_v6.json)",
+     "register_figures": [
+      "945.00",
+      "94.50",
+      "1039.50"
+     ],
+     "resupplied_figures": [
+      "945.00",
+      "94.50",
+      "1039.50"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00015349",
+   "subtotal": 7321.0,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 30971,
+     "evid": "00015349/pages48-50",
+     "captured": "15-Sep-2026, rule 17 capture (Branch batches ported to PS & WP at v128)",
+     "register_figures": [
+      "7321.00",
+      "732.10",
+      "8053.10"
+     ],
+     "resupplied_figures": [
+      "7321.00",
+      "732.10",
+      "8053.10"
+     ],
+     "identical": true
+    },
+    {
+     "register": "Parks Branch v14",
+     "row": 4119,
+     "evid": "00015349",
+     "captured": "11-Sep-2026, branch v3, Batch mixed_new_26_27 (raw-text route, corpus_mixed_new_26_27_v6.json)",
+     "register_figures": [
+      "7321.00",
+      "732.10",
+      "8053.10"
+     ],
+     "resupplied_figures": [
+      "7321.00",
+      "732.10",
+      "8053.10"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00015284",
+   "subtotal": 719.08,
+   "sighted": [
+    {
+     "register": "PS & WP v128",
+     "row": 31059,
+     "evid": "00015284",
+     "captured": "15-Sep-2026, rule 17 capture (Branch batches ported to PS & WP at v128)",
+     "register_figures": [
+      "719.08",
+      "71.91",
+      "790.99"
+     ],
+     "resupplied_figures": [
+      "719.08",
+      "71.91",
+      "790.99"
+     ],
+     "identical": true
+    },
+    {
+     "register": "Parks Branch v14",
+     "row": 4087,
+     "evid": "00015284",
+     "captured": "11-Sep-2026, branch v7, Batch mix222 (mix_222.pdf, raw-text route to extraction prompt v6, corpus_mix222_v6.json)",
+     "register_figures": [
+      "719.08",
+      "71.91",
+      "790.99"
+     ],
+     "resupplied_figures": [
+      "719.08",
+      "71.91",
+      "790.99"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00015285",
+   "subtotal": 7734.05,
+   "sighted": [
+    {
+     "register": "Parks Branch v14",
+     "row": 5301,
+     "evid": "00015285",
+     "captured": "11-Sep-2026, branch v3, Batch mixed_new_26_27 (raw-text route, corpus_mixed_new_26_27_v6.json)",
+     "register_figures": [
+      "7734.05",
+      "773.41",
+      "8507.46"
+     ],
+     "resupplied_figures": [
+      "7734.05",
+      "773.41",
+      "8507.46"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00015287",
+   "subtotal": 585.0,
+   "sighted": [
+    {
+     "register": "Parks Branch v14",
+     "row": 4089,
+     "evid": "00015287",
+     "captured": "11-Sep-2026, branch v7, Batch mix222 (mix_222.pdf, raw-text route to extraction prompt v6, corpus_mix222_v6.json)",
+     "register_figures": [
+      "585.00",
+      "58.50",
+      "643.50"
+     ],
+     "resupplied_figures": [
+      "585.00",
+      "58.50",
+      "643.50"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00015289",
+   "subtotal": 959.08,
+   "sighted": [
+    {
+     "register": "Parks Branch v14",
+     "row": 4091,
+     "evid": "00015289",
+     "captured": "11-Sep-2026, branch v7, Batch mix222 (mix_222.pdf, raw-text route to extraction prompt v6, corpus_mix222_v6.json)",
+     "register_figures": [
+      "959.08",
+      "95.91",
+      "1054.99"
+     ],
+     "resupplied_figures": [
+      "959.08",
+      "95.91",
+      "1054.99"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00015299",
+   "subtotal": 2210.0,
+   "sighted": [
+    {
+     "register": "Parks Branch v14",
+     "row": 4101,
+     "evid": "00015299",
+     "captured": "11-Sep-2026, branch v7, Batch mix222 (mix_222.pdf, raw-text route to extraction prompt v6, corpus_mix222_v6.json)",
+     "register_figures": [
+      "2210.00",
+      "221.00",
+      "2431.00"
+     ],
+     "resupplied_figures": [
+      "2210.00",
+      "221.00",
+      "2431.00"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00015301",
+   "subtotal": 16383.95,
+   "sighted": [
+    {
+     "register": "Parks Branch v14",
+     "row": 4102,
+     "evid": "00015301",
+     "captured": "11-Sep-2026, branch v3, Batch mixed_new_26_27 (raw-text route, corpus_mixed_new_26_27_v6.json)",
+     "register_figures": [
+      "16383.95",
+      "1638.40",
+      "18022.35"
+     ],
+     "resupplied_figures": [
+      "16383.95",
+      "1638.40",
+      "18022.35"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00015302",
+   "subtotal": 5416.5,
+   "sighted": [
+    {
+     "register": "Parks Branch v14",
+     "row": 5254,
+     "evid": "00015302",
+     "captured": "11-Sep-2026, branch v7, Batch mix222 (mix_222.pdf, raw-text route to extraction prompt v6, corpus_mix222_v6.json)",
+     "register_figures": [
+      "5416.50",
+      "541.65",
+      "5958.15"
+     ],
+     "resupplied_figures": [
+      "5416.50",
+      "541.65",
+      "5958.15"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00015312",
+   "subtotal": 476.01,
+   "sighted": [
+    {
+     "register": "Parks Branch v14",
+     "row": 4111,
+     "evid": "00015312",
+     "captured": "11-Sep-2026, branch v7, Batch mix222 (mix_222.pdf, raw-text route to extraction prompt v6, corpus_mix222_v6.json)",
+     "register_figures": [
+      "476.01",
+      "47.60",
+      "523.61"
+     ],
+     "resupplied_figures": [
+      "476.01",
+      "47.60",
+      "523.61"
+     ],
+     "identical": true
+    }
+   ]
+  },
+  {
+   "invoice": "00015311",
+   "subtotal": 741.56,
+   "sighted": [
+    {
+     "register": "Parks Branch v14",
+     "row": 4110,
+     "evid": "00015311",
+     "captured": "11-Sep-2026, branch v7, Batch mix222 (mix_222.pdf, raw-text route to extraction prompt v6, corpus_mix222_v6.json)",
+     "register_figures": [
+      "741.56",
+      "74.16",
+      "815.72"
+     ],
+     "resupplied_figures": [
+      "741.56",
+      "74.16",
+      "815.72"
+     ],
+     "identical": true
+    }
+   ]
+  }
+ ]
+}

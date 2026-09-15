@@ -66,7 +66,7 @@
    "code": "VIN003",
    "label": "Vinton Tree Services",
    "abn": "84008552538",
-   "label_basis": "Named as Vinton Tree Services in Council recode journals on 49 branch register lines (branch v1, Tier 2); ABN 84 008 552 538 from this APLEDGER record. Legal entity suffix to be confirmed from the first sighted invoice.",
+   "label_basis": "Vinton Tree Services, ABN 84 008 552 538. SIGHTED at branch v15 on 42 vinton_new invoices: the letterhead prints as an image and carries nothing into the text layer, so the binder was rendered at 300 and 400 dpi and read independently, and the two reads agree on the ABN on all 42 documents and on the entity name \"R. S. T. Systems Pty. Limited Trading as Vinton Tree Services\" on 35 of them (7 refused for disagreeing, each a partial read of the same string). The OCR text is retained on the corpus, so identity rests on the printed ABN (rule 8) rather than on this history. The ABN passes the ATO modulus-89 checksum and matches this APLEDGER record exactly. binder11111 documents print no ABN or entity name at all and still rest on this history.",
    "added": "v4"
   },
   {

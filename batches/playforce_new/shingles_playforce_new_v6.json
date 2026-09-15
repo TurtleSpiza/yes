@@ -1,0 +1,884 @@
+{
+ "corpus": {
+  "scope": "corpus",
+  "documents_checked": 109,
+  "shingles_tested": 793,
+  "failures": [],
+  "results": [
+   {
+    "doc_ref": "INV-3932",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 10,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-3876",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 6,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-3939",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-3938",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-3937",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-3911",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-4534",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 6,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-4567",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 8,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-4571",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 24,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-4664",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 9,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-4807",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 8,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-4868",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-4920",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 9,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-5376",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 8,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-5784",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 11,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-5877",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 15,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-5997",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 4,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-6065",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 3,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-6072",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 6,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-6222",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-6239",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 10,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-6419",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-6643",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 8,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-6726",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 8,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-6756",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 7,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-6924",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 31,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-6955",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 8,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-6981",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 30,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-7064",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 8,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-7073",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 6,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-7111",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 4,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-7217",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 2,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-7327",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-7366",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 8,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-7387",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 7,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-7414",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-7478",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 8,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-7552",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-7557",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 8,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-7562",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-7566",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-7568",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 6,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-7582",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-7592",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 6,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-7594",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 8,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-7601",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 6,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-7606",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-7608",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 3,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-7613",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 4,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-7646",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 7,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-7670",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-7672",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-7682",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 7,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-7687",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 7,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-7763",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-7789",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 6,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-7803",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-7807",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 7,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-7888",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 4,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-7908",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 9,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-7909",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 6,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-7910",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 7,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-7911",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 8,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-7912",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 9,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-7913",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 9,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-7914",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 9,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-7916",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 7,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-7928",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 6,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-7976",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-8006",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 4,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-8009",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 4,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-8025",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 4,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-8031",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-8034",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 6,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-8036",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-8035",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-8059",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 4,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-8115",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-8206",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 48,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-8210",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 8,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-8194",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 4,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-8256",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 3,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-8299",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-8304",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-8325",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 3,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-8331",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 4,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-8399",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 12,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-8417",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 4,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-8445",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 8,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-8449",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 4,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-8465",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 2,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-8548",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-8550",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-8563",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 3,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-8564",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 4,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-8624",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 10,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-8638",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 28,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-8648",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-8680",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 2,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-8693",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 8,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-8739",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 4,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-8754",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 6,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-8776",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 8,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-8846",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-8895",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 3,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-8906",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-8907",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-8919",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-8921",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 14,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   }
+  ],
+  "VERDICT": "PASS"
+ },
+ "VERDICT": "PASS"
+}

@@ -14,6 +14,7 @@ from openpyxl.styles import Font, PatternFill, Alignment
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import pbr_stage
 from pbr_unidentified_queue import latest_register  # noqa
 
 REG = sys.argv[1] if len(sys.argv) > 1 else latest_register()
@@ -36,7 +37,7 @@ def main():
         t = str(r[0]); tiers.setdefault(t, [0, Decimal(0), Decimal(0), 0])
         tiers[t][0] += 1; tiers[t][1] += D(r[5]); tiers[t][2] += D(r[6]); tiers[t][3] += int(r[4])
     absA = sum(abs(D(r[5])) for r in body if str(r[0]).startswith('A'))
-    stamp = dt.date.today().strftime('%d-%b-%Y')
+    stamp = pbr_stage.stamp()   # Brisbane date (pbr_stage.BNE), not the container's UTC day
     md = [f'# Journal pull list, Parks Branch register FY2026/27 {ver} ({stamp})', '',
           f'**Position:** {len(body)} TechOne document files carry the {sum(int(r[4]) for r in body):,} journal lines on the register. '
           f'{tiers.get("A Pull required", [0])[0]} sit in Tier A (no attachment, ${absA:,.2f} absolute net). '

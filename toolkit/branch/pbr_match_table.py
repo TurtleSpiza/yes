@@ -70,18 +70,37 @@ def main():
     sighted = {txt(r[0]) for r in sheet(REG, 'Evidence_Invoices')[4:] if txt(r[0])}
     sighted_stem = {s.split('/')[0] for s in sighted}
 
+    def already_sighted(inv):
+        """Rule 12, PREFIX AWARE. An EvID carries the batch's own prefix in front of the printed reference, so the
+        bare reference alone is not the screen: invoice 00015202A is already held here as INV-00015202A, inherited
+        from the PS & WP register, and a bare comparison re-captures it onto a line that already has a green block.
+        A prefix is short by construction (the PS/WP driver uses the same five-character bound)."""
+        if inv in sighted_stem:
+            return True
+        return any(e.endswith(inv) and 0 < len(e) - len(inv) <= 5 for e in sighted_stem)
+
     out, held = [], []
-    dups = []
+    dups, outside = [], []
     for d in corpus['documents']:
         inv = d['invoice_no']
         if d.get('duplicate_of'):
             dups.append(inv)  # repeated copy of a document already in the corpus (prompt v6 11.4): never matched twice
             continue
-        if inv in sighted_stem:
+        if already_sighted(inv):
             held.append(inv)
             continue
         rows = by_ref.get(inv, [])
-        assert rows, f'{inv}: no register line carries this reference'
+        if not rows:
+            # A binder is a vendor's own file and is not cut to this register's year. Every document whose reference
+            # carries no line here is recorded with its printed invoice date and held, never dropped silently and never
+            # forced onto a line: the branch register is FY2026/27 only, so a document printed before 1-Jul-2026 has no
+            # line to sit on and belongs to the PS & WP register's earlier years. A document INSIDE the year with no
+            # line would be a different matter (an invoice the ledger never received) and is listed the same way for
+            # the batch record to answer.
+            outside.append(dict(invoice=inv, invoice_date=d.get('invoice_date'), subtotal=float(D(d['printed_subtotal_ex_gst'])),
+                                in_register_year=str(d.get('invoice_date') or '') >= '2026-07-01',
+                                pages=d.get('page_range')))
+            continue
         amounts = [D(r[C_AMOUNT - 1]) for r in rows]
         sub, incl = D(d['printed_subtotal_ex_gst']), D(d['printed_total_incl_gst'])
         var = variant_of(amounts, sub, incl)
@@ -97,6 +116,12 @@ def main():
         out.append(entry)
 
     json.dump(out, open(os.path.join(BDIR, f'match_{BATCH}_v6.json'), 'w'), indent=1)
+    if outside:
+        json.dump(outside, open(os.path.join(BDIR, f'outside_{BATCH}_v6.json'), 'w'), indent=1)
+        inyear = [o for o in outside if o['in_register_year']]
+        print(f'{BATCH}: {len(outside)} document(s) carry no line on this register '
+              f'(${sum(o["subtotal"] for o in outside):,.2f} ex GST), of which {len(inyear)} are dated inside FY2026/27 '
+              f'{[o["invoice"] for o in inyear] or ""}; listed in outside_{BATCH}_v6.json')
     v = collections.Counter(e['variant'].split(' (')[0] for e in out)
     print(f'{BATCH}: {len(out)} documents matched, {len(held)} held by the rule 12 evidence screen {held or ""}, {len(dups)} duplicate copies skipped {dups or ""}; variants {dict(v)}')
     for e in out:

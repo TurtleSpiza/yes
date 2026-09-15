@@ -408,9 +408,19 @@ def f13_stems(corpus: dict, out: GateResult) -> None:
             out.repairs.append(Repair("F13", ref, "stem rebuilt: %r -> %r" % (stem, cand)))
             stem = cand
         if stem in seen:
+            # Break the collision with the invoice-number suffix, then fit 40 characters by shortening the NAME.
+            # Slicing the whole candidate is what produced an over-long stem here before: cand[:40] can cut through
+            # the amount, and refusing that slice used to leave the untrimmed candidate in place, so the stem failed
+            # the length rule instead of the amount rule. The amount and the suffix are never touched.
             tie = "%s %s" % (stem.split(",")[0], ref[-3:])
-            cand = "%s, %s, %s" % (tie, _mon_year(doc.get("invoice_date")), amt)
-            doc["evidence_stem"] = cand[:40] if cand[:40].endswith(amt) else cand
+            my = _mon_year(doc.get("invoice_date"))
+            cand = "%s, %s, %s" % (tie, my, amt)
+            while len(cand) > 40 and len(tie) > len(ref[-3:]) + 1:
+                tie = tie[:-1].rstrip()
+                cand = "%s, %s, %s" % (tie, my, amt)
+            if len(cand) > 40:
+                cand = "%s, %s" % (tie, amt)
+            doc["evidence_stem"] = cand
             out.repairs.append(Repair("F13", ref, "stem collided with %s; broken by invoice-number suffix" % seen[stem]))
             stem = doc["evidence_stem"]
         seen[stem] = ref
