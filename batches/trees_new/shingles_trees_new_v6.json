@@ -1,0 +1,372 @@
+{
+ "corpus": {
+  "scope": "corpus",
+  "documents_checked": 45,
+  "shingles_tested": 155,
+  "failures": [],
+  "results": [
+   {
+    "doc_ref": "186117416",
+    "vendor": "Higgins Coatings Pty Ltd",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "186118145",
+    "vendor": "Higgins Coatings Pty Ltd",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "186119550",
+    "vendor": "Higgins Coatings Pty Ltd",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "186120601",
+    "vendor": "Higgins Coatings Pty Ltd",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "186120602",
+    "vendor": "Higgins Coatings Pty Ltd",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "186120676",
+    "vendor": "Higgins Coatings Pty Ltd",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "186121706",
+    "vendor": "Higgins Coatings Pty Ltd",
+    "shingles_tested": 2,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "186121699",
+    "vendor": "Higgins Coatings Pty Ltd",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "186122557",
+    "vendor": "Higgins Coatings Pty Ltd",
+    "shingles_tested": 2,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "186127015",
+    "vendor": "Higgins Coatings Pty Ltd",
+    "shingles_tested": 2,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "186127082",
+    "vendor": "Higgins Coatings Pty Ltd",
+    "shingles_tested": 2,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "7481",
+    "vendor": "Kachel Cleaning",
+    "shingles_tested": 10,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "7487",
+    "vendor": "Kachel Cleaning",
+    "shingles_tested": 10,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "186132430",
+    "vendor": "Higgins Coatings Pty Ltd",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "186133049",
+    "vendor": "Higgins Coatings Pty Ltd",
+    "shingles_tested": 3,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "186133050",
+    "vendor": "Higgins Coatings Pty Ltd",
+    "shingles_tested": 2,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "186133719",
+    "vendor": "Higgins Coatings Pty Ltd",
+    "shingles_tested": 2,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "7511",
+    "vendor": "Kachel Cleaning",
+    "shingles_tested": 10,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "186134961",
+    "vendor": "Higgins Coatings Pty Ltd",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "186136327",
+    "vendor": "Higgins Coatings Pty Ltd",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "186136328",
+    "vendor": "Higgins Coatings Pty Ltd",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "186136809",
+    "vendor": "Higgins Coatings Pty Ltd",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "186136811",
+    "vendor": "Higgins Coatings Pty Ltd",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "186136816",
+    "vendor": "Higgins Coatings Pty Ltd",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "186136820",
+    "vendor": "Higgins Coatings Pty Ltd",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "186136823",
+    "vendor": "Higgins Coatings Pty Ltd",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "186136814",
+    "vendor": "Higgins Coatings Pty Ltd",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "186137404",
+    "vendor": "Higgins Coatings Pty Ltd",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "36101",
+    "vendor": "Australasia Pty Ltd",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "36107",
+    "vendor": "Australasia Pty Ltd",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "36116",
+    "vendor": "Australasia Pty Ltd",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "36122",
+    "vendor": "Australasia Pty Ltd",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "36136",
+    "vendor": "Australasia Pty Ltd",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "7612",
+    "vendor": "Kachel Cleaning",
+    "shingles_tested": 10,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "36218",
+    "vendor": "Australasia Pty Ltd",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "36242",
+    "vendor": "Australasia Pty Ltd",
+    "shingles_tested": 6,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "36301",
+    "vendor": "Australasia Pty Ltd",
+    "shingles_tested": 10,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "36346",
+    "vendor": "Australasia Pty Ltd",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "50829771",
+    "vendor": "Treescape Australasia Pty Ltd",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "51974591",
+    "vendor": "Treescape Australasia Pty Ltd",
+    "shingles_tested": 13,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "7718",
+    "vendor": "Kachel Cleaning",
+    "shingles_tested": 9,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "7719",
+    "vendor": "Kachel Cleaning",
+    "shingles_tested": 3,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "7720",
+    "vendor": "Kachel Cleaning",
+    "shingles_tested": 3,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "7721",
+    "vendor": "Kachel Cleaning",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "7722",
+    "vendor": "Kachel Cleaning",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   }
+  ],
+  "VERDICT": "PASS"
+ },
+ "VERDICT": "PASS"
+}

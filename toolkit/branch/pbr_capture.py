@@ -25,8 +25,9 @@ STAMPS = {'mixed_1': STAMP, 'mixed_new_26_27': '11-Sep-2026, branch v3, Batch mi
           'playforce_new': '15-Sep-2026, branch v13, Batch playforce_new (playforce new.pdf, supplied corpus, runtime A, corpus_playforce_new_v6.json)',
           'harp_new': '15-Sep-2026, branch v14, Batch harp_new (harp new.pdf, supplied corpus, runtime A, corpus_harp_new_v6.json)',
           'vinton_new': '15-Sep-2026, branch v14, Batch vinton_new (vinton new.pdf, supplied corpus, runtime A, corpus_vinton_new_v6.json)',
-          'savco_new': '15-Sep-2026, branch v14, Batch savco_new (25 TechOne attachment PDFs, raw-text route, corpus_savco_new_v6.json)'}
-BATCH_VER = {'mixed_1': 'v2', 'mixed_new_26_27': 'v3', 'attach_1': 'v4', 'attach_2': 'v5', 'code': 'v5', 'mix22': 'v6', 'attach_3': 'v6', 'mix222': 'v7', 'binder11111': 'v7', 'pla073_1': 'v10', 'ksadasd': 'v11', 'playforce_new': 'v13', 'harp_new': 'v14', 'vinton_new': 'v14', 'savco_new': 'v14'}
+          'savco_new': '15-Sep-2026, branch v14, Batch savco_new (25 TechOne attachment PDFs, raw-text route, corpus_savco_new_v6.json)',
+          'trees_new': '15-Sep-2026, branch v16, Batch trees_new (supplied corpus, runtime A, corpus_trees_new_v6.json)'}
+BATCH_VER = {'mixed_1': 'v2', 'mixed_new_26_27': 'v3', 'attach_1': 'v4', 'attach_2': 'v5', 'code': 'v5', 'mix22': 'v6', 'attach_3': 'v6', 'mix222': 'v7', 'binder11111': 'v7', 'pla073_1': 'v10', 'ksadasd': 'v11', 'playforce_new': 'v13', 'harp_new': 'v14', 'vinton_new': 'v14', 'savco_new': 'v14', 'trees_new': 'v16'}
 SRCS = {'mixed_1': 'Mixed_1.pdf (md5 b9ddf7fd6c56188a22181921b7b2c8ab), Batch mixed_1, corpus_mixed_1_v6.json', 'mixed_new_26_27': 'Mixed_new_26-27.pdf (md5 813f23077d1d5e77fb1e7150ad08b3cc), Batch mixed_new_26_27, corpus_mixed_new_26_27_v6.json',
         'code': 'code.pdf, 66 pages (binder not supplied; supplied corpus corpus_code.json md5 e256555fc9d22d46a9cce80f8e7bbe3b, M365 Copilot layout extraction), Batch code, corpus_code_v6.json',
         'mix22': 'mix 22.pdf, 81 pages (binder not supplied; supplied corpus corpus_mix22.json md5 e6782e55b5379dc3adcb6a1b5c7cebd4, M365 Copilot layout extraction, gate RED as supplied), Batch mix22, corpus_mix22_v6.json',
@@ -35,6 +36,7 @@ SRCS = {'mixed_1': 'Mixed_1.pdf (md5 b9ddf7fd6c56188a22181921b7b2c8ab), Batch mi
         'harp_new': 'harp new.pdf, 123 pages (binder not supplied; supplied corpus corpus_harp_new_as_supplied.json md5 7a066810556ad73865737f46d1f585d1, M365 Copilot runtime A, gate GREEN as supplied), Batch harp_new, corpus_harp_new_v6.json',
         'vinton_new': 'vinton new.pdf, 84 pages (binder not supplied; supplied corpus corpus_vinton_new_as_supplied.json md5 38c724884ee20710a99c52d1c12a3664, M365 Copilot runtime A, gate GREEN as supplied), Batch vinton_new, corpus_vinton_new_v6.json',
         'savco_new': '25 TechOne attachment PDFs (EzeScan exports, C00303340 to C00319666), parsed on the raw-text route by parse_savco_new.py, page text retained, gate GREEN with no repair, Batch savco_new, corpus_savco_new_v6.json',
+        'trees_new': 'trees new.pdf, 51 pages (binder not supplied; supplied corpus corpus_trees_new_as_supplied.json md5 075430a17d1a220fe2b09e7aecac50f8, M365 Copilot runtime A to extraction prompt v6, gate GREEN as supplied), Batch trees_new, corpus_trees_new_v6.json',
         'playforce_new': 'playforce new.pdf, 319 pages (binder not supplied; supplied corpus corpus_playforce_new_as_supplied.json md5 af53da1c8f40fd2c84cfb038d00dfa72, M365 Copilot runtime A, gate GREEN as supplied), Batch playforce_new, corpus_playforce_new_v6.json'}
 
 CAT = {  # vendor template -> (Nature Category v2, v3 category, theme rule)
@@ -74,6 +76,7 @@ CAT = {  # vendor template -> (Nature Category v2, v3 category, theme rule)
     'PLAYFORCE_ATT': ('Playground inspection & repair', 'Playground equipment & softfall', 'P2 sighted job, dominant scope'),
     'PPG': ('Horticultural & landscape supplies', 'Materials & minor equipment', 'P1 account governs'),
     'VINTON': ('Tree operations', 'Trees & arboriculture', 'P2 sighted job, dominant scope'),
+    'TREESCAPE_NEW': ('Tree operations', 'Trees & arboriculture', 'P2 sighted job, dominant scope'),
 }
 # Per-invoice category override (match table keys nature_category and theme_v3, authored as data in notes_<batch>_v6.json):
 # a vendor that prints several kinds of work under one contract (Levai: scheduled cleaning, fence and bollard repairs,
@@ -87,7 +90,7 @@ V3_CATS = {'Cleaning & pressure washing', 'Waste & bin collection', 'Drainage, w
            'Irrigation, taps & drinking water', 'Electrical, lighting & data', 'Rates, levies & insurance', 'Utilities supply',
            'Materials & minor equipment', 'Plant, fleet & internal services', 'Trees & arboriculture', 'Bushland, weeds & fire',
            'Cemetery operations', 'Staff, training & corporate', 'Refunds & recoveries'}
-BPK = {'ORIGIN': 'ORG', 'SEACRETE': 'SC', 'POOLSHOP': 'PSH', 'QPOWER': 'QP', 'PLAYFORCE': 'PF', 'FLAVELL': 'FD', 'WEIS': 'WC', 'ELEMENTAL': 'ELM', 'HIGGINS': 'HIG', 'HARPLEY': 'INV', 'C2C': 'C2C', 'KACHEL': 'KC', 'LEVAI': 'LEV', 'TEC': 'TEC', 'TREESCAPE': 'TRS', 'BUSHCARE': 'BSH', 'AUSTSPRAY': 'ASP', 'EMU': 'EMU', 'ACTIVECO': 'ACT', 'GURU': 'GDW', 'AUSTCARE': 'ACE', 'GLASCOTT': 'GLA', 'GLASCOTT_LM': 'GLA', 'ETSOL': 'ETS', 'PROVAC': 'PRV', 'SAVCO': 'SAV', 'HERITAGE': 'HTS', 'BURLY': 'BUR', 'CERTIFIED': 'CER', 'C2C_INCL': 'C2C', 'FLAVELL_ATT': 'FD', 'MPDT': 'MPD', 'HERITAGE_CN': 'HTS', 'PLAYFORCE_ATT': 'PF', 'PPG': 'PPG', 'VINTON': 'VTS'}
+BPK = {'ORIGIN': 'ORG', 'SEACRETE': 'SC', 'POOLSHOP': 'PSH', 'QPOWER': 'QP', 'PLAYFORCE': 'PF', 'FLAVELL': 'FD', 'WEIS': 'WC', 'ELEMENTAL': 'ELM', 'HIGGINS': 'HIG', 'HARPLEY': 'INV', 'C2C': 'C2C', 'KACHEL': 'KC', 'LEVAI': 'LEV', 'TEC': 'TEC', 'TREESCAPE': 'TRS', 'BUSHCARE': 'BSH', 'AUSTSPRAY': 'ASP', 'EMU': 'EMU', 'ACTIVECO': 'ACT', 'GURU': 'GDW', 'AUSTCARE': 'ACE', 'GLASCOTT': 'GLA', 'GLASCOTT_LM': 'GLA', 'ETSOL': 'ETS', 'PROVAC': 'PRV', 'SAVCO': 'SAV', 'HERITAGE': 'HTS', 'BURLY': 'BUR', 'CERTIFIED': 'CER', 'C2C_INCL': 'C2C', 'FLAVELL_ATT': 'FD', 'MPDT': 'MPD', 'HERITAGE_CN': 'HTS', 'PLAYFORCE_ATT': 'PF', 'PPG': 'PPG', 'VINTON': 'VTS', 'TREESCAPE_NEW': 'TRS'}
 PAY_RX = re.compile(r'BSB|\bAcc\b|Acc No|Account|Bank:|Bank\s|Name:|Please make all payments|Please remit|Payment can be made|Direct Deposit|Please include invoice|Please Mail Payment|Detach this section|Acc\. No|Acc\. Name', re.I)
 TERM_RX = re.compile(r'Terms of Payment|Payment Terms|Payment Due On Receipt|fee of|Security of Payment|Credits cards|processing fee|View and pay online|Please pay the total|questions concerning|THANK YOU|Net30|Net 30|View online', re.I)
 
@@ -170,9 +173,55 @@ def header_fields(d):
                  work='Fire Access Line creek crossing & track upgrades, Separable Portion 13 PAR/334/2023 SP13, QU-1193' if d['invoice_no'] == '3597' else 'Norman Drive Weed Management and Rehabilitation',
                  contract='PAR/334/2023 SP13; QU-1193' if d['invoice_no'] == '3597' else NP, paid=NP, bal=NP)
     elif v == 'TREESCAPE':
-        f.update(addr='PO Box 275 ELLEN GROVE QLD 4078 AUSTRALIA', phone='Tel: +64-7-34574300; Fax: +64-7-32713410; Email: accounts@treescape.net.au; Aaron.Fritz@treescape.net.au', po=first(r'Order No : (\d+)', t),
-                 bill='Logan City Council, PO Box 3226, Logan City DC 4114; Atten: JAMIE FISHER; Account No. LOGCIT', officer='Aaron Fritz (Your Contact Is)', site='Mowing contract - Logan - Q1GSL21074, PAR/334/2023, PK000373',
-                 work='Mowing contract - Logan - Q1GSL21074; PAR/334/2023; Year 3; Round 4 - Apr/May; Please see spreadsheet for cost breakdown. Our Job No 210740101; Project Code 21074', contract='PAR/334/2023', paid=NP, bal=first(r'Total Payable\s*\n?.*?\$([\d,]+\.\d{2})', t, flags=re.S))
+        # Read the job, the site and the bill-to from the page. Until branch v16 this reader FIXED the site and the
+        # work description to the Q1GSL21074 mowing contract, which was true of the one Treescape invoice the project
+        # had then sighted and of none of the nine planting and tree-work invoices in trees_new. It is the Levai
+        # defect class the provenance gate exists to catch (Method 16.0), corrected here before it could ship.
+        # The work block is the rows between the item-table header and the printed Subtotal on the document's FIRST
+        # page: a two-page Treescape invoice repeats its whole letterhead on page 2 and carries the totals block
+        # there, and those rows are the letterhead, not the work.
+        p0 = str(d['page_range'][0])
+        t1 = d['page_text'].get(p0) or t
+        rows_ = t1.splitlines()
+        h0 = next((i for i, x in enumerate(rows_) if 'Description of Work carried out' in x), -1)
+        h1 = next((i for i, x in enumerate(rows_) if i > h0 and re.search(r'\bSubtotal\b', x)), len(rows_))
+        blk = [' '.join(re.sub(r'\s{2,}\$[\d,]+\.\d{2}\s*$', '', x).split()) for x in rows_[h0 + 1:h1]] if h0 >= 0 else []
+        blk = [x for x in blk if x]
+        f.update(addr=first(r'^\s*(PO Box \d+ [A-Z][A-Z ]+ QLD \d{4} AUSTRALIA)\b', t, NP, re.M),
+                 phone='; '.join(x for x in (first(r'(Tel: \S+)', t, ''), first(r'(Fax: \S+)', t, ''),
+                                             first(r'(Email: \S+@\S+)', t, ''),
+                                             first(r'Email :\s*(\S+@\S+)', t, '')) if x) or NP,
+                 po=first(r'Order No :\s*(\d+)', t),
+                 bill='; '.join(x for x in ('Logan City Council, PO Box 3226, Logan City DC, 4114',
+                                            first(r'^\s*(Atten: .+?)\s{2,}', t, '', re.M) or first(r'^\s*(Atten: .+?)\s*$', t, '', re.M),
+                                            first(r'(Account No\. : \S+)', t, '')) if x),
+                 officer=first(r'Your Contact Is :\s*(.+?)\s*$', t, NP, re.M),
+                 site=re.sub(r'[,\s]+$', '', first(r'^\s*Site Address :\s*(.+?)\s*$', t, NP, re.M)),
+                 work=' | '.join(blk) or NP,
+                 contract=first(r'(PAR/\d{3}[A-Z]?/\d{4})', t), paid=NP,
+                 bal=first(r'Total Payable\s*\n?.*?\$([\d,]+\.\d{2})', t, flags=re.S))
+        f['crwo'] = '; '.join(dict.fromkeys(re.findall(r'CR ?#\s?\d{7}', ' | '.join(blk)))) or NP
+    elif v == 'TREESCAPE_NEW':
+        # The current Treescape letterhead (Wacol), a different document from the Ellen Grove one: a Code /
+        # Description / Requested Qty. / Actual Qty. / Unit Price / Amount table, a PAYMENT ADVICE page, the invoice
+        # date in long form and the customer reference printed beside the invoice number rather than on a Site
+        # Address row. The customer reference is read as the text to the LEFT of the invoice number on the row that
+        # carries it (the PAYMENT ADVICE repeat is excluded by its own "Invoice Number" label).
+        rows_ = [x for x in t.splitlines() if x.strip()]
+        lead = next((x.split(d['invoice_no'])[0].strip() for x in rows_
+                     if d['invoice_no'] in x and 'Invoice Number' not in x), '')
+        jobs = [' '.join(x.split()) for x in re.findall(r'^\s*(Job Description: .+?)\s*$', t, re.M)]
+        spec = [' '.join(x.split()) for x in re.findall(r'^\s*((?:PK numbers: .+|PO Numbers: .+|CR ?#\s?\d+|Treescape Invoice Number:|\u2022 .+|Traffic management .+|Removal for replacement .+))\s*$', t, re.M)]
+        f.update(addr=first(r'^\s*(\d+ \w+ St, \w+ QLD \d{4})\s*$', t, NP, re.M),
+                 phone='; '.join(x for x in (first(r'^\s*(accounts@treescape\.net\.au)\s*$', t, '', re.M),
+                                             first(r'(\+61 7 3457 4300)', t, '')) if x) or NP,
+                 po=first(r'PO Numbers:\s*(\d+)', t),
+                 bill='LOGAN CITY COUNCIL, Logan City DC, PO Box 3226', officer=NP,
+                 site=lead or NP,
+                 work=' | '.join(dict.fromkeys(jobs + spec)) or NP,
+                 contract=first(r'(PAR/\d{3}[A-Z]?/\d{4})', t), paid=NP,
+                 bal=first(r'Amount Due\s+\$([\d,]+\.\d{2})', t))
+        f['crwo'] = '; '.join(dict.fromkeys(re.findall(r'CR ?#\s?\d{7}', t))) or NP
     elif v == 'BUSHCARE':
         f.update(addr='7-9 Fletcher Rd, BETHANIA QLD 4205', phone='07 3133 4243; admin@bushcare.com.au; www.bushcare.com.au', po=first(r'(?:P\s*O\s*NUMBER|O NUMBER)\s*\n?\s*(\d{6})', t),
                  bill='Logan City Council, PO Box 3226, LOGAN CITY DC QLD 4114', officer=NP,
@@ -303,10 +352,39 @@ def header_fields(d):
         f.update(addr='Unit 9 /1 Belvedere Drive Park Ridge brisbane 4215', phone='Phone: 32002914; info@elementalshades.com; QBSA #1159300', po=first(r'PURCHASE ORDER (\d+)', t), bill='Logan City Council, 34125595, 150 Wembly Rd Logan Central, Brisbane QLD 4114', officer=first(r'Requesting Officers - (.+?)\s{2,}', t),
                  site='Multiple sites (shade structures on sites with multiple / single shade structures)', work='2026- Shade sail inspections; Contract Reference LB304', contract='LB304', paid=first(r'Payments Received\s+\$([\d,]+\.\d{2})', t), bal=first(r'Invoice Balance\s+\$([\d,]+\.\d{2})', t))
     elif v == 'HIGGINS':
-        f.update(addr='PO Box 272, Port Melbourne, VIC 3207, Australia', phone='Phone: 03 9646 9999; Fax: 03 9646 5333', po=first(r'Order Ref\s+:\s+(\S+)', t), bill='LOGAN CITY COUNCIL, melinaturpin@logan.qld.gov.au, 150 WEMBLEY ROAD, LOGAN CENTRAL, QLD 4114, Email: einvoicing@logan.qld.gov.au; Debtor Code '
+        # Bill-to, site and work are READ from the page, not fixed. Higgins prints two vintages of this layout and
+        # they differ in the bill-to block: the current one carries the requesting officer's email as its second row
+        # ("melinaturpin@logan.qld.gov.au") and the 2024 to May-2026 one does not, so a fixed string put an email on
+        # eleven invoices that never printed it (provenance gate, v16). The item block is read the same way: the
+        # older vintage heads it "Works 100% Complete" where the current one prints "Works 100% completed".
+        rows_ = t.splitlines()
+        b0 = next((i for i, x in enumerate(rows_) if 'TAX INVOICE' in x), -1)
+        b1 = next((i for i, x in enumerate(rows_) if i > b0 and 'Order Ref' in x), len(rows_))
+        bill_ = []
+        for x in rows_[b0 + 1:b1]:
+            m_ = re.match(r'\s{10,40}(\S.*?)(?:\s{5,}|$)', x)
+            if m_ and m_.group(1).strip():
+                bill_.append(' '.join(m_.group(1).split()))
+        h0 = next((i for i, x in enumerate(rows_) if re.search(r'DESCRIPTION OF SUPPLY', x)), -1)
+        h1 = next((i for i, x in enumerate(rows_) if i > h0 and re.search(r'Invoice Amount', x)), len(rows_))
+        item_, site_ = [], NP
+        for x in rows_[h0 + 1:h1]:
+            m_ = re.match(r'^\s*(\S.*?)\s{2,}(-?[\d,]+\.\d{2})\s*$', x)
+            y = ' '.join((m_.group(1) if m_ else x).split())
+            if not y:
+                continue
+            if site_ == NP and not re.match(r'(?i)^(?:variation )?works 100% complete', y) and not re.match(r'^(?:PO)?\d{6}|^PO\d+/', y):
+                site_ = y      # the first description row of the item block; the "Works 100% Complete" banner is a label
+            item_.append(y)
+        f.update(addr='PO Box 272, Port Melbourne, VIC 3207, Australia', phone='Phone: 03 9646 9999; Fax: 03 9646 5333',
+                 po=first(r'Order Ref\s+:\s+(\S+)', t),
+                 bill='; '.join(dict.fromkeys(bill_)) + '; Debtor Code '
                       # read, not fixed: 186140216 prints QR6892 where this was hardcoded QR6891 (provenance gate, v13)
                       + first(r'Debtor Code\s*:\s*(\S+)', t),
-                 officer='melinaturpin@logan.qld.gov.au (bill-to contact)', site=first(r'Works 100% completed\s*\n\s*(.+?)\s{2,}', t), work=first(r'Job: (.+?)\s*$', t) + '; ' + first(r'Works 100% completed\s*\n\s*.+?\s{2,}(.+?)\s{2,}[\d,]+\.\d{2}', t), contract=NP, paid=NP, bal=NP)
+                 officer=(first(r'^\s{10,40}(\S+@logan\.qld\.gov\.au)\s*$', t, '', re.M) + ' (bill-to contact)').strip()
+                        if first(r'^\s{10,40}(\S+@logan\.qld\.gov\.au)\s*$', t, '', re.M) else NP,
+                 site=site_, work='; '.join([x for x in [first(r'Job: (.+?)\s*$', t, '')] if x] + item_) or NP,
+                 contract=NP, paid=NP, bal=NP)
     elif v == 'HARPLEY':
         f.update(addr='PO Box 126, Kingston QLD 4114', phone='0421 213 216; A.C.N. 162 601 694', po=first(r'Purchase Order:\s+(\d+)', t), bill='Logan City Council, Po Box 3226, Logan City DC QLD 4114; Ship To: Logan City Council, Parks Depot, 177 Chambers Flat Road, Marsden QLD 4132',
                  officer=first(r'Requesting Officer:\s+(.+?)\s*$', t), site=first(r'Site Details:\s+(.+?)\s*$', t), work=first(r'Work Description:\s+(.+?)\s*$', t) + ' ' + first(r'Work Description:[^\n]*\n\s{15,}(\S.+?)\s*$', t, ''), contract=first(r'Contract #:\s+(\S+)', t), paid=first(r'Payments Made:\s+\$([\d,]+\.\d{2})', t), bal=first(r'Balance Due:\s+\$([\d,]+\.\d{2})', t))
@@ -315,15 +393,35 @@ def header_fields(d):
         f.update(addr='35 Leahy Road, CABOOLTURE QLD 4510, AUSTRALIA', phone='0437 777 141; admin@c2cgg.com; +61 437777141', po=first(r'Purchase Order:\s+(\d+)', t), bill='Logan City Council (LCC) Parks Depot, 177 Chambers Flat Road, Marsden Qld 4132, einvoicing@logan.qld.gov.au', officer=NP,
                  site=first(r'(MZ\d+ STANDARD GROWTH - CUT \d)', t), work=first(r'(MZ\d+ STANDARD GROWTH - CUT \d)', t) + '; Vendor No: COA030; ' + first(r'(Reference: PAR/\S+)', t), contract=first(r'Reference: (PAR/\S+)', t), paid=NP, bal=first(r'Amount due\s+\$([\d,]+\.\d{2})', t))
     elif v == 'KACHEL':
-        # Read the contract and the sites from the claim block rather than asserting them. Not every Kachel invoice
-        # carries either: 7715 (the fuel levy claim) prints no contract number and names no site, where the monthly
-        # cleaning claims print both (provenance gate, v13).
-        _zones = '; '.join(dict.fromkeys(re.findall(r'^\s*(Zone \d [A-Za-z\u2019\']+|Sanitary Bin[^:]*)\s*:', t, re.M)))
-        f.update(addr=NP, phone='Mobile: 0408 846964; Email:kachelcleaning@live.com.au', po=first(r'Purchase Order No:\s+(\d+)', t), bill='To CEO, Logan City Council, Wembley Road, WOODRIDGE QLD 4114', officer=NP,
-                 site=_zones or NP,
-                 work=first(r'(Cleaning of the Public Facilities and Sanitary Bins for Contract No\s*\n?\s*PAR/377/2025 for the month of \w+ 2026\.)', t).replace('\n', ' '),
+        # Read the contract, the sites and the claim from the claim block rather than asserting them. Not every Kachel
+        # invoice carries all three: 7715 and 7721 (the fuel levy claims) print no contract number and name no site,
+        # 7720 claims against two customer request numbers and names no park, and 7719 names two parks on one invoice
+        # where the monthly cleaning claim names four zones (provenance gate, v13; generalised at v16, where a
+        # month-by-month "Extra services" series printed a claim this reader's fixed string did not match at all).
+        rows_ = t.splitlines()
+        h0 = next((i for i, x in enumerate(rows_) if x.strip().startswith('Purchase Order No:')), -1)
+        h1 = next((i for i, x in enumerate(rows_) if i > h0 and re.search(r'\bSubTotal\b', x)), len(rows_))
+        site_rx = re.compile(r'^\s*(\S.*?)\s{2,}PK\s?\d{6}\b')
+        sites_, claim = [], []
+        for x in rows_[h0 + 1:h1]:
+            y = ' '.join(re.sub(r'\s{2,}\$?\s?[\d,]+(?:\.\d{2}|\s+\d{2})\s*$', '', x).split())
+            if not y or y in ('ACCOUNT NUMBER', 'Claim for Services as Follows:'):
+                continue
+            m_ = site_rx.match(x)
+            if m_:
+                nm = m_.group(1).strip().rstrip(':').strip()
+                if len(nm) >= 3:
+                    sites_.append(nm)
+                continue
+            claim.append(y)
+        f.update(addr=NP,
+                 phone='; '.join(x for x in (first(r'(Phone: [\d ]+\d)', t, ''), first(r'(Mobile: [\d ]+\d)', t, ''),
+                                             first(r'(Email:\S+@\S+)', t, '')) if x) or NP,
+                 po=first(r'Purchase Order No:\s+(\d+)', t), bill='To CEO, Logan City Council, Wembley Road, WOODRIDGE QLD 4114', officer=NP,
+                 site='; '.join(dict.fromkeys(sites_)) or NP,
+                 work=' | '.join(dict.fromkeys(claim)) or NP,
                  contract=first(r'(PAR/\d{3}/\d{4})', t), paid=NP, bal=NP)
-        f['work'] = ' '.join(f['work'].split())
+        f['crwo'] = '; '.join(dict.fromkeys(re.findall(r'Customer Request #\s+(\d{7})', t))) or NP
     elif v == 'BURLY':
         f.update(addr='PO BOX 206, Biggera Waters, QLD 4216', phone='0420 371 884; accounts@burlyholdings.com.au', po=first(r'Order#\s*(\d+)', t),
                  bill='Accounts Payable, Logan City Council, 150 Wembley Road, Logan Central, QLD 4114', officer=first(r'(Attention [^\n]+?)\s*$', t),
@@ -469,6 +567,8 @@ BOILER = {  # verbatim per vendor template, first sighting; stored once and cite
                     'CREDIT ADVICE | Please do not pay on this advice. Deduct the amount of this Credit Note from your next payment to us.'),
     'PLAYFORCE_ATT': ('Electronic Funds Transfer | Account Name: Play Force Australia Pty Ltd | BSB: 064 400 | Account: 10367833 | Remittance To: accounts@playforce.com.au', None),
     'VINTON': ('BANK DETAIL FOR EFT PAYMENT | RST Systems Pty Ltd | ANZ Underwood | BSB - 014279 | ACC No - 260818618 | Please email remittance Advice to admin@vintontreeservices.com.au', None),
+    'TREESCAPE_NEW': ('Bank Account | BSB: 0 1 4 3 1 4 | Acc No: 4 9 5 3 0 2 7 9 8 | accounts@treescape.net.au | Treescape Australasia Pty Ltd, 11 Quindus St, Wacol QLD 4076',
+                      'Payment Terms: 30 Days from Invoice Date'),
     'PPG': ('Remit To: Bank Deposit: Citibank Limited Sydney NSW 2000 | AUD A/C: 242000-300098029 | USD A/C: 021000089-36198872 | Australia',
             'Terms of Sale - PPG Industries Australia Pty Limited (ACN 055 500 939), printed in full on page 2 (1 Definition onward), with the export compliance notice.'),
 }
@@ -657,7 +757,7 @@ def capture(rows, corpus_path, match_path, say, existing_keys=frozenset(), exist
             pkp = own[0] if own else (d['pk_refs'][0] if d['pk_refs'] else hf.get('printed_account', NP))
             if pkp == 'undefined':
                 pkp = 'undefined (as printed)'
-            if batch in ('attach_1', 'attach_2', 'code', 'mix22', 'attach_3', 'pla073_1', 'ksadasd', 'playforce_new', 'harp_new', 'vinton_new', 'savco_new') and pkp not in (NP, 'undefined (as printed)') and pkp.replace(' ', '').replace('#', '') != str(V[17]):
+            if batch in ('attach_1', 'attach_2', 'code', 'mix22', 'attach_3', 'pla073_1', 'ksadasd', 'playforce_new', 'harp_new', 'vinton_new', 'savco_new', 'trees_new') and pkp not in (NP, 'undefined (as printed)') and pkp.replace(' ', '').replace('#', '') != str(V[17]):
                 anom.append(f'Printed PK {pkp} differs from the PK charged {V[17]}; see the coding note. PK Charged stays the ledger Work Order (rule 1).')
             G = {88: evid, 89: d['supplier'], 90: d['supplier_abn'], 91: NP, 92: hf['addr'], 93: hf['phone'], 94: date_out(d['invoice_date']), 95: date_out(d.get('due_date')) if d.get('due_date') else NP,
                  96: hf['po'], 97: hf['contract'], 98: hf['bill'], 99: NP, 100: hf['officer'], 101: NP, 102: NP, 103: NP, 104: pkp, 105: pkp.replace(' ', '').replace('#', '') if pkp != NP else NP,
