@@ -394,7 +394,7 @@
    },
    {
     "tool": "pswp_json_repair.py",
-    "utc": "2026-09-15T03:06:45Z",
+    "utc": "2026-09-15T03:29:18Z",
     "repairs": [
      "F13 INV-7557: stem rebuilt: 'Play Force Remove non c printed) 388 557' -> 'Play Force Remove , May-2026, 3883.22'",
      "F13 INV-7594: stem rebuilt: 'Play Force Remove non c printed) 388 594' -> 'Play Force Remove , May-2026, 3883.22'",
@@ -196439,7 +196439,7 @@
     "PK000023"
    ],
    "printed_account_codes": [],
-   "evidence_stem": "Play Force Remove  594, May-2026, 3883.22",
+   "evidence_stem": "Play Force Remove  59, May-2026, 3883.22",
    "duplicate_of": null,
    "findings": [],
    "notes": "Header amounts were matched to their printed labels. Terms and payment pages remain represented as line records.",
