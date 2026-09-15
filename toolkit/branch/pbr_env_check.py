@@ -17,7 +17,7 @@ Checks
 Exit 0 when every hard check passes; exit 1 naming what to install. Usage:
     python3 toolkit/branch/pbr_env_check.py [--all] [--quiet]
 """
-import importlib, os, shutil, subprocess, sys, tempfile
+import importlib, os, re, shutil, subprocess, sys, tempfile
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, '..', '..'))
@@ -44,6 +44,30 @@ def check_imports():
             rec(mod, True, f'{getattr(m, "__version__", "installed")} ({why})')
         except Exception as e:
             rec(mod, False, f'{type(e).__name__}: {e}', FIX_PIP)
+    # The pinned versions must be the ones the registers were verified on. A drifted version imports perfectly well
+    # and can still behave differently at the one place it matters (calamine's type coercion, openpyxl's write-only
+    # mode), so the pin is proved here rather than assumed from a successful import.
+    try:
+        import importlib.metadata as _md
+        pins = {}
+        for line in open(os.path.join(ROOT, 'requirements.txt')):
+            m = re.match(r'^([A-Za-z0-9_.\-]+)==([^\s#]+)', line.strip())
+            if m:
+                pins[m.group(1)] = m.group(2)
+        drift = []
+        for name, want in pins.items():
+            try:
+                got = _md.version(name)
+            except Exception:
+                drift.append(f'{name} MISSING (pinned {want})')
+                continue
+            if got != want:
+                drift.append(f'{name} {got} against pinned {want}')
+        rec('requirements pins', not drift,
+            f'{len(pins)} hard requirement(s) at the pinned version' if not drift else '; '.join(drift),
+            'pip install -r requirements.txt  (the pins are the versions the shipped registers were verified on)')
+    except Exception as e:
+        rec('requirements pins', False, f'{type(e).__name__}: {e}', FIX_PIP)
     for mod in ('pymupdf', 'pdfplumber', 'pypdf'):
         try:
             importlib.import_module(mod); rec(mod, True, 'installed (optional)', hard=False)
