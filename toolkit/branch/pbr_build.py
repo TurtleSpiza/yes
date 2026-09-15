@@ -14,9 +14,9 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import pbr_stage
 
-VER = 'v15'
+VER = 'v16'
 OUTNAME = f'Parks_Branch_Transaction_Register_FY2627_{VER}.xlsx'
-SUPPLIED_GREEN = ('pla073_1', 'ksadasd', 'playforce_new', 'harp_new', 'vinton_new')  # supplied corpora that arrived GREEN under prompt v6 runtime A; prep does housekeeping only
+SUPPLIED_GREEN = ('pla073_1', 'ksadasd', 'playforce_new', 'harp_new', 'vinton_new', 'trees_new')  # supplied corpora that arrived GREEN under prompt v6 runtime A; prep does housekeeping only
 CLTOK = re.compile(r'\{CL:(\d+):(\d+)\}')
 SCRATCH = os.path.join(pbr_stage.ROOT, 'cache', 'scratch')
 OUTDIR = os.environ.get('PBR_OUTDIR', os.path.join(pbr_stage.ROOT, 'registers'))
@@ -460,9 +460,34 @@ def build(stage):
     _nl = N - BASE_N
     _pfn = _sup.get('playforce_new')
     _pfr = [r for r in sighted if 'Batch playforce_new' in str(r['V'][126] or '')]
+    _tn = _sup.get('trees_new')
+    _tnr = [r for r in sighted if 'Batch trees_new' in str(r['V'][126] or '')]
+    if _tn:
+        _tout = json.load(open(os.path.join(pbr_stage.ROOT, 'batches', 'trees_new', 'outside_trees_new_v6.json')))
+        _tfid = _tn['fidelity_check']
+        _tvint = sum(len(v_.get('vintage_variant_rows') or []) for v_ in _tfid.get('vendors', []))
+        ho.row([f'{VER}, {BUILD_DATE}',
+                f'Batch trees_new captured: a {_tn["source_files"][0]["pages"]}-page binder of {_tn["documents_found"]} documents from three suppliers '
+                f'(25 Higgins Coatings, 11 Treescape Australasia, 9 Kachel Cleaning), {fmt_money(_tn["captured_ex_gst_total"])} ex GST, all at TIE and gate GREEN as supplied. '
+                f'The binder is not cut to this register\'s year: {len(_tout)} documents ({fmt_money(sum(o["subtotal"] for o in _tout))} ex GST) carry no line here, every one of them dated '
+                f'before 1-Jul-2026, and every one of them carries a line on the PS & WP register instead, so the binder reconciles in full across the two registers. '
+                f'That leaves {len(_tnr)} new green blocks, {fmt_money(sum(D(r["V"][20]) for r in _tnr))} ex GST, on nine Trees lines at 73212 and five Park Services and section-NA lines at 73121, every one a standard variant at an exact tie. '
+                f'Control total unchanged. Treescape prints two layouts and they are carried as two templates (Method 15.0): the legacy Ellen Grove letterhead and TREESCAPE_NEW, the current Wacol one. '
+                f'Three vendor readers were fixing values they should have read, all corrected here and all of the class the provenance gate exists to catch: TREESCAPE asserted the Q1GSL21074 mowing job '
+                f'as the site and work description of every Treescape invoice, which is true of the one sighted before this batch and of none of the nine here; HIGGINS asserted a bill-to contact the '
+                f'2024 to May-2026 vintage does not print; KACHEL matched the claim text by a fixed string that none of these nine invoices carries. '
+                f'Prep gains R8, which demotes a priced row that restates an item-table amount outside the printed amount band (Treescape 36218 printed "= $7,206.00" at the left margin and the extraction '
+                f'took that as the line item, leaving the item row narrative), and the rule 19.2 fidelity check gains a vintage limb: {_tvint} Higgins template row(s) differ from the independent 2026 '
+                f'reference parse and every document of that vendor here is older than it, so the rows are listed as vintage variants rather than failing. Shingle check PASS; per-vendor fidelity {_tfid["verdict"]}. '
+                f'Findings: Treescape 36101 prints a fourteen-site breakdown summing to $1,089.90 against its own printed invoice amount of $1,611.00, a $521.10 difference the face does not explain; '
+                f'Treescape 51974591 prints PK000474 and is charged PK000477; Kachel 7720 prints no PK at all; Kachel 7721 claims $1,650.00 of fuel levy for August 2026 alone where 7715 claims the same '
+                f'$1,650.00 for April to June 2026, and neither face prints anything the stepped and capped model can be recomputed from; Treescape 36218 is an amendment to invoice 35328, which is not held.'])
     if _pfn:
         _out = json.load(open(os.path.join(pbr_stage.ROOT, 'batches', 'playforce_new', 'outside_playforce_new_v6.json')))
-        ho.row([f'{VER}, {BUILD_DATE}',
+        # Stamped with the version the change SHIPPED in, not the version being built. Until v16 these three rows
+        # carried f'{VER}', so every rebuild re-dated them: at v16 the change log claimed the playforce_new capture
+        # (v13) and the period 3 refresh and provenance gate (both v12) as v16 changes.
+        ho.row(['v13, 15-Sep-2026',
                 f'Batch playforce_new captured: a {_pfn["source_files"][0]["pages"]}-page Play Force binder, {_pfn["documents_found"]} documents, '
                 f'{fmt_money(_pfn["captured_ex_gst_total"])} ex GST, all at TIE and gate GREEN. The binder is the vendor\'s own file and is not cut to this '
                 f'register\'s year, so most of it does not belong here and is not forced onto a line: {len(_out)} documents '
@@ -473,7 +498,7 @@ def build(stage):
                 f'letterhead and PLAYFORCE_XERO, the legacy Xero block on the six FY2024/25 documents. Findings: INV-8906 prints "Account: undefined" and so '
                 f'states no PK, against PK000022 charged (follow-up on the line); INV-7327 does not foot by one cent on its own face, because its subtotal '
                 f'carries the unrounded quantity times unit price where the line column prints it truncated, and both figures are captured as printed.'])
-    ho.row([f'{VER}, {BUILD_DATE}',
+    ho.row(['v12, 15-Sep-2026',
             f'Period 3 refreshed. P3 was still open at the 11-Sep-2026 pull, so 27SLACT was re-taken for period 3 alone on the identical criteria '
             f'({stage["led_files"][1]["file"]}, {stage["led_files"][1]["rows"]:,} lines, ${stage["led_files"][1]["total"]:,.2f}). The refresh carries every one of the '
             f'{L["superseded"]:,} period 3 lines the first pull had, verbatim across all 35 columns, and adds {_nl} more worth ${CONTROL - BASE:,.2f}. '
@@ -486,7 +511,7 @@ def build(stage):
             f'reverses and reallocates the two Glascott zone invoices. No sighted line is touched: no line in the refresh carries a reference already on Evidence_Invoices, so the '
             f'416 green blocks over 409 invoices stand unchanged. A re-pull of the GXO001 creditor history was received and audited row by row against the copy embedded at v8 '
             f'(identical; not re-captured, rule 12). Contractor identification does not keep pace with the new spend: unidentified rises to {len([r for r in rows if str(r["V"][12]) == UNID]):,} lines.'])
-    ho.row([f'{VER}, {BUILD_DATE}',
+    ho.row(['v12, 15-Sep-2026',
             f'Green-block provenance gate added and now runs on every build (Method 16.0): each printed field written to the green block must be traceable to the retained page text of the '
             f'document it cites, or the build stops. {PV["docs"]} documents, {PV["fields"]:,} printed fields, {PV["failures"]} not traceable. It closes the hole that let the Levai site and work '
             f'description ship wrong from v2 to v10 with every other gate GREEN. On its first run it found five capture defects of that same class, all corrected here: AustCare address and phone '
@@ -1250,12 +1275,12 @@ def build(stage):
     if stage['hist_ambiguous']:
         items.append(('Ambiguous history references', 'Note', 'Branch', len(stage['hist_ambiguous']), None,
                       'References where more than one creditor history ties by amount and date, left unidentified: ' + '; '.join(f'{r_} ({", ".join(c_)})' for r_, c_ in stage['hist_ambiguous'][:20]) + '.', 'Match rule, Method 12.0.'))
-    _pk = [r for r in sighted if re.match(r'(11-Sep-2026, branch v[456]|14-Sep-2026, branch v1[01])\b', str(r['V'][126] or '')) and r['V'][104] not in (None, '(not printed)', 'undefined (as printed)') and str(r['V'][104]).replace(' ', '') != str(r['V'][17])]
+    _pk = [r for r in sighted if re.match(r'(11-Sep-2026, branch v[456]|14-Sep-2026, branch v1[01]|15-Sep-2026, branch v1[346])\b', str(r['V'][126] or '')) and r['V'][104] not in (None, '(not printed)', 'undefined (as printed)') and str(r['V'][104]).replace(' ', '') != str(r['V'][17])]
     if _pk:
         _exc = ['Play Force INV-8502, where the printed PK000338 is not a WO Task in this register'] + [f'{r["V"][12]} {r["V"][88]}, verdict Review' for r in _pk if r['V'][31] == 'Review']
-        items.append(('Printed PK differs from PK charged (sighted invoices, branch v4 to v11)', 'Housekeeping', '; '.join(sorted({sec_names[str(r['V'][2])] for r in _pk})), len(_pk), sum(D(r['V'][20]) for r in _pk),
+        items.append(('Printed PK differs from PK charged (sighted invoices, branch v4 to v16)', 'Housekeeping', '; '.join(sorted({sec_names[str(r['V'][2])] for r in _pk})), len(_pk), sum(D(r['V'][20]) for r in _pk),
                       '; '.join(f'{r["V"][88]} prints {r["V"][104]}, charged {r["V"][17]}' for r in _pk) + '. The invoice text supports the PK charged in each case except ' + '; '.join(_exc) + ' (see the coding note and follow-up on each line). Ask each supplier to quote the charged WO Task. No financial effect.',
-                      'Sighted invoices, Batches attach_1, attach_2, code, mix22, attach_3, pla073_1 and ksadasd.'))
+                      'Sighted invoices, Batches attach_1, attach_2, code, mix22, attach_3, pla073_1, ksadasd, playforce_new, vinton_new, savco_new and trees_new.'))
     _undef = [r for r in sighted if str(r['V'][104]) == 'undefined (as printed)']
     if _undef:
         items.append(('Supplier invoice prints no PK ("undefined")', 'Housekeeping', 'Park Services', len(_undef), sum(D(r['V'][20]) for r in _undef),
@@ -1268,14 +1293,34 @@ def build(stage):
                   'Sighted invoices INV-11824 and INV-11833 (Batch attach_2); the levy legs post to PK000513 service 20821.'))
     for o_ in stage['journal_batch'].get('open_items', []):
         items.append((o_['area'], o_['status'], o_['scope'], o_['lines'], D(o_['amount']), o_['action'], o_['basis']))
-    _kac = [r for r in sighted if str(r['V'][88]) == '7715']
+    # Which sighted lines are fuel levy claims is READ from the printed work description on the line, never listed by
+    # invoice number: at v11 to v15 this item named 7715 alone, and the trees_new capture put a second identical claim
+    # (7721) on the same account and the same PK without the item noticing (v16).
+    _kac = [r for r in sighted if str(r['V'][14]) == '73121' and re.search(r'fuel levy', str(r['V'][108] or ''), re.I)]
     if _kac:
-        items.append(('Fuel levy coded to the cleaning account', 'Review', 'No section (NA - Not Applicable)', len(_kac), sum(D(r['V'][20]) for r in _kac),
-                      'Recode Kachel Cleaning invoice 7715, $1,650.00 ex GST on PK000515, from 73121 Cleaning & Sanitary to 74189 Fuel Levy Surcharge, and verify the levy against the stepped and capped '
-                      'fuel levy model (Fact Sheet DM19338551). Confirm the Kachel Cleaning entity name and ABN against master data: the invoice face prints ABN 77 083 786 592 and the email stem '
+        _kinv = ', '.join(sorted({str(r['V'][88]) for r in _kac}))
+        items.append(('Fuel levy coded to the cleaning account', 'Review', '; '.join(sorted({sec_names[str(r['V'][2])] for r in _kac})), len(_kac), sum(D(r['V'][20]) for r in _kac),
+                      f'Recode Kachel Cleaning invoice(s) {_kinv}, {fmt_money(sum(D(r["V"][20]) for r in _kac))} ex GST on PK000515, from 73121 Cleaning & Sanitary to 74189 Fuel Levy Surcharge, and verify each levy against the stepped and capped '
+                      'fuel levy model (Fact Sheet DM19338551). Neither face carries anything to recompute from: no work value, no fuel component percentage, no escalation percentage and no diesel band, only the '
+                      'figure and the PK. And the two claims are the same amount for different periods: 7715 claims $1,650.00 for April to June 2026, a quarter, and 7721 claims $1,650.00 for August 2026 alone. '
+                      'Ask Kachel for the calculation and the period behind each. Confirm the Kachel Cleaning entity name and ABN against master data: the invoice face prints ABN 77 083 786 592 and the email stem '
                       'kachelcleaning@live.com.au and no entity name at all.',
-                      'Sighted invoice 7715 (Batch mix22). The register\'s own accrual RJ013846 "Parks - Monthly Accrue-Parks Services" accrues the identical $1,650.00 on the identical PK000515 to 74189, '
-                      'and every Vinton fuel levy recode on GJ080696 sits on 74189, so the actual is the odd one out.'))
+                      f'Sighted invoices {_kinv} (Batches mix22 and trees_new). The register\'s own accrual RJ013846 "Parks - Monthly Accrue-Parks Services" accrues the identical $1,650.00 on the identical PK000515 to 74189, '
+                      'and every Vinton fuel levy recode on GJ080696 sits on 74189, so the actuals are the odd ones out.'))
+    _tsb = [r for r in sighted if str(r['V'][88]) == '36101']
+    if _tsb:
+        items.append(('Printed site breakdown does not sum to the printed invoice amount', 'Review', 'Trees', len(_tsb), D('521.10'),
+                      'Treescape invoice 36101 (11-Jun-2026, $1,611.00 ex GST, PK000057) prints one line item of $1,611.00 and, under it, a breakdown of fourteen street tree sites with a figure against each. '
+                      'The fourteen figures sum to $1,089.90, so $521.10 of the amount charged is not attributed to any site on the face. The invoice\'s own header arithmetic is correct, the charge ties the '
+                      'ledger line and the amount paid is not in question; what each site was charged is. Ask Treescape to reconcile the breakdown to the invoice amount, and to print one consistent PK format: '
+                      'the same page carries PK000057, PK00057 and PK#000057.',
+                      'Sighted invoice 36101 (Batch trees_new), captured at line level with the breakdown retained on Evidence_Invoice_Lines and in the printed work description.'))
+    _tam = [r for r in sighted if str(r['V'][88]) == '36218']
+    if _tam:
+        items.append(('Amendment to an invoice not held', 'Pending evidence', 'Trees', len(_tam), sum(D(r['V'][20]) for r in _tam),
+                      'Treescape invoice 36218 (1-Jul-2026, $7,206.00 ex GST, PK000501) prints "Logan Contract Planting - Amendment to Inv 35328". Invoice 35328 is not in this binder and carries no line on this '
+                      'register, so nothing here shows what it charged or whether 36218 adds to it or repeats it. Sight 35328 and confirm the amendment.',
+                      'Sighted invoice 36218 (Batch trees_new).'))
     _vin = [r for r in sighted if str(r['V'][126] or '').find('Batch binder11111') >= 0]
     if _vin:
         items.append(('Supplier invoice prints no ABN', 'Review', 'Trees', len(_vin), sum(D(r['V'][20]) for r in _vin),
