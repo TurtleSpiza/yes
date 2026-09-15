@@ -595,12 +595,20 @@ def capture(rows, corpus_path, match_path, say, existing_keys=frozenset(), exist
         if v == 'GLASCOTT': anom.append('Letterhead prints Technigro ABN 97 001 281 572; payment account name is Glascott Landscape and Civil Pty Limited. Printed ABN decides identity (rule 8); confirm the creditor entity against the APLEDGER record.')
         if v == 'GLASCOTT_LM': anom.append('Letterhead prints Technigro ABN 97 001 281 572; payment account name is Glascott Landscape and Civil Pty Limited. APLEDGER GLA009 (branch v4) carries ABN 97001281572, so the creditor entity is the Glascott record (rule 8, printed ABN decides).')
         if v == 'VINTON':
-            # No Vinton document in either batch evidences its own identity. binder11111 prints nothing; the
-            # vinton_new letterhead is an image and the extraction's OCR read of it was reported without retaining
-            # its text, so prep withdrew that claim (R7) and it is recorded on the corpus, not treated as printed.
-            # An OCR read whose text is not retained is an assertion, not evidence, and saying otherwise here would
-            # be the same failure as printing a value the page does not carry.
-            anom.append('No letterhead address prints on this invoice: the only supplier contact on the face is the remittance address. '
+            # Two Vinton positions, and the anomaly states which this document is. binder11111 prints no ABN and no
+            # entity name anywhere, so its identity rests on the creditor history. vinton_new prints both in an
+            # IMAGE-BORNE letterhead, which this project has now rendered at two resolutions and retained, so its
+            # identity rests on the printed ABN (rule 8) and the retained read is the evidence for it.
+            if d.get('ocr_pages') and d.get('supplier_abn'):
+                anom.append(f'The supplier letterhead prints as an IMAGE and carries nothing into the text layer: no ABN and no '
+                            f'entity name appear in the text of this invoice, and the only supplier identification there is '
+                            f'"RST Systems Pty Ltd" in the bank block and the remittance address admin@vintontreeservices.com.au. '
+                            f'The letterhead was rendered at 300 and 400 dpi and read independently at branch v15, and the two '
+                            f'reads agree on ABN {d["supplier_abn"]} and on the entity name; the OCR text is retained on the '
+                            f'corpus (ocr_pages), so identity rests on the printed ABN (rule 8) and not on the creditor history. '
+                            f'It agrees with APLEDGER VIN003, which carries the same ABN.')
+            else:
+                anom.append('No letterhead address prints on this invoice: the only supplier contact on the face is the remittance address. '
                         'No ABN is printed anywhere on this invoice and no entity name prints on the face; the only supplier identification is "RST Systems Pty Ltd" in the bank block and the remittance address admin@vintontreeservices.com.au. The register label and ABN come from the APLEDGER history VIN003 (Vinton Tree Services, ABN 84 008 552 538), not from this document (rule 8).')
         if v == 'SAVCO': anom.append('ABN printed ungrouped (78161366749); register column M carries the grouped form.')
         if m['invoice'] == 'INV-9360': anom.append('Invoice date 31-Mar-2026 and due 30-Apr-2026 print against July 2026 treatment dates and a 24-Jul-2026 posting; supplier-side date error, service period Jul-2026.')
@@ -662,9 +670,14 @@ def capture(rows, corpus_path, match_path, say, existing_keys=frozenset(), exist
                 G.update({101: hf['request_date'], 102: hf['via'], 103: hf['crwo'], 107: hf['site_contact'], 109: hf['technician']})
             # Provenance: every printed field on this block must be traceable to this document's own page text.
             # Collected per target row, deduplicated by evidence id, and gated in the stage where the gates live.
+            # The document's RETAINED TEXT is its text layer plus any OCR this project rendered and kept. A letterhead
+            # printed as an image is still printed, and a field read from it is traceable exactly when that read is
+            # held; a reported read that was never retained still traces to nothing and is still refused.
+            _pt = '\n'.join(d['page_text'][k] for k in sorted(d['page_text'], key=int))
+            if d.get('ocr_pages'):
+                _pt += '\n' + '\n'.join(d['ocr_pages'][k] for k in sorted(d['ocr_pages'], key=int))
             ev.setdefault('prov', {})[evid] = dict(fields={c: G.get(c) for c in pbr_provenance.FIELDS},
-                                                   page_text='\n'.join(d['page_text'][k] for k in sorted(d['page_text'], key=int)),
-                                                   vendor=v)
+                                                   page_text=_pt, vendor=v)
             variants[t] = dict(kind=('bykey_deriv' if v == 'ORIGIN' else 'sumtie' if 'SUM-TIE' in var else 'bykey' if ('PARTIAL-SCOPE' in var or 'split-posting' in var) else 'deriv' if 'derivation' in var else 'tol1c' if 'one-cent' in var else 'std'), siblings=targets, chk3=chk3)
             if v == 'HARPLEY':
                 V[101] = hf['request_date']; V[102] = hf['via']; V[103] = hf['crwo']; V[107] = hf['site_contact']; V[109] = hf['technician']

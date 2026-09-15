@@ -1,0 +1,824 @@
+{
+ "binder": "vinton_new.pdf",
+ "pages": 84,
+ "dpis": [
+  300,
+  400
+ ],
+ "disagreements": [
+  {
+   "page": 17,
+   "field": "entity",
+   "reads": [
+    "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+    "T. Systems Pty. Limited Trading as Vinton Tree Services"
+   ]
+  },
+  {
+   "page": 41,
+   "field": "entity",
+   "reads": [
+    "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services Winton Wan",
+    "T. Systems Pty. Limited Trading as Vinton Tree Services"
+   ]
+  },
+  {
+   "page": 49,
+   "field": "entity",
+   "reads": [
+    "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services Vialon",
+    "T. Systems Pty. Limited Trading as Vinton Tree Services"
+   ]
+  },
+  {
+   "page": 57,
+   "field": "entity",
+   "reads": [
+    "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services Winton Wan",
+    "T. Systems Pty. Limited Trading as Vinton Tree Services"
+   ]
+  },
+  {
+   "page": 65,
+   "field": "entity",
+   "reads": [
+    "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services Winton Wan",
+    "T. Systems Pty. Limited Trading as Vinton Tree Services"
+   ]
+  },
+  {
+   "page": 79,
+   "field": "entity",
+   "reads": [
+    "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services Vinton Thea",
+    "T. Systems Pty. Limited Trading as Vinton Tree Services Vining Tan"
+   ]
+  },
+  {
+   "page": 83,
+   "field": "entity",
+   "reads": [
+    "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services Winton Wan",
+    "T. Systems Pty. Limited Trading as Vinton Tree Services"
+   ]
+  }
+ ],
+ "pages_read": {
+  "1": {
+   "ocr_text": "sos ‘ : Tax Invoice\nfs Vinton Tree Services\npe 8 ABN 84 008 552 538\nLs ae R. S. T. Systems Pty. Limited Trading as Vinton Tree Services i .\niain Wak Saisicas Head Office: 40 Eurora Street Kingston 4114 Invoice No.: 19402\nNCGTHINS Mat Vinton 0407 657 441\nog © _ ae Jillaine D’ Ath 0407 748 744 Date: 2107/2026\n(0 = OF : Toll Free: 1800 810 773 Po:\nee BRS ahi. a. F - : . 717574\n= oe — Email: admin@vintontreeservices.com.au\nContract PAR/329E/2021\nBilling Address: Site Address:\nLogan City Council Logan City Council\nA/C Payable Department Attention:\nPO Box 3226\nLogan City DC QLD 4114\nDESCRIPTION UNIT PRICE TOTAL PRICE (ex-\n(ex-GST) GST)\nCR# 3735053 PK000477\nCompleted 01/07/2026\nVansittart Road, Regents Park\nMelaleuca Trees:\n- 78 Vansittart Road - Remove tree in poor health\n- 86 Vansittart Road - Remove poorly structure tree\n- 1 Bushland Drive — tree is on Vansittart Road - 360° crown lift tree for\nhigh vehicle access and remove basal epi growth\n- 140 Vansittart Road - Remove tree leaning over road\n5 4 person crew for Tree Maintenance $315.00 $1,575.00\n5 EWP up to 28m $190.00 $950.00\n3 Stump grinding $180.00 $540.00\n1 Note: 2 hours charged pro-rata - see attached bill $611.23 $611.23\n1 LCC Permit Fee, LCC Permit Submission Administration Fee and Police $786.34 $786.34\nPermit Administration Fee - bill attached\nBANK DETAIL FOR EFT PAYMENT 7 Sig\nRST Systems Pty Ltd iene. .\nANZ Underwood F @) Subtotal: $4,462.57\nBSB - 014279 3 E . 446.2\nACC No - 260818618 CNet S GST: $446.26\nPlease email remittance Advice to Association Inc ;\nadmin @vintontreeservices.com.au nes. Total (inc-GST): $4,908.83\nsi Balance Due: $4,908.83\n& &\nSS \" \\Q \\\nAN — - BD f\\; = a\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": "84 008 552 538",
+   "entity": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services"
+  },
+  "2": {
+   "ocr_text": "How to pay Invoice number: 19402 Due date: 16/07/26 Balance due: $4,908.83\nOras eta cl) Pay online\nWe ay Pir, =\nues ha Woo Scan the QR code or click the link to view this invoice online\npote ofeet ae\nee\nepee a tee Oy Pay securely\nCe ee\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": null,
+   "entity": null
+  },
+  "3": {
+   "ocr_text": "sos ‘ : Tax Invoice\ngt Vinton Tree Services\npe 8 ABN 84 008 552 538\nes R. S. T. Systems Pty. Limited Trading as Vinton Tree Services i .\niain Wak Saisicas Head Office: 40 Eurorg Street Kingston 4114 Invoice No.: 19836\nTRENGTHINS Mat Vinton 0407 657 441\none “ ele — Jillaine D’ Ath 0407 748 744 Date: 3/07/2026\n(0 = OF : Toll Free: 1800 810 773 Po:\nee ac ahi. a. F - : . 717574\n= oe — Email: admin@vintontreeservices.com.au\nContract PAR/329E/2021\nBilling Address: Site Address:\nLogan City Council Logan City Council\nA/C Payable Department Attention:\nPO Box 3226\nLogan City DC QLD 4114\nDESCRIPTION UNIT PRICE TOTAL PRICE (ex-\n(ex-GST) GST)\nCR# 3810234 PK000477\nCompleted 02/07/2026\nPalmerston Court, Munruben\nFour Eucalyptus alongside fenceline of #42. First two trees have poor and\ncompromised structure targeting property. Two Bloodwoods at end just\nrequire remedial works. Habitat first two Eucs with H on them and poison,\nretain all hollows where feasible. Last two Bloodwoods, reduce overhang to\nproperty and deadwood\n4 person crew for Tree Maintenance $315.00 $1,890.00\nEWP up to 28m $190.00 $1,140.00\nBANK DETAIL FOR EFT PAYMENT 7 Sig\nRST Systems Pty Ltd iene. .\nANZ Underwood @, Subtotal: $3,030.00\nBSB - 014279 3 E .\nACC No - 260818618 ce) $ GST: $303.00\nPlease email remittance Advice to Association Inc i\nadmin@vintontreeservices.com.au pact Total (inc-GST): $3,333.00\n_ Balance Due: $3,333.00\n& &\nas Y \\ :\nAN — - 2D f\\; = a\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": "84 008 552 538",
+   "entity": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services"
+  },
+  "4": {
+   "ocr_text": "How to pay Invoice number: 19836 Due date: 17/07/26 Balance due: $3,333.00\nBlea eas Bl Pay online\net age ee\neet len Scan the QR code or click the link to view this invoice online\nese ne bot eee\nsilences\n= ah et a\ntr eee\nih rete NT\nminaret\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": null,
+   "entity": null
+  },
+  "5": {
+   "ocr_text": "sen ‘ : Tax Invoice\ngt Vinton Tree Services\npe 8 ABN 84 008 552 538\nes R. S. T. Systems Pty. Limited Trading as Vinton Tree Services i .\niain Wak Saisicas Head Office: 40 Eurorg Street Kingston 4114 Invoice No.: 19839\nTRENGTHINS Mat Vinton 0407 657 441\none “ ele — Jillaine D’ Ath 0407 748 744 Date: 6/07/2026\n(0 = OF : Toll Free: 1800 810 773 Po:\nee ac ahi. a. F - : . 717574\n— oe — Email: admin@vintontreeservices.com.au\nContract PAR/329E/2021\nBilling Address: Site Address:\nLogan City Council Logan City Council\nA/C Payable Department Attention:\nPO Box 3226\nLogan City DC QLD 4114\nDESCRIPTION UNIT PRICE TOTAL PRICE (ex-\n(ex-GST) GST)\nCR# 3852788\nCompleted 03/07/2026\n18 Silverleigh Court, Woodhill\nHeavy habitat reduction on 1 x mature Eucalyptus sp. Climber and crew\nrequired . Cut and leave. Cut into manageable pieces. Cut off and stack all\ngreen waste into mangeable piles stacked separate from the log. Deep\nRingbark to ensure tree dies off\n11.5 Cut and disperse rate inclusive of 3 person crew- including a climber and $320.00 $3,680.00\nutility vehicle.\nBANK DETAIL FOR EFT PAYMENT 7 Sig\nRST Systems Pty Ltd iene. .\nANZ Underwood F @, Subtotal: $3,680.00\nBSB - 014279 3 E .\nACC No - 260818618 ce) $ GST: $368.00\nPlease email remittance Advice to Association Inc i\nadmin@vintontreeservices.com.au pact Total (inc-GST): $4,048.00\nsi Balance Due: $4,048.00\n& &\n\\ ; \\ '\nI\\\\ — - 2D f\\; = a\nhha . =P ge has a = =P = See\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": "84 008 552 538",
+   "entity": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services"
+  },
+  "6": {
+   "ocr_text": "How to pay Invoice number: 19839 Due date: 20/07/26 Balance due: $4,048.00\nSaree Pay online\n: eae Scan the QR code or click the link to view this invoice online\n7O tata ey ie I\nrena zl\nAe Ana Oe\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": null,
+   "entity": null
+  },
+  "7": {
+   "ocr_text": "ss : : Tax Invoice\ngt Vinton Tree Services\nSy Sit ies ABN 84 008 552 538\nes R. S. T. Systems Pty. Limited Trading as Vinton Tree Services i .\nTainn Wax Services Head Office: 40 Eurora Street Kingston 4114 Invoice No.: 19840\nNGTHINS' Mat Vinton 0407 657 441\nores acts a Jillaine D’ Ath 0407 748 744 Date: 6/07/2026\n(0 = OF : Toll Free: 1800 810 773 Po:\n* | ac at, a F : A . 717574\n= oe — Email: admin@vintontreeservices.com.au\nContract PAR/329E/2021\nBilling Address: Site Address:\nLogan City Council Logan City Council\nA/C Payable Department Attention:\nPO Box 3226\nLogan City DC QLD 4114\nDESCRIPTION UNIT PRICE | TOTAL PRICE (ex-\n(ex-GST) GST)\nCR# 3780042 PK000073\nCompleted 03/07/2026\nPardoo Park, behind 12 Lagrange Court Shailer Park\nRemove deadwood wood and general tidy of Eucs x 4 behind property\n4 4 person crew for Tree Maintenance $315.00 $1,260.00\n4 EWP up to 28m $190.00 $760.00\nBANK DETAIL FOR EFT PAYMENT x Be\nRST Systems Pty Ltd bo, .\nANZ Underwood ‘@: Subtotal: $2,020.00\nBSB - 014279 3 E .\nACC No - 260818618 ce) $ GST: $202.00\nPlease email remittance Advice to Association Inc ;\nadmin@vintontreeservices.com.au pact Total (inc-GST): $2,222.00\n_ Balance Due: $2,222.00\n& &\n~ \\\nI\\\\ — - 2D f\\; = a\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": "84 008 552 538",
+   "entity": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services"
+  },
+  "8": {
+   "ocr_text": "How to pay Invoice number: 19840 Due date: 20/07/26 Balance due: $2,222.00\nObst ar tc farts | Pay online\nae re Rin aan Scan the QR code or click the link to view this invoice online\nBee ie NAT\nLoeacesSt on\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": null,
+   "entity": null
+  },
+  "9": {
+   "ocr_text": "sos ‘ : Tax Invoice\ngt Vinton Tree Services\npe 8 ABN 84 008 552 538\nes R. S. T. Systems Pty. Limited Trading as Vinton Tree Services i .\niain Wak Saisicas Head Office: 40 Eurorg Street Kingston 4114 Invoice No.: 19845\nTRENGTHINS Mat Vinton 0407 657 441\none “ ele — Jillaine D’ Ath 0407 748 744 Date: 7107/2026\n(0 = OF : Toll Free: 1800 810 773 Po:\nee ac ahi. a. F - : . 717574\n= oe — Email: admin@vintontreeservices.com.au\nContract PAR/329E/2021\nBilling Address: Site Address:\nLogan City Council Logan City Council\nA/C Payable Department Attention:\nPO Box 3226\nLogan City DC QLD 4114\nDESCRIPTION UNIT PRICE TOTAL PRICE (ex-\n(ex-GST) GST)\nCR# 3781112 PK000482\nCompleted 06/07/2026\nHomebush Park, 158 Vansittart Road, Regents Park - Behind 102\nBottlebrush Drive, Regents Park\nTrim back overhang from all trees impacting property along fence line.\nDeadwood Bloodwood and reduce from property. Reduce Grey Gum from\ncorner of property. Remove and grind two daed trees on the other side of\npathway. Pick up fallen debris throughout park\n5 4 person crew for Tree Maintenance $315.00 $1,575.00\n5 EWP up to 28m $190.00 $950.00\n1 Stump grinding $180.00 $180.00\nBANK DETAIL FOR EFT PAYMENT 7 Sig\nRST Systems Pty Ltd iene. .\nANZ Underwood F @, Subtotal: $2,705.00\nBSB - 014279 3 E . 27\nACC No - 260818618 ce) $ GST: $270.50\nPlease email remittance Advice to Association Inc i\nadmin@vintontreeservices.com.au pact Total (inc-GST): $2,975.50\nsi Balance Due: $2,975.50\n& &\nas Y \\ :\nI\\\\ — - 2D f\\; = a\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": "84 008 552 538",
+   "entity": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services"
+  },
+  "10": {
+   "ocr_text": "How to pay Invoice number: 19845 Due date: 21/07/26 Balance due: $2,975.50\nee Pay online\n\nfermi - ers\n\npie as iat saat Scan the QR code or click the link to view this invoice online\n\nEas deh tot\n\nMoe Ts ar : aH\n\nmie aa ts\n\nEe\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": null,
+   "entity": null
+  },
+  "11": {
+   "ocr_text": "sos ‘ : Tax Invoice\ngt Vinton Tree Services\npe 8 ABN 84 008 552 538\nes R. S. T. Systems Pty. Limited Trading as Vinton Tree Services i .\nTainn Wax Services Head Office: 40 Eurora Street Kingston 4114 Invoice No.: 19848\nNGTHINS' Mat Vinton 0407 657 441\nsag acts a Jillaine D’ Ath 0407 748 744 Date: 9/07/2026\n(0 = OF : Toll Free: 1800 810 773 Po:\nee ac aa a. F F = . 717574\n= oe — Email: admin@vintontreeservices.com.au\nContract PAR/329E/2021\nBilling Address: Site Address:\nLogan City Council Logan City Council\nA/C Payable Department Attention:\nPO Box 3226\nLogan City DC QLD 4114\nDESCRIPTION UNIT PRICE TOTAL PRICE (ex-\n(ex-GST) GST)\nCR# 3895229 PK000477\nCompleted 07/07/2026\nBehind 2 and 4 Estramina Road, Regents Park\nReduce growth over back fences from #2-#8 Estramina, branches leaning\non fence\n10 Cut and disperse rate inclusive of 3 person crew- including a climber and $320.00 $3,200.00\nutility vehicle.\nBANK DETAIL FOR EFT PAYMENT x Be\nRST Systems Pty Ltd bo, .\nANZ Underwood ‘@: Subtotal: $3,200.00\nBSB - 014279 3 E .\nACC No - 260818618 ce) $ GST: $320.00\nPlease email remittance Advice to Association Inc ;\nadmin@vintontreeservices.com.au pact Total (inc-GST): $3,520.00\nsi Balance Due: $3,520.00\n& &\n~ \\\nI\\\\ — - 2D f\\; = a\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": "84 008 552 538",
+   "entity": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services"
+  },
+  "12": {
+   "ocr_text": "How to pay Invoice number: 19848 Due date: 23/07/26 —_ Balance due: $3,520.00\nOya SS i | Pay online\nTel eo gee\nBee Scan the QR code or click the link to view this invoice online\none:\nnals Eo a. ny\nLe eamrge et\nie eh © Pay securely\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": null,
+   "entity": null
+  },
+  "13": {
+   "ocr_text": "sos ‘ : Tax Invoice\ngt Vinton Tree Services\npe 8 ABN 84 008 552 538\nes R. S. T. Systems Pty. Limited Trading as Vinton Tree Services i .\nTainn Wax Services Head Office: 40 Eurora Street Kingston 4114 Invoice No.: 19850\nNGTHINS' Mat Vinton 0407 657 441\nores acts a Jillaine D’ Ath 0407 748 744 Date: 9/07/2026\n(0 = OF : Toll Free: 1800 810 773 Po:\nee ac aa a. F F = . 717574\n= oe — Email: admin@vintontreeservices.com.au\nContract PAR/329E/2021\nBilling Address: Site Address:\nLogan City Council Logan City Council\nA/C Payable Department Attention:\nPO Box 3226\nLogan City DC QLD 4114\nDESCRIPTION UNIT PRICE TOTAL PRICE (ex-\n(ex-GST) GST)\nCR# 3869110 PK000482\nCompleted 08/07/2026\nWaller Park, Waller Road, Browns Plain - Behind Containers for change\nTrim overhang to building and clear fenceline if anything in contact with it\n7.25 Cut and disperse rate inclusive of 3 person crew- including a climber and $320.00 $2,320.00\nutility vehicle.\nBANK DETAIL FOR EFT PAYMENT x Be\nRST Systems Pty Ltd bo, .\nANZ Underwood ‘@: Subtotal: $2,320.00\nBSB - 014279 3 E .\nACC No - 260818618 ce) $ GST: $232.00\nPlease email remittance Advice to Association Inc ;\nadmin@vintontreeservices.com.au pact Total (inc-GST): $2,552.00\n_ Balance Due: $2,552.00\n& &\n~ \\\nI\\\\ — - 2D f\\; = a\nhha . =P ge has a = =P = See\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": "84 008 552 538",
+   "entity": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services"
+  },
+  "14": {
+   "ocr_text": "How to pay Invoice number: 19850 Due date: 23/07/26 — Balance due: $2,552.00\nlee a | Pay online\nbelt ae ar Scan the QR code or click the link to view this invoice online\nsoe A acer\nAne ae\n5 Sr el Th H =\nSore pha a\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": null,
+   "entity": null
+  },
+  "15": {
+   "ocr_text": "sos ‘ : Tax Invoice\ngt Vinton Tree Services\nSy Sit ies ABN 84 008 552 538\nes R. S. T. Systems Pty. Limited Trading as Vinton Tree Services i .\nTainn Wax Services Head Office: 40 Eurora Street Kingston 4114 Invoice No.: 19847\nTRENGTHINS Mat Vinton 0407 657 441\none “ ele a Jillaine D’Ath 0407 748 744 Date: 9/07/2026\n(0 = OF : Toll Free: 1800 810 773 Po:\nee ac ahi. a. F - : . 717574\n— oe — Email: admin@vintontreeservices.com.au\nContract PAR/329E/2021\nBilling Address: Site Address:\nLogan City Council Logan City Council\nA/C Payable Department Attention:\nPO Box 3226\nLogan City DC QLD 4114\nDESCRIPTION UNIT PRICE TOTAL PRICE (ex-\n(ex-GST) GST)\nCR# 3821450 PK000477\nCompleted 06/07/2026\nBlackbird St, Eagleby\nLift trees from roundabout at Beenleigh to Peacock St, along Blackbird St.\nRemove and grind 2 x declining Wattle outside church entrance on\nBlackbird\n2.5 4 person crew for Tree Maintenance $315.00 $787.50\n2.5 EWP up to 28m $190.00 $475.00\n3 Cut and disperse rate inclusive of 3 person crew- including a climber and $320.00 $960.00\nutility vehicle.\n4.25 Stump grinding $180.00 $765.00\nBANK DETAIL FOR EFT PAYMENT x Be\nRST Systems Pty Ltd iene. .\nANZ Underwood F @, Subtotal: $2,987.50\nBSB - 014279 3 E . 298.7\nACC No - 260818618 ce) $ GST: $298.75\nPlease email remittance Advice to Association Inc i\nadmin@vintontreeservices.com.au pact Total (inc-GST): $3,286.25\n_ Balance Due: $3,286.25\n& &\n~ \\\nI\\\\ — - 2D f\\; = a\nhha . =P ge has a = =P = See\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": "84 008 552 538",
+   "entity": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services"
+  },
+  "16": {
+   "ocr_text": "How to pay Invoice number: 19847 Due date: 23/07/26 —_ Balance due: $3,286.25\nates get Pay online\n\nat ar hares Seer\n\npin He J as fan i 2375 Scan the QR code or click the link to view this invoice online\n\nEe ae i\n\nar, of. FA ei\n\nRee ieee ceca\n\nOsi en ee nl @, Pay securely\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": null,
+   "entity": null
+  },
+  "17": {
+   "ocr_text": "Tax Invoice\noe e e\nfirs 4 Vinton Tree Services\noe as ABN 84 008 552 538 Invoice No.: 19871\nme R. S. T. Systems Pty. Limited Trading as Vinton Tree Services\ninn Wak Racinas Head Office: 40 Eurora Street Kingston 4114 Date: 13/07/2026\nMat Vinton 0407 657 441\nSTRENGTHINSIZE Jillaine D’Ath 0407 748 746\nCOM 1409 pS 48,\nie C %, PO: 717574\nA OF; 1 OF OF} Toll Free: 1800 810 773\nLear ya “ipa Email: admin@vintontreeservices.com.au Contract No: PAR/329E/2021\nBilling Address: Site Address:\nLogan City Council Logan City Council\nA/C Payable Department Attention:\nPO Box 3226\nLogan City DC QLD 4114\nDESCRIPTION EX AMOUNT TAX CODE\nProvide Level 5 Scoping Arborist to provide services to Logan City Council Parks $3,200.00 GST\nDepartment as per PAR/329/2021\n- 30/06/2026 - 3 hours (Brenda) - $480 + GST\n- 01/07/2026 - 5 hours (BRenda/Scott) - $800 + GST\n- 07/07/2026 - 3 hours (Scott) - $480 + GST\n- 08/07/2026 - 3 hours (Scott) - $480 + GST\n- 09/07/2026 - 5 hours (Scott) - $800 + GST\n- 10/07/2026 - 1 hour (Scott) - $160 + GST\nBANK DETAIL FOR EFT PAYMENT\nRST Systems Pty Ltd soos ts Subtotal: $3,200.00\nANZ Underwood § &\nBSB - 014279 4 jj GST: $320.00\nACC No - 260818618 Pt\nPlease email remittance Advice to ere Total (inc-GST): $3,520.00\nadmin@vintontreeservices.com.au ue\nBalance Due: $3,520.00\n& &\n<\nf\\, = = A - ~\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": "84 008 552 538",
+   "entity": null
+  },
+  "18": {
+   "ocr_text": "How to pay Invoice number: 19871 Due date: 27/07/26 _ Balance due: $3,520.00\nParptN Scan the QR code or click the link to view this invoice online\n\nBO im Poor og\n\nSee aii\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": null,
+   "entity": null
+  },
+  "19": {
+   "ocr_text": "sos ‘ : Tax Invoice\ngt Vinton Tree Services\npe 8 ABN 84 008 552 538\nes R. S. T. Systems Pty. Limited Trading as Vinton Tree Services i .\nTainn Wax Services Head Office: 40 Eurora Street Kingston 4114 Invoice No.: 19876\nNGTHINS' Mat Vinton 0407 657 441\nores acts a Jillaine D’ Ath 0407 748 744 Date: 19/07/2026\n(0 = OF : Toll Free: 1800 810 773 Po:\n* | ac aa a. F F = . 717574\n= oe — Email: admin@vintontreeservices.com.au\nContract PAR/329E/2021\nBilling Address: Site Address:\nLogan City Council Logan City Council\nA/C Payable Department Attention:\nPO Box 3226\nLogan City DC QLD 4114\nDESCRIPTION UNIT PRICE | TOTAL PRICE (ex-\n(ex-GST) GST)\nCR# 3866589 PK000482\nCompleted 08/07/2026\nCockatiel park, Cockatiel Court, Greenbank - behind 129 Bellbird Dr\nRemove dead Euc to fence height asap to access being required from\nproperty, resident putting carport up within next few months\n8 4 person crew for Tree Maintenance $315.00 $2,520.00\n8 EWP up to 28m $190.00 $1,520.00\nBANK DETAIL FOR EFT PAYMENT x Be\nRST Systems Pty Ltd bo, .\nANZ Underwood ‘@: Subtotal: $4,040.00\nBSB - 014279 3 E . 404\nACC No - 260818618 ce) $ GST: $404.00\nPlease email remittance Advice to Association Inc ;\nadmin@vintontreeservices.com.au pact Total (inc-GST): $4,444.00\n_ Balance Due: $4,444.00\n& &\n~ \\\nAN — - 2D f\\; = a\nhha . =P ge has a = =P = See\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": "84 008 552 538",
+   "entity": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services"
+  },
+  "20": {
+   "ocr_text": "How to pay Invoice number: 19876 Due date: 27/07/26 —_ Balance due: $4,444.00\n\nEr Me aT | Pay online\n\na ie i ar\n\nBase if ee Scan the QR code or click the link to view this invoice online\n\nwea gt\n\na OOS\n\nord ' aie cd a\n\nSu ee:\nope es tral Te © Pay securely\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": null,
+   "entity": null
+  },
+  "21": {
+   "ocr_text": "sos ‘ : Tax Invoice\ngt Vinton Tree Services\npe 8 ABN 84 008 552 538\nes R. S. T. Systems Pty. Limited Trading as Vinton Tree Services i .\niain Wak Saisicas Head Office: 40 Eurorg Street Kingston 4114 Invoice No.: 19878\nTRENGTHINS Mat Vinton 0407 657 441\none “ ele — Jillaine D’ Ath 0407 748 744 Date: 19/07/2026\n(0 = OF : Toll Free: 1800 810 773 Po:\nee ac ahi. a. F - : . 717574\n= oe — Email: admin@vintontreeservices.com.au\nContract PAR/329E/2021\nBilling Address: Site Address:\nLogan City Council Logan City Council\nA/C Payable Department Attention:\nPO Box 3226\nLogan City DC QLD 4114\nDESCRIPTION UNIT PRICE TOTAL PRICE (ex-\n(ex-GST) GST)\nCR# 3743354 PK000477\nCompleted 10/07/2026\nBehind 9 Holder Street, Loganholme\nRemove and poison Fig in multistemmed Euc, cut where possible. Remove\nno grind 1 x multistemmed Bloodwood. Remove Chinese Elm and fallen\nbranch. Remove lateral on Ironbark extending over property\n0.25 4 person crew for Tree Maintenance $315.00 $78.75\n0.25 EWP up to 28m $190.00 $47.50\n9.75 Cut and disperse rate inclusive of 3 person crew- including a climber and $320.00 $3,120.00\nutility vehicle.\nBANK DETAIL FOR EFT PAYMENT x Be\nRST Systems Pty Ltd iene. .\nANZ Underwood @ Subtotal: $3,246.25\nBSB - 014279 3 E . 24\nACC No - 260818618 ce) $ GST: $324.63\nPlease email remittance Advice to Association Inc i\nadmin@vintontreeservices.com.au pact Total (inc-GST): $3,570.88\nsi Balance Due: $3,570.88\n& &\nas Y \\ :\nI\\\\ — - 2D f\\; = a\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": "84 008 552 538",
+   "entity": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services"
+  },
+  "22": {
+   "ocr_text": "How to pay Invoice number: 19878 Due date: 27/07/26 _ Balance due: $3,570.88\n| yy da gugh | Pay online\nbie Eee ata Scan the QR code or click the link to view this invoice online\nreamed ed\nad oe ata\" He\nSe eet\nhy eth ey\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": null,
+   "entity": null
+  },
+  "23": {
+   "ocr_text": "ss : : Tax Invoice\ngt Vinton Tree Services\npe 8 ABN 84 008 552 538\nes fe R. S. T. Systems Pty. Limited Trading as Vinton Tree Services i .\niain Wak Saisicas Head Office: 40 Eurorg Street Kingston 4114 Invoice No.: 19879\nSTRENGTHINS Mat Vinton 0407 657 441\nae “ acts a Jillaine D’ Ath 0407 748 744 Date: 19/07/2026\n(0 = OF Wh: Toll Free: 1800 810 773 PO:\nA, ac at, a F : A . 717574\n= oe — Email: admin@vintontreeservices.com.au\nContract PAR/329E/2021\nBilling Address: Site Address:\nLogan City Council Logan City Council\nA/C Payable Department Attention:\nPO Box 3226\nLogan City DC QLD 4114\nDESCRIPTION UNIT PRICE | TOTAL PRICE (ex-\n(ex-GST) GST)\nCR# 3782517 PK000477\nCompleted 10/07/2026\n6 Charles Glen Street, Daisy Hill\nLift all of Charles Glen St, reduce from properties where required\n8.75 3 person crew for Tree Maintenance $250.00 $2,187.50\nBANK DETAIL FOR EFT PAYMENT x Be\nRST Systems Pty Ltd iene. .\nANZ Underwood @ Subtotal: $2,187.50\nBSB - 014279 3 E .\nACC No - 260818618 ce) $ GST: $218.75\nPlease email remittance Advice to Association Inc ;\nadmin@vintontreeservices.com.au pact Total (inc-GST): $2,406.25\nsi Balance Due: $2,406.25\n& &\n\\ \\\nAN _ fe BD /\\, _ 7\nLe _ : =p al Les _ = =p eee\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": "84 008 552 538",
+   "entity": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services"
+  },
+  "24": {
+   "ocr_text": "How to pay Invoice number: 19879 Due date: 27/07/26 —_ Balance due: $2,406.25\nCle ere Pay online\n3 te rae\nbeta . ata spodn Scan the QR code or click the link to view this invoice online\nart ae = ee Fl\nee re ne a\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": null,
+   "entity": null
+  },
+  "25": {
+   "ocr_text": "sos ‘ : Tax Invoice\ngt Vinton Tree Services\npe 8 ABN 84 008 552 538\nes R. S. T. Systems Pty. Limited Trading as Vinton Tree Services i .\niain Wak Saisicas Head Office: 40 Eurorg Street Kingston 4114 Invoice No.: 19883\nNGTHINS' Mat Vinton 0407 657 441\nores acts a Jillaine D’ Ath 0407 748 744 Date: 14/07/2026\n(0 = (0 = : Toll Free: 1800 810 773 Po:\nOF? 2): A fi cutie vient ' 717574\n= i — Email: admin@vintontreeservices.com.au\nContract PAR/329E/2021\nBilling Address: Site Address:\nLogan City Council Logan City Council\nA/C Payable Department Attention:\nPO Box 3226\nLogan City DC QLD 4114\nDESCRIPTION UNIT PRICE TOTAL PRICE (ex-\n(ex-GST) GST)\nCR# 3827433 PK000477\nCompleted 13/07/2026\n49-51 Daintree Drive, Logan Village\nRemove leaning trees over shed and reduce height of dead trees\n5.25 4 person crew for Tree Maintenance $315.00 $1,653.75\n5.25 EWP up to 28m $190.00 $997.50\nBANK DETAIL FOR EFT PAYMENT x Be\nRST Systems Pty Ltd bo, .\nANZ Underwood ‘@: Subtotal: $2,651.25\nBSB - 014279 3 E .\nACC No - 260818618 ce) $ GST: $265.13\nPlease email remittance Advice to Association Inc ;\nadmin@vintontreeservices.com.au pact Total (inc-GST): $2,916.38\nsi Balance Due: $2,916.38\n& &\n‘ \\\n/\\, —_ te > /\\, = ed\nhha . =P ge has a = =P = See\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": "84 008 552 538",
+   "entity": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services"
+  },
+  "26": {
+   "ocr_text": "How to pay Invoice number: 19883 Due date: 28/07/26 Balance due: $2,916.38\n\nOf so 8 0 Pay online\n\nSpeers ba : Scan the QR code or click the link to view this invoice online\n\n= Le cea ero es\n\nAo a pe ot :\n\na7 4 Br oe a\n\nae cote x\n\nih Ena E ua. = a\nol Tr rE soe ao Pay securely\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": null,
+   "entity": null
+  },
+  "27": {
+   "ocr_text": "ss : . Tax Invoice\ngt Vinton Tree Services\npe 8 ABN 84 008 552 538\nes R. S. T. Systems Pty. Limited Trading as Vinton Tree Services i .\nTainn Wax Services Head Office: 40 Eurora Street Kingston 4114 Invoice No.: 19890\nNGTHINS' Mat Vinton 0407 657 441\nores acts — Jillaine D’ Ath 0407 748 744 Date: 16/07/2026\n1 OF OF : Toll Free: 1800 810 773 Po:\n. ae sa a. F ; - : 717574\n.— oe — Email: admin@vintontreeservices.com.au\nContract PAR/329E/2021\nBilling Address: Site Address:\nLogan City Council Logan City Council\nA/C Payable Department Attention:\nPO Box 3226\nLogan City DC QLD 4114\nDESCRIPTION UNIT PRICE | TOTAL PRICE (ex-\n(ex-GST) GST)\nCR# 3745161 PK000073\nCompleted 15/07/2026\n24 Sugarwood Place, Cornubia\nRemove and disperse approx 10 trees marked. First spotted gum beside\ndrive, reduce to 8m, do not poison\n4 4 person crew for Tree Maintenance $315.00 $1,260.00\n4 EWP up to 28m $190.00 $760.00\n1 LCC Fuel Levy - Diesel $19.90 $19.90\nBANK DETAIL FOR EFT PAYMENT x Be\nRST Systems Pty Ltd bo, .\nANZ Underwood ‘@: Subtotal: $2,039.90\nBSB - 014279 3 E .\nACC No - 260818618 ce) $ GST: $203.99\nPlease email remittance Advice to Association Inc ;\nadmin@vintontreeservices.com.au pact Total (inc-GST): $2,243.89\ni Balance Due: $2,243.89\n& &\n‘ \\\ni _ fe BD /\\, _ 7\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": "84 008 552 538",
+   "entity": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services"
+  },
+  "28": {
+   "ocr_text": "How to pay Invoice number: 19890 Due date: 30/07/26 Balance due: $2,243.89\nOs eer | Pay online\nee ee Ac kr=\nteeth aa : Scan the QR code or click the link to view this invoice online\naah eeu tet\nick eta oe ou\nPe ae ee\nSada thahaty ete\nol Peta Sal ©) Pay securely\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": null,
+   "entity": null
+  },
+  "29": {
+   "ocr_text": "sos ‘ : Tax Invoice\ngt Vinton Tree Services\npe 8 ABN 84 008 552 538\nes R. S. T. Systems Pty. Limited Trading as Vinton Tree Services i .\nTainn Wax Services Head Office: 40 Eurora Street Kingston 4114 Invoice No.: 19892\nTRENGTHINS Mat Vinton 0407 657 441\none “ ele — Jillaine D’ Ath 0407 748 744 Date: 17/07/2026\n(0 = OF : Toll Free: 1800 810 773 Po:\n* | ac aa a. F F = . 717574\n= oe — Email: admin@vintontreeservices.com.au\nContract PAR/329E/2021\nBilling Address: Site Address:\nLogan City Council Logan City Council\nA/C Payable Department Attention:\nPO Box 3226\nLogan City DC QLD 4114\nDESCRIPTION UNIT PRICE | TOTAL PRICE (ex-\n(ex-GST) GST)\nCR# 3774124 PK000477\nCompleted 16/07/2026\n106 St Andrews Drive, Cornubia\nLift all round and reduce one Leopard closest to driveway to minimise\noverhang to caravan, may require balancing roadside canopy too. Lift other\nLeopard closest to Carnoustie Ct\n5.75 4 person crew for Tree Maintenance $315.00 $1,811.25\n5.75 EWP up to 28m $190.00 $1,092.50\n1 LCC Fuel Levy - Diesel $28.60 $28.60\nBANK DETAIL FOR EFT PAYMENT x Be\nRST Systems Pty Ltd iene. .\nANZ Underwood @, Subtotal: $2,932.35\nBSB - 014279 3 E . 293.24\nACC No - 260818618 ce) $ GST: $293.\nPlease email remittance Advice to Association Inc i\nadmin@vintontreeservices.com.au pact Total (inc-GST): $3,225.59\nsi Balance Due: $3,225.59\n& &\n\\ \\\nAN _ fe BD /\\, _ 7\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": "84 008 552 538",
+   "entity": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services"
+  },
+  "30": {
+   "ocr_text": "How to pay Invoice number: 19892 Due date: 31/07/26 Balance due: $3,225.59\nPlace ; tm &) Pay online\n: rat 7 ra\nae let ts Scan the QR code or click the link to view this invoice online\nPate att hot\nring . nf : fe 1\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": null,
+   "entity": null
+  },
+  "31": {
+   "ocr_text": "ss : . Tax Invoice\ngt Vinton Tree Services\npe 8 ABN 84 008 552 538\nes R. S. T. Systems Pty. Limited Trading as Vinton Tree Services i .\nTainn Wax Services Head Office: 40 Eurora Street Kingston 4114 Invoice No.: 19899\nNGTHINS' Mat Vinton 0407 657 441\nores acts a Jillaine D’ Ath 0407 748 744 Date: 20/07/2026\n(0 = (0 = : Toll Free: 1800 810 773 Po:\nOF? 2): A fi cutie vient ' 717574\n= oe — Email: admin@vintontreeservices.com.au\nContract PAR/329E/2021\nBilling Address: Site Address:\nLogan City Council Logan City Council\nA/C Payable Department Attention:\nPO Box 3226\nLogan City DC QLD 4114\nDESCRIPTION UNIT PRICE TOTAL PRICE (ex-\n(ex-GST) GST)\nCR# 3841778 PK000073\nCompleted 17/07/2026\nBehind 165-167 Magnesium Drive, Crestmead\nReduce overhang back to suitable growth points along fenceline of\n165-167\n5 4 person crew for Tree Maintenance $315.00 $1,575.00\n5 EWP up to 28m $190.00 $950.00\n1 LCC Fuel Levy - Diesel $24.87 $24.87\nBANK DETAIL FOR EFT PAYMENT x Be\nRST Systems Pty Ltd bo, .\nANZ Underwood ‘@: Subtotal: $2,549.87\nBSB - 014279 3 E .\nACC No - 260818618 ce) $ GST: $254.99\nPlease email remittance Advice to Association Inc ;\nadmin@vintontreeservices.com.au pact Total (inc-GST): $2,804.86\ni Balance Due: $2,804.86\n& &\n‘ \\\n/\\, —_ te > /\\, = ed\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": "84 008 552 538",
+   "entity": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services"
+  },
+  "32": {
+   "ocr_text": "How to pay Invoice number: 19899 Due date: 03/08/26 Balance due: $2,804.86\net es @ Pay online\nDer iced it drs Scan the QR code or click the link to view this invoice online\neek etal er ey\no\\- jon ee os\nor RL ‘a. ”\nstash fatter nt\ntet ee ral © Pay securely\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": null,
+   "entity": null
+  },
+  "33": {
+   "ocr_text": "sos ‘ : Tax Invoice\ngt Vinton Tree Services\npe 8 ABN 84 008 552 538\nes R. S. T. Systems Pty. Limited Trading as Vinton Tree Services i .\nTainn Wax Services Head Office: 40 Eurora Street Kingston 4114 Invoice No.: 19901\nTRENGTHINS Mat Vinton 0407 657 441\none “ ele — Jillaine D’ Ath 0407 748 744 Date: 21/07/2026\n(0 = OF : Toll Free: 1800 810 773 Po:\n* | ac aa a. F F = . 717574\n= oe — Email: admin@vintontreeservices.com.au\nContract PAR/329E/2021\nBilling Address: Site Address:\nLogan City Council Logan City Council\nA/C Payable Department Attention:\nPO Box 3226\nLogan City DC QLD 4114\nDESCRIPTION UNIT PRICE | TOTAL PRICE (ex-\n(ex-GST) GST)\nCR# 3812209 PK000477\nCompleted 20/07/2026\nBehind 8 Gillespie Close, Edens Landing\nDeadwood and reduce back Spotted Gum closest to gate, and other\nSpotted Gum further along. Remove dead Wattle behind second smaller\nSpotty. Remove small failed tall stump near fence and small hanger in\nlronbark\n4 4 person crew for Tree Maintenance $315.00 $1,260.00\n4 EWP up to 28m $190.00 $760.00\n1 LCC Fuel Levy - Diesel $39.79 $39.79\nBANK DETAIL FOR EFT PAYMENT x Be\nRST Systems Pty Ltd iene. .\nANZ Underwood F @, Subtotal: $2,059.79\nBSB - 014279 3 E . 2\nACC No - 260818618 ce) $ GST: $205.98\nPlease email remittance Advice to Association Inc i\nadmin@vintontreeservices.com.au pact Total (inc-GST): $2,265.77\n_ Balance Due: $2,265.77\n& &\n\\ \\\nAN _ fe BD /\\, _ 7\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": "84 008 552 538",
+   "entity": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services"
+  },
+  "34": {
+   "ocr_text": "How to pay Invoice number: 19901 Due date: 04/08/26 Balance due: $2,265.77\nOber a aii [=] Pay online\naad Ree Ue\nEye? ee Scan the QR code or click the link to view this invoice online\nPe\nco oe eee\neon peck Lf os,\nBr 2 aaa oe\nmeh Habeas\nao \" Menten 2 a Pay securely\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": null,
+   "entity": null
+  },
+  "35": {
+   "ocr_text": "sos ‘ : Tax Invoice\ngt Vinton Tree Services\npe 8 ABN 84 008 552 538\nes R. S. T. Systems Pty. Limited Trading as Vinton Tree Services i .\niain Wak Saisicas Head Office: 40 Eurorg Street Kingston 4114 Invoice No.: 19921\nTRENGTHINS Mat Vinton 0407 657 441\none “ ele — Jillaine D’Ath 0407 748 744 Date: 28/07/2026\n(0 = OF : Toll Free: 1800 810 773 Po:\n* | ac aa a F : A . 717574\n— oe — Email: admin@vintontreeservices.com.au\nContract PAR/329E/2021\nBilling Address: Site Address:\nLogan City Council Logan City Council\nA/C Payable Department Attention:\nPO Box 3226\nLogan City DC QLD 4114\nDESCRIPTION UNIT PRICE | TOTAL PRICE (ex-\n(ex-GST) GST)\nCR# 3870544 PK000482\nCompleted 27/07/2026\nEagleby Cemetery, 144-160 Herses Road Eagleby\nRemove all palms and stump grind. Remove and stump grind heavy\nleaning Acacia, care of historical graves\n4.75 4 person crew for Tree Maintenance $315.00 $1,496.25\n4.75 EWP up to 28m $190.00 $902.50\n0.25 3 person crew for Tree Maintenance $250.00 $62.50\n0.25 EWP up to 28m $190.00 $47.50\n1.75 Stump grinding $180.00 $315.00\n1 LCC Fuel Levy - Diesel $83.44 $83.44\nBANK DETAIL FOR EFT PAYMENT x Be\nRST Systems Pty Ltd iene. .\nANZ Underwood @ Subtotal: $2,907.19\nBSB - 014279 3 E . 290.72\nACC No - 260818618 ce) $ GST: $290.\nPlease email remittance Advice to Association Inc i\nadmin@vintontreeservices.com.au pact Total (inc-GST): $3,197.91\nnone Balance Due: $3,197.91\n& &\nSS \" \\Q \\\nAN _ fe BD /\\, _ 7\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": "84 008 552 538",
+   "entity": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services"
+  },
+  "36": {
+   "ocr_text": "How to pay Invoice number: 19921 Due date: 11/08/26 Balance due: $3,197.91\nOla ats at | Pay online\nTare a ne ee\nSees r Scan the QR code or click the link to view this invoice online\nom eg\npees\nSa Le ;\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": null,
+   "entity": null
+  },
+  "37": {
+   "ocr_text": "ss : . Tax Invoice\ngt Vinton Tree Services\nSy Nie saad ABN 84 008 552 538\nes fe R. S. T. Systems Pty. Limited Trading as Vinton Tree Services i .\niain Wak Saisicas Head Office: 40 Eurorg Street Kingston 4114 Invoice No.: 19923\nNGTHINS' Mat Vinton 0407 657 441\nores acts — Jillaine D’ Ath 0407 748 744 Date: 28/07/2026\n&: OF : Toll Free: 1800 810 773 Po:\n* Be eS a F : A . 717574\n.— oe — Email: admin@vintontreeservices.com.au\nContract PAR/329E/2021\nBilling Address: Site Address:\nLogan City Council Logan City Council\nA/C Payable Department Attention:\nPO Box 3226\nLogan City DC QLD 4114\nDESCRIPTION UNIT PRICE | TOTAL PRICE (ex-\n(ex-GST) GST)\nCR# 3719303 PK000482\nCompleted 27/07/2026\nBeside 6 Presley Court, Windaroo\nRemove and grind Ironbark beside 6 Presley\n4.75 4 person crew for Tree Maintenance $315.00 $1,496.25\n4.75 EWP up to 28m $190.00 $902.50\n1.75 Stump grinding $180.00 $315.00\n1 LCC Fuel Levy - Diesel $80.19 $80.19\nBANK DETAIL FOR EFT PAYMENT x Be\nRST Systems Pty Ltd bo, .\nANZ Underwood ‘@: Subtotal: $2,793.94\nBSB - 014279 3 E .\nACC No - 260818618 e) $ GST: $279.39\nPlease email remittance Advice to Association Inc ;\nadmin@vintontreeservices.com.au pact Total (inc-GST): $3,073.33\ni Balance Due: $3,073.33\n& &\n~ \\\nI\\\\ — - 2D f\\; = a\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": "84 008 552 538",
+   "entity": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services"
+  },
+  "38": {
+   "ocr_text": "How to pay Invoice number: 19923 Due date: 11/08/26 Balance due: $3,073.33\nlita 7 [a] Pay online\n\nRes Re rene oo)\n\neras nica Scan the QR code or click the link to view this invoice online\n\nne I Pek ;\n\nSee ee\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": null,
+   "entity": null
+  },
+  "39": {
+   "ocr_text": "sos ‘ : Tax Invoice\ngt Vinton Tree Services\npe 8 ABN 84 008 552 538\nes R. S. T. Systems Pty. Limited Trading as Vinton Tree Services i .\niain Wak Saisicas Head Office: 40 Eurorg Street Kingston 4114 Invoice No.: 19925\nTRENGTHINS Mat Vinton 0407 657 441\none “ ele — Jillaine D’ Ath 0407 748 744 Date: 28/07/2026\n(0 = OF : Toll Free: 1800 810 773 Po:\nee ac ahi. a. F - : . 717574\n= oe — Email: admin@vintontreeservices.com.au\nContract PAR/329E/2021\nBilling Address: Site Address:\nLogan City Council Logan City Council\nA/C Payable Department Attention:\nPO Box 3226\nLogan City DC QLD 4114\nDESCRIPTION UNIT PRICE TOTAL PRICE (ex-\n(ex-GST) GST)\nCR# 3848081 PK000482\nCompleted 24/07/2026\nCharles Barton Park, Underwood\nRemove dead Silky Oak in garden area between playground and property,\ndeadwood anything above about 20mm on the 10 large Eucs along path,\ntoilets and playground and remove failed branch\n12.25 4 person crew for Tree Maintenance $315.00 $3,858.75\n12.25 EWP up to 28m $190.00 $2,327.50\n1.5 LCC Fuel Levy - Diesel $127.19 $190.79\nBANK DETAIL FOR EFT PAYMENT x Be\nRST Systems Pty Ltd iene. .\nANZ Underwood @ Subtotal: $6,377.04\nBSB - 014279 3 E . 17\nACC No - 260818618 ce) $ GST: $637.70\nPlease email remittance Advice to Association Inc i\nadmin@vintontreeservices.com.au pact Total (inc-GST): $7,014.74\n_ Balance Due: $7,014.74\n& &\n~ \\\nI\\\\ — - 2D f\\; = a\nhha . =P ge has a = =P = See\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": "84 008 552 538",
+   "entity": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services"
+  },
+  "40": {
+   "ocr_text": "How to pay Invoice number: 19925 Due date: 11/08/26 Balance due: $7,014.74\npee ht a, | Pay online\nTete eel ee a\nSe aaiN : ree Scan the QR code or click the link to view this invoice online\nHost ea\nera sheers Ila\nrite maa\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": null,
+   "entity": null
+  },
+  "41": {
+   "ocr_text": "Tax Invoice\noe e e\nfirs 4 Vinton Tree Services\neee ABN 84 008 552 538 Invoice No.: 19461\neee ee R. S. T. Systems Pty. Limited Trading as Vinton Tree Services\nWinton Wan Services Head Office: 40 Eurora Street Kingston 4114 Date: 28/07/2026\nSTRENCTHINS Mat Vinton 0407 657 441\nce E : 2 IZE Jillaine D’Ath 0407 748 746\nOM 040 pS 480,\nKC Gi “, PO: 717574\nA OF; 1 OF OF} Toll Free: 1800 810 773\n_— Rersncn “ipa Email: admin@vintontreeservices.com.au Contract No: PAR/329E/2021\nBilling Address: Site Address:\nLogan City Council Logan City Council\nA/C Payable Department Attention: Sam Forbes\nPO Box 3226\nLogan City DC QLD 4114\nDESCRIPTION EX AMOUNT TAX CODE\nCR#3806539 - 100-110 Murray Road, Logan Village GST\nCompleted 27/07/2026 GST\n- Remove 4 x marked trees at 100-110 Murray Road GST\n- Prune other trees encroaching over fence/property and lift over nature strip for mower $2,100.00 GST\naccess\n- Clipper crew & access required\nFuel Levy $62.05 GST\nBANK DETAIL FOR EFT PAYMENT\nRST Systems Pty Ltd soot ts Subtotal: $2,162.05\nANZ Underwood Ff &\nBSB - 014279 4 jj GST: $216.21\nACC No - 260818618 ‘Keene g Hic\nPlease email remittance Advice to SORPORATE Total (inc-GST): $2,378.26\nadmin@vintontreeservices.com.au ue\nBalance Due: $2,378.26\n& &\n\\ ~\nf\\ = a N co ~\n, a - es oe = =P ee\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": "84 008 552 538",
+   "entity": null
+  },
+  "42": {
+   "ocr_text": "How to pay Invoice number: 19461 Due date: 11/08/26 Balance due: $2,378.26\nRe: *. aa i Pay online\nirr ern A\nbe Tea Pret \"1 Scan the QR code or click the link to view this invoice online\n(or pot pra s\npop rie gs\neaeiatay choy\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": null,
+   "entity": null
+  },
+  "43": {
+   "ocr_text": "si : . Tax Invoice\ngt Vinton Tree Services\nSy Sit ies ABN 84 008 552 538\nes R. S. T. Systems Pty. Limited Trading as Vinton Tree Services i .\nTainn Wax Services Head Office: 40 Eurora Street Kingston 4114 Invoice No.: 19930\nNCTHI'S Mat Vinton 0407 657 441\nores acts a Jillaine D’ Ath 0407 748 744 Date: 29/07/2026\n(0 = OF : Toll Free: 1800 810 773 Po:\nlh fall i: admin@vi i 717574\n= oe — Email: admin@vintontreeservices.com.au\nContract PAR/329E/2021\nBilling Address: Siteieddress:\nLogan City Council Logan City Council\nA/C Payable Department Attention:\nPO Box 3226\nLogan City DC QLD 4114\nDESCRIPTION UNIT PRICE TOTAL PRICE (ex-\n(ex-GST) GST)\nCR# 3868853 PK000477\nCompleted 28/07/2026\n22 Short Street, Waterford West\nDeadwood 5 x mature Eucs between 22 and 28 Short Street\n6.25 4 person crew for Tree Maintenance $315.00 $1,968.75\n6.25 EWP up to 28m $190.00 $1,187.50\n1 LCC Fuel Levy - Diesel $93.27 $93.27\nBANK DETAIL FOR EFT PAYMENT ails\nRST Systems Pty Ltd bo, .\nANZ Underwood ‘@: Subtotal: $3,249.52\nBSB - 014279 3 E .\nACC No - 260818618 CG x GST. $324.95\nPlease email remittance Advice to Association Inc ;\nadmin@vintontreeservices.com.au pact Total (inc-GST): $3,574.47\nnone Balance Due: $3,574.47\n& &\nN ; \\\nI\\\\ — - 2D f\\; = a\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": "84 008 552 538",
+   "entity": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services"
+  },
+  "44": {
+   "ocr_text": "How to pay Invoice number: 19930 Due date: 12/08/26 Balance due: $3,574.47\n| Tomes 24m | Pay online\noire Ez ' mek\n- fd a eg £ Scan the QR code or click the link to view this invoice online\nra ries Setar\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": null,
+   "entity": null
+  },
+  "45": {
+   "ocr_text": "sos ‘ : Tax Invoice\ngt Vinton Tree Services\npe 8 ABN 84 008 552 538\nes R. S. T. Systems Pty. Limited Trading as Vinton Tree Services i .\nTainn Wax Services Head Office: 40 Eurora Street Kingston 4114 Invoice No.: 19948\nTRENGTHINS Mat Vinton 0407 657 441\none “ ele — Jillaine D’ Ath 0407 748 744 Date: 3/08/2026\n(0 = OF : Toll Free: 1800 810 773 Po:\nee ac ahi. a. F - : . 717574\n= oe — Email: admin@vintontreeservices.com.au\nContract PAR/329E/2021\nBilling Address: Site Address:\nLogan City Council Logan City Council\nA/C Payable Department Attention:\nPO Box 3226\nLogan City DC QLD 4114\nDESCRIPTION UNIT PRICE TOTAL PRICE (ex-\n(ex-GST) GST)\nCR# 3865516 PK000479\nCompleted 31/07/2026\nBehind 58 Roselea St Shailer Park\nRemove sapling marked. Remove debris on ground. Reduce Ironbark.\nremove, no grind vinegar infested Melaleuca. Remove and grind Ironbark\nwith poor form. Remove entire leader from Ironbark that overhangs shed\n4.75 4 person crew for Tree Maintenance $315.00 $1,496.25\n4.7 EWP up to 28m $190.00 $893.00\nLCC Fuel Levy - Diesel $70.60\nBANK DETAIL FOR EFT PAYMENT x Be\nRST Systems Pty Ltd iene. .\nANZ Underwood F @, Subtotal: $2,389.25\nBSB - 014279 3 E . 2\nACC No - 260818618 ce) $ GST: $238.93\nPlease email remittance Advice to Association Inc i\nadmin@vintontreeservices.com.au pact Total (inc-GST): $2,628.18\nsi Balance Due: $2,628.18\n& &\n~ \\\nI\\\\ — - 2D f\\; = a\nhha . =P ge has a = =P = See\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": "84 008 552 538",
+   "entity": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services"
+  },
+  "46": {
+   "ocr_text": "How to pay Invoice number: 19948 Due date: 17/08/26 _ Balance due: $2,628.18\nOk .. aa ri \" id Pay online\net ar popes Scan the QR code or click the link to view this invoice online\nf os oe\nSe ite\nDe) Asia eee rom Pay securely\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": null,
+   "entity": null
+  },
+  "47": {
+   "ocr_text": "ss : : Tax Invoice\ngt Vinton Tree Services\nSy Sit ies ABN 84 008 552 538\nes R. S. T. Systems Pty. Limited Trading as Vinton Tree Services i .\nTainn Wax Services Head Office: 40 Eurora Street Kingston 4114 Invoice No.: 19955\nNGTHINS' Mat Vinton 0407 657 441\nsag acts a Jillaine D’ Ath 0407 748 744 Date: 11/08/2026\n(0 = (0 = : Toll Free: 1800 810 773 Po:\nOF? 2): A fi cutie vient ' 717574\n= oe — Email: admin@vintontreeservices.com.au\nContract PAR/329E/2021\nBilling Address: Site Address:\nLogan City Council Logan City Council\nA/C Payable Department Attention:\nPO Box 3226\nLogan City DC QLD 4114\nDESCRIPTION UNIT PRICE TOTAL PRICE (ex-\n(ex-GST) GST)\nCR# 3860295\nCompleted 06/08/2026\n31 Skinners Road, Carbrook\n1 x Eucalyptus remove and stump grind\n9 4 person crew for Tree Maintenance $315.00 $2,835.00\n9 EWP up to 28m $190.00 $1,710.00\n4 Crane Truck with Operator $180.00 $720.00\n5 Stump grinding $180.00 $900.00\n1 LCC Fuel Levy - Diesel $242.90 $242.90\nBANK DETAIL FOR EFT PAYMENT x Be\nRST Systems Pty Ltd bo, .\nANZ Underwood ‘@: Subtotal: $6,407.90\nBSB - 014279 3 E .\nACC No - 260818618 ce) $ GST: $640.79\nPlease email remittance Advice to Association Inc ;\nadmin@vintontreeservices.com.au pact Total (inc-GST): $7,048.69\nsi Balance Due: $7,048.69\n& &\n‘ \\\n/\\, —_ te > /\\, = ed\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": "84 008 552 538",
+   "entity": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services"
+  },
+  "48": {
+   "ocr_text": "",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": null,
+   "entity": null
+  },
+  "49": {
+   "ocr_text": "Tax Invoice\noe e e\nfirs 4 Vinton Tree Services\npe Fe ABN 84 008 552 538 Invoice No.: 19823\nme R. S. T. Systems Pty. Limited Trading as Vinton Tree Services\nVialon than Geivices Head Office: 40 Eurora Street Kingston 4114 Date: 43/08/2026\nSTRENCTHINS Mat Vinton 0407 657 441\nRe = : ; 125 Jillaine D’Ath 0407 748 744\nCOM PP 1405 pS 48,\nKC Gi “, PO: 717574\nA OF; 1 OF OF} Toll Free: 1800 810 773\n.— he trance Email: admin@vintontreeservices.com.au Contract No: PAR/329E/2021\nBilling Address: Site Address:\nLogan City Council Logan City Council\nA/C Payable Department Attention:\nPO Box 3226 Scott Kane\nLogan City DC QLD 4114\nDESCRIPTION EX AMOUNT TAX CODE\nCR#3882877 - PK000477 - 4 Mulligan Way, Edens Landing $7,800.00 GST\nProvide EWP crew and stump grinder crew to remove 10x Agathia robusta and stump\ngrind.\nCompleted 12/08/2026\nBANK DETAIL FOR EFT PAYMENT\nRST Systems Pty Ltd soos ts Subtotal: $7,800.00\nANZ Underwood Ff &\nBSB - 014279 4 jj GST: $780.00\nACC No - 260818618 wasted Thc\nPlease email remittance Advice to ere Total (inc-GST): $8,580.00\nadmin@vintontreeservices.com.au ue\nBalance Due: $8,580.00\n& &.\n\\ ~\nIN i 7 Ny = ai\nLe es = =p ae he es = =p ee\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": "84 008 552 538",
+   "entity": null
+  },
+  "50": {
+   "ocr_text": "How to pay Invoice number: 19823 Due date: 27/08/26 _ Balance due: $8,580.00\nORE #:2 cos [a] Pay online\natin Fey oe BE conine “acthe Ik to vow this iveice onn\nSt ol QR code or click the link to view this invoice online\naM\narta\n= ean rat\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": null,
+   "entity": null
+  },
+  "51": {
+   "ocr_text": "sos ‘ : Tax Invoice\ngt Vinton Tree Services\npe 8 ABN 84 008 552 538\nes R. S. T. Systems Pty. Limited Trading as Vinton Tree Services i .\nTainn Wax Services Head Office: 40 Eurora Street Kingston 4114 Invoice No.: 19970\nTRENGTHINS Mat Vinton 0407 657 441\none “ ele — Jillaine D’ Ath 0407 748 744 Date: 14/08/2026\n(0 = OF : Toll Free: 1800 810 773 Po:\n* | ac aa a. F F = . 717574\n= oe — Email: admin@vintontreeservices.com.au\nContract PAR/329E/2021\nBilling Address: Site Address:\nLogan City Council Logan City Council\nA/C Payable Department Attention:\nPO Box 3226\nLogan City DC QLD 4114\nDESCRIPTION UNIT PRICE | TOTAL PRICE (ex-\n(ex-GST) GST)\nCR# 3917620 PK000477\nCompleted 13/08/2026\n64 Mossman Parade, Waterford\nRemove dead trees at #64 and #63 Mossman Parade (one bear driveway\nand small dead juvenile adjacent to #63). After reviewing your recent\ninspection replort please remove the Euc at #49 Mossman Parade\n6.75 4 person crew for Tree Maintenance $315.00 $2,126.25\n6.75 EWP up to 28m $190.00 $1,282.50\n6 Stump grinding $180.00 $1,080.00\n1 LCC Fuel Levy - Diesel $132.64 $132.64\nBANK DETAIL FOR EFT PAYMENT x Be\nRST Systems Pty Ltd iene. .\nANZ Underwood F @) Subtotal: $4,621.39\nBSB - 014279 3 E . 462.14\nACC No - 260818618 ce) $ GST: $462.\nPlease email remittance Advice to Association Inc i\nadmin@vintontreeservices.com.au pact Total (inc-GST): $5,083.53\n_ Balance Due: $5,083.53\n& &\n\\ \\\nAN _ fe BD /\\, _ 7\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": "84 008 552 538",
+   "entity": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services"
+  },
+  "52": {
+   "ocr_text": "How to pay Invoice number: 19970 Due date: 28/08/26 _ Balance due: $5,083.53\n| Boro et [e] Pay online\nra aa that ;\nau ears Scan the QR code or click the link to view this invoice online\nEe. thy + rete\nae ea, = 3 al ‘A\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": null,
+   "entity": null
+  },
+  "53": {
+   "ocr_text": "sos ‘ : Tax Invoice\ngt Vinton Tree Services\npe 8 ABN 84 008 552 538\nes R. S. T. Systems Pty. Limited Trading as Vinton Tree Services i .\nTainn Wax Services Head Office: 40 Eurora Street Kingston 4114 Invoice No.: 19972\nNGTHINS' Mat Vinton 0407 657 441\nores acts — Jillaine D’ Ath 0407 748 744 Date: 14/08/2026\n&: (0 s : Toll Free: 1800 810 773 Po:\nCQ: A: & ee ae ae : 717574\n.— oe — Email: admin@vintontreeservices.com.au\nContract PAR/329E/2021\nBilling Address: Site Address:\nLogan City Council Logan City Council\nA/C Payable Department Attention:\nPO Box 3226\nLogan City DC QLD 4114\nDESCRIPTION UNIT PRICE TOTAL PRICE (ex-\n(ex-GST) GST)\nCR# 3881622\nCompleted 13/08/2026\nBlossom Street, Yarrabilba\nStump grinder to remove 2x Melaleuca outside #5 and #13 Blossom Street.\n3.5 3 person crew for Tree Maintenance $250.00 $875.00\n2.75 Stump grinding $180.00 $495.00\n3.5 EWP up to 28m $190.00 $665.00\n1 LCC Fuel Levy - Diesel $60.13 $60.13\nBANK DETAIL FOR EFT PAYMENT x Be\nRST Systems Pty Ltd bo, .\nANZ Underwood ‘@: Subtotal: $2,095.13\nBSB - 014279 3 E .\nACC No - 260818618 ce) $ GST: $209.51\nPlease email remittance Advice to Association Inc ;\nadmin@vintontreeservices.com.au pact Total (inc-GST): $2,304.64\nnone Balance Due: $2,304.64\n& &\n\\ \\\n/\\, —_ te > /\\, = ed\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": "84 008 552 538",
+   "entity": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services"
+  },
+  "54": {
+   "ocr_text": "How to pay Invoice number: 19972 Due date: 28/08/26 Balance due: $2,304.64\nle ‘a red [a] Pay online\nqe ee ee\nahs oe Scan the QR code or click the link to view this invoice online\nra ep a\nUe ee ea\nor gi ca tt\nShur Beas\nETE\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": null,
+   "entity": null
+  },
+  "55": {
+   "ocr_text": "ss : . Tax Invoice\ngt Vinton Tree Services\npe 8 ABN 84 008 552 538\nes R. S. T. Systems Pty. Limited Trading as Vinton Tree Services i .\nTainn Wax Services Head Office: 40 Eurora Street Kingston 4114 Invoice No.: 19973\nTRENGTHINS Mat Vinton 0407 657 441\none “ ele — Jillaine D’ Ath 0407 748 744 Date: 14/08/2026\n(0 = OF : Toll Free: 1800 810 773 Po:\nA, ac at, a F : - . 717574\n= oe — Email: admin@vintontreeservices.com.au\nContract PAR/329E/2021\nBilling Address: Site Address:\nLogan City Council Logan City Council\nA/C Payable Department Attention:\nPO Box 3226\nLogan City DC QLD 4114\nDESCRIPTION UNIT PRICE TOTAL PRICE (ex-\n(ex-GST) GST)\nCR# 3668079 PK000482\nCompleted 13/08/2026\n128-132 Carbrook Road, Cornubia\nRemove Grey Gum closest to teh house, deadwood other Grey Gum\nclosest to lock rail\n5.75 4 person crew for Tree Maintenance $315.00 $1,811.25\n5.75 EWP up to 28m $190.00 $1,092.50\n3.5 Crane Truck with Operator $180.00 $630.00\n3.5 Stump grinding $180.00 $630.00\n1 LCC Fuel Levy - Diesel $123.04 $123.04\nBANK DETAIL FOR EFT PAYMENT x Be\nRST Systems Pty Ltd bo, .\nANZ Underwood ‘@: Subtotal: $4,286.79\nBSB - 014279 3 E . 42\nACC No - 260818618 e) $ GST: $428.68\nPlease email remittance Advice to Association Inc i\nadmin@vintontreeservices.com.au pact Total (inc-GST): $4,715.47\nnone Balance Due: $4,715.47\n& &\n\\ \\\ni _ fe BD /\\, _ 7\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": "84 008 552 538",
+   "entity": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services"
+  },
+  "56": {
+   "ocr_text": "How to pay Invoice number: 19973 Due date: 28/08/26 Balance due: $4,715.47\neee Te] (Gp Pay online\nBald fe Oaks Pos\n\nsige i hia barge . Scan the QR code or click the link to view this invoice online\n\ncafes cea\n\nTake - =\n\nPa =inae 7 Hu\n\nOaer ese an poe ©) Pay securely\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": null,
+   "entity": null
+  },
+  "57": {
+   "ocr_text": "Tax Invoice\noe e e\nfirs 4 Vinton Tree Services\noe as ABN 84 008 552 538 Invoice No.: 19976\nme R. S. T. Systems Pty. Limited Trading as Vinton Tree Services\nWinton Wan Services Head Office: 40 Eurora Street Kingston 4114 Date: 17/08/2026\nMat Vinton 0407 657 441\nSTRENGTHINSIZE Jillaine D’Ath 0407 748 746\nCOM PP 1405 pS 48,\nKS 6 %, PO: 717574\nA OF; 1 OF OF} Toll Free: 1800 810 773\n_— ya “ipa Email: admin@vintontreeservices.com.au Contract No: PAR/329E/2021\nBilling Address: Site Address:\nLogan City Council Logan City Council\nA/C Payable Department Attention:\nPO Box 3226\nLogan City DC QLD 4114\nDESCRIPTION EX AMOUNT TAX CODE\nProvide Level 5 Scoping Arborist to provide services to Logan City Council Parks $2,800.00 GST\nDepartment as per PAR/329/2021\n- 29/07/2026 - $6 hours (Leanne) - 960$ + GST\n- 30/07/2026 - $5.5 hours (Leanne) - $880 + GST\n- 12/08/2026 - $6 hours (Leanne) - $960 + GST\nBANK DETAIL FOR EFT PAYMENT\nRST Systems Pty Ltd soos ts Subtotal: $2,800.00\nANZ Underwood § &\nBSB - 014279 4 jj GST: $280.00\nACC No - 260818618 wasted Thc\nPlease email remittance Advice to ere Total (inc-GST): $3,080.00\nadmin@vintontreeservices.com.au ue\nBalance Due: $3,080.00\n& &\n<\n2 ~ ™ . Z = = nd\n= ae : wes: See\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": "84 008 552 538",
+   "entity": null
+  },
+  "58": {
+   "ocr_text": "How to pay Invoice number: 19976 Due date: 31/08/26 Balance due: $3,080.00\nope fiaeat Oo Pay online\neet n Tame, Scan the QR code or click the link to view this invoice online\nog be ‘ air\nara ee\n“th ij F p | eee,\nsores\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": null,
+   "entity": null
+  },
+  "59": {
+   "ocr_text": "ss : . Tax Invoice\ngt Vinton Tree Services\npe 8 ABN 84 008 552 538\nes R. S. T. Systems Pty. Limited Trading as Vinton Tree Services i .\nTainn Wax Services Head Office: 40 Eurora Street Kingston 4114 Invoice No.: 19977\nNGTHINS' Mat Vinton 0407 657 441\nores acts a Jillaine D’ Ath 0407 748 744 Date: 18/08/2026\n(0 = (0 = : Toll Free: 1800 810 773 Po:\noS LO. 2): = as capi? ; 717574\n= oe — Email: admin@vintontreeservices.com.au\nContract PAR/329E/2021\nBilling Address: Site Address:\nLogan City Council Logan City Council\nA/C Payable Department Attention:\nPO Box 3226\nLogan City DC QLD 4114\nDESCRIPTION UNIT PRICE TOTAL PRICE (ex-\n(ex-GST) GST)\nCR# 3607360 PK000482\nCompleted 17/08/2026\nHomestead Park, behind 24 Teak Street, Shailer Park\nReduce back overhang alongside 24 Teak St. Remove deadwood targeting\nproperty\n5 4 person crew for Tree Maintenance $315.00 $1,575.00\n5 EWP up to 28m $190.00 $950.00\n1 LCC Fuel Levy - Diesel $74.61 $74.61\nBANK DETAIL FOR EFT PAYMENT x Be\nRST Systems Pty Ltd bo, .\nANZ Underwood ‘@: Subtotal: $2,599.61\nBSB - 014279 3 E .\nACC No - 260818618 ce) $ GST: $259.96\nPlease email remittance Advice to Association Inc ;\nadmin@vintontreeservices.com.au pact Total (inc-GST): $2,859.57\nnone Balance Due: $2,859.57\n& &\n\\ hy\n/\\, —_ te > /\\, = ed\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": "84 008 552 538",
+   "entity": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services"
+  },
+  "60": {
+   "ocr_text": "How to pay Invoice number: 19977 Due date: 01/09/26 Balance due: $2,859.57\nDe) pe eae Ee Pay online\neae: f=: oa\nrire ade © Scan the QR code or click the link to view this invoice online\npaterern\nfoe. ts r aa\noro ee cre\nPr 34 TPA S\n1 Pe oe Ae\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": null,
+   "entity": null
+  },
+  "61": {
+   "ocr_text": "ss : . Tax Invoice\ngt Vinton Tree Services\npe 8 ABN 84 008 552 538\nes R. S. T. Systems Pty. Limited Trading as Vinton Tree Services i .\nTainn Wax Services Head Office: 40 Eurora Street Kingston 4114 Invoice No.: 19981\nTRENGTHINS Mat Vinton 0407 657 441\none “ ele — Jillaine D’ Ath 0407 748 744 Date: 20/08/2026\n(0 = OF : Toll Free: 1800 810 773 Po:\nA, ac at, a F : A . 717574\n= oe — Email: admin@vintontreeservices.com.au\nContract PAR/329E/2021\nBilling Address: Site Address:\nLogan City Council Logan City Council\nA/C Payable Department Attention:\nPO Box 3226\nLogan City DC QLD 4114\nDESCRIPTION UNIT PRICE | TOTAL PRICE (ex-\n(ex-GST) GST)\nCR# 3819803 PK000482\nCompleted 19/08/2026\nBehind property Booran Park 5-9 Lydia Avenue Woodridge\nRemove six trees marked, four behind 28 Southgate, two at start of Park\n5.25 4 person crew for Tree Maintenance $315.00 $1,653.75\n5.25 EWP up to 28m $190.00 $997.50\n3.5 Stump grinding $180.00 $630.00\n2.5 Crane Truck with Operator $180.00 $450.00\n1 LCC Fuel Levy - Diesel $147.01 $147.01\nBANK DETAIL FOR EFT PAYMENT x Be\nRST Systems Pty Ltd bo, .\nANZ Underwood ‘@: Subtotal: $3,878.26\nBSB - 014279 3 E . 7\nACC No - 260818618 e) $ GST: $387.83\nPlease email remittance Advice to Association Inc i\nadmin@vintontreeservices.com.au pact Total (inc-GST): $4,266.09\nnone Balance Due: $4,266.09\n& &\n\\ \\\nIN _ fe y /\\, _ 7\nhha . =P ge has a = =P = See\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": "84 008 552 538",
+   "entity": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services"
+  },
+  "62": {
+   "ocr_text": "",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": null,
+   "entity": null
+  },
+  "63": {
+   "ocr_text": "sos ‘ : Tax Invoice\ngt Vinton Tree Services\npe 8 ABN 84 008 552 538\nes R. S. T. Systems Pty. Limited Trading as Vinton Tree Services i .\nTainn Wax Services Head Office: 40 Eurora Street Kingston 4114 Invoice No.: 19990\nNGTHINS' Mat Vinton 0407 657 441\nores acts — Jillaine D’ Ath 0407 748 744 Date: 24/08/2026\n(0 = (0 = : Toll Free: 1800 810 773 Po:\nOF? 2): A fi cutie vient ' 717574\n= oe — Email: admin@vintontreeservices.com.au\nContract PAR/329E/2021\nBilling Address: Site Address:\nLogan City Council Logan City Council\nA/C Payable Department Attention:\nPO Box 3226\nLogan City DC QLD 4114\nDESCRIPTION UNIT PRICE TOTAL PRICE (ex-\n(ex-GST) GST)\nCR# 3846261 PK000477\nCompleted 20/08/2026\n36 Ridgepointe Drive, Cornubia\nProactively remove and grind Tallowwood, mark. 1 x Grey Gum remove\ndeadwood >30mm diameter\n4 4 person crew for Tree Maintenance $315.00 $1,260.00\n4 EWP up to 28m $190.00 $760.00\n1 Stump grinding $180.00 $180.00\n1 LCC Fuel Levy - Diesel $86.68 $86.68\nBANK DETAIL FOR EFT PAYMENT x Be\nRST Systems Pty Ltd bo, .\nANZ Underwood ‘@: Subtotal: $2,286.68\nBSB - 014279 3 E .\nACC No - 260818618 ce) $ GST: $228.67\nPlease email remittance Advice to Association Inc ;\nadmin@vintontreeservices.com.au pact Total (inc-GST): $2,515.35\nsi Balance Due: $2,515.35\n& &\n‘ \\\n/\\, —_ te > /\\, = ed\nhha . =P ge has a = =P = See\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": "84 008 552 538",
+   "entity": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services"
+  },
+  "64": {
+   "ocr_text": "How to pay Invoice number: 19990 Due date: 07/09/26 Balance due: $2,515.35\nDb sriadoar Pay online\neames eats Scan the QR code or click the link to view this invoice online\nSie Peta\nSr cata ae\nat Fl Sa as ae\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": null,
+   "entity": null
+  },
+  "65": {
+   "ocr_text": "Tax Invoice\noe e e\nfirs 4 Vinton Tree Services\npe Fe ABN 84 008 552 538 Invoice No.: 19456\nme R. S. T. Systems Pty. Limited Trading as Vinton Tree Services\nWinton Wan Services Head Office: 40 Eurora Street Kingston 4114 Date: 24/08/2026\nSTRENCTHINS Mat Vinton 0407 657 441\nce E : 2 IZE Jillaine D’Ath 0407 748 746\nCOM PP 1405 pS 48,\nKC Gi “, PO: 717574\nA OF; 1 OF OF} Toll Free: 1800 810 773\n_— Rersncn “ipa Email: admin@vintontreeservices.com.au Contract No: PAR/329E/2021\nBilling Address: Site Address:\nLogan City Council Logan City Council\nA/C Payable Department Attention: Sam Forbes\nPO Box 3226\nLogan City DC QLD 4114\nDESCRIPTION EX AMOUNT TAX CODE\nCR#3823509 - Blue-Gum Drive (Wattle Street) Marsden\nCompleted 20/08/2026\n- Remove illigal dumped green waste\n- Remove habitat tree\n- Remove marked dead trees behind 39 Blue-Gum\n- Check structual integrity of other habitat tree near Beech Street enterence $4,000.00 GST\nBANK DETAIL FOR EFT PAYMENT\nANZ Underwood § &\nBSB - 014279 4 jj GST: $400.00\nACC No - 260818618 ‘Keene g Hic\nPlease email remittance Advice to ere Total (inc-GST): $4,400.00\nadmin@vintontreeservices.com.au ue\nBalance Due: $4,400.00\n& &\n\\ ~\nf\\ = a N co ~\n, a - es oe = =P ee\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": "84 008 552 538",
+   "entity": null
+  },
+  "66": {
+   "ocr_text": "How to pay Invoice number: 19456 Due date: 07/09/26 Balance due: $4,400.00\nPlea Eyal ago) Pay online\na ARE ee ie Scan the QR code or click the link to view this invoice online\neg ro 2 an ak aa\n-T-[ te a | a.7-]\nhe Beart eka\nee ORE\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": null,
+   "entity": null
+  },
+  "67": {
+   "ocr_text": "sos ‘ : Tax Invoice\ngt Vinton Tree Services\nSy Sit ies ABN 84 008 552 538\nes R. S. T. Systems Pty. Limited Trading as Vinton Tree Services i .\nTainn Wax Services Head Office: 40 Eurora Street Kingston 4114 Invoice No.: 19998\nTRENGTHINS Mat Vinton 0407 657 441\none “ ele — Jillaine D’ Ath 0407 748 744 Date: 27/08/2026\n(0 = OF : Toll Free: 1800 810 773 Po:\n* | ac aa a. F F = . 717574\n= oe — Email: admin@vintontreeservices.com.au\nContract PAR/329E/2021\nBilling Address: Site Address:\nLogan City Council Logan City Council\nA/C Payable Department Attention:\nPO Box 3226\nLogan City DC QLD 4114\nDESCRIPTION UNIT PRICE | TOTAL PRICE (ex-\n(ex-GST) GST)\nCR# 3879636 PK000482\nCompleted 26/08/2026\n10 Carlton Road Greenbank\nRemove any debris piled around trunk. Remove Iron Bark, log to be cut\n2m-3m length and deliver to Logan Village Mens Shed #43 Centenary PI\nLogan Village\n5 4 person crew for Tree Maintenance $315.00 $1,575.00\n5 EWP up to 28m $190.00 $950.00\n4 Crane Truck with Operator $180.00 $720.00\n3 Stump grinding $180.00 $540.00\n1 LCC Fuel Levy - Diesel $149.13 $149.13\nBANK DETAIL FOR EFT PAYMENT x Be\nRST Systems Pty Ltd bo, .\nANZ Underwood ‘@: Subtotal: $3,934.13\nBSB - 014279 3 E . A\nACC No - 260818618 ce) $ GST: $393.\nPlease email remittance Advice to Association Inc i\nadmin@vintontreeservices.com.au pact Total (inc-GST): $4,327.54\n_ Balance Due: $4,327.54\n& &\n\\ \\\nIN _ fe y /\\, _ 7\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": "84 008 552 538",
+   "entity": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services"
+  },
+  "68": {
+   "ocr_text": "",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": null,
+   "entity": null
+  },
+  "69": {
+   "ocr_text": "sos ‘ : Tax Invoice\ngt Vinton Tree Services\npe 8 ABN 84 008 552 538\nes R. S. T. Systems Pty. Limited Trading as Vinton Tree Services i .\niain Wak Saisicas Head Office: 40 Eurorg Street Kingston 4114 Invoice No.: 19999\nTRENGTHINS Mat Vinton 0407 657 441\none “ ele — Jillaine D’ Ath 0407 748 744 Date: 27/08/2026\n(0 = OF : Toll Free: 1800 810 773 Po:\nee ac ahi. a. F - : . 717574\n= oe — Email: admin@vintontreeservices.com.au\nContract PAR/329E/2021\nBilling Address: Site Address:\nLogan City Council Logan City Council\nA/C Payable Department Attention:\nPO Box 3226\nLogan City DC QLD 4114\nDESCRIPTION UNIT PRICE TOTAL PRICE (ex-\n(ex-GST) GST)\nCR# 3908344 PK000073\nCompleted 25/08/2026\nBoronia Bushland Reserve - behind 16 Rowena Court Boronia Heights\nDeadwood and reduce where required three Eucs behind 16 Rowena,\nmarked. Remove marked Wattles, trim back otehrs, no grind. Remove\ndead Spotted Gum, marked. Disperse largest timber, remove bulk. Take\nute as extra equipment to cart material out\n5 4 person crew for Tree Maintenance $315.00 $1,575.00\n5 EWP up to 28m $190.00 $950.00\n5 Ute $150.00 $750.00\n1 LCC Fuel Levy - Diesel $129.03 $129.03\nBANK DETAIL FOR EFT PAYMENT x Be\nRST Systems Pty Ltd iene. .\nANZ Underwood F @, Subtotal: $3,404.03\nBSB - 014279 3 E . 40.4\nACC No - 260818618 ce) $ GST: $340.40\nPlease email remittance Advice to Association Inc i\nadmin@vintontreeservices.com.au pact Total (inc-GST): $3,744.43\n_ Balance Due: $3,744.43\n& &\nis \\ \\ ;\nAN — - BD f\\; = a\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": "84 008 552 538",
+   "entity": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services"
+  },
+  "70": {
+   "ocr_text": "",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": null,
+   "entity": null
+  },
+  "71": {
+   "ocr_text": "sos ‘ : Tax Invoice\ngt Vinton Tree Services\npe 8 ABN 84 008 552 538\nes R. S. T. Systems Pty. Limited Trading as Vinton Tree Services i .\niain Wak Saisicas Head Office: 40 Eurorg Street Kingston 4114 Invoice No.: 20000\nTRENGTHINS Mat Vinton 0407 657 441\none “ ele — Jillaine D’ Ath 0407 748 744 Date: 27/08/2026\n(0 = OF : Toll Free: 1800 810 773 Po:\n* | ac aa a. F F = . 717574\n= oe — Email: admin@vintontreeservices.com.au\nContract PAR/329E/2021\nBilling Address: Site Address:\nLogan City Council Logan City Council\nA/C Payable Department Attention:\nPO Box 3226\nLogan City DC QLD 4114\nDESCRIPTION UNIT PRICE | TOTAL PRICE (ex-\n(ex-GST) GST)\nCR# 3839982 PK000477\nCompleted 18/08/2026\nMacadamia Court, Flagstone - next to 47-51 Macadamia court Flagstone\nFirst Euc remove and grind. Second Euc remove deadwood and reduce\ncanopies from properties. General maintenance. Aerial inspection noting\nany concerns. Remove any debris in laneway\n6 4 person crew for Tree Maintenance $315.00 $1,890.00\n6 EWP up to 28m $190.00 $1,140.00\n1.25 Crane Truck with Operator $180.00 $225.00\n2.75 Stump grinding $180.00 $495.00\n1 Tio fees - attached $340.44 $340.44\n1 LCC Fuel Levy - Diesel $147.75 $147.75\nBANK DETAIL FOR EFT PAYMENT x Be\nRST Systems Pty Ltd iene. .\nANZ Underwood @ Subtotal: $4,238.19\nBSB - 014279 3 E . 423.82\nACC No - 260818618 ce) $ GST: $423.8\nPlease email remittance Advice to Association Inc i\nadmin@vintontreeservices.com.au pact Total (inc-GST): $4,662.01\nnone Balance Due: $4,662.01\n& &\n‘ \\ ;\nIN _ fe y /\\, _ 7\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": "84 008 552 538",
+   "entity": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services"
+  },
+  "72": {
+   "ocr_text": "How to pay Invoice number: 20000 Due date: 10/09/26 Balance due: $4,662.01\nOP Se ae | Pay online\noT te eke ea Scan the QR code or click the link to view this invoice online\nPecos tte ‘\npews\nere\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": null,
+   "entity": null
+  },
+  "73": {
+   "ocr_text": "sos ‘ : Tax Invoice\ngt Vinton Tree Services\npe 8 ABN 84 008 552 538\nes R. S. T. Systems Pty. Limited Trading as Vinton Tree Services i .\nTainn Wax Services Head Office: 40 Eurora Street Kingston 4114 Invoice No.: 20002\nNGTHINS' Mat Vinton 0407 657 441\nores acts a Jillaine D’ Ath 0407 748 744 Date: 31/08/2026\n(0 = (0 = : Toll Free: 1800 810 773 Po:\ni 2): «| ee ae ae : 717574\n= oe — Email: admin@vintontreeservices.com.au\nContract PAR/329E/2021\nBilling Address: Site Address:\nLogan City Council Logan City Council\nA/C Payable Department Attention:\nPO Box 3226\nLogan City DC QLD 4114\nDESCRIPTION UNIT PRICE TOTAL PRICE (ex-\n(ex-GST) GST)\nCR# 3848280 PK000482\nCompleted 27/08/2026\n26 Charnley Court, Shailer Park\nProactively remove nad grind Tallowwood behind property\n3.75 4 person crew for Tree Maintenance $315.00 $1,181.25\n3.75 EWP up to 28m $190.00 $712.50\n3.75 Stump grinding $180.00 $675.00\n1 LCC Fuel Levy - Diesel $101.21 $101.21\nBANK DETAIL FOR EFT PAYMENT x Be\nRST Systems Pty Ltd bo, .\nANZ Underwood ‘@: Subtotal: $2,669.96\nBSB - 014279 3 E .\nACC No - 260818618 ce) $ GST: $267.00\nPlease email remittance Advice to Association Inc ;\nadmin@vintontreeservices.com.au pact Total (inc-GST): $2,936.96\nsi Balance Due: $2,936.96\n& &\n\\ \\\n/\\, —_ te > /\\, = ed\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": "84 008 552 538",
+   "entity": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services"
+  },
+  "74": {
+   "ocr_text": "How to pay Invoice number: 20002 Due date: 14/09/26 _ Balance due: $2,936.96\n[als Saas Pay online\naS ey, aged Scan the QR code or click the link to view this invoice online\nBae ah\nat el, Rrict :\n4 ie ae ae\nete rao ee We\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": null,
+   "entity": null
+  },
+  "75": {
+   "ocr_text": "sos ‘ : Tax Invoice\ngt Vinton Tree Services\nSy Sit ies ABN 84 008 552 538\nes R. S. T. Systems Pty. Limited Trading as Vinton Tree Services i .\nTainn Wax Services Head Office: 40 Eurora Street Kingston 4114 Invoice No.: 20018\nNGTHINS' Mat Vinton 0407 657 441\nores acts a Jillaine D’ Ath 0407 748 744 Date: 9/09/2026\n(0 = (0 = : Toll Free: 1800 810 773 Po:\nOF? 2): A fi cutie vient ' 717574\n= oe — Email: admin@vintontreeservices.com.au\nContract PAR/329E/2021\nBilling Address: Site Address:\nLogan City Council Logan City Council\nA/C Payable Department Attention:\nPO Box 3226\nLogan City DC QLD 4114\nDESCRIPTION UNIT PRICE TOTAL PRICE (ex-\n(ex-GST) GST)\nCR# 3944827 PK000325\nCompleted 07/09/2026\n6 Monash Road, Loganlea\n3 x She Oak remove and stump grind. Remove fallen debris\n3 4 person crew for Tree Maintenance $315.00 $945.00\n3 EWP up to 28m $190.00 $570.00\n2 Stump grinding $180.00 $360.00\n1 LCC Fuel Levy - Diesel $73.88 $73.88\nBANK DETAIL FOR EFT PAYMENT x Be\nRST Systems Pty Ltd bo, .\nANZ Underwood ‘@: Subtotal: $1,948.88\nBSB - 014279 3 E .\nACC No - 260818618 ce) $ GST: $194.89\nPlease email remittance Advice to Association Inc ;\nadmin @vintontreeservices.com.au nes. Total (inc-GST): $2,143.77\n_ Balance Due: $2,143.77\n& &\n‘ \\\n/\\, —_ te > /\\, = ed\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": "84 008 552 538",
+   "entity": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services"
+  },
+  "76": {
+   "ocr_text": "How to pay Invoice number: 20018 Due date: 23/09/26 _ Balance due: $2,143.77\npe ee Pk @ ra online\nPiet e) (ey Py\ner Scan the QR code or click the link to view this invoice online\npouty ale Beh\nray ea\nBeate\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": null,
+   "entity": null
+  },
+  "77": {
+   "ocr_text": "sos ‘ : Tax Invoice\ngt Vinton Tree Services\npe 8 ABN 84 008 552 538\nes R. S. T. Systems Pty. Limited Trading as Vinton Tree Services i .\nTainn Wax Services Head Office: 40 Eurora Street Kingston 4114 Invoice No.: 20022\nTRENGTHINS Mat Vinton 0407 657 441\none “ ele — Jillaine D’ Ath 0407 748 744 Date: 9/09/2026\n(0 = OF : Toll Free: 1800 810 773 Po:\nA, ac at, a F : A . 717574\n= oe — Email: admin@vintontreeservices.com.au\nContract PAR/329E/2021\nBilling Address: Site Address:\nLogan City Council Logan City Council\nA/C Payable Department Attention:\nPO Box 3226\nLogan City DC QLD 4114\nDESCRIPTION UNIT PRICE | TOTAL PRICE (ex-\n(ex-GST) GST)\nCR# 3920200 PK000477\nCompleted 08/09/2026\nTyson Road, Greenbank\nTrim back encroachment to road along teh entire length. Remove marked\nWattle opp 34. Grinf stump\n1.25 4 person crew for Tree Maintenance $315.00 $393.75\n1.25 EWP up to 28m $190.00 $237.50\n4.75 3 person crew for Tree Maintenance $250.00 $1,187.50\n1.75 Stump grinding $180.00 $315.00\n1 LCC Fuel Levy - Diesel $84.07 $84.07\nBANK DETAIL FOR EFT PAYMENT x Be\nRST Systems Pty Ltd bo, .\nANZ Underwood ‘@: Subtotal: $2,217.82\nBSB - 014279 3 E . 221.7\nACC No - 260818618 ce) $ GST: $221.78\nPlease email remittance Advice to Association Inc i\nadmin@vintontreeservices.com.au pact Total (inc-GST): $2,439.60\n_ Balance Due: $2,439.60\n& &\n\\ \\\nIN _ fe y /\\, _ 7\nhha . =P ge has a = =P = See\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": "84 008 552 538",
+   "entity": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services"
+  },
+  "78": {
+   "ocr_text": "~e Invoice number: 20022 Due date: 23/09/26 Balance due: $2,439.60\nsiete catia Pay online\n\ni fancies Scan the QR code or click the link to view this invoice online\n\nas Hs Oo nauth\n\na aa at\n\nsue\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": null,
+   "entity": null
+  },
+  "79": {
+   "ocr_text": "Tax Invoice\ni e e\nfirs Vinton Tree Services\nOy et aes ABN 84 008 552 538 Invoice No.: 19960\nme R. S. T. Systems Pty. Limited Trading as Vinton Tree Services\nVinton Thea Services Head Office: 40 Eurora Street Kingston 4114 Date: 9/09/2026\nNGTHINSIZE Mat Vinton 0407 657 441\nOrne pt Jag vm Jillaine D’Ath 0407 748 744\nae ¢ A vs PO: 717574\nA OF; @: Z ): Toll Free: 1800 810 773\n% te as % =r. . . F\nbone brane kone Email: admin@vintontreeservices.com.au Contract No: PAR/329E/2021\nBilling Address: Site Address:\nLogan City Council Logan City Council\nA/C Payable Department Attention:\nPO Box 3226 Lee-Anne Niblet\nLogan City DC QLD 4114\nDESCRIPTION EX AMOUNT TAX CODE\nCR#3931720 PK000475 $6,700.00 GST\nCompleted 08/09/2026\nSutton court and surrounding streets, Browns Plains.\nProvide EWP and chipper crew to multiple streets.\nAmmons Street, Browns Plains -\nStreet Prune, both sides where required for clear pedestrian and vehicle access.\nSutton Court, Browns Plains -\nStreet Prune both sides where required for clear pedestrian and vehicle access.\nCoyle Court, Browns Plains -\nStreet Prune both sides where required for clear predestrian and vehicle access.\nNext to #12, cut back trees from park near the bollards for clear pedestrian access and\nto reduce encroachment onto the nature strip.\nHughes Street, Browns Plains -\nStreet prune, both sides where required for clear pedestrian and vehicle access.\nWaller Road, Browns Plains-\nCanopy lift for pedestrian clearance across from #16 x2\nCanopy lift for pedestrian clearance across from #20 x2\nCorner of #4 Waller and Ammons Street, Private vegetation - lift canopy for pedestrian\naccess.\nYancey Street, Browns Plains- GST\nCorner of #40 Waller Road and Yancey Street, Private vegetation - lift canopy for clear\npedestrian access.\nCorner of 1 Bassie ad Yancey, 2x Acacia to remove and poison - no grind\nEllington Street, Browns Plains - GST\n#8 x2 Canopy lift for clear pedestrian and vehicle access\n#5 x1 Canopy lift for clear pedestrian and vehicle access.\n#4 x2 Canopy lift for clear pedestrian and vehicle access.\n#6 x1 Canopy lift for clear pedestrian and vehicle access.\nBANK DETAIL FOR EFT PAYMENT\nRST Systems Pty Ltd soos et: Subtotal: $6,700.00\nANZ Underwood § e\nBSB - 014279 4 jj GST: $670.00\nACC No - 260818618 Agee Fac\nPlease email remittance Advice to es Total (inc-GST): $7,370.00\nadmin@vintontreeservices.com.au ue\nBalance Due: $7,370.00\n& &\nSy SS\nf\\, = a 4 = ~\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": "84 008 552 538",
+   "entity": null
+  },
+  "80": {
+   "ocr_text": "How to pay Invoice number: 19960 Due date: 23/09/26 Balance due: $7,370.00\nf= faced Tare A | Pay online\neta te Scan the QR code or click the link to view this invoice online\nCREE\nor | =a\nlA ane\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": null,
+   "entity": null
+  },
+  "81": {
+   "ocr_text": "sos ‘ : Tax Invoice\ngt Vinton Tree Services\npe 8 ABN 84 008 552 538\nes R. S. T. Systems Pty. Limited Trading as Vinton Tree Services i .\nTainn Wax Services Head Office: 40 Eurora Street Kingston 4114 Invoice No.: 20021\nTRENGTHINS Mat Vinton 0407 657 441\none “ ele — Jillaine D’ Ath 0407 748 744 Date: 10/09/2026\n(0 = OF : Toll Free: 1800 810 773 Po:\n* | ac aa a. F F = . 717574\n= oe — Email: admin@vintontreeservices.com.au\nContract PAR/329E/2021\nBilling Address: Site Address:\nLogan City Council Logan City Council\nA/C Payable Department Attention:\nPO Box 3226\nLogan City DC QLD 4114\nDESCRIPTION UNIT PRICE | TOTAL PRICE (ex-\n(ex-GST) GST)\nCR# 3929393 PK000482\nCompleted 08/09/2026\nChambers Flat & Logan Reserve Community Centre - 46-65 Kenny Road\nRemove marked dead tree. Lift low hanging branches in car park. Remove\nlow hanging branch from garden in turnaround. Lift low hanging branches\non delonix next to fire brigade shed\n4.75 4 person crew for Tree Maintenance $315.00 $1,496.25\n4.75 EWP up to 28m $190.00 $902.50\n3 Stump grinding $180.00 $540.00\n1 LCC Fuel Levy - Diesel $115.79 $115.79\nBANK DETAIL FOR EFT PAYMENT x Be\nRST Systems Pty Ltd iene. .\nANZ Underwood @, Subtotal: $3,054.54\nBSB - 014279 3 E . 4\nACC No - 260818618 ce) $ GST: $305.45\nPlease email remittance Advice to Association Inc i\nadmin@vintontreeservices.com.au pact Total (inc-GST): $3,359.99\n_ Balance Due: $3,359.99\n& &\n\\ \\\ni _ fe BD /\\, _ 7\nhha . =P ge has a = =P = See\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": "84 008 552 538",
+   "entity": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services"
+  },
+  "82": {
+   "ocr_text": "How to pay Invoice number: 20021 Due date: 24/09/26 —_ Balance due: $3,359.99\noF TL oe [el] Pay online\nPt ratte bed\n.. Dear! Scan the QR code or click the link to view this invoice online\nreutectha te\nSo Bieta A\n— eet eet E\nSe ele rom Pay securely\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": null,
+   "entity": null
+  },
+  "83": {
+   "ocr_text": "Tax Invoice\noe e e\nfirs 4 Vinton Tree Services\noe as ABN 84 008 552 538 Invoice No.: 20015\nme R. S. T. Systems Pty. Limited Trading as Vinton Tree Services\nWinton Wan Services Head Office: 40 Eurora Street Kingston 4114 Date: 4/09/2026\nNCTHINS Mat Vinton 0407 657 441\nSTRs eta 2 zm Jillaine D’Ath 0407 748 746\nOM P49 pS480,\nie 4, %, PO: 717574\nA OF; 1 OF 1 OF Toll Free: 1800 810 773\nLear ya “ipa Email: admin@vintontreeservices.com.au Contract No: PAR/329E/2021\nBilling Address: Site Address:\nLogan City Council Logan City Council\nA/C Payable Department Attention:\nPO Box 3226\nLogan City DC QLD 4114\nDESCRIPTION EX AMOUNT TAX CODE\nProvide Level 5 Scoping Arborist to provide services to Logan City Council Parks $3,680.00 GST\nDepartment as per PAR/329/2021\n- 19/08/2026 - 6 hours (Brenda) - $960 + GST\n- 25/08/2026 - 6 hours (Brenda) - $960 + GST\n- 26/08/2026 - 1 hour (Brenda) - $160 + GST\n- 27/08/2026 - 4 hours (Brenda) - $640 + GST\n- 03/09/2026 - 6 hours (Sam) - $960 + GST\nBANK DETAIL FOR EFT PAYMENT\nANZ Underwood § &\nBSB - 014279 4 jj GST: $368.00\nACC No - 260818618 Pt\nPlease email remittance Advice to ere Total (inc-GST): $4,048.00\nadmin@vintontreeservices.com.au ue\nBalance Due: $4,048.00\n& &\n<\nf\\, = = N - ~\n, a - es oe = =P ee\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": "84 008 552 538",
+   "entity": null
+  },
+  "84": {
+   "ocr_text": "How to pay Invoice number: 20015 Due date: 18/09/26 —_ Balance due: $4,048.00\nper ie ol Pay online\n\npT Nt Ba car\n\nF eer Scan the QR code or click the link to view this invoice online\n\nfae gtarck a\n\nfar Lara\n\nx pi Lay\n\nsic\n",
+   "ocr_dpi": [
+    300,
+    400
+   ],
+   "abn": null,
+   "entity": null
+  }
+ }
+}

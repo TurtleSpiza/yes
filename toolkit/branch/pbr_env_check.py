@@ -126,6 +126,35 @@ def check_poppler():
             else f'probe text not recovered: {back[:60]!r}', FIX_APT)
 
 
+def check_ocr():
+    """Tesseract, proved on an image this check draws itself.
+
+    Not optional. A supplier that prints its letterhead as an IMAGE carries its entity name and ABN nowhere in the
+    text layer, so rule 8 identity cannot be read from such a document without OCR. Proving it on a generated image
+    rather than on `--version` catches a tesseract installed without its language data, which fails only at use.
+    """
+    if not shutil.which('tesseract'):
+        rec('tesseract', False, 'not on PATH; an image-borne letterhead cannot be read without it',
+            'apt-get install -y tesseract-ocr')
+        return
+    try:
+        from PIL import Image, ImageDraw
+    except ImportError:
+        rec('tesseract', True, 'on PATH (no Pillow, so the read-back was not proved)', '')
+        return
+    marker = 'PBR OCR PROBE 84008552538'
+    with tempfile.TemporaryDirectory() as td:
+        png = os.path.join(td, 'probe.png')
+        im = Image.new('RGB', (1400, 140), 'white')
+        ImageDraw.Draw(im).text((20, 45), marker, fill='black')
+        im.resize((im.width * 3, im.height * 3), Image.LANCZOS).save(png)
+        out = subprocess.run(['tesseract', png, '-', '--psm', '7'], capture_output=True, text=True).stdout
+    got = ''.join(ch for ch in out if ch.isalnum())
+    want = ''.join(ch for ch in marker if ch.isalnum())
+    rec('tesseract OCR', want in got, 'probe image text read back verbatim' if want in got
+        else f'probe text not recovered: {out.strip()[:60]!r}', 'apt-get install -y tesseract-ocr')
+
+
 def check_compile():
     import compileall
     ok = compileall.compile_dir(os.path.join(ROOT, 'toolkit'), quiet=2, force=True)
@@ -148,7 +177,8 @@ def main():
     quiet = '--quiet' in sys.argv
     check_python(); check_imports(); check_toolkit(); check_recalc(); check_poppler(); check_provenance()
     if '--all' in sys.argv:
-        check_compile()
+        check_ocr()
+    check_compile()
     hard_bad = [r for r in rows if r['hard'] and not r['ok']]
     soft_bad = [r for r in rows if not r['hard'] and not r['ok']]
     if not quiet or hard_bad:

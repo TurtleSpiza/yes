@@ -2,7 +2,7 @@
 # SessionStart hook: make the register toolchain ready before the session does any work.
 #
 # Idempotent and non-interactive. On a container that already has everything it costs about two
-# seconds; on a cold one it installs poppler-utils, libreoffice-calc and three Python packages.
+# seconds; on a cold one it installs poppler-utils, tesseract-ocr, libreoffice-calc and three Python packages.
 # The last step proves the chain end to end rather than assuming the installs worked.
 set -euo pipefail
 
@@ -23,8 +23,12 @@ echo "[session-start] LCC Parks register toolchain"
 # Checked by presence, so this is a no-op on a warm container. libreoffice-calc is checked through
 # dpkg rather than the soffice binary, because libreoffice-core installs soffice WITHOUT Calc and
 # every convert-route recalc then fails with a message that reads like a corrupt workbook.
+# tesseract-ocr is required, not optional. A supplier that prints its letterhead as an IMAGE (Vinton) carries its
+# entity name and ABN nowhere in the text layer, so rule 8 identity cannot be read without OCR, and a session that
+# discovers this mid-build has to stop and install it.
 need=()
 command -v pdftotext >/dev/null 2>&1 || need+=(poppler-utils)
+command -v tesseract >/dev/null 2>&1 || need+=(tesseract-ocr)
 if command -v dpkg >/dev/null 2>&1; then
   dpkg -s libreoffice-calc >/dev/null 2>&1 || need+=(libreoffice-calc)
 elif ! command -v soffice >/dev/null 2>&1; then
@@ -35,7 +39,7 @@ if [ ${#need[@]} -gt 0 ]; then
   $SUDO apt-get update -qq || true
   DEBIAN_FRONTEND=noninteractive $SUDO apt-get install -y -qq "${need[@]}"
 else
-  echo "[session-start] system packages already present (poppler-utils, libreoffice-calc)"
+  echo "[session-start] system packages already present (poppler-utils, libreoffice-calc, tesseract-ocr)"
 fi
 
 # ---------------------------------------------------------------- python packages
