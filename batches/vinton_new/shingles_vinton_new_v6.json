@@ -1,0 +1,348 @@
+{
+ "corpus": {
+  "scope": "corpus",
+  "documents_checked": 42,
+  "shingles_tested": 531,
+  "failures": [],
+  "results": [
+   {
+    "doc_ref": "19402",
+    "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+    "shingles_tested": 26,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "19836",
+    "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+    "shingles_tested": 8,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "19839",
+    "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+    "shingles_tested": 12,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "19840",
+    "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+    "shingles_tested": 8,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "19845",
+    "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+    "shingles_tested": 9,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "19848",
+    "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+    "shingles_tested": 12,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "19850",
+    "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+    "shingles_tested": 12,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "19847",
+    "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+    "shingles_tested": 21,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "19871",
+    "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+    "shingles_tested": 11,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "19876",
+    "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+    "shingles_tested": 8,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "19878",
+    "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+    "shingles_tested": 20,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "19879",
+    "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "19883",
+    "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+    "shingles_tested": 8,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "19890",
+    "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+    "shingles_tested": 12,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "19892",
+    "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+    "shingles_tested": 12,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "19899",
+    "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+    "shingles_tested": 12,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "19901",
+    "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+    "shingles_tested": 12,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "19921",
+    "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+    "shingles_tested": 21,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "19923",
+    "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+    "shingles_tested": 13,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "19925",
+    "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+    "shingles_tested": 12,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "19461",
+    "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+    "shingles_tested": 13,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "19930",
+    "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+    "shingles_tested": 12,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "19948",
+    "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+    "shingles_tested": 8,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "19955",
+    "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+    "shingles_tested": 16,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "19823",
+    "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+    "shingles_tested": 7,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "19970",
+    "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+    "shingles_tested": 13,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "19972",
+    "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+    "shingles_tested": 13,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "19973",
+    "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+    "shingles_tested": 16,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "19976",
+    "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+    "shingles_tested": 11,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "19977",
+    "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+    "shingles_tested": 12,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "19981",
+    "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+    "shingles_tested": 16,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "19990",
+    "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+    "shingles_tested": 13,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "19456",
+    "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+    "shingles_tested": 10,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "19998",
+    "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+    "shingles_tested": 16,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "19999",
+    "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+    "shingles_tested": 13,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "20000",
+    "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+    "shingles_tested": 19,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "20002",
+    "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+    "shingles_tested": 13,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "20018",
+    "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+    "shingles_tested": 13,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "20022",
+    "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+    "shingles_tested": 18,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "19960",
+    "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "20021",
+    "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+    "shingles_tested": 13,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "20015",
+    "vendor": "R. S. T. Systems Pty. Limited Trading as Vinton Tree Services",
+    "shingles_tested": 11,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   }
+  ],
+  "VERDICT": "PASS"
+ },
+ "VERDICT": "PASS"
+}

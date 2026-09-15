@@ -1,0 +1,56 @@
+{
+ "_readme": [
+  "Authored content for Batch playforce_new (rule 18: content as data, never ad-hoc writes). One entry per matched invoice.",
+  "Each coding_note restates what the invoice face prints for that document (job number and type, site, contract, order,",
+  "contact, completion date and the priced lines) and states whether the printed PK equals the PK charged on the register.",
+  "No amount here is inferred: every figure is the printed one, and the corpus gates GREEN with all 109 documents at TIE.",
+  "76 of the 109 documents carry no line on this register: every one is dated before 1-Jul-2026 and belongs to the",
+  "PS & WP register's earlier years (outside_playforce_new_v6.json). A further 22 are already sighted here and are held",
+  "by the rule 12 evidence screen rather than captured twice."
+ ],
+ "INV-8115": {
+  "coding_verdict": "Correct",
+  "coding_note": "Job as printed: 3905699 - MTN - Tygum Park - Waterford West (Ref: 33451); contract LB304 (LocalBuy); order 717528; contact Ryan McCorkindale; completed 08-Jul-2026. Lines as printed: 2.00 EX210 Rubber grip (Forpark) @ $33.70 = $67.40; 2.50 L1 Maintenance Labour @ $105.41 = $263.52. Printed subtotal $330.92 ex GST, GST $33.09, total $364.01. Printed PK000023 matches the PK charged (PK000023)."
+ },
+ "INV-8331": {
+  "coding_verdict": "Correct",
+  "coding_note": "Job as printed: 3922507 - RUB - Crossing Park - Waterford (Ref: 33664); contract LB304 (LocalBuy); order 717528; contact Jessica Burke; completed 29-Jul-2026. Lines as printed: 8.00 MTN572 Sika Flex @ $35.00 = $280.00; 3.00 L1 Maintenance Labour @ $110.26 = $330.78. Printed subtotal $610.78 ex GST, GST $61.08, total $671.86. Printed PK000391 matches the PK charged (PK000391)."
+ },
+ "INV-8445": {
+  "coding_verdict": "Correct",
+  "coding_note": "Job as printed: 3924001 - MTN - Flagstone Parklands - Flagstone (Ref: 33792); contract LB304 (LocalBuy); order 717528; contact Melina Turpin; completed 03-Aug-2026. Lines as printed: 3.00 SP710 Trampoline Spring 110mm x 35mm Zinc @ $54.00 = $162.00; 1.50 L1 Maintenance Labour @ $110.26 = $165.39. Printed subtotal $327.39 ex GST, GST $32.74, total $360.13. Printed PK000023 matches the PK charged (PK000023)."
+ },
+ "INV-8465": {
+  "coding_verdict": "Correct",
+  "coding_note": "Job as printed: 3923970 - MTN - Alexander Clark Park - Loganholme (Ref: 33676); contract LB304 (LocalBuy); order 717528; contact Rene Harreman; completed 06-Aug-2026. Lines as printed: 3.00 L1 Maintenance Labour @ $110.26 = $330.78. Printed subtotal $330.78 ex GST, GST $33.08, total $363.86. Printed PK000023 matches the PK charged (PK000023)."
+ },
+ "INV-8680": {
+  "coding_verdict": "Correct",
+  "coding_note": "Job as printed: 3922421 - MTN - Emerson Park - Bannockburn (Ref: 33658); contract LB304 (LocalBuy); order 717528; contact Jessica Burke; completed 26-Aug-2026. Lines as printed: 3.00 L1 Maintenance Labour @ $110.26 = $330.78. Printed subtotal $330.78 ex GST, GST $33.08, total $363.86. Printed PK000023 matches the PK charged (PK000023)."
+ },
+ "INV-8693": {
+  "coding_verdict": "Correct",
+  "coding_note": "Job as printed: 3924007 - MTN - Flagstone Parklands - Flagstone (Ref: 33979); contract LB304 (LocalBuy); order 717528; contact Aisha Wilson; completed 26-Aug-2026. Lines as printed: 2.00 SP710 Trampoline Spring 110mm x 35mm Zinc @ $54.00 = $108.00; 2.00 L1 Maintenance Labour @ $110.26 = $220.52. Printed subtotal $328.52 ex GST, GST $32.85, total $361.37. Printed PK000023 matches the PK charged (PK000023)."
+ },
+ "INV-8895": {
+  "coding_verdict": "Correct",
+  "coding_note": "Job as printed: 3944784 - MTN - Veryan Park - Kingston (Ref: 34229); contract LB304 (LocalBuy); order 717528; contact Aisha Wilson; completed 09-Sep-2026. Lines as printed: 1.00 MISC1 Handles @ $360.00 = $360.00; 3.00 L1 Maintenance Labour @ $110.26 = $330.78. Printed subtotal $690.78 ex GST, GST $69.08, total $759.86. Printed PK000023 matches the PK charged (PK000023)."
+ },
+ "INV-8906": {
+  "coding_verdict": "Correct",
+  "follow_up": "Ask Play Force to print the PK on the face: this invoice prints Account \"undefined\", so the face cannot corroborate the PK charged (PK000022).",
+  "coding_note": "Job as printed: 3942290 - MTN - Rotary Park - Jimboomba (Ref: 34279); contract LB304 (LocalBuy); order 717528; contact Aisha Wilson; completed 09-Sep-2026. Lines as printed: 1.00 MISC1 caps and fixings @ $88.00 = $88.00; 2.50 L1 Maintenance Labour @ $110.26 = $275.65. Printed subtotal $363.65 ex GST, GST $36.37, total $400.02. The Account row on the face prints \"undefined\", so no PK is printed on this invoice; the charge sits on PK000022, which comes from the TechOne order, not from the document."
+ },
+ "INV-8907": {
+  "coding_verdict": "Correct",
+  "coding_note": "Job as printed: 3937224 - EXC - Stoneleigh Reserve Park - Logan Reserve (Ref: 34254); contract LB304 (LocalBuy); order 717528; contact Aisha Wilson; completed 09-Sep-2026. Lines as printed: 4.00 EX980 A_Space Honeycomb Grip @ $26.07 = $104.28; 2.00 L1 Maintenance Labour @ $110.26 = $220.52. Printed subtotal $324.80 ex GST, GST $32.48, total $357.28. Printed PK000022 matches the PK charged (PK000022)."
+ },
+ "INV-8919": {
+  "coding_verdict": "Correct",
+  "coding_note": "Job as printed: 3924099 - MTN - Flagstone Parklands - Flagstone (Ref: 33989); contract LB304 (LocalBuy); order 717528; contact Aisha Wilson; completed 10-Sep-2026. Lines as printed: 1.00 MISC1 materials for seats @ $125.60 = $125.60; 22.50 L1 Maintenance Labour @ $110.26 = $2,480.85. Printed subtotal $2,606.45 ex GST, GST $260.65, total $2,867.10. Printed PK000023 matches the PK charged (PK000023)."
+ },
+ "INV-8921": {
+  "coding_verdict": "Correct",
+  "coding_note": "Job as printed: 3923654 - MTN - Tygum Park - Waterford West (Ref: 33955); contract LB304 (LocalBuy); order 717528; contact Shane Ohlsen; completed 10-Sep-2026. Lines as printed: 8.00 NB231 Finger Entrapment Plug @ $2.80 = $22.40; 8.00 FX1160 M8 Shackle SS @ $9.25 = $74.00; 4.00 SW221 Pommel Seat Bracket @ $40.00 = $160.00; 7.00 CH186 6mm Stainless Chain @ $18.75 = $131.25; 7.00 L1 Maintenance Labour @ $110.26 = $771.82. Printed subtotal $1,159.47 ex GST, GST $115.95, total $1,275.42. Printed PK000023 matches the PK charged (PK000023)."
+ }
+}

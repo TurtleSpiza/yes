@@ -141,7 +141,27 @@ def gate_corpora(brief: Brief, corpora: list[dict], g: Gates) -> list[dict]:
         if res.repairs:
             g.notes.append("corpus %s: %d repair(s) applied at gate time; the repaired corpus must be the one shipped" % (bid, len(res.repairs)))
         docs += c.get("documents", [])
-    return docs
+    # RULE 12 WITHIN THE BATCH. A binder re-supplied under a later batch carries documents an earlier corpus in this
+    # same build already holds, so the same invoice arrives twice. A re-supply is AUDITED, not captured twice: the two
+    # copies must agree on the printed money to the cent, and then the first is kept. Copies that disagree are a gate
+    # failure, because one of the two extractions is wrong and nothing here can say which.
+    seen: dict[str, dict] = {}
+    unique: list[dict] = []
+    for d in docs:
+        ref = str(d.get("doc_ref"))
+        prev = seen.get(ref)
+        if prev is None:
+            seen[ref] = d
+            unique.append(d)
+            continue
+        same = all(ties(prev.get(k), d.get(k), "0.00")
+                   for k in ("printed_subtotal_ex_gst", "printed_gst", "printed_total_incl_gst"))
+        g.check(same, "%s is supplied by two corpora in this batch and the printed totals differ; one extraction is "
+                      "wrong and the batch is held (rule 12)" % ref)
+        if same:
+            g.notes.append("%s supplied by two corpora in this batch, identical printed totals: audited and captured "
+                           "once (rule 12)" % ref)
+    return unique
 
 
 def gate_duplicates(brief: Brief, docs: list[dict], sheets: dict, g: Gates) -> None:
@@ -159,7 +179,10 @@ def gate_duplicates(brief: Brief, docs: list[dict], sheets: dict, g: Gates) -> N
         g.check(h not in da_text, "md5 %s (%s) already appears in Data_Acquisition: this upload has been processed" % (h[:12], os.path.basename(fp)))
 
     existing = {clean(r[0]) for r in sheets["Evidence_Invoices"][4:] if r and clean(r[0])}
+    held = set(brief.get("held", []))
     for doc in docs:
+        if str(doc["doc_ref"]) in held:
+            continue
         evid = evid_for(brief, doc)
         g.check(evid not in existing, "EvID %s already on Evidence_Invoices: a re-sighting is not re-captured (rule 12)" % evid)
         bare = str(doc["doc_ref"])
@@ -207,6 +230,16 @@ def gate_match_table(brief: Brief, docs: list[dict], match: dict, sheets: dict, 
         g.check(abs(D(r[REG["amount"] - 1])) > Decimal("0.005"),
                 "%s: register row %d is a zero-amount companion and is never green-blocked (rule 17)" % (ref, row))
         targets[ref] = {"row": row, "record": rec}
+    # ONE DOCUMENT PER ROW. The doc_ref screen above cannot catch a binder re-supplied under a later batch that names
+    # the same invoice differently ("INV-8550" against "INV-8550/pages30-32"): two different refs, one register line.
+    # Left alone, the second capture overwrites the first's green block and the sighted-line count comes up short by
+    # exactly the number of collisions, which is a failed verify with a cause that is hard to see.
+    by_row: dict[int, list[str]] = {}
+    for ref, t in targets.items():
+        by_row.setdefault(t["row"], []).append(ref)
+    for row_, refs in sorted(by_row.items()):
+        g.check(len(refs) == 1, "register row %d is claimed by %d documents (%s): a row carries one capture (rule 17)"
+                % (row_, len(refs), ", ".join(sorted(refs))))
     return targets
 
 
@@ -220,8 +253,14 @@ def gate_taxonomy(brief: Brief, docs: list[dict], sheets: dict, g: Gates) -> Non
     cats = {clean(r[0]) for r in sheets["Theme_Map"][4:31] if r and clean(r[0])}
     series = {clean(r[0]) for r in sheets["Vendor_Series"][4:] if r and clean(r[0])}
     bp = {clean(r[0]) for r in sheets["Vendor_Boilerplate"][4:] if r and clean(r[0])}
+    # A key this build is ADDING is available to this build. The sheet is written at write time, so checking only what
+    # is already stored would refuse every vendor the register has not carried before, which is the case this batch is.
+    bp |= {clean(it.get("key")) for it in brief.get("vendor_boilerplate", []) if it.get("key")}
+    held = set(brief.get("held", []))
     for doc in docs:
         ref = str(doc["doc_ref"])
+        if ref in held:
+            continue
         f = brief.doc_facts(ref)
         cat = f.get("nature_category")
         g.check(bool(cat), "%s: the brief states no Nature Category" % ref)
@@ -239,9 +278,12 @@ def gate_taxonomy(brief: Brief, docs: list[dict], sheets: dict, g: Gates) -> Non
 def gate_stems(brief: Brief, docs: list[dict], sheets: dict, g: Gates) -> None:
     """G9. Evidence stems, 40 characters, amount never trimmed, unique in and beyond the batch."""
     seen: dict[str, str] = {}
+    held = set(brief.get("held", []))
     for doc in docs:
-        stem = str(doc.get("evidence_stem") or "")
         ref = str(doc["doc_ref"])
+        if ref in held:
+            continue          # held, so never captured, so it writes no stem
+        stem = str(doc.get("evidence_stem") or "")
         amt = "%.2f" % D(doc.get("printed_total_incl_gst") or 0)
         g.check(len(stem) <= 40, "%s: evidence stem is %d characters" % (ref, len(stem)))
         g.check(stem.endswith(amt), "%s: evidence stem does not end in the incl-GST amount %s (section 12 never trims the amount)" % (ref, amt))
@@ -298,11 +340,40 @@ def line_items_text(doc: dict) -> str:
     return " ".join(parts)
 
 
+def _line_key(facts: dict, line: dict, tgt: dict | None) -> str:
+    """The register LineKey this printed line belongs to.
+
+    Every line of an ordinary invoice belongs to the one row the document ties, and that is the default. A CONSOLIDATED
+    invoice does not: Origin bills the whole Council on one face and this register carries a single site's row out of
+    it, so check 2 ties that row by summing only ITS lines (the PARTIAL-SCOPE variant). The brief maps those lines by a
+    string the page itself prints and that the register narration also names, an NMI or a site name, so the association
+    is evidence on both sides rather than a position in a list. A line matching no entry keeps the default.
+    """
+    text = " ".join((line.get("line_text") or "").split())
+    lmap = facts.get("line_map") or []
+    for key, needle in lmap:
+        if needle and needle in text:
+            return key
+    if lmap:
+        # A DECLARED MAP IS EXHAUSTIVE for this register. The unmapped lines of a consolidated invoice belong to other
+        # parts of the Council, not to the row being captured, so they must carry NO LineKey: defaulting them to the
+        # target key made check 2 sum the whole $565,345.00 face against a $2,752.17 line. They are still captured
+        # verbatim on Evidence_Invoice_Lines, because the printed face is captured in full (rule 3); they simply tie
+        # no line here.
+        return ""
+    return tgt["record"]["target_linekey"] if tgt else ""
+
+
 def anomalies_text(brief: Brief, doc: dict) -> str:
     f = brief.doc_facts(str(doc["doc_ref"]))
     bits = list(f.get("anomalies", []))
     for finding in doc.get("findings", []):
-        bits.append("Finding %s: %s" % (finding.get("code"), finding.get("detail")))
+        # A finding is a {code, detail} record in the corpora this driver was written against and a plain sentence in
+        # the branch corpora built later. Both are the document's own recorded finding and both are carried verbatim.
+        if isinstance(finding, dict):
+            bits.append("Finding %s: %s" % (finding.get("code"), finding.get("detail")))
+        else:
+            bits.append("Finding: %s" % finding)
     if f.get("variants"):
         bits.append("%s %s" % (VARIANT_TAG, "; ".join(f["variants"])))
     if doc.get("line_amount_basis") == "incl_gst":
@@ -334,6 +405,13 @@ def chk_formulas(row: int, variants: list[str], sibling_rows: list[int] | None =
         c2 = '=IF(ROUND(%s,2)=%s,"TRUE","FALSE")' % (terms, di)
     if "check3 gstfree" in variants:
         c3 = '=IF(OR(%s=ROUND(%s*0.1,2),%s=0),"TRUE","FALSE")' % (dj, di, dj)
+    if "check3 sumgst" in variants:
+        # An invoice that prints GST PER LINE does not carry 10% of its subtotal as a total: the printed total is the
+        # sum of the per-line roundings, and on a consolidated electricity invoice it differs by tens of cents
+        # (Origin 1026099 prints $56,534.10 against $56,534.50). The right test is the one the page supports, so
+        # check 3 proves the printed GST against the sum of the captured per-line GST. The branch register has proved
+        # this document this way since its v3 build; this is the same form, not a new one.
+        c3 = '=IF(ROUND(%s,2)=ROUND(SUMIF(EIL_Invoice,%s,EIL_GST),2),"TRUE","FALSE")' % (dj, cj)
     if "check3 tol1cgst" in variants:
         c3 = '=IF(ROUND(ABS(%s-ROUND(%s*0.1,2)),2)<=0.01,"TRUE","FALSE")' % (dj, di)
     if "check3 tol2c" in variants:
@@ -441,9 +519,14 @@ def build(brief: Brief, dry_run: bool = False, log=print) -> int:
     control_total = cfg.num("CONTROL_TOTAL")
     sighted = cfg.int_("SIGHTED_COUNT")
 
-    n_docs = len(docs)
-    n_lines = sum(len([l for l in d["lines"] if l.get("line_type") in ("PRICED", "NARRATIVE", "TOTALS", "TABLE_HEADER", "TERMS", "FOOTER", "IMAGE_TEXT", "ANNOTATION")]) for d in docs)
-    n_eil = sum(len([l for l in d["lines"] if l.get("line_type") == "PRICED"]) for d in docs)
+    # These counts SIZE THE BUILD: they reserve the rows inserted into Evidence_Invoices and EIL_Controls and they set
+    # the RECON_COUNT the verify re-proves. They must therefore count the documents this build actually CAPTURES, not
+    # every document in the corpora. A held document writes nothing (rule 19.2), so counting it here would reserve
+    # rows nothing fills and would put the reconciliation count out by the number held.
+    captured_docs = [d for d in docs if str(d["doc_ref"]) not in set(brief.get("held", []))]
+    n_docs = len(captured_docs)
+    n_lines = sum(len([l for l in d["lines"] if l.get("line_type") in ("PRICED", "NARRATIVE", "TOTALS", "TABLE_HEADER", "TERMS", "FOOTER", "IMAGE_TEXT", "ANNOTATION")]) for d in captured_docs)
+    n_eil = sum(len([l for l in d["lines"] if l.get("line_type") == "PRICED"]) for d in captured_docs)
 
     log(counts_only("gates", documents=n_docs, targets=len(targets), eil_rows=n_eil, failures=len(g.failures)))
     for n in g.notes:
@@ -518,8 +601,14 @@ def build(brief: Brief, dry_run: bool = False, log=print) -> int:
     written_reg: list[int] = []
     eil_index: dict[str, list[int]] = {}
 
+    held_refs = set(brief.get("held", []))
     for doc in docs:
         ref = str(doc["doc_ref"])
+        if ref in held_refs:
+            # A held document is not part-built from (rule 19.2). It previously reached this loop and was written to
+            # Evidence_Invoices and Evidence_Invoice_Lines while its register row got no green block, which is the
+            # half-capture the rule exists to refuse: evidence rows with nothing on the register citing them.
+            continue
         evid = evid_for(brief, doc)
         f = brief.doc_facts(ref)
         tgt = targets.get(ref)
@@ -538,7 +627,7 @@ def build(brief: Brief, dry_run: bool = False, log=print) -> int:
                 l.get("gst") if l.get("gst") is not None else ("10%" if not basis_incl else "(incl)"),
                 f2(amt),
                 (l.get("note") or "") and "" or NOT_PRINTED,
-                "", (tgt["record"]["target_linekey"] if tgt else ""),
+                "", _line_key(f, l, tgt),
                 l.get("note") or ("amounts print GST inclusive on this template" if basis_incl else ""),
             ]
             for c, v in enumerate(vals, start=1):
@@ -746,6 +835,8 @@ def build(brief: Brief, dry_run: bool = False, log=print) -> int:
     _append_text(wb["Method"], brief.get("method"))
     _append_text(wb["Data_Acquisition"], brief.get("data_acquisition"))
     _append_open_items(wb["Open_Items"], brief.get("open_items", []))
+    _append_boilerplate(wb["Vendor_Boilerplate"], brief.get("vendor_boilerplate", []), log)
+    _fix_headers(wb, brief.get("header_fixes", []), log)
 
     # ---------------- save, recalc, verify, ship ----------------
     json.dump(rewrite_audit, open(os.path.join(out_dir, "rewrite_audit_%s.json" % brief["version_to"]), "w"), indent=1)
@@ -790,6 +881,58 @@ def _append_text(ws, text: str | None) -> None:
     if not text:
         return
     ws.cell(row=ws.max_row + 1, column=1, value=condense(text)[0])
+
+
+def _fix_headers(wb, fixes: list[dict], log) -> None:
+    """Relabel a header cell whose wording contradicts its own column, and only where it does.
+
+    A header is a LABEL, not data: changing one moves no value and breaks no citation. But a relabel is still a
+    decision about the register, so it is declared one cell at a time in the brief with the wording it must currently
+    carry, and the driver refuses to write if the cell does not still read that way. A header someone has already
+    corrected is therefore left alone rather than overwritten from a stale brief.
+    """
+    for fx in fixes or []:
+        ws = wb[fx["sheet"]]
+        cell = ws.cell(row=int(fx["row"]), column=int(fx["column"]))
+        now = "" if cell.value is None else str(cell.value).strip()
+        if now != str(fx["expect"]).strip():
+            log("header fix SKIPPED %s!R%sC%s: reads %r, brief expected %r"
+                % (fx["sheet"], fx["row"], fx["column"], now, fx["expect"]))
+            continue
+        cell.value = fx["to"]
+        log("header fix %s!R%sC%s: %r -> %r" % (fx["sheet"], fx["row"], fx["column"], now, fx["to"]))
+
+
+def _append_boilerplate(ws, rows: list[dict], log) -> None:
+    """Append a vendor's printed payment block and terms, once, and cite it by key (rule 17 Amendment 2).
+
+    A green block cites its boilerplate by key rather than repeating the block on every row. A batch that brings a
+    vendor this register has not carried before therefore brings a key this sheet does not have, and a citation to a
+    key that is not here is a dangling one. The driver had no way to add a row, so the brief could not express it
+    (rule 19.1): the mechanic belongs here and ships with the build rather than being written by hand in a session.
+    Existing keys are never rewritten, because the stored text is what earlier captures cite.
+    """
+    if not rows:
+        return
+    have = {str(ws.cell(row=r, column=1).value or "").strip() for r in range(5, ws.max_row + 1)}
+    row = ws.max_row + 1
+    added = 0
+    for it in rows:
+        key = str(it.get("key") or "").strip()
+        if not key or key in have:
+            continue
+        # Column order follows the SHEET'S OWN DATA, not its header row: every stored row carries the first-sighting
+        # invoice id in column 3 and the vendor name in column 4, while the header labels those two the other way
+        # round. Writing to the header would put the vendor where 131 existing rows keep the invoice id. The
+        # mislabelled header is raised as an open item rather than corrected here, because relabelling a column is a
+        # decision about the register, not a step in a capture build.
+        for c, val in enumerate([key, it.get("field"), it.get("first_sighting"), it.get("vendor"),
+                                 it.get("sightings"), it.get("text")], start=1):
+            ws.cell(row=row, column=c, value=val)
+        have.add(key)
+        row += 1
+        added += 1
+    log("Vendor_Boilerplate: %d key(s) appended, %d already present" % (added, len(rows) - added))
 
 
 def _append_open_items(ws, items: list[dict]) -> None:

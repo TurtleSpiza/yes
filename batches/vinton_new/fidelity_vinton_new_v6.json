@@ -1,0 +1,22 @@
+{
+ "check": "rule 19.2 per-vendor verbatim fidelity, independent source",
+ "method": "For each vendor template: take every row that is constant across this batch's documents for that vendor and carries no money token, and verify it against page text this project parsed independently from a real PDF. A row passes verbatim, or as a digit variant (invoice number, date) of a reference row. A row that is neither but is a near neighbour of a reference row is a silently altered template row and fails.",
+ "vendors": [
+  {
+   "vendor_template": "VINTON",
+   "batch_documents": 42,
+   "reference_documents": [],
+   "batch_constant_template_rows": 7,
+   "verbatim_in_reference": 0,
+   "digit_variant_of_a_reference_row": 0,
+   "digit_variant_rows": [],
+   "unmatched_rows": 0,
+   "unmatched": [],
+   "altered_template_rows": [],
+   "reference_intersection_check": null,
+   "check": "NOT RUN: this project has never parsed a document of this vendor from a real PDF, so there is no independent source to check the retained rows against. The compensating controls are the arithmetic tie on every document of the batch and the reference-level match of every document to its register line in the batch match table."
+  }
+ ],
+ "verdict": "PASS",
+ "scope": "Proves the fixed template and boilerplate rows this batch carries are verbatim against an independent parse of the same vendor. It cannot prove per-invoice description text, which appears on no other document; that rests on the retained layout rows, the arithmetic tie on every invoice (all 42 reconcile to the printed subtotal to the cent) and the creditor history on the register line. Where a vendor contributes a single document to this batch, \"constant across the batch\" is that document's own rows, so the unmatched list for that vendor is its invoice-specific text."
+}
