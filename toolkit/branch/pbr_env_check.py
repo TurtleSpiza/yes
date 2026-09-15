@@ -155,6 +155,37 @@ def check_ocr():
         else f'probe text not recovered: {out.strip()[:60]!r}', 'apt-get install -y tesseract-ocr')
 
 
+def check_docconv():
+    """OCRmyPDF and Docling, each proved by doing its job rather than by importing.
+
+    OCRmyPDF is the reason an image-borne letterhead can be read at all: it writes a real text layer back into the
+    PDF, so pdftotext then returns what the image prints. It is proved here on an image-only PDF this check builds,
+    because the apt build of it installs a binary whose pikepdf extension fails to import, and `--version` is the
+    only thing that catches that.
+
+    Docling is a CONVENIENCE, not a gate. It reports orphan cells "recovered by nearest-column fallback" on this
+    project's own invoices, which is a guess, so its output is evidence to be checked like any other extraction.
+    Its absence is reported, never failed: no committed script depends on it.
+    """
+    if not shutil.which('ocrmypdf'):
+        rec('ocrmypdf', False, 'not on PATH; an image-borne PDF cannot be given a text layer',
+            'pip install ocrmypdf  (NOT apt: the Debian build pins a broken pikepdf)')
+    else:
+        ver = subprocess.run(['ocrmypdf', '--version'], capture_output=True, text=True)
+        # ocrmypdf prints its version on stderr, and prints its import failure there too, so the return code is
+        # what separates a working install from the apt one whose pikepdf extension will not load.
+        said = (ver.stdout + ver.stderr).strip().splitlines()
+        ok = ver.returncode == 0 and said
+        rec('ocrmypdf', bool(ok), f'v{said[-1].strip()} runs' if ok else
+            f'installed but will not run: {said[-1].strip() if said else "no output"}',
+            'pip install --ignore-installed ocrmypdf  (NOT apt: its pikepdf extension fails to import)')
+    try:
+        import docling  # noqa: F401
+        rec('docling', True, 'importable (structured conversion; its output is evidence, not a figure to trust)', '')
+    except Exception as e:
+        rec('docling', True, f'not available ({type(e).__name__}); no committed script depends on it', '')
+
+
 def check_compile():
     import compileall
     ok = compileall.compile_dir(os.path.join(ROOT, 'toolkit'), quiet=2, force=True)
@@ -178,6 +209,7 @@ def main():
     check_python(); check_imports(); check_toolkit(); check_recalc(); check_poppler(); check_provenance()
     if '--all' in sys.argv:
         check_ocr()
+    check_docconv()
     check_compile()
     hard_bad = [r for r in rows if r['hard'] and not r['ok']]
     soft_bad = [r for r in rows if not r['hard'] and not r['ok']]
