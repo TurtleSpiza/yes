@@ -1,0 +1,172 @@
+{
+ "corpus": {
+  "scope": "corpus",
+  "documents_checked": 20,
+  "shingles_tested": 265,
+  "failures": [],
+  "results": [
+   {
+    "doc_ref": "INV-37608/C00227033 (2).pdf",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 2,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-37623/C00227484 (2).pdf",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 7,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-37624/C00228688 (2).pdf",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 4,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-37763/C00236196 (2).pdf",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 2,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-37848/C00240026 (2).pdf",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 1,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-38245/C00257205 (2).pdf",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 2,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-38326/C00263155 (2).pdf",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 6,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-38559/C00272275 (2).pdf",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 28,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-38650/C00277235 (2).pdf",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 2,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-38642/C00277239 (2).pdf",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 6,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-38694/C00279716 (2).pdf",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 17,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-38856/C00285757 (2).pdf",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 2,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-38936/C00290162 (2).pdf",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 9,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-38953/C00290563 (2).pdf",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 9,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39164/C00301238 (1).pdf",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 15,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39436/C00314456.pdf",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 12,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39480/C00316920.pdf",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 10,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39477/C00317046.pdf",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 13,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "012195/C00318419.pdf",
+    "vendor": "Glascott Landscape and Civil Pty Limited (letterhead prints \"Technigro ABN 97 001 281 572\")",
+    "shingles_tested": 4,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "6491/C00319023.pdf",
+    "vendor": "Elemental Shade Structures (Dice Canvas Pty Ltd ATF The Dice Trust & SSAR Australia Pty Ltd ATF The Mark West Trust)",
+    "shingles_tested": 114,
+    "shingles_missed": 0,
+    "verdict": "PASS",
+    "misses": []
+   }
+  ],
+  "VERDICT": "PASS"
+ },
+ "VERDICT": "PASS"
+}

@@ -1,0 +1,142 @@
+[
+ {
+  "invoice": "INV-37608",
+  "invoice_date": "2025-08-18",
+  "subtotal": 14450.0,
+  "in_register_year": false,
+  "pages": [
+   1,
+   1
+  ]
+ },
+ {
+  "invoice": "INV-37623",
+  "invoice_date": "2025-08-20",
+  "subtotal": 8587.8,
+  "in_register_year": false,
+  "pages": [
+   1,
+   1
+  ]
+ },
+ {
+  "invoice": "INV-37624",
+  "invoice_date": "2025-08-26",
+  "subtotal": 3580.0,
+  "in_register_year": false,
+  "pages": [
+   1,
+   1
+  ]
+ },
+ {
+  "invoice": "INV-37763",
+  "invoice_date": "2025-09-23",
+  "subtotal": 19580.0,
+  "in_register_year": false,
+  "pages": [
+   1,
+   1
+  ]
+ },
+ {
+  "invoice": "INV-37848",
+  "invoice_date": "2025-10-07",
+  "subtotal": 3600.0,
+  "in_register_year": false,
+  "pages": [
+   1,
+   1
+  ]
+ },
+ {
+  "invoice": "INV-38245",
+  "invoice_date": "2025-12-12",
+  "subtotal": 14450.0,
+  "in_register_year": false,
+  "pages": [
+   1,
+   1
+  ]
+ },
+ {
+  "invoice": "INV-38326",
+  "invoice_date": "2026-01-14",
+  "subtotal": 2989.0,
+  "in_register_year": false,
+  "pages": [
+   1,
+   1
+  ]
+ },
+ {
+  "invoice": "INV-38559",
+  "invoice_date": "2026-02-24",
+  "subtotal": 12350.0,
+  "in_register_year": false,
+  "pages": [
+   1,
+   1
+  ]
+ },
+ {
+  "invoice": "INV-38650",
+  "invoice_date": "2026-03-17",
+  "subtotal": 15150.0,
+  "in_register_year": false,
+  "pages": [
+   1,
+   1
+  ]
+ },
+ {
+  "invoice": "INV-38642",
+  "invoice_date": "2026-03-16",
+  "subtotal": 2397.27,
+  "in_register_year": false,
+  "pages": [
+   1,
+   1
+  ]
+ },
+ {
+  "invoice": "INV-38694",
+  "invoice_date": "2026-03-27",
+  "subtotal": 4220.0,
+  "in_register_year": false,
+  "pages": [
+   1,
+   1
+  ]
+ },
+ {
+  "invoice": "INV-38856",
+  "invoice_date": "2026-04-22",
+  "subtotal": 2418.18,
+  "in_register_year": false,
+  "pages": [
+   1,
+   1
+  ]
+ },
+ {
+  "invoice": "INV-38936",
+  "invoice_date": "2026-05-08",
+  "subtotal": 15795.0,
+  "in_register_year": false,
+  "pages": [
+   1,
+   1
+  ]
+ },
+ {
+  "invoice": "INV-38953",
+  "invoice_date": "2026-05-12",
+  "subtotal": 18863.0,
+  "in_register_year": false,
+  "pages": [
+   1,
+   1
+  ]
+ }
+]
