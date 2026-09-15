@@ -11,9 +11,9 @@ Both registers follow the same column map (PS/WP schema, 146 columns; the branch
 
 ## Layout
 
-- `registers/` the workbooks. Each is self-contained (source exports, evidence, instructions and controls embedded).
+- `registers/` the workbooks. Each is self-contained (source exports, evidence, instructions and controls embedded). The directory carries ONE register per family: the newest shipped version, plus whatever a build still reads as an input. See [Register retention](#register-retention).
 - `toolkit/pswp/` the PS/WP toolkit (`pswp_build_batch.py` and companions, `lo_recalc.sh`).
-- `toolkit/branch/` the branch register toolkit: `pbr_stage.py` (load, inherit, identify from creditor histories, classify, capture), `pbr_build.py` (write, recalc, verify, ship), `pbr_capture.py` (rule 16/17 capture from a gated corpus), `pbr_provenance.py` (the green-block provenance gate, run by the stage on every build), `pbr_rules_v1.json` (classification rules as data), `pbr_histories_v4.json` (APLEDGER creditor histories as data: file, code, label, ABN), `parse_mixed1.py`, `parse_mixed_new.py`, `parse_attach1.py` and `parse_attach2.py` (raw-text invoice parsers), `prep_code_corpus.py` and `prep_supplied_corpus.py` (prepare, restate from the retained rows where a header field is wrong, and fidelity-check a supplied third-party corpus), `pbr_recon_batch.py` (the Document Reconstruction journal route, rule 21), `pbr_unidentified_queue.py` and `pbr_journal_pull_report.py` (the identification queue and journal pull list reports).
+- `toolkit/branch/` the branch register toolkit: `pbr_stage.py` (load, inherit, identify from creditor histories, classify, capture), `pbr_build.py` (write, recalc, verify, ship), `pbr_capture.py` (rule 16/17 capture from a gated corpus), `pbr_provenance.py` (the green-block provenance gate, run by the stage on every build), `pbr_rules_v1.json` (classification rules as data), `pbr_histories_v4.json` (APLEDGER creditor histories as data: file, code, label, ABN), `parse_mixed1.py`, `parse_mixed_new.py`, `parse_attach1.py` and `parse_attach2.py` (raw-text invoice parsers), `prep_code_corpus.py` and `prep_supplied_corpus.py` (prepare, restate from the retained rows where a header field is wrong, and fidelity-check a supplied third-party corpus), `pbr_recon_batch.py` (the Document Reconstruction journal route, rule 21), `pbr_unidentified_queue.py` and `pbr_journal_pull_report.py` (the identification queue and journal pull list reports), `pbr_retention.py` and `pbr_retention_v1.json` (which shipped registers the repository keeps; the ship leg runs it).
 - `batches/` per batch: the Copilot v5 corpus and report as received, the raw-text v6 corpus (page text retained, gate GREEN), the match table, capture report or hold record.
 - `docs/` project instructions, PS/WP schema and history, the invoice extraction prompt (v6 is current; v5 is retained because two held batches were extracted under it), branch schema.
 - `data/inputs_2026-09-11/` the 27SLACT ledger export (periods 1 to 3) and four SE2 exports the branch register was first built from; `data/inputs_2026-09-15/` the period 3 refresh and the two SE2 views re-pulled with it; `creditor_histories/` the APLEDGER creditor history exports (twenty-six under `data/inputs_2026-09-11/`, two more under `data/inputs_2026-09-15/`); `journal_pulls/` the TechOne Document Line Table exports embedded on Journal_Sources; `reconstructions/` the TechOne Document Reconstruction exports embedded on Reconstruction_Sources.
@@ -59,7 +59,23 @@ Requirements are installed by the session hook above; `python3 toolkit/branch/pb
 python3 toolkit/branch/pbr_build.py
 ```
 
-One script runs the whole chain: stage, write, LibreOffice convert-route recalc (isolated profile, `OOXMLRecalcMode=0`), calamine verify of the recalculated file, ship to `registers/`. It ships only on a clean verify (93 controls, every sighted line's three checks, the register total and a whole-workbook error sweep). A partial run is discarded, never resumed. About 35 to 40 seconds from a warm cache. Set `PBR_OUTDIR` to ship elsewhere; `PBR_INPUTS` and `PBR_V127` override the input locations.
+One script runs the whole chain: stage, write, LibreOffice convert-route recalc (isolated profile, `OOXMLRecalcMode=0`), calamine verify of the recalculated file, ship to `registers/`. It ships only on a clean verify (93 controls, every sighted line's three checks, the register total and a whole-workbook error sweep). A partial run is discarded, never resumed. About 35 to 40 seconds from a warm cache. Set `PBR_OUTDIR` to ship elsewhere; `PBR_INPUTS` and `PBR_V127` override the input locations. After the ship, and only after a clean verify, the driver runs retention and prunes the branch registers the new one supersedes (`PBR_RETAIN=all` keeps them).
+
+## Register retention
+
+A register is a build output, not a source. Each one is 8 to 24 MB of zip-compressed xlsx, and git cannot delta-compress a zip, so every version committed adds its full size to the clone permanently and no later deletion takes it back out. The repository therefore keeps the newest shipped register of each family and nothing else, except where an older version is still an INPUT:
+
+- **Pinned.** `pbr_retention_v1.json` names it. `PS_WP_Transaction_Register_3FY_v127_CANDIDATE.xlsx` is the inheritance source every branch build reads (`pbr_stage.V127`) and md5-stamps into the shipped workbook, so it is a build input and stays, despite sorting below v128 and v129.
+- **Referenced.** A toolkit script or rule file still names the file literally. `pbr_retention.py` scans `toolkit/` for register filenames and refuses to prune over a citation, so a hard-coded default cannot be silently orphaned; the held file is reported with the line that cites it. `PS_WP_Transaction_Register_3FY_v128.xlsx` is held on this ground (`toolkit/pswp/pswp_v128_brief.py`).
+
+```
+python3 toolkit/branch/pbr_retention.py               # dry run: what is kept, held and superseded
+python3 toolkit/branch/pbr_retention.py --apply --git # prune the superseded files and stage the deletions
+```
+
+The ship leg calls the same mechanic, narrowed so it can only touch branch registers strictly below the version it just shipped: never the file that run produced, never the PS & WP side, and never on a failed or partial run. This restores a practice the repository already had (each build to v8 dropped the prior version in the same commit) and that lapsed after v11, which is how v12 to v17 came to sit in the tree together.
+
+Pruning caps future growth; it does not reclaim the past. The superseded workbooks stay reachable from the commits that shipped them, so `.git` does not shrink and every report that cites an older register by name can still be resolved against history. Reclaiming that space would mean rewriting history, which changes every commit SHA and invalidates the merged PR record; it is not done here.
 
 ## Capturing a new invoice batch
 
