@@ -302,6 +302,15 @@
    "abn": "88647718367",
    "added": "v19",
    "label_basis": "Sighted invoice INV023930 (TechOne C00320205, supplied 16-Sep-2026): the face carries the \"BUSHWORX / powered by UDL Group\" logo, states the legal entity \"Alldemor Pty Ltd\" with ABN 88647718367 and info@udlgroup.com.au, and names the bank account \"Alldemor Pty Ltd\". $300.00 ex GST, line \"PK000076 | 3142-02 Logan Reserve Bushworx DRS AUG Maintenance Treatment\". The printed ABN decides identity (rule 8) and passes the ATO modulus-89 checksum. The label is the business name printed on the face, the convention ELE013 and ARB007 follow."
+  },
+  {
+   "dir": "data/inputs_2026-09-16/creditor_histories",
+   "file": "Ledger_Accounts_Transactions_Table_-_2026-09-16T113003.482.xlsx",
+   "code": "SUN046",
+   "label": "Sundai Vegetation Management Pty Ltd",
+   "abn": "20144586998",
+   "label_basis": "ABR public register sighted 16-Sep-2026 for ABN 20 144 586 998, the ABN on every one of the 126 invoice lines of this APLEDGER record: entity name SUNDAI VEGETATION MANAGEMENT PTY LTD, ABN active from 01-Jul-2010, registered for GST from 01-Jul-2010, main business location QLD 4060. The ABN passes the ATO modulus-89 checksum. NO INVOICE HAS BEEN SIGHTED for this creditor, so the label rests on the public register read against the ABN on the export, the same basis NUW001, GRE083 and WAT088 carry. The ABR also lists a historic trading name, SUNDAI PROPERTY MAINTENANCE PTY LTD, recorded 01-Jul-2010; the ABR stopped maintaining trading names in May 2012, so it is not used as the label. The record is 126 PUR Cred Invoice rows from 03-Apr-2024 to 11-Aug-2026 with no payment rows, and the Details carry zone mowing (\"25/26 - SP8 Mowing for Zone 8\").",
+   "added": "v20"
   }
  ]
 }
