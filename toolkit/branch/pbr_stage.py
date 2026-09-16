@@ -46,7 +46,7 @@ HIST = json.load(open(os.path.join(HERE, 'pbr_histories_v4.json')))  # APLEDGER 
 HIST_COLS = ['Reference', 'GST Date', 'Discount Date', 'On Hold', 'Has Note', 'Date', 'Description (Document Type)', 'Details', 'Outstanding', 'Applied',
              'Transaction Amount', 'Due Date', 'Ageing Date', 'Period', 'Ageing', 'Source', 'Units', 'Discount', 'Has Attachment', 'Payment Details', 'ABN',
              'Billing System', 'Work Order', 'Work Order Transaction Number', 'Work System']
-BATCHES = ('mixed_1', 'mixed_new_26_27', 'attach_1', 'attach_2', 'code', 'mix22', 'attach_3', 'mix222', 'binder11111', 'pla073_1', 'ksadasd', 'playforce_new', 'harp_new', 'vinton_new', 'savco_new', 'trees_new', 'attach_4')
+BATCHES = ('mixed_1', 'mixed_new_26_27', 'attach_1', 'attach_2', 'code', 'mix22', 'attach_3', 'mix222', 'binder11111', 'pla073_1', 'ksadasd', 'playforce_new', 'harp_new', 'vinton_new', 'savco_new', 'trees_new', 'attach_4', 'heritage_tree_services_20260916')
 JOURNAL_BATCH = 'journal_1'  # TechOne Document Line Table pulls (rule 21, pipeline "per journal batch")
 RECON_BATCH = 'recon_1'      # TechOne Document Reconstruction pulls (rule 21, the counterparty route)
 NCOL = 149  # 146 PS/WP columns + 147 Src Note + 148 Register provenance + 149 Source pull
