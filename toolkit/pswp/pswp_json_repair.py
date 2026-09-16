@@ -35,6 +35,10 @@ FAMILIES
       last money token starts inside the item table's own `amount` band is that row's amount,
       and the row is retyped PRICED. Scoped to the P1 shape on purpose: it cannot touch a
       document that already carries priced lines, so it can never move a tie that holds
+  F16 a ZERO-amount row inside the item table typed NARRATIVE. Section 4.4 asserts
+      PRICED iff an amount is present, and $0.00 is an amount that is present, so the
+      row is P2 as it stands. Retyping it moves no value by construction, which is why
+      the family is scoped to zero: it can never turn a tie into an OUT or back
   F15 repeated copy inside ONE page_range: a binder that prints the same invoice twice in a
       row, where the extractor emitted one document over both copies and counted the amounts
       twice. The second half is retyped DUPLICATE_COPY and recorded in duplicate_copy_pages,
@@ -345,6 +349,36 @@ def f12_wrapped(doc: dict, out: GateResult) -> None:
 AMOUNT_BAND_SLACK = 6
 
 
+def _item_table_bounds(doc: dict):
+    """(page, header_row, first_totals_row) for the item table.
+
+    `line_no` restarts on every page, so a document whose second page is a payment advice
+    carries low line numbers again there. Bounding a row by min() across the whole document
+    therefore excludes the item table itself. Both bounds are taken on the item table's OWN
+    page, and a row is only considered when it sits on that page."""
+    page = header = None
+    for th in doc.get("table_headers") or []:
+        if th and th.get("row"):
+            page, header = th.get("page"), th["row"]
+            break
+    if header is None:
+        return None, None, None
+    totals = [l.get("line_no") or 0 for l in doc.get("lines", [])
+              if l.get("line_type") == "TOTALS" and l.get("page") == page and (l.get("line_no") or 0) > header]
+    return page, header, (min(totals) if totals else None)
+
+
+def _in_item_table(l: dict, page, header, first_total) -> bool:
+    if page is not None and l.get("page") != page:
+        return False
+    n = l.get("line_no") or 0
+    if header and n <= header:
+        return False
+    if first_total and n >= first_total:
+        return False
+    return True
+
+
 def _amount_band(doc: dict) -> int | None:
     for th in doc.get("table_headers") or []:
         b = (th or {}).get("bands") or {}
@@ -366,17 +400,9 @@ def f14_residue(doc: dict, out: GateResult) -> None:
     band = _amount_band(doc)
     if band is None:
         return
-    totals = [l.get("line_no") or 0 for l in doc.get("lines", []) if l.get("line_type") == "TOTALS"]
-    heads = [th.get("row") or 0 for th in (doc.get("table_headers") or []) if th.get("row")]
-    first_total = min(totals) if totals else None
-    header_row = min(heads) if heads else None
+    page, header_row, first_total = _item_table_bounds(doc)
     for l in doc.get("lines", []):
-        if l.get("line_type") != "NARRATIVE":
-            continue
-        n = l.get("line_no") or 0
-        if header_row and n <= header_row:
-            continue
-        if first_total and n >= first_total:
+        if l.get("line_type") != "NARRATIVE" or not _in_item_table(l, page, header_row, first_total):
             continue
         toks = list(MONEY_TOKEN.finditer(l.get("line_text") or ""))
         if len(toks) < 2 or toks[-1].start() < band - AMOUNT_BAND_SLACK:
@@ -385,6 +411,39 @@ def f14_residue(doc: dict, out: GateResult) -> None:
         l["line_ex_gst"] = f2(toks[-1].group().replace("$", "").replace(",", ""))
         out.repairs.append(
             Repair("F14", doc.get("doc_ref", "?"), "row %s carried its amount in the item table's amount band and was typed NARRATIVE; retyped PRICED" % l.get("line_no"), D(l["line_ex_gst"]))
+        )
+
+
+# ----------------------------------------------------------------------------------
+# F16 zero-amount row inside the item table
+# ----------------------------------------------------------------------------------
+
+
+def f16_zero_row(doc: dict, out: GateResult) -> None:
+    """Retype a $0.00 row sitting inside the item table from NARRATIVE to PRICED.
+
+    Heritage prints a `1   0.00` row above each priced crew row, carrying the site and
+    scope block. It is an amount-bearing row typed NARRATIVE, so assess() raises P2 and the
+    corpus is RED, on a document that ties to the cent. The amount is zero, so the 4.4
+    invariant is satisfied by typing it PRICED and nothing else changes: captured() sums the
+    priced rows and this one adds nothing. The family declines any non-zero amount, which is
+    F14's territory and a real arithmetic question rather than a typing one."""
+    band = _amount_band(doc)
+    if band is None or doc.get("duplicate_of"):
+        return
+    page, header_row, first_total = _item_table_bounds(doc)
+    for l in doc.get("lines", []):
+        if l.get("line_type") != "NARRATIVE" or not _in_item_table(l, page, header_row, first_total):
+            continue
+        toks = list(MONEY_TOKEN.finditer(l.get("line_text") or ""))
+        if not toks or toks[-1].start() < band - AMOUNT_BAND_SLACK:
+            continue
+        if D(toks[-1].group().replace("$", "").replace(",", "")) != 0:
+            continue
+        l["line_type"] = "PRICED"
+        l["line_ex_gst"] = f2("0")
+        out.repairs.append(
+            Repair("F16", doc.get("doc_ref", "?"), "row %s is a $0.00 row inside the item table typed NARRATIVE; retyped PRICED (4.4), which moves no value" % l.get("line_no"), Decimal("0"))
         )
 
 
@@ -645,6 +704,8 @@ def repair_and_gate(corpus: dict, families: str = "all") -> GateResult:
             f9_aggregate(doc, out)
         if run("F14"):
             f14_residue(doc, out)
+        if run("F16"):
+            f16_zero_row(doc, out)
         retie(doc, out)
     if run("F13"):
         f13_stems(corpus, out)
