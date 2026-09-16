@@ -45,9 +45,18 @@ WS = re.compile(r"\s+")
 SHINGLE = 5
 
 
+# This project retains a line break inside a captured cell as " | " (pbr_build.py Method notes,
+# Parks_Branch_Register_Schema.md: "Details (newlines as \" | \")"). The page prints a newline
+# there, so a shingle straddling the join would never be found on the page and the check would
+# read FAIL on a faithful capture. The marker is therefore treated as the line break it stands
+# for, on BOTH sides of the comparison, which leaves the words and their order still to prove.
+PIPE_BREAK = re.compile(r"\s+\|\s+")
+
+
 def norm(text: str) -> str:
-    """Whitespace only. Case, punctuation and the supplier's typos are part of the record."""
-    return WS.sub(" ", str(text or "")).strip()
+    """Whitespace only, plus the retained line-break marker. Case, punctuation and the
+    supplier's typos are part of the record and are never touched."""
+    return WS.sub(" ", PIPE_BREAK.sub(" ", str(text or ""))).strip()
 
 
 def shingles(text: str, n: int = SHINGLE) -> list[str]:
@@ -57,11 +66,15 @@ def shingles(text: str, n: int = SHINGLE) -> list[str]:
     return [" ".join(words[i:i + n]) for i in range(len(words) - n + 1)]
 
 
-def page_text(doc: dict, pages: dict | None) -> str:
-    """The retained page text for one document.
+def page_text(doc: dict, pages: dict | None) -> tuple[str, str]:
+    """The retained page text for one document, and WHERE it came from.
 
-    Prefer a separately retained pages file; fall back to the corpus's own `line_text`,
-    which is the layout row exactly as pdftotext produced it.
+    The source is returned because it decides whether the check means anything. A separately
+    retained pages file, or the document's own `page_text`, is an independent record of what
+    the page printed. The corpus's own `line_text` is NOT: it is the captured text itself, so
+    testing a captured description against it asks whether the text equals itself. That reads
+    PASS on every corpus ever produced, including one whose every description is invented,
+    which is the one failure mode this check exists to catch. The caller must refuse it.
     """
     if pages:
         a, b = doc.get("page_range", [0, 0])
@@ -71,18 +84,30 @@ def page_text(doc: dict, pages: dict | None) -> str:
             if v:
                 joined.append(v if isinstance(v, str) else "\n".join(v))
         if joined:
-            return norm("\n".join(joined))
-    return norm(" ".join(l.get("line_text") or "" for l in doc.get("lines", [])))
+            return norm("\n".join(joined)), "pages_file"
+    own = doc.get("page_text")
+    if own:
+        # retained page text is a {page: text} map on every corpus this project holds, but a
+        # string or a list of pages is accepted too; a dict must be joined on its VALUES.
+        if isinstance(own, dict):
+            joined = "\n".join(str(v) for _k, v in sorted(own.items(), key=lambda kv: str(kv[0])))
+        elif isinstance(own, (list, tuple)):
+            joined = "\n".join(str(v) for v in own)
+        else:
+            joined = str(own)
+        if joined.strip():
+            return norm(joined), "page_text"
+    return norm(" ".join(l.get("line_text") or "" for l in doc.get("lines", []))), "line_text"
 
 
 def check_corpus(corpus: dict, pages: dict | None = None, per_vendor_only: bool = False) -> dict:
     """Every captured description tested against its own document's retained page text."""
     docs = corpus.get("documents", [])
     seen_vendors: set[str] = set()
-    results, failures = [], []
+    results, failures, unverifiable = [], [], []
     for doc in docs:
         vendor = doc.get("supplier") or "(unknown vendor)"
-        retained = page_text(doc, pages)
+        retained, source = page_text(doc, pages)
         if per_vendor_only:
             if vendor in seen_vendors:
                 continue
@@ -98,16 +123,19 @@ def check_corpus(corpus: dict, pages: dict | None = None, per_vendor_only: bool 
                 if sh not in retained:
                     missed += 1
                     bad.append({"line_no": l.get("line_no"), "shingle": sh})
+        verdict = "FAIL" if missed else ("UNVERIFIABLE" if source == "line_text" else "PASS")
         rec = {"doc_ref": doc.get("doc_ref"), "vendor": vendor, "shingles_tested": tested,
-               "shingles_missed": missed, "verdict": "PASS" if missed == 0 else "FAIL",
+               "shingles_missed": missed, "source": source, "verdict": verdict,
                "misses": bad[:8]}
         results.append(rec)
         if missed:
             failures.append(rec)
+        elif verdict == "UNVERIFIABLE":
+            unverifiable.append(rec)
     return {"scope": "corpus", "documents_checked": len(results),
             "shingles_tested": sum(r["shingles_tested"] for r in results),
-            "failures": failures, "results": results,
-            "VERDICT": "PASS" if not failures else "FAIL"}
+            "failures": failures, "unverifiable": unverifiable, "results": results,
+            "VERDICT": "FAIL" if failures else ("UNVERIFIABLE" if unverifiable else "PASS")}
 
 
 def check_workbook(corpus: dict, workbook: str, evid_prefixes: dict | None = None) -> dict:
@@ -124,7 +152,7 @@ def check_workbook(corpus: dict, workbook: str, evid_prefixes: dict | None = Non
             by_invoice[inv].append(clean(r[2]))
 
     prefixes = evid_prefixes or {}
-    results, failures, missing = [], [], []
+    results, failures, missing, unverifiable = [], [], [], []
     for doc in corpus.get("documents", []):
         ref = str(doc.get("doc_ref"))
         pref = prefixes.get(doc.get("supplier"), "")
@@ -133,7 +161,7 @@ def check_workbook(corpus: dict, workbook: str, evid_prefixes: dict | None = Non
         if not rows:
             missing.append(evid)
             continue
-        retained = page_text(doc, None)
+        retained, source = page_text(doc, None)
         tested = missed = 0
         bad = []
         for desc in rows:
@@ -142,16 +170,19 @@ def check_workbook(corpus: dict, workbook: str, evid_prefixes: dict | None = Non
                 if sh not in retained:
                     missed += 1
                     bad.append({"invoice": evid, "shingle": sh})
+        verdict = "FAIL" if missed else ("UNVERIFIABLE" if source == "line_text" else "PASS")
         rec = {"invoice": evid, "vendor": doc.get("supplier"), "rows": len(rows),
-               "shingles_tested": tested, "shingles_missed": missed,
-               "verdict": "PASS" if missed == 0 else "FAIL", "misses": bad[:8]}
+               "shingles_tested": tested, "shingles_missed": missed, "source": source,
+               "verdict": verdict, "misses": bad[:8]}
         results.append(rec)
         if missed:
             failures.append(rec)
+        elif verdict == "UNVERIFIABLE":
+            unverifiable.append(rec)
     return {"scope": "workbook", "invoices_checked": len(results), "not_found_in_workbook": missing,
             "shingles_tested": sum(r["shingles_tested"] for r in results),
-            "failures": failures, "results": results,
-            "VERDICT": "PASS" if not failures and not missing else "FAIL"}
+            "failures": failures, "unverifiable": unverifiable, "results": results,
+            "VERDICT": "FAIL" if failures or missing else ("UNVERIFIABLE" if unverifiable else "PASS")}
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -172,13 +203,19 @@ def main(argv: list[str] | None = None) -> int:
     out = {"corpus": check_corpus(corpus, pages, a.per_vendor)}
     if a.workbook:
         out["workbook"] = check_workbook(corpus, a.workbook, prefixes)
-    out["VERDICT"] = "PASS" if all(v["VERDICT"] == "PASS" for v in out.values() if isinstance(v, dict)) else "FAIL"
+    vs = [v["VERDICT"] for v in out.values() if isinstance(v, dict)]
+    out["VERDICT"] = "FAIL" if "FAIL" in vs else ("UNVERIFIABLE" if "UNVERIFIABLE" in vs else "PASS")
 
     for scope, res in out.items():
         if not isinstance(res, dict):
             continue
-        print("%s: %d shingles tested, %d document(s) failing -> %s"
-              % (scope, res["shingles_tested"], len(res["failures"]), res["VERDICT"]))
+        print("%s: %d shingles tested, %d document(s) failing, %d unverifiable -> %s"
+              % (scope, res["shingles_tested"], len(res["failures"]),
+                 len(res.get("unverifiable") or []), res["VERDICT"]))
+        if res.get("unverifiable"):
+            print("  UNVERIFIABLE: %d document(s) retain no page text, so the only haystack is the captured"
+                  % len(res["unverifiable"]))
+            print("  text itself and the test cannot fail. Supply the binder's page text with --pages.")
         for f in res["failures"][:5]:
             print("  FAIL %s: %d of %d shingles are not on the page, first %r"
                   % (f.get("doc_ref") or f.get("invoice"), f["shingles_missed"], f["shingles_tested"],
@@ -187,7 +224,7 @@ def main(argv: list[str] | None = None) -> int:
             print("  not in the workbook: %s" % res["not_found_in_workbook"][:6])
     if a.out:
         json.dump(out, open(a.out, "w"), indent=1)
-    return 0 if out["VERDICT"] == "PASS" else 1
+    return 0 if out["VERDICT"] == "PASS" else 1  # UNVERIFIABLE is not a pass
 
 
 if __name__ == "__main__":

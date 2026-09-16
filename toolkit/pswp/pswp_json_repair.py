@@ -30,6 +30,19 @@ FAMILIES
       several physical rows, the rate and amount printing on the first row and the
       quantity on the second. Typed NARRATIVE by the extractor, so the amounts are lost
   F13 evidence stems: 40 characters, the amount is NEVER trimmed, unique across the batch
+  F14 the 4.5 residue on a document the extractor did not parse at all: where a document has
+      NO priced line and a non-zero printed subtotal (the P1 shape), a NARRATIVE row whose
+      last money token starts inside the item table's own `amount` band is that row's amount,
+      and the row is retyped PRICED. Scoped to the P1 shape on purpose: it cannot touch a
+      document that already carries priced lines, so it can never move a tie that holds
+  F16 a ZERO-amount row inside the item table typed NARRATIVE. Section 4.4 asserts
+      PRICED iff an amount is present, and $0.00 is an amount that is present, so the
+      row is P2 as it stands. Retyping it moves no value by construction, which is why
+      the family is scoped to zero: it can never turn a tie into an OUT or back
+  F15 repeated copy inside ONE page_range: a binder that prints the same invoice twice in a
+      row, where the extractor emitted one document over both copies and counted the amounts
+      twice. The second half is retyped DUPLICATE_COPY and recorded in duplicate_copy_pages,
+      the treatment binder11111 already carries. Declines where either is already marked
 
 GATE
   RED   any unresolved P1 to P9
@@ -326,6 +339,151 @@ def f12_wrapped(doc: dict, out: GateResult) -> None:
 # ----------------------------------------------------------------------------------
 
 
+# ----------------------------------------------------------------------------------
+# F14 the 4.5 residue on an unparsed document (the P1 shape)
+# ----------------------------------------------------------------------------------
+
+# The header word marks where its column starts; a right-aligned figure can begin a little
+# before it. Six characters is the slack the Play Force and Savco layouts need and is far
+# narrower than the gap to the next band left, so it cannot pull in a unit price.
+AMOUNT_BAND_SLACK = 6
+
+
+def _item_table_bounds(doc: dict):
+    """(page, header_row, first_totals_row) for the item table.
+
+    `line_no` restarts on every page, so a document whose second page is a payment advice
+    carries low line numbers again there. Bounding a row by min() across the whole document
+    therefore excludes the item table itself. Both bounds are taken on the item table's OWN
+    page, and a row is only considered when it sits on that page."""
+    page = header = None
+    for th in doc.get("table_headers") or []:
+        if th and th.get("row"):
+            page, header = th.get("page"), th["row"]
+            break
+    if header is None:
+        return None, None, None
+    totals = [l.get("line_no") or 0 for l in doc.get("lines", [])
+              if l.get("line_type") == "TOTALS" and l.get("page") == page and (l.get("line_no") or 0) > header]
+    return page, header, (min(totals) if totals else None)
+
+
+def _in_item_table(l: dict, page, header, first_total) -> bool:
+    if page is not None and l.get("page") != page:
+        return False
+    n = l.get("line_no") or 0
+    if header and n <= header:
+        return False
+    if first_total and n >= first_total:
+        return False
+    return True
+
+
+def _amount_band(doc: dict) -> int | None:
+    for th in doc.get("table_headers") or []:
+        b = (th or {}).get("bands") or {}
+        if is_number(b.get("amount")):
+            return int(b["amount"])
+    return None
+
+
+def f14_residue(doc: dict, out: GateResult) -> None:
+    """Retype the item row on a document the extractor left with no priced line at all.
+
+    This restates, it does not infer: the band offsets come from the document's own printed
+    header row, and the amount is the token already sitting in that band on that row. Where
+    the band is absent the family declines, because then there is nothing to read the column
+    off and P11 is the answer, not a guess."""
+    sub = doc.get("printed_subtotal_ex_gst")
+    if priced(doc) or doc.get("duplicate_of") or sub is None or D(sub) == 0:
+        return
+    band = _amount_band(doc)
+    if band is None:
+        return
+    page, header_row, first_total = _item_table_bounds(doc)
+    for l in doc.get("lines", []):
+        if l.get("line_type") != "NARRATIVE" or not _in_item_table(l, page, header_row, first_total):
+            continue
+        toks = list(MONEY_TOKEN.finditer(l.get("line_text") or ""))
+        if len(toks) < 2 or toks[-1].start() < band - AMOUNT_BAND_SLACK:
+            continue
+        l["line_type"] = "PRICED"
+        l["line_ex_gst"] = f2(toks[-1].group().replace("$", "").replace(",", ""))
+        out.repairs.append(
+            Repair("F14", doc.get("doc_ref", "?"), "row %s carried its amount in the item table's amount band and was typed NARRATIVE; retyped PRICED" % l.get("line_no"), D(l["line_ex_gst"]))
+        )
+
+
+# ----------------------------------------------------------------------------------
+# F16 zero-amount row inside the item table
+# ----------------------------------------------------------------------------------
+
+
+def f16_zero_row(doc: dict, out: GateResult) -> None:
+    """Retype a $0.00 row sitting inside the item table from NARRATIVE to PRICED.
+
+    Heritage prints a `1   0.00` row above each priced crew row, carrying the site and
+    scope block. It is an amount-bearing row typed NARRATIVE, so assess() raises P2 and the
+    corpus is RED, on a document that ties to the cent. The amount is zero, so the 4.4
+    invariant is satisfied by typing it PRICED and nothing else changes: captured() sums the
+    priced rows and this one adds nothing. The family declines any non-zero amount, which is
+    F14's territory and a real arithmetic question rather than a typing one."""
+    band = _amount_band(doc)
+    if band is None or doc.get("duplicate_of"):
+        return
+    page, header_row, first_total = _item_table_bounds(doc)
+    for l in doc.get("lines", []):
+        if l.get("line_type") != "NARRATIVE" or not _in_item_table(l, page, header_row, first_total):
+            continue
+        toks = list(MONEY_TOKEN.finditer(l.get("line_text") or ""))
+        if not toks or toks[-1].start() < band - AMOUNT_BAND_SLACK:
+            continue
+        if D(toks[-1].group().replace("$", "").replace(",", "")) != 0:
+            continue
+        l["line_type"] = "PRICED"
+        l["line_ex_gst"] = f2("0")
+        out.repairs.append(
+            Repair("F16", doc.get("doc_ref", "?"), "row %s is a $0.00 row inside the item table typed NARRATIVE; retyped PRICED (4.4), which moves no value" % l.get("line_no"), Decimal("0"))
+        )
+
+
+# ----------------------------------------------------------------------------------
+# F15 repeated copy inside one page_range
+# ----------------------------------------------------------------------------------
+
+
+def _page_rows(doc: dict, lo: int, hi: int) -> list[str]:
+    return [(l.get("line_text") or "").rstrip() for l in doc.get("lines", [])
+            if lo <= (l.get("page") or 0) <= hi]
+
+
+def f15_repeated_copy(doc: dict, out: GateResult) -> None:
+    """A binder that prints one invoice twice, emitted as a single document over both copies.
+
+    Declines where either copy is already marked: binder11111 carries this treatment correctly
+    on 19827 and 19997, and a family that fired there would un-tie two documents that hold."""
+    pr = doc.get("page_range") or []
+    if len(pr) != 2 or doc.get("duplicate_of") or doc.get("duplicate_copy_pages"):
+        return
+    span = pr[1] - pr[0] + 1
+    if span < 2 or span % 2:
+        return
+    n = span // 2
+    if any(l.get("line_type") == "DUPLICATE_COPY" for l in doc.get("lines", [])):
+        return
+    first, second = _page_rows(doc, pr[0], pr[0] + n - 1), _page_rows(doc, pr[0] + n, pr[1])
+    if not first or first != second:
+        return
+    pages = list(range(pr[0] + n, pr[1] + 1))
+    for l in doc.get("lines", []):
+        if (l.get("page") or 0) in pages:
+            l["line_type"] = "DUPLICATE_COPY"
+    doc["duplicate_copy_pages"] = pages
+    out.repairs.append(
+        Repair("F15", doc.get("doc_ref", "?"), "pages %s repeat pages %s verbatim; retyped DUPLICATE_COPY and recorded, so the amounts are counted once" % (pages, list(range(pr[0], pr[0] + n))))
+    )
+
+
 def f9_aggregate(doc: dict, out: GateResult) -> None:
     """One PRICED line carrying the whole subtotal where the page clearly itemises.
 
@@ -532,6 +690,8 @@ def repair_and_gate(corpus: dict, families: str = "all") -> GateResult:
             f12_wrapped(doc, out)
         if run("F10"):
             f10_rate_as_amount(doc, out)
+        if run("F15"):
+            f15_repeated_copy(doc, out)
         if run("F1"):
             f1_headers(doc, out)
         if run("F3"):
@@ -542,6 +702,10 @@ def repair_and_gate(corpus: dict, families: str = "all") -> GateResult:
             f8_credit_notes(doc, out)
         if run("F9"):
             f9_aggregate(doc, out)
+        if run("F14"):
+            f14_residue(doc, out)
+        if run("F16"):
+            f16_zero_row(doc, out)
         retie(doc, out)
     if run("F13"):
         f13_stems(corpus, out)
