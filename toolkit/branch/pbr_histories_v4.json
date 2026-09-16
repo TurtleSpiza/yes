@@ -239,6 +239,78 @@
    "abn": "99292107173",
    "label_basis": "Sighted invoice 6491 (branch v17, Batch attach_4): the face heads \"Elemental Shade Structures\", prints A.B.N.: 99 292 107 173, QBSA #1159300 and the payment account name Elemental Shade Structures, and its footer names the legal entities behind the business name, \"Dice Canvas Pty Ltd ATF The Dice Trust & SSAR Australia Pty Ltd ATF The Mark West Trust\". The printed ABN decides identity (rule 8) and matches the dominant ABN on this APLEDGER record (430 of the 431 invoice rows).",
    "added": "v17"
+  },
+  {
+   "dir": "data/inputs_2026-09-16/creditor_histories",
+   "file": "Ledger_Accounts_Transactions_Table_-_2026-09-16T105237.470.xlsx",
+   "code": "ARB007",
+   "label": "Arborgreen",
+   "abn": "23600197724",
+   "label_basis": "Sighted invoice 209226/01 (TechOne C00298855, supplied 16-Sep-2026): the face heads \"Arborgreen\", prints \"ACW Group Pty Ltd\" and \"ABN 23 600 197 724\" in the letterhead block, carries arborgreen.com.au and receivables@arborgreen.com.au, and makes the cheque payable to \"Arborgreen\". The printed ABN decides identity (rule 8), passes the ATO modulus-89 checksum, and is the dominant ABN on this APLEDGER record. The invoice ties to the register line: Sub Total $967.49, GST $96.75, Total $1,064.24, against reference 209226/01 at $967.49 ex GST on 12-Jun-2026 (Trees, service 20241, PK000055), which the v17 identification queue carries as unidentified.",
+   "added": "v18"
+  },
+  {
+   "dir": "data/inputs_2026-09-16/creditor_histories",
+   "file": "Ledger_Accounts_Transactions_Table_-_2026-09-16T105901.455.xlsx",
+   "code": "BUS017",
+   "label": "Bushcare Services",
+   "abn": "14532577037",
+   "added": "v19",
+   "label_basis": "Sighted invoice 18670 (TechOne C00307989, supplied 16-Sep-2026): the face carries the \"Bushcare Services / Ecological Restorations\" logo, prints ABN 14 532 577 037 under the Bethania address, names the payment account \"Bushcare Services\" and footers www.bushcare.com.au. Contract PAR3342023, cost code PK000079. The printed ABN decides identity (rule 8), passes the ATO modulus-89 checksum, and is the dominant ABN on this APLEDGER record. The label is the one five captured documents already carry for this ABN."
+  },
+  {
+   "dir": "data/inputs_2026-09-16/creditor_histories",
+   "file": "Ledger_Accounts_Transactions_Table_-_2026-09-16T110000.214.xlsx",
+   "code": "AUS221",
+   "label": "Aust Care Environmental Services Pty Ltd",
+   "abn": "53093389407",
+   "added": "v19",
+   "label_basis": "Sighted invoice 26204 (TechOne C00310809, supplied 16-Sep-2026): the letterhead reads \"Aust Care / Environmental Services Pty. Ltd.\", prints ABN 53 093 389 407 and names the direct-deposit account \"Aust Care Environmental Services Pty Ltd\". Sub-total $630.00 ex GST on 31-Jul-2026, which is the line the v18 identification queue carries at row 37 (Natural Areas, service 20661, PK000383). The printed ABN decides identity (rule 8) and passes the ATO modulus-89 checksum. The label is the one three captured documents already carry for this ABN."
+  },
+  {
+   "dir": "data/inputs_2026-09-16/creditor_histories",
+   "file": "Ledger_Accounts_Transactions_Table_-_2026-09-16T110153.998.xlsx",
+   "code": "ACT028",
+   "label": "Activeco",
+   "abn": "36540248138",
+   "added": "v19",
+   "label_basis": "Sighted invoice INV-9729 (TechOne C00313212, supplied 16-Sep-2026): the face carries the \"activeco\" logo and states \"Lilgeco Pty Ltd ATF M Hanns Family Trust Trading As Activeco\", printing ABN 36540248138 and admin@activeco.net.au. $787.50 ex GST, reference PK000079, contract PAR334S2023. The printed ABN decides identity (rule 8) and passes the ATO modulus-89 checksum. NOTE: the invoice prints \"CREDITOR ID: ACT034\" while this APLEDGER export was pulled for Account = ACT028. The ABN, not the creditor id, decides, but the discrepancy is recorded and is an open item."
+  },
+  {
+   "dir": "data/inputs_2026-09-16/creditor_histories",
+   "file": "Ledger_Accounts_Transactions_Table_-_2026-09-16T110123.203.xlsx",
+   "code": "ENV064",
+   "label": "Environmental Management Unit Pty Ltd",
+   "abn": "57679181447",
+   "added": "v19",
+   "label_basis": "Sighted invoice INV-0621 (TechOne C00314626, supplied 16-Sep-2026): the face prints \"Environmental Management Unit Pty Ltd\", ABN 57 679 181 447 and admin@teamemu.com.au. $2,251.20 ex GST on 19-Aug-2026, which is the line the v18 identification queue carries at row 12 (Natural Areas, service 20431, PK000079). The printed ABN decides identity (rule 8) and passes the ATO modulus-89 checksum. The label is the one two captured documents already carry for this ABN."
+  },
+  {
+   "dir": "data/inputs_2026-09-16/creditor_histories",
+   "file": "Ledger_Accounts_Transactions_Table_-_2026-09-16T105819.591.xlsx",
+   "code": "EAR011",
+   "label": "Early Warning Network",
+   "abn": "55122940176",
+   "added": "v19",
+   "label_basis": "Sighted invoice 17080 (TechOne C00318263, supplied 16-Sep-2026): the face prints \"Early Warning Network Pty Ltd\", ABN 55 122 940 176, reference \"Planned Burns August 2026\", purchase order 717263. $300.00 ex GST on 31-Aug-2026, which is the line the v18 identification queue carries at row 57 (Natural Areas, service 20401, PK000068). The printed ABN decides identity (rule 8) and passes the ATO modulus-89 checksum."
+  },
+  {
+   "dir": "data/inputs_2026-09-16/creditor_histories",
+   "file": "Ledger_Accounts_Transactions_Table_-_2026-09-16T110047.783.xlsx",
+   "code": "ALL161",
+   "label": "Bushworx",
+   "abn": "88647718367",
+   "added": "v19",
+   "label_basis": "Sighted invoice INV023930 (TechOne C00320205, supplied 16-Sep-2026): the face carries the \"BUSHWORX / powered by UDL Group\" logo, states the legal entity \"Alldemor Pty Ltd\" with ABN 88647718367 and info@udlgroup.com.au, and names the bank account \"Alldemor Pty Ltd\". $300.00 ex GST, line \"PK000076 | 3142-02 Logan Reserve Bushworx DRS AUG Maintenance Treatment\". The printed ABN decides identity (rule 8) and passes the ATO modulus-89 checksum. The label is the business name printed on the face, the convention ELE013 and ARB007 follow."
+  },
+  {
+   "dir": "data/inputs_2026-09-16/creditor_histories",
+   "file": "Ledger_Accounts_Transactions_Table_-_2026-09-16T113003.482.xlsx",
+   "code": "SUN046",
+   "label": "Sundai Vegetation Management Pty Ltd",
+   "abn": "20144586998",
+   "label_basis": "ABR public register sighted 16-Sep-2026 for ABN 20 144 586 998, the ABN on every one of the 126 invoice lines of this APLEDGER record: entity name SUNDAI VEGETATION MANAGEMENT PTY LTD, ABN active from 01-Jul-2010, registered for GST from 01-Jul-2010, main business location QLD 4060. The ABN passes the ATO modulus-89 checksum. NO INVOICE HAS BEEN SIGHTED for this creditor, so the label rests on the public register read against the ABN on the export, the same basis NUW001, GRE083 and WAT088 carry. The ABR also lists a historic trading name, SUNDAI PROPERTY MAINTENANCE PTY LTD, recorded 01-Jul-2010; the ABR stopped maintaining trading names in May 2012, so it is not used as the label. The record is 126 PUR Cred Invoice rows from 03-Apr-2024 to 11-Aug-2026 with no payment rows, and the Details carry zone mowing (\"25/26 - SP8 Mowing for Zone 8\").",
+   "added": "v20"
   }
  ]
 }

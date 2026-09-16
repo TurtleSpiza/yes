@@ -1,0 +1,572 @@
+{
+ "_readme": [
+  "Re-run of the rule 19.2 verbatim check after pswp_shingle_check.py was fixed on 16-Sep-2026.",
+  "Before the fix the function never read the document's own retained page_text: it used only a",
+  "separate --pages file, and otherwise fell back to the captured line_text, which is the text",
+  "being tested. Every stored verdict in this repository was produced through that fallback, so",
+  "it could not fail. This is the first real run against the retained page text.",
+  "The \" | \" retained line-break marker is treated as the line break it stands for, on both sides."
+ ],
+ "rerun_utc": "2026-09-16T00:52:52Z",
+ "corpus": {
+  "scope": "corpus",
+  "documents_checked": 36,
+  "shingles_tested": 5078,
+  "failures": [
+   {
+    "doc_ref": "1026099/pages1-5",
+    "vendor": "Origin Energy Electricity Limited",
+    "shingles_tested": 1476,
+    "shingles_missed": 147,
+    "source": "page_text",
+    "verdict": "FAIL",
+    "misses": [
+     {
+      "line_no": 88,
+      "shingle": "QLD 4114 ABN: 21627796435 New"
+     },
+     {
+      "line_no": 88,
+      "shingle": "4114 ABN: 21627796435 New charges:"
+     },
+     {
+      "line_no": 88,
+      "shingle": "ABN: 21627796435 New charges: $966.02"
+     },
+     {
+      "line_no": 88,
+      "shingle": "QLD 4114 ABN: 21627796435 Additional"
+     },
+     {
+      "line_no": 88,
+      "shingle": "4114 ABN: 21627796435 Additional charges,"
+     },
+     {
+      "line_no": 88,
+      "shingle": "ABN: 21627796435 Additional charges, credits"
+     },
+     {
+      "line_no": 88,
+      "shingle": "21627796435 Additional charges, credits and"
+     },
+     {
+      "line_no": 88,
+      "shingle": "Additional charges, credits and adjustments:"
+     }
+    ]
+   },
+   {
+    "doc_ref": "1026231/pages6-10",
+    "vendor": "Origin Energy Electricity Limited",
+    "shingles_tested": 1549,
+    "shingles_missed": 164,
+    "source": "page_text",
+    "verdict": "FAIL",
+    "misses": [
+     {
+      "line_no": 88,
+      "shingle": "QLD 4207 ABN: 21627796435 New"
+     },
+     {
+      "line_no": 88,
+      "shingle": "4207 ABN: 21627796435 New charges:"
+     },
+     {
+      "line_no": 88,
+      "shingle": "ABN: 21627796435 New charges: $3,286.40"
+     },
+     {
+      "line_no": 88,
+      "shingle": "QLD 4207 ABN: 21627796435 Additional"
+     },
+     {
+      "line_no": 88,
+      "shingle": "4207 ABN: 21627796435 Additional charges,"
+     },
+     {
+      "line_no": 88,
+      "shingle": "ABN: 21627796435 Additional charges, credits"
+     },
+     {
+      "line_no": 88,
+      "shingle": "21627796435 Additional charges, credits and"
+     },
+     {
+      "line_no": 88,
+      "shingle": "Additional charges, credits and adjustments:"
+     }
+    ]
+   },
+   {
+    "doc_ref": "1026231/pages11-15",
+    "vendor": "Origin Energy Electricity Limited",
+    "shingles_tested": 1549,
+    "shingles_missed": 164,
+    "source": "page_text",
+    "verdict": "FAIL",
+    "misses": [
+     {
+      "line_no": 88,
+      "shingle": "QLD 4207 ABN: 21627796435 New"
+     },
+     {
+      "line_no": 88,
+      "shingle": "4207 ABN: 21627796435 New charges:"
+     },
+     {
+      "line_no": 88,
+      "shingle": "ABN: 21627796435 New charges: $3,286.40"
+     },
+     {
+      "line_no": 88,
+      "shingle": "QLD 4207 ABN: 21627796435 Additional"
+     },
+     {
+      "line_no": 88,
+      "shingle": "4207 ABN: 21627796435 Additional charges,"
+     },
+     {
+      "line_no": 88,
+      "shingle": "ABN: 21627796435 Additional charges, credits"
+     },
+     {
+      "line_no": 88,
+      "shingle": "21627796435 Additional charges, credits and"
+     },
+     {
+      "line_no": 88,
+      "shingle": "Additional charges, credits and adjustments:"
+     }
+    ]
+   }
+  ],
+  "unverifiable": [],
+  "results": [
+   {
+    "doc_ref": "1026099/pages1-5",
+    "vendor": "Origin Energy Electricity Limited",
+    "shingles_tested": 1476,
+    "shingles_missed": 147,
+    "source": "page_text",
+    "verdict": "FAIL",
+    "misses": [
+     {
+      "line_no": 88,
+      "shingle": "QLD 4114 ABN: 21627796435 New"
+     },
+     {
+      "line_no": 88,
+      "shingle": "4114 ABN: 21627796435 New charges:"
+     },
+     {
+      "line_no": 88,
+      "shingle": "ABN: 21627796435 New charges: $966.02"
+     },
+     {
+      "line_no": 88,
+      "shingle": "QLD 4114 ABN: 21627796435 Additional"
+     },
+     {
+      "line_no": 88,
+      "shingle": "4114 ABN: 21627796435 Additional charges,"
+     },
+     {
+      "line_no": 88,
+      "shingle": "ABN: 21627796435 Additional charges, credits"
+     },
+     {
+      "line_no": 88,
+      "shingle": "21627796435 Additional charges, credits and"
+     },
+     {
+      "line_no": 88,
+      "shingle": "Additional charges, credits and adjustments:"
+     }
+    ]
+   },
+   {
+    "doc_ref": "1026231/pages6-10",
+    "vendor": "Origin Energy Electricity Limited",
+    "shingles_tested": 1549,
+    "shingles_missed": 164,
+    "source": "page_text",
+    "verdict": "FAIL",
+    "misses": [
+     {
+      "line_no": 88,
+      "shingle": "QLD 4207 ABN: 21627796435 New"
+     },
+     {
+      "line_no": 88,
+      "shingle": "4207 ABN: 21627796435 New charges:"
+     },
+     {
+      "line_no": 88,
+      "shingle": "ABN: 21627796435 New charges: $3,286.40"
+     },
+     {
+      "line_no": 88,
+      "shingle": "QLD 4207 ABN: 21627796435 Additional"
+     },
+     {
+      "line_no": 88,
+      "shingle": "4207 ABN: 21627796435 Additional charges,"
+     },
+     {
+      "line_no": 88,
+      "shingle": "ABN: 21627796435 Additional charges, credits"
+     },
+     {
+      "line_no": 88,
+      "shingle": "21627796435 Additional charges, credits and"
+     },
+     {
+      "line_no": 88,
+      "shingle": "Additional charges, credits and adjustments:"
+     }
+    ]
+   },
+   {
+    "doc_ref": "1026231/pages11-15",
+    "vendor": "Origin Energy Electricity Limited",
+    "shingles_tested": 1549,
+    "shingles_missed": 164,
+    "source": "page_text",
+    "verdict": "FAIL",
+    "misses": [
+     {
+      "line_no": 88,
+      "shingle": "QLD 4207 ABN: 21627796435 New"
+     },
+     {
+      "line_no": 88,
+      "shingle": "4207 ABN: 21627796435 New charges:"
+     },
+     {
+      "line_no": 88,
+      "shingle": "ABN: 21627796435 New charges: $3,286.40"
+     },
+     {
+      "line_no": 88,
+      "shingle": "QLD 4207 ABN: 21627796435 Additional"
+     },
+     {
+      "line_no": 88,
+      "shingle": "4207 ABN: 21627796435 Additional charges,"
+     },
+     {
+      "line_no": 88,
+      "shingle": "ABN: 21627796435 Additional charges, credits"
+     },
+     {
+      "line_no": 88,
+      "shingle": "21627796435 Additional charges, credits and"
+     },
+     {
+      "line_no": 88,
+      "shingle": "Additional charges, credits and adjustments:"
+     }
+    ]
+   },
+   {
+    "doc_ref": "7558/pages16-17",
+    "vendor": "Sea-Crete (Jeol Pty Ltd)",
+    "shingles_tested": 10,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-5621/pages18-19",
+    "vendor": "Pool Shop QLD Pty Ltd",
+    "shingles_tested": 63,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "15186/pages20-23",
+    "vendor": "Q Power (Qld) Pty Ltd",
+    "shingles_tested": 33,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "7564/pages24-25",
+    "vendor": "Sea-Crete (Jeol Pty Ltd)",
+    "shingles_tested": 2,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "15225/pages26-29",
+    "vendor": "Q Power (Qld) Pty Ltd",
+    "shingles_tested": 34,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-8550/pages30-32",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-0342/pages33-33",
+    "vendor": "The Trustee for Flavell-Dau Family Trust",
+    "shingles_tested": 18,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39437/pages34-34",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 2,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39435/pages35-35",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 4,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-2620/pages36-36",
+    "vendor": "WEIS CONTRACTORS",
+    "shingles_tested": 11,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-8638/pages37-39",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 28,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-8648/pages40-42",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "6276/pages43-43",
+    "vendor": "Elemental Shade Structures (Dice Canvas Pty Ltd ATF The Dice Trust & SSAR Australia Pty Ltd ATF The Mark West Trust)",
+    "shingles_tested": 16,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "158853/pages44-44",
+    "vendor": "Austspray Environmental Weed Control Pty Ltd",
+    "shingles_tested": 25,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-5668/pages45-46",
+    "vendor": "Pool Shop QLD Pty Ltd",
+    "shingles_tested": 22,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "186139862/pages47-47",
+    "vendor": "Higgins Coatings Pty Ltd",
+    "shingles_tested": 2,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "00015349/pages48-50",
+    "vendor": "Harpley Services Pty Ltd",
+    "shingles_tested": 9,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-11834/pages51-51",
+    "vendor": "Coast2Coast Grounds and Gardens",
+    "shingles_tested": 4,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-8739/pages52-54",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 4,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39475/pages55-55",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 4,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-8754/pages56-58",
+    "vendor": "Play Force Australia Pty Ltd",
+    "shingles_tested": 6,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "15253/pages59-62",
+    "vendor": "Q Power (Qld) Pty Ltd",
+    "shingles_tested": 24,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39495/pages63-63",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 6,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "00015285/pages64-66",
+    "vendor": "Harpley Services Pty Ltd",
+    "shingles_tested": 4,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "00015301/pages67-67",
+    "vendor": "Harpley Services Pty Ltd",
+    "shingles_tested": 92,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-11835/pages68-68",
+    "vendor": "Coast2Coast Grounds and Gardens",
+    "shingles_tested": 4,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-2628/pages69-69",
+    "vendor": "WEIS CONTRACTORS",
+    "shingles_tested": 10,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-0367/pages70-70",
+    "vendor": "The Trustee for Flavell-Dau Family Trust",
+    "shingles_tested": 15,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-2632/pages71-71",
+    "vendor": "WEIS CONTRACTORS",
+    "shingles_tested": 10,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-2634/pages72-72",
+    "vendor": "WEIS CONTRACTORS",
+    "shingles_tested": 15,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "7717/pages73-73",
+    "vendor": "Kachel Cleaning",
+    "shingles_tested": 13,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-39542/pages74-74",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 2,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "186140216/pages75-75",
+    "vendor": "Higgins Coatings Pty Ltd",
+    "shingles_tested": 2,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   }
+  ],
+  "VERDICT": "FAIL"
+ },
+ "VERDICT": "FAIL"
+}

@@ -1,0 +1,254 @@
+{
+ "_readme": [
+  "Rule 19.2 verbatim check against page text taken from the supplied binder."
+ ],
+ "binder": {
+  "name": "Heritage.pdf",
+  "md5": "dba3b30377dc4f624c70a1a4f4fee24f"
+ },
+ "corpus": {
+  "scope": "corpus",
+  "documents_checked": 26,
+  "shingles_tested": 311,
+  "failures": [],
+  "unverifiable": [],
+  "results": [
+   {
+    "doc_ref": "INV-46963",
+    "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+    "shingles_tested": 13,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-46967",
+    "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+    "shingles_tested": 13,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-43790",
+    "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+    "shingles_tested": 14,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-47049",
+    "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+    "shingles_tested": 13,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-47215",
+    "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+    "shingles_tested": 13,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-47246",
+    "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+    "shingles_tested": 12,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-47251",
+    "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+    "shingles_tested": 18,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-47252",
+    "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+    "shingles_tested": 18,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-47439",
+    "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+    "shingles_tested": 13,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-47526",
+    "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+    "shingles_tested": 10,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-47553",
+    "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+    "shingles_tested": 15,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-47550",
+    "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+    "shingles_tested": 15,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-47647",
+    "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+    "shingles_tested": 10,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-47707",
+    "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+    "shingles_tested": 7,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-47710",
+    "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+    "shingles_tested": 13,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-47736",
+    "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+    "shingles_tested": 7,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-47805",
+    "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+    "shingles_tested": 7,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-47816",
+    "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+    "shingles_tested": 13,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-48029",
+    "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+    "shingles_tested": 13,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-48113",
+    "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+    "shingles_tested": 16,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-48357",
+    "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+    "shingles_tested": 7,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-48358",
+    "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+    "shingles_tested": 7,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-48365",
+    "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+    "shingles_tested": 16,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-48542",
+    "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+    "shingles_tested": 7,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-48599",
+    "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+    "shingles_tested": 10,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-48601",
+    "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+    "shingles_tested": 11,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   }
+  ],
+  "VERDICT": "PASS"
+ },
+ "VERDICT": "PASS"
+}
