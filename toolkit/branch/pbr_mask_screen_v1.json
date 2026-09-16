@@ -1,0 +1,14 @@
+{
+  "_readme": [
+    "Thresholds for the masked-row screen. Content is data; the mechanic is pbr_mask_screen.py.",
+    "A masked row is a filled rectangle: a long contiguous near-black run repeated over several scanlines.",
+    "min_scanlines is what separates a filled row from a table rule, which is the same width and one or two",
+    "scanlines tall. Tuned against the Glascott binder (97 001 281 572.pdf, md5 007e24fb685834aa109a08eebcc9f1cd),",
+    "where it flags pages 5, 7, 9, 13 and 15 and nothing else, and against trees new.pdf (51 pages, 0 flagged)."
+  ],
+  "dpi": 50,
+  "dark_below": 40,
+  "min_run_fraction": 0.30,
+  "min_scanlines": 4,
+  "overlap_fraction": 0.5
+}
