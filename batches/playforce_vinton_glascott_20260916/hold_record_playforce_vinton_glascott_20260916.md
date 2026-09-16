@@ -1,8 +1,20 @@
 # Hold record: playforce_vinton_glascott_20260916
 
-**Status: HELD. Not built from.** The corpus as received gated RED. It has been restated and now gates
-GREEN, and it is still held, because rule 8 identity is unestablished on 22 of its 61 documents and the
-binder that would settle it was not supplied.
+**Status: VERIFIED except for ONE document. Not yet built from.** The corpus as received gated RED. It
+has been restated, the binders arrived on 16-Sep-2026, and it now gates **GREEN**: 61 of 61 TIE,
+captured **$332,240.69** against printed subtotals of **$332,240.69**.
+
+| Leg | Verdict |
+|---|---|
+| Gate (`pswp_json_repair`) | **GREEN**, no pathologies |
+| Masked-row screen (M1) | Glascott binder screened and restated; Play Force and Vinton parts clean |
+| Verbatim fidelity (rule 19.2) | Outstanding: no page text retained, so still UNVERIFIABLE |
+| Rule 8 identity | **21 of 22** Vinton documents settled by letterhead OCR. **19795 open.** |
+
+**The one open document is 19795.** The binder supplied as `play_force_and_vinton.pdf` is 42 pages, not
+the 124 the corpus manifest names, and 19795 is not in it. Every other Vinton document now carries
+ABN 84 008 552 538 read at 300 and 400 dpi with both reads agreeing character for character, retained in
+`ocr_playforce_vinton_glascott_20260916_v6.json` with zero refusals across 42 pages.
 
 ## 1.0 What was received
 
@@ -73,9 +85,9 @@ carries on 19827 and 19997.
 GREEN. 61 of 61 TIE, none OUT, no pathologies. Captured **$332,240.69** against printed subtotals of
 **$332,240.69**, tying to the cent across the whole batch.
 
-## 5.0 Why it is still held
+## 5.0 Why it WAS held on identity, now settled for 21 of 22
 
-**Rule 8 identity is unestablished on 22 documents.** Every R.S.T. Systems document carries
+**DISCHARGED for 21 documents on 16-Sep-2026.** Previously: rule 8 identity was unestablished on 22. Every R.S.T. Systems document carries
 `supplier_abn: "(not printed)"` and `abn_source: "absent"`.
 
 - This project already holds the supplier: `pbr_histories_v4.json` VIN003, canonical label
@@ -93,9 +105,10 @@ GREEN. 61 of 61 TIE, none OUT, no pathologies. Captured **$332,240.69** against 
 
 ## 6.0 Open items carried forward
 
-1. **Supply `play force and vinton.pdf`** and run
-   `python3 toolkit/branch/ocr_image_letterhead.py playforce_vinton_glascott_20260916 <binder.pdf>`.
-   Until then the batch stays held.
+1. **Supply the pages carrying invoice 19795.** The 42-page `play_force_and_vinton.pdf` supplied on
+   16-Sep-2026 carries 21 of the 22 Vinton references and settled every one of them; 19795 is absent from
+   it, and from the 31-page `plaaaa.pdf` supplied with it. Neither is the 124-page file the manifest
+   names. Until 19795's page arrives, that one document carries no printed ABN and cannot be built from.
    - `vinton new.pdf` (84 pages, md5 `1b12cfee3fc669c389bf874e59f875ec`) was supplied on 16-Sep-2026 and is
      NOT this binder: it is the source for the shipped `vinton_new` batch, whose 42 documents (19402 to 20022)
      share none of the 22 doc_refs held here. It cannot carry an ABN onto these lines. It was screened for
@@ -109,8 +122,9 @@ GREEN. 61 of 61 TIE, none OUT, no pathologies. Captured **$332,240.69** against 
    identity is settled.
 5. **14 documents print no PK, $178,456.83**, three of them the large Glascott invoices (011964 $62,058.77,
    011965 $39,272.75, 012314 $39,409.60).
-6. **The verbatim fidelity check cannot run (rule 19.2).** No document in this corpus retains
-   `page_text`. All 17 batches already in this repository retain it on every document; this corpus and
+6. **The verbatim fidelity check still cannot run (rule 19.2).** No document in this corpus retains
+   `page_text`, and the supplied binders do not cover the page range the corpus was extracted from, so
+   page text cannot be reconstructed for it the way it was for the Savco and Heritage batches. All 17 batches already in this repository retain it on every document; this corpus and
    the two others received on 16-Sep-2026 are the only ones that do not. `pswp_shingle_check.py` returns
    **UNVERIFIABLE** rather than PASS, because with no retained page text the only haystack is the
    captured text itself. Retain the page text when `play force and vinton.pdf` is supplied.

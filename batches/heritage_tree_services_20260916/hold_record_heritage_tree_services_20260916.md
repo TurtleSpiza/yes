@@ -1,8 +1,20 @@
 # Hold record: heritage_tree_services_20260916
 
-**Status: HELD.** The capture report states `Gate: GREEN` and `Pathologies: None`. This project's own
-gate returns **RED** on two P2 pathologies. A supplied GREEN is not a verified GREEN, and the corpus is
-held until it is re-gated clean.
+**Status: VERIFIED. Ready for capture authoring, not yet built from.** The corpus as received gated RED
+on this project's own gate while its capture report claimed GREEN with no pathologies. The two rows are
+now repaired by a named gate family and every leg passes.
+
+| Leg | Verdict |
+|---|---|
+| Gate (`pswp_json_repair`) | **GREEN**, no pathologies, 26 of 26 TIE |
+| Arithmetic | $62,940.19 against $62,940.19 |
+| Masked-row screen (M1) | **CLEAN**, 0 of 52 pages mask rows |
+| Verbatim fidelity (rule 19.2) | **PASS**, 311 shingles against real page text |
+
+The repair is **F16**, added 16-Sep-2026: a $0.00 row sitting inside the item table typed NARRATIVE is
+retyped PRICED, which satisfies the 4.4 invariant and moves no value by construction. It fires 26 times
+here and clears both pathologies. It also fires on `ksadasd` (36 rows) and `savco_new` (16), and on
+neither does any manifest figure change, which is the evidence that it cannot disturb a shipped batch.
 
 ## 1.0 The disagreement
 
@@ -51,9 +63,7 @@ this batch.**
 
 ## 4.0 To release it
 
-1. Retype rows 31 (INV-48542) and 33 (INV-48599) and re-gate to GREEN. This is the only outstanding
-   verification item. It needs no binder and no re-extraction. It is deliberately left undone here: the
-   repair belongs in a named gate family rather than a hand edit to a corpus, and no existing family
-   covers a zero-amount row inside the item table. No shipped corpus carries one, so the family has no
-   precedent to follow and wants a decision rather than an invention.
-2. Then the normal capture pipeline: author notes, build the match table, register the batch, build.
+Verification is complete. What remains is the capture pipeline, and none of it can be mechanised:
+author `notes_heritage_tree_services_20260916_v6.json` (a coding note, verdict and follow-up per invoice,
+rule 18), build the match table against the register, add the batch to `BATCHES` in `pbr_stage.py` and
+its stamp to `pbr_capture.py`, then run `pbr_build.py`.
