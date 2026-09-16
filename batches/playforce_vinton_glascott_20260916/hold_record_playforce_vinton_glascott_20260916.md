@@ -96,6 +96,10 @@ GREEN. 61 of 61 TIE, none OUT, no pathologies. Captured **$332,240.69** against 
 1. **Supply `play force and vinton.pdf`** and run
    `python3 toolkit/branch/ocr_image_letterhead.py playforce_vinton_glascott_20260916 <binder.pdf>`.
    Until then the batch stays held.
+   - `vinton new.pdf` (84 pages, md5 `1b12cfee3fc669c389bf874e59f875ec`) was supplied on 16-Sep-2026 and is
+     NOT this binder: it is the source for the shipped `vinton_new` batch, whose 42 documents (19402 to 20022)
+     share none of the 22 doc_refs held here. It cannot carry an ABN onto these lines. It was screened for
+     masked rows and is clean (`batches/vinton_new/mask_screen_vinton_new.json`).
 2. **The 124 unscreened pages.** `pbr_mask_screen.py` has not seen that binder, so the 50 Play Force and
    Vinton documents carry no M1 verdict either way. Re-run the screen when it arrives.
 3. **Rule 12 overlap.** `INV-7613` and `INV-8009` are already embedded from `playforce_new`. Printed
