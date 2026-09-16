@@ -35,6 +35,9 @@ FAMILIES
       last money token starts inside the item table's own `amount` band is that row's amount,
       and the row is retyped PRICED. Scoped to the P1 shape on purpose: it cannot touch a
       document that already carries priced lines, so it can never move a tie that holds
+  F1 also restates a printed total that does not add up, where the document's own
+      Balance Due / Total row carries subtotal plus GST exactly (prompt v6 5.2). Where it
+      does not, nothing is changed and assess() raises P10
   F16 a ZERO-amount row inside the item table typed NARRATIVE. Section 4.4 asserts
       PRICED iff an amount is present, and $0.00 is an amount that is present, so the
       row is P2 as it stands. Retyping it moves no value by construction, which is why
@@ -45,7 +48,7 @@ FAMILIES
       the treatment binder11111 already carries. Declines where either is already marked
 
 GATE
-  RED   any unresolved P1 to P9
+  RED   any unresolved P1 to P10
   AMBER a declared partial run carrying a resume_point
   GREEN everything ties and every invariant holds
 
@@ -70,6 +73,9 @@ LCC_ABN_DIGITS = "21627796435"
 MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
 MONEY_TOKEN = re.compile(r"(?<![\d.,])-?\$?\d{1,3}(?:,\d{3})*\.\d{2}(?![\d])")
+# The labels a printed grand total sits against. "Subtotal" is deliberately NOT here: reading the
+# total off the subtotal row is the very error this is repairing (prompt v6 5.2).
+TOTAL_LABEL = re.compile(r"\b(balance\s+due|amount\s+due|total\s+due|total\s+inc|total\s+incl|grand\s+total|total)\b", re.I)
 RATE_TOKEN = re.compile(r"\b\d{1,2}(?:\.\d+)?\s*%")
 # F12: a wrapped head sits inside the detail band, carries no quantity token, and ends
 # with exactly two money tokens (the rate band and the amount band).
@@ -182,10 +188,38 @@ def f1_headers(doc: dict, out: GateResult) -> None:
         out.repairs.append(Repair("F1", ref, "GST derived as total less subtotal"))
     s, g, t = doc.get("printed_subtotal_ex_gst"), doc.get("printed_gst"), doc.get("printed_total_incl_gst")
     if None not in (s, g, t) and not ties(D(s) + D(g), t, "0.02"):
-        out.notes.append(
-            "%s: printed subtotal %s plus printed GST %s does not equal the printed total %s. Left as printed."
-            % (ref, fmt(s), fmt(g), fmt(t))
-        )
+        # The header does not add up (P10). Before raising it, look for the figure on the page: a
+        # Balance Due / Amount Due / Total row carrying EXACTLY subtotal plus GST is the printed total,
+        # and taking it is a restatement from the retained text, not an inference. This is the rule F1
+        # already follows for a null total ("never from Subtotal"); the only new part is applying it
+        # when a total was captured but read off the wrong labelled row. Where no such row is retained,
+        # nothing is changed and assess() raises P10.
+        want = D(s) + D(g)
+        for l in doc.get("lines", []):
+            txt = l.get("line_text") or ""
+            if not TOTAL_LABEL.search(txt):
+                continue
+            if any(D(m.group().replace("$", "").replace(",", "")) == want for m in MONEY_TOKEN.finditer(txt)):
+                doc["printed_total_incl_gst"] = f2(want)
+                detail = ("F1_TOTAL_RESTATED: printed total %s did not equal subtotal %s plus GST %s. Restated to %s "
+                          "from the document's own printed row %s on page %s (%r)."
+                          % (fmt(t), fmt(s), fmt(g), fmt(want), l.get("line_no"), l.get("page"),
+                             " ".join(txt.split())[:80]))
+                # A corpus carries findings either as plain strings or as {code, detail} dicts, and the
+                # branch capture joins them into one anomaly cell. Match whatever this document already
+                # uses, or fall back to a string, so a repair never changes the shape of its own corpus.
+                shape = next((type(f_) for f_ in (doc.get("findings") or [])), str)
+                doc.setdefault("findings", []).append(
+                    {"code": "F1_TOTAL_RESTATED", "detail": detail} if shape is dict else detail)
+                out.repairs.append(Repair("F1", ref, "printed total restated to %s from the printed Total/Balance Due row; "
+                                                    "the captured %s was the subtotal read off the wrong labelled row"
+                                          % (fmt(want), fmt(t)), want))
+                break
+        else:
+            out.notes.append(
+                "%s: printed subtotal %s plus printed GST %s does not equal the printed total %s. Left as printed."
+                % (ref, fmt(s), fmt(g), fmt(t))
+            )
 
 
 # ----------------------------------------------------------------------------------
@@ -632,6 +666,21 @@ def assess(corpus: dict) -> list[Pathology]:
             pats.append(Pathology("P4", ref, pr[0], "supplier_abn is the LCC bill-to ABN"))
         if doc.get("printed_total_incl_gst") is None:
             pats.append(Pathology("P5", ref, pr[0], "no printed total captured"))
+        # P10: the header block must add up. Prompt v6 section 5.4 asks the EXTRACTOR for this, which
+        # means it is tested once at extraction and never again: a corpus written before v6, or by a
+        # runtime that skipped it, carries the error into every build unseen. mixed_1 INV-39235 reached
+        # branch v20 that way, its printed total holding the subtotal figure. Testing it here makes it a
+        # standing check over every corpus, old and new. A finding that explains the difference clears it.
+        s_, g_, t_ = doc.get("printed_subtotal_ex_gst"), doc.get("printed_gst"), doc.get("printed_total_incl_gst")
+        if None not in (s_, g_, t_) and not ties(D(s_) + D(g_), t_, "0.02"):
+            def _code(f_):
+                return str(f_.get("code", "")) if isinstance(f_, dict) else str(f_)
+            explained = any(_code(f_).startswith(("F1_TOTAL_RESTATED", "P10_", "GST_", "HEADER_"))
+                            for f_ in (doc.get("findings") or []))
+            if not explained:
+                pats.append(Pathology("P10", ref, pr[0],
+                                      "printed subtotal %s plus printed GST %s does not equal the printed total %s"
+                                      % (fmt(s_), fmt(g_), fmt(t_))))
         pages = {l.get("page") for l in doc.get("lines", [])}
         resume = (corpus.get("manifest", {}).get("resume_point") or {})
         resume_page = resume.get("page", 10 ** 9) if isinstance(resume, dict) else 10 ** 9
