@@ -1,0 +1,159 @@
+{
+ "_readme": [
+  "Masked-row screen over the batch binders (M1). A row filled black on the printed page is not a row",
+  "the document prints, so it is not captured (rule 17). The text sits under the fill and pdftotext",
+  "returns it, which is why this screen renders the page rather than reading the text layer."
+ ],
+ "tool": "toolkit/branch/pbr_mask_screen.py",
+ "policy": {
+  "_readme": [
+   "Thresholds for the masked-row screen. Content is data; the mechanic is pbr_mask_screen.py.",
+   "A masked row is a filled rectangle: a long contiguous near-black run repeated over several scanlines.",
+   "min_scanlines is what separates a filled row from a table rule, which is the same width and one or two",
+   "scanlines tall. Tuned against the Glascott binder (97 001 281 572.pdf, md5 007e24fb685834aa109a08eebcc9f1cd),",
+   "where it flags pages 5, 7, 9, 13 and 15 and nothing else, and against trees new.pdf (51 pages, 0 flagged)."
+  ],
+  "dpi": 50,
+  "dark_below": 40,
+  "min_run_fraction": 0.3,
+  "min_scanlines": 4,
+  "overlap_fraction": 0.5
+ },
+ "binders": [
+  {
+   "name": "97 001 281 572.pdf",
+   "md5": "007e24fb685834aa109a08eebcc9f1cd",
+   "pages_masking_rows": [
+    5,
+    7,
+    9,
+    13,
+    15
+   ],
+   "bands": {
+    "5": [
+     [
+      0.1522,
+      0.5725
+     ],
+     [
+      0.5894,
+      0.6425
+     ]
+    ],
+    "7": [
+     [
+      0.1522,
+      0.5169
+     ],
+     [
+      0.5338,
+      0.5676
+     ]
+    ],
+    "9": [
+     [
+      0.1522,
+      0.372
+     ],
+     [
+      0.3913,
+      0.7174
+     ]
+    ],
+    "13": [
+     [
+      0.1377,
+      0.3744
+     ],
+     [
+      0.3889,
+      0.5676
+     ]
+    ],
+    "15": [
+     [
+      0.372,
+      0.3913
+     ],
+     [
+      0.6836,
+      0.7174
+     ]
+    ]
+   }
+  },
+  {
+   "name": "play force and vinton.pdf",
+   "md5": null,
+   "note": "NOT SUPPLIED to this session, so its 124 pages are unscreened. The 50 Play Force and Vinton documents carry no M1 verdict either way."
+  }
+ ],
+ "documents": [
+  {
+   "doc_ref": "012192",
+   "source_file": "97 001 281 572.pdf",
+   "pages": [
+    5
+   ],
+   "masked_records": 26,
+   "masked_priced": 25,
+   "masked_value": 32477.92,
+   "captured": 32951.44,
+   "printed_subtotal": 473.52,
+   "ties_once_dropped": true
+  },
+  {
+   "doc_ref": "012196",
+   "source_file": "97 001 281 572.pdf",
+   "pages": [
+    7
+   ],
+   "masked_records": 22,
+   "masked_priced": 21,
+   "masked_value": 35866.01,
+   "captured": 36339.53,
+   "printed_subtotal": 473.52,
+   "ties_once_dropped": true
+  },
+  {
+   "doc_ref": "012194",
+   "source_file": "97 001 281 572.pdf",
+   "pages": [
+    9
+   ],
+   "masked_records": 29,
+   "masked_priced": 28,
+   "masked_value": 30167.88,
+   "captured": 31405.54,
+   "printed_subtotal": 1237.66,
+   "ties_once_dropped": true
+  },
+  {
+   "doc_ref": "012199",
+   "source_file": "97 001 281 572.pdf",
+   "pages": [
+    13
+   ],
+   "masked_records": 29,
+   "masked_priced": 28,
+   "masked_value": 25835.98,
+   "captured": 27073.64,
+   "printed_subtotal": 1237.66,
+   "ties_once_dropped": true
+  },
+  {
+   "doc_ref": "012193",
+   "source_file": "97 001 281 572.pdf",
+   "pages": [
+    15
+   ],
+   "masked_records": 2,
+   "masked_priced": 1,
+   "masked_value": 1237.66,
+   "captured": 31405.54,
+   "printed_subtotal": 30167.88,
+   "ties_once_dropped": true
+  }
+ ]
+}
