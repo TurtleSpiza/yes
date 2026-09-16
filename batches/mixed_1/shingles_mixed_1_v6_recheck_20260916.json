@@ -1,0 +1,518 @@
+{
+ "_readme": [
+  "Re-run of the rule 19.2 verbatim check after pswp_shingle_check.py was fixed on 16-Sep-2026.",
+  "Before the fix the function never read the document's own retained page_text: it used only a",
+  "separate --pages file, and otherwise fell back to the captured line_text, which is the text",
+  "being tested. Every stored verdict in this repository was produced through that fallback, so",
+  "it could not fail. This is the first real run against the retained page text.",
+  "The \" | \" retained line-break marker is treated as the line break it stands for, on both sides."
+ ],
+ "rerun_utc": "2026-09-16T00:52:52Z",
+ "corpus": {
+  "scope": "corpus",
+  "documents_checked": 30,
+  "shingles_tested": 1646,
+  "failures": [
+   {
+    "doc_ref": "26230/pages32-33",
+    "vendor": "Aust Care Environmental Services Pty Ltd",
+    "shingles_tested": 33,
+    "shingles_missed": 21,
+    "source": "page_text",
+    "verdict": "FAIL",
+    "misses": [
+     {
+      "line_no": 1,
+      "shingle": "17680 Berrinba Wildlife Corridor 801671"
+     },
+     {
+      "line_no": 1,
+      "shingle": "Berrinba Wildlife Corridor 801671 PK000378"
+     },
+     {
+      "line_no": 1,
+      "shingle": "Wildlife Corridor 801671 PK000378 $4,494.02"
+     },
+     {
+      "line_no": 6,
+      "shingle": "17708 Greenwood Lakes - Paradise"
+     },
+     {
+      "line_no": 6,
+      "shingle": "Greenwood Lakes - Paradise Road"
+     },
+     {
+      "line_no": 6,
+      "shingle": "Lakes - Paradise Road Section"
+     },
+     {
+      "line_no": 6,
+      "shingle": "- Paradise Road Section 801671"
+     },
+     {
+      "line_no": 6,
+      "shingle": "Paradise Road Section 801671 PK000378"
+     }
+    ]
+   },
+   {
+    "doc_ref": "26231/pages34-35",
+    "vendor": "Aust Care Environmental Services Pty Ltd",
+    "shingles_tested": 68,
+    "shingles_missed": 27,
+    "source": "page_text",
+    "verdict": "FAIL",
+    "misses": [
+     {
+      "line_no": 1,
+      "shingle": "17671 Slacks Creek Environmental Park"
+     },
+     {
+      "line_no": 1,
+      "shingle": "Slacks Creek Environmental Park 801672"
+     },
+     {
+      "line_no": 1,
+      "shingle": "Creek Environmental Park 801672 PK000378"
+     },
+     {
+      "line_no": 1,
+      "shingle": "Environmental Park 801672 PK000378 $3,089.64"
+     },
+     {
+      "line_no": 3,
+      "shingle": "17674 Kingston Road Scrubby Creek"
+     },
+     {
+      "line_no": 3,
+      "shingle": "Kingston Road Scrubby Creek Park"
+     },
+     {
+      "line_no": 3,
+      "shingle": "Road Scrubby Creek Park 801672"
+     },
+     {
+      "line_no": 3,
+      "shingle": "Scrubby Creek Park 801672 PK000378"
+     }
+    ]
+   },
+   {
+    "doc_ref": "26302/pages60-61",
+    "vendor": "Aust Care Environmental Services Pty Ltd",
+    "shingles_tested": 76,
+    "shingles_missed": 31,
+    "source": "page_text",
+    "verdict": "FAIL",
+    "misses": [
+     {
+      "line_no": 1,
+      "shingle": "17809 Boronia Bushland Reserve 801671"
+     },
+     {
+      "line_no": 1,
+      "shingle": "Boronia Bushland Reserve 801671 PK000378"
+     },
+     {
+      "line_no": 1,
+      "shingle": "Bushland Reserve 801671 PK000378 $6,460.16"
+     },
+     {
+      "line_no": 7,
+      "shingle": "17884 Berrinba Wetlands Park 801671"
+     },
+     {
+      "line_no": 7,
+      "shingle": "Berrinba Wetlands Park 801671 PK000378"
+     },
+     {
+      "line_no": 7,
+      "shingle": "Wetlands Park 801671 PK000378 $1,168.48"
+     },
+     {
+      "line_no": 10,
+      "shingle": "17896 Waller Road Scrubby Creek"
+     },
+     {
+      "line_no": 10,
+      "shingle": "Waller Road Scrubby Creek 801671"
+     }
+    ]
+   }
+  ],
+  "unverifiable": [],
+  "results": [
+   {
+    "doc_ref": "INV-39235/pages1-2",
+    "vendor": "T & H LEVAI PTY LTD",
+    "shingles_tested": 2,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "3597/pages3-4",
+    "vendor": "Total Environmental Concepts Pty Ltd",
+    "shingles_tested": 39,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "3598/pages5-6",
+    "vendor": "Total Environmental Concepts Pty Ltd",
+    "shingles_tested": 82,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "36220/pages7-7",
+    "vendor": "Treescape Australasia Pty Ltd",
+    "shingles_tested": 3,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "18709/pages8-8",
+    "vendor": "Bushcare Services",
+    "shingles_tested": 5,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "158593/pages9-9",
+    "vendor": "Austspray Environmental Weed Control Pty Ltd",
+    "shingles_tested": 18,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "158591/pages10-10",
+    "vendor": "Austspray Environmental Weed Control Pty Ltd",
+    "shingles_tested": 11,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-0569/pages11-14",
+    "vendor": "Environmental Management Unit Pty Ltd",
+    "shingles_tested": 297,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "18751/pages15-18",
+    "vendor": "Bushcare Services",
+    "shingles_tested": 126,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "18750/pages19-22",
+    "vendor": "Bushcare Services",
+    "shingles_tested": 153,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "158590/pages23-23",
+    "vendor": "Austspray Environmental Weed Control Pty Ltd",
+    "shingles_tested": 11,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "158592/pages24-24",
+    "vendor": "Austspray Environmental Weed Control Pty Ltd",
+    "shingles_tested": 52,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-9360/pages25-27",
+    "vendor": "Lilgeco Pty Ltd ATF M Hanns Family Trust Trading As Activeco",
+    "shingles_tested": 77,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-0110/pages28-29",
+    "vendor": "Guru Dirt Works",
+    "shingles_tested": 19,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-0110/pages30-31",
+    "vendor": "Guru Dirt Works",
+    "shingles_tested": 19,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "26230/pages32-33",
+    "vendor": "Aust Care Environmental Services Pty Ltd",
+    "shingles_tested": 33,
+    "shingles_missed": 21,
+    "source": "page_text",
+    "verdict": "FAIL",
+    "misses": [
+     {
+      "line_no": 1,
+      "shingle": "17680 Berrinba Wildlife Corridor 801671"
+     },
+     {
+      "line_no": 1,
+      "shingle": "Berrinba Wildlife Corridor 801671 PK000378"
+     },
+     {
+      "line_no": 1,
+      "shingle": "Wildlife Corridor 801671 PK000378 $4,494.02"
+     },
+     {
+      "line_no": 6,
+      "shingle": "17708 Greenwood Lakes - Paradise"
+     },
+     {
+      "line_no": 6,
+      "shingle": "Greenwood Lakes - Paradise Road"
+     },
+     {
+      "line_no": 6,
+      "shingle": "Lakes - Paradise Road Section"
+     },
+     {
+      "line_no": 6,
+      "shingle": "- Paradise Road Section 801671"
+     },
+     {
+      "line_no": 6,
+      "shingle": "Paradise Road Section 801671 PK000378"
+     }
+    ]
+   },
+   {
+    "doc_ref": "26231/pages34-35",
+    "vendor": "Aust Care Environmental Services Pty Ltd",
+    "shingles_tested": 68,
+    "shingles_missed": 27,
+    "source": "page_text",
+    "verdict": "FAIL",
+    "misses": [
+     {
+      "line_no": 1,
+      "shingle": "17671 Slacks Creek Environmental Park"
+     },
+     {
+      "line_no": 1,
+      "shingle": "Slacks Creek Environmental Park 801672"
+     },
+     {
+      "line_no": 1,
+      "shingle": "Creek Environmental Park 801672 PK000378"
+     },
+     {
+      "line_no": 1,
+      "shingle": "Environmental Park 801672 PK000378 $3,089.64"
+     },
+     {
+      "line_no": 3,
+      "shingle": "17674 Kingston Road Scrubby Creek"
+     },
+     {
+      "line_no": 3,
+      "shingle": "Kingston Road Scrubby Creek Park"
+     },
+     {
+      "line_no": 3,
+      "shingle": "Road Scrubby Creek Park 801672"
+     },
+     {
+      "line_no": 3,
+      "shingle": "Scrubby Creek Park 801672 PK000378"
+     }
+    ]
+   },
+   {
+    "doc_ref": "158851/pages36-36",
+    "vendor": "Austspray Environmental Weed Control Pty Ltd",
+    "shingles_tested": 11,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-0600/pages37-39",
+    "vendor": "Environmental Management Unit Pty Ltd",
+    "shingles_tested": 148,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-0111/pages40-41",
+    "vendor": "Guru Dirt Works",
+    "shingles_tested": 28,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "158852/pages42-42",
+    "vendor": "Austspray Environmental Weed Control Pty Ltd",
+    "shingles_tested": 11,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "18788/pages43-47",
+    "vendor": "Bushcare Services",
+    "shingles_tested": 166,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "18789/pages48-51",
+    "vendor": "Bushcare Services",
+    "shingles_tested": 118,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "158850/pages52-52",
+    "vendor": "Austspray Environmental Weed Control Pty Ltd",
+    "shingles_tested": 18,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "158853/pages53-53",
+    "vendor": "Austspray Environmental Weed Control Pty Ltd",
+    "shingles_tested": 25,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-0112/pages54-54",
+    "vendor": "Guru Dirt Works",
+    "shingles_tested": 7,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "012191/pages55-56",
+    "vendor": "Glascott Landscape and Civil Pty Limited (letterhead prints \"Technigro ABN 97 001 281 572\")",
+    "shingles_tested": 4,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "012197/pages57-58",
+    "vendor": "Glascott Landscape and Civil Pty Limited (letterhead prints \"Technigro ABN 97 001 281 572\")",
+    "shingles_tested": 4,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "INV-0115/pages59-59",
+    "vendor": "Guru Dirt Works",
+    "shingles_tested": 15,
+    "shingles_missed": 0,
+    "source": "page_text",
+    "verdict": "PASS",
+    "misses": []
+   },
+   {
+    "doc_ref": "26302/pages60-61",
+    "vendor": "Aust Care Environmental Services Pty Ltd",
+    "shingles_tested": 76,
+    "shingles_missed": 31,
+    "source": "page_text",
+    "verdict": "FAIL",
+    "misses": [
+     {
+      "line_no": 1,
+      "shingle": "17809 Boronia Bushland Reserve 801671"
+     },
+     {
+      "line_no": 1,
+      "shingle": "Boronia Bushland Reserve 801671 PK000378"
+     },
+     {
+      "line_no": 1,
+      "shingle": "Bushland Reserve 801671 PK000378 $6,460.16"
+     },
+     {
+      "line_no": 7,
+      "shingle": "17884 Berrinba Wetlands Park 801671"
+     },
+     {
+      "line_no": 7,
+      "shingle": "Berrinba Wetlands Park 801671 PK000378"
+     },
+     {
+      "line_no": 7,
+      "shingle": "Wetlands Park 801671 PK000378 $1,168.48"
+     },
+     {
+      "line_no": 10,
+      "shingle": "17896 Waller Road Scrubby Creek"
+     },
+     {
+      "line_no": 10,
+      "shingle": "Waller Road Scrubby Creek 801671"
+     }
+    ]
+   }
+  ],
+  "VERDICT": "FAIL"
+ },
+ "VERDICT": "FAIL"
+}

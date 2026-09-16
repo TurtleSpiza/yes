@@ -109,6 +109,11 @@ GREEN. 61 of 61 TIE, none OUT, no pathologies. Captured **$332,240.69** against 
    identity is settled.
 5. **14 documents print no PK, $178,456.83**, three of them the large Glascott invoices (011964 $62,058.77,
    011965 $39,272.75, 012314 $39,409.60).
-6. **Masked row text is retained in this repository.** The rows are Council's own park maintenance billing
+6. **The verbatim fidelity check cannot run (rule 19.2).** No document in this corpus retains
+   `page_text`. All 17 batches already in this repository retain it on every document; this corpus and
+   the two others received on 16-Sep-2026 are the only ones that do not. `pswp_shingle_check.py` returns
+   **UNVERIFIABLE** rather than PASS, because with no retained page text the only haystack is the
+   captured text itself. Retain the page text when `play force and vinton.pdf` is supplied.
+7. **Masked row text is retained in this repository.** The rows are Council's own park maintenance billing
    detail from other invoices in the same binder, retained so the restatement can be audited. If that
    retention is not wanted, drop the flagged rows from the corpus and re-gate.
