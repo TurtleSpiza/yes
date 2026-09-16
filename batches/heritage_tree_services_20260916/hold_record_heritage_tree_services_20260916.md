@@ -36,15 +36,24 @@ stood before those families raises exactly the same two.
 - **No overlap** with any of the 17 batches already in this repository, so no rule 12 question arises.
 - 26 documents over 52 pages, one invoice plus one payment advice each.
 
-## 3.0 Also held on the same ground as the other 16-Sep-2026 batches
+## 3.0 The other two legs, discharged 16-Sep-2026
 
-**No document retains `page_text`**, so `pswp_shingle_check.py` returns **UNVERIFIABLE**: the only
-haystack is the captured text itself and the test cannot fail. The binder `Heritage.pdf` (52 pages) was
-not supplied, so neither the verbatim fidelity check nor `pbr_mask_screen.py` can be run.
+The binder arrived. `Heritage.pdf`, 52 pages, md5 `dba3b30377dc4f624c70a1a4f4fee24f`.
+
+| Leg | Verdict |
+|---|---|
+| Masked-row screen (M1) | **CLEAN**, 0 of 52 pages mask rows |
+| Verbatim fidelity (rule 19.2) | **PASS**, 311 shingles against real page text |
+
+Page text is now retained on every document in `corpus_heritage_tree_services_20260916_v6.json`, so the
+verbatim check is reproducible rather than circular. **The two P2 rows are the only thing still holding
+this batch.**
 
 ## 4.0 To release it
 
-1. Retype rows 31 (INV-48542) and 33 (INV-48599) and re-gate to GREEN.
-2. Supply `Heritage.pdf`, screen it for masked rows, retain the page text and re-run the shingle check
-   until it returns PASS.
-3. Then the normal capture pipeline.
+1. Retype rows 31 (INV-48542) and 33 (INV-48599) and re-gate to GREEN. This is the only outstanding
+   verification item. It needs no binder and no re-extraction. It is deliberately left undone here: the
+   repair belongs in a named gate family rather than a hand edit to a corpus, and no existing family
+   covers a zero-amount row inside the item table. No shipped corpus carries one, so the family has no
+   precedent to follow and wants a decision rather than an invention.
+2. Then the normal capture pipeline: author notes, build the match table, register the batch, build.

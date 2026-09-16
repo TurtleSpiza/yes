@@ -1,307 +1,25 @@
 {
+ "_readme": [
+  "Rule 19.2 verbatim check against page text taken from the supplied binder."
+ ],
+ "binder": {
+  "name": "SAVCO VEGETATION SERVICES PTY LTD.pdf",
+  "md5": "e89ea8140501295a6c61f9e3c01af499"
+ },
  "corpus": {
   "scope": "corpus",
   "documents_checked": 32,
   "shingles_tested": 663,
   "failures": [],
-  "unverifiable": [
-   {
-    "doc_ref": "SV007809",
-    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
-    "shingles_tested": 35,
-    "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
-    "misses": []
-   },
-   {
-    "doc_ref": "SV007825",
-    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
-    "shingles_tested": 25,
-    "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
-    "misses": []
-   },
-   {
-    "doc_ref": "SV007826",
-    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
-    "shingles_tested": 25,
-    "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
-    "misses": []
-   },
-   {
-    "doc_ref": "SV007829",
-    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
-    "shingles_tested": 16,
-    "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
-    "misses": []
-   },
-   {
-    "doc_ref": "SV007832",
-    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
-    "shingles_tested": 36,
-    "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
-    "misses": []
-   },
-   {
-    "doc_ref": "SV007861",
-    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
-    "shingles_tested": 16,
-    "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
-    "misses": []
-   },
-   {
-    "doc_ref": "SV007864",
-    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
-    "shingles_tested": 8,
-    "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
-    "misses": []
-   },
-   {
-    "doc_ref": "SV007875",
-    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
-    "shingles_tested": 24,
-    "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
-    "misses": []
-   },
-   {
-    "doc_ref": "SV007876",
-    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
-    "shingles_tested": 17,
-    "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
-    "misses": []
-   },
-   {
-    "doc_ref": "SV007915",
-    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
-    "shingles_tested": 17,
-    "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
-    "misses": []
-   },
-   {
-    "doc_ref": "SV007921",
-    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
-    "shingles_tested": 24,
-    "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
-    "misses": []
-   },
-   {
-    "doc_ref": "SV007923",
-    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
-    "shingles_tested": 24,
-    "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
-    "misses": []
-   },
-   {
-    "doc_ref": "SV007928",
-    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
-    "shingles_tested": 36,
-    "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
-    "misses": []
-   },
-   {
-    "doc_ref": "SV007935",
-    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
-    "shingles_tested": 23,
-    "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
-    "misses": []
-   },
-   {
-    "doc_ref": "SV007946",
-    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
-    "shingles_tested": 8,
-    "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
-    "misses": []
-   },
-   {
-    "doc_ref": "SV007956",
-    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
-    "shingles_tested": 24,
-    "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
-    "misses": []
-   },
-   {
-    "doc_ref": "SV007958",
-    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
-    "shingles_tested": 24,
-    "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
-    "misses": []
-   },
-   {
-    "doc_ref": "SV007959",
-    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
-    "shingles_tested": 15,
-    "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
-    "misses": []
-   },
-   {
-    "doc_ref": "SV007964",
-    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
-    "shingles_tested": 24,
-    "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
-    "misses": []
-   },
-   {
-    "doc_ref": "SV008004",
-    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
-    "shingles_tested": 24,
-    "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
-    "misses": []
-   },
-   {
-    "doc_ref": "SV008005",
-    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
-    "shingles_tested": 34,
-    "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
-    "misses": []
-   },
-   {
-    "doc_ref": "SV008024",
-    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
-    "shingles_tested": 15,
-    "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
-    "misses": []
-   },
-   {
-    "doc_ref": "SV008033",
-    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
-    "shingles_tested": 8,
-    "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
-    "misses": []
-   },
-   {
-    "doc_ref": "SV008044",
-    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
-    "shingles_tested": 17,
-    "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
-    "misses": []
-   },
-   {
-    "doc_ref": "SV008046",
-    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
-    "shingles_tested": 15,
-    "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
-    "misses": []
-   },
-   {
-    "doc_ref": "SV008049",
-    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
-    "shingles_tested": 24,
-    "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
-    "misses": []
-   },
-   {
-    "doc_ref": "SV008057",
-    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
-    "shingles_tested": 15,
-    "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
-    "misses": []
-   },
-   {
-    "doc_ref": "SV008065",
-    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
-    "shingles_tested": 24,
-    "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
-    "misses": []
-   },
-   {
-    "doc_ref": "SV008067",
-    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
-    "shingles_tested": 24,
-    "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
-    "misses": []
-   },
-   {
-    "doc_ref": "SV008091",
-    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
-    "shingles_tested": 8,
-    "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
-    "misses": []
-   },
-   {
-    "doc_ref": "SV008092",
-    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
-    "shingles_tested": 15,
-    "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
-    "misses": []
-   },
-   {
-    "doc_ref": "SV008095",
-    "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
-    "shingles_tested": 19,
-    "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
-    "misses": []
-   }
-  ],
+  "unverifiable": [],
   "results": [
    {
     "doc_ref": "SV007809",
     "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
     "shingles_tested": 35,
     "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
+    "source": "page_text",
+    "verdict": "PASS",
     "misses": []
    },
    {
@@ -309,8 +27,8 @@
     "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
     "shingles_tested": 25,
     "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
+    "source": "page_text",
+    "verdict": "PASS",
     "misses": []
    },
    {
@@ -318,8 +36,8 @@
     "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
     "shingles_tested": 25,
     "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
+    "source": "page_text",
+    "verdict": "PASS",
     "misses": []
    },
    {
@@ -327,8 +45,8 @@
     "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
     "shingles_tested": 16,
     "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
+    "source": "page_text",
+    "verdict": "PASS",
     "misses": []
    },
    {
@@ -336,8 +54,8 @@
     "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
     "shingles_tested": 36,
     "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
+    "source": "page_text",
+    "verdict": "PASS",
     "misses": []
    },
    {
@@ -345,8 +63,8 @@
     "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
     "shingles_tested": 16,
     "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
+    "source": "page_text",
+    "verdict": "PASS",
     "misses": []
    },
    {
@@ -354,8 +72,8 @@
     "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
     "shingles_tested": 8,
     "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
+    "source": "page_text",
+    "verdict": "PASS",
     "misses": []
    },
    {
@@ -363,8 +81,8 @@
     "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
     "shingles_tested": 24,
     "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
+    "source": "page_text",
+    "verdict": "PASS",
     "misses": []
    },
    {
@@ -372,8 +90,8 @@
     "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
     "shingles_tested": 17,
     "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
+    "source": "page_text",
+    "verdict": "PASS",
     "misses": []
    },
    {
@@ -381,8 +99,8 @@
     "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
     "shingles_tested": 17,
     "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
+    "source": "page_text",
+    "verdict": "PASS",
     "misses": []
    },
    {
@@ -390,8 +108,8 @@
     "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
     "shingles_tested": 24,
     "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
+    "source": "page_text",
+    "verdict": "PASS",
     "misses": []
    },
    {
@@ -399,8 +117,8 @@
     "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
     "shingles_tested": 24,
     "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
+    "source": "page_text",
+    "verdict": "PASS",
     "misses": []
    },
    {
@@ -408,8 +126,8 @@
     "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
     "shingles_tested": 36,
     "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
+    "source": "page_text",
+    "verdict": "PASS",
     "misses": []
    },
    {
@@ -417,8 +135,8 @@
     "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
     "shingles_tested": 23,
     "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
+    "source": "page_text",
+    "verdict": "PASS",
     "misses": []
    },
    {
@@ -426,8 +144,8 @@
     "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
     "shingles_tested": 8,
     "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
+    "source": "page_text",
+    "verdict": "PASS",
     "misses": []
    },
    {
@@ -435,8 +153,8 @@
     "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
     "shingles_tested": 24,
     "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
+    "source": "page_text",
+    "verdict": "PASS",
     "misses": []
    },
    {
@@ -444,8 +162,8 @@
     "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
     "shingles_tested": 24,
     "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
+    "source": "page_text",
+    "verdict": "PASS",
     "misses": []
    },
    {
@@ -453,8 +171,8 @@
     "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
     "shingles_tested": 15,
     "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
+    "source": "page_text",
+    "verdict": "PASS",
     "misses": []
    },
    {
@@ -462,8 +180,8 @@
     "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
     "shingles_tested": 24,
     "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
+    "source": "page_text",
+    "verdict": "PASS",
     "misses": []
    },
    {
@@ -471,8 +189,8 @@
     "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
     "shingles_tested": 24,
     "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
+    "source": "page_text",
+    "verdict": "PASS",
     "misses": []
    },
    {
@@ -480,8 +198,8 @@
     "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
     "shingles_tested": 34,
     "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
+    "source": "page_text",
+    "verdict": "PASS",
     "misses": []
    },
    {
@@ -489,8 +207,8 @@
     "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
     "shingles_tested": 15,
     "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
+    "source": "page_text",
+    "verdict": "PASS",
     "misses": []
    },
    {
@@ -498,8 +216,8 @@
     "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
     "shingles_tested": 8,
     "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
+    "source": "page_text",
+    "verdict": "PASS",
     "misses": []
    },
    {
@@ -507,8 +225,8 @@
     "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
     "shingles_tested": 17,
     "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
+    "source": "page_text",
+    "verdict": "PASS",
     "misses": []
    },
    {
@@ -516,8 +234,8 @@
     "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
     "shingles_tested": 15,
     "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
+    "source": "page_text",
+    "verdict": "PASS",
     "misses": []
    },
    {
@@ -525,8 +243,8 @@
     "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
     "shingles_tested": 24,
     "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
+    "source": "page_text",
+    "verdict": "PASS",
     "misses": []
    },
    {
@@ -534,8 +252,8 @@
     "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
     "shingles_tested": 15,
     "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
+    "source": "page_text",
+    "verdict": "PASS",
     "misses": []
    },
    {
@@ -543,8 +261,8 @@
     "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
     "shingles_tested": 24,
     "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
+    "source": "page_text",
+    "verdict": "PASS",
     "misses": []
    },
    {
@@ -552,8 +270,8 @@
     "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
     "shingles_tested": 24,
     "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
+    "source": "page_text",
+    "verdict": "PASS",
     "misses": []
    },
    {
@@ -561,8 +279,8 @@
     "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
     "shingles_tested": 8,
     "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
+    "source": "page_text",
+    "verdict": "PASS",
     "misses": []
    },
    {
@@ -570,8 +288,8 @@
     "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
     "shingles_tested": 15,
     "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
+    "source": "page_text",
+    "verdict": "PASS",
     "misses": []
    },
    {
@@ -579,12 +297,12 @@
     "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
     "shingles_tested": 19,
     "shingles_missed": 0,
-    "source": "line_text",
-    "verdict": "UNVERIFIABLE",
+    "source": "page_text",
+    "verdict": "PASS",
     "misses": []
    }
   ],
-  "VERDICT": "UNVERIFIABLE"
+  "VERDICT": "PASS"
  },
- "VERDICT": "UNVERIFIABLE"
+ "VERDICT": "PASS"
 }
