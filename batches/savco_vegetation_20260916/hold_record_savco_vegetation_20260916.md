@@ -1,8 +1,19 @@
 # Hold record: savco_vegetation_20260916
 
-**Status: HELD pending the binder.** Nothing is known to be wrong with this corpus. It gates GREEN on
-this project's own gate and its arithmetic is exact. It is held because two of the three verification
-legs cannot be run at all without `SAVCO VEGETATION SERVICES PTY LTD.pdf`, which was not supplied.
+**Status: VERIFIED. Ready for capture authoring, not yet built from.** The binder arrived on
+16-Sep-2026 and both outstanding legs now pass. Nothing about this corpus is in doubt. What remains is
+authoring work (rule 18 notes and a match table), not verification.
+
+| Leg | Verdict |
+|---|---|
+| Gate (`pswp_json_repair`) | **GREEN**, no pathologies |
+| Arithmetic | 32 of 32 TIE, $44,373.97 against $44,373.97 |
+| Masked-row screen (M1) | **CLEAN**, 0 of 32 pages mask rows |
+| Verbatim fidelity (rule 19.2) | **PASS**, 663 shingles against real page text |
+
+Binder `SAVCO VEGETATION SERVICES PTY LTD.pdf`, 32 pages, md5 `e89ea8140501295a6c61f9e3c01af499`.
+Page text is now retained on every document in `corpus_savco_vegetation_20260916_v6.json`, so the
+verbatim check is reproducible rather than circular.
 
 ## 1.0 What was verified, and it passes
 
@@ -22,9 +33,9 @@ legs cannot be run at all without `SAVCO VEGETATION SERVICES PTY LTD.pdf`, which
 - **Coverage.** All 32 carry a PK (PK000477 x22, PK000482 x8, PK000325 x2), a work order and contract
   `PAR/329/2021`. No fuel levy line is printed on any of them.
 
-## 2.0 Why it is held
+## 2.0 Why it WAS held, now discharged
 
-**2.1 The verbatim fidelity check cannot run (rule 19.2).** No document retains `page_text`. All 17
+**2.1 DISCHARGED. The verbatim fidelity check now runs and passes.** Previously: No document retains `page_text`. All 17
 batches already in this repository retain it on every document; this corpus and the two others received
 on 16-Sep-2026 are the only ones that do not. Run against it, `pswp_shingle_check.py` returns
 **UNVERIFIABLE**, not PASS: with no retained page text the only haystack is the captured text itself, so
@@ -32,19 +43,17 @@ the test asks whether the text equals itself and cannot fail. That is the one fa
 exists to catch, and it is invisible in the arithmetic, because a corpus can tie to the cent on every
 invoice and still carry a description the page never printed.
 
-**2.2 The masked-row screen cannot run.** `pbr_mask_screen.py` needs the binder. The risk is materially
+**2.2 DISCHARGED. The screen ran and the binder is clean.** Previously: `pbr_mask_screen.py` needs the binder. The risk is materially
 contained here, because a document that ties to its printed subtotal cannot be over-capturing masked
 rows, and all 32 tie. It is not eliminated, and the standing rule asks for the screen before capture.
 
-## 3.0 To release it
+## 3.0 What remains
 
-1. Supply `SAVCO VEGETATION SERVICES PTY LTD.pdf` (32 pages).
-2. `python3 toolkit/branch/pbr_mask_screen.py --corpus <corpus> <binder.pdf>`
-3. Retain the page text and re-run
-   `python3 toolkit/pswp/pswp_shingle_check.py --corpus <corpus> --pages <pages.json> --out shingles_savco_vegetation_20260916.json`
-   until it returns PASS rather than UNVERIFIABLE.
-4. Then the normal capture pipeline: author `notes_..._v6.json`, build the match table, add the batch to
-   `BATCHES` in `pbr_stage.py` and its stamp to `pbr_capture.py`, and run `pbr_build.py`.
+Verification is complete. The capture pipeline is not, and none of it can be mechanised: author
+`notes_savco_vegetation_20260916_v6.json` (a coding note, verdict and follow-up per invoice, rule 18),
+build the match table against the register with `pbr_match_table.py`, add the batch to `BATCHES` in
+`pbr_stage.py` and its stamp to `pbr_capture.py`, then run `pbr_build.py`. Those notes are judgement
+about what each invoice buys and are not mine to invent.
 
 ## 4.0 Open item
 
