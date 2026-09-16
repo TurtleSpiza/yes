@@ -239,6 +239,15 @@
    "abn": "99292107173",
    "label_basis": "Sighted invoice 6491 (branch v17, Batch attach_4): the face heads \"Elemental Shade Structures\", prints A.B.N.: 99 292 107 173, QBSA #1159300 and the payment account name Elemental Shade Structures, and its footer names the legal entities behind the business name, \"Dice Canvas Pty Ltd ATF The Dice Trust & SSAR Australia Pty Ltd ATF The Mark West Trust\". The printed ABN decides identity (rule 8) and matches the dominant ABN on this APLEDGER record (430 of the 431 invoice rows).",
    "added": "v17"
+  },
+  {
+   "dir": "data/inputs_2026-09-16/creditor_histories",
+   "file": "Ledger_Accounts_Transactions_Table_-_2026-09-16T105237.470.xlsx",
+   "code": "ARB007",
+   "label": "Arborgreen",
+   "abn": "23600197724",
+   "label_basis": "Sighted invoice 209226/01 (TechOne C00298855, supplied 16-Sep-2026): the face heads \"Arborgreen\", prints \"ACW Group Pty Ltd\" and \"ABN 23 600 197 724\" in the letterhead block, carries arborgreen.com.au and receivables@arborgreen.com.au, and makes the cheque payable to \"Arborgreen\". The printed ABN decides identity (rule 8), passes the ATO modulus-89 checksum, and is the dominant ABN on this APLEDGER record. The invoice ties to the register line: Sub Total $967.49, GST $96.75, Total $1,064.24, against reference 209226/01 at $967.49 ex GST on 12-Jun-2026 (Trees, service 20241, PK000055), which the v17 identification queue carries as unidentified.",
+   "added": "v18"
   }
  ]
 }
