@@ -1,4 +1,4 @@
-# PSWP Invoice Extraction Prompt v7 (18-Sep-2026)
+# PSWP Invoice Extraction Prompt v7.1 (17-Sep-2026)
 
 Supersedes v6 (11-Sep-2026), which superseded v5, v4 and v3.1. For extraction of supplier-invoice binders to a structured JSON corpus for the PS/WP and Parks Branch Transaction Registers, Logan City Council, Parks Branch.
 
@@ -149,7 +149,8 @@ One order, top to bottom, first match wins. The ladder exists because a totals r
 5. The row is the item table's header or another table's header: `TABLE_HEADER` (4.1). **It is not TOTALS.**
 6. The row carries a numeric money token whose character span **overlaps the amount band** (4.2): `PRICED`. This test is sufficient on its own.
 7. The row is terms, conditions or fine print: `TERMS`. The page footer or letterhead: `FOOTER`. Image-borne text: `IMAGE_TEXT`. An annotation or stamp: `ANNOTATION`. OCR text duplicating a text-layer row: `OCR_DUPLICATE`.
-8. Anything else: `NARRATIVE`.
+8. **NEW v7.1.** The row is a schedule row scoped to a different document by a cost account, PK, invoice number or period printed on the row itself: `ATTACHMENT`, amount kept, excluded from the tie (9, rule 16d). Rung 6 runs first, so a row that belongs to THIS document is PRICED before this rung is reached.
+9. Anything else: `NARRATIVE`.
 
 **One physical row can carry two blocks.** On interleaved layouts the bank block prints to the left of the totals block, so `BSB: 064 194 ... GST (10%) 4,655.00` is one row carrying a payment label and a totals label. The money decides: type it `TOTALS`, and note the interleave. A row carrying a payment label and no money is `PAYMENT_ADVICE`.
 
@@ -200,6 +201,8 @@ Accept variable decimals: `$3,660`, `65.1`, `1,234.00` are all amounts.
 ### 4.4 The invariant that makes this checkable
 
 **`line_type == "PRICED"` if and only if `line_ex_gst` is a number (or `stated_amt` on a GST-inclusive template).** These are not two independent assertions; one determines the other. Assert it both ways before emitting a document. A PRICED line with a null amount, and an amount-bearing line typed NARRATIVE, are each emit-blocking defects.
+
+**NEW v7.1, the one exception, stated so it cannot be read as a loophole.** `ATTACHMENT` also carries an amount (9, rule 16d), so the "only if" direction runs over PRICED **and** ATTACHMENT, and nothing else. Every other type carrying an amount is P2. This does not weaken the test the invariant exists for: a dropped line item is typed NARRATIVE, and NARRATIVE with an amount stays fatal.
 
 ### 4.5 The residue test, which you run on every document
 
@@ -474,7 +477,7 @@ Numbers are JSON numbers: unquoted, no `$`, no thousands separators, two decimal
 {
   "source": "TEXT | OCR | ANNOT", "page": 1, "line_no": 1,
   "line_text": "<verbatim, leading whitespace preserved>",
-  "line_type": "PRICED | NARRATIVE | TABLE_HEADER | TOTALS | FOOTER | TERMS | BLANK | PAYMENT_ADVICE | OCR_DUPLICATE | IMAGE_TEXT | ANNOTATION | DUPLICATE_COPY",
+  "line_type": "PRICED | ATTACHMENT | NARRATIVE | TABLE_HEADER | TOTALS | FOOTER | TERMS | BLANK | PAYMENT_ADVICE | OCR_DUPLICATE | IMAGE_TEXT | ANNOTATION | DUPLICATE_COPY",
   "ocr_only": false, "ocr_status": "run | not_required | not_available | outstanding", "ocr_reason": null,
   "qty": null, "unit": null, "unit_price_ex_gst": null,
   "line_ex_gst": null, "gst": null, "gst_rate_printed": null, "stated_amt": null,
@@ -482,7 +485,11 @@ Numbers are JSON numbers: unquoted, no `$`, no thousands separators, two decimal
 }
 ```
 
-**`line_type` is a CLOSED list.** Those twelve values and nothing else. `Binder11111` emitted 245 rows typed `DUPLICATE`, which is not one of them, so every downstream screen for `DUPLICATE_COPY` missed them. A value outside the list is **P13**.
+**`line_type` is a CLOSED list.** Those thirteen values and nothing else. `Binder11111` emitted 245 rows typed `DUPLICATE`, which is not one of them, so every downstream screen for `DUPLICATE_COPY` missed them. A value outside the list is **P13**.
+
+**NEW v7.1. `ATTACHMENT`, the schedule row (register rule 16d).** A schedule attached to an invoice is not always cut to that invoice. Glascott prints one site schedule across a set of invoices, every row carrying its own cost account, so on invoice 012192 the single `PK000382` row is the line item and the twenty-five `PK000378` rows belong to other invoices in the same set. Those rows print an amount and must not enter the tie. Type them `ATTACHMENT`, keep the printed amount in `line_ex_gst`, and they are excluded from the arithmetic gate and from register rule 17 check 1 by rule 16d.
+
+`ATTACHMENT` is not an escape hatch for a row you could not classify. It is for a row that is **demonstrably scoped to a different document**, by a cost account, PK, invoice number or period printed on the row itself. State the basis in `notes`. A row you merely could not tie is a residue-test failure (4.5), not an attachment.
 
 `band_hits` names which column bands carried a money token on this row, by band key. It is the evidence for the classification and makes a wrong call auditable after the fact. `gst_rate_printed` carries a printed rate or tax code (`10%`, `GST`, `FRE`); `gst` carries a printed GST **amount** and nothing else.
 
@@ -561,7 +568,7 @@ These are not tie failures. They are parse failures, and a corpus containing an 
 | Code | Condition | Why it is fatal |
 |---|---|---|
 | **P1** | `printed_subtotal_ex_gst` non-zero and zero PRICED lines | The document was not parsed at all. `mix1` shipped 15, `mix22` 11, `Binder11111` 2. |
-| **P2** | `line_type == "PRICED"` with null amount, or an amount-bearing row typed NARRATIVE | Breaks the 4.4 invariant |
+| **P2** | `line_type == "PRICED"` with null amount, or an amount-bearing row typed anything but PRICED or ATTACHMENT (v7.1) | Breaks the 4.4 invariant |
 | **P3** | A page inside a completed document's range with no line records | Full-capture breach, and **not repairable downstream**: there is nothing to restate from. Pages beyond `resume_point` in an AMBER run are not P3. |
 | **P4** | `supplier_abn` equals the LCC ABN `21 627 796 435` in any grouping | The bill-to ABN was read as the supplier's |
 | **P5** | Null `printed_total_incl_gst` where a Total line demonstrably prints | Header-amount breach |
@@ -774,6 +781,19 @@ Every layout this project has met, with the item table's header signature as pri
 | Repairable downstream? | Yes: every dropped row was in the retained text | **No.** Six pages, across five documents, carried no line record at all (P3), so the batch is held for re-extraction |
 
 The difference between those last two rows is the whole argument for the v6 and v7 gates. A misclassified row is recoverable, because the evidence is still in the corpus. A page you did not transcribe is gone, and the binder has to be read again.
+
+---
+
+## Annexe C1. What changed from v7 (v7.1, 17-Sep-2026)
+
+Two amendments, both found by running `pswp_corpus_gate.py` over the twenty-nine corpora already held in the branch repository. Neither relaxes a capture or verification standard.
+
+| v7 section | Amendment | Why |
+|---|---|---|
+| 9, closed list | `ATTACHMENT` added, thirteen values | The type is already in use (77 rows over `attach_4` and `mixed_1`) and the branch build depends on it: register rule 16d excludes attachment rows from rule 17 check 1. v7's list dropped it, so every one of those rows read P13. |
+| 4.0 ladder, 4.4, P2 | The amount-bearing test runs over PRICED and ATTACHMENT | `playforce_vinton_glascott_20260916` typed 103 Glascott schedule rows NARRATIVE and kept their amounts. They are correctly outside the tie, proven: all five documents tie their printed subtotal exactly on their PRICED rows alone, and adding the schedule rows would break every tie, $124,347.79 in all. Under v7 as written the corpus was RED on rows that were right to exclude; under v7.1 the type says so. |
+
+**Not amended, and why.** `HEADER`, 8 rows in `mixed_1`, stays P13. It is a mis-typing of `TABLE_HEADER` and nothing downstream reads it, so the fix belongs in that corpus, not in the list.
 
 ---
 
