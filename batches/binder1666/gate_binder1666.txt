@@ -1,0 +1,7 @@
+Gate: RED
+  declared AMBER, computed RED, the computed gate stands
+  100 documents, 5276 line records
+  P16  60203  p80  header adds up but GST 286.00 is not a tenth of the subtotal 28.60 (expected about 2.86)
+  P11  60203  p80  PRICED lines with no bands recorded
+  AMBER  19975: header block out by 137.84, recorded as F1
+  AMBER  6431345: header block out by 39.99, recorded as F1
