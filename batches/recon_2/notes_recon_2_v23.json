@@ -1,0 +1,115 @@
+{
+ "_readme": [
+  "Authored content for Batch recon_2 (rule 18: content as data, never ad-hoc writes). One entry per TechOne Document Cross Reference.",
+  "Nothing here states an amount that is not already proven by the export: every figure quoted in an answer or finding is",
+  "reproduced by pbr_recon_batch.py from the legs themselves and asserted before emit (net zero, per-reference tie).",
+  "_open_items carries the items this batch raises, in the order they should be numbered on Open_Items.",
+  "Open items carry no B-number: Open_Items is numbered positionally at build and renumbers whenever a section's contractor identification item resolves, so a number quoted in stored text goes stale."
+ ],
+ "202607101103027000000004": {
+  "question_the_register_could_not_answer": "Journal_Pull reads document file 1247907 (GJ080271, 179 branch lines, -$537,525.23) at Pull value High: an accrual reversal that does not pair inside FY2026/27, to be read against 26SLACT Period 12 before any net (rule 5). The register carries the branch side only, so the liability the reversal releases and the rest of the Parks reversal were both outside it.",
+  "answer": "The document is the End of Year 2025/26 AP accrual reversal for Parks 4090000, DM# 19476619. 189 legs, $2,284,231.42 on each side, netting to $0.00. One leg carries the whole other side: a $2,284,231.42 debit to 27GLACT 1330-1-31123, the accrual liability, narrated 'End of Year 2025/26 AP Reversal Parks - 4090000 Refer DM# 19476619'. The branch O110-O115 share is $537,525.23 on 179 lines, 23.5% of the reversal; the capital project ledger 2-20191 takes $1,739,391.64 on eight legs (the largest being WWDP Stages 1 to 3 design and construction $1,307,377.46 and Mabel Park waterway naturalisation $276,528.94), and 1-20451-62125 takes $7,314.55. Inside the branch the reversal is spread across twelve natural accounts, led by 73212 Major Contracts $251,529.24 on 54 legs, 73211 Minor Contracts $79,568.26, 73121 Cleaning $64,235.38, 73123 Maintenance Services $54,284.89 and 7C111 Internal Vehicle $51,121.41; 49 of the 179 legs are 73535 Tollway Charges totalling $4,766.37.",
+  "finding": "The reversal does not pair inside FY2026/27 because it is not meant to: it is the release of a prior-year liability, and its counterparty is the G-ledger accrual account, not another FY2026/27 expense line. Rule 5 is satisfied by reading it against the 26SLACT Period 12 accrual it names (DM# 19476619), and the document now proves the whole of that accrual, not just the branch share of it.",
+  "note": "Document file 1247907 is Tier D on the pull list: its Document Line Table is already embedded on PS & WP v127 Journal_Sources, 189 legs. This reconstruction was audited leg count and leg amount against that embed, matched exactly, and is NOT re-captured (rule 12). It is the second export type over the same document, so the audit is on what both formats carry."
+ },
+ "202608121110017000000001": {
+  "question_the_register_could_not_answer": "Journal_Pull reads document file 1254570 (GJ080640, 5 branch lines, $2,697.84 on 7C111 Internal - Vehicle) at Tier B, Pull value Low: every branch leg is already narrated on the register, so the Document Line Table would add only the Council-side legs.",
+  "answer": "The document is an internal plant hire billing. Ten legs, $2,697.84 on each side, netting to $0.00, paired one for one: every charge to a branch cost centre is credited to 1-13131-6D312 'I - Internal Plant' in Plant and Fleet. The branch takes $2,434.55 and $137.89 on 1-20172 (PK000396), $19.88 and $29.82 on 1-20401 (PK000068) and $75.70 on 1-20440 (PK000003). The branch legs carry the fleet number (F007499, F006632, F008368 twice, F007814); the Plant and Fleet credit legs carry none.",
+  "note": "Every leg is narrated 'Plant Hire Billing From 01-Jul-2025 to 31-Jul-2026', a thirteen-month window on a Period 2 FY2026/27 journal. The amounts are proven and tie the register to the cent; the date range on the narration is not, and reads as a TechOne billing-template default rather than the period actually billed."
+ },
+ "202608281113658000000001": {
+  "question_the_register_could_not_answer": "Journal_Pull reads document file 1258971 (GJ080782, 3 branch lines, $2,595.00 on 73544 Training & Development) at Pull value High for a blank or non-descriptive journal narration: the register showed a training charge split across three cost centres and nothing of what the training was.",
+  "answer": "The document is a branch-specific training recharge for an ACDC Licence course delivered 11-Aug-2026. Four legs, $2,595.00 on each side, netting to $0.00. The whole charge is credited to 1-12651-73544 and split across three branch cost centres: 1-20181 (PK000012) $1,113.00 and 1-20440 (PK000003) $1,113.00, both narrated 'Branch Specific Training x 3 Staff', and 1-20362 (PK000435) $369.00, narrated 'Branch Specific Training - Jess Burke'. Seven staff in all.",
+  "note": "The two group legs strike at $371.00 a head ($1,113.00 for three) and the single leg at $369.00, a $2.00 difference on the same course on the same date. The split is proven and ties; the per-head rate is worth one question to Learning and Development before the 73544 line is read as a unit rate."
+ },
+ "202607081102300000000001": {
+  "question_the_register_could_not_answer": "Journal_Pull reads document file 1247259 (GJ080211, 1 branch line, -$2,503.05 on 73312 Electricity, Water Parks) at Pull value High: an accrual reversal that does not pair inside FY2026/27. The register carried one credit and no sight of what it reversed.",
+  "answer": "The document is the Jun-26 accrued electricity expense reversal, DM# 18726262, taken Council-wide. 24 legs, $149,181.85 on each side, netting to $0.00. Twenty-two legs credit 73312 Electricity at property level across four ledgers, from 150 Wembley Road $37,701.06 and Springwood Aquatic Centre $22,577.86 down to 1-5 Jacaranda Avenue $917.67; the two debits are the accrual liabilities, 1330-1-31123 corporate $146,167.60 and 3051-2-31123 waste $3,014.25. The branch takes exactly one leg: 1-20802-73312, PK000469 Logan Garden Park, -$2,503.05, narrated at property level like every other.",
+  "finding": "The reversal pairs against the prior-year accrual it names, not against an FY2026/27 expense, so rule 5 is satisfied by reading it against 26SLACT Period 12. The branch share is 1.7% of a $149,181.85 Council-wide reversal and is a single property, which is why nothing inside O110-O115 could pair it."
+ },
+ "202607221105641000000001": {
+  "question_the_register_could_not_answer": "Document file 1250757 (GJ080426) is Tier A, no attachment, Pull value High, and the one Tier A branch document carrying an unanswered question: a recode set that does not net inside O110-O115, so the balancing leg sits outside branch scope and the pull is the only way to find it (Open Item B-012).",
+  "answer": "The balancing leg is 1-13081-6D513 Internal Income, $603.20, in Plant and Fleet. Two legs, netting to $0.00. The branch leg credits 1-20181-7C111 (PK000012, Park Maintenance) -$603.20 and both carry the same narration: 'Cost transfer from PK000012 to PF202077 6744 2 new tyres fitted Incorrect Billing Worksheet 246F6B4600'. The charge was two tyres fitted to plant 6744, billed to the Park Maintenance PK in error and transferred to plant job PF202077, with Plant and Fleet recognising the credit as internal income rather than as a cost-centre expense.",
+  "finding": "B-012 is answered for this document: the set does not net inside O110-O115 because the receiving side is a plant job carried as internal income in a different ledger account family (6D513), which no O110-O115 filter can see. The recode is correct and the branch is $603.20 better off; nothing on the register needs restating."
+ },
+ "202608051108631000000001": {
+  "question_the_register_could_not_answer": "Journal_Pull reads document file 1253860 (GJ080566, 1 branch line, $534.38 on 7B111 Internal - Rates, PK000002) at Tier B, Pull value Low. Its pair, document file 1253855, is flagged High as an accrual reversal that does not pair inside FY2026/27.",
+  "answer": "The document raises the internal rates charge for rating period 2027-1, segment S12: $534.38 debited to 1-20361-7B111 (PK000002, Park Services) and credited to 1-20361-6A211 'I - Occupied' in the same cost centre. Two legs, netting to $0.00.",
+  "note": "This export is the wide TechOne Document Reconstruction layout: OrderDetails and AssetDetails sit between ATJournalLine and ATTransactionNumber, and ATAccountNumberInternal, ATDFormatName (GENJNL), ATPurchaseOrderNumberV2, IsArchived and CreditOrDebitAmount follow. Every leg is read by column code, so the layout changes nothing in the figures; read by position it would have taken OrderDetails as the transaction number and blanked it."
+ },
+ "202608051108630000000001": {
+  "question_the_register_could_not_answer": "Journal_Pull reads document file 1253855 (GJ080565, 1 branch line, -$534.38 on 7B111 Internal - Rates) at Pull value High on two counts at once: an accrual reversal that does not pair inside FY2026/27 (Open Item B-011), and a blank or non-descriptive journal narration.",
+  "answer": "The document reverses the August internal rates charge: -$534.38 on 1-20361-7B111 (PK000002) against $534.38 on 1-20361-6A211 in the same cost centre, both narrated 'Reverse August'. Two legs, netting to $0.00.",
+  "finding": "It DOES pair inside FY2026/27, and with the document one cross reference away. GJ080565 (cross reference 202608051108630000000001) reverses August and GJ080566 (cross reference 202608051108631000000001) re-raises the same $534.38 for rating period 2027-1 on the same cost centre, account and PK, both posted 5-Aug-2026 in sequence. The two net to $0.00 inside the branch. The unpaired-accrual flag on 1253855 is a false positive: the pairing test is run within a document file, and this pair is split across two.",
+  "note": "The 'blank or non-descriptive narration' flag stands on the register, where the line reads only 'Reverse August'. The reconstruction supplies what August was: the segment S12 internal rates charge for rating period 2027-1."
+ },
+ "202609091116231000000001": {
+  "question_the_register_could_not_answer": "Document file 1261362 (GJ080948) is Tier A, no attachment, 2 branch lines, $0.00 net on $354,147.00 gross at 7B115 Internal - Garbage. Tier A means the Document Line Table is the evidence route, and the pull-value note assumed it would add the Council-side legs.",
+  "answer": "There are no Council-side legs. The document has two legs and both sit inside branch scope: $177,073.50 moved off 1-20361-7B115 (PK000002, Park Services) onto 1-20392-7B115 (PK000022), narrated 'Moving Garbage Charges to Correct PK IJ075149, IJ075151, IJ075152, IJ075155'. It nets to $0.00 inside O110-O115 and both register lines are matched.",
+  "finding": "The Tier A entry is answered and closed: a pull adds nothing here because the whole document is already on the register. It also names four of the six journal references still outstanding on document file 1252466 (IJ075149, IJ075151, IJ075152 and IJ075155), which is corroborating evidence for the open item 'Journal pull taken with a Document filter' but not a substitute for pulling them."
+ },
+ "202608311113885000000001": {
+  "question_the_register_could_not_answer": "Journal_Pull reads document file 1259322 (GJ080788, 31 branch lines, $0.00 net on $588,686.48 gross) at Pull value High for a blank or non-descriptive journal narration: the largest zero-net recode set in the branch, with no statement of what was being recoded.",
+  "answer": "The narration is not blank on the document. All 31 legs sit inside branch scope, net to $0.00, and each names its invoice, its component, its source and destination PK and the invoice gross. Three vendors: Austspray, four zone invoices reversed off PK000052 and split into landscape, roads share and urban bushland components (INV-158850 Zone 1 $57,631.44 ex GST, INV-158851 Zone 2 $51,362.60, INV-158852 Zone 4 $66,937.12, INV-158853 Zone 6 $75,377.98, every one reconciling to its narrated gross at exactly 1.1); Poolshop INV-5668 $33,764.50 reversed off PK000022 and split across five PKs; and Sundai INV-1503 and INV-1504 reversed and split into mowing and fuel levy.",
+  "finding": "Urban bushland PK000385 takes a share of every one of the four Austspray zone invoices ($3,157.21 Zone 1, $3,454.08 Zone 2, $213.25 Zone 4 and $15,427.83 Zone 6, $22,252.37 in all) and carries no direct vendor invoice of its own on this document. The four shares are identical to the cent to those in the July document (GJ080659) although two of the four zone invoices moved between the months, so the bushland share is a fixed monthly amount and not a percentage of the work. That is the passthrough pattern: the PK's operational spend arrives entirely as a split off another PK's invoice, so its budget position is only readable through journals like this one.",
+  "note": "Two legs are not vendor work: a $1.00 'Repair and service parts Aug-2026' line on the Poolshop split, and a -$0.01 line narrated 'Rounding ex-GST to invoice subtotal TechOne 33764.50 invoice 33764.51'. The rounding line is self-explaining and correct. The $1.00 line is not: the equivalent line on the July Poolshop split (GJ080687) is $370.00 for a 100mm valve at Logan Gardens."
+ },
+ "202608171111116000000001": {
+  "question_the_register_could_not_answer": "Journal_Pull reads document file 1255193 (GJ080659, 15 branch lines, $0.00 net on $502,527.48 gross) at Pull value Low because the set already nets to zero inside branch scope and the pairing is proven on the register. What the register did not carry was the basis of each split.",
+  "answer": "The document is the July Austspray zone recode, the same mechanic as GJ080788 a fortnight later. All 15 legs sit inside branch scope and net to $0.00: four zone invoices reversed off PK000052 (INV-158590 Zone 1 $57,618.11 ex GST, INV-158591 Zone 2 $51,362.60, INV-158592 Zone 6 $75,345.91, INV-158593 Zone 4 $66,937.12) and split into landscape, roads share and urban bushland components, each narration carrying the requisition number, the zone, the service date and the invoice gross.",
+  "note": "Zone 2 and Zone 4 reverse at exactly the same ex-GST amounts in July and August ($51,362.60 and $66,937.12) while Zone 1 and Zone 6 move ($57,618.11 to $57,631.44 and $75,345.91 to $75,377.98). The bushland and roads shares hold to the cent across both months in every zone bar one cent on Zone 2, where $7,165.40 roads and $40,743.12 landscape in July read $7,165.39 and $40,743.13 in August on an unchanged total. The variable component is the landscape share."
+ },
+ "202609141117370000000001": {
+  "question_the_register_could_not_answer": "Journal_Pull reads document file 1263037 (GJ081003, 7 branch lines, $0.00 net on $184,562.48 gross) at Pull value Low: the set nets to zero inside branch scope and the pairing is proven on the register, but the split basis was not.",
+  "answer": "The document is the August Glascott recode, over the same two zones as July. Seven legs, all inside branch scope, netting to $0.00. INV012313 Zone 3 ($62,099.76 incl GST, $56,454.33 ex) is reversed off 1-20372-73126 (PK000015) and re-raised as $46,693.29 staying in PK000015, $8,664.77 recoded to PK000052 and $1,096.27 recoded to urban bushland PK000385. INV012314 Zone 5 ($39,409.60 incl GST, $35,826.91 ex) is reversed off 1-20375-73126 (PK000019) and re-raised as $34,722.25 staying in PK000019 and $1,104.66 recoded to PK000385.",
+  "note": "Same split shape, same two zones and the same three recoded amounts to the cent as the July document (GJ080652), so the Glascott reallocation is a standing monthly mechanic rather than a one-off correction."
+ },
+ "202608171111114000000001": {
+  "question_the_register_could_not_answer": "Journal_Pull reads document file 1256099 (GJ080687, 17 branch lines, $0.00 net on $68,127.02 gross at 73123 Maintenance Services) at Pull value High for a blank or non-descriptive journal narration across Park Services and Water Parks.",
+  "answer": "The document is the July Poolshop recode, INV-5621, $34,063.50 ex GST reversed off 1-20392-73123 (PK000022) and split site by site across five PKs with the chemical lines named: Logan Gardens water play $6,730.78 plus chlorine $239.60, hydrochloric acid $70.00 and sodium bicarbonate $39.00; Flagstone water play $7,156.61 with the same three chemical lines at the same amounts; Darlington Parklands $5,448.93; Beenleigh $5,448.93; Forest Glen water feature $4,272.80; Alexander Park $1,849.33; Underwood two sites $1,849.33; ULTRA calcium hypochlorite $239.60; and repair and service parts for a 100mm valve at Logan Gardens $370.00. All 17 legs sit inside branch scope and net to $0.00.",
+  "note": "Logan Gardens and Flagstone take identical chemical lines to the cent ($239.60, $70.00, $39.00), and the Forest Glen, Alexander Park, Underwood and Beenleigh components repeat unchanged in the August document (GJ080788). Those components are a fixed monthly service charge per site, not a usage recharge, and should be read that way in any 73123 forecast. A -$0.01 line narrated 'Rounding ex-GST to invoice subtotal TechOne 34063.50 invoice 34063.51' closes the split."
+ },
+ "202608111109743000000001": {
+  "question_the_register_could_not_answer": "Journal_Pull reads document file 1255117 (GJ080652, 7 branch lines, $0.00 net on $184,239.12 gross) at Pull value Low: the set nets to zero inside branch scope, but the register did not carry the basis of the split.",
+  "answer": "The document is the July Glascott recode and it covers two invoices, not one. Seven legs, all inside branch scope, netting to $0.00. INV011964 Zone 3 ($62,058.77 incl GST, $56,417.06 ex) is reversed off 1-20372-73126 (PK000015) and re-raised as $46,656.02 staying in PK000015, $8,664.77 recoded to PK000052 and $1,096.27 recoded to urban bushland PK000385. INV011965 Zone 5 ($39,272.75 incl GST, $35,702.50 ex) is reversed off 1-20375-73126 (PK000019) and re-raised as $34,597.84 staying in PK000019 and $1,104.66 recoded to PK000385. Every component reconciles to its own invoice and every narrated gross is its ex-GST reversal at exactly 1.1.",
+  "finding": "The recoded amounts are struck as fixed monthly figures, not as a share of the invoice. In August (GJ081003) the same three recodes come through to the cent unchanged, $8,664.77 to PK000052 and $1,096.27 and $1,104.66 to PK000385, while both invoices move ($56,417.06 to $56,454.33 on Zone 3 and $35,702.50 to $35,826.91 on Zone 5). The variance is absorbed entirely by the component that stays with the originating PK."
+ },
+ "_open_items": [
+  {
+   "area": "Internal rates charge and its reversal sit on two document files, so the pairing test misses them",
+   "status": "Open",
+   "scope": "Park Services, 7B111 Internal - Rates, PK000002",
+   "lines": 2,
+   "amount": "534.38",
+   "action": "GJ080565 'Reverse August' (document file 1253855) and GJ080566 '2027-1 - Internal Rates - S12' (document file 1253860) are the two halves of one same-day posting on the same cost centre, account and PK, and net to $0.00 inside FY2026/27. The unpaired-accrual test pairs within a document file, so it reads 1253855 as unpaired and ranks it Pull value High. Extend the test to pair across document files on equal and opposite amount, same account and PK, and same posting date, and re-rank; the two reconstructions in this batch are the evidence.",
+   "basis": "Document Reconstruction cross references 202608051108630000000001 and 202608051108631000000001."
+  },
+  {
+   "area": "Poolshop August repair line is $1.00 where July is $370.00",
+   "status": "Open",
+   "scope": "Park Services and Water Parks, 73123 Maintenance Services",
+   "lines": 2,
+   "amount": "371.00",
+   "action": "The July Poolshop split (GJ080687, INV-5621) carries 'Repair and Service Parts monthly period 100mm valve at Logan Gardens' at $370.00; the August split (GJ080788, INV-5668) carries 'Repair and service parts Aug-2026' at $1.00 against the same PK000022. Both splits reconcile to their own invoice, so nothing is out; ask Water Parks whether the August line is a nominal placeholder or the actual August charge before the 73123 monthly run rate is set off it.",
+   "basis": "Document Reconstruction cross references 202608171111114000000001 and 202608311113885000000001."
+  },
+  {
+   "area": "Plant hire billing narration spans thirteen months",
+   "status": "Housekeeping",
+   "scope": "Branch, 7C111 Internal - Vehicle",
+   "lines": 5,
+   "amount": "2697.84",
+   "action": "Every leg of GJ080640 is narrated 'Plant Hire Billing From 01-Jul-2025 to 31-Jul-2026', a thirteen-month window on a Period 2 FY2026/27 journal. The amounts are proven and tie the register to the cent. Confirm with Plant and Fleet which period was actually billed, so the 7C111 phasing is not built on the narrated window. Reads alongside the existing plant hire SLA item.",
+   "basis": "Document Reconstruction cross reference 202608121110017000000001."
+  },
+  {
+   "area": "Urban bushland PK000385 is funded entirely by splits off other PKs' invoices",
+   "status": "Open",
+   "scope": "Natural Areas, 73126 Landscapers and Grounds",
+   "lines": 12,
+   "amount": "48906.60",
+   "action": "Across the four documents in this batch that touch 73126, PK000385 takes $22,252.37 from the four Austspray zone invoices in July and the same $22,252.37 again in August, and $2,200.93 from the two Glascott zone invoices in July and the same $2,200.93 again in August, $48,906.60 in all, and carries no direct vendor invoice on any of them. Every one of the six shares is identical to the cent across the two months while four of the six invoices move, so the shares are struck as fixed monthly amounts and not as a percentage of the work. Reconcile the amounts and their basis against the governing Tracker or contract schedule before PK000385's position is reported.",
+   "basis": "Document Reconstruction cross references 202608311113885000000001, 202608171111116000000001, 202609141117370000000001 and 202608111109743000000001."
+  }
+ ]
+}
