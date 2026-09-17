@@ -1,0 +1,7015 @@
+{
+ "manifest": {
+  "source": "5c27dc4d-Chart_of_Accounts__Consultancy__FBT__Travel_ETC.pdf",
+  "md5": "cbadbd878c1a259f3528c9a88fc468c1",
+  "tool": "pbr_chart_of_accounts.py",
+  "captured_utc": "2026-09-17T23:33:27Z",
+  "accounts": 775,
+  "groups": {
+   "1": "CURRENT ASSETS",
+   "2": "NON-CURRENT ASSETS",
+   "3": "CURRENT LIABILITIES",
+   "4": "NON-CURRENT LIABILITIES",
+   "5": "EQUITY",
+   "6": "REVENUE",
+   "7": "EXPENSES",
+   "8": "CORPORATE COSTS RECOVERED",
+   "9": "ABNORMAL & EXTRAORDINARY ITEMS"
+  },
+  "in_dictionary": 523,
+  "list_only": 252,
+  "without_description": 340,
+  "fbt_reason_codes": 12
+ },
+ "fbt_reason_codes": {
+  "A": "Food is provided for a work-related purpose rather than an entertainment purpose.",
+  "B": "Food is provided for the purpose of refreshment rather than an entertainment purpose.",
+  "C": "Social function (recreation or meal entertainment). These are subject to FBT.",
+  "D": "Expense benefits with a value of < $300 (including GST). These are minor benefits if provided infrequently and are",
+  "E": "Expense benefits with a value of $300 or more. These are subject to FBT.",
+  "F": "Light refreshments provided with work-related training.",
+  "G": "Non work-related meal entertainment (e.g. for guest speaker, volunteer) or gift.",
+  "H": "Requires assessment of a combination of factors:",
+  "I": "Years of Service Gift < $500 FBT exempt from FBT",
+  "J": "Years of Service Gift > $500 Subject to FBT",
+  "K": "Event or gift for community members/non-employees - exempt from FBT",
+  "L": "Presenter, speaker, entertainer's fee - non-FBT if for a community event - exempt from FBT 73515"
+ },
+ "accounts": [
+  {
+   "number": "11111",
+   "title": "City Bank",
+   "description": "",
+   "group": "1",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "11112",
+   "title": "Trust Bank 12143 WB3 - Establishment Costs",
+   "description": "",
+   "group": "1",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "11211",
+   "title": "Petty Cash",
+   "description": "",
+   "group": "1",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "11212",
+   "title": "Float",
+   "description": "",
+   "group": "1",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "11311",
+   "title": "Investment Control",
+   "description": "",
+   "group": "1",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "11321",
+   "title": "Loans",
+   "description": "",
+   "group": "1",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "11322",
+   "title": "Loans to Controlled Entities",
+   "description": "",
+   "group": "1",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "12111",
+   "title": "Rates & Charges Debtors",
+   "description": "",
+   "group": "1",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "12113",
+   "title": "Interest on Rates Debtors",
+   "description": "",
+   "group": "1",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "12114",
+   "title": "Legal Cost Recoverable Debtors",
+   "description": "",
+   "group": "1",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "12116",
+   "title": "Rates Fire Levy",
+   "description": "",
+   "group": "1",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "12121",
+   "title": "Rural Fire - Beaudesert",
+   "description": "",
+   "group": "1",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "12122",
+   "title": "Rural Fire - Gold Coast",
+   "description": "",
+   "group": "1",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "12131",
+   "title": "Accounts Receivable Control Account",
+   "description": "",
+   "group": "1",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "12132",
+   "title": "Debtors Suspense Account",
+   "description": "",
+   "group": "1",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "12133",
+   "title": "Priority Infrastructure Plan Clearing Account",
+   "description": "",
+   "group": "1",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "12134",
+   "title": "Priority Infrastructure Planning Control Account",
+   "description": "",
+   "group": "1",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "12141",
+   "title": "Other Receivables",
+   "description": "",
+   "group": "1",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "12142",
+   "title": "Unbilled Revenue",
+   "description": "",
+   "group": "1",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "12211",
+   "title": "Provision for Doubtful Debts",
+   "description": "",
+   "group": "1",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "13111",
+   "title": "Stores",
+   "description": "",
+   "group": "1",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "13112",
+   "title": "Inventory Invoice Pending",
+   "description": "",
+   "group": "1",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "13113",
+   "title": "Interstore Transfers",
+   "description": "",
+   "group": "1",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "13211",
+   "title": "Work in Progress - Recoverable Works",
+   "description": "",
+   "group": "1",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "13311",
+   "title": "Land Held for Resale",
+   "description": "",
+   "group": "1",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "13321",
+   "title": "Plant & Equipment Held for Resale",
+   "description": "",
+   "group": "1",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "14111",
+   "title": "Miscellaneous Prepaid Expenses",
+   "description": "",
+   "group": "1",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "14112",
+   "title": "Insurance",
+   "description": "",
+   "group": "1",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "14114",
+   "title": "Computer Leases & Maintenance",
+   "description": "",
+   "group": "1",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "14211",
+   "title": "GST Acquisitions / Purchases",
+   "description": "",
+   "group": "1",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "14212",
+   "title": "GST Clearing - payment or refunds",
+   "description": "",
+   "group": "1",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "14213",
+   "title": "GST Supply/Sales",
+   "description": "",
+   "group": "1",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "14311",
+   "title": "Deposits Paid",
+   "description": "",
+   "group": "1",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "1D112",
+   "title": "Future Income Tax Benefit",
+   "description": "",
+   "group": "1",
+   "internal": true,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "1ZZZZ",
+   "title": "Inter-entity Loan Accounts",
+   "description": "",
+   "group": "1",
+   "internal": true,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "21111",
+   "title": "Land held for Resale 22633",
+   "description": "",
+   "group": "2",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "22111",
+   "title": "Land - Gross Cost 22641 Drainage - Gross Cost",
+   "description": "",
+   "group": "2",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "22113",
+   "title": "Accumulated Impairment Loss - Land 22642 Drainage - Accumulated Depreciation",
+   "description": "",
+   "group": "2",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "22211",
+   "title": "Buildings - Gross Cost 22643",
+   "description": "",
+   "group": "2",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "22212",
+   "title": "Buildings - Accumulated Depreciation 22651 Gross Cost - W&S Facilities",
+   "description": "",
+   "group": "2",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "22213",
+   "title": "Accumulated Impairment Loss - Buildings 22652 Accumulated Depreciation W&S Facilities",
+   "description": "",
+   "group": "2",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "22231",
+   "title": "Leased Buildings Gross Cost 22653",
+   "description": "",
+   "group": "2",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "22232",
+   "title": "Leased Buildings Accumulated Depreciation 22661 Logan Waste Cells - Gross Cost",
+   "description": "",
+   "group": "2",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "22311",
+   "title": "Plant - Gross Cost 22662 Logan Waste Cells - Accum Depn",
+   "description": "",
+   "group": "2",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "22312",
+   "title": "Plant - Accumulated Depn 22811 Work in Progress",
+   "description": "",
+   "group": "2",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "22321",
+   "title": "Equipment - Gross Cost 22812 WIP - Capitalised",
+   "description": "",
+   "group": "2",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "22322",
+   "title": "Equipment - Accumulated Depn 22813 Trf from C/WIP",
+   "description": "",
+   "group": "2",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "22323",
+   "title": "Accumulated Impairment Loss - Equipment 22814 Trf to Capital - Asset Purchases",
+   "description": "",
+   "group": "2",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "22331",
+   "title": "Leased Equipment Gross Cost 22815 WIP - Expensed",
+   "description": "",
+   "group": "2",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "22332",
+   "title": "Leased Equipment Accumulated Depreciation 22931 Transfers In PPE",
+   "description": "",
+   "group": "2",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "22511",
+   "title": "Asset Purchases Suspense Account 22932 Transfers Out PPE",
+   "description": "",
+   "group": "2",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "22512",
+   "title": "Asset Purchases Cleared 23111 Shares",
+   "description": "",
+   "group": "2",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "22521",
+   "title": "Asset Proceeds Received 23112 Investment in SEQ Regional Recreational Facilities",
+   "description": "",
+   "group": "2",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "22522",
+   "title": "Asset Proceeds Cleared 23114 Shares - Logan Village & District Financial Services",
+   "description": "",
+   "group": "2",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "22531",
+   "title": "Leased Assets Purchases Suspense 23212 Loans to Controlled Entities",
+   "description": "",
+   "group": "2",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "22532",
+   "title": "Leased Assets Purchases Cleared 24311 Software Gross Cost",
+   "description": "",
+   "group": "2",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "22611",
+   "title": "Water Assets - Gross Cost 24312 Software Accumulated Depreciation",
+   "description": "",
+   "group": "2",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "22612",
+   "title": "Water Assets - Accumulated Depreciation 24511 Intangible Purchase Suspense Account",
+   "description": "",
+   "group": "2",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "22621",
+   "title": "Sewerage Assets - Gross Cost 24512 Intangible Purchase Clearing Account",
+   "description": "",
+   "group": "2",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "22622",
+   "title": "Sewerage Assets - Accumulated Depn 25511 Investment Property Purchase Suspense",
+   "description": "",
+   "group": "2",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "22631",
+   "title": "Roads & Bridges - Gross Cost 2D112 Future Income Tax Benefit",
+   "description": "",
+   "group": "2",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "22632",
+   "title": "Roads & Bridges - Accumulated Depn",
+   "description": "",
+   "group": "2",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "31111",
+   "title": "Accounts Payable Control Account 31126",
+   "description": "",
+   "group": "3",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "31112",
+   "title": "Trust Creditors Control Account",
+   "description": "",
+   "group": "3",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "31113",
+   "title": "Prepaid Private Works Control A/c",
+   "description": "",
+   "group": "3",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "31114",
+   "title": "State Fire Levy",
+   "description": "",
+   "group": "3",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "31115",
+   "title": "Credit Card Control Account",
+   "description": "",
+   "group": "3",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "31116",
+   "title": "Fuel Card Control Account",
+   "description": "",
+   "group": "3",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "31117",
+   "title": "Beaudesert Rural Fire Special Levy",
+   "description": "",
+   "group": "3",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "31118",
+   "title": "LEC Advanced Ticket Sales",
+   "description": "",
+   "group": "3",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "31119",
+   "title": "Allconnex Receipting Clearing Account",
+   "description": "",
+   "group": "3",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "31121",
+   "title": "Fringe Benefits Tax Accrued",
+   "description": "",
+   "group": "3",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "31123",
+   "title": "Other accruals",
+   "description": "",
+   "group": "3",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "31125",
+   "title": "32111 AL accrued",
+   "description": "",
+   "group": "3",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "31127",
+   "title": "Superannuation - Casual & Temp Employees",
+   "description": "",
+   "group": "3",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "31129",
+   "title": "Audit Fee Accrual",
+   "description": "",
+   "group": "3",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "31211",
+   "title": "QTC Loan balance",
+   "description": "",
+   "group": "3",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "31213",
+   "title": "QTC Loan repayments",
+   "description": "",
+   "group": "3",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "31214",
+   "title": "QTC - Loans transferred amalagamations",
+   "description": "",
+   "group": "3",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "31231",
+   "title": "Lease Liability Balance",
+   "description": "",
+   "group": "3",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "31234",
+   "title": "Interest Accrued Leased Assets",
+   "description": "",
+   "group": "3",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "31235",
+   "title": "Interest Paid Leased Assets",
+   "description": "",
+   "group": "3",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "31236",
+   "title": "Early Lease Termination",
+   "description": "",
+   "group": "3",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "32110",
+   "title": "AL balance",
+   "description": "",
+   "group": "3",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "32112",
+   "title": "AL paid 33215 Work cover clearing account",
+   "description": "",
+   "group": "3",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "32120",
+   "title": "LSL balance 33223 Public Holidays Clearing Account",
+   "description": "",
+   "group": "3",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "32121",
+   "title": "LSL accrued 33231 Cash Receipting Clearing Account",
+   "description": "",
+   "group": "3",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "32122",
+   "title": "LSL paid 33232 Payroll Clearing Account",
+   "description": "",
+   "group": "3",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "32130",
+   "title": "SL balance 33233 Payroll Rebanked Wages Account",
+   "description": "",
+   "group": "3",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "32131",
+   "title": "SL accrued 33234 Unidentified/Overpaid Rates Clearing Acc",
+   "description": "",
+   "group": "3",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "32132",
+   "title": "SL paid 33235 Ticket Clearing Account",
+   "description": "",
+   "group": "3",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "32140",
+   "title": "XL balance 33236 LEC \"The Basement\" Canteen Clearing Account",
+   "description": "",
+   "group": "3",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "32141",
+   "title": "Christmas Leave Accrued 33241 Sundry Suspense Account",
+   "description": "",
+   "group": "3",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "32142",
+   "title": "XL paid 3A211 Internal Loan Balance",
+   "description": "",
+   "group": "3",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "32150",
+   "title": "RDO/Time in lieu balance 3A212 Internal Loan Raised",
+   "description": "",
+   "group": "3",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "32151",
+   "title": "RDO/Time in lieu accrued 3A213 Internal Loan Repayments",
+   "description": "",
+   "group": "3",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "32152",
+   "title": "RDO/Time in lieu paid 3B311 Land Tax Accrued",
+   "description": "",
+   "group": "3",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "32160",
+   "title": "Other Entitlements Balance 3B314 Payroll Tax Accrued",
+   "description": "",
+   "group": "3",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "32162",
+   "title": "Purchased Annual Leave 3B321 Land Tax Paid",
+   "description": "",
+   "group": "3",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "33111",
+   "title": "Unearned revenue 3B324 Payroll Tax Paid",
+   "description": "",
+   "group": "3",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "33112",
+   "title": "Monies received in advance 3B411 Corporate Costs Accrued",
+   "description": "",
+   "group": "3",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "33113",
+   "title": "Insurance Claims Provision 3B412 Return on Equity Provision",
+   "description": "",
+   "group": "3",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "33114",
+   "title": "Insurance Damages Provision 3B421 Corporate Costs Paid",
+   "description": "",
+   "group": "3",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "33116",
+   "title": "Contract Liability 3B422 Return on Equity Paid",
+   "description": "",
+   "group": "3",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "33117",
+   "title": "3D111 Current Tax Accrued - Internal",
+   "description": "",
+   "group": "3",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "33211",
+   "title": "Paid Parental Leave clearing account 3D112 Deferred Tax Accrued",
+   "description": "",
+   "group": "3",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "33212",
+   "title": "Professional development clearing account 3D121 Current Tax Paid",
+   "description": "",
+   "group": "3",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "33213",
+   "title": "Payroll tax clearing account",
+   "description": "",
+   "group": "3",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "41111",
+   "title": "QTC Loan balance",
+   "description": "",
+   "group": "4",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "41112",
+   "title": "QTC Loan raised",
+   "description": "",
+   "group": "4",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "41131",
+   "title": "Non-current Lease Liability Balance 42215",
+   "description": "",
+   "group": "4",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "41132",
+   "title": "Non-current Lease Liability Raised",
+   "description": "",
+   "group": "4",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "41133",
+   "title": "Non-current Lease liability Repayment",
+   "description": "",
+   "group": "4",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "41136",
+   "title": "Early Lease Termination",
+   "description": "",
+   "group": "4",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "42112",
+   "title": "Long Service Leave",
+   "description": "",
+   "group": "4",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "42211",
+   "title": "Provision for rehabilitation - Browns Plains Landfill",
+   "description": "",
+   "group": "4",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "42212",
+   "title": "Provision for rehabilitation - Jimboomba Landfill",
+   "description": "",
+   "group": "4",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "42213",
+   "title": "Provision for rehabilitation - Teviot Landfill",
+   "description": "",
+   "group": "4",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "43112",
+   "title": "Non-current Monies Received in Advance",
+   "description": "",
+   "group": "4",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "43113",
+   "title": "Insurance Claim Provision",
+   "description": "",
+   "group": "4",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "43116",
+   "title": "Contract Liability Non-Current",
+   "description": "",
+   "group": "4",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "4D112",
+   "title": "Deferred Tax Accrued",
+   "description": "",
+   "group": "4",
+   "internal": true,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "51111",
+   "title": "Paid Up Capital",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "51112",
+   "title": "Trf to Cap.Wrks Res-Unspent Cap Funding",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "51113",
+   "title": "Asset Write Offs",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "51114",
+   "title": "Assets not previously recognised",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "51115",
+   "title": "Profit/Loss on Disposal of NCA",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "51116",
+   "title": "Capital A/c - Unfunded Depreciation",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "51117",
+   "title": "Capital A/c - Other",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "51121",
+   "title": "General Revenue",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "51122",
+   "title": "Subsidies and Grants",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "51123",
+   "title": "Infrastructure Charges",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "51124",
+   "title": "Infrastructure Contributions - Assets",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "51125",
+   "title": "Cash Contributions",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "51126",
+   "title": "Divisional Improvement Funds",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "51130",
+   "title": "SEQWC Cap Restructure Proceeds Reserve",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "51131",
+   "title": "General Reserve",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "51132",
+   "title": "Community Assets Reserve",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "51133",
+   "title": "Environmental Initiatives Reserve",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "51134",
+   "title": "Sewerage Reserve",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "51135",
+   "title": "Water Reserve",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "51136",
+   "title": "Miscellaneous Reserves",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "51137",
+   "title": "Capital Works Reserve",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "51141",
+   "title": "Internal Funding Reserve",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "51142",
+   "title": "General Reserve Interest Bearing",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "51230",
+   "title": "Budget Funded Depreciation",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52111",
+   "title": "Balance 52191",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "52112",
+   "title": "Transfer from appropriation statements",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52113",
+   "title": "Transfer to capital account (capital exp",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52114",
+   "title": "Transfer to the appropriation statement",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52115",
+   "title": "Trf to/from other reserves",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52116",
+   "title": "Tfr from App-interest",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52117",
+   "title": "Refund of Contribution - CIRNR",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52121",
+   "title": "Balance",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52122",
+   "title": "Transfer from appropriation statements - CIRR",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52123",
+   "title": "Transfer to capital account (cap exp)",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52124",
+   "title": "Transfer to approp (recurrent exp)",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52125",
+   "title": "Trf to/from other reserves",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52126",
+   "title": "Trf from Appropriation - Interest",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52127",
+   "title": "Refund of Interest",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52131",
+   "title": "Balance",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52132",
+   "title": "Transfer from appropriation statements - ARRI",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52133",
+   "title": "Transfer to capital account (cap exp)",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52134",
+   "title": "Transfer to approp (recurrent exp) - ARRI",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52135",
+   "title": "Trf to/from other reserves - ARRI",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52136",
+   "title": "Impairment Loss - ARRI",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52137",
+   "title": "Impairment Reversal - ARRI",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52141",
+   "title": "Balance - Asset Replacement Reserve (ARR)",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52142",
+   "title": "Transfer from appropriation - ARR",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52143",
+   "title": "Transfer to capital account - ARR",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52144",
+   "title": "Transfer to Appropriation - ARR",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52145",
+   "title": "Transfer to/from other reserves - ARR",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52151",
+   "title": "Balance - Major Programs",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52152",
+   "title": "Transfer from appropriation statements",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52153",
+   "title": "Transfer to capital account (cap exp)",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52154",
+   "title": "Transfer to approp (recurrent exp)",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52155",
+   "title": "Transfer to/from other reserves",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52156",
+   "title": "Trf from Appropriation - Interest - CWR",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52171",
+   "title": "ARR - Land Balance",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52172",
+   "title": "Transfer from Appropriation - ARRL",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52173",
+   "title": "ARR - Land Revaluation",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52174",
+   "title": "Transfer to Appropriation - ARRL",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52175",
+   "title": "Transfer to/from other reserves - ARRL",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52176",
+   "title": "Impairment Loss - ARRL",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52177",
+   "title": "Impairment Reversal - ARRL",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52181",
+   "title": "ARR - Buildings Balance",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52182",
+   "title": "Transfer from Appropriation - ARRB",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52183",
+   "title": "ARR - Buildings Revaluation",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52184",
+   "title": "Transfer to Appropriation - ARRB",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52185",
+   "title": "Transfer to/from other reserves - ARRB",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52186",
+   "title": "Impairment Loss - ARRB",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52187",
+   "title": "Impairment Reversal - ARRB",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52192",
+   "title": "Transfer from Appropriation - ARRP&E",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52193",
+   "title": "Transfer to capital reserve - ARRP&E",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52194",
+   "title": "Transfer to Appropriation - ARRP&E",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52195",
+   "title": "Transfer to/from other reserves - ARRP&E",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52196",
+   "title": "Impairment Loss - ARRP&E",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52197",
+   "title": "Impairment Reversal - ARRP&E",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52211",
+   "title": "Balance",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52212",
+   "title": "Transfer from appropriation statements",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52213",
+   "title": "Transfer to capital account (cap exp)",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52214",
+   "title": "Transfer to approp (recurrent exp)",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52215",
+   "title": "Transfer to/from other reserves",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52216",
+   "title": "Trf from Appropriation - interest",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52221",
+   "title": "Balance",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52222",
+   "title": "Transfer from appropriation statements",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52223",
+   "title": "Transfer to capital account (cap exp)",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52224",
+   "title": "Transfer to approp (recurrent exp)",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52225",
+   "title": "Transfer to/from other reserves",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52226",
+   "title": "Trf from appropriation - interest",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52231",
+   "title": "Balance",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52232",
+   "title": "Transfer from appropriation statements",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52233",
+   "title": "Transfer to capital account (cap exp)",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52234",
+   "title": "Transfer to approp (recurrent exp)",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52235",
+   "title": "Transfer to/from other reserves",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52236",
+   "title": "Transfer from appropriation - interest - EILR",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52241",
+   "title": "Balance",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52242",
+   "title": "Transfer from appropriation statements - WWR",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52243",
+   "title": "Transfer to capital account (cap exp)",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52244",
+   "title": "Transfer to appropriation - WWR",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52245",
+   "title": "Transfer to/from other reserves - WWR",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52246",
+   "title": "Transfer from appropriation - interest - WWR",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52251",
+   "title": "Balance",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52252",
+   "title": "Transfer from appropriation - WR",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52253",
+   "title": "Transfer to capital account (cap exp)",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52254",
+   "title": "Transfer to approp (recurrent exp)",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52255",
+   "title": "Transfer to/from other reserves - WR",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52256",
+   "title": "Transfer from appropriation - interest - WR",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52261",
+   "title": "Balance",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52262",
+   "title": "Transfer from appropriation - MR",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52263",
+   "title": "Transfer to capital account (cap exp)",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52264",
+   "title": "Transfer to approp (recurrent exp)",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52265",
+   "title": "Transfer to/from other reserves - MR",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52266",
+   "title": "Transfer from appropriation - Interest - MR",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52271",
+   "title": "Balance",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52272",
+   "title": "Transfer from appropriation statements",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52273",
+   "title": "Transfer to capital account (cap exp)",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52274",
+   "title": "Transfer to appropriation - IFR",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52275",
+   "title": "Transfer to/from other reserves - IFR",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52276",
+   "title": "Transfer from appropriation - interest - IFR",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52281",
+   "title": "Balance",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52282",
+   "title": "53341 Transfer to Wastewater Reserve - WWR",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "52283",
+   "title": "53342 Transfer from the sewerage reserve",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "52284",
+   "title": "Transfer to Appropriation - GRIB",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52285",
+   "title": "Transfer to/from Other Reserves",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52286",
+   "title": "Transfer from Appropriations - Interest - GRIB",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52291",
+   "title": "Balance",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52292",
+   "title": "Transfer from Appropriation - DVR",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52293",
+   "title": "Transfer to capital reserve - DVR",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52294",
+   "title": "Transfer to Appropriation (op exp) - DVR",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52295",
+   "title": "Transfer to/from Other Reserves",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52296",
+   "title": "Transfer from Appropriations - Interest",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52613",
+   "title": "ARR - Water infrastructure Revaluation",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52623",
+   "title": "ARR - Sewerage infrastructure Revaluation",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52631",
+   "title": "ARR - Roads infrastructure Balance",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52633",
+   "title": "ARR - Roads infrastructure Revaluation",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52636",
+   "title": "ARR - Roads infrastructure Impairment Loss",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52641",
+   "title": "ARR - Drainage infrastructure Balance",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52643",
+   "title": "ARR - Drainage infrastructure Revaluation",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52646",
+   "title": "ARR - Drainage infrastructure Impairment Loss",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52653",
+   "title": "ARR - Water & Sewerage facilities Revaluation",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52661",
+   "title": "ARR - Landfill cells Balance",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "52663",
+   "title": "ARR - Landfill cells Revaluation",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "53111",
+   "title": "Retained Earnings current year",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "53112",
+   "title": "Retained Earnings Previous Year",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "53211",
+   "title": "Adjustment of capital account",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "53212",
+   "title": "To capital adjustment of capital account",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "53221",
+   "title": "From cap - loss on loan revaluation",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "53222",
+   "title": "To capital - gain on loan revaluation",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "53231",
+   "title": "From capital - loss on sale of assets",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "53232",
+   "title": "To capital - gain on sale of assets",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "53233",
+   "title": "From Capital - Loss on Fair Value of Inv Property",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "53234",
+   "title": "To Capital - Loss on Fair Value of Inv Property",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "53241",
+   "title": "From capital - unfunded depreciation",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "53251",
+   "title": "To capital funding - revenue",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "53252",
+   "title": "To capital funding \u0096 infra contr assets",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "53253",
+   "title": "To capital funding - subsidies and grants",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "53254",
+   "title": "To capital funding - cash contributions",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "53311",
+   "title": "Transfer to the general reserve",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "53312",
+   "title": "Transfer from the general reserve",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "53313",
+   "title": "Trf to other reserves - interest",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "53321",
+   "title": "Transfer to the community assets reserve",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "53322",
+   "title": "Transfer from the community assets res",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "53323",
+   "title": "Transfer to other reserves - interest",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "53331",
+   "title": "Transfers to the environmental res",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "53332",
+   "title": "Transfers from the environmental res",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "53333",
+   "title": "Transfer to other reserves - interest",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "53343",
+   "title": "Tfr to Other Reserves - Interest - WWR",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "53351",
+   "title": "Transfer to Water Reserve - WR",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "53352",
+   "title": "Transfer from the water reserve - WR",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "53353",
+   "title": "Tfr to Other Reserves - Interest - WR",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "53361",
+   "title": "Transfer to other reserves",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "53362",
+   "title": "Transfer from other reserves",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "53363",
+   "title": "Trf to Other Reserves - Interest",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "53371",
+   "title": "Trf to Constrained Income Reserve",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "53372",
+   "title": "Trf from Constrained Income Reserve",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "53373",
+   "title": "Transfer to Constrained Income Reserve - interest",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "53381",
+   "title": "Transfer to General Reserve Interest Bearing",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "53382",
+   "title": "Trf Interest to General Reserve Interest Bearing",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "53383",
+   "title": "Trf Interest to General Reserve Interest Bearing",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "53401",
+   "title": "Transfer to the Demand Variation Reserve - DVR",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "53402",
+   "title": "Transfer from the Demand Variation",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "53403",
+   "title": "Transfer to other reserves - interest",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "53411",
+   "title": "Transfer to the Capital Works Reserve 53422 Transfer from the Internal Funding Reserve - IFR",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "53412",
+   "title": "Transfer from the Capital Works Reserve 53423 Transfer to other reserves - Interest - IFR",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "53421",
+   "title": "Transfer to the Internal Funding Reserve 5ZZZZ Inter-Entity Paid Up Capital",
+   "description": "",
+   "group": "5",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "61111",
+   "title": "General Rate Income",
+   "description": "Income received from the General Rate amount raised quarterly on all properties with valuations located within Logan City.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "61211",
+   "title": "Occupied - Water Rates",
+   "description": "Income received from water service/access charges raised quarterly on all properties connected to or with the ability to connect to Council's water supply.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "61221",
+   "title": "Gross Usage Rates Water",
+   "description": "Income received from water consumption on metered properties, charged on quarterly rates notice.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "61222",
+   "title": "Concealed Leak Remission",
+   "description": "Remission provided by Council in circumstances where the usage of water was not the responsibility of the ratepayer e.g. burst water pipe Income received from Wastewater service/access charges raised",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "61311",
+   "title": "Connected",
+   "description": "quarterly on all properties connected to or with the ability to connect to Council's sewer.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "61411",
+   "title": "Environmental Charge",
+   "description": "Income received from an environmental levy raised quarterly on all properties with valuations located within Logan City.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "61412",
+   "title": "Community Infrastructure Charge",
+   "description": "Income received from a community infrastructure charge raised quarterly on all properties with valuations located within Logan City.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "61421",
+   "title": "Garbage Charges",
+   "description": "Income received from a garbage service charge raised quarterly on all properties with a garbage pick up service located within Logan City.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "61422",
+   "title": "Revenue relating to the State Revenue received from waste/garbage charges relating only to the Qld Government's Waste Levy",
+   "description": "State Govt. commercial waste levy.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "61431",
+   "title": "Trade Waste Base Charge",
+   "description": "Revenue received from annual trade waste utility fee, which includes inspection and testing, meter reading and tracking of trade waste (trade waste fees charged annually in August for financial year fee).",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "61432",
+   "title": "Trade Waste Conveyance & Treatment Charge",
+   "description": "Revenue received from the conveyance and treatment of trade waste, based on trade waste meter readings (trade waste fees charged annually in August for the previous 12 months' readings).",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "61911",
+   "title": "Discounts Given",
+   "description": "Reduction in income - 5% discount on all rates and charges (except Fire Levy) if paid on or before the due date.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "61912",
+   "title": "Pensioner Remissions",
+   "description": "Remission provided by Council to eligible pensioners on general rate income and other rateable amounts as per revenue statement.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "61913",
+   "title": "State Pensioner Subsidies",
+   "description": "Subsidy provided by State Government to eligible pensioners on all rates and charges.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "62111",
+   "title": "Application Fees",
+   "description": "Revenue from Council applications for information or services.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "62113",
+   "title": "Permit, Licence & Registration Revenue from Council licences and registrations and permits to allow Fees",
+   "description": "certain activities within Council areas.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "62114",
+   "title": "Transaction Fees",
+   "description": "Revenue received from the fee charged for payments made to Council via Australia Post.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "62115",
+   "title": "Search Fees",
+   "description": "Revenue from fees associated with performing searches of Council databases and providing this information.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "62116",
+   "title": "Service Fees",
+   "description": "Revenue received from the fee charged for payments made to Council via Credit Cards.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "62117",
+   "title": "Transfer Fees",
+   "description": "Revenue from the fees charged to transfer licences, such as food licences.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "62119",
+   "title": "Animal Registration Fees",
+   "description": "Revenue collected from the registration of animals (cats and dogs) within the city.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "62121",
+   "title": "Charges Received",
+   "description": "Revenue from fees charged by Council, such as the waste disposal charges at Council's landfill and liquid waste disposal charges at Council's treatment plant.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "62125",
+   "title": "Cemetery Charges",
+   "description": "Income received for prepaid deposits, instalment plan payments & prepayments for cemetery plots.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "62211",
+   "title": "Admission fees",
+   "description": "Revenue from admission to Council facilities, such as the Cornubia Sports Centre.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "62212",
+   "title": "Internet Fees",
+   "description": "Revenue from internet fees expense reimbursement.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "62213",
+   "title": "Miscellaneous Receipts and Photocopies",
+   "description": "Revenue received from fees for the replacement of library items borrowed and lost.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "62214",
+   "title": "Phone & Fax Fees",
+   "description": "Revenue from telephone expense reimbursement and fax expense reimbursement.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "62215",
+   "title": "Photocopy Fees",
+   "description": "Revenue from photocopying of Council documents/information.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "62216",
+   "title": "Telco Tower Leases & Rentals",
+   "description": "Revenue from rentals and lease fees charged for Telco Towers on Council properties. Revenue appropriated to constrained reserve.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "62217",
+   "title": "Property Leases & Rentals",
+   "description": "Revenue from rentals and lease fees charged on Council properties.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "62218",
+   "title": "Tip Fees 65211 Tip Fees",
+   "description": "Revenue from refuse tipping at Council landfills and Transfer Stations.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "63111",
+   "title": "Bank Interest",
+   "description": "Revenue from interest earned on Council funds held by the bank.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "63112",
+   "title": "Investment Interest",
+   "description": "Revenue from interest earned on Council investment funds.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "63113",
+   "title": "Penalty Interest on Rates & Utility chrg 65214 Penalty Interest on Rates & Utility charges",
+   "description": "Revenue from interest charged on outstanding rates and utilities payments.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "63114",
+   "title": "Loan Interest",
+   "description": "Revenue from interest earned on loans provided by Council.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "63115",
+   "title": "IL Loan Interest Revenue",
+   "description": "Revenue from interest earned on loans provided by Council to Invest Logan. (Finance use only)",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "64111",
+   "title": "Discounts & Rebates Received Sundry discounts received on expenses, such as postage rebate.",
+   "description": "Recovery of income where the debt was previously recognised as a",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "64121",
+   "title": "Bad debts recovered",
+   "description": "doubtful debt.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "64122",
+   "title": "Legal Costs Recovered",
+   "description": "Recovery of legal costs where these costs were previously recognised as a doubtful debt.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "64131",
+   "title": "Fines received",
+   "description": "Revenue from fines charged by Council for breaches of Local Laws.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "64132",
+   "title": "Animal Release Fees",
+   "description": "Revenue fee charged by Council's animal management unit in relation to the impounding of lost animals.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "64211",
+   "title": "Insurance (includes recoveries)",
+   "description": "Recoveries received from external parties in relation to insurance claims.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "64212",
+   "title": "Other",
+   "description": "Reimbursement of general expenses from prior years. Note: when recovery is directly related to current year cost, the actual cost should be credited.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "64311",
+   "title": "Plant Leases",
+   "description": "Leasing revenue from Council-owned plant provided for hire to Council employees.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "64312",
+   "title": "External Plant Hire",
+   "description": "Leasing revenue from Council-owned plant provided for hire to external parties.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "64411",
+   "title": "Sale of materials",
+   "description": "Revenue from sale of materials, such as water and recycled goods.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "64412",
+   "title": "Sale of fill",
+   "description": "Revenue from sale of fill.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "64413",
+   "title": "Sale of animals",
+   "description": "Revenue from the sale of animals from the pound, such as cats and dogs.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "64414",
+   "title": "Sale of tender documents",
+   "description": "Revenue from the sale of tender documents, where the tender documents are required to be purchased.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "64415",
+   "title": "Cost of Goods Sold",
+   "description": "Cost of goods sold pertaining solely to Plant held for resale.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "64416",
+   "title": "Sale of Food",
+   "description": "Sale of food through Council's major venues & facilities.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "64417",
+   "title": "Sale of Beverages",
+   "description": "Sale of beverages through Council's major venues & facilities.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "64418",
+   "title": "Proceeds of sale on developed",
+   "description": "Proceeds received from sale of land developed by Logan City Council.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "64421",
+   "title": "Sale of services",
+   "description": "Revenue received from services performed by Council, such as Private Works where a Sewer Manhole is raised in line with a changed ground level.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "64431",
+   "title": "Sale of intellectual property",
+   "description": "Income received from the sale of intellectual property.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "64444",
+   "title": "Sale of Other Maps",
+   "description": "Revenue from the sale of maps other than zoning maps.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "64511",
+   "title": "Income Received - Projects",
+   "description": "Income received directly in relation to capital projects.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "64512",
+   "title": "Profit on Projects",
+   "description": "",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "64513",
+   "title": "Income Received - not to be",
+   "description": "Income received directly in relation to operational/recoverable projects.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "64521",
+   "title": "appropriated Commissions received",
+   "description": "Revenue received from commissions paid to Council for collection of funds, such as Fire Levy Commission payable upon collection of fire levy amounts billed with Rates.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "64522",
+   "title": "Royalties received",
+   "description": "Revenue received from royalties paid to Council, such as royalties for energy sold from methane gas resources sourced from Council's landfill.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "64523",
+   "title": "Dividends received",
+   "description": "Revenue received from dividends paid to council from investments, such as the South East Queensland Water Corporation.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "64531",
+   "title": "Other revenue received",
+   "description": "Revenue received that does not fall into any other specific category within the income natural accounts.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "64534",
+   "title": "External Advertising",
+   "description": "External advertising revenue earned through Council's publications.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "65111",
+   "title": "Operational - Cash Donations Donations only (cash) - no contributions or grants. Operational Contributions -",
+   "description": "Operational contributions other than grants & subsidies where funds",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "65112",
+   "title": "Donations of assets",
+   "description": "",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "65211",
+   "title": "General Purpose",
+   "description": "can be used at Council's discretion. Refer to Revenue Allocation Guide for more information.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "65212",
+   "title": "Operational Contributions - Specific Purpose",
+   "description": "Operational contributions other than grants & subsidies where funds must be used for a distinct purpose due to an enforceable agreement with specific performance obligations. Refer to Revenue Allocation Guide for more information.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "65213",
+   "title": "Operational Contributions -",
+   "description": "Sponsorship income received by Council (Operating Revenue), e.g.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "65214",
+   "title": "Sponsorship Income Operational Contributions - General Purpose Constrained",
+   "description": "Businesses providing sponsorship to annual Logan Sports Awards. Operational contributions other than grants & subsidies where funds may be used at Council's discretion however amounts are transferred to reserve. Refer to Revenue Allocation Guide for more information.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "65221",
+   "title": "Infrastructure Charges Offsets Infrastructure Plan (LGIP) areas only. Revenue offsets appropriated to",
+   "description": "Cash infrastructure charges offsets for the Local Government constrained reserve.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "65222",
+   "title": "Infrastructure Charges",
+   "description": "Cash infrastructure charges for the Local Government Infrastructure Plan (LGIP) areas only. Revenue appropriated to constrained reserve.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "65223",
+   "title": "LGIP Infrastructure Refunds",
+   "description": "Cash infrastructure refunds for the Local Government Infrastructure Plan (LGIP) areas only. Refund of revenue appropriated to constrained reserve.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "65224",
+   "title": "Infrastructure Charges for Specific Assets (PDA)",
+   "description": "Infrastructure Charges for specific asset in the Priority Development Areas (PDA).",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "65225",
+   "title": "Infrastructure Charges - Existing Service Areas",
+   "description": "",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "65226",
+   "title": "6B116 Internal - Service Fees Infrastructure Charges for Specific Assets (PDA) - SR-A Development Areas (PDA) - to capture Sub Regional A charges only. Infrastructure Charges for",
+   "description": "Cash infrastructure charges for specific assets in the Priority Cash infrastructure charges for specific assets in the Priority",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "65227",
+   "title": "6B121 Internal - Charges Received Specific Assets (PDA) - SR-B Development Areas (PDA) - to capture Sub Regional B charges only. Infrastructure Charges for",
+   "description": "Cash infrastructure charges for specific assets in the Priority",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "65228",
+   "title": "6B211 Internal - Admission fees Specific Assets (PDA) - Value Development Areas (PDA) - to capture Value Capture charges only.",
+   "description": "",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "65229",
+   "title": "Infrastructure Charges PDA Offsets",
+   "description": "Cash infrastructure charges offsets in the Priority Development Areas (PDA).",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "65231",
+   "title": "Infrastructure Charges -",
+   "description": "Non-cash infrastructure charges (donated assets).",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "65241",
+   "title": "Donated Assets Capital Contributions - General",
+   "description": "Capital contributions other than grants & subsidies where the funds may be used at Council's discretion. Funds used for Capital purposes.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "65242",
+   "title": "Purpose Capital Contributions - Specific enforceable agreement requiring the funds to be used for a distinct Purpose",
+   "description": "Refer to Revenue Allocation Guide for more information. Capital contributions other than grants & subsidies where there is an purpose with specific performance obligations. Funds used for Capital purposes. Refer to Revenue Allocation Guide for more information.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "66111",
+   "title": "Operational Grants - General Purpose",
+   "description": "Operational grants & subsidies where the funds may be used at Council's discretion. Funds used for Operational purposes. Refer to Revenue Allocation Guide for more information.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "66112",
+   "title": "Operational Grants - Specific agreement requiring the funds to be used for a distinct purpose with Purpose",
+   "description": "Operational grants & subsidies where there is an enforceable specific performance obligations. Funds used for Operational purposes. Refer to Revenue Allocation Guide for more information.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "66121",
+   "title": "Capital Grants - General Purpose",
+   "description": "Capital grants & subsidies where funds may be used at Council's discretion. Funds used for Capital purposes. Refer to Revenue Allocation Guide for more information.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "66122",
+   "title": "Capital Grants - Specific Purpose",
+   "description": "Capital grants & subsidies where there is an enforceable agreement requiring the funds to be used for a distinct purpose with specific performance obligations. Funds used for Capital purposes. Refer to Revenue Allocation Guide for more information.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "67112",
+   "title": "Gain on Sale of Property, Plant Automated entries only - Only for Asset Register System generated & Equipment",
+   "description": "entries. (Finance Use Only)",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "67113",
+   "title": "Cost of Sale of Assets",
+   "description": "Any expenses directly in relation to the disposal of a non current asset.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "67114",
+   "title": "Gain or Loss on Investments Gain or Loss on Investments.",
+   "description": "",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "67211",
+   "title": "Gain on sale of developed land Gain on sale of land developed by Logan City Council. Profit or Loss on Sale of",
+   "description": "",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "67411",
+   "title": "Profit or Loss on Sale of Intangibles",
+   "description": "To record Profit or Loss on Intangible assets separately from PP&E.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "67511",
+   "title": "Intangibles Profit or Loss on Sale of Investment Property",
+   "description": "To record Profit or Loss on Investment Property assets seperately from PP&E.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "68111",
+   "title": "Gain on Fair Value - Investment Property Gain on borrowings market",
+   "description": "Automated entries only - Only for Asset Register System generated entries. (Finance Use Only) Recognition of gains on market value realisation relating to QTC Loans",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "68131",
+   "title": "Gain on borrowings market value realisation 6D441 Internal - Sale of Zoning Maps A4 value realisation",
+   "description": "- Finance Use Only.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "68141",
+   "title": "Share of Profit & Loss of Joint Revenue realised through Council's holding in the Greenbank Joint Venture Company",
+   "description": "Venture company - Finance Use only.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "68211",
+   "title": "Provision for Rehabilitation - Revenue",
+   "description": "Revenue relating to reduction in the rehabilitation provision arising from Council's obligation to rehabilitate it's landfill & Quarry sites back to their original natural state (natural vegetation) once the site/s are no longer in use & where Council doesn't account for the asset (landfill or quarry site) in the Financial Asset Register - For Financial Accounting use only.",
+   "group": "6",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "6A111",
+   "title": "Internal - General Rate Income quarterly on all Council properties with valuations located within Logan",
+   "description": "Internal income received from the General Rate amount raised City.",
+   "group": "6",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "6A211",
+   "title": "Internal - Occupied",
+   "description": "Internal income received from water service/access charges raised quarterly on all Council properties connected to or with the ability to connect to Council's water supply.",
+   "group": "6",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "6A221",
+   "title": "Internal - Usage Rate",
+   "description": "Internal income received on water consumption charges on metered Council properties, charged on the quarterly rates notice.",
+   "group": "6",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "6A311",
+   "title": "Internal - Connected",
+   "description": "Internal income received from Wastewater service/access charges raised quarterly on all Council properties connected to or with the ability to connect to Council's sewer.",
+   "group": "6",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "6A411",
+   "title": "Internal - Environmental Charge",
+   "description": "Internal income received from an environmental levy raised quarterly on all Council properties with valuations located within Logan City.",
+   "group": "6",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "6A412",
+   "title": "Internal - Community Services Charge",
+   "description": "Internal income received from a community service charge raised quarterly on all Council properties with valuations located within Logan City.",
+   "group": "6",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "6A421",
+   "title": "Internal - Garbage Charges",
+   "description": "Internal income received from a garbage service charge raised quarterly on all Council properties with a garbage pick up service located within Logan City.",
+   "group": "6",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "6A431",
+   "title": "Internal - Trade Waste Base",
+   "description": "Internal revenue received from annual trade waste utility fee, which includes inspection and testing, meter reading and tracking of trade waste (trade waste fees charged annually in August for financial year fee).",
+   "group": "6",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "6A432",
+   "title": "Internal - Trade Waste Conveyance 6E223 Internal - Trade Waste Conveyance",
+   "description": "Internal revenue received from the conveyance and treatment of trade waste, based on trade waste meter readings (trade waste fees charged annually in August for the previous 12 months' readings).",
+   "group": "6",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "6A911",
+   "title": "Internal - Discounts Given",
+   "description": "Reduction in Internal income - 5% discount on all Council property rates and charges (except Fire Levy) if paid on or before the due date.",
+   "group": "6",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "6B111",
+   "title": "Internal - Application Fees",
+   "description": "Internal revenue from internal Council applications for information or services.",
+   "group": "6",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "6B113",
+   "title": "Internal - Permit, Licence & Registration",
+   "description": "Internal revenue from internal Council licences and registrations, such as animal registrations, and permits to allow certain activities within Council areas.",
+   "group": "6",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "6B115",
+   "title": "Internal - Search Fees",
+   "description": "Internal income from fees associated with performing searches of Council databases and providing this information.",
+   "group": "6",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "6B116",
+   "title": "Internal - Service Fees",
+   "description": "Internal Revenue received from Building Certification, for all internal building approvals.",
+   "group": "6",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "6B121",
+   "title": "Internal - Charges Received",
+   "description": "Internal Revenue from fees charged, such as the waste disposal charges at Council's landfill by other areas of Council; and liquid waste disposal charges at Council's treatment plant by other areas of Council.",
+   "group": "6",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "6B211",
+   "title": "Internal - Admission Fees",
+   "description": "Internal revenue from the charging of admission to Council venues and facilities earned from other areas of Council.",
+   "group": "6",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "6B213",
+   "title": "Internal - Library Item Replacement Fees",
+   "description": "Internal Revenue received from fees for the replacement of library items borrowed and lost internally.",
+   "group": "6",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "6B214",
+   "title": "Internal - Phone & Fax Fees",
+   "description": "Internal income from telephone expense reimbursement and fax expense reimbursement.",
+   "group": "6",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "6B217",
+   "title": "Internal - Property Leases & Rentals",
+   "description": "Internal revenue from rentals and lease fees charged on Council properties to internal parties.",
+   "group": "6",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "6B218",
+   "title": "Internal - Tip Fees",
+   "description": "Internal revenue from refuse tipping at Council landfills and Transfer Stations by internal parties.",
+   "group": "6",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "6C112",
+   "title": "Internal - Investment Interest Internal revenue from interest earned on Council investments.",
+   "description": "",
+   "group": "6",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "6D212",
+   "title": "Internal - Other",
+   "description": "Reimbursements received from internal party in relation to an ad-hoc activity.",
+   "group": "6",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "6D213",
+   "title": "Internal - Carbon Tax",
+   "description": "Internal revenue from Carbon Tax Recoveries, Logan Waste use only.",
+   "group": "6",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "6D312",
+   "title": "Recoveries Internal - Plant Hire",
+   "description": "Internal Leasing revenue from Council-owned plant provided for hire to internal parties.",
+   "group": "6",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "6D411",
+   "title": "Internal - Sale of materials",
+   "description": "Internal revenue from sale of materials, such as water and recycled goods to internal parties.",
+   "group": "6",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "6D412",
+   "title": "Internal - Sale of fill",
+   "description": "Internal revenue from sale of fill to internal parties.",
+   "group": "6",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "6D413",
+   "title": "Internal - Sale of animals",
+   "description": "Internal revenue from sale of animals to internal parties.",
+   "group": "6",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "6D416",
+   "title": "Internal - Sale of Food",
+   "description": "Internal revenue from sale of food.",
+   "group": "6",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "6D417",
+   "title": "Internal - Sale of Beverages",
+   "description": "Internal revenue from sale of beverages.",
+   "group": "6",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "6D421",
+   "title": "Internal - Sale of services",
+   "description": "Internal revenue received from services performed by Council for internal parties, such as Private Works where a Sewer Manhole is raised in line with a changed ground level.",
+   "group": "6",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "6D431",
+   "title": "Internal - Sale of Intellectual Internal revenue from the sale of information documents collated by property",
+   "description": "Council for internal parties, such as Community Profiles.",
+   "group": "6",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "6D441",
+   "title": "Internal - Sale of Zoning Maps",
+   "description": "Internal revenue from the sale of zoning maps to internal parties.",
+   "group": "6",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "6D444",
+   "title": "A4 Internal - Sale of Other Maps",
+   "description": "Internal revenue from the sale of maps other than zoning maps to internal parties.",
+   "group": "6",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "6D511",
+   "title": "Internal - Income Received -",
+   "description": "Internal income to be appropriated to reserve.",
+   "group": "6",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "6D512",
+   "title": "appropriate Internal - Profit on Projects",
+   "description": "Internal profit from specific Council Projects.",
+   "group": "6",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "6D513",
+   "title": "Internal Income Recvd - not appropriated",
+   "description": "Internal Income received directly in relation to operational/recoverable projects, such as income received from the hire of plant & an operator for Plant Fleet Services Branch.",
+   "group": "6",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "6D514",
+   "title": "Community Service Obligations",
+   "description": "Internal revenue for the imposition by Council of costs not usually incurred in a business activity, such as free tipping days.",
+   "group": "6",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "6D531",
+   "title": "Internal - Other revenue received",
+   "description": "Internal revenue received that does not fall into any other specific category within the internal income natural accounts.",
+   "group": "6",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "6D534",
+   "title": "Internal - Advertising",
+   "description": "Internal advertising revenue relating to Council publications.",
+   "group": "6",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "6E111",
+   "title": "Internal - Donations",
+   "description": "Contributions toward specific operational Council run events/programs.",
+   "group": "6",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "6E212",
+   "title": "Internal - Other Contributions -",
+   "description": "Internal unrestricted contributions not to be appropriated to reserve.",
+   "group": "6",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "6E222",
+   "title": "Unrestricted use Internal - Developer Contributions - Restricted Use related works. Appropriated to Constrained Income Reserve. Internal - Divisional Imp Cont - Capital Revenue (not for Operational purposes) received from Internal",
+   "description": "Internal Revenue for the purpose of headworks/other development",
+   "group": "6",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "6E223",
+   "title": "Restricted Use",
+   "description": "sources.",
+   "group": "6",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "6E224",
+   "title": "Internal - Other cont - Restricted use",
+   "description": "Internal Cash contributions (for Capital purposes) to be appropriated to Reserves (not Div Imp).",
+   "group": "6",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "71000",
+   "title": "Timesheet Clearing Account",
+   "description": "Automated Entries Only. Solely for HR/Payroll System generated entries.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "71111",
+   "title": "Full Time Staff",
+   "description": "Wages for days at work and RDO's for permanent full time employees paid via payroll (wages when on leave are not charged to this account).",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "71112",
+   "title": "Overtime",
+   "description": "Overtime not including callouts.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "71113",
+   "title": "Temporary Staff",
+   "description": "Wages for staff employed at full time hours for a specific time period who are paid at the rates provided for permanent employees and enjoy the same entitlements as a permanent employee and are paid via payroll. Temporary staff employed through an agency should be coded to 73214.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "71114",
+   "title": "Casual Staff",
+   "description": "Wages for staff employed on an hourly basis and paid via payroll. Casual staff are generally employed for short-term and ad-hoc projects and do not receive the same entitlements as permanent staff. Their employment is subject to termination at any time.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "71115",
+   "title": "Rehabilitation Wages (Non- Reimbursable)",
+   "description": "Non-reimbursable wages paid to employees on work cover (usually up to first five days).",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "71116",
+   "title": "WCI - Lost Time Injury (Reimbursable)",
+   "description": "Reimbursable wages paid to employees on work cover (this account is for recording purposes only and will result in a nil balance as reimbursements are also included).",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "71118",
+   "title": "Callouts",
+   "description": "Overtime paid on callout.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "71119",
+   "title": "Part -time Staff",
+   "description": "Wages for days at work & RDO's for staff employed at part time hours who are permanent employees and are paid via payroll (wages when on leave are not charged to this account).",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "71121",
+   "title": "Traineeships",
+   "description": "Wages for trainees employed on Council's traineeship programs.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "71211",
+   "title": "Allowances Paid",
+   "description": "Employee allowances e.g. first aid, shift, meal, mileage, leading hand.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "71221",
+   "title": "Oncosts Charged",
+   "description": "Payroll tax expense and Public Holidays & Xmas Leave entitlements earned by staff.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "71222",
+   "title": "Accrued Employee",
+   "description": "Annual, Sick, and Long Service Leave entitlements earned by staff.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "71223",
+   "title": "Entitlements Floating Plant & Loose Tools",
+   "description": "Expenses related to plant and tools of an incidental nature that will be used in a number of projects and therefore should not be costed directly to a project (e.g. Shovels).",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "71224",
+   "title": "Paid Maternity Leave",
+   "description": "Payment of maternity leave as per the EB6 agreement.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "71225",
+   "title": "Commonwealth Paid Parental Payment of parental leave as per the Commonwealth Govts Paid Leave Scheme",
+   "description": "Parental Leave Scheme (Finance use only).",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "71226",
+   "title": "Banked RDO / On Call Leave Employee oncost accrual account for banked RDO's and on call leave.",
+   "description": "",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "71231",
+   "title": "Superannuation",
+   "description": "Total employer contributions to superannuation funds.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "71241",
+   "title": "Work Cover Premium",
+   "description": "Expenses related to annual premium with Work Cover against the cost of compensating a worker who has a work-related injury.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "71311",
+   "title": "Bonuses Paid",
+   "description": "Bonus payments in accordance with employment agreements.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "71312",
+   "title": "Redundancies Paid",
+   "description": "Redundancy payments in accordance with employment agreements.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "71321",
+   "title": "Fringe Benefits Tax",
+   "description": "Tax on benefits provided to employees.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "71331",
+   "title": "Jury Service Leave",
+   "description": "Wages costs while employees are on Jury Service.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "71332",
+   "title": "Study Leave",
+   "description": "Wages costs while employees are on approved Study Leave (DocsOpen #4007271 - Study Assistance for Employees).",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "71990",
+   "title": "Expensed capital employee costs",
+   "description": "Employee type expenses/costs captured in Capital Projects (CWIP) which are to be expensed rather than capitalised.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "71995",
+   "title": "Labour Allocated - Alliance P&I",
+   "description": "For the allocation of labour operating expenses for Logan Water Infrastructure Alliance planning projects to service codes.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "71996",
+   "title": "Labour Allocated",
+   "description": "For the allocation of labour overheads between sub-functions.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "71999",
+   "title": "Labour Recovery",
+   "description": "For the allocation to projects of labour overheads.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "72111",
+   "title": "Minor Equipment & Supplies",
+   "description": "Expenses less than $200 related to minor equipment & supplies that are not to be registered on the portable and attractive items register.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "72112",
+   "title": "Chemical, fertiliser & paints Expenses related to purchase of chemicals, fertilisers and paints. Safety Equipment & Medical",
+   "description": "Expenses related to purchase of safety equipment and medical",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "72113",
+   "title": "Supplies",
+   "description": "supplies.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "72114",
+   "title": "Uniforms",
+   "description": "Corporate uniforms and outdoor clothing for employees.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "72115",
+   "title": "Water Meters",
+   "description": "Issue of water meters from inventory.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "72116",
+   "title": "Dog Food",
+   "description": "Purchase of dog food for operations at Council's Animal Management Centre.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "72117",
+   "title": "Cat Food",
+   "description": "Purchase of cat food for operations at Council's Animal Management Centre.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "72118",
+   "title": "Fuel Card - Pending Account allocation of the transaction to the correct expense account that the",
+   "description": "Council's Fuel card transactions are charged to this account prior to the transaction relates to.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "72119",
+   "title": "Credit Card - Pending Account the allocation of the transaction to the correct expense account that the",
+   "description": "Council's credit card transactions are charged to this account prior to transaction relates to.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "72122",
+   "title": "Food for Resale",
+   "description": "Food purchased for resale through Council's major venues & facilities.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "72123",
+   "title": "Beverage for Resale",
+   "description": "Beverages purchased for resale through Council's major venues & facilities.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "72201",
+   "title": "Environmental Protection",
+   "description": "Expenses related to environmental protection activities",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "72211",
+   "title": "Bitumen & Asphalt Products",
+   "description": "Expenses related to purchase of bitumen and asphalt products.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "72212",
+   "title": "Concrete",
+   "description": "Expenses related to purchase of concrete.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "72213",
+   "title": "Plumbing Materials",
+   "description": "Expenses related to purchase of plumbing materials.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "72214",
+   "title": "Construction Materials",
+   "description": "Expenses related to purchase of construction materials.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "72215",
+   "title": "Pipes",
+   "description": "Expenses related to purchase of pipes and pipe products.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "72221",
+   "title": "Roads & Parks Furniture",
+   "description": "Expenses related to purchase of roads furniture and parks furniture.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "72222",
+   "title": "Signs",
+   "description": "Expenses related to purchase of signage for roads and parks.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "72231",
+   "title": "Landscape Supplies",
+   "description": "Expenses related to purchase of landscape supplies.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "72233",
+   "title": "Refund of Contributions",
+   "description": "Refund of contributions received by Council (should be offset against revenue)",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "72240",
+   "title": "Gravel",
+   "description": "Expenses related to purchase of gravel.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "72241",
+   "title": "Crushed Gravel",
+   "description": "Expenses related to purchase of crushed gravel.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "72242",
+   "title": "Pea Gravel",
+   "description": "Expenses related to purchase of pea gravel.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "72243",
+   "title": "Uncrushed Gravel",
+   "description": "Expenses related to purchase of uncrushed gravel.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "72244",
+   "title": "X Gravel",
+   "description": "Expenses related to purchase of X gravel.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "72245",
+   "title": "Ballast",
+   "description": "Expenses related to purchase of ballast.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "72246",
+   "title": "Screenings",
+   "description": "Expenses related to purchase of screenings.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "72248",
+   "title": "Crusher Dust",
+   "description": "Expenses related to purchase of crusher dust.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "72249",
+   "title": "Topsoil",
+   "description": "Expenses related to purchase of topsoil.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "72250",
+   "title": "Gravel - BTB",
+   "description": "Expenses related to purchase of Gravel BTB.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "72251",
+   "title": "Sand",
+   "description": "Expenses related to purchase of sand.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "72252",
+   "title": "Other Quarry Material",
+   "description": "Expenses related to purchase of other quarry material that does not fall under any other specific category.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "72260",
+   "title": "Provision for Rehabilitation Expense",
+   "description": "Expense relating to the increase in the rehabilitation provision arising from Council's obligation to rehabilitate it's Landfill & Quarry sites back to their original natural state (natural vegetation) once the site/s are no longer in use (i.e. completed & reached their capacity in case of waste landfill) & where Council doesn't account for the asset (landfill or quarry site) in the Financial Asset Register. For Financial Accounting use only.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "72311",
+   "title": "Other Plant & Equipment",
+   "description": "Expenses related to the purchase of Minor assets that do not meet the threshold for recording as an asset and cannot be classified into Office & Library Equipment (72312); Furniture & Fittings (72313); Cultural Assets (72314); or Parks Assets (72315).",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "72312",
+   "title": "Office & Library Equipment",
+   "description": "Expenses related to the purchase of Minor Office & Library Equipment that do not meet the threshold for recording as an asset.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "72313",
+   "title": "Furniture & Fittings",
+   "description": "Expenses related to the purchase of Minor Furniture & Fittings that do not meet the threshold for recording as an asset.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "72314",
+   "title": "Cultural Assets",
+   "description": "Expenses related to the purchase of Minor Cultural assets that do not meet the threshold for recording as an asset.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "72315",
+   "title": "Parks Assets",
+   "description": "Expenses related to the purchase of Minor Parks assets that do not meet the threshold for recording as an asset.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "72321",
+   "title": "Easement Acquisitions",
+   "description": "Purchase of the right-of-way over land or waterways.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "72331",
+   "title": "Minor Tax Asset",
+   "description": "Minor Tax Asset.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "72411",
+   "title": "Bulk Water",
+   "description": "Expenses relating to purchase of bulk water from SEQWC.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "72990",
+   "title": "Expensed capital materials",
+   "description": "Material type expenses/costs captured in Capital Projects (CWIP) which are to be expensed rather than capitalised.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "72995",
+   "title": "Materials Allocation - Alliance For the allocation of materials operating expenses for Logan Water P&I",
+   "description": "Infrastructure Alliance planning projects to service codes",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "72996",
+   "title": "Materials Allocated",
+   "description": "For the allocation of material overheads between sub-functions.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "72997",
+   "title": "Services Recovery Account",
+   "description": "For the allocation of service overheads between sub-functions Expenses incurred in the purchase of minor goods acquired for resale",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "72998",
+   "title": "Cost of Goods Sold",
+   "description": "(e.g. ice creams/soft drinks)",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "72999",
+   "title": "Material Recovery",
+   "description": "For the allocation to projects of material overheads.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73111",
+   "title": "Property-based Professional Services",
+   "description": "Expenses related to professional services such as Architects, Building & Land Surveyors, Town Planning and Valuation Services.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73112",
+   "title": "Audit Services - External Financial",
+   "description": "Expenses related to external audit fees for financial reporting only to be charged to this natural account (other audit fees use 73116).",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73113",
+   "title": "Engineering Services",
+   "description": "Expenses related to Engineering Services, which are not Consulting Services.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73114",
+   "title": "Legal Services",
+   "description": "Expenses for Legal Services.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73115",
+   "title": "Medical Services",
+   "description": "Expenses related to medical services such as Veterinarian, immunisation and other medical services.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73116",
+   "title": "Investigations and Other Audit Expenses related to audit fees that are not for the audit of financial Services",
+   "description": "reports.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73120",
+   "title": "Waste Disposal",
+   "description": "",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "73121",
+   "title": "Cleaning & Sanitary",
+   "description": "Expenses related to cleaning services and sanitary disposal.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73122",
+   "title": "Garbage Collection",
+   "description": "Expenses related to waste disposal, including payments to Council garbage contractor for domestic wheelie bin collection.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73123",
+   "title": "Maintenance Services",
+   "description": "Expenses related to maintenance services such as fire protection, pest control, repair fees, painters, building contractors, air conditioning, plumbers and other maintenance services.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73124",
+   "title": "Security",
+   "description": "Expenses related to alarm monitoring, security patrols and other security services including keys and lock fitting.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73125",
+   "title": "Workplace Health & Safety",
+   "description": "Expenses related to purchases of services to ensure compliance with workplace health & safety requirements.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73126",
+   "title": "Landscapers & Gardeners",
+   "description": "Expenses related to weed control, lawn mowing, landscaping and other gardening services purchased including the hire of indoor plants.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73127",
+   "title": "Electrical Maintenance",
+   "description": "Expenses related to electrician services purchased.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73128",
+   "title": "Other services",
+   "description": "Expenses related to other general services that do not fall under any other specific category, e.g. the Employee Assistance Program (EAP).",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73129",
+   "title": "Greenwaste Processing & Disposal",
+   "description": "Expenses relating to the treatment and disposal of green waste through Council's waste facilities.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73130",
+   "title": "Waste Disposal",
+   "description": "Costs for disposing of solid waste to landfill or other means (e.g.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73131",
+   "title": "Insurance Premium",
+   "description": "alternative waste treatment systems). Expenses related to insurance premiums, as advised by Admin Services & Risk Management Branch.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73132",
+   "title": "Excess & Damage Payments- Expenses related to excess and damage payments for combined Combined Liability",
+   "description": "liability claims, not covered by insurance.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73133",
+   "title": "Excess and Damages Payments-Motor Vehicle",
+   "description": "Expenses related to excess and damage payments for motor vehicle claims, not covered by insurance.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73134",
+   "title": "Excess and Damages Payments-Industrial",
+   "description": "Expenses related to excess and damage payments for industrial claims, not covered by insurance.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73135",
+   "title": "Excess and Damages Payments-Contract Work",
+   "description": "Expenses related to excess and damage payments for contract works claims, not covered by insurance.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73136",
+   "title": "Excess and Damages Payments-Employment",
+   "description": "Expenses related to excess and damage payments for employment claims, not covered by insurance.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73137",
+   "title": "Excess and Damages Payments-Other",
+   "description": "Expenses related to excess and damage payments for other claims that do not fall under any other specific category, not covered by insurance.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73140",
+   "title": "Pre-Employment Background",
+   "description": "Expenses relating to background checks for future employees.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73141",
+   "title": "Checks Drug & Alcohol Testing",
+   "description": "Expenses relating to employee drug and alcohol testing.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73211",
+   "title": "Minor Contracts (below $20,000) 73552 Other Advertising Minor Contracts (below $20,000)",
+   "description": "Contract payments relating to a contract where the total value of the contract is below $20,000.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "73212",
+   "title": "Major Contracts",
+   "description": "Contract payments relating to a contract where the total value of the contract is $20,000 or above.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73213",
+   "title": "Contractor Entitlements",
+   "description": "Portable Long Service Leave.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73214",
+   "title": "Agency Personnel Costs",
+   "description": "Payments made to Employment Agencies for temporary or permanent staff.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73215",
+   "title": "Major Contracts - Alliance",
+   "description": "Payments made to Logan Water and Logan Water Infrastructure Alliances.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73219",
+   "title": "Sludge Disposal",
+   "description": "Expenses relating to the disposal of biosolids from Council's Treatment facilities.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73220",
+   "title": "Traffic Control",
+   "description": "Payments made to Traffic Control service providers.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73311",
+   "title": "Gas",
+   "description": "Payments for gas supply.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73312",
+   "title": "Electricity",
+   "description": "Payments for electricity supply.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73313",
+   "title": "Telecommunication Services phones), facsimiles and data lines - purchases of phones should not be",
+   "description": "Monthly rental and usage charges for phones (including mobile charged to this account.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73314",
+   "title": "Water Base Charges",
+   "description": "Expenses related to water service/access charges that are charged by entities (private or government) other than Logan City Council.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73315",
+   "title": "Sewerage Base Charges",
+   "description": "Expenses related to sewerage service/access charges that are charged by entities (private or government) other than Logan City Council.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73316",
+   "title": "Water Consumption Charges",
+   "description": "Expenses related to water consumption use charged by entities (private or government) other than Logan City Council.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73317",
+   "title": "Trade Waste Charges",
+   "description": "Expenses related to trade waste usage charged by entities (private or government) other than Logan City Council.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73318",
+   "title": "Street Lighting Infrastructure Street lighting infrastructure charge usually charged by electricity Charges",
+   "description": "supplier for maintaining street lighting infrastructure.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73411",
+   "title": "External Contributions",
+   "description": "External Contributions.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73412",
+   "title": "Refund of Operational Contributions",
+   "description": "Refunds of contributions received by Council that are no longer required.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73421",
+   "title": "Rates & Charges paid",
+   "description": "Expenses related to Rates, Trade Waste Charges, Water Base Charges and Tip Fees paid to other authorities.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73422",
+   "title": "Fire Levy",
+   "description": "Payment of the fire levy collected, on their behalf, to Queensland Fire and Rescue Service and charged on the Rates Notices of Council- owned properties.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73423",
+   "title": "Waste Levy",
+   "description": "Expenses relating to the State Government's Waste Levy.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73424",
+   "title": "Carbon Emissions Tax",
+   "description": "Expenses relating to the purchase of Carbon Emissions permits issued under the Federal Government's Carbon Tax.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73425",
+   "title": "Carbon Emissions - Provision Expense adjustments relating to the holding of Carbon Emission adjustments",
+   "description": "permits issued under the Federal Government's Carbon Tax.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73431",
+   "title": "Fines & Penalties",
+   "description": "Expenses related to fines and penalties, including tax penalties.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73432",
+   "title": "Commissions",
+   "description": "Debt collection and other commission fees payable.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73433",
+   "title": "Other Fees & Charges",
+   "description": "Expenses related to fees and charges that do not fall under any other specific category, this includes meeting fees, licence fees, and blue cards.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73434",
+   "title": "Regulatory Fees",
+   "description": "Expenses related to industry regulators and ombudsman.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73438",
+   "title": "Minor Damage Claims",
+   "description": "Expenses related to rectification costs for damage caused by Council activity to non-Council property or re-imbursement of such costs to claimant (excludes insurance related matters).",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73511",
+   "title": "Entertainment & Hospitality FBT",
+   "description": "Work related hospitality expenditure that incurs Fringe Benefits Tax (FBT), such as off-site lunches and dinners and staff Christmas party expenses. Snack-type nibbles provided at working meetings held on- site do not incur FBT and should be charged to Entertainment & Hospitality Non-FBT (73512). Refer Hospitality & Entertainment Guide for more information.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73512",
+   "title": "Entertainment & Hospitality Non-FBT",
+   "description": "Snack-type nibbles and/or sandwiches or morning/afternoon tea provided at working meetings held on-site. These transactions do not incur Fringe Benefits Tax (FBT). Refer Hospitality & Entertainment Guide for more information.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73513",
+   "title": "Employee Reward and Recognition",
+   "description": "Flowers/Cards/Gifts for employees. Where the purchase is infrequent and under $300 in value it will not incur FBT. Refer Hospitality & Entertainment Guide for more information.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73514",
+   "title": "Employee Functions & Awards",
+   "description": "Expenses related to provision of employee years of service rewards and associated functions.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73515",
+   "title": "Presenter and Entertainer Fees - Non-FBT",
+   "description": "Expenses related to speaker and presenter costs for community and work place events.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73521",
+   "title": "Property Leases & Rentals",
+   "description": "Expenses related to property leases and rentals.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73522",
+   "title": "Equipment Leases & Rentals",
+   "description": "Expenses related to lease or rental payments for photocopier, fax, and other equipment that is leased or rented.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73531",
+   "title": "Local Travel (SEQ) Cab charge/Parking",
+   "description": "Expenses related to local taxi fares and parking fees - not toll charges (should be 73535) and not expenses relating to interstate (should be 73533) or overseas (should be 73534) taxi fares or parking.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73532",
+   "title": "Intrastate Travel and",
+   "description": "Expenses related to all travel and accommodation within Queensland.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73533",
+   "title": "Interstate Travel and Accommodation 74141 Trucks to 8 tonnes G.V.M. Accommodation Interstate Travel and Accommodation",
+   "description": "Expenses related to all travel and accommodation within Australia, excluding local travel in South East Queensland (73531) and Travel & Accommodation in Queensland (73532).",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "73534",
+   "title": "Overseas Travel & Accommodation 74142 Trucks above 8 tonnes to 15 tonnes G.V.M Overseas Travel & a. Refreshment only (i.e. light lunch & teas) 73512 b. Social 73511 a. Tea/ light or finger lunch 73512 b. Elaborate meal/ alcohol 73511 a. During work/ over time likely 73512 b. Outside of work likely 73511 a. On business premises likely 73512 b. Off site or function room likely 73511 of a written report or an intellectual product for future action which Council must then decide upon or take (for example, a range of recommendations are presented for Council to consider). Overseas Travel Guide",
+   "description": "All Expenses related to Overseas Travel and Accommodation. Consultancy Guide Natural GST Description Account Code Includes business planning, business redesign, organisational change management, organisational strategic planning, 73601 C organisational resource planning and organisational cultural project management. Includes land use planning, urban design, environmental 73603 C planning and climate change. Includes software/hardware tendering, and software/hardware 73605 C analysis. Includes expenditure on engineering advice or analysis for civil 73607 C engineering; environmental engineering and electrical engineering (infrastructure focus). Anything that does not specifically fall into the above categories but is a consultancy service provided to Council. That is, more 73609 C of an adhoc or business arising during the financial year. Consultants providing advice on the impact of interest rate",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "73535",
+   "title": "Tollway Charges 74143 Trucks over 15 tonnes G.V.M. Accommodation Tollway Charges",
+   "description": "Toll Charges incurred by Council (Motorway Qld Invoices).",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "73541",
+   "title": "Conferences & Seminar Fees",
+   "description": "Expenses related to conference registration fees only.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73542",
+   "title": "Professional Memberships",
+   "description": "Accommodation and travel are separate natural accounts (73531 to Expenses related to professional memberships paid to an external industry and professional organisation for benefits such as discounted conference or seminars fees, access to free training sessions and information and/or inclusion on a professional body register. This does NOT include licence fees or blue cards or DigSafe (please use 73433 - Other Fees & Charges).",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73543",
+   "title": "Reference Materials and Subscriptions",
+   "description": "Expenses related to the purchase of books, periodicals and reference materials including media monitors. Includes consecutive issues of a magazine, newspaper, book or electronic information for a subscribed period of time.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73544",
+   "title": "Training & Development",
+   "description": "Expenses related to training and professional development costs.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73545",
+   "title": "Study Assistance",
+   "description": "Reimbursement of course fees related to study assistance.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73546",
+   "title": "Reimbursement Executive Professional Devt Program",
+   "description": "Expenses related to professional development costs for Council executives.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73551",
+   "title": "Recruitment Advertising",
+   "description": "Advertising associated with hiring personnel - to be coordinated and placed through the Human Resource Services Branch.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73552",
+   "title": "Other Advertising",
+   "description": "Advertising other than recruitment - to be coordinated and placed through the Marketing and Communication Branch.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "73553",
+   "title": "Promotional Items",
+   "description": "Promotional items - to be coordinated through the Marketing and Communication Branch.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73561",
+   "title": "Other Administration Costs",
+   "description": "Expenses related to administration that do not fall under any other specific category.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73562",
+   "title": "Multi-Media Services",
+   "description": "Expenses related to creating multi-media products or services (incl.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73563",
+   "title": "Printing & Stationery",
+   "description": "photography, graphic design, videography or digital graphics) Expenses related to printing and stationery costs.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73564",
+   "title": "IT Equipment and Applications Expenses related to IT purchases.",
+   "description": "",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73565",
+   "title": "Postage and Courier Services Expenses related to courier delivery charges and postage costs.",
+   "description": "",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73566",
+   "title": "IT Software Licence Fees",
+   "description": "Expenses related to IT software licence fees.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73601",
+   "title": "Management Consultancies",
+   "description": "Expenses related to Management Consultancies. Refer Consultancy Guide for more information.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73602",
+   "title": "Alliance Consultancies",
+   "description": "Consulting expenses for the Logan Water Alliance.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73603",
+   "title": "Planning & Environment Consultancies",
+   "description": "Expenses related to Planning & Environmental Consultancies. Refer Consultancy Guide for more information.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73605",
+   "title": "Information Technology (IT) Consultancies",
+   "description": "Expenses related to IT Consultancies. Refer Consultancy Guide for more information.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73606",
+   "title": "Contractors (Capital Recovery)",
+   "description": "Expenses related to contractors (not consultants) providing services for capital related projects.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73607",
+   "title": "Engineering Consultancies",
+   "description": "Expenses related to Engineering Consultancies. Refer Consultancy Guide for more information.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73609",
+   "title": "Other Consultancies",
+   "description": "Expenses related to any Other Consultancies that do not fit in the specific categories above. Refer Consultancy Guide for more information.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73699",
+   "title": "Contractors Recovery",
+   "description": "Expenses related to contractors (not consultants) providing services for operational (not capital) type projects.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73990",
+   "title": "Expensed capital services",
+   "description": "Service type expenses/costs captured in Capital Projects (CWIP) which are to be expensed rather than capitalised.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73995",
+   "title": "Services Allocated - Alliance P For the allocation of services operating expenses for Logan Water &I",
+   "description": "Infrastructure Alliance planning projects to service codes.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73996",
+   "title": "Services Allocated",
+   "description": "For the allocation of services overheads between service codes.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "73999",
+   "title": "Services Recovery",
+   "description": "For the allocation to projects of services overheads.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "74111",
+   "title": "Bus",
+   "description": "External hire costs for a bus.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "74112",
+   "title": "Passenger Vehicles",
+   "description": "External hire costs for a passenger vehicle.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "74113",
+   "title": "Van",
+   "description": "External hire costs for a van.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "74114",
+   "title": "Wagon 6 cylinder",
+   "description": "External hire costs for a 6 cylinder wagon.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "74121",
+   "title": "Backhoe",
+   "description": "External hire costs for a backhoe.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "74122",
+   "title": "Grader",
+   "description": "External hire costs for a grader.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "74123",
+   "title": "Excavator",
+   "description": "External hire costs for an excavator.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "74124",
+   "title": "Forklift",
+   "description": "External hire costs for a forklift.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "74125",
+   "title": "Landfill Compactor",
+   "description": "External hire costs for a landfill compactor.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "74126",
+   "title": "Roller",
+   "description": "External hire costs for a roller.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "74127",
+   "title": "Tractor",
+   "description": "External hire costs for a tractor.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "74128",
+   "title": "Mobile Crane",
+   "description": "External hire costs for a mobile crane.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "74129",
+   "title": "Dozer",
+   "description": "External hire costs for a dozer.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "74131",
+   "title": "Track Loader",
+   "description": "External hire costs for a track loader.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "74132",
+   "title": "Skid Steer Loader",
+   "description": "External hire costs for a skid steer loader.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "74133",
+   "title": "Pneumatic Tyred Loader",
+   "description": "External hire costs for a pneumatic tyred loader.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "74141",
+   "title": "Trucks to 8 tonnes G.V.M.",
+   "description": "External hire costs for a truck up to 8 tonnes G.V.M.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "74142",
+   "title": "Trucks above 8 tonnes to 15",
+   "description": "External hire costs for a truck between 8 to 15 tonnes G.V.M.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "74143",
+   "title": "tonnes G.V.M. Trucks over 15 tonnes G.V.M. External hire costs for a truck over 15 tonnes G.V.M.",
+   "description": "",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "74144",
+   "title": "Low Loader",
+   "description": "External hire costs for a low loader.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "74145",
+   "title": "Tilt Tray Truck 75351 Impairment NCA held for sale Tilt Tray Truck",
+   "description": "External hire costs for a tilt tray truck.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "74151",
+   "title": "Utility 75352 Reversal of Impairment - NCA held for sale Utility",
+   "description": "External hire costs for a utility.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "74161",
+   "title": "Other Plant Hire 75411 Depreciation Expense Intangibles Other Plant Hire",
+   "description": "External hire costs for other minor plant.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "74162",
+   "title": "Pump Hire 76111 Bank Charges Pump Hire",
+   "description": "External hire costs for pumps.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "74163",
+   "title": "Combination Plant Hire 76112 Government Charges Combination Plant Hire",
+   "description": "External hire costs for combination equipment (e.g. 2 different items hired as a set).",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "74171",
+   "title": "Ancillary Equipment 76113 Australia Post Collection Charges Ancillary Equipment",
+   "description": "Expenses related to ancillary equipment.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "74172",
+   "title": "Ground Engaging Tools 76114 Investment Charges Ground Engaging Tools",
+   "description": "Expenses related to ground engaging tools.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "74173",
+   "title": "Safety Equipment 76211 QTC Loan Interest paid Safety Equipment",
+   "description": "Expenses related to safety equipment.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "74181",
+   "title": "Batteries 76212 Other Interest paid Batteries",
+   "description": "Expenses related to batteries - For Plant Fleet Services only.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "74182",
+   "title": "Filters 76223 Filters",
+   "description": "Expenses related to filters - For Plant Fleet Services only.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "74183",
+   "title": "Fuel 76231 Leases Interest Expense Fuel",
+   "description": "Expenses related to fuel - For Plant Fleet Services only.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "74184",
+   "title": "Oils & Grease 76311 Market Value Adjustment \u0096 QTC Loans Oils & Grease",
+   "description": "Expenses related to oils and grease - For Plant Fleet Services only.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "74185",
+   "title": "Parts 77111 Donations, Sponsorships & Grants Parts",
+   "description": "Expenses related to parts - For Plant Fleet Services only.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "74186",
+   "title": "Tyres & Tubes 77112 LIP Local Infrastructure Program Tyres & Tubes",
+   "description": "Expenses related to tyres and tubes - For Plant Fleet Services only.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "74187",
+   "title": "Rego, Licences & Third Party 77113 Community Benefit Fund Rego, Licences & Third Party",
+   "description": "Expenses related to registration, licences and third party compulsory insurance - For Plant Fleet Services only.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "74188",
+   "title": "Plant Repairs - External 77211 Councillor Remuneration Paid Plant Repairs - External",
+   "description": "Expenses related to repairs - For Plant Fleet Services only.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "75111",
+   "title": "Plant & Equipment - Depreciation 77212 Civic Allowances Paid Plant & Equipment - Depreciation",
+   "description": "Processed by Finance - monthly expense to recognise the reduction in value of Plant and Equipment fixed assets due to wear, age or obsolescence.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "75112",
+   "title": "Buildings - Depreciation 77311 Doubtful Debts Expenses Buildings - Depreciation",
+   "description": "Processed by Finance - monthly expense to recognise the reduction in value of Buildings fixed assets due to wear, age or obsolescence.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "75113",
+   "title": "Roads & Bridges Infra - Depreciation 77312 Bad Debts Write Off Roads & Bridges Infra - Depreciation",
+   "description": "Processed by Finance - monthly expense to recognise the reduction in value of Roads and Bridges Infrastructure fixed assets due to wear, age or obsolescence.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "75114",
+   "title": "Drainage Infra - Depreciation 77411 Stock Adjustments Drainage Infra - Depreciation value of Drainage Infrastructure fixed assets due to wear, age or",
+   "description": "Processed by Finance - monthly expense to recognise the reduction in obsolescence.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "75115",
+   "title": "Water Infra - Depreciation 77412 Price Variances Water Infra - Depreciation",
+   "description": "Processed by Finance - monthly expense to recognise the reduction in value of Water Infrastructure fixed assets due to wear, age or obsolescence.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "75116",
+   "title": "Sewerage Infra - Depreciation 77611 Undisbursed Expenditure Sewerage Infra - Depreciation value of Wastewater Infrastructure fixed assets due to wear, age or",
+   "description": "Processed by Finance - monthly expense to recognise the reduction in obsolescence.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "75117",
+   "title": "Water & Sewerage Facilities - Depreciati 78211 Asset Revaluation Expense Water & Sewerage Facilities - Depreciation",
+   "description": "Processed by Finance - monthly expense to recognise the reduction in value of Water & Wastewater Facilities fixed assets due to wear, age or obsolescence.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "75118",
+   "title": "Landfill Cells - Depreciation 78311 Asset Write Offs Landfill Cells - Depreciation",
+   "description": "Processed by Finance - monthly expense to recognise the reduction in value of Landfill Cells fixed assets due to wear, age or obsolescence.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "75121",
+   "title": "Depreciation Expense - Leased P&E 78511 Asset Write Offs - Investment Property Depreciation Expense - Leased P&E",
+   "description": "Processed by Finance - monthly expense to recognise the reduction in value of Plant & Equipment ROU (right of use assets) Leased Assets as per AASB16 (Finance use only).",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "75122",
+   "title": "Depreciation Expense - Leased Buildings 78611 Refund of Capital Contribution Depreciation Expense - Leased Buildings",
+   "description": "Processed by Finance - monthly expense to recognise the reduction in value of Building ROU (right of use assets) Leased Assets as per AASB16 (Finance use only).",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "75211",
+   "title": "Amortisation 7B111 Internal - Rates & Charges Amortisation",
+   "description": "Processed by Finance -an expense to recognise the reduction in value of Intangible assets other than software (Finance use only).",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "75311",
+   "title": "Plant & Equip - Impairment 7B112 Internal - Water Base Charge Plant & Equip - Impairment",
+   "description": "Impairment of Property Plant & Equipment.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "75312",
+   "title": "Buildings - Impairment 7B113 Internal - Water Usage Charge Buildings - Impairment",
+   "description": "Impairment of Buildings.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "75313",
+   "title": "Roads & Bridges Infra - Impairment 7B114 Internal - Sewerage Charges Roads & Bridges Infra -",
+   "description": "Impairment of Roads & Bridges Infrastructure.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "75314",
+   "title": "Drainage Infra - Impairment 7B115 Internal - Garbage Charges Impairment Drainage Infra - Impairment",
+   "description": "Impairment of Drainage Infrastructure.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "75315",
+   "title": "Water Infra - Impairment 7B121 Internal - Trade Waste Charges Water Infra - Impairment",
+   "description": "Impairment of Water Infrastructure.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "75316",
+   "title": "Wastewater Infra - Impairment 7B122 Internal - Tip Fees Wastewater Infra - Impairment Impairment of Wastewater Infrastructure. Water & Wastewater Facilities -",
+   "description": "",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "75317",
+   "title": "Water & Wastewater Facilities - Impairment 7B123 Internal - Other fees & Charges",
+   "description": "Impairment of Water & Wastewater Facilities.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "75318",
+   "title": "Impairment - Waste Infrastructure 7B124 Internal - Excess & Damage Payments Impairment Impairment - Waste",
+   "description": "Impairment - Waste Infrastructure.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "75321",
+   "title": "Reversal of Impairment - P&E 7B125 Internal - Carbon Tax Expense Infrastructure Reversal of Impairment - P&E Reversal of Impairment of Property Plant & Equipment. Reversal of Impairment -",
+   "description": "",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "75322",
+   "title": "Reversal of Impairment - Buildings 7B211 Internal - Property-based Professional S",
+   "description": "Reversal of Impairment Buildings.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "75323",
+   "title": "Reversal of Impairment - Roads & Bridges 7B212 Internal - Consulting Services Buildings Reversal of Impairment -",
+   "description": "Reversal of Impairment Roads & Bridges.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "75324",
+   "title": "Reversal of Impairment - Drainage 7B213 Internal - Medical Services Reversal of Impairment -",
+   "description": "Reversal of Impairment Drainage.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "75325",
+   "title": "Reversal of Impairment - Water 7B214 Internal - Maintenance Services Drainage Reversal of Impairment -",
+   "description": "Reversal of Impairment Water.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "75326",
+   "title": "Reversal of Impairment - Wastewater 7B215 Internal - Construction Services Water Reversal of Impairment -",
+   "description": "Reversal of Impairment Wastewater.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "75327",
+   "title": "Reversal of Impairment - Facilities 7B219 Internal - Other Services Wastewater Reversal of Impairment -",
+   "description": "Reversal of Impairment Facilities.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "75328",
+   "title": "Reversal of Impairment - Waste Infrastructure 7B221 Internal - Entertainment & Hospitality - FBT Facilities Reversal of Impairment -",
+   "description": "Reversal of Impairment Waste Infrastructure.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "75331",
+   "title": "Impairment - Investment Property 7B222 Internal - Entertainment & Hospitality - Non FBT Waste Infrastructure Impairment - Investment",
+   "description": "Impairment Investment Property.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "75332",
+   "title": "Reversal of Impairment - Investment Property 7B223 Employee Functions & Awards Property Reversal of Impairment -",
+   "description": "Reversal of Impairment Investment Property.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "75341",
+   "title": "Impairment Intangible Assets 7B311 Internal - Contributions Investment Property Impairment - Intangible Assets Impairment Intangible Assets. Reversal of Impairment -",
+   "description": "",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "75342",
+   "title": "Reversal of Impairment - Intangible Assets 7B411 Internal - IT Equipment & Application",
+   "description": "Reversal of Impairment Intangible Assets.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "75351",
+   "title": "Intangible Assets Impairment - NCA held for sale Impairment Non Current Assets held for sale. Reversal of Impairment - NCA",
+   "description": "",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "75352",
+   "title": "",
+   "description": "Reversal of Impairment Non Current Assets held for sale.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "75411",
+   "title": "held for sale Depreciation Expense",
+   "description": "To record Depreciation on Intangible assets separately from PP&E.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "75999",
+   "title": "Intangibles Depreciation Recovery",
+   "description": "For the allocation to projects of depreciation overheads (Finance use only).",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "76111",
+   "title": "Bank Charges",
+   "description": "Bank fees and charges incurred by Council.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "76112",
+   "title": "Government Charges",
+   "description": "Fees charged by other government agencies associated with banking & collection of revenue services.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "76113",
+   "title": "Australia Post Collection Charges",
+   "description": "Fees paid to Australia Post for their services associated with the collection of Council revenue.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "76114",
+   "title": "Investment Charges",
+   "description": "Fees & charges incurred by Council related to Cash Investments.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "76211",
+   "title": "QTC Loan Interest paid",
+   "description": "Interest charges related to QTC loans that Council has outstanding.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "76212",
+   "title": "Other Interest paid",
+   "description": "Interest charges related to funds held by Council where interest is paid, such as SouthROC funds held and interest paid to SouthROC monthly.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "76223",
+   "title": "Borrowing Costs on discount Finance Use Only - To recognise the borrowing costs element of of Restoration Provision",
+   "description": "changes in Restoration provisions measured at Net Present Value.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "76231",
+   "title": "Leases Interest Expense",
+   "description": "To recognise the borrowing costs element on Lease Liabilities to satisfy requirements of AASB16 (Finance use only).",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "76311",
+   "title": "Market Value Adjustment \u0096 QTC Loans",
+   "description": "Finance Use Only - To recognise the additional borrowing cost (Interest) associated with the early repayment (full payout of loan) of QTC Loans and is the difference between the Book Value and Current Market Value of the Loan.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "77111",
+   "title": "Donations, Sponsorships &",
+   "description": "Donations, sponsorships & grants.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "77112",
+   "title": "Grants Minor Improvement Program",
+   "description": "Funds allocated from Councillors' Minor Improvement Program (MIP) for external projects.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "77113",
+   "title": "Community Benefit Fund",
+   "description": "Funds allocated to external sources from Councillors Community Benefit Fund.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "77211",
+   "title": "Councillor Remuneration Paid Wages paid to Councillors.",
+   "description": "",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "77212",
+   "title": "Civic Allowances Paid",
+   "description": "For Councillor attendance at community functions in an official capacity.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "77311",
+   "title": "Doubtful Debts Expenses",
+   "description": "To recognise the likelihood that revenue will not be collected. (Finance Use Only)",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "77312",
+   "title": "Bad Debts Write Off",
+   "description": "Expense associated with a non-collectable item. (Finance Use Only) System generated only from Inventory Module - to record adjustments",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "77411",
+   "title": "Stock Adjustments",
+   "description": "to Stock.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "77412",
+   "title": "Price Variances",
+   "description": "System generated rounding amounts - Pathway system and Accounts Payable Module of Finance One.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "77611",
+   "title": "Undisbursed Expenditure",
+   "description": "Account utilised to identify incorrectly disbursed sub-ledger accounts - Finance Use Only.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "78211",
+   "title": "Asset Revaluation Expense",
+   "description": "Expense occurs when there is a reducing asset revaluation adjustment for a business unit (for eg. Water) in a particular year that exceeds the asset revaluation reserve balance for that particular business unit - For Financial Accounting use only.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "78311",
+   "title": "Asset Write Offs Asset Write Offs - Investment",
+   "description": "System generated only from Asset Register - to expense the written down value of a Non current asset scrapped. (Finance Use Only)",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "78511",
+   "title": "",
+   "description": "To record Write-off of Investment Property separately from PP&E.",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "78611",
+   "title": "Property Refund of Capital Contribution For refunds of capital contributions not used.",
+   "description": "",
+   "group": "7",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "7B111",
+   "title": "Internal - Rates & Charges",
+   "description": "Internal expenses related to Logan City Council Rates & Charges.",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "7B112",
+   "title": "Internal - Water Base Charge Internal expenses related to Logan City Council Water Base Charges.",
+   "description": "",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "7B113",
+   "title": "Internal - Water Usage Charge Internal expenses related to Logan City Council Water Usage Charges.",
+   "description": "",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "7B114",
+   "title": "Internal - Sewerage Charges Internal expenses related to Logan City Council Wastewater Charges.",
+   "description": "",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "7B115",
+   "title": "Internal - Garbage Charges",
+   "description": "Internal expenses related to Logan City Council Garbage Charges.",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "7B121",
+   "title": "Internal - Trade Waste",
+   "description": "Internal expenses related to Logan City Council Trade Waste Charges.",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "7B122",
+   "title": "Charges Internal - Tip Fees",
+   "description": "Internal expenses related to Logan City Council Tip Fees.",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "7B123",
+   "title": "Internal - Other fees & Charges",
+   "description": "Internal expenses related to Logan City Council Other Fees & Charges. Includes fees and charges of the Logan Entertainment Centre and items from the Corporate Catalogue where FBT does not apply (use 7B221 where FBT applies).",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "7B124",
+   "title": "Internal - Excess & Damage Payments",
+   "description": "Internal expenses related to excess costs or damage payments on insurance events.",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "7B125",
+   "title": "Internal - Carbon Tax Expense",
+   "description": "Internal expenses related to Carbon Tax expenses which is charged by Logan Waste.",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "7B211",
+   "title": "Internal - Property-based Professional Services",
+   "description": "Internal expenses related to Architects, Building & Land Surveyors, Town Planning and Valuation Services provided by Logan City Council.",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "7B212",
+   "title": "Internal - Consulting Services Project Management, Training and other consulting services provided",
+   "description": "Internal expenses related to Accounting, Engineering, Marketing, by Logan City Council.",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "7B213",
+   "title": "Internal - Medical Services",
+   "description": "Internal expenses related to Veterinarian, immunisation and other medical services provided by Logan City Council.",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "7B214",
+   "title": "Internal - Maintenance Services",
+   "description": "Internal expenses related to Fire protection, pest control, repair fees, painters, building contractors, air conditioning, plumbers and other maintenance services provided by Logan City Council.",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "7B215",
+   "title": "Internal - Construction",
+   "description": "Internal expenses related to Construction Services.",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "7B219",
+   "title": "Internal - Other Services",
+   "description": "Internal expenses related to Other Services that cannot be classified as a specified service listed above.",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "7B221",
+   "title": "Internal - Entertainment & Hospitality - FBT Hospitality & Entertainment Guide Art Gallery Openings/Citizenship Ceremony/Open Day/Media Launches/Opening of Facilities, e.g. new library Author Visits - morning tea Children's Activities/Parties/Book Club - Snacks Honorary Park Rangers & Bush care group functions - BBQ Flowers / Cards / Gifts - Employee Reward and Recognition < $300 - Employee Reward and Recognition > $300 - Non-Employee Staff Morning Tea / Afternoon Tea Christmas Party (All costs e.g. Karaoke)/Gala Dinners Workshop/Seminar/Course/Conference provided by the local government Workshop/Courses provided by an external organisation Seminars/Conferences provided by an external organisation Entertainers for Events e.g. Carols by Candlelight Conference Meals \u2013 Employees Only Staff retirement/farewell functions \u2013 could be morning tea/lunch/dinner/drinks & nibbles Morning/Afternoon Tea & nibbles Lunch/Dinner Lunches \u2013 customer meetings/consultants/formal off-site meetings/ Working Lunches \u2013 ELT & special project groups Formal off-site and on-site meetings for external and internal attendees Refreshments/lunches etc. for visiting Dignitaries Refreshments \u2013 ELT - includes alcohol Annual ELT/Stream/Mgt Team lunches Business Breakfasts/Networking Events Employee Functions & Awards - Lunch or dinner - Year of Service Gift Cards",
+   "description": "Internal work related catering expenditure that incurs Fringe Benefits Tax (FBT), such as staff retirement/farewell functions held at the Logan Entertainment Centre. Refer Hospitality & Entertainment Guide for more information. Reason GST Description Natural Account Code Code Hospitality: A C 73512/7B222 73512 A or B C 73512 A C 73511 C P 73513/7B222 D C 73513/7B221 E C 73553 K C 73512 B C 73511 C P 73512/7B222 F C 73544 F C 73541 73515 L C 73512 A C 73512/7B222 B C 73511/7B221 C P 73511 \u2013 depends on food & Venue (See H P Guide) otherwise use 73512 73511 \u2013 depends on food & Venue (See H P Guide) otherwise use 73512 73512 G C 73511 C P 73511 \u2013 depends on food & Venue (See H P Guide) otherwise use 73512 73511 \u2013 depends on food & Venue (See H C Guide) 73514/7B223 D or E C 73514/7B223 I or J NA",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "7B222",
+   "title": "Internal - Entertainment & Hospitality - Non FBT",
+   "description": "Snack-type nibbles provided at working meetings which do not incur Fringe Benefits Tax (FBT) Refer Hospitality & Entertainment Guide for more information.",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "7B223",
+   "title": "Employee Functions & Awards functions Refer Hospitality & Entertainment Guide for more",
+   "description": "Costs relating to Years or Service and Employee Excellence Awards information.",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "7B311",
+   "title": "Internal - Contributions",
+   "description": "Internal expenses related to Contributions to projects within Logan City Council.",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "7B411",
+   "title": "Internal - IT Equipment &",
+   "description": "Internal expenses related to IT Equipment.",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "7B412",
+   "title": "Application Internal - Communication",
+   "description": "Internal expenses related to Communication Equipment.",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "7B511",
+   "title": "Equipment Internal - Landscape Supplies",
+   "description": "Internal expenses related to Landscape Supplies provided by Logan City Council.",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "7B520",
+   "title": "Internal - Gravel",
+   "description": "Internal expenses related to Gravel.",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "7B521",
+   "title": "Internal - Crushed Gravel",
+   "description": "Internal expenses related to Crushed Gravel.",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "7B522",
+   "title": "Internal - Pea Gravel",
+   "description": "Internal expenses related to Pea Gravel.",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "7B523",
+   "title": "Internal - Uncrushed Gravel",
+   "description": "Internal expenses related to Uncrushed Gravel.",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "7B524",
+   "title": "Internal - X Gravel",
+   "description": "Internal expenses related to X Gravel.",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "7B525",
+   "title": "Internal - Ballast",
+   "description": "Internal expenses related to Ballast.",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "7B526",
+   "title": "Internal - Screenings",
+   "description": "Internal expenses related to Screenings.",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "7B528",
+   "title": "Internal - Crusher Dust",
+   "description": "Internal expenses related to Crusher Dust.",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "7B529",
+   "title": "Internal - Topsoil",
+   "description": "Internal expenses related to Topsoil.",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "7B531",
+   "title": "Internal - Sand",
+   "description": "Internal expenses related to Sand.",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "7B532",
+   "title": "Internal - Spoils",
+   "description": "Internal expenses related to Spoils.",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "7B533",
+   "title": "Internal - Gravel BTB",
+   "description": "Internal expenses related to BTB Gravel.",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "7B534",
+   "title": "Internal - Crushed Concrete",
+   "description": "Internal expenses related to Crushed Concrete.",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "7B540",
+   "title": "Internal - Promotional Items",
+   "description": "Promotional items sourced internally from Marketing Branch for branches and Councillors.",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "7B611",
+   "title": "Internal - Property Leases & Rentals Internal - Property Leases & Rentals",
+   "description": "Internal expenses related to Property leased or rented from Logan City Council.",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "7B612",
+   "title": "Internal - Equipment Leases & Internal expenses related to Equipment leased or rented from Logan Rentals",
+   "description": "City Council.",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "7B999",
+   "title": "Internal Recovery Account",
+   "description": "To balance internal accounts across Council.",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "7BZ11",
+   "title": "Internal - Community Service Obligations",
+   "description": "Internal reimbursement for the imposition by Council of costs not usually incurred in a business activity, such as free tipping days and remission of building certification fees.",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "7BZ21",
+   "title": "Internal - Photocopies",
+   "description": "Internal expenses related to photocopying.",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "7C111",
+   "title": "Internal - Vehicle/Plant Hire",
+   "description": "Internal hire costs for a plant hired from Plant Fleet Services Branch.",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "7C112",
+   "title": "Internal - Miscellaneous Plant Internal hire costs for a miscellaneous plant hired from Plant Fleet Hire",
+   "description": "Services Branch.",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "7C113",
+   "title": "Internal - Plant Oncosts",
+   "description": "Internal Oncosts for plant hired from Plant Fleet Services Branch.",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "7C114",
+   "title": "PFS - Unfair Wear and Tear",
+   "description": "Recharge of repair costs - Plant Fleet Services use only.",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "7C119",
+   "title": "Internal - Vacuum Truck Hire",
+   "description": "Internal hire cost for Vacuum Trucks hired from Plant Fleet Services Branch.",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "7D111",
+   "title": "Internal - Minor Improvement Program (MIP)",
+   "description": "Funds allocated from Councillors' Minor Improvement Program (MIP) for internal projects.",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "7D112",
+   "title": "Internal - Civic Allowances Paid",
+   "description": "For Councillors attendance at internal corporate functions in an official capacity.",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "7D113",
+   "title": "Internal - Community Benefit Fund",
+   "description": "Funds allocated to internal sources from Councillors Community Benefit Fund.",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "7F811",
+   "title": "Internal - Interest on Internal Loans",
+   "description": "Interest charged on internal loans provided to branches in accordance with Council's borrowing policy.",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "7NE11",
+   "title": "Internal - Logan Ent Dir",
+   "description": "Internal direct expenses related to Logan Entertainment Centre.",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "7NT11",
+   "title": "Expenses Internal - Waste Services",
+   "description": "Internal expenses related to Waste Services.",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "7NW11",
+   "title": "Expenses Internal - Water Expenses",
+   "description": "Internal expenses related to Water.",
+   "group": "7",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": true
+  },
+  {
+   "number": "8A111",
+   "title": "Corporate Costs Recovered 8B111 Corporate Costs Charged",
+   "description": "",
+   "group": "8",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "8A211",
+   "title": "Land Tax Recovered 8B112 Other NCP Adjustments",
+   "description": "",
+   "group": "8",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "8A212",
+   "title": "Sales Tax Recovered 8B211 Land Tax",
+   "description": "",
+   "group": "8",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "8A214",
+   "title": "Payroll Tax Recovered 8B214 Payroll Tax",
+   "description": "",
+   "group": "8",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "8A215",
+   "title": "Income Tax Recovered 8B215 Income Tax",
+   "description": "",
+   "group": "8",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "8A217",
+   "title": "Stamp Duty Recovered 8B217 Stamp Duty",
+   "description": "",
+   "group": "8",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "8A311",
+   "title": "Return on Equity Recovered 8B311 Return on Equity Charged",
+   "description": "",
+   "group": "8",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "8A312",
+   "title": "Competitive Neutrality Adjustments 8B312 Competitive Neutrality Adjustments",
+   "description": "",
+   "group": "8",
+   "internal": true,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "91111",
+   "title": "Capitalisation of Direct Purchases",
+   "description": "",
+   "group": "9",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "91211",
+   "title": "Capitalisation in construction ledgers",
+   "description": "",
+   "group": "9",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "91311",
+   "title": "Expensing of Capital Works in Constrained Ldg",
+   "description": "",
+   "group": "9",
+   "internal": false,
+   "in_dictionary": true,
+   "in_list": false
+  },
+  {
+   "number": "92111",
+   "title": "Extraordinary Items",
+   "description": "",
+   "group": "9",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  },
+  {
+   "number": "99999",
+   "title": "System Suspense Account",
+   "description": "",
+   "group": "9",
+   "internal": false,
+   "in_dictionary": false,
+   "in_list": true
+  }
+ ]
+}
