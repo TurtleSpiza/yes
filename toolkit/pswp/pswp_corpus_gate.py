@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""pswp_corpus_gate.py, v2 (18-Sep-2026)
+"""pswp_corpus_gate.py, v3 (17-Sep-2026)
 
-Machine gate for a PSWP extraction corpus produced under PSWP_Extraction_Prompt_v7.md.
+Machine gate for a PSWP extraction corpus produced under PSWP_Extraction_Prompt_v7.md (v7.1).
 Runs every pathology in section 13.1 that is computable from the corpus alone, applies
 the 13.0 gate truth table, and prints the verdict. Read-only: it never edits a corpus.
 
@@ -15,8 +15,12 @@ residue window carries money. Those stay with the extractor and the build sessio
 import json, sys
 from decimal import Decimal, ROUND_HALF_UP
 
-LINE_TYPES = {"PRICED","NARRATIVE","TABLE_HEADER","TOTALS","FOOTER","TERMS","BLANK",
+LINE_TYPES = {"PRICED","ATTACHMENT","NARRATIVE","TABLE_HEADER","TOTALS","FOOTER","TERMS","BLANK",
               "PAYMENT_ADVICE","OCR_DUPLICATE","IMAGE_TEXT","ANNOTATION","DUPLICATE_COPY"}
+# An ATTACHMENT row prints an amount and is scoped to a DIFFERENT document (prompt v7.1 section 9,
+# register rule 16d), so it carries money legitimately and stays out of the tie. Every other
+# non-PRICED type carrying money is P2.
+AMOUNT_BEARING = {"PRICED", "ATTACHMENT"}
 LCC_ABN_DIGITS = "21627796435"
 
 def d(x):
@@ -92,8 +96,8 @@ def check(path):
             amt = l.get("line_ex_gst") if l.get("line_ex_gst") is not None else l.get("stated_amt")
             if lt == "PRICED" and amt is None:
                 flag("P2", ref, l.get("page"), f"PRICED row {l.get('line_no')} carries no amount")
-            if lt == "NARRATIVE" and amt is not None:
-                flag("P2", ref, l.get("page"), f"NARRATIVE row {l.get('line_no')} carries an amount")
+            if lt not in AMOUNT_BEARING and amt is not None and lt in LINE_TYPES:
+                flag("P2", ref, l.get("page"), f"{lt} row {l.get('line_no')} carries an amount")
 
         # P1 nothing parsed.
         if d(doc.get("printed_subtotal_ex_gst")) != 0 and not priced:
@@ -156,6 +160,13 @@ def check(path):
             flag("P14", ref, pr[0], "TAX_INVOICE with a negative printed total")
 
         # Tie, at 1c, with the 2c band going AMBER (6.0).
+        # Rule 16d: an ATTACHMENT row is excluded from the tie by construction, since the tie sums
+        # PRICED only. Recorded so the report can show the exclusion rather than leave it implied.
+        att = [l for l in lines if l.get("line_type") == "ATTACHMENT"]
+        if att:
+            amber.append(f"{ref}: {len(att)} ATTACHMENT row(s) excluded from the tie (rule 16d); "
+                         f"basis must be stated in notes")
+
         target = ht if doc.get("tie_basis") == "incl_gst" else hs
         if priced and target is not None:
             captured = sum((d(l.get("line_ex_gst") if l.get("line_ex_gst") is not None else l.get("stated_amt"))
