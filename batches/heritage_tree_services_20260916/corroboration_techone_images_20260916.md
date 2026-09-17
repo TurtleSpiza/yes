@@ -65,3 +65,28 @@ Registration in `BATCHES` (`pbr_stage.py`) and a stamp in `pbr_capture.py` are m
 "2 Park asset maintenance & renewal"**, against "Tree operations" and "10 Trees & natural areas" on the
 other 409. On a tree-maintenance contract that reads like a miscoding. A capture build carries the row's
 own category unchanged and would not correct it, so it is recorded here as its own question.
+
+## 7.0 Section 6.0 withdrawn, 17-Sep-2026
+
+Section 6.0 above called the one Heritage register line carrying Nature Category "Contract mowing" a
+probable miscoding. **That was over-confident and is withdrawn.** On inspection the line is defensible:
+
+- It is **INV-48521**, 21-Aug-2026, $4,138.35 ex GST, creditor code HER025, PK000371, section Park
+  Maintenance, and it sits on **service 20221, "Contract Roads Mowing - Main Roads"**.
+- **Every other line on service 20221 is also "Contract mowing"**: ETSol Pty Ltd t/a Eco Technology
+  Solutions on 3 lines and Certified Mowing on 2. The classification follows the service code
+  consistently across suppliers rather than singling this one out.
+- Its Nature Basis is **Matched creditor history** at **Evidence Tier 1**, from the APLEDGER HER025
+  history pulled 11-Sep-2026.
+- It is **not in this capture batch**, so nothing built at v22 touched it.
+
+A tree contractor performing roads mowing under a mowing service code is ordinary. The classification is
+consistent, evidenced and correctly tiered, so there is nothing to correct.
+
+## 8.0 The Q Power "series-inferred" row, also withdrawn
+
+An earlier note raised the second Q Power row in the contractor pull as a possible double count. It is
+not. The v22 pull carries it at **"Housekeeping only"**, the lightest route, and states the reason on the
+row: every AP line is on a sighted invoice, identity rests on a creditor record with an ABN, and the flag
+is that **no ABN is carried on those 3 lines**. That is the report surfacing a 3-line housekeeping item
+by design, not two rows competing for the same counterparty.
