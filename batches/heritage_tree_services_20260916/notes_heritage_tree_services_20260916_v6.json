@@ -1,0 +1,224 @@
+{
+ "_readme": [
+  "Authored content for Batch heritage_tree_services_20260916 (rule 18: content as data, never ad-hoc writes).",
+  "One entry per sighted invoice. Each coding_note RESTATES what the invoice face prints for that document",
+  "(contract, blanket order, proposal number, site address, customer request number, printed PK, service",
+  "point and the priced lines) and states whether the printed PK equals the PK charged. No amount is",
+  "inferred: every figure is the printed one, and the corpus gates GREEN with all 26 documents at TIE.",
+  "nature_category and theme_v3 are CARRIED FROM THE REGISTER ROW, not decided here: a capture build proves",
+  "what a document says and is not a re-categorisation build. The register's Heritage lines carry Nature",
+  "Category 'Tree operations' on 409 of 410 lines and Theme group (v3 L1) '10 Trees & natural areas'; the",
+  "level-2 category that maps to that group in Theme_Map_v3 is 'Trees & arboriculture', which is the value",
+  "theme_v3 takes. The one register line carrying 'Contract mowing' is recorded as an open question in",
+  "corroboration_techone_images_20260916.md and is NOT corrected here.",
+  "22 of the 26 were corroborated on 16-Sep-2026 against their TechOne C-images, every figure to the cent."
+ ],
+ "INV-46963": {
+  "nature_category": "Tree operations",
+  "theme_v3": "Trees & arboriculture",
+  "coding_verdict": "Correct",
+  "coding_note": "Contract PAR329B2021; blanket order 709885; proposal 766158721; site 46-58 Isle of Ely Drive Heritage Park; CR# 3785275; service point SP1. Printed PK PK000482, which equals the PK charged. 3 printed line(s): Contract # PAR329B2021 $0.00; 2 man tree crew - 12.5 hours $2,500.00; stump grind crew - 2.5 hours $400.00. Printed subtotal $2,900.00.",
+  "follow_up": null,
+  "evid_note": null
+ },
+ "INV-46967": {
+  "nature_category": "Tree operations",
+  "theme_v3": "Trees & arboriculture",
+  "coding_verdict": "Correct",
+  "coding_note": "Contract PAR329B2021; blanket order 709885; proposal 766157898; site Coleman Park near - 34 Springwood; CR# 3819291; service point SP2. Printed PK PK000482, which equals the PK charged. 3 printed line(s): Contract # PAR329B2021 $0.00; 3 man tree crew - 8 hours $2,080.00; stump grind crew - 2 hours $320.00. Printed subtotal $2,400.00.",
+  "follow_up": null,
+  "evid_note": null
+ },
+ "INV-43790": {
+  "nature_category": "Tree operations",
+  "theme_v3": "Trees & arboriculture",
+  "coding_verdict": "Correct",
+  "coding_note": "Contract PAR329B2021; blanket order 709885; proposal 766156754; site 2 Springwell Street, SPRINGWOOD; CR# 3628336; service point SP2. Printed PK PK000479, which equals the PK charged. 4 printed line(s): Contract # PAR329B2021 $0.00; 3 man tree crew - 2 hours $520.00; Vacuum Excavation Truck $1,275.00; Tipper truck and operator $1,020.00. Printed subtotal $2,815.00.",
+  "follow_up": null,
+  "evid_note": null
+ },
+ "INV-47049": {
+  "nature_category": "Tree operations",
+  "theme_v3": "Trees & arboriculture",
+  "coding_verdict": "Correct",
+  "coding_note": "Contract PAR329B2021; blanket order 717577; proposal 766158083; site Passerine Dr Rochedale South; CR# 3789322; service point SP2. Printed PK PK000477, which equals the PK charged. 3 printed line(s): Contract # PAR329B2021 $0.00; 3 man tree crew - 11.5 hours $2,990.00; stump grind crew - 2.5 hours $400.00. Printed subtotal $3,390.00.",
+  "follow_up": null,
+  "evid_note": null
+ },
+ "INV-47215": {
+  "nature_category": "Tree operations",
+  "theme_v3": "Trees & arboriculture",
+  "coding_verdict": "Correct",
+  "coding_note": "Contract PAR329B2021; blanket order 717577; proposal 766158905; site FURZER STREET, BROWNS PLAINS; CR# 3883264; service point SP1. Printed PK PK000474, which equals the PK charged. 3 printed line(s): Contract # PAR329B2021 $0.00; 2 man tree crew - 7.5 hours $1,500.00; stump grind crew - 5 hours $800.00. Printed subtotal $2,300.00.",
+  "follow_up": null,
+  "evid_note": null
+ },
+ "INV-47246": {
+  "nature_category": "Tree operations",
+  "theme_v3": "Trees & arboriculture",
+  "coding_verdict": "Correct",
+  "coding_note": "Contract PAR329B2021; blanket order 717577; proposal 766159037; site PIDGEON BOULEVARD, CRESTMEAD; CR# 3905644; service point SP2. Printed PK PK000477, which equals the PK charged. 3 printed line(s): Contract # PAR329B2021 $0.00; 3 man tree crew - 8 hours $2,080.00; 13m EWP - 8 hours $960.00. Printed subtotal $3,040.00.",
+  "follow_up": null,
+  "evid_note": null
+ },
+ "INV-47251": {
+  "nature_category": "Tree operations",
+  "theme_v3": "Trees & arboriculture",
+  "coding_verdict": "Correct",
+  "coding_note": "Contract PAR329B2021; blanket order 717577; proposal 766158805; site PARKDALE PARK, 5A Parkdale Street, WOODRIDGE; CR# 3823687; service point SP2. Printed PK PK000474, which equals the PK charged. 4 printed line(s): Contract # PAR329B2021 $0.00; 3 man tree crew - 6 hours $1,560.00; stump grind crew - 1.5 hours $240.00; 13m EWP - 6 hours $720.00. Printed subtotal $2,520.00.",
+  "follow_up": null,
+  "evid_note": null
+ },
+ "INV-47252": {
+  "nature_category": "Tree operations",
+  "theme_v3": "Trees & arboriculture",
+  "coding_verdict": "Correct",
+  "coding_note": "Contract PAR329B2021; blanket order 717577; proposal 766158965; site 140 Greensward Rd TAMBORINE; CR# 3904908; service point SP2. Printed PK PK000477, which equals the PK charged. 4 printed line(s): Contract # PAR329B2021 $0.00; 3 man tree crew - 4 hours $1,040.00; stump grind crew - 2.5 hours $400.00; 13m EWP - 4 hours $480.00. Printed subtotal $1,920.00.",
+  "follow_up": null,
+  "evid_note": null
+ },
+ "INV-47439": {
+  "nature_category": "Tree operations",
+  "theme_v3": "Trees & arboriculture",
+  "coding_verdict": "Correct",
+  "coding_note": "Contract PAR329B2021; blanket order 717577; proposal 766159179; site Gilmore Road, Berrinba; CR# 3917609; service point SP2. Printed PK PK000474, which equals the PK charged. 3 printed line(s): Contract # PAR329B2021 $0.00; 3 man tree crew - 10.5 hours $2,730.00; stump grind crew - 1 hour $160.00. Printed subtotal $2,890.00.",
+  "follow_up": null,
+  "evid_note": null
+ },
+ "INV-47526": {
+  "nature_category": "Tree operations",
+  "theme_v3": "Trees & arboriculture",
+  "coding_verdict": "Correct",
+  "coding_note": "Contract PAR329B2021; blanket order 717577; proposal 766159352; site 56-58 Commercial Drive SHAILER PARK; CR# 3848284; service point SP2. Printed PK PK000477, which equals the PK charged. 2 printed line(s): Contract # PAR329B2021 $0.00; 3 man tree crew - 5.5 hours - Saturday works $2,015.48. Printed subtotal $2,015.48.",
+  "follow_up": null,
+  "evid_note": null
+ },
+ "INV-47553": {
+  "nature_category": "Tree operations",
+  "theme_v3": "Trees & arboriculture",
+  "coding_verdict": "Correct",
+  "coding_note": "Contract PAR329B2021; blanket order 717577; proposal 766158327; site Avonmore Street Pathway Edens Landing; CR# 3837534; service point SP2. Printed PK PK000482, which equals the PK charged. 4 printed line(s): Contract # PAR329B2021 $0.00; 3 MAN TREE CREW - 4 HOURS $1,088.88; TOWER (EWP) 18M-23M - 4 HOURS $544.44; Consulting arborist $251.28. Printed subtotal $1,884.60.",
+  "follow_up": null,
+  "evid_note": null
+ },
+ "INV-47550": {
+  "nature_category": "Tree operations",
+  "theme_v3": "Trees & arboriculture",
+  "coding_verdict": "Correct",
+  "coding_note": "Contract PAR329B2021; blanket order 717577; proposal 766157718; site 26-28 Beikoff Close NORTH MACLEAN; CR# 3851732; service point SP2. Printed PK PK000477, which equals the PK charged. 4 printed line(s): Contract # PAR329B2021 $0.00; 3 MAN TREE CREW - 4 HOURS $1,088.88; TOWER (EWP) 18M-23M - 4 HOURS $544.44; Consulting arborist $251.28. Printed subtotal $1,884.60.",
+  "follow_up": null,
+  "evid_note": null
+ },
+ "INV-47647": {
+  "nature_category": "Tree operations",
+  "theme_v3": "Trees & arboriculture",
+  "coding_verdict": "Correct",
+  "coding_note": "Contract PAR329B2021; blanket order 717577; proposal 766159565; site Julie Park Robert South Dr Crestmead; CR# 3922865; service point SP2. Printed PK PK000482, which equals the PK charged. 3 printed line(s): Contract # PAR329B2021 $0.00; 3 man tree crew - 5 hours $1,361.10; Tower (EWP) >23m $785.25. Printed subtotal $2,146.35.",
+  "follow_up": null,
+  "evid_note": null
+ },
+ "INV-47707": {
+  "nature_category": "Tree operations",
+  "theme_v3": "Trees & arboriculture",
+  "coding_verdict": "Correct",
+  "coding_note": "Contract PAR329B2021; blanket order 717577; proposal 766159477; site 19 FIFTH AVENUE, MARSDEN; CR# 3919871; service point SP1. Printed PK PK000474, which equals the PK charged. 2 printed line(s): Contract # PAR329B2021 $0.00; 2 man tree crew - 10.5 hours $2,308.64. Printed subtotal $2,308.64.",
+  "follow_up": null,
+  "evid_note": null
+ },
+ "INV-47710": {
+  "nature_category": "Tree operations",
+  "theme_v3": "Trees & arboriculture",
+  "coding_verdict": "Correct",
+  "coding_note": "Contract PAR329B2021; blanket order 717577; proposal 766156820; site 11 BREEZEWAY DRIVE Bahrs Scrub; CR# 3873227; service point SP2. Printed PK PK000482, which equals the PK charged. 3 printed line(s): Contract # PAR329B2021 $0.00; 3 man tree crew - 6 hours $1,633.32; stump grind crew - 3 hours $502.56. Printed subtotal $2,135.88.",
+  "follow_up": null,
+  "evid_note": null
+ },
+ "INV-47736": {
+  "nature_category": "Tree operations",
+  "theme_v3": "Trees & arboriculture",
+  "coding_verdict": "Correct",
+  "coding_note": "Contract PAR329B2021; blanket order 717577; proposal 766159408; site 58A Snowdon Street SLACKS CREEK; CR# 3894160; service point SP2. Printed PK PK000482, which equals the PK charged. 2 printed line(s): Contract # PAR329B2021 $0.00; 3 man tree crew - 7 hours $1,905.54. Printed subtotal $1,905.54.",
+  "follow_up": null,
+  "evid_note": null
+ },
+ "INV-47805": {
+  "nature_category": "Tree operations",
+  "theme_v3": "Trees & arboriculture",
+  "coding_verdict": "Correct",
+  "coding_note": "Contract PAR329B2021; blanket order 717577; proposal 766158853; site Stubbs Road and Poplar Ave Woodridge; CR# 3823371; service point SP1. Printed PK PK000474, which equals the PK charged. 2 printed line(s): Contract # PAR329B2021 $0.00; 2 man tree crew - 11 hours $2,418.57. Printed subtotal $2,418.57.",
+  "follow_up": null,
+  "evid_note": null
+ },
+ "INV-47816": {
+  "nature_category": "Tree operations",
+  "theme_v3": "Trees & arboriculture",
+  "coding_verdict": "Correct",
+  "coding_note": "Contract PAR329B2021; blanket order 717577; proposal 766158356; site 581 Priestdale Road ROCHEDALE SOUTH; CR# 3836627; service point SP2. Printed PK PK000482, which equals the PK charged. 3 printed line(s): Contract # PAR329B2021 $0.00; 3 man tree crew - 7.5 hours $2,041.65; stump grind crew - 3 hours $502.56. Printed subtotal $2,544.21.",
+  "follow_up": null,
+  "evid_note": null
+ },
+ "INV-48029": {
+  "nature_category": "Tree operations",
+  "theme_v3": "Trees & arboriculture",
+  "coding_verdict": "Correct",
+  "coding_note": "Contract PAR329B2021; blanket order 717577; proposal 766160072; site 18 SKYBLUE CIRCUIT YARRABILBA; CR# 3902136; service point SP2. Printed PK PK000477, which equals the PK charged. 3 printed line(s): Contract # PAR329B2021 $0.00; 3 man tree crew - 7 hours $1,905.54; stump grind crew - 1.5 hours $251.28. Printed subtotal $2,156.82.",
+  "follow_up": null,
+  "evid_note": null
+ },
+ "INV-48113": {
+  "nature_category": "Tree operations",
+  "theme_v3": "Trees & arboriculture",
+  "coding_verdict": "Correct",
+  "coding_note": "Contract PAR329B2021; blanket order 717577; proposal 766160173; site Dalson Park, 27-65 Nujooloo Road, Slacks Creek; CR# 3908891; service point SP2. Printed PK PK000477, which equals the PK charged. 4 printed line(s): Contract # PAR329B2021 $0.00; 3 man tree crew - 6 hours $1,633.32; stump grind crew - 2.5 hours $418.80; Tower (EWP) >23m $942.30. Printed subtotal $2,994.42.",
+  "follow_up": null,
+  "evid_note": null
+ },
+ "INV-48357": {
+  "nature_category": "Tree operations",
+  "theme_v3": "Trees & arboriculture",
+  "coding_verdict": "Correct",
+  "coding_note": "Contract PAR329B2021; blanket order 717577; proposal 766160172; site Werona Street. Slacks Creek; CR# 3852025; service point SP1. Printed PK PK000474, which equals the PK charged. 2 printed line(s): Contract # PAR329B2021 $0.00; 2 man tree crew - 16 hours $3,517.92. Printed subtotal $3,517.92.",
+  "follow_up": null,
+  "evid_note": null
+ },
+ "INV-48358": {
+  "nature_category": "Tree operations",
+  "theme_v3": "Trees & arboriculture",
+  "coding_verdict": "Correct",
+  "coding_note": "Contract PAR329B2021; blanket order 717577; proposal 766160179; site Monash and Duke Streets, Slacks Creek; CR# 3830400; service point SP1. Printed PK PK000474, which equals the PK charged. 2 printed line(s): Contract # PAR329B2021 $0.00; 2 man tree crew - 8.5 hours $1,868.90. Printed subtotal $1,868.90.",
+  "follow_up": null,
+  "evid_note": null
+ },
+ "INV-48365": {
+  "nature_category": "Tree operations",
+  "theme_v3": "Trees & arboriculture",
+  "coding_verdict": "Correct",
+  "coding_note": "Contract PAR329B2021; blanket order 717577; proposal 766160440; site 9 Collene Street, Springwood; CR# 3901234; service point SP2. Printed PK PK000477, which equals the PK charged. 4 printed line(s): Contract # PAR329B2021 $0.00; 3 man tree crew - 4 hours $1,088.88; stump grind crew - 2 hours $335.04; Tower (EWP) >23m $628.20. Printed subtotal $2,052.12.",
+  "follow_up": null,
+  "evid_note": null
+ },
+ "INV-48542": {
+  "nature_category": "Tree operations",
+  "theme_v3": "Trees & arboriculture",
+  "coding_verdict": "Correct",
+  "coding_note": "Contract PAR329B2021; blanket order 717577; proposal 766160030; site Clearwater street Bethania; CR# 3848542; service point SP1. Printed PK PK000474, which equals the PK charged. 2 printed line(s): 1 $0.00; 2 man tree crew - 12 hours $2,638.44. Printed subtotal $2,638.44.",
+  "follow_up": null,
+  "evid_note": null
+ },
+ "INV-48599": {
+  "nature_category": "Tree operations",
+  "theme_v3": "Trees & arboriculture",
+  "coding_verdict": "Correct",
+  "coding_note": "Contract PAR329B2021; blanket order 717577; proposal 766160697; site Kilsay Park, Edenlea Drive MEADOWBROOK; CR# 3824293; service point SP2. Printed PK PK000482, which equals the PK charged. 3 printed line(s): 1 $0.00; 3 man tree crew - 5 hours $1,361.10; Tower (EWP) >23m $785.25. Printed subtotal $2,146.35.",
+  "follow_up": null,
+  "evid_note": null
+ },
+ "INV-48601": {
+  "nature_category": "Tree operations",
+  "theme_v3": "Trees & arboriculture",
+  "coding_verdict": "Correct",
+  "coding_note": "Contract PAR329B2021; blanket order 717577; proposal 766160621; site CONCOURSE PARK, 2-16 THE CONCOURSE,; CR# 3889738; service point SP2. Printed PK PK000482, which equals the PK charged. 3 printed line(s): CR# 3889738 $0.00; 3 man tree crew - 5 hours $1,361.10; Tower (EWP) > 23m $785.25. Printed subtotal $2,146.35.",
+  "follow_up": null,
+  "evid_note": null
+ }
+}
