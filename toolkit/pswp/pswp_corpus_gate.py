@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""pswp_corpus_gate.py, v3 (17-Sep-2026)
+"""pswp_corpus_gate.py, v4 (17-Sep-2026)
 
 Machine gate for a PSWP extraction corpus produced under PSWP_Extraction_Prompt_v7.md (v7.1).
-Runs every pathology in section 13.1 that is computable from the corpus alone, applies
+Runs every pathology in section 13.1 that is computable from the corpus alone (P1 to P16), applies
 the 13.0 gate truth table, and prints the verdict. Read-only: it never edits a corpus.
 
 Usage:  python3 pswp_corpus_gate.py corpus_<batch_id>.json [--json]
@@ -131,6 +131,18 @@ def check(path):
                 flag("P10", ref, pr[0], f"subtotal + GST less total = {g}, no F1 explaining it")
             elif g > Decimal("0.02"):
                 amber.append(f"{ref}: header block out by {g}, recorded as F1")
+
+        # P16: the header block adds up but the GST is not a tenth of the subtotal. P10 tests addition, and a
+        # swap survives addition: Tennyson 60203 on Binder1666 printed Net 286.00 GST 28.60 Total 314.60 and was
+        # captured subtotal 28.60, GST 286.00, total 314.60, which adds up and understates the document by
+        # $257.40. Tolerance is relative because a supplier that rounds GST per line lands cents away from a
+        # tenth of the subtotal on a large invoice; the failure this catches is out by a factor, not by cents.
+        if None not in (hs, hg, ht) and d(hg) > 0 and d(hs) > 0 and gap(d(hs) + d(hg), ht) <= Decimal("0.02"):
+            exp = d(hs) / 10
+            tol = max(Decimal("0.02"), abs(exp) * Decimal("0.01"))
+            if abs(d(hg) - exp) > tol:
+                flag("P16", ref, pr[0], f"header adds up but GST {d(hg)} is not a tenth of the subtotal "
+                                        f"{d(hs)} (expected about {exp.quantize(Decimal('0.01'), ROUND_HALF_UP)})")
 
         # P11 bands present and calibrated.
         if priced:

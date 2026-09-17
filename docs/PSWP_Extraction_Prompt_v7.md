@@ -1,4 +1,4 @@
-# PSWP Invoice Extraction Prompt v7.1 (17-Sep-2026)
+# PSWP Invoice Extraction Prompt v7.2 (17-Sep-2026)
 
 Supersedes v6 (11-Sep-2026), which superseded v5, v4 and v3.1. For extraction of supplier-invoice binders to a structured JSON corpus for the PS/WP and Parks Branch Transaction Registers, Logan City Council, Parks Branch.
 
@@ -582,6 +582,7 @@ These are not tie failures. They are parse failures, and a corpus containing an 
 | **P13** | A `line_type` outside the closed list in section 9 | Every downstream screen for that type silently misses the rows |
 | **P14 (NEW v7)** | `doc_kind == "CREDIT_NOTE"` with a positive `printed_total_incl_gst`, or a sign that contradicts the printed face | A credit posted as a debit ties nothing and reverses the register total |
 | **P15 (NEW v7)** | Two documents sharing an `evidence_stem` | Evidence files collide on save and one overwrites the other |
+| **P16 (NEW v7.2)** | The header block adds up but `printed_gst` is not a tenth of `printed_subtotal_ex_gst`, beyond 1% or 2c, whichever is larger | P10 tests addition and a SWAP survives addition. Tennyson 60203 on `Binder1666` prints Net $286.00, GST $28.60, Total $314.60 and was captured subtotal $28.60, GST $286.00, total $314.60. That adds up, `header_adds_up` read true, the document declared TIE, and it understates by $257.40. The tolerance is relative because a supplier rounding GST per line lands cents off a tenth of the subtotal on a large invoice; this failure is out by a factor. |
 
 Set `"gate": "RED"`, list every pathology in `manifest.pathologies` with the affected `doc_ref` and page, and say plainly in the report that the corpus must not be built from.
 
@@ -781,6 +782,18 @@ Every layout this project has met, with the item table's header signature as pri
 | Repairable downstream? | Yes: every dropped row was in the retained text | **No.** Six pages, across five documents, carried no line record at all (P3), so the batch is held for re-extraction |
 
 The difference between those last two rows is the whole argument for the v6 and v7 gates. A misclassified row is recoverable, because the evidence is still in the corpus. A page you did not transcribe is gone, and the binder has to be read again.
+
+---
+
+## Annexe C2. What changed from v7.1 (v7.2, 17-Sep-2026)
+
+| v7 section | Amendment | Why |
+|---|---|---|
+| 13.1 | **P16** added: the header block adds up but the GST is not a tenth of the subtotal | Found on arrival of `Binder1666`, which declared AMBER and computed RED. Tennyson 60203 had its subtotal and GST swapped, $257.40 understated on a $314.60 document, and no existing pathology could see it: P10 passes because a swap still adds up, the document declared TIE because the captured line matched the swapped subtotal, and P11 fired only because that same document happened to record no bands. Tested against the twenty-nine corpora already held: one flagged, zero false positives. |
+
+Both halves of that document's failure trace to one cause, which is the case for section 4 restated: with no
+`bands` recorded, the amount column was never anchored, so the GST column was read as the line amount and the
+header figures were taken off the wrong labelled rows.
 
 ---
 
