@@ -17,6 +17,11 @@ What it does, in order:
   3. Prove each document nets to exactly zero over all its legs (Decimal, ROUND_HALF_UP).
   4. Map each leg to the register 1:1 on Src Account and amount, narration-exact first then key-only. A leg
      that matches is IN BRANCH SCOPE; every other leg is a counterparty leg and is retained as such.
+  4b. Screen the document file those matched lines sit on against BOTH held embeds: the branch Journal_Sources
+     (batch journal_1) and the PS & WP v127 Journal_Sources, which is Tier D of the pull list. A document already
+     embedded either side is a re-sighting through a different export type and is AUDITED, never re-captured
+     (rule 12). The two formats project the same document differently, so the audit is on what both carry: the
+     leg count and the multiset of leg amounts.
   5. For every journal reference the document reaches, prove the in-scope leg sum ties that reference's
      register net AND that every register line of that reference is matched.
   6. Report coverage against the document file the reference sits on, so a partial reach is stated and never
@@ -37,14 +42,23 @@ ROOT = os.environ.get('PBR_ROOT', os.path.abspath(os.path.join(HERE, '..', '..')
 PULLS = os.environ.get('PBR_RECONS', os.path.join(ROOT, 'data', 'inputs_2026-09-11', 'reconstructions'))
 V127 = os.environ.get('PBR_V127', os.path.join(ROOT, 'registers', 'PS_WP_Transaction_Register_3FY_v127_CANDIDATE.xlsx'))
 OUT = sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, 'batches', 'recon_1')
-BATCH = 'recon_1'
-VER = 'v9'
+# One batch folder per pull, because the md5 screen rejects an export the register has already received: re-running
+# over a folder that still holds a captured pull always fails rule 12. The batch id is the folder it writes to and
+# the version is the register version it ships into, both overridable so the bare command still reproduces recon_1 v9.
+BATCH = os.environ.get('PBR_BATCH') or os.path.basename(os.path.normpath(OUT)) or 'recon_1'
+VER = os.environ.get('PBR_VER', 'v9')
+PULLED = os.environ.get('PBR_PULLED', '14-Sep-2026')  # the date the exports were taken, as the export names print it
 NOTES = os.path.join(OUT, f'notes_{BATCH}_{VER}.json')
 
 # Register column positions (1-based, per Config): read once here so the driver never hardcodes a letter.
 C_LINEKEY, C_SECTION, C_REF, C_NA, C_PK, C_AMOUNT, C_NARR, C_SRCACCT, C_DOCFILE = 1, 3, 8, 14, 17, 20, 22, 55, 69
 
-# The Document Reconstruction column codes, in the order TechOne emits them (row 4 of the export).
+# The Document Reconstruction column codes this driver reads (row 4 of the export). TechOne emits two layouts:
+# the narrow one, these nine in this order, and a wide one that interleaves extra columns (OrderDetails,
+# AssetDetails before ATTransactionNumber, then ATAccountNumberInternal, ATDFormatName, ATPurchaseOrderNumberV2,
+# IsArchived, CreditOrDebitAmount). Every leg is read by column CODE, never by position, so the requirement is
+# that all nine are present, not that they are the first nine: a wide export keyed on position reads OrderDetails
+# as the transaction number and silently blanks it.
 RECON_COLS = ['ATLedgerName', 'D1EditAccountNumber', 'D1ShortDescription1', 'DebitAmount1', 'CreditAmount1',
               'Narration', 'ATUnits1', 'ATJournalLine', 'ATTransactionNumber']
 
@@ -102,8 +116,10 @@ def read_export(path):
     params = {k.strip(): v.strip() for k, v in PARAM_RX.findall(params_text.replace('Parameters:', '', 1))}
     codes = [txt(c) for c in rows[3]]
     labels = [txt(c) for c in rows[4]]
-    assert codes[:len(RECON_COLS)] == RECON_COLS, (path, codes)
+    missing = [c for c in RECON_COLS if c not in codes]
+    assert not missing, (path, 'missing column code(s)', missing, codes)
     idx = {c: i for i, c in enumerate(codes)}
+    layout = 'narrow' if codes[:len(RECON_COLS)] == RECON_COLS else 'wide'
     legs = []
     for r in rows[5:]:
         if not any(txt(c) for c in r):
@@ -118,7 +134,7 @@ def read_export(path):
                          journal_line=get('ATJournalLine'), transaction=get('ATTransactionNumber')))
     body_hash = hashlib.md5(json.dumps(legs, sort_keys=True).encode()).hexdigest()
     return dict(file=os.path.basename(path), md5=md5(path), params_verbatim=params_text, params=params,
-                columns=codes, column_labels=labels, legs=legs, body_hash=body_hash)
+                columns=codes, column_labels=labels, layout=layout, legs=legs, body_hash=body_hash)
 
 
 # ----------------------------------------------------------------------------------------------- register side
@@ -195,6 +211,39 @@ def audit_against_journal(legs, refs, held):
     return None
 
 
+def v127_journal_sources():
+    """Documents embedded on the PS & WP v127 Journal_Sources sheet, keyed by TechOne document file. This is Tier D
+    of the pull list: the branch never re-captures a document the PS & WP register already holds."""
+    rows = sheet(V127, 'Journal_Sources')
+    out = collections.defaultdict(list)
+    for r in rows[4:]:
+        if not txt(r[0]) or not txt(r[1]).isdigit():
+            continue
+        out[txt(r[1])].append(dict(ref=txt(r[0]), amount=str(D(r[7]))))
+    return out
+
+
+def audit_against_v127(legs, docfiles, held):
+    """Cross-format audit against the PS & WP v127 embed, on the same basis as the branch one: a Document Line
+    Table prints the external PK account and a reconstruction the internal ledger account, so leg-by-leg keys do
+    not compare. The leg count, the multiset of leg amounts and the document file do."""
+    for df in docfiles:
+        if df not in held:
+            continue
+        rows = held[df]
+        a = collections.Counter(str(D(l['amount'])) for l in legs)
+        b = collections.Counter(str(D(r['amount'])) for r in rows)
+        same = a == b and len(legs) == len(rows)
+        return dict(document_file=df, held_legs=len(rows), pulled_legs=len(legs), amounts_identical=a == b,
+                    held_references=sorted({r['ref'] for r in rows}), identical=same,
+                    verdict=(f'same document as the Document Line Table already embedded on PS & WP v127 '
+                             f'Journal_Sources (document file {df}, Tier D); audited and NOT re-captured (rule 12)'
+                             if same else
+                             f'DIFFERS from the PS & WP v127 embed for document file {df} '
+                             f'({len(legs)} legs against {len(rows)} held); resolve before any capture'))
+    return None
+
+
 # ----------------------------------------------------------------------------------------------- rule 12 md5 screen
 
 
@@ -249,6 +298,11 @@ def report(out):
             a = d['journal_audit']
             L.append(f'- **Rule 12 audit against the embedded Document Line Table:** {a["pulled_legs"]} legs against '
                      f'{a["held_legs"]} held, amounts identical {a["amounts_identical"]}. {a["verdict"]}.')
+        if d.get('v127_audit'):
+            a = d['v127_audit']
+            L.append(f'- **Rule 12 audit against PS & WP v127 Journal_Sources:** {a["pulled_legs"]} legs against '
+                     f'{a["held_legs"]} held on document file {a["document_file"]}, amounts identical '
+                     f'{a["amounts_identical"]}. {a["verdict"]}.')
         for t in d['ties']:
             L.append(f'- **Tie {t["journal_reference"]}:** in-scope legs {money(t["in_scope_leg_sum"])} against register net '
                      f'{money(t["register_net"])} on {t["register_lines"]} lines, {t["register_lines_matched"]} matched: '
@@ -302,6 +356,7 @@ def main():
             by_file[r['docfile']].add(r['ref'])
     notes = json.load(open(NOTES)) if os.path.exists(NOTES) else {}
     held_docs = embedded_journal_docs()
+    held_v127 = v127_journal_sources()
 
     docs = []
     for xref, es in groups.items():
@@ -331,7 +386,8 @@ def main():
         d = dict(cross_reference=xref, ledger_name=e['params'].get('Ledger Name', ''),
                  account=e['params'].get('Account', ''), transaction=e['params'].get('Transaction', ''),
                  params_verbatim=e['params_verbatim'], source_file=e['file'], source_md5=e['md5'],
-                 columns=e['columns'], column_labels=e['column_labels'], legs=legs, legs_total=len(legs),
+                 columns=e['columns'], column_labels=e['column_labels'], layout=e['layout'],
+                 legs=legs, legs_total=len(legs),
                  net=str(net), nets_to_zero=net == 0, in_scope_legs=len(matched),
                  in_scope_net=str(sum((D(legs[i]['amount']) for i in matched), Decimal('0'))),
                  counterparty_legs_count=len(cp),
@@ -343,7 +399,11 @@ def main():
                  register_lines_matched=len(matched), ties=ties, all_ties_true=all(t['ties'] for t in ties))
         aud = audit_against_journal(legs, refs, held_docs)
         d['journal_audit'] = aud
-        d['capture'] = 'audit only, not re-captured (rule 12)' if aud and aud['identical'] else 'embed verbatim'
+        v127_aud = audit_against_v127(legs, docfiles, held_v127)
+        d['v127_audit'] = v127_aud
+        held_elsewhere = [a for a in (aud, v127_aud) if a]
+        d['capture'] = ('audit only, not re-captured (rule 12)'
+                        if any(a['identical'] for a in held_elsewhere) else 'embed verbatim')
         d.update(notes.get(xref, {}))
         docs.append(d)
 
@@ -351,11 +411,12 @@ def main():
     for d in docs:
         assert d['nets_to_zero'], f'{d["cross_reference"]} does not net to zero: {d["net"]}'
         assert d['all_ties_true'], f'{d["cross_reference"]} in-scope legs do not tie their register lines: {d["ties"]}'
-        if d.get('journal_audit'):
-            assert d['journal_audit']['identical'], f'{d["cross_reference"]}: {d["journal_audit"]["verdict"]}'
+        for a in (d.get('journal_audit'), d.get('v127_audit')):
+            if a:
+                assert a['identical'], f'{d["cross_reference"]}: {a["verdict"]}'
 
     out = dict(manifest=dict(batch_id=BATCH, prepared_utc=dt.datetime.now(dt.timezone.utc).isoformat(timespec='seconds').replace('+00:00', 'Z'),
-                             tool='pbr_recon_batch.py', pulled='14-Sep-2026',
+                             tool='pbr_recon_batch.py', pulled=PULLED,
                              source='TechOne Document Reconstruction exports (Document Cross Reference keyed)',
                              register_matched_against=os.path.basename(REG),
                              exports_received=len(exports), duplicate_exports=dupes, documents=len(docs),
