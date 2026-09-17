@@ -1,11 +1,17 @@
-# Batch binder1666 — HELD, RED on arrival
+# Batch binder1666 — RED on arrival, restated to AMBER
 
-141 pages, 100 documents, 7 suppliers, $599,063.81 ex GST. Declared AMBER by the extraction; the gate computes
-**RED**, and under prompt v7 section 13.2 the computed gate stands. Nothing is built from this corpus until it
-is re-extracted or restated (CLAUDE.md: a corpus that fails any of its own gates is logged, held and never
-part-built from).
+141 pages, 100 documents, 7 suppliers. Declared AMBER by the extraction; the gate computed **RED** on arrival,
+and under prompt v7 section 13.2 the computed gate stands. One document was at fault. The source page was
+supplied, the document is restated from its own retained text against the bands that page prints, and the
+corpus now computes **AMBER**, which under 13.0 builds while holding the named documents.
 
-    python3 toolkit/pswp/pswp_corpus_gate.py batches/binder1666/corpus_binder1666_as_received.json
+| | as received | restated |
+|---|---|---|
+| gate computed | RED | AMBER |
+| captured ex GST | $599,063.81 | $599,321.21 |
+
+    python3 batches/binder1666/restate_binder1666.py                                  # R1666-1
+    python3 toolkit/pswp/pswp_corpus_gate.py batches/binder1666/corpus_binder1666_v7.json
 
 ## The one document that fails, and it fails twice
 
@@ -36,8 +42,20 @@ to the cent. 98 of the 100 documents carry bands AND `bands_calibrated_on`. Find
 Two documents sit at AMBER on a header block that does not add up and is recorded as F1, which is correct
 behaviour under 13.0: 19975 out by $137.84 and 6431345 out by $39.99.
 
-## To clear it
+## How it was cleared
 
-Re-extract document 60203 alone under v7.2: record the item table's bands, calibrate them against the priced
-row, re-read the three header figures by label precedence (5.0) and re-run the gate. The other 99 documents
-need nothing.
+`C00309400_2.pdf`, the source page, is retained here. It prints the bands that settle the document:
+
+    header row 11   Net Price label [89,97], its value 286.00 at [93,98]   -> amount band [89,98]
+                    GST       label [102,104], its value 28.60 at [107,111] -> gst band [102,111]
+    priced row 13   '   30212    4   Parks Corflute Signs        286.00        28.60'
+    totals          row 26 Net $ 286.00, row 28 GST $ 28.60, row 30 Total $ 314.60
+
+**28.60 spans [107,111] and does not overlap the amount band at all.** A band recorded and calibrated as 4.1
+requires would have made the mis-read impossible, which is the whole of P11's case.
+
+`restate_binder1666.py` applies R1666-1 to that one document and nothing else: the line amount and the three
+header figures are taken from those bands, the item table's header row is typed TABLE_HEADER, and the bands are
+recorded with the priced row they were calibrated against. Every figure is asserted against the retained text
+before it is written, so the script fails rather than guesses if the row is not what it expects. The corpus
+total rises by exactly $257.40, which is the understatement.
