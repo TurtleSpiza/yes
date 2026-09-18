@@ -7,3 +7,13 @@ build.log
 
 # session-start hook artefacts
 .claude/hooks/*.log
+
+# Binder and invoice attachments. A PDF attachment is evidence that is sighted and screened, not
+# a repository artefact: the corpus retains page_text, the M1 verdict is retained in each batch's
+# mask_screen_<batch>.json, and the binder md5 is recorded in both. Re-parsing a batch needs the
+# binder re-supplied, which is the accepted trade.
+*.pdf
+
+# Not attachments: the two standing Council reference documents the JSON captures in
+# data/reference/ were made from, and the authority those captures are verified against.
+!data/reference/*.pdf
