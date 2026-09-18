@@ -26,8 +26,17 @@ def find(cls, sev, what, evidence, why, fix):
 
 
 def lines_of(path):
+    """Lines as `wc -l` counts them.
+
+    A trailing newline makes str.split("\n") return one extra empty element, so the auditor
+    reported 1,200 against wc -l's 1,199 and would have had the assessment restate a line count
+    that was wrong by one in the other direction. A checker that reports a figure must use the
+    same convention as the command a reader will run to check it.
+    """
     with open(path, encoding="utf-8") as fh:
-        return fh.read().split("\n")
+        text = fh.read()
+    L = text.split("\n")
+    return L[:-1] if L and L[-1] == "" else L
 
 
 def cite(path, i):
