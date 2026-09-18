@@ -1,7 +1,7 @@
-"""pbr_reports.py - the three pull reports as one leg, and the check that they match the shipped register.
+"""pbr_reports.py - the derived reports as one leg, and the check that they match the shipped register.
 
-WHY THIS EXISTS. `pbr_contractor_pull.py`, `pbr_journal_pull_report.py` and `pbr_unidentified_queue.py` each
-read the shipped registers and each is a separate command. Nothing made the build run them, so a version could
+WHY THIS EXISTS. `pbr_contractor_pull.py`, `pbr_journal_pull_report.py`, `pbr_unidentified_queue.py` and
+`pbr_sighted_coverage.py` each read the shipped registers and each is a separate command. Nothing made the build run them, so a version could
 ship with its reports left at the previous one, and the only symptom would be a figure quoted to Finance that
 the register had already moved past. Every version from v12 to v25 does in fact carry a full set, so the
 practice held; what was missing was anything that would notice if it stopped.
@@ -14,12 +14,12 @@ Contractor_Pull_v25.md. So the check compares the md5 of BOTH registers the repo
 in the manifest by --build, and `assert_sources` names and checks both on every pull that is created or
 requested, whoever runs it and however.
 
-`--check` stays cheap enough for the ship leg: it reads six filenames and two md5s, never regenerating. With no
+`--check` stays cheap enough for the ship leg: it reads two filenames per family and two md5s, never regenerating. With no
 manifest the answer is UNVERIFIED, not a pass, because nothing then records what the reports were cut from.
 
 Usage:
   python3 toolkit/branch/pbr_reports.py --check v25    # current at this version, from both registers unchanged?
-  python3 toolkit/branch/pbr_reports.py --build        # regenerate all three from the newest shipped registers
+  python3 toolkit/branch/pbr_reports.py --build        # regenerate every family from the newest shipped registers
   python3 toolkit/branch/pbr_reports.py --build --out /tmp/x   # ... to somewhere else, to diff before shipping
 """
 import argparse, datetime, glob as _glob, hashlib, json, os, re, subprocess, sys
@@ -36,6 +36,7 @@ FAMILIES = {
     'Contractor_Pull': ('pbr_contractor_pull.py', True),
     'Journal_Pull': ('pbr_journal_pull_report.py', True),
     'Unidentified_Contractors': ('pbr_unidentified_queue.py', False),
+    'Sighted_Coverage': ('pbr_sighted_coverage.py', True),
 }
 BOTH_REGISTER_FAMILIES = tuple(k for k, (_, both) in FAMILIES.items() if both)
 
@@ -152,7 +153,7 @@ def build(out=REPORTS, branch=None, pswp=None, log=print):
         log(f'  {stem}: written')
     man = {
         '_readme': [
-            "What the three pull reports in this directory were last cut from. Written by pbr_reports.py --build.",
+            "What the derived reports in this directory were last cut from. Written by pbr_reports.py --build.",
             "Both registers are recorded because every one of these reports reads BOTH, while only the branch",
             "version appears in the filename. A PS & WP register that moves while the branch stands still leaves",
             "the reports stale under a filename that still looks right, and only the md5 below catches it.",
@@ -170,8 +171,8 @@ def build(out=REPORTS, branch=None, pswp=None, log=print):
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.split('\n')[0])
-    ap.add_argument('--check', metavar='VER', help='assert all three reports exist at this register version')
-    ap.add_argument('--build', action='store_true', help='regenerate all three from the newest shipped registers')
+    ap.add_argument('--check', metavar='VER', help='assert every report family exists at this register version')
+    ap.add_argument('--build', action='store_true', help='regenerate every family from the newest shipped registers')
     ap.add_argument('--out', default=REPORTS, help='output directory (default reports/)')
     a = ap.parse_args(argv)
     if a.check:
@@ -183,7 +184,7 @@ def main(argv=None):
             print('Re-run: python3 toolkit/branch/pbr_reports.py --build')
             return 1
         src = sources()
-        print(f'reports current for {a.check}: all three families (md and xlsx), cut from '
+        print(f'reports current for {a.check}: all {len(FAMILIES)} families (md and xlsx), cut from '
               f'{src["branch"]["file"]} and {src["pswp"]["file"]}, both md5 unchanged')
         return 0
     if a.build:
