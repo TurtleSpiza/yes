@@ -7,7 +7,8 @@ Every LCC Stores line on the register is an internal inventory issue and its nar
 so the product number prints in full and the description is cut to ten characters. Three sources can name the
 product, and they are not equal:
 
-  1  the TechOne My Requisition Lines export, which prints the requisition's own full description  BEST
+  0  stores_confirmed_products.json, names confirmed by the register owner                    AUTHORITATIVE
+  1  the TechOne My Requisition Lines export, which prints the requisition's own full description  best machine
   2  the Marsden Stores inventory (lcc-coding-review bundle), which adds the category               second
   3  the Marsden Stores catalogue PDF, captured by pbr_stores_catalogue.py                          last
 
@@ -18,10 +19,17 @@ Scored against the v24 register, on the register's own truncated narration as th
     stores inventory                 117         44       46
     catalogue PDF capture            101         60       46
 
-The export wins because it is the record of the issue itself rather than a catalogue of what Stores sells: it
-names the 44 clothing and PPE products the 2026 catalogue does not list at all, which is most of what Parks
-draws. The residual disagreements are the register truncating the item and the supplier naming the brand
-("VEST SAFET" against "Prime Mover 100% Cotton Day/Night Vest"), not a wrong resolution.
+The export wins ON COVERAGE, because it is the record of the issue itself rather than a catalogue of what
+Stores sells: it names the 44 clothing and PPE products the 2026 catalogue does not list at all, which is most
+of what Parks draws.
+
+It does NOT win on the contested cases, and that is worth stating because it contradicts the coverage ranking.
+Of the seven products the register owner confirmed on 18-Sep-2026, all of them cases where the sources
+disagreed, the export was exactly right on NONE and the inventory on two. On 196303 the export names a hard hat
+browguard with an earmuff attachment and the goods are a face shield with a clear visor, a different piece of
+PPE on the same account. The seven were chosen because they disagreed, so this is not a fair sample of the
+export as a whole, but it is enough to say the export is the best machine source and not an authority. Where a
+name matters, confirm it and record it in stores_confirmed_products.json.
 
 Usage: python3 pbr_stores_resolver.py build <My_Requisition_Lines.xlsx> [out.json]
        python3 pbr_stores_resolver.py verify <out.json> <register.xlsx>
