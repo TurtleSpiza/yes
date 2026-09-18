@@ -21,13 +21,13 @@
   "min_scanlines": 4,
   "overlap_fraction": 0.5
  },
- "screened_utc": "2026-09-18T05:23:15Z",
- "batch_id": "mixed_new_26_27",
+ "screened_utc": "2026-09-18T05:23:00Z",
+ "batch_id": "pages_from_binder1",
  "binders": [
   {
-   "name": "Mixed_new_26-27.pdf",
-   "md5": "813f23077d1d5e77fb1e7150ad08b3cc",
-   "bytes": 3551823,
+   "name": "Pages from Binder1.pdf",
+   "md5": "28ac2f52da8d5e518181dd378f325c66",
+   "bytes": 2552050,
    "pages_masking_rows": [],
    "bands": {},
    "retained": false,

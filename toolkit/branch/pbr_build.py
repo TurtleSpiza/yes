@@ -13,6 +13,7 @@ from python_calamine import CalamineWorkbook
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import pbr_stage
+import pbr_binder_retention
 import pbr_retention
 
 VER = 'v25'
@@ -1875,3 +1876,15 @@ if __name__ == '__main__':
     # file this run produced and the PS & WP side are both out of its reach. PBR_RETAIN=all disables it.
     pruned = pbr_retention.prune_after_ship(OUTDIR, 'branch', VER.lstrip('v'), log=say)
     say(f'retention: {len(pruned)} superseded register(s) pruned; the tree carries {OUTNAME} alone')
+    # Binder retention runs in the same place and for the same reason: a rule the driver applies cannot
+    # lapse, and a rule a session has to remember will. A binder is deleted only where the batch is parsed,
+    # gated non-RED, not held, retains page text on every document, and carries an M1 record naming that
+    # exact file by md5. Unlike a register, a deleted binder is NOT regenerable and has to be re-supplied,
+    # so the conditions are the strict ones and PBR_KEEP_BINDERS=1 disables the leg entirely.
+    if os.environ.get('PBR_KEEP_BINDERS'):
+        say('binder retention: skipped (PBR_KEEP_BINDERS set)')
+    else:
+        bpl = pbr_binder_retention.plan()
+        n = pbr_binder_retention.apply(bpl, log=say)
+        say(f'binder retention: {n} binder(s) deleted, {bpl["delete_mb"]} MB; '
+            f'{len(bpl["keep"])} kept, each with its reason (--json for the plan)')

@@ -21,8 +21,15 @@ Usage:
   python3 toolkit/branch/pbr_mask_screen.py <binder.pdf> [...]              # which pages mask rows
   python3 toolkit/branch/pbr_mask_screen.py --corpus <corpus.json> <pdf>... # which line records read them
   python3 toolkit/branch/pbr_mask_screen.py --corpus c.json --restate out.json <pdf>...
+  python3 toolkit/branch/pbr_mask_screen.py --corpus c.json --record batches/<id>/mask_screen_<id>.json <pdf>...
+
+THE RECORD IS WHAT OUTLIVES THE BINDER. A PDF attachment is evidence, not a repository artefact, and this
+project does not keep them. Everything else a corpus is checked on survives in retained page_text, but the
+M1 verdict cannot: the fill is not in the text layer, so it can only be learned by rendering the page while
+the binder is in hand. `--record` writes that verdict, the bands and the rows found underneath, keyed to the
+binder md5, and pbr_binder_retention.py refuses to delete a binder that has no matching record.
 """
-import argparse, glob, json, os, re, subprocess, sys, tempfile
+import argparse, datetime, glob, hashlib, json, os, re, subprocess, sys, tempfile
 from decimal import Decimal, ROUND_HALF_UP
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -30,6 +37,14 @@ ROOT = os.path.abspath(os.path.join(HERE, '..', '..'))
 POLICY = os.environ.get('PBR_MASK_POLICY', os.path.join(HERE, 'pbr_mask_screen_v1.json'))
 D = lambda x: Decimal(str(x or 0)).quantize(Decimal('0.01'), ROUND_HALF_UP)
 WS = re.compile(r'\s+')
+
+
+def _md5(path):
+    h = hashlib.md5()
+    with open(path, 'rb') as fh:
+        for chunk in iter(lambda: fh.read(1 << 20), b''):
+            h.update(chunk)
+    return h.hexdigest()
 
 
 def load_policy(path=POLICY):
@@ -215,11 +230,56 @@ def restate(corpus, pdf_map, policy=None, log=print):
     return n_doc, n_row
 
 
+RECORD_README = [
+    "Masked-row screen (M1) over this batch's binder. A row filled black on the printed page is not",
+    "a row the document prints, so it is never captured. The text sits under the fill and pdftotext",
+    "returns it, so no text-layer gate can see it: the screen renders the page instead.",
+    "The binder is an attachment and is not retained; this record is the screen's standing result, and",
+    "pbr_binder_retention.py will not delete a binder whose md5 this record does not match.",
+]
+
+
+def record(corpus, pdf_map, policy=None):
+    """The batch's standing M1 result, written so the binder itself need not be kept.
+
+    Everything the screen can only learn by rendering the page goes in here: which pages carry filled
+    bands, where those bands sit, and the text found underneath. The binder md5 is what ties the verdict
+    to one exact file, so a re-supplied binder that differs is screened again rather than assumed.
+    """
+    p = policy or load_policy()
+    binders, rows, bands_all = [], [], {}
+    for name, path in sorted(pdf_map.items()):
+        b = filled_bands(path, p)
+        mt = masked_text(path, p)
+        bands_all[name] = b
+        binders.append({
+            'name': name, 'md5': _md5(path), 'bytes': os.path.getsize(path),
+            'pages_masking_rows': sorted(b),
+            'bands': {str(pg): [{'top': round(s, 6), 'bottom': round(e, 6)} for s, e in b[pg]] for pg in sorted(b)},
+            'retained': False,
+            'retained_why': 'Attachment. Not kept in the repository; this record is the standing M1 result.',
+        })
+        rows += [{'source_file': name, 'page': pg, 'row_text': t} for pg in sorted(mt) for t in mt[pg]]
+    findings = screen(corpus, pdf_map, p)
+    masked_pages = sum(len(b) for b in bands_all.values())
+    verdict = ('CLEAN: no page masks rows, so no line record reads one' if not masked_pages else
+               'MASKED ROWS FOUND: %d page(s), %d row(s) under fill; %d priced row(s) captured, $%.2f'
+               % (masked_pages, len(rows), sum(f['masked_priced'] for f in findings),
+                  sum(f['masked_value'] for f in findings)))
+    return {
+        '_readme': RECORD_README, 'tool': 'toolkit/branch/pbr_mask_screen.py', 'policy': p,
+        'screened_utc': datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),
+        'batch_id': (corpus.get('manifest') or {}).get('batch_id'),
+        'binders': binders, 'masked_rows': rows, 'documents': findings, 'verdict': verdict,
+    }
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.split('\n')[0])
     ap.add_argument('pdfs', nargs='+')
     ap.add_argument('--corpus', help='attribute masked rows to a corpus\'s line records')
     ap.add_argument('--restate', metavar='OUT', help='write a corpus with the masked rows dropped from capture')
+    ap.add_argument('--record', metavar='OUT', help="write the batch's standing M1 record (needs --corpus)")
     a = ap.parse_args(argv)
     p = load_policy()
     pdf_map = {os.path.basename(x).replace('_', ' '): x for x in a.pdfs}
@@ -242,6 +302,17 @@ def main(argv=None):
         print(f"  {f['doc_ref']:<10} pages {f['pages']} {f['masked_priced']:>3} masked priced row(s) "
               f"${f['masked_value']:>12,.2f}  captured ${f['captured']:>12,.2f} vs printed "
               f"${f['printed_subtotal']:>12,.2f} -> {'ties once dropped' if f['ties_once_dropped'] else 'STILL OUT'}")
+    if a.record:
+        if missing:
+            # A record is a claim about the whole batch, so a partial screen must not be written as one.
+            print(f'\nREFUSED to write {a.record}: {len(missing)} source file(s) not supplied. '
+                  f'A record covering only part of a batch would read as a clean screen of all of it.')
+            return 2
+        rec = record(corpus, pdf_map, p)
+        with open(a.record, 'w') as fh:
+            json.dump(rec, fh, indent=1)
+            fh.write('\n')
+        print(f'\nrecord -> {a.record}: {rec["verdict"]}')
     if a.restate:
         nd, nr = restate(corpus, pdf_map, p)
         json.dump(corpus, open(a.restate, 'w'))

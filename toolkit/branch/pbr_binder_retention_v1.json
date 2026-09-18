@@ -1,0 +1,40 @@
+{
+  "_readme": [
+    "Which binder PDFs the repository keeps. Content is data; the mechanic is pbr_binder_retention.py.",
+    "",
+    "THE RULE: a binder is deleted permanently once it has been parsed with no issues, and kept otherwise.",
+    "A PDF attachment is evidence that is sighted, parsed and screened. It is not a repository artefact and",
+    "*.pdf is ignored by git, so 'delete' here means delete from disk: there is no copy behind it.",
+    "",
+    "WHAT 'PARSED WITH NO ISSUES' HAS TO MEAN. Deleting the binder forecloses every check that can only be",
+    "run against the page, so each condition below is one such check, already run and already recorded:",
+    "",
+    "  corpus              the batch was parsed at all. A binder with no corpus is unparsed evidence.",
+    "  page_text           every document retains its page text, so the shingle check keeps an independent",
+    "                      haystack. Without it the verbatim check returns UNVERIFIABLE, and UNVERIFIABLE is",
+    "                      not a pass, so the wording could never be checked against the page again.",
+    "  gate_not_red        the corpus passes its own gate. A RED corpus is never built from and will need",
+    "                      re-extraction, which needs the binder back.",
+    "  mask_record         an M1 record exists naming THIS binder by md5. The fill is not in the text layer,",
+    "                      so the masked-row verdict is the one finding no retained text can reproduce. The",
+    "                      md5 must match the file on disk or the record describes a different document.",
+    "  no_hold_record      the batch is not held. A hold record is outstanding work against the page.",
+    "",
+    "A binder failing any condition is KEPT and the reason is printed. Nothing is deleted on a dry run."
+  ],
+  "roots": ["batches"],
+  "require": {
+    "corpus": true,
+    "page_text_every_document": true,
+    "gate_not_red": true,
+    "mask_record_md5_match": true,
+    "no_hold_record": true
+  },
+  "protect": [
+    {
+      "glob": "data/reference/*.pdf",
+      "why": "Not attachments. The two standing Council reference documents the JSON captures in data/reference/ were made from, and the authority those captures are verified against."
+    }
+  ],
+  "gate_tool": "toolkit/pswp/pswp_corpus_gate.py"
+}

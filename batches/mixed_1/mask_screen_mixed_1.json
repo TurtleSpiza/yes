@@ -3,7 +3,8 @@
   "Masked-row screen (M1) over this batch's binder. A row filled black on the printed page is not",
   "a row the document prints, so it is never captured. The text sits under the fill and pdftotext",
   "returns it, so no text-layer gate can see it: the screen renders the page instead.",
-  "The binder is an attachment and is not retained; this record is the screen's standing result."
+  "The binder is an attachment and is not retained; this record is the screen's standing result, and",
+  "pbr_binder_retention.py will not delete a binder whose md5 this record does not match."
  ],
  "tool": "toolkit/branch/pbr_mask_screen.py",
  "policy": {
@@ -20,61 +21,70 @@
   "min_scanlines": 4,
   "overlap_fraction": 0.5
  },
- "screened_utc": "2026-09-18T04:55:10Z",
- "binder": {
-  "name": "Mixed_1.pdf",
-  "md5": "b9ddf7fd6c56188a22181921b7b2c8ab",
-  "pages_masking_rows": [
-   56,
-   58
-  ],
-  "bands": {
-   "56": [
-    {
-     "top": 0.572464,
-     "bottom": 0.589372
-    },
-    {
-     "top": 0.608696,
-     "bottom": 0.642512
-    }
+ "screened_utc": "2026-09-18T05:23:06Z",
+ "batch_id": "mixed_1",
+ "binders": [
+  {
+   "name": "Mixed_1.pdf",
+   "md5": "b9ddf7fd6c56188a22181921b7b2c8ab",
+   "bytes": 4288996,
+   "pages_masking_rows": [
+    56,
+    58
    ],
-   "58": [
-    {
-     "top": 0.2343,
-     "bottom": 0.248792
-    },
-    {
-     "top": 0.374396,
-     "bottom": 0.388889
-    },
-    {
-     "top": 0.541063,
-     "bottom": 0.567633
-    }
-   ]
-  },
-  "retained": false,
-  "retained_why": "Attachment. Not kept in the repository; this record is the standing M1 result."
- },
+   "bands": {
+    "56": [
+     {
+      "top": 0.572464,
+      "bottom": 0.589372
+     },
+     {
+      "top": 0.608696,
+      "bottom": 0.642512
+     }
+    ],
+    "58": [
+     {
+      "top": 0.2343,
+      "bottom": 0.248792
+     },
+     {
+      "top": 0.374396,
+      "bottom": 0.388889
+     },
+     {
+      "top": 0.541063,
+      "bottom": 0.567633
+     }
+    ]
+   },
+   "retained": false,
+   "retained_why": "Attachment. Not kept in the repository; this record is the standing M1 result."
+  }
+ ],
  "masked_rows": [
   {
+   "source_file": "Mixed_1.pdf",
    "page": 56,
    "row_text": "Windaroo Lake Park Rubbish Removal WLPRR PK000382 1 of 12 $473.52 $47.35 $520.87 22nd July 2026"
   },
   {
+   "source_file": "Mixed_1.pdf",
    "page": 56,
    "row_text": "Total $32,951.44 $3,295.14 $36,246.58"
   },
   {
+   "source_file": "Mixed_1.pdf",
    "page": 58,
    "row_text": "Featherstone Park Communities Communities AMP Featherstone PK000383 1 of 11 $618.83 $61.88 $680.71 14th August 2026"
   },
   {
+   "source_file": "Mixed_1.pdf",
    "page": 58,
    "row_text": "Kimberley Forest Park AMP KIMBc(a) PK000379 2 of 12 $1,237.66 $123.77 $1,361.43 21st August 2026"
   },
   {
+   "source_file": "Mixed_1.pdf",
    "page": 58,
    "row_text": "Total $27,073.64 $2,707.36 $29,781.00"
   }
