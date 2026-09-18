@@ -2,10 +2,15 @@
   "_readme": [
     "Which shipped registers the repository keeps. Content is data (rule: corpora, match tables and rules live",
     "in JSON); the mechanic is pbr_retention.py and the driver calls it in the ship leg.",
-    "keep_newest is per family. A register below that line is superseded UNLESS it is pinned here or still named",
-    "literally by a toolkit script, which pbr_retention.py scans for and will not prune over."
+    "keep_newest is per family: the newest shipped version and its immediate predecessor, so a build can always be",
+    "diffed against the register it was built from. That is what verifies a build did what its change log claims.",
+    "A register below that line is superseded UNLESS it is pinned here or still named literally by a toolkit script,",
+    "which pbr_retention.py scans for and will not prune over.",
+    "NOTE ON REPOSITORY SIZE: this setting governs the WORKING TREE only. A register already committed stays in git",
+    "history at its full size forever, because xlsx is a zip git cannot delta-compress. Retention caps what a fresh",
+    "clone checks out; it does not cap what a fresh clone downloads."
   ],
-  "keep_newest": 1,
+  "keep_newest": 2,
   "families": [
     {
       "id": "branch",
@@ -27,7 +32,12 @@
     }
   ],
   "reference_scan": {
-    "roots": ["toolkit"],
-    "suffixes": [".py", ".json"]
+    "roots": [
+      "toolkit"
+    ],
+    "suffixes": [
+      ".py",
+      ".json"
+    ]
   }
 }

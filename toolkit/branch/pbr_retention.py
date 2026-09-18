@@ -6,7 +6,8 @@ permanently. The practice up to v8 was to drop the prior version in the same com
 new one; it lapsed after v11 and v12 to v17 accumulated. This file makes the practice a mechanic the
 driver runs, so it cannot lapse again.
 
-The rule: keep the newest shipped register of each family (pbr_retention_v1.json), prune the rest,
+The rule: keep the newest shipped register of each family and its immediate predecessor(s), the count set by
+keep_newest in pbr_retention_v1.json, prune the rest,
 EXCEPT where a version is still an input:
 
   pinned      the policy names it. PS_WP v127_CANDIDATE is the branch build's inheritance source,
@@ -77,7 +78,7 @@ def plan(regdir, policy=None, root=ROOT, below=None):
     pinned = {p['file']: p['why'] for p in policy.get('pinned', [])}
     cited = scan_references(policy, root)
     keep_n = int(policy.get('keep_newest', 1))
-    out = {'dir': regdir, 'keep': [], 'held': [], 'prune': []}
+    out = {'dir': regdir, 'keep_newest': keep_n, 'keep': [], 'held': [], 'prune': []}
     for fam in policy['families']:
         found = []
         for p in _glob.glob(os.path.join(regdir, fam['glob'])):
@@ -90,7 +91,9 @@ def plan(regdir, policy=None, root=ROOT, below=None):
             rec = {'family': fam['id'], 'file': base, 'version': k[0],
                    'mb': round(os.path.getsize(p) / 1048576, 1), 'path': p}
             if rank < keep_n:
-                rec['why'] = f'newest shipped {fam["label"]} register'
+                rec['why'] = (f'newest shipped {fam["label"]} register' if rank == 0 else
+                              f'predecessor {rank} of {keep_n - 1}, kept so the newest can be diffed '
+                              f'against the register it was built from')
                 out['keep'].append(rec)
             elif base in pinned:
                 rec['why'] = 'pinned: ' + pinned[base]
@@ -152,7 +155,7 @@ def main(argv=None):
     for rec in pl['prune']:
         print(f'  prune   {rec["file"]:<55} {rec["mb"]:>6.1f} MB  {rec["why"]}')
     if not pl['prune']:
-        print('\nNothing superseded. The tree already carries one register per family.')
+        print(f'\nNothing superseded. The tree already carries at most {pl["keep_newest"]} register(s) per family.')
         return 0
     print(f'\n{len(pl["prune"])} superseded file(s), {pl["mb_pruned"]} MB in the working tree.')
     if not a.apply:
