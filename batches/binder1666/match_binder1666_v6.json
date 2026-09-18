@@ -1,0 +1,1771 @@
+[
+ {
+  "invoice": "19795",
+  "vendor": "RST Systems Pty Ltd t/a Vinton Tree Services",
+  "abn": null,
+  "subtotal": 1893.75,
+  "incl": 2083.13,
+  "variant": "standard",
+  "target": [
+   "899ba694-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "899ba694-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 1893.75,
+    "contractor": "Vinton Tree Services",
+    "narr": "STANDING ORDER 25/26"
+   }
+  ],
+  "evid": "19795",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice 19795 dated 23/06/2026, supplier RST Systems Pty Ltd t/a Vinton Tree Services. 2 priced line(s). Printed subtotal $1,893.75 ex GST, GST $189.38, total $2,083.13. Variant standard. Printed PK000482 matches the PK charged (PK000482).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "SV007809",
+  "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
+  "abn": "78161366749",
+  "subtotal": 2068.74,
+  "incl": 2275.61,
+  "variant": "standard",
+  "target": [
+   "a216b20a-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "a216b20a-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 2068.74,
+    "contractor": "Savco Vegetation Services Pty Ltd",
+    "narr": "STANDING ORDER 25/26"
+   }
+  ],
+  "evid": "SV007809",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice SV007809 dated (not printed), supplier SAVCO VEGETATION SERVICES PTY LTD. 4 priced line(s). Printed subtotal $2,068.74 ex GST, GST $206.87, total $2,275.61. Variant standard. Printed PK000477 matches the PK charged (PK000477).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "INV-46964",
+  "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+  "abn": "32 416 129 034",
+  "subtotal": 1840.0,
+  "incl": 2024.0,
+  "variant": "standard",
+  "target": [
+   "70caa395-73212-PK000474-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "70caa395-73212-PK000474-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000474",
+    "amount": 1840.0,
+    "contractor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+    "narr": "STANDING ORDER 25/26"
+   }
+  ],
+  "evid": "INV-46964",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice INV-46964 dated 30 Jul 2026, supplier Heritage Tree Services Pty Ltd ATF Rowan Family Trust. 3 priced line(s). Printed subtotal $1,840.00 ex GST, GST $184.00, total $2,024.00. Variant standard. Printed PK000474 matches the PK charged (PK000474).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "19830",
+  "vendor": "RST Systems Pty Ltd t/a Vinton Tree Services",
+  "abn": null,
+  "subtotal": 1520.0,
+  "incl": 1672.0,
+  "variant": "standard",
+  "target": [
+   "b71b386c-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "b71b386c-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 1520.0,
+    "contractor": "Vinton Tree Services",
+    "narr": "STANDING ORDER 25/26"
+   }
+  ],
+  "evid": "19830",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice 19830 dated 1/07/2026, supplier RST Systems Pty Ltd t/a Vinton Tree Services. 1 priced line(s). Printed subtotal $1,520.00 ex GST, GST $152.00, total $1,672.00. Variant standard. Printed PK000482 matches the PK charged (PK000482).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "INV-39247",
+  "vendor": "T & H LEVAI PTY LTD",
+  "abn": "65 100 395 480",
+  "subtotal": 960.0,
+  "incl": 1056.0,
+  "variant": "standard",
+  "target": [
+   "b7559bb6-73126-PK000440-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "b7559bb6-73126-PK000440-01",
+    "section": "Park Maintenance",
+    "na": "73126",
+    "pk": "PK000440",
+    "amount": 960.0,
+    "contractor": "T & H Levai Pty Ltd",
+    "narr": "STANDING ORDER 25/26"
+   }
+  ],
+  "evid": "INV-39247",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice INV-39247 dated 30 Jun 2026, supplier T & H LEVAI PTY LTD. 1 priced line(s). Printed subtotal $960.00 ex GST, GST $96.00, total $1,056.00. Variant standard. Printed PK000440 matches the PK charged (PK000440).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "6431345",
+  "vendor": "Woodman Beenleigh Pty Ltd trading as Woodmans Mitre 10 Beenleigh",
+  "abn": "88 105 899 689",
+  "subtotal": 268.0,
+  "incl": 290.8,
+  "variant": "check 2 derivation equality (register amount = ROUND(printed total incl GST / 1.1, 2))",
+  "target": [
+   "30acd86a-72111-PK000055-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "30acd86a-72111-PK000055-01",
+    "section": "Trees",
+    "na": "72111",
+    "pk": "PK000055",
+    "amount": 264.36,
+    "contractor": "Unidentified (FY2026/27 branch-wide, not yet cleared)",
+    "narr": "Invoice 6431345"
+   }
+  ],
+  "evid": "6431345",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Review",
+  "coding_note": "Invoice 6431345 dated 01/06/26, supplier Woodman Beenleigh Pty Ltd trading as Woodmans Mitre 10 Beenleigh. 7 priced line(s). Printed subtotal $268.00 ex GST, GST $22.80, total $290.80. Variant check 2 derivation equality (register amount = ROUND(printed total incl GST / 1.1, 2)). PK is not printed on the face. Mixed supply: one line is GST-free, so the ex-GST cannot be derived as incl/1.1.",
+  "follow_up": "The register line is $264.36, which is the GST-inclusive $290.80 divided by 1.1. This invoice is a MIXED SUPPLY: line B601927 carries GST 0.00, so the printed ex-GST is $268.00 and the printed GST $22.80, not a tenth. The register understates the line by $3.64. Restate the register line to $268.00 ex GST at the next enrichment build.",
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "19646",
+  "vendor": "RST Systems Pty Ltd t/a Vinton Tree Services",
+  "abn": null,
+  "subtotal": 1442.5,
+  "incl": 1586.75,
+  "variant": "standard",
+  "target": [
+   "0f7d0d07-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "0f7d0d07-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 1442.5,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19646",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice 19646 dated 2/07/2026, supplier RST Systems Pty Ltd t/a Vinton Tree Services. 3 priced line(s). Printed subtotal $1,442.50 ex GST, GST $144.25, total $1,586.75. Variant standard. Printed PK000482 matches the PK charged (PK000482).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "19675",
+  "vendor": "RST Systems Pty Ltd t/a Vinton Tree Services",
+  "abn": null,
+  "subtotal": 1515.0,
+  "incl": 1666.5,
+  "variant": "standard",
+  "target": [
+   "de3c4537-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "de3c4537-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 1515.0,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19675",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice 19675 dated 3/07/2026, supplier RST Systems Pty Ltd t/a Vinton Tree Services. 2 priced line(s). Printed subtotal $1,515.00 ex GST, GST $151.50, total $1,666.50. Variant standard. Printed PK000477 matches the PK charged (PK000477).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "SV007832",
+  "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
+  "abn": "78161366749",
+  "subtotal": 1701.0,
+  "incl": 1871.1,
+  "variant": "standard",
+  "target": [
+   "4d067b0b-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "4d067b0b-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 1701.0,
+    "contractor": "Savco Vegetation Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "SV007832",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice SV007832 dated (not printed), supplier SAVCO VEGETATION SERVICES PTY LTD. 4 priced line(s). Printed subtotal $1,701.00 ex GST, GST $170.10, total $1,871.10. Variant standard. Printed PK000477 matches the PK charged (PK000477).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "INV-47139",
+  "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+  "abn": "32 416 129 034",
+  "subtotal": 1440.0,
+  "incl": 1584.0,
+  "variant": "standard",
+  "target": [
+   "c95dfa39-73212-PK000474-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "c95dfa39-73212-PK000474-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000474",
+    "amount": 1440.0,
+    "contractor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-47139",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice INV-47139 dated 9 Aug 2026, supplier Heritage Tree Services Pty Ltd ATF Rowan Family Trust. 2 priced line(s). Printed subtotal $1,440.00 ex GST, GST $144.00, total $1,584.00. Variant standard. Printed PK000474 matches the PK charged (PK000474).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "INV-47142",
+  "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+  "abn": "32 416 129 034",
+  "subtotal": 1680.0,
+  "incl": 1848.0,
+  "variant": "standard",
+  "target": [
+   "5535dde1-73212-PK000474-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "5535dde1-73212-PK000474-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000474",
+    "amount": 1680.0,
+    "contractor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-47142",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice INV-47142 dated 9 Aug 2026, supplier Heritage Tree Services Pty Ltd ATF Rowan Family Trust. 2 priced line(s). Printed subtotal $1,680.00 ex GST, GST $168.00, total $1,848.00. Variant standard. Printed PK000474 matches the PK charged (PK000474).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "INV-47143",
+  "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+  "abn": "32 416 129 034",
+  "subtotal": 1700.0,
+  "incl": 1870.0,
+  "variant": "standard",
+  "target": [
+   "24464a9a-73212-PK000474-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "24464a9a-73212-PK000474-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000474",
+    "amount": 1700.0,
+    "contractor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-47143",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice INV-47143 dated 9 Aug 2026, supplier Heritage Tree Services Pty Ltd ATF Rowan Family Trust. 1 priced line(s). Printed subtotal $1,700.00 ex GST, GST $170.00, total $1,870.00. Variant standard. Printed PK000474 matches the PK charged (PK000474).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "19873",
+  "vendor": "RST Systems Pty Ltd t/a Vinton Tree Services",
+  "abn": null,
+  "subtotal": 1515.0,
+  "incl": 1666.5,
+  "variant": "standard",
+  "target": [
+   "afd8c051-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "afd8c051-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 1515.0,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19873",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice 19873 dated 13/07/2026, supplier RST Systems Pty Ltd t/a Vinton Tree Services. 2 priced line(s). Printed subtotal $1,515.00 ex GST, GST $151.50, total $1,666.50. Variant standard. Printed PK000482 matches the PK charged (PK000482).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "INV-47225",
+  "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+  "abn": "32 416 129 034",
+  "subtotal": 1620.0,
+  "incl": 1782.0,
+  "variant": "standard",
+  "target": [
+   "152727f4-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "152727f4-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 1620.0,
+    "contractor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-47225",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice INV-47225 dated 13 Aug 2026, supplier Heritage Tree Services Pty Ltd ATF Rowan Family Trust. 3 priced line(s). Printed subtotal $1,620.00 ex GST, GST $162.00, total $1,782.00. Variant standard. Printed PK000482 matches the PK charged (PK000482).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "19884",
+  "vendor": "RST Systems Pty Ltd t/a Vinton Tree Services",
+  "abn": null,
+  "subtotal": 1515.0,
+  "incl": 1666.5,
+  "variant": "standard",
+  "target": [
+   "9ed7c8c8-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "9ed7c8c8-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 1515.0,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19884",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice 19884 dated 14/07/2026, supplier RST Systems Pty Ltd t/a Vinton Tree Services. 2 priced line(s). Printed subtotal $1,515.00 ex GST, GST $151.50, total $1,666.50. Variant standard. Printed PK000477 matches the PK charged (PK000477).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "SV007864",
+  "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
+  "abn": "78161366749",
+  "subtotal": 1632.96,
+  "incl": 1796.26,
+  "variant": "standard",
+  "target": [
+   "355eec05-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "355eec05-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 1632.96,
+    "contractor": "Savco Vegetation Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "SV007864",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice SV007864 dated (not printed), supplier SAVCO VEGETATION SERVICES PTY LTD. 1 priced line(s). Printed subtotal $1,632.96 ex GST, GST $163.30, total $1,796.26. Variant standard. Printed PK000482 matches the PK charged (PK000482).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "INV-39316",
+  "vendor": "T & H LEVAI PTY LTD",
+  "abn": "65 100 395 480",
+  "subtotal": 960.0,
+  "incl": 1056.0,
+  "variant": "standard",
+  "target": [
+   "1cae85dc-73126-PK000366-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "1cae85dc-73126-PK000366-01",
+    "section": "Park Maintenance",
+    "na": "73126",
+    "pk": "PK000366",
+    "amount": 960.0,
+    "contractor": "T & H Levai Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-39316",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice INV-39316 dated 14 Jul 2026, supplier T & H LEVAI PTY LTD. 1 priced line(s). Printed subtotal $960.00 ex GST, GST $96.00, total $1,056.00. Variant standard. Printed PK000366 matches the PK charged (PK000366).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "19896",
+  "vendor": "RST Systems Pty Ltd t/a Vinton Tree Services",
+  "abn": null,
+  "subtotal": 1529.92,
+  "incl": 1682.91,
+  "variant": "standard",
+  "target": [
+   "2f03a8f1-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "2f03a8f1-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 1529.92,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19896",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice 19896 dated 20/07/2026, supplier RST Systems Pty Ltd t/a Vinton Tree Services. 3 priced line(s). Printed subtotal $1,529.92 ex GST, GST $152.99, total $1,682.91. Variant standard. Printed PK000482 matches the PK charged (PK000482).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "INV-47353",
+  "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+  "abn": "32 416 129 034",
+  "subtotal": 1654.26,
+  "incl": 1819.68,
+  "variant": "check 2 derivation equality (register amount = ROUND(printed total incl GST / 1.1, 2))",
+  "target": [
+   "2cbbb950-73212-PK000474-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "2cbbb950-73212-PK000474-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000474",
+    "amount": 1654.25,
+    "contractor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-47353",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice INV-47353 dated 14 Aug 2026, supplier Heritage Tree Services Pty Ltd ATF Rowan Family Trust. 4 priced line(s). Printed subtotal $1,654.26 ex GST, GST $165.42, total $1,819.68. Variant check 2 derivation equality (register amount = ROUND(printed total incl GST / 1.1, 2)). Printed PK000474 matches the PK charged (PK000474).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "19902",
+  "vendor": "RST Systems Pty Ltd t/a Vinton Tree Services",
+  "abn": null,
+  "subtotal": 1544.85,
+  "incl": 1699.34,
+  "variant": "standard",
+  "target": [
+   "b8a49fe3-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "b8a49fe3-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 1544.85,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19902",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice 19902 dated 21/07/2026, supplier RST Systems Pty Ltd t/a Vinton Tree Services. 3 priced line(s). Printed subtotal $1,544.85 ex GST, GST $154.49, total $1,699.34. Variant standard. Printed PK000482 matches the PK charged (PK000482).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "19905",
+  "vendor": "RST Systems Pty Ltd t/a Vinton Tree Services",
+  "abn": null,
+  "subtotal": 1760.26,
+  "incl": 1936.29,
+  "variant": "standard",
+  "target": [
+   "3e7ab11e-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "3e7ab11e-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 1760.26,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19905",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice 19905 dated 30/06/2026, supplier RST Systems Pty Ltd t/a Vinton Tree Services. 4 priced line(s). Printed subtotal $1,760.26 ex GST, GST $176.03, total $1,936.29. Variant standard. Printed PK000482 matches the PK charged (PK000482).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "19917",
+  "vendor": "RST Systems Pty Ltd t/a Vinton Tree Services",
+  "abn": null,
+  "subtotal": 1795.95,
+  "incl": 1975.55,
+  "variant": "standard",
+  "target": [
+   "1f0e154a-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "1f0e154a-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 1795.95,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19917",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice 19917 dated 24/07/2026, supplier RST Systems Pty Ltd t/a Vinton Tree Services. 5 priced line(s). Printed subtotal $1,795.95 ex GST, GST $179.60, total $1,975.55. Variant standard. Printed PK000482 matches the PK charged (PK000482).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "60203",
+  "vendor": "TENNYSON GROUP AUST. PTY LTD",
+  "abn": null,
+  "subtotal": 286.0,
+  "incl": 314.6,
+  "variant": "standard",
+  "target": [
+   "e4781df5-72222-PK000055-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "e4781df5-72222-PK000055-01",
+    "section": "Trees",
+    "na": "72222",
+    "pk": "PK000055",
+    "amount": 286.0,
+    "contractor": "Unidentified (FY2026/27 branch-wide, not yet cleared)",
+    "narr": "Quote 50106"
+   }
+  ],
+  "evid": "60203",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice 60203 dated 24/07/2026, supplier TENNYSON GROUP AUST. PTY LTD. 1 priced line(s). Printed subtotal $286.00 ex GST, GST $28.60, total $314.60. Variant standard. PK is not printed on the face.",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "SV007928",
+  "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
+  "abn": "78161366749",
+  "subtotal": 2063.88,
+  "incl": 2270.26,
+  "variant": "check 2 derivation equality (register amount = ROUND(printed total incl GST / 1.1, 2))",
+  "target": [
+   "6fd34b8d-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "6fd34b8d-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 2063.87,
+    "contractor": "Savco Vegetation Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "SV007928",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice SV007928 dated (not printed), supplier SAVCO VEGETATION SERVICES PTY LTD. 4 priced line(s). Printed subtotal $2,063.88 ex GST, GST $206.38, total $2,270.26. Variant check 2 derivation equality (register amount = ROUND(printed total incl GST / 1.1, 2)). Printed PK000477 matches the PK charged (PK000477).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "19922",
+  "vendor": "RST Systems Pty Ltd t/a Vinton Tree Services",
+  "abn": null,
+  "subtotal": 2223.83,
+  "incl": 2446.21,
+  "variant": "standard",
+  "target": [
+   "b4f84b4d-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "b4f84b4d-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 2223.83,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19922",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice 19922 dated 28/07/2026, supplier RST Systems Pty Ltd t/a Vinton Tree Services. 4 priced line(s). Printed subtotal $2,223.83 ex GST, GST $222.38, total $2,446.21. Variant standard. Printed PK000482 matches the PK charged (PK000482).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "19927",
+  "vendor": "RST Systems Pty Ltd t/a Vinton Tree Services",
+  "abn": null,
+  "subtotal": 3428.74,
+  "incl": 3771.61,
+  "variant": "standard",
+  "target": [
+   "34568725-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "34568725-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 3428.74,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19927",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice 19927 dated 28/07/2026, supplier RST Systems Pty Ltd t/a Vinton Tree Services. 6 priced line(s). Printed subtotal $3,428.74 ex GST, GST $342.87, total $3,771.61. Variant standard. PK is not printed on the face.",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "SV007935",
+  "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
+  "abn": "78161366749",
+  "subtotal": 1967.52,
+  "incl": 2164.27,
+  "variant": "standard",
+  "target": [
+   "e39a5cca-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "e39a5cca-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 1967.52,
+    "contractor": "Savco Vegetation Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "SV007935",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice SV007935 dated (not printed), supplier SAVCO VEGETATION SERVICES PTY LTD. 3 priced line(s). Printed subtotal $1,967.52 ex GST, GST $196.75, total $2,164.27. Variant standard. Printed PK000477 matches the PK charged (PK000477).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "INV-47765",
+  "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+  "abn": "32 416 129 034",
+  "subtotal": 1764.2,
+  "incl": 1940.62,
+  "variant": "standard",
+  "target": [
+   "0bc51aef-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "0bc51aef-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 1764.2,
+    "contractor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-47765",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice INV-47765 dated 27 Aug 2026, supplier Heritage Tree Services Pty Ltd ATF Rowan Family Trust. 4 priced line(s). Printed subtotal $1,764.20 ex GST, GST $176.42, total $1,940.62. Variant standard. Printed PK000482 matches the PK charged (PK000482).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "INV-47811",
+  "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+  "abn": "32 416 129 034",
+  "subtotal": 1769.43,
+  "incl": 1946.37,
+  "variant": "standard",
+  "target": [
+   "6f0f49f6-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "6f0f49f6-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 1769.43,
+    "contractor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-47811",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice INV-47811 dated 29 Aug 2026, supplier Heritage Tree Services Pty Ltd ATF Rowan Family Trust. 2 priced line(s). Printed subtotal $1,769.43 ex GST, GST $176.94, total $1,946.37. Variant standard. Printed PK000482 matches the PK charged (PK000482).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "SV007946",
+  "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
+  "abn": "78161366749",
+  "subtotal": 1837.08,
+  "incl": 2020.79,
+  "variant": "standard",
+  "target": [
+   "71047ec2-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "71047ec2-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 1837.08,
+    "contractor": "Savco Vegetation Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "SV007946",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice SV007946 dated (not printed), supplier SAVCO VEGETATION SERVICES PTY LTD. 1 priced line(s). Printed subtotal $1,837.08 ex GST, GST $183.71, total $2,020.79. Variant standard. Printed PK000482 matches the PK charged (PK000482).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "INV-39377",
+  "vendor": "T & H LEVAI PTY LTD",
+  "abn": "65 100 395 480",
+  "subtotal": 480.0,
+  "incl": 528.0,
+  "variant": "standard",
+  "target": [
+   "0a20e371-73123-PK000417-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "0a20e371-73123-PK000417-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000417",
+    "amount": 480.0,
+    "contractor": "T & H Levai Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-39377",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Review",
+  "coding_note": "Invoice INV-39377 dated 31 Jul 2026, supplier T & H LEVAI PTY LTD. 1 priced line(s). Printed subtotal $480.00 ex GST, GST $48.00, total $528.00. Variant standard. Face prints PK000419 and the charge sits on PK000417.",
+  "follow_up": "Face prints PK000419, charged PK000417: confirm which PK the work belongs to.",
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "19938",
+  "vendor": "RST Systems Pty Ltd t/a Vinton Tree Services",
+  "abn": null,
+  "subtotal": 1559.77,
+  "incl": 1715.75,
+  "variant": "standard",
+  "target": [
+   "f103aa4d-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "f103aa4d-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 1559.77,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19938",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice 19938 dated 3/08/2026, supplier RST Systems Pty Ltd t/a Vinton Tree Services. 3 priced line(s). Printed subtotal $1,559.77 ex GST, GST $155.98, total $1,715.75. Variant standard. Printed PK000482 matches the PK charged (PK000482).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "19939",
+  "vendor": "RST Systems Pty Ltd t/a Vinton Tree Services",
+  "abn": null,
+  "subtotal": 1580.36,
+  "incl": 1738.4,
+  "variant": "standard",
+  "target": [
+   "53a24627-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "53a24627-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 1580.36,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19939",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice 19939 dated 3/08/2026, supplier RST Systems Pty Ltd t/a Vinton Tree Services. 3 priced line(s). Printed subtotal $1,580.36 ex GST, GST $158.04, total $1,738.40. Variant standard. Printed PK000477 matches the PK charged (PK000477).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "19943",
+  "vendor": "RST Systems Pty Ltd t/a Vinton Tree Services",
+  "abn": null,
+  "subtotal": 1522.45,
+  "incl": 1674.7,
+  "variant": "standard",
+  "target": [
+   "d84d6035-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "d84d6035-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 1522.45,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19943",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice 19943 dated 3/08/2026, supplier RST Systems Pty Ltd t/a Vinton Tree Services. 5 priced line(s). Printed subtotal $1,522.45 ex GST, GST $152.25, total $1,674.70. Variant standard. Printed PK000477 matches the PK charged (PK000477).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "SV007956",
+  "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
+  "abn": "78161366749",
+  "subtotal": 2032.02,
+  "incl": 2235.22,
+  "variant": "standard",
+  "target": [
+   "ba5d5706-73212-PK000325-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "ba5d5706-73212-PK000325-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000325",
+    "amount": 2032.02,
+    "contractor": "Savco Vegetation Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "SV007956",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice SV007956 dated (not printed), supplier SAVCO VEGETATION SERVICES PTY LTD. 3 priced line(s). Printed subtotal $2,032.02 ex GST, GST $203.20, total $2,235.22. Variant standard. Printed PK000325 matches the PK charged (PK000325).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "19944",
+  "vendor": "RST Systems Pty Ltd t/a Vinton Tree Services",
+  "abn": null,
+  "subtotal": 1941.99,
+  "incl": 2136.19,
+  "variant": "standard",
+  "target": [
+   "403f39fa-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "403f39fa-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 1941.99,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19944",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice 19944 dated 3/08/2026, supplier RST Systems Pty Ltd t/a Vinton Tree Services. 4 priced line(s). Printed subtotal $1,941.99 ex GST, GST $194.20, total $2,136.19. Variant standard. Printed PK000482 matches the PK charged (PK000482).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "SV007959",
+  "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
+  "abn": "78161366749",
+  "subtotal": 1420.2,
+  "incl": 1562.22,
+  "variant": "standard",
+  "target": [
+   "03a0f2ba-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "03a0f2ba-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 1420.2,
+    "contractor": "Savco Vegetation Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "SV007959",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice SV007959 dated (not printed), supplier SAVCO VEGETATION SERVICES PTY LTD. 2 priced line(s). Printed subtotal $1,420.20 ex GST, GST $142.02, total $1,562.22. Variant standard. Printed PK000477 matches the PK charged (PK000477).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "19952",
+  "vendor": "RST Systems Pty Ltd t/a Vinton Tree Services",
+  "abn": null,
+  "subtotal": 1574.69,
+  "incl": 1732.16,
+  "variant": "standard",
+  "target": [
+   "43fdddf0-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "43fdddf0-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 1574.69,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19952",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice 19952 dated 5/08/2026, supplier RST Systems Pty Ltd t/a Vinton Tree Services. 3 priced line(s). Printed subtotal $1,574.69 ex GST, GST $157.47, total $1,732.16. Variant standard. Printed PK000482 matches the PK charged (PK000482).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "INV-47683",
+  "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+  "abn": "32 416 129 034",
+  "subtotal": 1539.09,
+  "incl": 1693.0,
+  "variant": "standard",
+  "target": [
+   "d5da7c1a-73212-PK000474-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "d5da7c1a-73212-PK000474-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000474",
+    "amount": 1539.09,
+    "contractor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-47683",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice INV-47683 dated 23 Aug 2026, supplier Heritage Tree Services Pty Ltd ATF Rowan Family Trust. 2 priced line(s). Printed subtotal $1,539.09 ex GST, GST $153.91, total $1,693.00. Variant standard. Printed PK000474 matches the PK charged (PK000474).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "19958",
+  "vendor": "RST Systems Pty Ltd t/a Vinton Tree Services",
+  "abn": null,
+  "subtotal": 1443.47,
+  "incl": 1587.82,
+  "variant": "standard",
+  "target": [
+   "3618f1f6-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "3618f1f6-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 1443.47,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19958",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Review",
+  "coding_note": "Invoice 19958 dated 7/08/2026, supplier RST Systems Pty Ltd t/a Vinton Tree Services. 3 priced line(s). Printed subtotal $1,443.47 ex GST, GST $144.35, total $1,587.82. Variant standard. Face prints PK000479 and the charge sits on PK000482.",
+  "follow_up": "Face prints PK000479, charged PK000482: confirm which PK the work belongs to.",
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "19961",
+  "vendor": "RST Systems Pty Ltd t/a Vinton Tree Services",
+  "abn": null,
+  "subtotal": 1746.19,
+  "incl": 1920.81,
+  "variant": "standard",
+  "target": [
+   "68dc4100-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "68dc4100-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 1746.19,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19961",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice 19961 dated 7/08/2026, supplier RST Systems Pty Ltd t/a Vinton Tree Services. 4 priced line(s). Printed subtotal $1,746.19 ex GST, GST $174.62, total $1,920.81. Variant standard. Printed PK000477 matches the PK charged (PK000477).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "19971",
+  "vendor": "RST Systems Pty Ltd t/a Vinton Tree Services",
+  "abn": null,
+  "subtotal": 1884.08,
+  "incl": 2072.49,
+  "variant": "standard",
+  "target": [
+   "007aa33b-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "007aa33b-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 1884.08,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19971",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice 19971 dated 14/08/2026, supplier RST Systems Pty Ltd t/a Vinton Tree Services. 4 priced line(s). Printed subtotal $1,884.08 ex GST, GST $188.41, total $2,072.49. Variant standard. Printed PK000477 matches the PK charged (PK000477).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "SV008005",
+  "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
+  "abn": "78161366749",
+  "subtotal": 1709.89,
+  "incl": 1880.88,
+  "variant": "standard",
+  "target": [
+   "22d7808d-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "22d7808d-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 1709.89,
+    "contractor": "Savco Vegetation Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "SV008005",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice SV008005 dated (not printed), supplier SAVCO VEGETATION SERVICES PTY LTD. 5 priced line(s). Printed subtotal $1,709.89 ex GST, GST $170.99, total $1,880.88. Variant standard. Printed PK000482 matches the PK charged (PK000482).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "19975",
+  "vendor": "RST Systems Pty Ltd t/a Vinton Tree Services",
+  "abn": "84 008 552 538",
+  "subtotal": -68.92,
+  "incl": -75.81,
+  "variant": "standard",
+  "target": [
+   "eb18858d-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "eb18858d-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": -68.92,
+    "contractor": "Unidentified (FY2026/27 branch-wide, not yet cleared)",
+    "narr": "Credit relates to INV 19925"
+   }
+  ],
+  "evid": "19975",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice 19975 dated 14/08/2026, supplier RST Systems Pty Ltd t/a Vinton Tree Services. 2 priced line(s). Printed subtotal $-68.92 ex GST, GST $-6.89, total $-75.81. Variant standard. Printed PK000482 matches the PK charged (PK000482).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "INV-48359",
+  "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+  "abn": "32 416 129 034",
+  "subtotal": 1539.09,
+  "incl": 1693.0,
+  "variant": "standard",
+  "target": [
+   "e54da827-73212-PK000474-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "e54da827-73212-PK000474-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000474",
+    "amount": 1539.09,
+    "contractor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-48359",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice INV-48359 dated 18 Sep 2026, supplier Heritage Tree Services Pty Ltd ATF Rowan Family Trust. 2 priced line(s). Printed subtotal $1,539.09 ex GST, GST $153.91, total $1,693.00. Variant standard. Printed PK000474 matches the PK charged (PK000474).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "19979",
+  "vendor": "RST Systems Pty Ltd t/a Vinton Tree Services",
+  "abn": null,
+  "subtotal": 1443.47,
+  "incl": 1587.82,
+  "variant": "standard",
+  "target": [
+   "0cf187c0-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "0cf187c0-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 1443.47,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19979",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice 19979 dated 19/08/2026, supplier RST Systems Pty Ltd t/a Vinton Tree Services. 3 priced line(s). Printed subtotal $1,443.47 ex GST, GST $144.35, total $1,587.82. Variant standard. Printed PK000477 matches the PK charged (PK000477).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "19980",
+  "vendor": "RST Systems Pty Ltd t/a Vinton Tree Services",
+  "abn": null,
+  "subtotal": 2117.78,
+  "incl": 2329.56,
+  "variant": "standard",
+  "target": [
+   "a258c95c-73212-PK000482-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "a258c95c-73212-PK000482-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000482",
+    "amount": 2117.78,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19980",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice 19980 dated 19/08/2026, supplier RST Systems Pty Ltd t/a Vinton Tree Services. 4 priced line(s). Printed subtotal $2,117.78 ex GST, GST $211.78, total $2,329.56. Variant standard. Printed PK000482 matches the PK charged (PK000482).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "SV008033",
+  "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
+  "abn": "78161366749",
+  "subtotal": 1675.62,
+  "incl": 1843.18,
+  "variant": "standard",
+  "target": [
+   "ffcca2f8-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "ffcca2f8-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 1675.62,
+    "contractor": "Savco Vegetation Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "SV008033",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice SV008033 dated (not printed), supplier SAVCO VEGETATION SERVICES PTY LTD. 2 priced line(s). Printed subtotal $1,675.62 ex GST, GST $167.56, total $1,843.18. Variant standard. Printed PK000477 matches the PK charged (PK000477).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "19985",
+  "vendor": "RST Systems Pty Ltd t/a Vinton Tree Services",
+  "abn": null,
+  "subtotal": 1578.59,
+  "incl": 1736.45,
+  "variant": "standard",
+  "target": [
+   "7129f97c-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "7129f97c-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 1578.59,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19985",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice 19985 dated 24/08/2026, supplier RST Systems Pty Ltd t/a Vinton Tree Services. 3 priced line(s). Printed subtotal $1,578.59 ex GST, GST $157.86, total $1,736.45. Variant standard. Printed PK000477 matches the PK charged (PK000477).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "19988",
+  "vendor": "RST Systems Pty Ltd t/a Vinton Tree Services",
+  "abn": null,
+  "subtotal": 1574.69,
+  "incl": 1732.16,
+  "variant": "standard",
+  "target": [
+   "bcfa2cc2-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "bcfa2cc2-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 1574.69,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19988",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice 19988 dated 24/08/2026, supplier RST Systems Pty Ltd t/a Vinton Tree Services. 3 priced line(s). Printed subtotal $1,574.69 ex GST, GST $157.47, total $1,732.16. Variant standard. Printed PK000477 matches the PK charged (PK000477).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "INV-48619",
+  "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+  "abn": "32416129034",
+  "subtotal": 1539.09,
+  "incl": 1693.0,
+  "variant": "standard",
+  "target": [
+   "3d56d3db-73212-PK000474-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "3d56d3db-73212-PK000474-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000474",
+    "amount": 1539.09,
+    "contractor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-48619",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Review",
+  "coding_note": "Invoice INV-48619 dated (not printed), supplier Heritage Tree Services Pty Ltd ATF Rowan Family Trust. 2 priced line(s). Printed subtotal $1,539.09 ex GST, GST $153.91, total $1,693.00. Variant standard. Face prints PK00474 and the charge sits on PK000474.",
+  "follow_up": "Face prints PK00474, charged PK000474: confirm which PK the work belongs to.",
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "19996",
+  "vendor": "RST Systems Pty Ltd t/a Vinton Tree Services",
+  "abn": null,
+  "subtotal": 1517.46,
+  "incl": 1669.21,
+  "variant": "standard",
+  "target": [
+   "1c0311b1-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "1c0311b1-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 1517.46,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "19996",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice 19996 dated 27/08/2026, supplier RST Systems Pty Ltd t/a Vinton Tree Services. 5 priced line(s). Printed subtotal $1,517.46 ex GST, GST $151.75, total $1,669.21. Variant standard. Printed PK000477 matches the PK charged (PK000477).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "INV-39461",
+  "vendor": "T & H LEVAI PTY LTD",
+  "abn": "65 100 395 480",
+  "subtotal": 489.77,
+  "incl": 538.75,
+  "variant": "standard",
+  "target": [
+   "733ca7ac-73123-PK000024-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "733ca7ac-73123-PK000024-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000024",
+    "amount": 489.77,
+    "contractor": "T & H Levai Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-39461",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice INV-39461 dated 27 Aug 2026, supplier T & H LEVAI PTY LTD. 1 priced line(s). Printed subtotal $489.77 ex GST, GST $48.98, total $538.75. Variant standard. Printed PK000024 matches the PK charged (PK000024).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "INV-39457",
+  "vendor": "T & H LEVAI PTY LTD",
+  "abn": "65 100 395 480",
+  "subtotal": 482.45,
+  "incl": 530.7,
+  "variant": "standard",
+  "target": [
+   "797a8a6a-73123-PK000118-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "797a8a6a-73123-PK000118-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000118",
+    "amount": 482.45,
+    "contractor": "T & H Levai Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-39457",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice INV-39457 dated 27 Aug 2026, supplier T & H LEVAI PTY LTD. 1 priced line(s). Printed subtotal $482.45 ex GST, GST $48.25, total $530.70. Variant standard. Printed PK000118 matches the PK charged (PK000118).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "INV-39502",
+  "vendor": "T & H LEVAI PTY LTD",
+  "abn": "65 100 395 480",
+  "subtotal": 480.0,
+  "incl": 528.0,
+  "variant": "standard",
+  "target": [
+   "b0e29e3d-73123-PK000419-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "b0e29e3d-73123-PK000419-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000419",
+    "amount": 480.0,
+    "contractor": "T & H Levai Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-39502",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice INV-39502 dated 31 Aug 2026, supplier T & H LEVAI PTY LTD. 1 priced line(s). Printed subtotal $480.00 ex GST, GST $48.00, total $528.00. Variant standard. Printed PK000419 matches the PK charged (PK000419).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "INV-39507",
+  "vendor": "T & H LEVAI PTY LTD",
+  "abn": "65 100 395 480",
+  "subtotal": 600.0,
+  "incl": 660.0,
+  "variant": "standard",
+  "target": [
+   "5ebcb567-73123-PK000417-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "5ebcb567-73123-PK000417-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000417",
+    "amount": 600.0,
+    "contractor": "T & H Levai Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-39507",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice INV-39507 dated 31 Aug 2026, supplier T & H LEVAI PTY LTD. 1 priced line(s). Printed subtotal $600.00 ex GST, GST $60.00, total $660.00. Variant standard. Printed PK000417 matches the PK charged (PK000417).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "20009",
+  "vendor": "RST Systems Pty Ltd t/a Vinton Tree Services",
+  "abn": null,
+  "subtotal": 1704.62,
+  "incl": 1875.08,
+  "variant": "standard",
+  "target": [
+   "1dece6f0-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "1dece6f0-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 1704.62,
+    "contractor": "Vinton Tree Services",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "20009",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice 20009 dated 2/09/2026, supplier RST Systems Pty Ltd t/a Vinton Tree Services. 4 priced line(s). Printed subtotal $1,704.62 ex GST, GST $170.46, total $1,875.08. Variant standard. Printed PK000477 matches the PK charged (PK000477).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "INV-39538",
+  "vendor": "T & H LEVAI PTY LTD",
+  "abn": "65 100 395 480",
+  "subtotal": 560.0,
+  "incl": 616.0,
+  "variant": "standard",
+  "target": [
+   "e8f6b45a-73126-PK000410-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "e8f6b45a-73126-PK000410-01",
+    "section": "Park Maintenance",
+    "na": "73126",
+    "pk": "PK000410",
+    "amount": 560.0,
+    "contractor": "T & H Levai Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-39538",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice INV-39538 dated 07 Sep 2026, supplier T & H LEVAI PTY LTD. 1 priced line(s). Printed subtotal $560.00 ex GST, GST $56.00, total $616.00. Variant standard. Printed PK000410 matches the PK charged (PK000410).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "SV008092",
+  "vendor": "SAVCO VEGETATION SERVICES PTY LTD",
+  "abn": "78161366749",
+  "subtotal": 1665.36,
+  "incl": 1831.9,
+  "variant": "standard",
+  "target": [
+   "69988e88-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "69988e88-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 1665.36,
+    "contractor": "Savco Vegetation Services Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "SV008092",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice SV008092 dated (not printed), supplier SAVCO VEGETATION SERVICES PTY LTD. 3 priced line(s). Printed subtotal $1,665.36 ex GST, GST $166.54, total $1,831.90. Variant standard. Printed PK000477 matches the PK charged (PK000477).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "INV-39548",
+  "vendor": "T & H LEVAI PTY LTD",
+  "abn": "65 100 395 480",
+  "subtotal": 480.31,
+  "incl": 528.34,
+  "variant": "standard",
+  "target": [
+   "5b20d27f-73123-PK000391-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "5b20d27f-73123-PK000391-01",
+    "section": "Park Services",
+    "na": "73123",
+    "pk": "PK000391",
+    "amount": 480.31,
+    "contractor": "T & H Levai Pty Ltd",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-39548",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice INV-39548 dated 09 Sep 2026, supplier T & H LEVAI PTY LTD. 1 priced line(s). Printed subtotal $480.31 ex GST, GST $48.03, total $528.34. Variant standard. Printed PK000391 matches the PK charged (PK000391).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ },
+ {
+  "invoice": "INV-49008",
+  "vendor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+  "abn": "32416129034",
+  "subtotal": 1748.49,
+  "incl": 1923.34,
+  "variant": "standard",
+  "target": [
+   "7adbcfa9-73212-PK000477-01"
+  ],
+  "register_lines": [
+   {
+    "linekey": "7adbcfa9-73212-PK000477-01",
+    "section": "Trees",
+    "na": "73212",
+    "pk": "PK000477",
+    "amount": 1748.49,
+    "contractor": "Heritage Tree Services Pty Ltd ATF Rowan Family Trust",
+    "narr": "Standing Order 2026/27"
+   }
+  ],
+  "evid": "INV-49008",
+  "evid_note": null,
+  "line_map": null,
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice INV-49008 dated (not printed), supplier Heritage Tree Services Pty Ltd ATF Rowan Family Trust. 3 priced line(s). Printed subtotal $1,748.49 ex GST, GST $174.85, total $1,923.34. Variant standard. Printed PK000477 matches the PK charged (PK000477).",
+  "follow_up": null,
+  "source_file": "Binder1666.pdf"
+ }
+]

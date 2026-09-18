@@ -24,13 +24,14 @@ STAMPS = {'mixed_1': STAMP, 'mixed_new_26_27': '11-Sep-2026, branch v3, Batch mi
           'ksadasd': '14-Sep-2026, branch v11, Batch ksadasd (ksadasd.pdf, supplied corpus to extraction prompt v6, runtime A, corpus_ksadasd_v6.json)',
           'playforce_new': '15-Sep-2026, branch v13, Batch playforce_new (playforce new.pdf, supplied corpus, runtime A, corpus_playforce_new_v6.json)',
           'pages_from_binder1': '18-Sep-2026, branch v24, Batch pages_from_binder1 (Pages from Binder1.pdf, 97 pages, binder supplied, supplied corpus runtime A, corpus_pages_from_binder1_v6.json)',
+          'binder1666': '18-Sep-2026, branch v25, Batch binder1666 (Binder1666.pdf, 141 pages, binder supplied, corpus_binder1666_v6.json)',
           'harp_new': '15-Sep-2026, branch v14, Batch harp_new (harp new.pdf, supplied corpus, runtime A, corpus_harp_new_v6.json)',
           'vinton_new': '15-Sep-2026, branch v14, Batch vinton_new (vinton new.pdf, supplied corpus, runtime A, corpus_vinton_new_v6.json)',
           'savco_new': '15-Sep-2026, branch v14, Batch savco_new (25 TechOne attachment PDFs, raw-text route, corpus_savco_new_v6.json)',
           'trees_new': '15-Sep-2026, branch v16, Batch trees_new (supplied corpus, runtime A, corpus_trees_new_v6.json)',
           'attach_4': '15-Sep-2026, branch v17, Batch attach_4 (TechOne attachments, raw-text route, corpus_attach_4_v6.json)',
           'heritage_tree_services_20260916': '16-Sep-2026, branch v22, Batch heritage_tree_services_20260916 (supplied corpus, runtime A, corpus_heritage_tree_services_20260916_v6.json)'}
-BATCH_VER = {'mixed_1': 'v2', 'mixed_new_26_27': 'v3', 'attach_1': 'v4', 'attach_2': 'v5', 'code': 'v5', 'mix22': 'v6', 'attach_3': 'v6', 'mix222': 'v7', 'binder11111': 'v7', 'pla073_1': 'v10', 'ksadasd': 'v11', 'playforce_new': 'v13', 'harp_new': 'v14', 'vinton_new': 'v14', 'savco_new': 'v14', 'trees_new': 'v16', 'attach_4': 'v17', 'heritage_tree_services_20260916': 'v22', 'pages_from_binder1': 'v24'}
+BATCH_VER = {'mixed_1': 'v2', 'mixed_new_26_27': 'v3', 'attach_1': 'v4', 'attach_2': 'v5', 'code': 'v5', 'mix22': 'v6', 'attach_3': 'v6', 'mix222': 'v7', 'binder11111': 'v7', 'pla073_1': 'v10', 'ksadasd': 'v11', 'playforce_new': 'v13', 'harp_new': 'v14', 'vinton_new': 'v14', 'savco_new': 'v14', 'trees_new': 'v16', 'attach_4': 'v17', 'heritage_tree_services_20260916': 'v22', 'pages_from_binder1': 'v24', 'binder1666': 'v25'}
 SRCS = {'mixed_1': 'Mixed_1.pdf (md5 b9ddf7fd6c56188a22181921b7b2c8ab), Batch mixed_1, corpus_mixed_1_v6.json', 'mixed_new_26_27': 'Mixed_new_26-27.pdf (md5 813f23077d1d5e77fb1e7150ad08b3cc), Batch mixed_new_26_27, corpus_mixed_new_26_27_v6.json',
         'code': 'code.pdf, 66 pages (binder not supplied; supplied corpus corpus_code.json md5 e256555fc9d22d46a9cce80f8e7bbe3b, M365 Copilot layout extraction), Batch code, corpus_code_v6.json',
         'mix22': 'mix 22.pdf, 81 pages (binder not supplied; supplied corpus corpus_mix22.json md5 e6782e55b5379dc3adcb6a1b5c7cebd4, M365 Copilot layout extraction, gate RED as supplied), Batch mix22, corpus_mix22_v6.json',
@@ -42,9 +43,14 @@ SRCS = {'mixed_1': 'Mixed_1.pdf (md5 b9ddf7fd6c56188a22181921b7b2c8ab), Batch mi
         'trees_new': 'trees new.pdf, 51 pages (binder not supplied; supplied corpus corpus_trees_new_as_supplied.json md5 075430a17d1a220fe2b09e7aecac50f8, M365 Copilot runtime A to extraction prompt v6, gate GREEN as supplied), Batch trees_new, corpus_trees_new_v6.json',
         'heritage_tree_services_20260916': 'Heritage.pdf, 52 pages (md5 dba3b30377dc4f624c70a1a4f4fee24f), supplied corpus to extraction prompt v6, runtime A; gate RED as supplied on two P2 rows, cleared by gate family F16 (a $0.00 row inside the item table typed NARRATIVE); masked-row screen clean over all 52 pages; rule 19.2 shingle check PASS on 311 shingles against page text taken from the binder; 22 of the 26 documents corroborated against their TechOne C-images on 16-Sep-2026, every figure to the cent. Batch heritage_tree_services_20260916, corpus_heritage_tree_services_20260916_v6.json',
         'playforce_new': 'playforce new.pdf, 319 pages (binder not supplied; supplied corpus corpus_playforce_new_as_supplied.json md5 af53da1c8f40fd2c84cfb038d00dfa72, M365 Copilot runtime A, gate GREEN as supplied), Batch playforce_new, corpus_playforce_new_v6.json',
-        'pages_from_binder1': 'Pages from Binder1.pdf, 97 pages (binder SUPPLIED, the first Play Force batch where it was; supplied corpus corpus_pages_from_binder1_as_received.json, runtime A, gate GREEN as received under prompt v7.3; masked-row screen clean over all 97 pages; rule 19.2 shingle check PASS on 583 shingles against page text parsed from the binder itself, not rebuilt from the corpus rows), Batch pages_from_binder1, corpus_pages_from_binder1_v6.json'}
+        'pages_from_binder1': 'Pages from Binder1.pdf, 97 pages (binder SUPPLIED, the first Play Force batch where it was; supplied corpus corpus_pages_from_binder1_as_received.json, runtime A, gate GREEN as received under prompt v7.3; masked-row screen clean over all 97 pages; rule 19.2 shingle check PASS on 583 shingles against page text parsed from the binder itself, not rebuilt from the corpus rows), Batch pages_from_binder1, corpus_pages_from_binder1_v6.json',
+        'binder1666': 'Binder1666.pdf, 141 pages (binder SUPPLIED; declared AMBER, computed RED on arrival and cleared by two restatements, R1666-1 over 30 documents and R1666-2 on Woodmans 6431345 from page 48; masked-row screen clean over all 141 pages; rule 19.2 shingle check PASS on 987 shingles against page text parsed from the binder itself, description layer VERIFIED), Batch binder1666, corpus_binder1666_v6.json'}
 
 CAT = {  # vendor template -> (Nature Category v2, v3 category, theme rule)
+    # Two new vendors at v25, both from Binder1666. Woodmans Mitre 10 Beenleigh is a hardware and consumables
+    # account sale, not a contract service; Tennyson Group prints and supplies park signage.
+    'WOODMANS': ('Minor equipment', 'Materials & minor equipment', 'P2 sighted job, dominant scope'),
+    'TENNYSON': ('Signage & park furniture', 'Signage & wayfinding', 'P2 sighted job, dominant scope'),
     'LEVAI': ('Natural areas & bushland works', 'Bushland, weeds & fire', 'P2 sighted job, dominant scope'),
     'TEC': ('Natural areas & bushland works', 'Bushland, weeds & fire', 'P2 sighted job, dominant scope'),
     'TREESCAPE': ('Contract mowing', 'Grounds, turf & vegetation', 'P2 sighted job, dominant scope'),
@@ -95,7 +101,7 @@ V3_CATS = {'Cleaning & pressure washing', 'Waste & bin collection', 'Drainage, w
            'Irrigation, taps & drinking water', 'Electrical, lighting & data', 'Rates, levies & insurance', 'Utilities supply',
            'Materials & minor equipment', 'Plant, fleet & internal services', 'Trees & arboriculture', 'Bushland, weeds & fire',
            'Cemetery operations', 'Staff, training & corporate', 'Refunds & recoveries'}
-BPK = {'ORIGIN': 'ORG', 'SEACRETE': 'SC', 'POOLSHOP': 'PSH', 'QPOWER': 'QP', 'PLAYFORCE': 'PF', 'FLAVELL': 'FD', 'WEIS': 'WC', 'ELEMENTAL': 'ELM', 'HIGGINS': 'HIG', 'HARPLEY': 'INV', 'C2C': 'C2C', 'KACHEL': 'KC', 'LEVAI': 'LEV', 'TEC': 'TEC', 'TREESCAPE': 'TRS', 'BUSHCARE': 'BSH', 'AUSTSPRAY': 'ASP', 'EMU': 'EMU', 'ACTIVECO': 'ACT', 'GURU': 'GDW', 'AUSTCARE': 'ACE', 'GLASCOTT': 'GLA', 'GLASCOTT_LM': 'GLA', 'ETSOL': 'ETS', 'PROVAC': 'PRV', 'SAVCO': 'SAV', 'HERITAGE': 'HTS', 'BURLY': 'BUR', 'CERTIFIED': 'CER', 'C2C_INCL': 'C2C', 'FLAVELL_ATT': 'FD', 'MPDT': 'MPD', 'HERITAGE_CN': 'HTS', 'PLAYFORCE_ATT': 'PF', 'PPG': 'PPG', 'VINTON': 'VTS', 'TREESCAPE_NEW': 'TRS'}
+BPK = {'ORIGIN': 'ORG', 'SEACRETE': 'SC', 'POOLSHOP': 'PSH', 'QPOWER': 'QP', 'PLAYFORCE': 'PF', 'FLAVELL': 'FD', 'WEIS': 'WC', 'ELEMENTAL': 'ELM', 'HIGGINS': 'HIG', 'HARPLEY': 'INV', 'C2C': 'C2C', 'KACHEL': 'KC', 'LEVAI': 'LEV', 'TEC': 'TEC', 'TREESCAPE': 'TRS', 'BUSHCARE': 'BSH', 'AUSTSPRAY': 'ASP', 'EMU': 'EMU', 'ACTIVECO': 'ACT', 'GURU': 'GDW', 'AUSTCARE': 'ACE', 'GLASCOTT': 'GLA', 'GLASCOTT_LM': 'GLA', 'ETSOL': 'ETS', 'PROVAC': 'PRV', 'SAVCO': 'SAV', 'HERITAGE': 'HTS', 'BURLY': 'BUR', 'CERTIFIED': 'CER', 'C2C_INCL': 'C2C', 'FLAVELL_ATT': 'FD', 'MPDT': 'MPD', 'HERITAGE_CN': 'HTS', 'PLAYFORCE_ATT': 'PF', 'PPG': 'PPG', 'VINTON': 'VTS', 'TREESCAPE_NEW': 'TRS', 'WOODMANS': 'WDM', 'TENNYSON': 'TNY'}
 PAY_RX = re.compile(r'BSB|\bAcc\b|Acc No|Account|Bank:|Bank\s|Name:|Please make all payments|Please remit|Payment can be made|Direct Deposit|Please include invoice|Please Mail Payment|Detach this section|Acc\. No|Acc\. Name', re.I)
 TERM_RX = re.compile(r'Terms of Payment|Payment Terms|Payment Due On Receipt|fee of|Security of Payment|Credits cards|processing fee|View and pay online|Please pay the total|questions concerning|THANK YOU|Net30|Net 30|View online', re.I)
 
@@ -131,13 +137,26 @@ def _col_value(t, label, span=3):
 
 
 def date_out(iso):
-    return dt.date.fromisoformat(iso).strftime('%d-%b-%Y') if iso else NP
+    # A face that prints no date is a real state and the corpora record it as the "(not printed)" sentinel,
+    # the same way they record an absent ABN. It is an F1 on the document, not a reason to stop the build.
+    if not iso:
+        return NP
+    try:
+        return dt.date.fromisoformat(iso).strftime('%d-%b-%Y')
+    except ValueError:
+        return NP if not re.match(r'\d{4}-\d{2}-\d{2}', str(iso)) else iso
 
 
 def header_fields(d):
     """Printed header fields per template, from the retained page text. Blank-as-printed where the label is there and empty."""
     t = '\n'.join(d['page_text'][k] for k in sorted(d['page_text'], key=int))
-    v = d['vendor_template']; f = {}
+    v = d['vendor_template']
+    # Every key the caller reads, defaulted to not-printed. A template with no branch below is a vendor whose
+    # header block nobody has parsed yet, which is a reason to read NP and record it, not to stop the build: the
+    # amounts, the tie and the line capture do not depend on these fields. Woodmans and Tennyson arrived this
+    # way on Binder1666 and each contributes one document.
+    f = {k: NP for k in ('addr', 'bal', 'bill', 'contract', 'crwo', 'officer', 'paid', 'phone', 'po',
+                         'request_date', 'site', 'site_contact', 'technician', 'via', 'work')}
     if v == 'LEVAI':
         # DESCRIPTION | AMOUNT block: requesting officer, contract (PAR/...), PK, the job row (a 7-digit CR number, a
         # quote number or SCHEDULED, then the park with its (Ref: n), then the work), a Completed row, then the item rows.
@@ -553,6 +572,11 @@ def header_fields(d):
 
 
 BOILER = {  # verbatim per vendor template, first sighting; stored once and cited by key (rule 17 Amendment 2)
+    # Two new vendors at v25, both first sighted on Binder1666. Woodmans prints no bank block at all, only its
+    # payment terms and a signature line; Tennyson prints its bank details under a "NEW BANK DETAILS:" heading,
+    # which is worth keeping verbatim because a changed bank block is the shape a payment-redirection fraud takes.
+    'WOODMANS': ('Signature__________________________ | Cash Payment Terms: Due Immediately | Credit Payment Terms: Strictly 30 Days From End Of Month', None),
+    'TENNYSON': ('NEW BANK DETAILS: | Westpac BSB No. 035-002 | Account No. 579167 | Account Name: | TENNYSON GROUP AUST. PTY LTD', 'Terms of Trading: 30 days nett'),
     'LEVAI': ('Bank Details | Commonwealth Bank Australia | BSB: 064 194 | Account: 101 540 21 | Name: T AND H LEVAI PTY LTD', None),
     'TEC': ('Please remit payment to: | Account Name: Total Environmental Concepts Pty Ltd | Bank: NAB | BSB: 082-738 | Account: 743930428 | View and pay online now',
             'Payment Due On Receipt | Please pay the total amount on or before the due date for payment. If you are unable to pay the total amount, please respond with a payment schedule within 15 business days after the date you received this invoice as required under the Building Industry Fairness (Security of Payment) Act 2017. | Please note a fee of 1.75% will apply if paying via Credit or Debit Card. If you wish to pay by this method follow the link below. Payment can not be received over the phone. | If you have any questions concerning this invoice, please contact Peter Sands on 0402 644380 or email peters@totalenviro.net.au | THANK YOU FOR YOUR BUSINESS!'),
@@ -742,7 +766,18 @@ def capture(rows, corpus_path, match_path, say, existing_keys=frozenset(), exist
             chk3 = 'sitegst'; anom.append(f'[check variant] Check 3 per-site GST: the consolidated GST {gst} is the sum of the GST printed on each site row (captured in Evidence_Invoice_Lines column F), not ROUND(subtotal x 0.1) = {std}.')
             anom.append('[check variant] Check 2 derivation on the site row: register amount = ROUND(site total incl GST / 1.1, 2) (TechOne posts the site incl/1.1; 1026231 prints $2,822.57 new charges, $3,104.81 total, register $2,822.55).')
         elif gst != std:
-            if basket == gst: chk3 = 'basket'; anom.append(f'[check variant] Check 3 per-line rounding basket: printed GST {gst} equals the sum of each line rounded to the cent, not ROUND(subtotal x 0.1) = {std}.')
+            # A MIXED SUPPLY cannot satisfy "printed GST = 10% of subtotal" and is not a defect: the document
+            # carries a GST-free line, so the printed GST is a tenth of the TAXABLE part only. Check 3 then runs
+            # against the GST actually printed on each line, which is the same test the per-site variant uses.
+            # Woodmans 6431345 prints $268.00 ex, $22.80 GST and $290.80 inc over seven rows, one GST-free.
+            line_gst = sum(D(l.get('gst')) for l in priced if l.get('gst') is not None)
+            if d.get('mixed_supply') and line_gst == gst:
+                chk3 = 'sitegst'
+                anom.append(f'[check variant] Check 3 mixed supply: the invoice carries a GST-free line, so the '
+                            f'printed GST {gst} is a tenth of the taxable part only and not of the {sub} subtotal '
+                            f'(ROUND(subtotal x 0.1) = {std}). Check 3 runs against the GST printed on each line, '
+                            f'which sums to {line_gst}.')
+            elif basket == gst: chk3 = 'basket'; anom.append(f'[check variant] Check 3 per-line rounding basket: printed GST {gst} equals the sum of each line rounded to the cent, not ROUND(subtotal x 0.1) = {std}.')
             else: chk3 = 'tol1c'; anom.append(f'[check variant] Check 3 rounding tolerance 1c: printed GST {gst} against ROUND(subtotal x 0.1) = {std}.')
         for fnd in d['findings']:
             if 'Printed GST' not in fnd: anom.append(fnd)
