@@ -1,5 +1,6 @@
 {
   "manifest": {
+    "archival": true,
     "batch_id": "playforce_new",
     "source_files": [
       {
