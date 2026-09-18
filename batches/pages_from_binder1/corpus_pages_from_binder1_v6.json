@@ -482,7 +482,8 @@
    "verdict": "PASS",
    "scope": "Proves the fixed template and boilerplate rows this batch carries are verbatim against an independent parse of the same vendor. It cannot prove per-invoice description text, which appears on no other document; that rests on the retained layout rows, the arithmetic tie on every invoice (all 91 reconcile to the printed subtotal to the cent) and the creditor history on the register line. Where a vendor contributes a single document to this batch, \"constant across the batch\" is that document's own rows, so the unmatched list for that vendor is its invoice-specific text."
   },
-  "page_text_basis": "parsed from the supplied binder Pages_from_Binder1.pdf with pdftotext -layout, not rebuilt from the corpus rows: the shingle check then has an independent haystack (CLAUDE.md, UNVERIFIABLE is not a pass)"
+  "page_text_basis": "parsed from the supplied binder Pages_from_Binder1.pdf with pdftotext -layout, not rebuilt from the corpus rows: the shingle check then has an independent haystack (CLAUDE.md, UNVERIFIABLE is not a pass)",
+  "page_text_independent": true
  },
  "documents": [
   {

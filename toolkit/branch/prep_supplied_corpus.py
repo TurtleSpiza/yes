@@ -482,6 +482,10 @@ def prepare(corpus):
         for l in d['lines']:
             pages[l['page']].append((l['line_no'], l['line_text']))
         d['page_text'] = {str(p): '\n'.join(t for _, t in sorted(rows)) for p, rows in sorted(pages.items())}
+        # Said plainly, because it decides whether the verbatim check means anything: this page text is the
+        # corpus's own line_text rows put back together, NOT an independent parse of the page. The shingle
+        # check will run against it and cannot fail. Where the binder is held, replace it and say so.
+        rebuilt_text = True
         d['findings'] = [f'[{f["code"]}] {f["detail"]} Amount ${f["amount"]:,.2f}.' if isinstance(f, dict) else str(f) for f in d['findings']]
         fixed = collections.Counter()
         for l in d['lines']:
@@ -744,6 +748,10 @@ def main():
     if corpus['manifest'].get('batch_id') != BATCH:
         corpus['manifest']['batch_id_as_received'] = corpus['manifest'].get('batch_id')
         corpus['manifest']['batch_id'] = BATCH
+    corpus['manifest']['page_text_independent'] = False
+    corpus['manifest']['page_text_basis'] = (
+        'rebuilt from the corpus\'s own line_text rows by prep_supplied_corpus.py; NOT an independent parse, so '
+        'the shingle check run against it cannot fail (CLAUDE.md: UNVERIFIABLE is not a pass)')
     load_pages(corpus)
     rep = fidelity(corpus, references()) if res.gate == 'GREEN' else None
     corpus['manifest'].setdefault('repair_log', []).insert(0, {'tool': os.path.basename(__file__), 'repairs': log})

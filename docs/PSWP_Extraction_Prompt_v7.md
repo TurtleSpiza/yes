@@ -1,4 +1,4 @@
-# PSWP Invoice Extraction Prompt v7.3 (18-Sep-2026; v7.2 with the v7.1 ATTACHMENT amendments merged back and the P1 duplicate exemption)
+# PSWP Invoice Extraction Prompt v7.4 (18-Sep-2026; version-scoped checks and the declared description layer)
 
 Supersedes v6 (11-Sep-2026), which superseded v5, v4 and v3.1. For extraction of supplier-invoice binders to a structured JSON corpus for the PS/WP and Parks Branch Transaction Registers, Logan City Council, Parks Branch.
 
@@ -832,6 +832,23 @@ Everything below is an amendment inside v6's numbering. No v6 rule was deleted a
 | Run sheet, Annexe A fast path, reference algorithm, budget arithmetic | Run sheet, 2.1, 4.6, 7.6 | Discovery work repeated per document, and a binder started that cannot be finished |
 | Footer `Page m of n` asserted against the page range | 3.5, P9 | A silent split error |
 | Conformance example with real offsets | 16.4 | A self-test before a large binder, covering every amendment above |
+
+---
+
+## Annexe D2. What changed from v7.3 (v7.4, 18-Sep-2026)
+
+Two structural amendments, neither of them a new pathology. Both came out of assessing the standard rather than
+out of a corpus failing.
+
+| Area | Amendment | Why |
+|---|---|---|
+| 13.2, the computed gate | **The gate applies the check set of the prompt version the corpus records**, and the report names the set it applied. `manifest.prompt_version` is therefore mandatory, not decorative. | A RED verdict stops carrying information the moment it fires on a field that did not exist when the corpus was extracted. Run unscoped over the 34 corpora held in the branch repository, 31 read RED and almost all of them on P11 and P12 alone, because no corpus predating v7 carries `bands_calibrated_on` or `residue_rows`: neither field is in the v5 or the v6 prompt. Scoped, 8 read RED and every one is a real failure under the rules that applied to it. |
+| 10, verbatim fidelity | **The manifest carries `page_text_independent`, a boolean, and `page_text_basis`, the sentence explaining it.** A corpus whose page text was rebuilt from its own `line_text` rows is reported as an UNVERIFIED description layer and cannot be GREEN. | The shingle check is the only test in this standard that reads a word rather than an amount, and it needs a haystack the capture did not write. Rebuilding page text from the corpus's own rows makes the check runnable and **unfailable**, because the haystack becomes the captured text. A corpus can tie to the cent on every invoice and carry a description the page never printed. Of the 34 corpora held, exactly one has an independently parsed page text, and it is the one batch where the binder was supplied. |
+
+**What the second amendment costs, stated plainly.** It takes GREEN off almost every corpus in the repository,
+because almost none has a verified description layer. That is the finding, not a side effect: AMBER already
+means "builds what is complete, HOLDs the named documents" (13.0), so the work still builds, with the
+limitation on the record instead of inside a helper script.
 
 ---
 
