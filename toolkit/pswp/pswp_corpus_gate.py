@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""pswp_corpus_gate.py, v4 (17-Sep-2026)
+"""pswp_corpus_gate.py, v5 (17-Sep-2026)
 
 Machine gate for a PSWP extraction corpus produced under PSWP_Extraction_Prompt_v7.md (v7.1).
-Runs every pathology in section 13.1 that is computable from the corpus alone (P1 to P16), applies
+Runs every pathology in section 13.1 that is computable from the corpus alone (P1 to P17), applies
 the 13.0 gate truth table, and prints the verdict. Read-only: it never edits a corpus.
 
 Usage:  python3 pswp_corpus_gate.py corpus_<batch_id>.json [--json]
@@ -99,9 +99,16 @@ def check(path):
             if lt not in AMOUNT_BEARING and amt is not None and lt in LINE_TYPES:
                 flag("P2", ref, l.get("page"), f"{lt} row {l.get('line_no')} carries an amount")
 
-        # P1 nothing parsed.
-        if d(doc.get("printed_subtotal_ex_gst")) != 0 and not priced:
-            flag("P1", ref, pr[0], "printed subtotal non-zero and zero PRICED lines")
+        # P1 (amended v7.2): zero PRICED lines on an invoice, WHATEVER subtotal is recorded. Requiring a
+        # non-zero recorded subtotal let a document disarm the check by recording zero: Woodmans 6431345 on
+        # Binder1666 parsed nothing at all, recorded subtotal 0.00 and total 39.99 (the first line's unit
+        # price) against a printed GST Ex Total of $268.00, and P1 stayed silent.
+        # A repeated copy of an invoice inside the binder carries duplicate_of, every row is typed
+        # DUPLICATE_COPY and its arithmetic fields are null by 4.0 rung 2, so zero PRICED lines is correct
+        # for it and not a parse failure. Without this the amended P1 returns a sound corpus: on
+        # Pages_from_Binder1 it fired on five documents, all five of them duplicate copies.
+        if not priced and doc.get("doc_kind") in (None, "TAX_INVOICE", "CREDIT_NOTE") and not doc.get("duplicate_of"):
+            flag("P1", ref, pr[0], f"zero PRICED lines (recorded subtotal {d(doc.get('printed_subtotal_ex_gst'))})")
 
         # P3 every page in range carries a record. Page numbers are scoped to the document's own
         # source file: a binder that arrives as twenty-five one-page PDFs has twenty-five page 1s.
@@ -132,17 +139,51 @@ def check(path):
             elif g > Decimal("0.02"):
                 amber.append(f"{ref}: header block out by {g}, recorded as F1")
 
-        # P16: the header block adds up but the GST is not a tenth of the subtotal. P10 tests addition, and a
-        # swap survives addition: Tennyson 60203 on Binder1666 printed Net 286.00 GST 28.60 Total 314.60 and was
-        # captured subtotal 28.60, GST 286.00, total 314.60, which adds up and understates the document by
-        # $257.40. Tolerance is relative because a supplier that rounds GST per line lands cents away from a
-        # tenth of the subtotal on a large invoice; the failure this catches is out by a factor, not by cents.
-        if None not in (hs, hg, ht) and d(hg) > 0 and d(hs) > 0 and gap(d(hs) + d(hg), ht) <= Decimal("0.02"):
-            exp = d(hs) / 10
-            tol = max(Decimal("0.02"), abs(exp) * Decimal("0.01"))
-            if abs(d(hg) - exp) > tol:
-                flag("P16", ref, pr[0], f"header adds up but GST {d(hg)} is not a tenth of the subtotal "
-                                        f"{d(hs)} (expected about {exp.quantize(Decimal('0.01'), ROUND_HALF_UP)})")
+        # P16 (v7.2): where GST prints, it must be a tenth of the subtotal, and it must not oppose its sign.
+        # My first cut of this guarded on `gst > 0` to skip GST-free supplies. That silently excluded every
+        # NEGATIVE GST, which is the exact shape of the defect it was written for: on Binder1666 twenty-nine
+        # documents recorded printed_gst as total less subtotal, twenty-eight of them negative (19795 recorded
+        # -$1,887.75), and the guard let all twenty-eight through while the report called the corpus one
+        # document short. Tolerance is relative, 1% of the GST or 2c whichever is larger, so a supplier
+        # computing GST per line rather than on the subtotal is not flagged.
+        gst_basis = str(doc.get("gst_basis") or "")
+        if hs is not None and hg not in (None, "") and d(hg) != 0 and doc.get("doc_kind") in (None, "TAX_INVOICE", "CREDIT_NOTE"):
+            expected = (d(hs) / 10).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
+            g16 = abs(d(hg) - expected)
+            tol16 = max(Decimal("0.02"), (abs(d(hg)) * Decimal("0.01")).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP))
+            if g16 > tol16:
+                flag("P16", ref, pr[0], f"printed GST {d(hg)} against a tenth of the subtotal {expected}, out by {g16}")
+            if (d(hs) > 0) != (d(hg) > 0) and d(hs) != 0:
+                flag("P16", ref, pr[0], f"GST {d(hg)} opposes the sign of the subtotal {d(hs)}")
+        if "derive" in gst_basis.lower():
+            amber.append(f"{ref}: printed_gst derived, not read off a GST label")
+
+        # P17 (v7.2): every header figure must be printed on the row its header_sources entry cites. A derived
+        # GST makes the 5.4 addition check pass by construction whatever the total is, so P10 is blind by
+        # design; this is what reads the citation instead of trusting it.
+        by_row, f8 = {}, set()
+        for field, loc in (doc.get("header_sources") or {}).items():
+            if not isinstance(loc, dict):
+                continue
+            key = (loc.get("page"), loc.get("row"))
+            by_row.setdefault(key, []).append(field)
+            rec = next((l for l in lines if l.get("page") == key[0] and l.get("line_no") == key[1]), None)
+            if rec is None:
+                flag("P17", ref, key[0], f"{field} cites row {key[1]} on page {key[0]}, which carries no line record")
+                continue
+            val = doc.get(field)
+            basis = str(doc.get("subtotal_basis") or "") if field == "printed_subtotal_ex_gst" else gst_basis
+            if val is not None and "deriv" not in basis.lower():
+                printed = rec.get("line_text", "").replace(",", "").replace("$", "")
+                if f"{abs(d(val)):.2f}" not in printed:
+                    flag("P17", ref, key[0], f"{field} = {d(val)} is not printed on the row it cites (p{key[0]} r{key[1]})")
+            if rec.get("line_type") not in ("TOTALS", "TABLE_HEADER"):
+                f8.add(f"a header figure cites a row typed {rec.get('line_type')}, not TOTALS")
+        for key, fields in by_row.items():
+            if len(fields) > 1:
+                f8.add("two header figures cite one row")
+        if f8:
+            amber.append(f"{ref}: F8, " + "; ".join(sorted(f8)))
 
         # P11 bands present and calibrated.
         if priced:

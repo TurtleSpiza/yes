@@ -1,4 +1,4 @@
-# PSWP Invoice Extraction Prompt v7.2 (17-Sep-2026)
+# PSWP Invoice Extraction Prompt v7.3 (18-Sep-2026; v7.2 with the v7.1 ATTACHMENT amendments merged back and the P1 duplicate exemption)
 
 Supersedes v6 (11-Sep-2026), which superseded v5, v4 and v3.1. For extraction of supplier-invoice binders to a structured JSON corpus for the PS/WP and Parks Branch Transaction Registers, Logan City Council, Parks Branch.
 
@@ -256,6 +256,11 @@ Read down each column and take the **first label that prints**. Never take a fig
 | `printed_subtotal_ex_gst` | `Subtotal` / `Sub Total`, else derived as total less GST with `"subtotal_basis": "derived from total less GST"` | any `Total` where a `Subtotal` prints |
 
 - **`Balance Due` is a fallback, not a synonym for the total** (v7, amending v6, which listed it as an equal source). Where both `Total` and `Balance Due` print, take `Total`. Where they differ, the invoice is part paid: take `Total`, record `Balance Due` and `Paid to Date` in `notes`, and raise F1. A part-paid invoice whose `Balance Due` was taken as the total fails 5.4 for a reason that has nothing to do with the invoice.
+- **NEW v7.2. GST is read, never silently derived.** v7 allowed the SUBTOTAL to be derived as total less GST. The reverse, deriving the GST as total less subtotal, is banned unless it is declared, because it makes 5.4 pass by construction: subtotal plus a derived GST equals the total whatever the total is. On `Binder1666` an extractor derived the GST on 29 documents and recorded totals of $6.00, $7.00 and $8.00 (fuel levy line amounts on Vinton, and a `Total GST 10%` figure on Heritage) against real totals from $1,586.75 to $3,771.61. Every one added up, and P10 saw nothing. So:
+  1. Read the GST from its own label (5.0 precedence).
+  2. Where the label prints with no value on its row, take the first value in its band in the next four rows (5.2).
+  3. Where it prints nowhere, derive it and record `"gst_basis": "derived from printed total less printed subtotal"` with `"header_adds_up": "derived"`. P16 then polices the derivation, which is the only check left that can.
+  4. A derived GST that is not a tenth of the subtotal within the P16 tolerance is not a derivation, it is a misread total.
 - **`Paid to Date` is never an amount for any field.** It is a payment history figure. It prints in the totals block on the Xero and Levai layouts, immediately above `Balance Due`.
 - If the only total prints as a bare `$` amount under `PLUS 10% GST` or `Sub Total:`, with no `Total` label anywhere on the document, take it and record `"total_basis": "bare amount under <label>"`. **NEW v7: that clause is scoped to documents with no `Total` label at all.** v6's wording read as a general permission to take a total off a `Sub Total:` row, which contradicts the never-from column above.
 - **`invoice_date`** comes from the token labelled `DATE` or `INVOICE DATE`. Where a header prints `PLEASE PAY BY | AMOUNT | INVOICE DATE` on one row, the LAST date is the invoice date and the FIRST is the due date. Never a work-note or completion date. Where `DATE` and `DUE DATE` both print, `DUE DATE` is never `invoice_date`.
@@ -275,7 +280,7 @@ Read down each column and take the **first label that prints**. Never take a fig
                                        A$4,974.75
 ```
 
-On `mix22` the extractor took `printed_total_incl_gst` from the `GST TOTAL` row on **all thirteen** Savco documents, recording $452.25 as the total of a $4,974.75 invoice. Match the longest label first, or use a negative lookbehind on both: `(?<!SUB)(?<!GST )TOTAL`. The same care applies to `TOTAL GST 10%` (Xero), `Total (inc-GST)` (Vinton), `Total Payable` (Treescape), `Paid to Date` and `Balance Due` (Levai, Xero) and `REMAINING CREDIT` (5.3). Note also that Savco prints `BALANCE DUE` with its figure on the **next** row: a label whose own row carries no money takes the first money token below it in its own band (5.2).
+On `mix22` the extractor took `printed_total_incl_gst` from the `GST TOTAL` row on **all thirteen** Savco documents, recording $452.25 as the total of a $4,974.75 invoice. Match the longest label first, or use a negative lookbehind on both: `(?<!SUB)(?<!GST )TOTAL`. **NEW v7.2: the trap also runs the other way.** Woodmans prints `GST Ex Total`, `GST` and `GST Inc Total`: two of those three are totals labels that BEGIN with `GST`, so a GST matcher keyed on the word takes a total, and a totals matcher that excludes anything containing `GST` takes nothing. Match the full label. The same care applies to `TOTAL GST 10%` (Xero), `Total (inc-GST)` (Vinton), `Total Payable` (Treescape), `Paid to Date` and `Balance Due` (Levai, Xero) and `REMAINING CREDIT` (5.3). Note also that Savco prints `BALANCE DUE` with its figure on the **next** row: a label whose own row carries no money takes the first money token below it in its own band (5.2).
 
 ### 5.2 The label-above-value rule, generalised
 
@@ -402,7 +407,7 @@ Numbers are JSON numbers: unquoted, no `$`, no thousands separators, two decimal
     "runtime": "A | B",
     "extraction_tool": "<product and model version>",
     "extracted_utc": "<ISO 8601>",
-    "prompt_version": "v7",
+    "prompt_version": "v7.2",
     "gate": "GREEN | AMBER | RED",
     "pathologies": [{"code": "P1", "doc_ref": "...", "page": 0, "detail": "..."}],
     "coverage": {"documents_complete": 0, "documents_total": 0,
@@ -567,7 +572,7 @@ These are not tie failures. They are parse failures, and a corpus containing an 
 
 | Code | Condition | Why it is fatal |
 |---|---|---|
-| **P1** | `printed_subtotal_ex_gst` non-zero and zero PRICED lines | The document was not parsed at all. `mix1` shipped 15, `mix22` 11, `Binder11111` 2. |
+| **P1 (amended v7.2, exempted v7.3)** | A `TAX_INVOICE` or `CREDIT_NOTE` with zero PRICED lines, **whatever subtotal is recorded**, UNLESS it carries `duplicate_of` | The document was not parsed at all. `mix1` shipped 15, `mix22` 11, `Binder11111` 2. v7's non-zero-subtotal condition was itself a loophole: `Binder1666` document 6431345 recorded a subtotal of 0.00, a total of $39.99 (which is the first line item's price) and zero priced lines against a printed `GST Ex Total` of $268.00, and every gate slept. A tax invoice with no priced line is a parse failure by definition. A repeated copy carries `duplicate_of`, every row typed `DUPLICATE_COPY` with null arithmetic by 4.0 rung 2, so zero PRICED lines is correct for it. Without the exemption the amendment returns a sound corpus: on `Pages_from_Binder1` it fired on five documents and all five were duplicate copies. |
 | **P2** | `line_type == "PRICED"` with null amount, or an amount-bearing row typed anything but PRICED or ATTACHMENT (v7.1) | Breaks the 4.4 invariant |
 | **P3** | A page inside a completed document's range with no line records | Full-capture breach, and **not repairable downstream**: there is nothing to restate from. Pages beyond `resume_point` in an AMBER run are not P3. |
 | **P4** | `supplier_abn` equals the LCC ABN `21 627 796 435` in any grouping | The bill-to ABN was read as the supplier's |
@@ -582,7 +587,8 @@ These are not tie failures. They are parse failures, and a corpus containing an 
 | **P13** | A `line_type` outside the closed list in section 9 | Every downstream screen for that type silently misses the rows |
 | **P14 (NEW v7)** | `doc_kind == "CREDIT_NOTE"` with a positive `printed_total_incl_gst`, or a sign that contradicts the printed face | A credit posted as a debit ties nothing and reverses the register total |
 | **P15 (NEW v7)** | Two documents sharing an `evidence_stem` | Evidence files collide on save and one overwrites the other |
-| **P16 (NEW v7.2)** | The header block adds up but `printed_gst` is not a tenth of `printed_subtotal_ex_gst`, beyond 1% or 2c, whichever is larger | P10 tests addition and a SWAP survives addition. Tennyson 60203 on `Binder1666` prints Net $286.00, GST $28.60, Total $314.60 and was captured subtotal $28.60, GST $286.00, total $314.60. That adds up, `header_adds_up` read true, the document declared TIE, and it understates by $257.40. The tolerance is relative because a supplier rounding GST per line lands cents off a tenth of the subtotal on a large invoice; this failure is out by a factor. |
+| **P16 (NEW v7.2)** | Where a GST amount is recorded and is not zero, `printed_gst` is not a tenth of `printed_subtotal_ex_gst` within **max(1% of the GST, 2c)**, or its sign opposes the subtotal's | P10 cannot see a swap or a derived GST, because addition survives both. This is the only check that reads the two figures against each other rather than against their sum. On `Binder1666` it flagged 30 of 100 documents and every one was a true positive: 27 Vinton, 2 Heritage, 1 Tennyson. The tolerance is relative because a supplier computing GST per line rather than on the subtotal lands cents off a tenth on a large invoice, and that is rule 11.10, not an error |
+| **P17 (NEW v7.2)** | A header figure is not printed on the row its `header_sources` entry cites, or cites a row that carries no line record | `header_sources` was added in v6 so a wrong read would be auditable. Nothing audited it, so on `Binder1666` a GST of -$1,887.75 cited a row reading `Completed 22/06/2026`. The figure and the row are both in your own output, so this costs one string search. A derived figure (`gst_basis` or `subtotal_basis` saying so) is exempt from the value test |
 
 Set `"gate": "RED"`, list every pathology in `manifest.pathologies` with the affected `doc_ref` and page, and say plainly in the report that the corpus must not be built from.
 
@@ -601,6 +607,7 @@ The register turns these into numbered Open Items, so a finding you notice and d
 | **F5** | **Referenced but absent documents**: tip dockets, cost breakdowns, quotes, fixed-fee schedules, site photographs. A face reading `Quote No. 657712` with no quote in the binder is an F5. The evidence pack is not complete until they are requested. |
 | **F6** | **Duplicate copies and blank pages.** |
 | **F7 (NEW v7)** | **A tie that lands between 1c and 2c** (6.0), with the rounding convention that explains it. The corpus gate goes AMBER. |
+| **F8 (NEW v7.2)** | **Citation drift on a header figure**: the value is printed on the document but not on the row it cites, or two header fields cite one row, or a cited row is typed anything other than `TOTALS`. The figure may well be right; the evidence trail is not. The corpus gate goes AMBER. On `Binder1666`, 68 documents carried at least one of these, most of them totals rows typed `PAYMENT_ADVICE` or `NARRATIVE` where the bank block interleaves with the totals block (4.0). |
 
 **Do not raise an evidence finding on a document that failed to parse.** On `mix22`, seven of the nine findings raised were "pricing is stated as per quote, but the supporting quote is not in this binder" on documents that had captured $0.00 of a printed $8,920.00. The finding may well be true, but it is not the finding: the parse is. Fix the parse, then judge the evidence.
 
@@ -624,6 +631,8 @@ Close with a short report, in this order:
 12. **NEW v7.** Any template not already in Annexe A, with its header signature, amount band and trap, ready to paste into the Annexe (rule 19.1).
 
 **Lead with the gate.** The build session reads that line first and stops there if it is not GREEN.
+
+**NEW v7.2: nothing later in the report may contradict that line.** The `Binder1666` report opened `Gate: AMBER` and closed with "the corpus is GREEN and can proceed to the build session", on a corpus that computes RED. Write the gate once, at the top, from 13.0, and close with the resume point or the new templates, never with a second opinion. A finding's text must also match its own figures: the same report recorded `F7, 19975: Self-tie gap 68.92 falls in the 1c to 2c band`, which is not a 1c to 2c gap by three orders of magnitude.
 
 ### 15.1 NEW v7. Report length
 
@@ -731,12 +740,12 @@ Every layout this project has met, with the item table's header signature as pri
 | Template | Item table header, as printed | Amount band | Trap |
 |---|---|---|---|
 | SAVCO | `DESCRIPTION \| QTY \| RATE \| GST \| AMOUNT` | rightmost `AMOUNT` | Quantities print as bare integers. `GST TOTAL` sits above `TOTAL` (5.1). `BALANCE DUE` prints its figure on the NEXT row. A header-shaped `INVOICE NO. \| DATE \| TOTAL DUE ...` row prints 20 rows higher. |
-| HERITAGE | `Description \| Quantity \| Unit Price \| GST \| Amount AUD` | `Amount AUD` | The `Contract #` row prints `1.00 0.00 0.00` and is a real zero-amount priced row. |
+| HERITAGE | `Description \| Quantity \| Unit Price \| GST \| Amount AUD` | `Amount AUD` | The `Contract #` row prints `1.00 0.00 0.00` and is a real zero-amount priced row. `TOTAL GST 10%` prints ABOVE `Total` and was taken as the total on two `Binder1666` documents (5.1). Some vintages print `Subtotal` and `TOTAL GST 10%` on the last rows of page n and `Total` on page n+1. |
 | HERITAGE_CN | same, credit note | `Amount AUD` | The credit advice prints `Credit Amount 0.00`, the credit REMAINING, not the value (5.3). Face figures are positive; capture negative (P14). |
 | PLAYFORCE | `Qty \| Item \| Description \| Unit Price \| Price (Ex. GST)` | `Price (Ex. GST)` | Unit price can print with no decimals (`1355`). `Account: 10367833` in the payment block is a bank account, not a PK. Some invoices print the literal word `undefined` in the Account field. 220 fixed template rows per document: budget for it (7.6). |
 | KACHEL | none printed | rightmost money column under `Rate $` | No item table header at all. Zone rows print `PK000028  19,716.00` with no quantity. Residue window starts at the first body row (4.5). |
 | VINTON (A) | `DESCRIPTION \| EX AMOUNT \| TAX CODE` | `EX AMOUNT` | No quantity and no unit price columns exist. |
-| VINTON (B) | `HRS \| DESCRIPTION \| UNIT PRICE (ex-GST) \| TOTAL PRICE (ex-GST)` | `TOTAL PRICE` | The `GST:` label and its amount print on different physical rows, and the bank block interleaves with the totals block. |
+| VINTON (B) | `HRS \| DESCRIPTION \| UNIT PRICE (ex-GST) \| TOTAL PRICE (ex-GST)` | `TOTAL PRICE` | **The `GST:` label prints with no value anywhere in its band**, so the GST is derived under 5.0 with `gst_basis` recorded, never silently. The totals block interleaves with the bank block: `Subtotal:` shares a row with `RST Systems Pty Ltd`, `Total (inc-GST):` with the remittance email address. `Balance Due:` repeats the total, and the how-to-pay page repeats it a third time, so two sources always agree. A fuel levy line of $6.00 to $8.00 sits near the totals block and was taken as the invoice total on 27 documents in `Binder1666`. |
 | MPDT | `Description \| Quantity \| Unit Price \| GST \| Amount AUD` | `Amount AUD` | Header labels stack above their values (5.2). PK prints malformed: `PK#00047`, `PK#0000477`. |
 | PPG (SAP) | `Item No \| Material \| Item Description \| Quantity \| Unit Price \| Net Value` | `Net Value` | **No row is labelled Subtotal**: the ex-GST total is `PRODUCT TOTAL` plus `FREIGHT` plus `PAINTBACK LEVY`, each printed separately. The unit price prints to FOUR decimals (191.1400). No PK prints on the face; the line description is a price-change reason code and `MIXED MERCHANDSE`. Terms of sale fill page 2. |
 | ETSOL | `Description \| Qty \| Rate \| TAX \| Amount` | `Amount` | The `TAX` column prints the literal `GST`, a code, not money. Negative rows appear for partial deletions. |
@@ -760,6 +769,8 @@ Every layout this project has met, with the item table's header signature as pri
 | AUSTSPRAY | `Item \| Total` | `Total` | Item row figures differ from the "plus gst" figure in the description (Open Item B-021). |
 | AUSTCARE | job table with Job No, Site Name, PK | `$` column | Column collision in `-layout`; needs word-level bounding boxes to assign site names to job rows. |
 | EMU, TEC, ACTIVECO, GURU | `Description \| Quantity \| Unit Price \| GST \| Amount AUD` | `Amount AUD` | GURU prints two vintages. TEC prints `Invoice Number` and its value on non-adjacent rows (5.2). |
+| TENNYSON | `Job \| Quantity \| Description \| Net Price \| GST` | `Net Price`, **not rightmost**: `GST` prints to its right | A two-money-column item table, so the amount and its GST sit side by side and the rightmost token is the GST. Totals print as `Net $`, `GST $`, `Total $` down the right of the page with the delivery note and bank block to the left. No PK prints on the face; `Order No:` and `Account: LOG107` are Council references, not PKs. |
+| WOODMANS | `SKU \| Description \| Qty \| UM \| Price Ex GST \| Disc % \| GST \| Total Inc GST` | `Total Inc GST`, **GST inclusive**; the ex-GST unit price is in `Price Ex GST` | The header wraps over three physical rows (`Price`/`Disc`/`Tot`, then `SKU Description Qty UM`, then `Ex GST`/`Inc`), so the band row is the union of the three. Each item wraps over two to four rows with the description continuing below the priced row. Totals are `GST Ex Total`, `GST` and `GST Inc Total`, all three beginning with `GST` (5.1). Discounts print as a percentage in their own band. |
 | SECUREcorp | wide, wrapped | `Amount` | A printed line wraps over several physical rows: rate and amount print on the first, quantity on the second. |
 
 ---
@@ -782,18 +793,6 @@ Every layout this project has met, with the item table's header signature as pri
 | Repairable downstream? | Yes: every dropped row was in the retained text | **No.** Six pages, across five documents, carried no line record at all (P3), so the batch is held for re-extraction |
 
 The difference between those last two rows is the whole argument for the v6 and v7 gates. A misclassified row is recoverable, because the evidence is still in the corpus. A page you did not transcribe is gone, and the binder has to be read again.
-
----
-
-## Annexe C2. What changed from v7.1 (v7.2, 17-Sep-2026)
-
-| v7 section | Amendment | Why |
-|---|---|---|
-| 13.1 | **P16** added: the header block adds up but the GST is not a tenth of the subtotal | Found on arrival of `Binder1666`, which declared AMBER and computed RED. Tennyson 60203 had its subtotal and GST swapped, $257.40 understated on a $314.60 document, and no existing pathology could see it: P10 passes because a swap still adds up, the document declared TIE because the captured line matched the swapped subtotal, and P11 fired only because that same document happened to record no bands. Tested against the twenty-nine corpora already held: one flagged, zero false positives. |
-
-Both halves of that document's failure trace to one cause, which is the case for section 4 restated: with no
-`bands` recorded, the amount column was never anchored, so the GST column was read as the line amount and the
-header figures were taken off the wrong labelled rows.
 
 ---
 
@@ -833,3 +832,28 @@ Everything below is an amendment inside v6's numbering. No v6 rule was deleted a
 | Run sheet, Annexe A fast path, reference algorithm, budget arithmetic | Run sheet, 2.1, 4.6, 7.6 | Discovery work repeated per document, and a binder started that cannot be finished |
 | Footer `Page m of n` asserted against the page range | 3.5, P9 | A silent split error |
 | Conformance example with real offsets | 16.4 | A self-test before a large binder, covering every amendment above |
+
+---
+
+## Annexe D1. What changed from v7.2 (v7.3, 18-Sep-2026)
+
+| v7 section | Amendment | Why |
+|---|---|---|
+| 13.1, P1 | The v7.2 amendment is exempted where the document carries `duplicate_of` | Found on arrival of `Pages_from_Binder1`, 96 Play Force documents declared GREEN. The amended P1 computed RED on five of them; every one was a repeated copy inside the binder, every row typed `DUPLICATE_COPY`, arithmetic null exactly as 4.0 rung 2 requires. With the exemption that corpus computes GREEN and Woodmans 6431345, which is not a duplicate, still fails. A check that returns sound work is a defect in the check. |
+
+---
+
+## Annexe D. What changed from v7, and the run that produced it
+
+`Binder1666`, 100 documents over 141 pages, seven suppliers, declared AMBER by its extractor and closed with the sentence "the corpus is GREEN and can proceed to the build session". Gated under v7 it computed RED on one document. Gated under v7.2 it computes RED on 31, and the corpus understated the incl-GST value of those documents by **$52,390.66**.
+
+| Change | Where | What it prevents |
+|---|---|---|
+| GST may not be derived silently; a derived GST carries `gst_basis` and `header_adds_up: "derived"` | 5.0 | The failure mode that defeated v7's header gate on 29 documents at once: derive the GST from a wrong total and the block adds up by construction |
+| P16, GST must be a tenth of the subtotal, relative tolerance | 13.1 | A swapped, derived or misread GST that P10 cannot see, because addition survives a swap |
+| P17, a header figure must be printed on the row it cites | 13.1 | A figure invented or taken from a row that says `Completed 22/06/2026`, with `header_sources` recording it and nothing reading it back |
+| F8, citation drift and cited rows not typed `TOTALS` | 14 | A right figure with a wrong evidence trail, and the interleaved-totals typing breach that produces most of them |
+| P1 amended: zero PRICED lines on a tax invoice is P1 whatever subtotal is recorded | 13.1 | A total parse failure hiding behind a recorded subtotal of 0.00 |
+| `GST Ex Total` and `GST Inc Total` named as totals labels | 5.1 | The substring trap in reverse, on the Woodmans layout |
+| The report may not contradict its own gate line, and a finding may not contradict its own figures | 15 | A RED corpus arriving at a build session under a sentence saying it is GREEN |
+| TENNYSON and WOODMANS added; VINTON (B) and HERITAGE traps restated from this run | Annexe A | The three layouts that failed here |
