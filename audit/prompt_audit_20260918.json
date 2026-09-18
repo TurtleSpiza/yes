@@ -1,0 +1,117 @@
+{
+ "amber_findings": [
+  "F1",
+  "F7",
+  "F8"
+ ],
+ "counts": {
+  "LOW": 2,
+  "MEDIUM": 5
+ },
+ "findings": [
+  {
+   "cls": "A",
+   "evidence": "PSWP_Extraction_Prompt_v7.md: no '## Annexe ... (v7.2, ' heading",
+   "finding": "version v7.2 has a version-table row and no annexe",
+   "fix": "write the annexe for v7.2",
+   "severity": "MEDIUM",
+   "why": "an amendment with no annexe cannot be dated or traced to its evidence"
+  },
+  {
+   "cls": "F",
+   "evidence": "PSWP_Extraction_Prompt_v7.md:1086: '| 13.2, the computed gate | **The gate applies the checks the corpus could have satisfied, scoped on the FIELD or CONVEN'  |  recomputed: 5 archival RED of 35 corpora",
+   "finding": "'four' archival RED stated where the gate computes 5",
+   "fix": "restate it, and say which sweep it came from",
+   "severity": "MEDIUM",
+   "why": "two figures for one quantity, both printed as current, and this one justifies the rule it appears in"
+  },
+  {
+   "cls": "I",
+   "evidence": "PSWP_Extraction_Prompt_v7.md:1140: '| **11.12, new** | **An archival corpus is the record of what was received and is never repaired**, so every r'",
+   "finding": "a published gate composition lacks its sweep date, denominator",
+   "fix": "quote the sweep date, the denominator and the split beside it",
+   "severity": "MEDIUM",
+   "why": "a figure without those attributes is superseded silently when the scope or the denominator changes; three have been here already"
+  },
+  {
+   "cls": "I",
+   "evidence": "PSWP_Extraction_Prompt_Assessment.md:96: '**The figures, swept 18-Sep-2026 over the 35 corpora now in `batches/`: 7 GREEN, 21 AMBER, 7 RED.** The 31 abo'",
+   "finding": "a published gate composition lacks its live/archival split",
+   "fix": "quote the sweep date, the denominator and the split beside it",
+   "severity": "MEDIUM",
+   "why": "a figure without those attributes is superseded silently when the scope or the denominator changes; three have been here already"
+  },
+  {
+   "cls": "L",
+   "evidence": "13.2 at PSWP_Extraction_Prompt_v7.md:754",
+   "finding": "qualifier 'description layer' has no row in 13.2's scoping table",
+   "fix": "add a 13.2 row for `description layer` saying no check reads it",
+   "severity": "MEDIUM",
+   "why": "a qualifier with no row cannot be shown to gate nothing, which is the whole of the qualifier discipline"
+  },
+  {
+   "cls": "C",
+   "evidence": "PSWP_Extraction_Prompt_v7.md:1046: '## Annexe D. What changed from v7, and the run that produced it'",
+   "finding": "Annexe D's heading names no version",
+   "fix": "put the version and date in Annexe D's heading, as D1 to D5 do",
+   "severity": "LOW",
+   "why": "an annexe that names no version cannot be mapped to a release, so 'one annexe per version' cannot be checked either way"
+  },
+  {
+   "cls": "D",
+   "evidence": "PSWP_Extraction_Prompt_v7.md:259: 'assert abs(sum(priced) - printed_subtotal) <= 0.01   # 6.0, else run the ladder'",
+   "finding": "4.6 uses float abs() where 6.0 mandates Decimal with ROUND_HALF_UP",
+   "fix": "use Decimal in the reference assert",
+   "severity": "LOW",
+   "why": "an extractor copying the fast path literally ties in binary floating point"
+  }
+ ],
+ "findings_codes": [
+  "F1",
+  "F2",
+  "F3",
+  "F4",
+  "F5",
+  "F6",
+  "F7",
+  "F8"
+ ],
+ "ledger": [
+  {
+   "archival": {
+    "AMBER": 2,
+    "GREEN": 4,
+    "RED": 5
+   },
+   "computed": 35,
+   "figure": "corpora",
+   "live": {
+    "AMBER": 19,
+    "GREEN": 3,
+    "RED": 2
+   }
+  }
+ ],
+ "pathologies": [
+  "P1",
+  "P2",
+  "P3",
+  "P4",
+  "P5",
+  "P6",
+  "P7",
+  "P8",
+  "P9",
+  "P10",
+  "P11",
+  "P12",
+  "P13",
+  "P14",
+  "P15",
+  "P16",
+  "P17"
+ ],
+ "prompt": "PSWP_Extraction_Prompt_v7.md",
+ "prompt_lines": 1147,
+ "version": "v7.7"
+}
