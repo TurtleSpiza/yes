@@ -59,9 +59,9 @@ AMBER and computed RED again on a different document.
 
 ---
 
-## 4. Assessment: two structural weaknesses
+## 4. Assessment: two structural weaknesses — BOTH NOW FIXED (v7.4, 18-Sep-2026)
 
-**4.1 The gate cannot tell "extracted before the rule existed" from "failed the rule".** Run today over the 34
+**4.1 The gate cannot tell "extracted before the rule existed" from "failed the rule". FIXED.** Run today over the 34
 corpora in `batches/`, 31 read RED, and almost all of them on P11 and P12 alone. No corpus predating v7 carries
 `bands_calibrated_on` or `residue_rows`, because neither field existed when it was extracted. Those 1,116 P11s
 and 1,188 P12s are a schema gap and say nothing about capture quality, yet they are indistinguishable at the
@@ -69,7 +69,7 @@ gate from a genuine failure. **A corpus should record the prompt version it was 
 should apply the check set of that version**, or the RED verdict stops carrying information. This is the single
 change I would make next.
 
-**4.2 Every check tests arithmetic or structure. Only one tests words, and it is optional in practice.** P1 to
+**4.2 Every check tests arithmetic or structure. Only one tests words, and it is optional in practice. FIXED.** P1 to
 P17 prove amounts, coverage and citation. The shingle check is the only verbatim test, and it returns
 UNVERIFIABLE where the corpus retains no `page_text`. `prep_supplied_corpus.py` rebuilds `page_text` from the
 corpus's own `line_text` rows, which makes the check runnable but **unfailable**, because the haystack becomes
@@ -78,6 +78,10 @@ On `pages_from_binder1` the binder was supplied, the page text was parsed from t
 real PASS on 583 shingles with 0 unverifiable. That is the only Play Force batch where that is true. **The
 standard should say plainly that a corpus captured without the binder has an unverified description layer**,
 rather than leaving the distinction inside a helper script.
+
+**Fixed at v7.4.** The manifest carries `page_text_independent`, a boolean, and `page_text_basis`, the sentence
+explaining it. A corpus whose page text was rebuilt from its own rows reads UNVERIFIED and cannot be GREEN. It
+costs GREEN on almost every corpus here, which is the finding rather than a side effect.
 
 ---
 
@@ -115,10 +119,27 @@ that class before it is trusted, and a claim of testing should name the cases te
 
 ---
 
-## 7. State at this assessment
+## 7. What the register owner's confirmations changed, 18-Sep-2026
+
+Seven Stores product names were confirmed against the goods. All seven were cases where the machine sources
+disagreed, so this is not a fair sample, but it is enough to correct the ranking in section 5:
+
+- The requisition export was **exactly right on none of the seven**; the Marsden inventory on two.
+- On **196303** the export names a hard hat browguard with an earmuff attachment. The goods are a face shield
+  with a clear visor, a different piece of PPE on the same account.
+- On **207353** the export names isopropyl wipes, canister of 75. The goods are baby soap wipes, packet of 80.
+
+So the export remains the best source **on coverage** (163 lines resolved against 117, and 3 absent against 46)
+and is **not an authority on the name**. Confirmed names live in `stores_confirmed_products.json` and outrank
+both machine sources.
+
+## 8. State at this assessment
 
 - Prompt at **v7.3**, 859 lines, 25 pathology and finding rows, Annexes A to D1.
 - Gate at v5 of `pswp_corpus_gate.py`, P1 to P17 plus the F7, F8 and `gst_basis` AMBER limbs.
 - 34 corpora, 1,581 documents. Conformance corpus GREEN. `pages_from_binder1` captured into register **v24**.
   `binder1666` RED and held on Woodmans 6431345, which needs page 48 of the binder.
-- Every ABN across every captured corpus passes the ATO checksum; none equals the LCC bill-to ABN.
+- Every ABN across every captured corpus passes the ATO checksum; none equals the LCC bill-to ABN. Verified
+  further against the Australian Business Register on 18-Sep-2026 with `abn_bulk_verify.py`: **32 distinct
+  ABNs, every one Active, every one GST registered, every supplier name matched to the ABR record, verdict
+  VALID on all 32**. `reports/ABN_Verification_v24.xlsx`.
