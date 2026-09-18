@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """pswp_corpus_gate.py, v10 (18-Sep-2026)
 
-Machine gate for a PSWP extraction corpus produced under PSWP_Extraction_Prompt_v7.md (v7.1).
+Machine gate for a PSWP extraction corpus produced under PSWP_Extraction_Prompt_v7.md (v7.6).
 Runs every pathology in section 13.1 that is computable from the corpus alone (P1 to P17), applies
 the 13.0 gate truth table, and prints the verdict. Read-only: it never edits a corpus.
 
@@ -360,7 +360,7 @@ def check(path):
     # explains it. Sniffing the prose for "rebuilt" read this repository's own honest basis line, which says
     # "not rebuilt from the corpus rows", as a rebuild.
     # The description layer is a SEPARATE AXIS and is reported as a qualifier on the gate line, not as an AMBER
-    # trigger. Demoting on it took GREEN off all 36 corpora at once, including the conformance fixture, and a
+    # trigger. Demoting on it took GREEN off all 35 corpora at once, including the conformance fixture, and a
     # GREEN that nothing can reach carries no more information than a RED that fires on a non-failure: the build
     # acts on the word, and every corpus arrived looking like a partial build with documents held. A corpus that
     # ties to the cent with no pathology and an unverified description layer is a different object from one that

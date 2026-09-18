@@ -34,7 +34,7 @@ yet been wrong.
 | **v7.3** | 18-Sep-2026 | **P1 exempted** where the document carries `duplicate_of`. | `Pages_from_Binder1`, 96 Play Force documents declared GREEN, computed RED on five. All five were repeated copies inside the binder, every row typed `DUPLICATE_COPY` with null arithmetic, exactly as 4.0 rung 2 requires. The amendment was right about Woodmans and over-broad. |
 | **v7.4** | 18-Sep-2026 | **13.2** the gate applies the checks the corpus could have satisfied, scoped on the FIELD or CONVENTION each check reads, and `prompt_version` becomes mandatory. **10.1 and section 9** `page_text_independent` and `page_text_basis`. **13.0** GREEN now requires a verified description layer, and the RED range is corrected from P1 to P15 to P1 to P17. | Not a corpus. Assessing the standard: an unscoped gate read 31 of 34 corpora RED on fields that did not exist when they were extracted, and the only check that reads a word was unfailable wherever page text had been rebuilt from the capture. |
 | **v7.5** | 18-Sep-2026 | **P16 exempts a mixed supply** where the priced lines each print a GST amount summing to the printed GST. | Woodmans 6431345, page 48 of `Binder1666`: $268.00 ex, $22.80 GST, $290.80 inc over seven rows, one GST-free, so a tenth of the subtotal is $26.80 and P16 failed a correct invoice. 5.6 covered it in prose and nothing enforced it. **Predicted in review before the page arrived.** |
-| **v7.6** | 18-Sep-2026 | **A standing rule: every uniqueness and completeness check exempts `duplicate_of`** (11.4). **The description layer becomes a separate axis**: it qualifies the gate line rather than demoting it, so GREEN is reachable again. | Four checks had needed that exemption one at a time, P1 and P15 among them, each found by a correct corpus being failed. And demoting on the description layer took GREEN off all 37 corpora at once, including the conformance fixture, which left the 16.4 self-test with no passing reference and gave a clean corpus and a half-built one the same word. |
+| **v7.6** | 18-Sep-2026 | **A standing rule: every uniqueness and completeness check exempts `duplicate_of`** (11.4). **The description layer becomes a separate axis**: it qualifies the gate line rather than demoting it, so GREEN is reachable again. | Four checks had needed that exemption one at a time, P1 and P15 among them, each found by a correct corpus being failed. And demoting on the description layer took GREEN off all 35 corpora at once, including the conformance fixture, which left the 16.4 self-test with no passing reference and gave a clean corpus and a half-built one the same word. |
 
 ---
 
@@ -92,8 +92,10 @@ convention P17 reads, and P14, P15 and P16 read `doc_kind`, `evidence_stem` and 
 v5, so they apply to every corpus. P1's v7.2 amendment is not scoped either: a document that parsed nothing was
 a parse failure under v5 too.
 
-Across the **37** corpora, RED falls from 31 to **11**. Annexe D2 quoted 8, from the looser version-only scope
-and a smaller denominator; that figure is superseded and the annexe says so.
+**The figures, swept 18-Sep-2026 over the 35 corpora now in `batches/`: 7 GREEN, 21 AMBER, 7 RED.** The 31 above
+is the unscoped run over the 34 corpora present when 4.1 was written, and the two denominators are not the same
+set, so the pair is a before and after of the scoping rule, not a subtraction. Annexe D2 quoted 8 RED, from the
+looser version-only scope and a smaller denominator again; that figure is superseded and the annexe says so.
 
 **4.2 Every check tests arithmetic or structure. Only one tests words, and it is optional in practice. FIXED.** P1 to
 P17 prove amounts, coverage and citation. The shingle check is the only verbatim test, and it returns
@@ -161,11 +163,17 @@ that class before it is trusted, and a claim of testing should name the cases te
 - Prompt at **v7.6**, 1,027 lines. Annexes A, B, C, C1, D, D1, D2, D3, D4 in that order; 13.0 to 13.2 in order.
 - Gate at **v10** of `pswp_corpus_gate.py`: P1 to P17 scoped on the evidence each check reads, plus the F7, F8,
   `gst_basis` and mixed-supply AMBER limbs and the description-layer qualifier.
-- **37 corpora: 6 GREEN, 20 AMBER, 11 RED.** The 11 are not 11 defects. Four are historical `_as_received` and
-  `_v5` snapshots kept deliberately as the audit trail and gated as though live, three are the same Glascott
-  corpus in three states, three are P15 stem collisions that section 12's tie-break would clear, and one is
-  `binder1666` in its as-received state. **The snapshots should carry `manifest.archival: true` and be reported
-  separately**, or the count permanently overstates by four.
+- **35 corpora: 7 GREEN, 21 AMBER, 7 RED**, swept 18-Sep-2026 and reconciled against the files. An earlier
+  draft of this section published 37 corpora and 6 GREEN, 20 AMBER, 11 RED. That was written before the
+  description-layer demotion was withdrawn and was never re-swept; it is wrong on the denominator and on all
+  three counts, and is corrected here rather than left to stand.
+  **The 7 RED are not 7 defects.** Four are historical snapshots kept deliberately as the audit trail and gated
+  as though live: `binder1666_as_received` (P1, P11, 58 P16, 69 P17), `mixed_1_v5` and `mixed_new_26_27_v5`
+  (P1 throughout, header-only v5 captures), and `playforce_vinton_glascott_20260916_as_received` (5 P1, 5 P15).
+  Two are the held Glascott batch in its live states, `_v6` on 104 P2 and `_v7` on 61 P11, 61 P12 and 54 P17,
+  which is the re-extraction this assessment already books. One is `trees_new_as_supplied` on 2 P15 evidence-stem
+  collisions that section 12's tie-break would clear. **The snapshots should carry `manifest.archival: true` and
+  be reported separately**, or the count permanently overstates by four.
 - `binder1666` is **captured**, into register **v25**. Page 48 arrived, Woodmans 6431345 was restated under
   R1666-2, and the batch cleared to AMBER. The binder itself then arrived, so the masked-row screen ran clean
   over all 141 pages and the shingle check returned PASS on 987 shingles with 0 unverifiable: description layer
