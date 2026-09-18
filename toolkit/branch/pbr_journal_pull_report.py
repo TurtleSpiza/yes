@@ -124,6 +124,9 @@ def main():
     bpath = sys.argv[1] if len(sys.argv) > 1 else latest_register()
     ppath = sys.argv[2] if len(sys.argv) > 2 else latest_pswp()
     OUT = sys.argv[3] if len(sys.argv) > 3 else os.path.join(ROOT, 'reports')
+    # This pull is cut from BOTH registers, so both are checked and named on every run (see pbr_reports).
+    import pbr_reports  # noqa: E402
+    pbr_reports.assert_sources(bpath, ppath, tool='journal pull')
     B, P = read_branch(bpath), read_pswp(ppath)
     ver, stamp = B['ver'], pbr_stage.stamp()   # Brisbane date (pbr_stage.BNE), not the container's UTC day
 

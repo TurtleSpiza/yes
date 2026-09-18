@@ -1894,7 +1894,10 @@ if __name__ == '__main__':
     # the cheap half runs here: regenerating all three takes longer than the whole build, so this asserts
     # they EXIST at the shipped version, which is the lapse worth catching. It warns rather than failing,
     # because the register is already verified and shipped by this point and is not made wrong by a late report.
-    _missing = pbr_reports.check(VER)
-    say(f'reports: all three pull reports present at {VER}' if not _missing else
-        f'reports: STALE, {len(_missing)} file(s) missing at {VER} ({", ".join(_missing[:3])}...). '
-        f'Run python3 toolkit/branch/pbr_reports.py --build')
+    _why = pbr_reports.check(VER)
+    if not _why:
+        say(f'reports: all three pull reports current at {VER}, both source registers unchanged')
+    else:
+        for _r in _why:
+            say(f'reports: NOT CURRENT, {_r}')
+        say('reports: run python3 toolkit/branch/pbr_reports.py --build')

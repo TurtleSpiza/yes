@@ -122,7 +122,13 @@ python3 toolkit/branch/pbr_reports.py --check v25   # do all three exist at this
 python3 toolkit/branch/pbr_reports.py --build       # regenerate all three from the newest shipped registers
 ```
 
-The ship leg runs the **check**, not the build. Regenerating all three takes longer than the build itself, so the leg asserts only that a report of the shipped version exists for each family, which is the lapse actually worth catching: a version shipping with the previous version's reports still in place, quoting figures the register has moved past. It warns rather than failing, because by then the register is verified and shipped and is not made wrong by a late report. Proving the contents are current is `--build` to a scratch directory and a diff.
+**Both registers, every time.** The contractor pull and the journal pull are each cut from BOTH registers, and only the branch version appears in the filename, so a PS & WP register that moves while the branch stands still leaves them stale under a filename that still looks right. Regenerating the contractor pull against PS & WP v128 rather than v129 changes 16 lines of the same `Contractor_Pull_v25.md`, so this is a real hole rather than a theoretical one. Two things close it: `--build` records the md5 of both source registers in `reports/pull_reports_manifest.json` and `--check` compares both against the registers on disk; and `assert_sources` names and checks both on every pull created or requested, whoever runs it, warning by name when either is superseded. A deliberate pull against an older register still runs, because reproducing a figure someone is querying is legitimate, and the run says which registers it used either way.
+
+With no manifest the answer is **UNVERIFIED, which is not a pass**: nothing records what the reports were cut from, so nothing can say.
+
+The ship leg runs the **check**, not the build, because regenerating all three takes longer than the build itself while the check reads six filenames and two md5s. It warns rather than failing, since by then the register is verified and shipped and is not made wrong by a late report.
+
+One trap the code holds: the three generators do **not** share an argv shape. `pbr_unidentified_queue.py` takes `(branch register, outdir)` and reads the branch register only, so passing it the PS & WP register as a third argument silently makes that the output directory.
 
 ## Capturing a new invoice batch
 
