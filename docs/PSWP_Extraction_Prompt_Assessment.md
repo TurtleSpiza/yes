@@ -35,6 +35,7 @@ yet been wrong.
 | **v7.4** | 18-Sep-2026 | **13.2** the gate applies the checks the corpus could have satisfied, scoped on the FIELD or CONVENTION each check reads, and `prompt_version` becomes mandatory. **10.1 and section 9** `page_text_independent` and `page_text_basis`. **13.0** GREEN now requires a verified description layer, and the RED range is corrected from P1 to P15 to P1 to P17. | Not a corpus. Assessing the standard: an unscoped gate read 31 of 34 corpora RED on fields that did not exist when they were extracted, and the only check that reads a word was unfailable wherever page text had been rebuilt from the capture. |
 | **v7.5** | 18-Sep-2026 | **P16 exempts a mixed supply** where the priced lines each print a GST amount summing to the printed GST. | Woodmans 6431345, page 48 of `Binder1666`: $268.00 ex, $22.80 GST, $290.80 inc over seven rows, one GST-free, so a tenth of the subtotal is $26.80 and P16 failed a correct invoice. 5.6 covered it in prose and nothing enforced it. **Predicted in review before the page arrived.** |
 | **v7.6** | 18-Sep-2026 | **A standing rule: every uniqueness and completeness check exempts `duplicate_of`** (11.4). **The description layer becomes a separate axis**: it qualifies the gate line rather than demoting it, so GREEN is reachable again. | Four checks had needed that exemption one at a time, P1 and P15 among them, each found by a correct corpus being failed. And demoting on the description layer took GREEN off all 35 corpora at once, including the conformance fixture, which left the 16.4 self-test with no passing reference and gave a clean corpus and a half-built one the same word. |
+| **v7.7** | 18-Sep-2026 | **4.7**: 4.4 and 4.5 are two tests, not one at two scopes. 4.4 is global over the amount RECORDED and is P2; 4.5 is windowed and band-scoped over the money PRINTED. The row neither reaches is closed by `pswp_money_screen.py`. **11.12**: `manifest.archival` marks a retained snapshot, which is never a build input and never repaired. | Neither was forced by a corpus. Both were the oldest open items in the document and were worked as debt. The screen then found the hole populated: 108 UNACCOUNTED rows over 24 live corpora, 89 of them the Glascott schedule rows already restated at v7.1 and reading 0 in the `_v7` corpus. And the archival flag showed 5 of the 7 RED corpora were snapshots, so every report of the RED count had overstated the outstanding defects by five. |
 
 ---
 
@@ -130,15 +131,41 @@ the corpus rows" as a rebuild.
    fires on 97% of a batch is either a real systemic defect or the wrong test. 4.0 rung 3 already says the money
    decides on an interleaved row, so I read it as the extractor not following the ladder, but it deserves a
    second opinion.
-3. **`HEADER` is still P13 in `mixed_1`**, 8 rows, a mis-typing of `TABLE_HEADER`. Not fixed, because the fix
-   belongs in that corpus.
+3. **`HEADER` in `mixed_1`**, 8 rows, a mis-typing of `TABLE_HEADER`. Restated under R-M1-1, and the batch's
+   remaining line states were then reviewed under v7.7's screen rather than left unexamined.
+   **The corpus is clean on the dangerous class: 0 UNACCOUNTED rows.** Its census is 1,388 NARRATIVE, 361
+   PRICED, 85 TOTALS, 55 ATTACHMENT and 39 TABLE_HEADER, and `captured_ex_gst` equals the sum of the PRICED
+   lines on all 30 documents. What the screen does find is **20 MISTYPE_CANDIDATE rows**, every one a totals
+   or header figure typed NARRATIVE (`Amount Due  56,875.13`, `TOTAL  59,795.62`), plus 3 echoes and 13
+   exempt. Each is a wrong rung and none of them moves a dollar, so the batch's arithmetic stands.
+   **Two limits to state.** The corpus is v5-era, so it carries no `bands` and no `residue_rows`, and P11 and
+   P12 are scoped out of it: the band-based half of 4.5 cannot be run on it at all, and the text screen is the
+   only evidence there is. And 55 ATTACHMENT rows carry no recorded amount, where rule 16d exists because an
+   ATTACHMENT prints one; those are a retype candidate a re-extraction should settle.
 4. **13.0 authorised RED only for P1 to P15 while the gate failed corpora on P16 and P17.** Raised in review
    and corrected at v7.4: the range now reads P1 to P17. Worth recording because the gate was enforcing a
    condition the standard did not authorise, which is the same class of defect as a corpus declaring a gate it
    did not compute.
-5. **P2 and 4.4 versus 4.2, 4.5 and 13.2.** The invariant reads globally in 4.4 and P2, and the equivalent test
-   is scoped to the residue window in 4.2, 4.5 and 13.2. v7.1 resolved the case in front of it by adding a type
-   rather than by settling which reading governs. That ambiguity is still in the document.
+5. **P2 and 4.4 versus 4.2, 4.5 and 13.2. CLOSED at v7.7, section 4.7.** The invariant read globally in 4.4 and
+   P2 and the equivalent test was scoped to the residue window in 4.2, 4.5 and 13.2, and v7.1 had resolved the
+   case in front of it by adding a type rather than by settling which reading governs. This was the oldest open
+   item in the document.
+   **They are two tests, and they read different things.** 4.4 reads the amount the corpus RECORDED, so it is
+   global: there is no page to look at and no window to need, and the gate enforces it as P2. 4.5 reads the
+   money the page PRINTED, so it is windowed and band-scoped, and only the extractor can run it. The window is
+   not a weakening of 4.4: ladder rungs 3 and 4 have already typed the totals block and the payment advice, and
+   those rows record no amount, so 4.4 never fires on them and 4.5 never looks at them.
+   **The row neither reaches** prints money, is typed NARRATIVE and records nothing. `pswp_money_screen.py`
+   now finds it from `line_text` with no PDF, and `reports/Money_Screen_v1.md` has the run.
+   **The result is the part worth recording.** 108 UNACCOUNTED rows over 24 live corpora, 89 of them the
+   Glascott schedule rows already restated at v7.1 and reading 0 in the `_v7` corpus, which is how the screen
+   was shown to track a restatement it knew nothing about. **19 open on current corpora and not one a dropped
+   line item**: 10 an energy retailer's summary block where the charge values print one row below their labels
+   and a $1.2m account balance is not captured at all, 6 a unit price printed with no extended amount, 3 a
+   repeat copy typed NARRATIVE instead of DUPLICATE_COPY. The 6 are **correct captures** and an **F2** finding
+   worth $5,915.85 about the invoices, which is worth more than the defect would have been.
+   **What is still out of reach is named, not glossed.** The screen reads text, not bands, so it cannot tell
+   the amount column from the unit-price column, which is exactly why those 6 read UNACCOUNTED.
 
 ---
 
@@ -160,20 +187,40 @@ that class before it is trusted, and a claim of testing should name the cases te
 
 ## 7. State at this assessment
 
-- Prompt at **v7.6**, 1,027 lines. Annexes A, B, C, C1, D, D1, D2, D3, D4 in that order; 13.0 to 13.2 in order.
-- Gate at **v10** of `pswp_corpus_gate.py`: P1 to P17 scoped on the evidence each check reads, plus the F7, F8,
-  `gst_basis` and mixed-supply AMBER limbs and the description-layer qualifier.
+- Prompt at **v7.7**, 1,146 lines. Annexes A, B, C, C1, D, D1, D2, D3, D4, D5 in that order; 4.0 to 4.7 and
+  13.0 to 13.2 in order.
+- Gate at **v11** of `pswp_corpus_gate.py`: P1 to P17 scoped on the evidence each check reads, plus the F7, F8,
+  `gst_basis` and mixed-supply AMBER limbs and **two qualifiers that never change the verdict**, the
+  description layer and `[ARCHIVAL]`.
+- Second screen at **v1** of `pswp_money_screen.py`, which runs the half of 4.5 the gate cannot reach
+  (4.7). `reports/Money_Screen_v1.md`.
 - **35 corpora: 7 GREEN, 21 AMBER, 7 RED**, swept 18-Sep-2026 and reconciled against the files. An earlier
   draft of this section published 37 corpora and 6 GREEN, 20 AMBER, 11 RED. That was written before the
   description-layer demotion was withdrawn and was never re-swept; it is wrong on the denominator and on all
   three counts, and is corrected here rather than left to stand.
-  **The 7 RED are not 7 defects.** Four are historical snapshots kept deliberately as the audit trail and gated
-  as though live: `binder1666_as_received` (P1, P11, 58 P16, 69 P17), `mixed_1_v5` and `mixed_new_26_27_v5`
-  (P1 throughout, header-only v5 captures), and `playforce_vinton_glascott_20260916_as_received` (5 P1, 5 P15).
-  Two are the held Glascott batch in its live states, `_v6` on 104 P2 and `_v7` on 61 P11, 61 P12 and 54 P17,
-  which is the re-extraction this assessment already books. One is `trees_new_as_supplied` on 2 P15 evidence-stem
-  collisions that section 12's tie-break would clear. **The snapshots should carry `manifest.archival: true` and
-  be reported separately**, or the count permanently overstates by four.
+- **Split by `manifest.archival`, landed at v7.7 (rule 11.12): 24 live and 11 archival.**
+
+  | | Corpora | GREEN | AMBER | RED |
+  |---|---|---|---|---|
+  | **Live** | 24 | 3 | 19 | **2** |
+  | **Archival** | 11 | 4 | 2 | 5 |
+  | Total | 35 | 7 | 21 | 7 |
+
+  **This section's own earlier recommendation said four snapshots. There are 11, and 5 of the 7 RED were among
+  them, not four.** Marking them was worth doing for that reason alone: the outstanding-defect count was
+  overstated by five, and the count that was meant to fix it was itself wrong.
+  **The 2 live RED are one batch:** `playforce_vinton_glascott_20260916` at `_v6` (104 P2, superseded) and
+  `_v7` (61 P11, 61 P12, 54 P17). That is the re-extraction this assessment already books, and nothing else is
+  outstanding. The 11 archival keep their verdicts, because a verdict on a snapshot is a true statement about
+  what arrived; the flag stops it being read as work.
+- **Every P15 evidence-stem collision in the repository is in an archival snapshot, and none is being fixed.**
+  5 collision groups over 18 documents in `playforce_vinton_glascott_20260916_as_received`, 2 groups over 4 in
+  `trees_new_as_supplied`. No live corpus has one. The only live collision, in `ksadasd_v6`, is a
+  `duplicate_of` pair and is correctly exempt under rule 11.4.
+  **Section 12's tie-break was the published remedy and it is the wrong remedy here.** A snapshot is the record
+  of what was received; applying a remedy to it would falsify the record it exists to be, and rule 12 forbids
+  re-capturing an audited document in any case. v7.7 says so in section 12 explicitly, because the remedy being
+  available in the abstract is how it would have been applied.
 - `binder1666` is **captured**, into register **v25**. Page 48 arrived, Woodmans 6431345 was restated under
   R1666-2, and the batch cleared to AMBER. The binder itself then arrived, so the masked-row screen ran clean
   over all 141 pages and the shingle check returned PASS on 987 shingles with 0 unverifiable: description layer

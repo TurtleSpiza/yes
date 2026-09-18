@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
-"""pswp_corpus_gate.py, v10 (18-Sep-2026)
+"""pswp_corpus_gate.py, v11 (18-Sep-2026)
 
 Machine gate for a PSWP extraction corpus produced under PSWP_Extraction_Prompt_v7.md (v7.6).
 Runs every pathology in section 13.1 that is computable from the corpus alone (P1 to P17), applies
 the 13.0 gate truth table, and prints the verdict. Read-only: it never edits a corpus.
 
 Usage:  python3 pswp_corpus_gate.py corpus_<batch_id>.json [--json]
-Exit:   0 GREEN, 1 AMBER, 2 RED, 3 unreadable corpus.
+Exit:   0 GREEN, 1 AMBER, 2 RED, 3 unreadable corpus. An ARCHIVAL corpus keeps its exit code:
+        it is never a build input, so its verdict is a fact about the past, not a permission.
 
 It does not, and cannot, check what is not in the corpus: verbatim fidelity against the
 PDF, whether a band matches the printed page, or whether a NARRATIVE row outside the
@@ -380,7 +381,21 @@ def check(path):
         amber.append(f"partial run, resume at {man['resume_point']}")
 
     gate = "RED" if P else ("AMBER" if amber else "GREEN")
-    return {"gate": gate, "description_layer": desc[0], "description_detail": desc[1],
+
+    # NEW v11 (prompt v7.7). manifest.archival marks a corpus RETAINED AS THE RECORD OF WHAT WAS
+    # RECEIVED: an _as_received, _as_supplied or _v5 snapshot kept beside the live corpus so a
+    # later restatement can be read against what it restated. It is never a build input and is
+    # never edited, so the tie-break in section 12 and every other remedy are unavailable to it
+    # BY DESIGN: applying one would falsify the record it exists to be.
+    #
+    # The verdict is NOT softened. An archival corpus that computes RED still prints RED and
+    # still exits 2, because the verdict is a true statement about the capture that was received.
+    # What the flag changes is that the verdict is no longer READ as work outstanding. Before it
+    # existed, 5 of the 7 RED corpora here were snapshots, and every report of the RED count
+    # overstated the outstanding defects by five.
+    archival = bool(man.get("archival"))
+    return {"gate": gate, "archival": archival,
+            "description_layer": desc[0], "description_detail": desc[1],
             "declared_gate": man.get("gate"), "prompt_version": ver, "pathologies": P,
             "amber_reasons": sorted(set(amber)), "documents": len(docs),
             "lines": sum(len(x.get("lines", [])) for x in docs)}
@@ -397,7 +412,11 @@ if __name__ == "__main__":
         print(json.dumps(r, indent=1))
     else:
         q = "" if r["description_layer"] == "VERIFIED" else f"  (description layer {r['description_layer']})"
-        print(f"Gate: {r['gate']}{q}")
+        a = "  [ARCHIVAL]" if r["archival"] else ""
+        print(f"Gate: {r['gate']}{a}{q}")
+        if r["archival"]:
+            print("  ARCHIVAL: retained as the record of what was received. Never a build input,"
+                  " never edited, and not outstanding work whatever this verdict says")
         if r["declared_gate"] and r["declared_gate"] != r["gate"]:
             print(f"  declared {r['declared_gate']}, computed {r['gate']}, the computed gate stands")
         print(f"  {r['documents']} documents, {r['lines']} line records, checks applied for prompt {r['prompt_version']}")

@@ -1,5 +1,6 @@
 {
   "manifest": {
+    "archival": true,
     "batch_id": "playforce_vinton_glascott_20260916",
     "source_files": [
       {

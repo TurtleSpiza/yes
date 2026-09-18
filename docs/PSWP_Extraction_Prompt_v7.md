@@ -1,11 +1,16 @@
-# PSWP Invoice Extraction Prompt v7.6 (18-Sep-2026; the duplicate_of standing rule and the description layer as a separate axis)
+# PSWP Invoice Extraction Prompt v7.7 (18-Sep-2026; what 4.4 and 4.5 each test, and archival corpora)
 
 Supersedes v6 (11-Sep-2026), which superseded v5, v4 and v3.1. For extraction of supplier-invoice binders to a structured JSON corpus for the PS/WP and Parks Branch Transaction Registers, Logan City Council, Parks Branch.
 
 **Version sequence.** v7 as supplied is dated 18-Sep-2026 and the v7.1 amendments were applied on 17-Sep-2026,
 which reads as a point release predating its parent. It is a timezone artefact and not a reordering: the
-sequence is v7, v7.1, v7.2, v7.3, v7.4, and Annexes D, D1 and D2 record them in that order. Where two versions
-share a date, the annexe order governs.
+sequence is v7, v7.1, v7.2, v7.3, v7.4, v7.5, v7.6, v7.7, and Annexes D, D1, D2, D3, D4 and D5 record them in
+that order. Where two versions share a date, the annexe order governs.
+
+**What v7.7 changes.** Two items, both carried open longer than anything else here and neither forced by a
+failure. **4.7** settles what 4.4 and 4.5 each test, which had been ambiguous since v7, and names the row
+neither reaches. **11.12** gives a retained snapshot the `archival` flag, so a corpus kept as the record of what
+arrived stops being counted as work outstanding. Annexe D5 has both, and the numbers.
 
 **v6 is kept here in full and amended, not rewritten, and every v6 section number, pathology code and cross-reference still means what it meant.** v4 broke things by rewriting v3.1; v5 said so; v6 said so again. New material lands as new sub-sections inside the existing numbering (4.0, 4.6, 5.5, 5.6, 6.0, 9.1, 13.0, 14.7, 15.1, Annexe C). Nothing in the capture or verification standard is relaxed.
 
@@ -34,6 +39,7 @@ Per document, in this order. A step you skip is a pathology, and the code is nam
 | 6 | Classify every row on the ladder in 4.0, amount-band overlap deciding PRICED (4.0, 4.2) | P2, P13 |
 | 7 | Read the three header figures by label precedence, record `header_sources`, test that they add up (5.0, 5.4) | P5, P10 |
 | 8 | Run the residue test and emit `residue_rows`, empty list included (4.5) | P12 |
+| 8b | **NEW v7.7.** Screen your own NARRATIVE rows for printed money the capture did not record, and work every UNACCOUNTED row (4.7) | No code. 4.5 is band-scoped, so this is the half of it no gate can reach |
 | 9 | Tie captured PRICED lines to the printed subtotal at 1c; if it fails, run all four rungs and record each (6.0, section 6) | P1, P12 |
 | 10 | Sign check on credit notes; stem built and checked unique (5.0, section 12) | P14, P15 |
 | 11 | Emit the document, then move on. Never hold the binder open to the end (section 7) | AMBER at best |
@@ -260,6 +266,69 @@ those are the two types v7.1 and v7.3 turn on. An extractor following an algorit
 neither, so the 11.4 standing rule, which reads `duplicate_of` off rows typed at rung 2, would be unreachable
 through this document's own fast path.
 
+### 4.7 NEW v7.7. What 4.4 and 4.5 each test, and the row neither of them reaches
+
+This has been the oldest open ambiguity in the prompt. 4.4 reads as a global assertion and 4.5 as a windowed
+one, and nothing said whether they are the same test at two scopes or two tests. **They are two tests, they
+read different things, and stating that is the whole resolution.**
+
+| | 4.4, the invariant | 4.5, the residue test |
+|---|---|---|
+| What it reads | the amount your corpus **RECORDED** | the money the page **PRINTED** |
+| Scope | **global.** Every row of every document | **windowed and band-scoped.** Rows between the item-table header and the totals block, carrying a money token that overlaps the amount band |
+| Who can run it | the gate, from the corpus alone. It is **P2** | only you, because only you have the page geometry |
+
+They do not conflict and neither is a weaker form of the other. 4.4 is global because a recorded amount is in
+your output, so there is no page to look at and no window to need. 4.5 is windowed because outside the window
+money legitimately prints: the totals block, the payment-advice slip, the remittance stub. Those rows are typed
+at ladder rungs 3 and 4 and record no amount, so 4.4 never fires on them and 4.5 never looks at them. The window
+is not a weakening of 4.4; it is the fact that rungs 3 and 4 have already done that part of the job.
+
+**The row neither reaches.** A row that PRINTS money, is typed NARRATIVE, and records a null amount. 4.4 cannot
+fire, because nothing was recorded. 4.5 does not look, if the row sits outside the window. The gate is blind by
+construction: the money is on the page and not in the corpus, so there is nothing for it to read. This is the
+row 13.2 has always meant by "a money row typed NARRATIVE **outside** the residue window", and until v7.7 the
+standard named the hole and left it open.
+
+**Closed, from the corpus's own `line_text`, by `pswp_money_screen.py`.** It lists every NARRATIVE row whose
+text carries a money token and classes each one, so the residue test now has a second limb that needs no PDF:
+
+- **EXEMPT**, by a named class: an ABN, a BSB, a phone number, a `Page m of n`, a postcode, a rate, payment
+  terms, an insurance or indemnity limit in the fine print. Each class is named in the output, so a reader
+  disagrees with the class rather than with a silent filter.
+- **PROSE_NOT_COLUMN_ALIGNED**: the token is preceded by a single space, so it is quoted in a sentence. A
+  printed line-item amount is preceded by the run of spaces that separates it from its description, or starts
+  the row. This is the one piece of geometry `line_text` still carries.
+- **ECHO_OF_A_RECORDED_AMOUNT**: the value already appears somewhere in the document. A repeated page typed
+  NARRATIVE instead of DUPLICATE_COPY at rung 2, a totals figure typed NARRATIVE instead of TOTALS at rung 3,
+  a header amount restated in the payment advice. Each is a **mistype** and none of them moves a dollar.
+- **MISTYPE_CANDIDATE**: the row reads like a totals or header label. Same class of defect, stated separately
+  because the fix is to retype it at the right rung.
+- **UNACCOUNTED**: the value appears nowhere else in the document. **This is the only class that can be a
+  dropped line item**, and it is the one to work.
+
+**What UNACCOUNTED is not, and you must check this before restating anything.** The screen reads text, not
+bands, so it cannot tell the amount column from the unit-price column. A supplier that prints a unit price with
+no quantity and no extended amount produces a row that is correctly NARRATIVE, correctly outside the subtotal,
+and reads UNACCOUNTED. Both such cases found on the first run were this: Vinton 19948 prints
+`LCC Fuel Levy - Diesel  $70.60` in the unit-price column with no extended amount, and Higgins 00014397 prints
+three September jobs the same way under an invoice described as July and August. In each the printed subtotal
+is exactly the sum of the priced rows without them, so the capture is right.
+
+**That is a finding about the DOCUMENT, not a defect in the capture**, and it is worth more than the defect
+would have been: a line item printed on a tax invoice and left out of its total is **F2**, and the analyst wants
+it. Record it, do not restate the row. Six such rows were found on the first run, $5,915.85 in all.
+
+**The four exemption classes below UNACCOUNTED were each found by tracing a row to the page**, and each is
+named in the output rather than filtered away, because a silent filter is how a screen stops being a check:
+
+| Class | What prints | Why NARRATIVE is correct |
+|---|---|---|
+| `ZERO_OR_UNIT_QTY` | `1.00   0.00   0.00` across the qty, unit-price and amount columns of a description continuation row | Typing it PRICED to satisfy rung 6 would be wrong, and no dropped line item is worth a dollar. 36 rows on `ksadasd` |
+| `RATE_EXPRESSION` | `5 visits / 55 trees @ $284.35 = $1,421.75` inside a wrapped description block (11.6) | The one PRICED row carries the invoice's one printed amount and the block breaks it down. Trees 36107's five components sum to $3,145.68, which is that row and the printed subtotal exactly |
+| `RATE_EXPRESSION_WRAPPED` | the same, where `pdftotext -layout` splits it so the `@` ends one row and `$37.35` is the next | Read the previous non-blank row, or the second half reads as a bare amount in a column |
+| `PROSE_NOT_COLUMN_ALIGNED` | a figure quoted in a sentence, preceded by one space | A printed line-item amount is preceded by the run of spaces separating it from its description, or starts the row |
+
 ---
 
 ## 5. Header amounts
@@ -428,7 +497,8 @@ Numbers are JSON numbers: unquoted, no `$`, no thousands separators, two decimal
     "runtime": "A | B",
     "extraction_tool": "<product and model version>",
     "extracted_utc": "<ISO 8601>",
-    "prompt_version": "v7.6",                       // MANDATORY: the gate scopes its checks on this (13.2)
+    "prompt_version": "v7.7",                       // MANDATORY: the gate scopes its checks on this (13.2)
+    "archival": false,                              // true only on a retained snapshot; see rule 11.12
     "page_text_independent": true,                  // MANDATORY: see 10.1
     "page_text_basis": "<where page_text came from>",
     "gate": "GREEN | AMBER | RED",
@@ -591,11 +661,31 @@ them, each discovered by a correct corpus being failed. State it once: a check t
 "did this parse" does not ask it of a row or a document carrying `duplicate_of`. P7 is the exception and is
 meant to be, because it exists to find a duplicate that was NOT marked.
 
+**NEW v7.7, rule 11.12: an archival corpus is the record of what was received, and is never repaired.** A batch
+that has been restated keeps two or more corpora: the snapshot of what arrived (`_as_received`, `_as_supplied`
+or `_v5`) and the live corpus the build reads. The snapshot exists so a restatement can be read against what it
+restated, and rule 12 forbids re-capturing an audited document, so **every remedy in this standard is
+unavailable to a snapshot by design**, section 12's stem tie-break included. Applying one would falsify the
+record it exists to be.
+
+Mark it `"archival": true` in the manifest. The gate then prints `[ARCHIVAL]` beside the verdict and **keeps
+the verdict**, because the verdict is a true statement about the capture that arrived; what the flag changes is
+that the verdict stops being read as work outstanding. It also stops being a build input, and the build chain
+asserts it. Until the flag existed, 11 of the 35 corpora in the branch repository were snapshots and 5 of the 7
+RED were among them, so every report of the RED count overstated the outstanding defects by five. A corpus with
+**no live sibling is not a snapshot** whatever its filename says: it is the batch.
+
 ## 12. Evidence stem rule
 
 `Business Name, What it was For, Date, Amount`, 40 characters maximum, no extension. Amount is the invoice incl-GST total, two decimals, no dollar sign, **negative for a credit note**. Degrade in this order and never trim the amount: full date `D-Mon-YYYY`, then `Mon-YYYY`, then a shorter purpose, then a shorter business name.
 
 **Stems must be unique across the batch.** Two invoices from one supplier on one day for one amount will collide; break the tie by appending the last three digits of the invoice number to the purpose, then re-run the ladder. **NEW v7: uniqueness is asserted, not assumed.** Set `manifest.corpus_checks.stems_unique`; a collision left in the corpus is **P15**.
+
+**NEW v7.7. The tie-break is unavailable to an archival corpus (11.12).** Every P15 in the branch repository is
+in a snapshot: 5 collision groups over 18 documents in `playforce_vinton_glascott_20260916_as_received` and 2
+groups over 4 documents in `trees_new_as_supplied`, and none in any live corpus. Do not break those ties. The
+snapshot records that the extraction which arrived produced colliding stems, and that is what it is for. The
+live corpora are clean, so there is nothing to fix and the remedy is the flag, not the edit.
 
 ---
 
@@ -622,6 +712,14 @@ repository at once, including the section 16.4 conformance fixture, which left t
 reference so an extractor could no longer tell conformance from a defect, and it gave a corpus that ties to the
 cent the same word as one that stopped mid-binder. A GREEN that nothing can reach carries no more information
 than a RED that fires on a non-failure.
+
+**NEW v7.7. `[ARCHIVAL]` is the second qualifier, and it also never changes the word.** A corpus carrying
+`manifest.archival` is a retained snapshot (11.12). Its verdict stands unaltered, because it is a true
+statement about what arrived, and the tag says the verdict is history and not work outstanding. Report the two
+populations separately or the count is wrong: on 18-Sep-2026 the branch repository held 35 corpora reading 7
+GREEN, 21 AMBER, 7 RED, and split by the flag that is **24 live** at 3 GREEN, 19 AMBER and 2 RED, both REDs the
+same Glascott batch, beside **11 archival** at 4 GREEN, 2 AMBER and 5 RED. The undivided figure overstated the
+outstanding defects by five.
 
 
 ### 13.1 Pathologies that force a gate
@@ -669,6 +767,7 @@ v6 lacks, so an extraction could dodge three checks by understating itself.
 | `bands` | v6 | P11 proper |
 | `header_sources` citing a 9.1 `line_no` | v7 | P17. The field is v6 but every v6 corpus writes `"row": 0` as a placeholder, so the convention and not the field is what P17 needs |
 | `doc_kind`, `evidence_stem`, `printed_gst` | v5 | P14, P15, P16 apply to **every** corpus |
+| `archival` | v7.7 | no check is scoped to it. It tags the report, never the verdict (11.12, 13.0) |
 
 P1's v7.2 amendment is not scoped either: a document that parsed nothing was a parse failure under v5 too,
 whatever the prompt said at the time.
@@ -680,6 +779,8 @@ whatever the prompt said at the time.
 Run it before you write the report if your runtime can (runtime A, one command, `python3 pswp_corpus_gate.py corpus_<batch_id>.json`). In runtime B you cannot, so write the corpus as though it will be run, because it will be: the build session runs it on arrival and returns anything RED unbuilt.
 
 What it cannot see, and what therefore stays yours: verbatim fidelity against the page, whether a band matches the printed column, and a money row typed NARRATIVE **outside** the residue window. Those three are why sections 4, 5 and 10 are written the way they are.
+
+**NEW v7.7. The third of those is now half-closed and the other half is named.** `pswp_money_screen.py` finds a NARRATIVE row printing money anywhere in the document, from `line_text` alone, and classes it (4.7). What stays out of reach is the column it prints in: the screen cannot tell an amount from a unit price, so its UNACCOUNTED class holds both a dropped line item and a correctly uncaptured unit price, and separating them needs the page. Run the screen on every corpus; work the UNACCOUNTED rows; expect some of them to be **F2** findings about the invoice rather than defects in your capture.
 
 ## 14. Findings to raise, not bury
 
@@ -1025,3 +1126,21 @@ last, after the section it names reads the new way.
 
 **An annexe is filed in ascending order, and the newest is written, not prepended.** v7.6 corrected C1 filing
 before C and introduced D3 before D2 in the same pass. The order is A, B, C, C1, D, D1, D2, D3, D4.
+
+---
+
+## Annexe D5. What changed from v7.6 (v7.7, 18-Sep-2026)
+
+Not a corpus this time, and not a review either. Two items that had been carried as open for longer than
+anything else in this document, worked because they were the oldest debt and not because something failed.
+
+| Section | Amendment | The run that produced it |
+|---|---|---|
+| **4.7, new** | **4.4 and 4.5 are two tests, not one test at two scopes.** 4.4 is global over the amount your corpus RECORDED and the gate enforces it as P2. 4.5 is windowed and band-scoped over the money the page PRINTED, and only the extractor can run it. The window is not a weakening of 4.4: ladder rungs 3 and 4 have already typed the rows outside it. The row neither reaches is one that prints money, is typed NARRATIVE and records nothing, and `pswp_money_screen.py` now finds it from `line_text` with no PDF. | The ambiguity was carried open from v7 and no corpus had forced it, so it was worked directly. The screen was then run over all 24 live corpora and the hole is populated. The first cut read 156 UNACCOUNTED and four false-positive classes were found by tracing rows to the page and named rather than filtered silently, which took it to **108, of which 89 are the Glascott schedule rows already restated at v7.1 and reading 0 in the `_v7` corpus**: that the screen tracks a restatement it knew nothing about is what showed it tracks the real thing. **19 are open on current corpora**, every one traced: 10 an energy retailer's summary block where the charge values print one row below their labels, 6 a unit price printed with no extended amount, 3 a repeat copy typed NARRATIVE instead of DUPLICATE_COPY. Not one is a dropped line item. |
+| **11.12, new** | **An archival corpus is the record of what was received and is never repaired**, so every remedy here is unavailable to it by design. `manifest.archival: true`; the gate prints `[ARCHIVAL]`, keeps the verdict, and the build chain refuses it as an input. | The assessment had recommended this and had itself got the number wrong, saying four snapshots when there are 11. Of the 7 RED, 5 were snapshots, so the RED count was reporting five defects that were not outstanding work. Split by the flag: 24 live at 3 GREEN, 19 AMBER, 2 RED, both the same Glascott batch. |
+| **12** | The stem tie-break is unavailable to an archival corpus. | Every P15 in the repository is in a snapshot, 5 groups over 18 documents and 2 over 4. No live corpus has one. The remedy was the flag, not the edit, and breaking those ties would have falsified the record. |
+| **13.0, 13.2, 9** | `[ARCHIVAL]` as the second qualifier beside the gate word; the manifest field; the scoping table row saying no check reads it. | Consistency with the description layer, settled at v7.6: a qualifier is reported, never folded into the verdict. |
+
+**The process rule Annexe D4 states was followed here and is worth restating.** No version number changed until
+the sections it names had changed. 4.7, 11.12, 12, 13.0, 13.2 and 9 were written, the screen and the gate were
+run over every corpus in the repository, and the title was edited last.
