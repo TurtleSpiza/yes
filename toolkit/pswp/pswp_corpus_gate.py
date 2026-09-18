@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""pswp_corpus_gate.py, v11 (18-Sep-2026)
+"""pswp_corpus_gate.py, v12 (18-Sep-2026)
 
-Machine gate for a PSWP extraction corpus produced under PSWP_Extraction_Prompt_v7.md (v7.6).
+Machine gate for a PSWP extraction corpus produced under PSWP_Extraction_Prompt_v7.md (v7.8).
 Runs every pathology in section 13.1 that is computable from the corpus alone (P1 to P17), applies
 the 13.0 gate truth table, and prints the verdict. Read-only: it never edits a corpus.
 
@@ -231,6 +231,13 @@ def check(path):
         by_row, f8 = {}, set()
         for field, loc in ((doc.get("header_sources") or {}) if applies("P17", ver) else {}).items():
             if not isinstance(loc, dict):
+                continue
+            # NEW v12 (prompt v7.8). A DERIVED figure has no printed row, so it takes the shape
+            # {"basis": "derived", "row": null} and is exempt from BOTH limbs, not just the value
+            # test. From v7.2 to v7.7 the exemption covered the value test only, so an extractor
+            # with a derived GST had no defined value to write and whatever it invented could fail
+            # the row-exists limb. It is also not citation drift, so it is out of F8.
+            if loc.get("basis") == "derived" and loc.get("row") is None:
                 continue
             key = (loc.get("page"), loc.get("row"))
             by_row.setdefault(key, []).append(field)

@@ -8,8 +8,12 @@ edited by this run.
 
 ## 1. Verdict
 
-**0 HIGH, 8 MEDIUM, 3 LOW. Fix #25 first: two annexes written the same day state different numbers for the
-figure that justifies rule 11.12, and the gate says both are wrong.**
+**0 HIGH, 8 MEDIUM, 3 LOW as found on 18-Sep-2026 against v7.7.**
+
+**ADDENDUM, same day, against v7.8: 10 of the 11 are CLOSED, 1 is WITHDRAWN as wrong, and 2 narrower findings
+replace it. `prompt_audit.py` re-run against v7.8 returns 0 HIGH, 0 MEDIUM, 0 LOW, and both regression fixtures
+still fail as designed, so the clean run is not a broken checker.** The Status column below is the position
+after v7.8. The addendum at section 12 holds what changed and, in full, the finding I got wrong.
 
 `toolkit/pswp/prompt_audit.py` now runs the mechanical classes and exits non-zero on any HIGH. It found the
 5 MEDIUM and 2 LOW below without a human reading a line. Three findings needed judgement and are hand-raised.
@@ -23,17 +27,17 @@ amendment announced in metadata and never made in the body, is now detected mech
 
 | # | Class | Sev | Raised at | Finding | Evidence | Why it matters | Proposed fix | Status |
 |---|---|---|---|---|---|---|---|---|
-| 11 | E | MEDIUM | v7.2 | `header_sources` for a **derived** figure is undefined. P17 exempts a derived figure from the value test and its second limb still fails a citation to a row carrying no line record | `PSWP_Extraction_Prompt_v7.md:799`: "A derived figure (`gst_basis` or `subtotal_basis` saying so) is exempt from the value test" against the same row's "or cites a row that carries no line record" | An extractor with a derived GST has no defined value for `header_sources`, and whatever it writes may fail P17's second limb | Add to 9: for a derived figure `header_sources` takes `{"basis": "derived", "row": null}`, and exempt that shape from P17's second limb | **OPEN**, carried |
-| 16 | D | LOW | v7.6 | 4.6's final assert uses float `abs()` where 6.0 mandates `Decimal` with `ROUND_HALF_UP` | `PSWP_Extraction_Prompt_v7.md:259`: "assert abs(sum(priced) - printed_subtotal) <= 0.01   # 6.0, else run the ladder" | An extractor copying the fast path literally ties in binary floating point, against the one numeric rule the project states everywhere | `assert (D(sum(priced)) - D(printed_subtotal)).copy_abs() <= D("0.01")` | **OPEN**, carried |
-| 25 | F, I | MEDIUM | v7.7 | Annexe D2's addendum says **four** of the 7 RED are archival. Annexe D5, 13.0's split and the assessment all say **five**. The gate says five | `PSWP_Extraction_Prompt_v7.md:1086`: "a sweep on 18-Sep-2026 over the 35 corpora then held read 7 GREEN, 21 AMBER, 7 RED, and **four of the 7 RED are archival snapshots gated as though live**" against `:1148` and `:706` | Both are printed as current, the reader cannot tell which, and this is the figure that justifies rule 11.12 existing at all | Restate D2's addendum to five and name the sweep it came from | **OPEN**, confirmed by recomputation |
-| 26 | I | MEDIUM | v7.7 | Assessment section 5 says F8 fired on **97 of 100** in `Binder1666`. The prompt's F8 row says **68 documents**. **Recomputed: 96** | `PSWP_Extraction_Prompt_Assessment.md:129`: "F8 fired on 97 of 100 documents in `Binder1666`" against `PSWP_Extraction_Prompt_v7.md:798`: "On `Binder1666`, 68 documents carried at least one of these" | Two figures printed as current and **neither is right**. The gate returns 96 AMBER reasons naming F8 on that corpus | Set both to 96, with the sweep date, and say the 68 was an earlier limb set | **OPEN**, and both published figures are wrong |
-| 27 | I | MEDIUM | v7.7 | The ABN verification is quoted against `reports/ABN_Verification_v24.xlsx`, 32 ABNs, while the live corpora now carry **33** | Assessment section 7 "32 distinct ABNs, **every one Active and GST registered**" against a recount over `batches/*/corpus_*.json` excluding archival: 33 | **One supplier has never been verified against the ABR**: `88 105 899 689`, Woodman Beenleigh Pty Ltd trading as Woodmans Mitre 10 Beenleigh, present only in `binder1666`, which entered at register v25 | Re-run `abn_bulk_verify.py` at v25 and requote. Pass the transaction-date column this time, so the as-at tests run | **OPEN**, and now has a named subject |
-| 28 | C | LOW | v7.6 | Nine versions share 18-Sep-2026 with no sequence, and v7 is dated 18-Sep against v7.1 at 17-Sep | `PSWP_Extraction_Prompt_v7.md:6`: "v7 as supplied is dated 18-Sep-2026 and the v7.1 amendments were applied on 17-Sep-2026" | The history cannot be ordered by date, so the annexe order is the only sequence and a mechanical check must trust it | Add a monotonic `seq` to each version-table row, or timestamp to the minute | **OPEN**, carried. The document does state that the annexe order governs, which is a partial mitigation |
-| 29 | F | LOW | v7.7 | Assessment section 4's heading reads "both closed at v7.4" while 4.2 was corrected at v7.6 | `PSWP_Extraction_Prompt_Assessment.md:73`: "## 4. Assessment: two structural weaknesses, both closed at v7.4" against `:112`: "**v7.4 made that demote the gate and v7.6 withdrew it.**" | A heading contradicting its own body's closure version | "both closed at v7.4, 4.2 corrected at v7.6" | **OPEN**, carried |
-| 30 | A | MEDIUM | v7.7 | **NEW.** v7.2 has a version-table row and no annexe naming it. Annexe D covers it and its heading names no version | `PSWP_Extraction_Prompt_v7.md:1046`: "## Annexe D. What changed from v7, and the run that produced it" | v7.2 is the largest single amendment in the standard's history, P16, P17, F8 and `gst_basis`, and it cannot be mapped to a release by any mechanical check | Retitle to "Annexe D. What changed from v7.1 (v7.2, 18-Sep-2026)" | **OPEN** |
-| 31 | L | MEDIUM | v7.7 | **NEW.** The **description layer** qualifier has no row in 13.2's scoping table. `archival` has one | `PSWP_Extraction_Prompt_v7.md:754` onward: the table carries "\| `archival` \| v7.7 \| no check is scoped to it \|" and nothing for the description layer | The qualifier discipline's whole content is that a qualifier gates nothing. With no row, that cannot be shown for the qualifier whose first version **did** gate something and cost GREEN on 36 of 37 corpora | Add "\| `page_text_independent`, `page_text_basis` \| v7.4 \| no check is scoped to them. They set the description-layer qualifier (10.1, 13.0) \|" | **OPEN** |
-| 32 | I | MEDIUM | v7.7 | **NEW.** Two published gate compositions lack an attribute Class I now requires | `PSWP_Extraction_Prompt_v7.md:1140` (Annexe D5's 11.12 row) has no sweep date or denominator in context; `PSWP_Extraction_Prompt_Assessment.md:96` gives "7 GREEN, 21 AMBER, 7 RED" with no live/archival split | Three figures have already been superseded here by a scope or denominator change rather than by a defect. A figure without all three attributes is superseded silently | Quote the sweep date, the denominator and the split beside every composition | **OPEN** |
-| 33 | E, H | MEDIUM | v7.7 | **NEW, and this one is mine.** `manifest.archival` is declared in section 9 and rule 11.12, and the **money screen does not read it**. Only the gate does | `toolkit/pswp/pswp_money_screen.py` has no occurrence of `archival`; the sweeps in this session filtered archival corpora in the caller, not in the tool | A reviewer running the screen straight over `batches/` screens 11 snapshots as though live, which is the exact defect rule 11.12 was written to stop, one tool later | Have the screen read `manifest.archival` and label the corpus, as the gate does | **OPEN** |
+| 11 | E | MEDIUM | v7.2 | `header_sources` for a **derived** figure is undefined. P17 exempts a derived figure from the value test and its second limb still fails a citation to a row carrying no line record | `PSWP_Extraction_Prompt_v7.md:799`: "A derived figure (`gst_basis` or `subtotal_basis` saying so) is exempt from the value test" against the same row's "or cites a row that carries no line record" | An extractor with a derived GST has no defined value for `header_sources`, and whatever it writes may fail P17's second limb | Add to 9: for a derived figure `header_sources` takes `{"basis": "derived", "row": null}`, and exempt that shape from P17's second limb | **CLOSED at v7.8** |
+| 16 | D | LOW | v7.6 | 4.6's final assert uses float `abs()` where 6.0 mandates `Decimal` with `ROUND_HALF_UP` | `PSWP_Extraction_Prompt_v7.md:259`: "assert abs(sum(priced) - printed_subtotal) <= 0.01   # 6.0, else run the ladder" | An extractor copying the fast path literally ties in binary floating point, against the one numeric rule the project states everywhere | `assert (D(sum(priced)) - D(printed_subtotal)).copy_abs() <= D("0.01")` | **CLOSED at v7.8** |
+| 25 | F, I | MEDIUM | v7.7 | Annexe D2's addendum says **four** of the 7 RED are archival. Annexe D5, 13.0's split and the assessment all say **five**. The gate says five | `PSWP_Extraction_Prompt_v7.md:1086`: "a sweep on 18-Sep-2026 over the 35 corpora then held read 7 GREEN, 21 AMBER, 7 RED, and **four of the 7 RED are archival snapshots gated as though live**" against `:1148` and `:706` | Both are printed as current, the reader cannot tell which, and this is the figure that justifies rule 11.12 existing at all | Restate D2's addendum to five and name the sweep it came from | **CLOSED at v7.8**, five |
+| 26 | I | MEDIUM | v7.7 | Assessment section 5 says F8 fired on **97 of 100** in `Binder1666`. The prompt's F8 row says **68 documents**. **Recomputed: 96** | `PSWP_Extraction_Prompt_Assessment.md:129`: "F8 fired on 97 of 100 documents in `Binder1666`" against `PSWP_Extraction_Prompt_v7.md:798`: "On `Binder1666`, 68 documents carried at least one of these" | Two figures printed as current and **neither is right**. The gate returns 96 AMBER reasons naming F8 on that corpus | Set both to 96, with the sweep date, and say the 68 was an earlier limb set | **CLOSED at v7.8**, 96 |
+| 27 | I | MEDIUM | v7.7 | The ABN verification is quoted against `reports/ABN_Verification_v24.xlsx`, 32 ABNs, while the live corpora now carry **33** | Assessment section 7 "32 distinct ABNs, **every one Active and GST registered**" against a recount over `batches/*/corpus_*.json` excluding archival: 33 | **One supplier has never been verified against the ABR**: `88 105 899 689`, Woodman Beenleigh Pty Ltd trading as Woodmans Mitre 10 Beenleigh, present only in `binder1666`, which entered at register v25 | Re-run `abn_bulk_verify.py` at v25 and requote. Pass the transaction-date column this time, so the as-at tests run | **WITHDRAWN**, wrong in both halves. See the addendum |
+| 28 | C | LOW | v7.6 | Nine versions share 18-Sep-2026 with no sequence, and v7 is dated 18-Sep against v7.1 at 17-Sep | `PSWP_Extraction_Prompt_v7.md:6`: "v7 as supplied is dated 18-Sep-2026 and the v7.1 amendments were applied on 17-Sep-2026" | The history cannot be ordered by date, so the annexe order is the only sequence and a mechanical check must trust it | Add a monotonic `seq` to each version-table row, or timestamp to the minute | **CLOSED at v7.8**, an explicit seq table |
+| 29 | F | LOW | v7.7 | Assessment section 4's heading reads "both closed at v7.4" while 4.2 was corrected at v7.6 | `PSWP_Extraction_Prompt_Assessment.md:73`: "## 4. Assessment: two structural weaknesses, both closed at v7.4" against `:112`: "**v7.4 made that demote the gate and v7.6 withdrew it.**" | A heading contradicting its own body's closure version | "both closed at v7.4, 4.2 corrected at v7.6" | **CLOSED at v7.8** |
+| 30 | A | MEDIUM | v7.7 | **NEW.** v7.2 has a version-table row and no annexe naming it. Annexe D covers it and its heading names no version | `PSWP_Extraction_Prompt_v7.md:1046`: "## Annexe D. What changed from v7, and the run that produced it" | v7.2 is the largest single amendment in the standard's history, P16, P17, F8 and `gst_basis`, and it cannot be mapped to a release by any mechanical check | Retitle to "Annexe D. What changed from v7.1 (v7.2, 18-Sep-2026)" | **CLOSED at v7.8** |
+| 31 | L | MEDIUM | v7.7 | **NEW.** The **description layer** qualifier has no row in 13.2's scoping table. `archival` has one | `PSWP_Extraction_Prompt_v7.md:754` onward: the table carries "\| `archival` \| v7.7 \| no check is scoped to it \|" and nothing for the description layer | The qualifier discipline's whole content is that a qualifier gates nothing. With no row, that cannot be shown for the qualifier whose first version **did** gate something and cost GREEN on 36 of 37 corpora | Add "\| `page_text_independent`, `page_text_basis` \| v7.4 \| no check is scoped to them. They set the description-layer qualifier (10.1, 13.0) \|" | **CLOSED at v7.8** |
+| 32 | I | MEDIUM | v7.7 | **NEW.** Two published gate compositions lack an attribute Class I now requires | `PSWP_Extraction_Prompt_v7.md:1140` (Annexe D5's 11.12 row) has no sweep date or denominator in context; `PSWP_Extraction_Prompt_Assessment.md:96` gives "7 GREEN, 21 AMBER, 7 RED" with no live/archival split | Three figures have already been superseded here by a scope or denominator change rather than by a defect. A figure without all three attributes is superseded silently | Quote the sweep date, the denominator and the split beside every composition | **CLOSED at v7.8** |
+| 33 | E, H | MEDIUM | v7.7 | **NEW, and this one is mine.** `manifest.archival` is declared in section 9 and rule 11.12, and the **money screen does not read it**. Only the gate does | `toolkit/pswp/pswp_money_screen.py` has no occurrence of `archival`; the sweeps in this session filtered archival corpora in the caller, not in the tool | A reviewer running the screen straight over `batches/` screens 11 snapshots as though live, which is the exact defect rule 11.12 was written to stop, one tool later | Have the screen read `manifest.archival` and label the corpus, as the gate does | **CLOSED at v7.8** |
 | 10 | F | n/a | v1 of the audit | 5.4 tests at 2c and 6.0 ties at 1c with the reason unstated | `PSWP_Extraction_Prompt_v7.md:334`: "The 2c allowance exists for per-line GST rounding (11.10)" | The finding was wrong. The reason **is** stated, at 5.4 | none | **WITHDRAWN**, as audit prompt v2 already records |
 | 1 to 9, 12 to 14, 17 to 20, 22, 24 | A, C, D, E, F, I, J | n/a | v7.4 to v7.6 | 18 findings, every HIGH among them | Re-tested individually, see section 3 | | | **CLOSED at v7.7**, none regressed |
 
@@ -298,3 +302,49 @@ an audit that inflates is an audit that gets ignored.
 13. **On Monday:** fix #25 and #26, which are two wrong numbers in three places and take ten minutes; re-run
     `abn_bulk_verify.py` for #27 with the transaction-date column; add the two table rows for #30 and #31.
     Nothing here blocks a build.
+
+
+---
+
+## 12. Addendum, 18-Sep-2026, against v7.8
+
+**Closed by v7.8:** #11 (the derived `header_sources` shape, open four releases and never named in one), #16,
+#25, #26, #28, #29, #30, #31, #32. **Closed in the toolkit:** #33, the money screen now reads
+`manifest.archival`. Rule 11.12 already said what a snapshot is; one tool had not been told, which is not a
+drafting problem.
+
+**#27 is WITHDRAWN. It was wrong in both halves, and it was published.**
+
+It said the live corpora carry 33 supplier ABNs against 32 in `ABN_Verification_v24.xlsx`, and named
+88 105 899 689, Woodman Beenleigh Pty Ltd, as never verified.
+
+1. **The v24 report does carry that ABN.** I asserted it did not **without opening the file**. Its `Results`
+   sheet holds 32 ABNs and that one is among them.
+2. **The live corpora carry 32 real ABNs.** The 33rd value was an **empty string**: one RST Systems document in
+   the held Glascott batch records `"supplier_abn": ""`, and my recount treated presence as shape.
+
+Found by building the input for the v25 re-run, which returned 32 where the finding predicted 33.
+
+**This is Class I turned on the auditor**, and it is the same defect the audit prompt's §7.2 names: a declared
+figure repeated without recomputing it. I recomputed the corpus side and not the report side.
+
+**What survived is now closed.** The verification has been re-run at register v25 **with the transaction date
+supplied**: 383 transaction rows over 32 ABNs, every row VALID, so `ABN_NOT_ACTIVE_AT_DATE` and
+`GST_NOT_REGISTERED_AT_DATE` ran for the first time. `reports/ABN_Verification_v25.xlsx`.
+
+**Two new findings, both OPEN.**
+
+| # | Class | Sev | Finding | Why it matters | Proposed fix |
+|---|---|---|---|---|---|
+| 34 | E, G | MEDIUM | One Glascott document records `"supplier_abn": ""`. **An empty string is not an absent field**, and nothing in the standard or the gate distinguishes them | It produced a published wrong finding (#27) in a single recount. Any check reading a field for presence rather than shape has the same hole | Section 9: a field that is not read is `null`, never `""`. A gate limb under P4 or a corpus check: an empty-string value in any declared field |
+| 35 | I | MEDIUM | 28 of 61 Glascott documents are unsighted, so `playforce_vinton_glascott_20260916` cannot clear whatever else is done to it | It is the only batch blocking, and both live RED verdicts are it | Binder pages 1 to 81 and page 124 of `play force and vinton.pdf` |
+
+**Two more defects in the audit's own checks**, bringing the total to fourteen, both caught in this pass:
+
+- **The qualifier check searched all of 13.2 instead of its table rows**, so prose mentioning a qualifier
+  counted as a row. Found because `qualifier_no_scope_row.md`, a fixture built to fail, reported clean. "Has a
+  row" now means a line beginning with a pipe.
+- **The line count used `str.split("\n")`**, which returns one extra element on a file ending in a newline, so
+  the auditor reported 1,200 against `wc -l`'s 1,199. It would have replaced a count wrong by one with a count
+  wrong by one in the other direction, in the same release that corrected it. The auditor now counts the way
+  `wc -l` counts, which is the command a reader will run to check it.

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""pswp_money_screen.py, v1 (18-Sep-2026)
+"""pswp_money_screen.py, v2 (18-Sep-2026)
 
 The 4.4 invariant, run over PRINTED money rather than over recorded amounts.
 
@@ -21,6 +21,11 @@ Exit:   0 no unexplained candidates, 1 candidates found, 3 unreadable corpus.
 
 It reads text, not geometry, so it cannot say whether a token overlaps the amount band.
 A candidate is a row to look at, not a proven defect. Confirming one is section 4.0's job.
+
+NEW v2. It reads `manifest.archival` (rule 11.12) and labels the corpus. A snapshot is the record
+of what was received and is never repaired, so its candidates are history, not work outstanding.
+The gate had carried this since v11 and this script had not, so a reviewer running it straight over
+batches/ screened 11 snapshots as though live: the exact defect 11.12 exists to stop, one tool later.
 """
 import json, re, sys
 from decimal import Decimal
@@ -174,12 +179,18 @@ def main(argv):
     cand = [r for r in rows if r[3] in ("UNACCOUNTED", "MISTYPE_CANDIDATE")]
     if as_json:
         print(json.dumps({"batch_id": corpus.get("manifest", {}).get("batch_id"),
+                          "archival": bool(corpus.get("manifest", {}).get("archival")),
                           "rows": [dict(zip(("doc_ref", "page", "line_no", "class",
                                              "tokens", "text"), r)) for r in rows],
                           "candidates": len(cand)}, indent=1))
         return 1 if cand else 0
-    bid = corpus.get("manifest", {}).get("batch_id")
-    print(f"4.4 printed-money screen over NARRATIVE rows: {bid}")
+    man = corpus.get("manifest", {})
+    bid = man.get("batch_id")
+    tag = "  [ARCHIVAL]" if man.get("archival") else ""
+    print(f"4.4 printed-money screen over NARRATIVE rows: {bid}{tag}")
+    if man.get("archival"):
+        print("  ARCHIVAL: the record of what was received (11.12). These candidates are history, "
+              "not work outstanding, and the rows are never repaired")
     shown = rows if show_all else cand
     for ref, pg, ln, kl, toks, txt in shown:
         print(f"  {kl:<20} {ref} p{pg} row {ln}  {','.join(toks)}")

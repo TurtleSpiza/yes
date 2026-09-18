@@ -36,6 +36,7 @@ yet been wrong.
 | **v7.5** | 18-Sep-2026 | **P16 exempts a mixed supply** where the priced lines each print a GST amount summing to the printed GST. | Woodmans 6431345, page 48 of `Binder1666`: $268.00 ex, $22.80 GST, $290.80 inc over seven rows, one GST-free, so a tenth of the subtotal is $26.80 and P16 failed a correct invoice. 5.6 covered it in prose and nothing enforced it. **Predicted in review before the page arrived.** |
 | **v7.6** | 18-Sep-2026 | **A standing rule: every uniqueness and completeness check exempts `duplicate_of`** (11.4). **The description layer becomes a separate axis**: it qualifies the gate line rather than demoting it, so GREEN is reachable again. | Four checks had needed that exemption one at a time, P1 and P15 among them, each found by a correct corpus being failed. And demoting on the description layer took GREEN off all 35 corpora at once, including the conformance fixture, which left the 16.4 self-test with no passing reference and gave a clean corpus and a half-built one the same word. |
 | **v7.7** | 18-Sep-2026 | **4.7**: 4.4 and 4.5 are two tests, not one at two scopes. 4.4 is global over the amount RECORDED and is P2; 4.5 is windowed and band-scoped over the money PRINTED. The row neither reaches is closed by `pswp_money_screen.py`. **11.12**: `manifest.archival` marks a retained snapshot, which is never a build input and never repaired. | Neither was forced by a corpus. Both were the oldest open items in the document and were worked as debt. The screen then found the hole populated: 108 UNACCOUNTED rows over 24 live corpora, 89 of them the Glascott schedule rows already restated at v7.1 and reading 0 in the `_v7` corpus. And the archival flag showed 5 of the 7 RED corpora were snapshots, so every report of the RED count had overstated the outstanding defects by five. |
+| **v7.8** | 18-Sep-2026 | **The audit's findings worked.** A derived header figure gets a defined `header_sources` shape `{"basis": "derived", "row": null}` and P17 exempts it from **both** limbs (9, 13.1). 4.6 ties in `Decimal`. 13.2 gains a scoping row for the description layer. An explicit version **sequence**, 1 to 9, because nine releases share a date. Annexe D names v7.2. | Not a corpus: `prompt_audit.py` running audit prompt v2 over v7.7, returning 0 HIGH, 8 MEDIUM, 3 LOW. Two of the MEDIUMs were figures contradicting figures inside one repository, and on both the gate said neither published number was right. One finding, #27, was **wrong** and is withdrawn in the same release. |
 
 ---
 
@@ -71,7 +72,7 @@ AMBER and computed RED again on a different document.
 
 ---
 
-## 4. Assessment: two structural weaknesses, both closed at v7.4
+## 4. Assessment: two structural weaknesses, 4.1 closed at v7.4 and 4.2 closed at v7.4 then corrected at v7.6
 
 **4.1 The gate cannot tell "extracted before the rule existed" from "failed the rule". FIXED.** Run at the time of writing over the 34
 corpora then in `batches/`, 31 read RED, and almost all of them on P11 and P12 alone. No corpus predating v7 carries
@@ -93,7 +94,8 @@ convention P17 reads, and P14, P15 and P16 read `doc_kind`, `evidence_stem` and 
 v5, so they apply to every corpus. P1's v7.2 amendment is not scoped either: a document that parsed nothing was
 a parse failure under v5 too.
 
-**The figures, swept 18-Sep-2026 over the 35 corpora now in `batches/`: 7 GREEN, 21 AMBER, 7 RED.** The 31 above
+**The figures, swept 18-Sep-2026 over the 35 corpora now in `batches/`: 7 GREEN, 21 AMBER, 7 RED, split 24 live
+at 3 GREEN, 19 AMBER, 2 RED and 11 archival at 4 GREEN, 2 AMBER, 5 RED.** The 31 above
 is the unscoped run over the 34 corpora present when 4.1 was written, and the two denominators are not the same
 set, so the pair is a before and after of the scoping rule, not a subtraction. Annexe D2 quoted 8 RED, from the
 looser version-only scope and a smaller denominator again; that figure is superseded and the annexe says so.
@@ -126,7 +128,9 @@ the corpus rows" as a rebuild.
 1. **P16's tolerance is relative, 1% of the GST or 2c.** A flat 2c flagged 14 legitimate per-line GST rounding
    cases across the held corpora. The relative form flags zero. Worth confirming 1% is not too loose for a small
    invoice: on a $50 invoice it permits 5c.
-2. **F8 fired on 97 of 100 documents in `Binder1666`**, because the bank block interleaves with the totals block
+2. **F8 fired on 96 of 100 documents in `Binder1666`**, recomputed 18-Sep-2026 against gate v12. This line read
+   97 and the prompt's F8 row read 68; both were published as current and neither was right, which the audit
+   caught as #26. The cause is that the bank block interleaves with the totals block
    on Levai, Savco and Higgins and the extractor typed the shared rows by their left-hand label. A finding that
    fires on 97% of a batch is either a real systemic defect or the wrong test. 4.0 rung 3 already says the money
    decides on an interleaved row, so I read it as the extractor not following the ladder, but it deserves a
@@ -187,13 +191,18 @@ that class before it is trusted, and a claim of testing should name the cases te
 
 ## 7. State at this assessment
 
-- Prompt at **v7.7**, 1,146 lines. Annexes A, B, C, C1, D, D1, D2, D3, D4, D5 in that order; 4.0 to 4.7 and
-  13.0 to 13.2 in order.
-- Gate at **v11** of `pswp_corpus_gate.py`: P1 to P17 scoped on the evidence each check reads, plus the F7, F8,
-  `gst_basis` and mixed-supply AMBER limbs and **two qualifiers that never change the verdict**, the
-  description layer and `[ARCHIVAL]`.
-- Second screen at **v1** of `pswp_money_screen.py`, which runs the half of 4.5 the gate cannot reach
-  (4.7). `reports/Money_Screen_v1.md`.
+- Prompt at **v7.8**, 1,199 lines, read with `wc -l` in the command that printed this. Annexes A, B, C, C1, D,
+  D1, D2, D3, D4, D5, D6 in that order; 4.0 to 4.7 and 13.0 to 13.2 in order. The version **sequence** is
+  explicit at the head, 1 to 9, because nine releases share 18-Sep-2026 and the dates cannot order them.
+  The previous line here said 1,146 against a file of 1,147: stated from memory, which is the error this
+  repository has now made four times and which the line above is written to stop making a fifth.
+- Gate at **v12** of `pswp_corpus_gate.py`: P1 to P17 scoped on the evidence each check reads, plus the F7, F8,
+  `gst_basis` and mixed-supply AMBER limbs, the v7.8 derived-`header_sources` exemption on both P17 limbs, and
+  **two qualifiers that never change the verdict**, the description layer and `[ARCHIVAL]`.
+- Second screen at **v2** of `pswp_money_screen.py`, which runs the half of 4.5 the gate cannot reach (4.7) and
+  now reads `manifest.archival` as the gate does. `reports/Money_Screen_v1.md`.
+- Third tool, new: **`toolkit/pswp/prompt_audit.py` v1**, which audits the standard itself. Read-only, no
+  network, deterministic, non-zero exit on any HIGH. `audit/PSWP_Prompt_Audit_20260918.md`.
 - **35 corpora: 7 GREEN, 21 AMBER, 7 RED**, swept 18-Sep-2026 and reconciled against the files. An earlier
   draft of this section published 37 corpora and 6 GREEN, 20 AMBER, 11 RED. That was written before the
   description-layer demotion was withdrawn and was never re-swept; it is wrong on the denominator and on all
@@ -226,12 +235,15 @@ that class before it is trusted, and a claim of testing should name the cases te
   over all 141 pages and the shingle check returned PASS on 987 shingles with 0 unverifiable: description layer
   VERIFIED, one of only two batches here where that is true.
 - Register **v25**: control total $5,066,518.69, 620 sighted rows over 613 invoices, 99 of 99 controls TRUE.
-- Every ABN across every captured corpus passes the ATO checksum; none equals the LCC bill-to ABN. Verified
-  further against the Australian Business Register on 18-Sep-2026 with `abn_bulk_verify.py`: 32 distinct ABNs,
-  **every one Active and GST registered as at 18-Sep-2026**, and every supplier name matched to an ABR entity,
-  business or trading name. Verdict VALID on all 32. `reports/ABN_Verification_v24.xlsx`.
-  **Two qualifications, both material.** The run passed no transaction-date column, so the as-at tests
-  `ABN_NOT_ACTIVE_AT_DATE` and `GST_NOT_REGISTERED_AT_DATE` did not run: these are FY2023/24 to FY2025/26
-  invoices and the claim supported is current status, not status on the invoice date, which is what an auditor
-  asks for. And the name match is a similarity test at a 0.86 threshold, a review standard rather than an exact
-  match.
+- Every ABN across every captured corpus passes the ATO checksum; none equals the LCC bill-to ABN. **Re-run at
+  register v25 on 18-Sep-2026 WITH the transaction date**, which is what closes the first of the two
+  qualifications this section used to carry: **383 transaction rows over 32 distinct ABNs, every row VALID**,
+  so `ABN_NOT_ACTIVE_AT_DATE` and `GST_NOT_REGISTERED_AT_DATE` ran for the first time and passed on every
+  invoice date, not merely as at the run date. `reports/ABN_Verification_v25.xlsx`.
+  **One qualification remains**: the name match is a similarity test at a 0.86 threshold, a review standard
+  rather than an exact match.
+  **And one correction.** The audit raised #27 on this paragraph, saying the live corpora carry 33 ABNs against
+  32 verified and naming Woodman Beenleigh Pty Ltd as never checked. **Both halves were wrong**: the v24 report
+  carries that ABN, and the 33rd value was an **empty string**. One RST Systems document in the held Glascott
+  batch records `"supplier_abn": ""`, which counted as a distinct value in the recount. #27 is withdrawn and
+  the empty string is carried as #34: an empty string is not an absent field, and no check currently says so.
