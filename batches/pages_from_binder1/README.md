@@ -18,6 +18,25 @@ fails, so the exemption is discriminating rather than a weakening.
 
 A check that returns sound work is a defect in the check, and this corpus is the evidence.
 
-## Not yet captured
+## Match table built, capture BLOCKED on the binder
 
-Capture is its own build with its own gates. Nothing here has been read into the register.
+`pbr_match_table.py` run against v23: **17 of the 96 documents match a register line**, every one an exact tie
+on a Park Services 73123 line narrated "Standing Order 2026/27", variant `standard` on all 17. 5 are duplicate
+copies and are skipped. **74 carry no line on this register, $218,185.66 ex GST**, listed in
+`outside_pages_from_binder1_v6.json`; the binder is the vendor's own file and is not cut to this register's
+year, the same shape as `playforce_new` at v13.
+
+So the capture would add 17 green blocks, not 96.
+
+**It cannot run, and one thing unblocks it: `Pages from Binder1.pdf`.** Two hard rules both need the binder:
+
+1. **The masked-row screen.** `pbr_mask_screen.py --corpus <corpus> <binder.pdf>` must run on every binder
+   before capture. A row filled black on the page is not a row the document prints, but the text sits under the
+   fill and `pdftotext` returns it, so no text-layer gate can see it. Without the PDF the screen cannot run at
+   all.
+2. **The verbatim check.** `pswp_shingle_check.py` returns **UNVERIFIABLE** on all 96 documents, because the
+   corpus retains no `page_text`: 580 shingles tested, 0 failing, 96 unverifiable. UNVERIFIABLE is not a pass.
+
+`prep_supplied_corpus.py` rebuilds `page_text` from the corpus's own `line_text` rows (line 476). That makes the
+shingle check runnable but not independent: the haystack becomes the captured text itself and the test cannot
+fail. It satisfies the shape of the rule and not the rule, so it is not used here to manufacture a pass.
