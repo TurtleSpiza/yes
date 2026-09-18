@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# pre-commit - refuse the commit that makes this repository big again.
+#
+# Retention caps the working tree and that was never the problem: a workbook committed once stays in history
+# at full size forever, because xlsx is a zip git cannot delta-compress. Committing a 12 to 24 MB register on
+# every build grows the clone by that much on every build whatever the tree holds, which is how 23 registers
+# and 288 MB accumulated in a week and had to be cleared by rewriting history.
+#
+# Rules and reasons are data, in commit_budget_v1.json beside this file. Override a single commit with
+# PBR_ALLOW_BIG=1 when you mean it.
+exec python3 "$(dirname "$0")/commit_budget.py"

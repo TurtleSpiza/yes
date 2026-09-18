@@ -163,6 +163,16 @@ if [ -n "${CLAUDE_ENV_FILE:-}" ]; then
   } >> "$CLAUDE_ENV_FILE"
 fi
 
+# ------------------------------------------------------- the commit budget
+# Installs the pre-commit guard for this clone. core.hooksPath is per-clone local config, not something a
+# repository can carry, so without this line the guard exists in the tree and never runs. It refuses a commit
+# that adds a build OUTPUT (a register, a report workbook, a binder PDF) and lets INPUTS through, which is the
+# only thing that actually stops the clone growing: retention caps the working tree, but a workbook committed
+# once stays in history at full size forever.
+git config core.hooksPath toolkit/git-hooks 2>/dev/null \
+  && echo "[session-start] commit budget installed (toolkit/git-hooks; override once with PBR_ALLOW_BIG=1)" \
+  || echo "[session-start] WARNING could not set core.hooksPath; the commit budget will NOT run"
+
 # ---------------------------------------------------------------- prove it
 # Writes a workbook with a live formula, recalculates it through LibreOffice, reads it back with
 # calamine, and round-trips a probe PDF through poppler. Non-zero here means the chain is not ready.

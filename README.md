@@ -62,6 +62,22 @@ python3 toolkit/branch/pbr_build.py
 
 One script runs the whole chain: stage, write, LibreOffice convert-route recalc (isolated profile, `OOXMLRecalcMode=0`), calamine verify of the recalculated file, ship to `registers/`. It ships only on a clean verify (93 controls, every sighted line's three checks, the register total and a whole-workbook error sweep). A partial run is discarded, never resumed. About 35 to 40 seconds from a warm cache. Set `PBR_OUTDIR` to ship elsewhere; `PBR_INPUTS` and `PBR_V127` override the input locations. After the ship, and only after a clean verify, the driver runs retention and prunes the branch registers the new one supersedes (`PBR_RETAIN=all` keeps them).
 
+## The commit budget
+
+Retention caps the working tree, and that was never what made the repository big. **A workbook committed once stays in history at its full size forever**, because xlsx is a zip git cannot delta-compress, so committing a 12 to 24 MB register on every build grows every clone by that much on every build no matter what the tree holds. Between 11-Sep-2026 and 18-Sep-2026 that came to 23 registers and 288 MB, and the only way out was rewriting history. A policy document does not prevent a recurrence. Refusing the commit does.
+
+```
+toolkit/git-hooks/pre-commit          # the guard, installed by .claude/hooks/session-start.sh
+toolkit/git-hooks/commit_budget_v1.json   # what may be committed, and why: content is data
+PBR_ALLOW_BIG=1 git commit ...        # override for one commit, when you mean it
+```
+
+**The test is reproducibility, not size.** A file a script here can rebuild is an output and does not belong in history; a file nothing here can rebuild is an input and has to be kept. That is why `PS_WP_Transaction_Register_3FY_v127_CANDIDATE.xlsx` is allowed at 24 MB while a 12 MB register this repository builds is not: the candidate is the root input every build inherits from and no script here produces it, whereas `pbr_build.py` rebuilds the branch register and `pswp_build_batch.py` rebuilds the PS & WP registers from it.
+
+So `registers/*.xlsx` and `reports/*.xlsx` are ignored, with the candidate negated. Everything needed to rebuild them is tracked: the TechOne exports in `data/inputs_*`, the corpora in `batches/`, the briefs and match tables, and the candidate. The reports' `.md` **is** committed, because it is small, diffable and the readable record; only the workbook is regenerated.
+
+`core.hooksPath` is per-clone local config and cannot be carried by a repository, which is why the session-start hook sets it. In a clone where it was never set, the guard sits in the tree and never runs.
+
 ## Register retention
 
 A register is a build output, not a source. Each one is 8 to 24 MB of zip-compressed xlsx, and git cannot delta-compress a zip, so every version committed adds its full size to the clone permanently and no later deletion takes it back out. The repository therefore keeps the two most recent shipped registers of each family and nothing else (`keep_newest`, currently 2). The predecessor earns its place by being the register the newest was built FROM: checking that a build did what its change log claims is a diff, and a diff needs both sides. Below that line a version is kept only where it is still an INPUT:
