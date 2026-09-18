@@ -15,9 +15,9 @@ sys.path.insert(0, HERE)
 import pbr_stage
 import pbr_retention
 
-VER = 'v22'
+VER = 'v24'
 OUTNAME = f'Parks_Branch_Transaction_Register_FY2627_{VER}.xlsx'
-SUPPLIED_GREEN = ('pla073_1', 'ksadasd', 'playforce_new', 'harp_new', 'vinton_new', 'trees_new')  # supplied corpora that arrived GREEN under prompt v6 runtime A; prep does housekeeping only
+SUPPLIED_GREEN = ('pla073_1', 'ksadasd', 'playforce_new', 'harp_new', 'vinton_new', 'trees_new', 'pages_from_binder1')  # supplied corpora that arrived GREEN under prompt v6 runtime A; prep does housekeeping only
 CLTOK = re.compile(r'\{CL:(\d+):(\d+)\}')
 SCRATCH = os.path.join(pbr_stage.ROOT, 'cache', 'scratch')
 OUTDIR = os.environ.get('PBR_OUTDIR', os.path.join(pbr_stage.ROOT, 'registers'))
@@ -247,7 +247,7 @@ def build(stage):
             jsc_cited += 1
     say(f'journal source citations written: {jsc_cited} register line(s) cite Journal_Sources rows {JSC_FIRST}:{JSC_LAST}')
 
-    # ============================================================== Reconstruction_Sources (rule 21, batch recon_1)
+    # ============================================================== Reconstruction_Sources (rule 21, batches recon_1 and recon_2)
     # The Document Reconstruction route. Laid out here for the same reason as Journal_Sources: the row span is a map,
     # never a shift. A reconstruction is keyed to a Document Cross Reference, not a document file, so the span map is
     # keyed that way too; rsc_file maps it back to the document file the Journal_Pull sheet tiers on.
@@ -263,10 +263,10 @@ def build(stage):
     RSC_P0 = RSC_LAST + 3            # per-document control panel
     RSC_P1 = RSC_P0 + len(rsc_docs) - 1
     rsc_span = {x['d']['cross_reference']: f'rows {x["first"]}:{x["last"]}' for x in rsc_docs}
-    rsc_file = {}                    # document file -> (cross reference, span), for the Journal_Pull tier
+    rsc_file = {}                    # document file -> (cross reference, span, branch version), for the Journal_Pull tier
     for x in rsc_docs:
         for df_ in x['d']['document_files']:
-            rsc_file[df_] = (x['d']['cross_reference'], f'rows {x["first"]}:{x["last"]}')
+            rsc_file[df_] = (x['d']['cross_reference'], f'rows {x["first"]}:{x["last"]}', x['d'].get('branch_version', 'v9'))
     rc_pulled = set(rsc_file)
 
     jp_doc = collections.defaultdict(list)
@@ -282,7 +282,7 @@ def build(stage):
         all_rj = all(r_.startswith('RJ') for r_ in refs)
         acc = acc0 = collections.Counter('%s %s' % (x['V'][14], str(x['V'][15])[:22]) for x in jr)
         tier = ('E Pulled and embedded at branch v6' if df in js_pulled else
-                'F Reconstruction pulled and embedded at branch v9' if df in rc_pulled else
+                ('F Reconstruction pulled and embedded at branch ' + rsc_file[df][2]) if df in rc_pulled else
                 'D Held, already embedded in PS_WP v127' if df in jsrc_held else
                 'C RJ reversal, no pull' if all_rj else
                 'A Pull required' if att == 'N' else 'B Sight attachment')
@@ -295,10 +295,10 @@ def build(stage):
                         if not _d['file_fully_covered'] else '; the document nets to $0.00 and its in-scope legs tie the register'))
             val = 'Done' if _d['file_fully_covered'] else 'Partial'
         elif df in rc_pulled:
-            _x, _sp = rsc_file[df]
+            _x, _sp, _bv = rsc_file[df]
             _d = next(d_ for d_ in stage['recon_docs'] if d_['cross_reference'] == _x)
             _left = [r_ for r_ in _d['references_on_file_not_reached'] if r_ in refs or True]
-            why.append(f'pulled at branch v9 as a TechOne Document Reconstruction (cross reference {_x}) and embedded verbatim on Reconstruction_Sources {_sp}; '
+            why.append(f'pulled at branch {_bv} as a TechOne Document Reconstruction (cross reference {_x}) and embedded verbatim on Reconstruction_Sources {_sp}; '
                        'the document nets to $0.00, its in-scope legs tie the register net of '
                        + ', '.join(_d['journal_references_covered'])
                        + (', and it reaches every journal reference this file carries' if not _d['references_on_file_not_reached']
@@ -490,6 +490,23 @@ def build(stage):
                 f'the same difference on 012191. Every schedule row is captured as an ATTACHMENT line (rule 16d), excluded from check 1. '
                 f'Elemental prints its Total column GST INCLUSIVE, so the ex-GST line amount is quantity times unit price; reading the Total column would overstate every line by a tenth. '
                 f'Levai INV-39164 prints no PK at all and is charged PK000057 in Trees, and its face commits Council to twelve months of watering and mulch top-up billed monthly as completed.'])
+    _r2 = next((b for b in stage['recon_batches'] if b['manifest']['batch_id'] == 'recon_2'), None)
+    if _r2:
+        _r2m = _r2['manifest']
+        ho.row(['v23, 17-Sep-2026',   # the version this change SHIPPED in, never f'{VER}' (see the note above)
+                f'Batch recon_2 captured, the second Document Reconstruction pull (rule 21): {_r2m["exports_received"]} exports taken {_r2m["pulled"]}, '
+                f'{_r2m["documents"]} documents, {_r2m["legs_total"]:,} legs of which {_r2m["legs_in_scope"]} sit inside branch O110-O115 and match '
+                f'{_r2m["register_lines_matched"]} register lines one for one. Every document nets to $0.00, every reference ties its register net with every '
+                f'line matched, and every document reaches every journal reference on its own document file, so this pull repeats none of the Document-filter '
+                f'failure. {_r2m["documents_embedded"]} embedded verbatim; document file 1247907 (GJ080271) is audited and not re-captured because the PS & WP '
+                f'v127 Journal_Sources already holds its Document Line Table, 189 legs, identical multiset of leg amounts (rule 12, Tier D). '
+                f'Control total unchanged, because a reconstruction is evidence and not value. '
+                f'What the pull answers: GJ080426, the one Tier A branch document carrying an unanswered question, balances outside O110-O115 on Plant and Fleet '
+                f'internal income 1-13081-6D513, $603.20, two tyres fitted to plant 6744 and billed to PK000012 in error; GJ080565 and GJ080566 are the two halves '
+                f'of one same-day internal rates posting, $534.38 each way, which the pairing test misses only because they sit on two document files; GJ080271 and '
+                f'GJ080211 are prior-year accrual reversals whose counterparty is the G-ledger accrual liability, so neither can pair inside FY2026/27; and GJ080948, '
+                f'also Tier A, has both legs inside the branch so a pull adds nothing. Four open items raised, among them urban bushland PK000385 funded entirely by '
+                f'splits off other PKs\' invoices, $48,906.60 over two months with every share identical to the cent while four of the six invoices move.'])
     _tn = _sup.get('trees_new')
     _tnr = [r for r in sighted if 'Batch trees_new' in str(r['V'][126] or '')]
     if _tn:
@@ -1144,7 +1161,7 @@ def build(stage):
                      f'=COUNTIF(Register!$AB${FIRST}:$AB${LAST},"Journal_Sources rows*")', len(stage['journal_lines'])))
     say(f'journal sources: {len(jsc_legs)} legs from {len(jsc_docs)} document(s), rows {JSC_FIRST}:{JSC_LAST}, panel {JSC_P0}:{JSC_P1}')
 
-    # ============================================================== Reconstruction_Sources (rule 21, batch recon_1)
+    # ============================================================== Reconstruction_Sources (rule 21, batches recon_1 and recon_2)
     rsc = Sheet(wb, 'Reconstruction_Sources', {'A': 26, 'B': 14, 'C': 9, 'D': 22, 'E': 22, 'F': 12, 'G': 12, 'H': 12,
                                                'I': 52, 'J': 8, 'K': 10, 'L': 12, 'M': 14, 'N': 30}, freeze='A5')
     rsc.row(['Reconstruction source documents: the TechOne Document Reconstruction behind each pulled journal, embedded verbatim'], 'title')
@@ -1180,15 +1197,24 @@ def build(stage):
                  f'=IF(ROUND(SUMPRODUCT((RSC_Xref="{xr_}")*(RSC_Scope="Yes")*RSC_Amount),2)={regsum},"TRUE","FALSE")'],
                 money_cols=(4, 7, 8))
     rsc.blank()
-    _rb = stage['recon_batch']
-    for d_ in _rb['documents']:
+    _rbs = stage['recon_batches']
+    _rdocs = [d_ for _rb in _rbs for d_ in _rb['documents']]
+    for d_ in _rdocs:
         if d_['capture'] == 'embed verbatim':
             continue
-        a_ = d_['journal_audit']
+        # Held on the branch Journal_Sources (journal_audit) or on PS & WP v127 Journal_Sources (v127_audit, Tier D).
+        a_ = d_.get('journal_audit')
+        if a_:
+            _where = f'Journal_Sources for document file {a_["held_document_file"]} ({a_["held_format"]})'
+            _net = f', in-scope net {a_["held_in_scope_net"]} on both'
+        else:
+            a_ = d_['v127_audit']
+            _where = f'PS & WP v127 Journal_Sources for document file {a_["document_file"]}'
+            _net = ''
         rsc.row([rsc.cell(f'Audited, not re-captured (rule 12): cross reference {d_["cross_reference"]} ({", ".join(d_["journal_references_covered"])}) is the same document as the '
-                          f'Document Line Table already embedded on Journal_Sources for document file {a_["held_document_file"]} ({a_["held_format"]}). Audit: {a_["pulled_legs"]} legs '
-                          f'against {a_["held_legs"]} held, identical multiset of leg amounts {a_["amounts_identical"]}, in-scope net {a_["held_in_scope_net"]} on both. {d_.get("finding", "")}', wrap=True)])
-    for d_ in _rb['documents']:
+                          f'Document Line Table already embedded on {_where}. Audit: {a_["pulled_legs"]} legs '
+                          f'against {a_["held_legs"]} held, identical multiset of leg amounts {a_["amounts_identical"]}{_net}. {d_.get("finding", "")}', wrap=True)])
+    for d_ in _rdocs:
         if d_.get('question_the_register_could_not_answer') and d_.get('answer'):
             rsc.row([rsc.cell(f'{d_["cross_reference"]} ({", ".join(d_["journal_references_covered"]) or "no in-scope reference"}). '
                               f'What the register could not answer: {d_["question_the_register_could_not_answer"]} '
@@ -1196,11 +1222,13 @@ def build(stage):
                               + (f' Finding: {d_["finding"]}' if d_.get('finding') and d_['capture'] == 'embed verbatim' else '')
                               + (f' Coverage: {d_["coverage_note"]}' if d_.get('coverage_note') else '')
                               + (f' Note: {d_["note"]}' if d_.get('note') else ''), wrap=True)])
-    _rm = _rb['manifest']
-    rsc.row([rsc.cell(f'Batch {_rm["batch_id"]}: {_rm["exports_received"]} exports received, {len(_rm["duplicate_exports"])} of them duplicate copies of an export already read; '
-                      f'{_rm["documents"]} documents, {_rm["documents_embedded"]} embedded verbatim and {_rm["documents_audited_only"]} audited only under rule 12; '
-                      f'{_rm["legs_total"]:,} legs, {_rm["legs_in_scope"]} in branch scope matching {_rm["register_lines_matched"]} register lines one for one. '
-                      f'Matched against {_rm["register_matched_against"]}.', wrap=True)])
+    for _rb in _rbs:
+        _rm = _rb['manifest']
+        rsc.row([rsc.cell(f'Batch {_rm["batch_id"]} (pulled {_rm["pulled"]}, embedded at branch {_rb["branch_version"]}): {_rm["exports_received"]} exports received, '
+                          f'{len(_rm["duplicate_exports"])} of them duplicate copies of an export already read; '
+                          f'{_rm["documents"]} documents, {_rm["documents_embedded"]} embedded verbatim and {_rm["documents_audited_only"]} audited only under rule 12; '
+                          f'{_rm["legs_total"]:,} legs, {_rm["legs_in_scope"]} in branch scope matching {_rm["register_lines_matched"]} register lines one for one. '
+                          f'Matched against {_rm["register_matched_against"]}.', wrap=True)])
     controls.append(('10. Reconstruction sources (rule 21)', 'Reconstruction_Sources', 'Reconstruction legs embedded verbatim equals the legs on the pulled documents', 'count',
                      f'=COUNTA(Reconstruction_Sources!$A${RSC_FIRST}:$A${RSC_LAST})', len(rsc_legs)))
     controls.append(('10. Reconstruction sources (rule 21)', 'Reconstruction_Sources', 'Every embedded reconstruction nets to $0.00 over all its legs', 'count',
@@ -1457,8 +1485,9 @@ def build(stage):
                       '). The July claim, reference 7710, is the identical invoice and still sits whole on PK000028 (PSWP-85), so four zone PKs are understated for July and '
                       'PK000028 overstated by $34,470.00. Apply the GJ080985 treatment to 7710, and ask AP to post this supplier monthly claim by zone at entry.',
                       'Register lines for references 7710 and 7717 read against the GJ080985 recode legs; invoice 7710 sighted at PS & WP v127 (PSWP-85).'))
-    for o_ in stage['recon_batch'].get('open_items', []):
-        items.append((o_['area'], o_['status'], o_['scope'], o_['lines'], D(o_['amount']), o_['action'], o_['basis']))
+    for _rb in stage['recon_batches']:
+        for o_ in _rb.get('open_items', []):
+            items.append((o_['area'], o_['status'], o_['scope'], o_['lines'], D(o_['amount']), o_['action'], o_['basis']))
     for k, it in enumerate(items, 1):
         oi.row([f'B-{k:03d}'] + list(it), money_cols=(6,))
     cited = collections.Counter()

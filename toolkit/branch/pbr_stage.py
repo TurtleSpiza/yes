@@ -46,9 +46,12 @@ HIST = json.load(open(os.path.join(HERE, 'pbr_histories_v4.json')))  # APLEDGER 
 HIST_COLS = ['Reference', 'GST Date', 'Discount Date', 'On Hold', 'Has Note', 'Date', 'Description (Document Type)', 'Details', 'Outstanding', 'Applied',
              'Transaction Amount', 'Due Date', 'Ageing Date', 'Period', 'Ageing', 'Source', 'Units', 'Discount', 'Has Attachment', 'Payment Details', 'ABN',
              'Billing System', 'Work Order', 'Work Order Transaction Number', 'Work System']
-BATCHES = ('mixed_1', 'mixed_new_26_27', 'attach_1', 'attach_2', 'code', 'mix22', 'attach_3', 'mix222', 'binder11111', 'pla073_1', 'ksadasd', 'playforce_new', 'harp_new', 'vinton_new', 'savco_new', 'trees_new', 'attach_4', 'heritage_tree_services_20260916')
+BATCHES = ('mixed_1', 'mixed_new_26_27', 'attach_1', 'attach_2', 'code', 'mix22', 'attach_3', 'mix222', 'binder11111', 'pla073_1', 'ksadasd', 'playforce_new', 'harp_new', 'vinton_new', 'savco_new', 'trees_new', 'attach_4', 'heritage_tree_services_20260916', 'pages_from_binder1')
 JOURNAL_BATCH = 'journal_1'  # TechOne Document Line Table pulls (rule 21, pipeline "per journal batch")
-RECON_BATCH = 'recon_1'      # TechOne Document Reconstruction pulls (rule 21, the counterparty route)
+# TechOne Document Reconstruction pulls (rule 21, the counterparty route), oldest first. One entry per pull,
+# because the batch driver's md5 screen rejects an export the register has already received: a later pull
+# takes its own input folder and its own batch folder. The version is the branch register the batch shipped into.
+RECON_BATCHES = (('recon_1', 'v9'), ('recon_2', 'v23'))
 NCOL = 149  # 146 PS/WP columns + 147 Src Note + 148 Register provenance + 149 Source pull
 # The green-block provenance gate stops the build on an untraceable printed field. Set PBR_PROV=report to run it
 # and print the findings without stopping, which is how a new vendor template is brought in.
@@ -967,24 +970,36 @@ def main(dry=False):
     # Same standard as the journal batch: the gate, the net-zero proof and the per-reference tie are re-asserted here,
     # because the stage is where a gate belongs. A reconstruction reaches the Council-side counterparty legs a Document
     # Line Table taken inside the branch never shows, and maps to a register line on the register's own Src Account.
-    rb = json.load(open(os.path.join(ROOT, 'batches', RECON_BATCH, f'{RECON_BATCH}_v9.json')))
-    rm = rb['manifest']
-    assert rm['gate'] == 'GREEN', rm['gate']
-    assert rm['all_documents_net_zero'] and rm['all_ties_true'], rm
-    rsrc_docs, rcited = [], set()
-    for d in rb['documents']:
-        assert d['nets_to_zero'] and d['all_ties_true'], d['cross_reference']
-        if d['capture'] != 'embed verbatim':
-            assert d.get('journal_audit') and d['journal_audit']['identical'], d['cross_reference']
-            continue
-        for leg in d['legs']:
-            if leg['in_branch_scope'] != 'Yes':
+    rbatches, rsrc_docs, rcited, r_audited = [], [], set(), 0
+    for batch_id, batch_ver in RECON_BATCHES:
+        rb = json.load(open(os.path.join(ROOT, 'batches', batch_id, f'{batch_id}_{batch_ver}.json')))
+        rm = rb['manifest']
+        assert rm['gate'] == 'GREEN', (batch_id, rm['gate'])
+        assert rm['all_documents_net_zero'] and rm['all_ties_true'], (batch_id, rm)
+        rb['branch_version'] = batch_ver
+        rbatches.append(rb)
+        r_audited += rm['documents_audited_only']
+        for d in rb['documents']:
+            assert d['nets_to_zero'] and d['all_ties_true'], d['cross_reference']
+            d['batch_id'], d['branch_version'] = batch_id, batch_ver
+            if d['capture'] != 'embed verbatim':
+                # Held either side: the branch Journal_Sources embed or the PS & WP v127 one (Tier D). Either audit
+                # standing identical is enough not to re-capture; neither standing is a stop (rule 12).
+                audits = [a for a in (d.get('journal_audit'), d.get('v127_audit')) if a]
+                assert audits and any(a['identical'] for a in audits), d['cross_reference']
                 continue
-            assert leg['register_linekey'] in jkey, (d['cross_reference'], leg['register_linekey'])
-            rcited.add(leg['register_linekey'])
-        rsrc_docs.append(d)
-    say(f'reconstruction sources: {len(rsrc_docs)} document(s) embedded verbatim, '
-        f'{rm["documents_audited_only"]} audited only (rule 12), {len(rcited)} register line(s) evidenced by a reconstruction leg')
+            for leg in d['legs']:
+                if leg['in_branch_scope'] != 'Yes':
+                    continue
+                assert leg['register_linekey'] in jkey, (d['cross_reference'], leg['register_linekey'])
+                rcited.add(leg['register_linekey'])
+            rsrc_docs.append(d)
+    # Reconstruction_Sources keys its live per-document panel on the cross reference, so a collision across two
+    # batches would silently sum two documents into one control row.
+    _xr = [d['cross_reference'] for d in rsrc_docs]
+    assert len(_xr) == len(set(_xr)), 'cross reference collision across reconstruction batches'
+    say(f'reconstruction sources: {len(rsrc_docs)} document(s) embedded verbatim across {len(rbatches)} batch(es), '
+        f'{r_audited} audited only (rule 12), {len(rcited)} register line(s) evidenced by a reconstruction leg')
 
     # a sighted invoice (rule 17) supersedes a history identification on the same line: the green block carries the evidence
     for r in rows:
@@ -1053,7 +1068,7 @@ def main(dry=False):
                  svc_names=svc_names, na_names=na_names, sec_names=sec_names, flags=flags, oi_data=oi_data,
                  typo_rows=typo_rows, cred_new_matches=cred_new_matches, jnamed=stage_jnamed, log=log, jnet=jnet, jcount=jcount,
                  journal_batch=jb, journal_docs=jsrc_docs, journal_lines=sorted(jcited),
-                 recon_batch=rb, recon_docs=rsrc_docs, recon_lines=sorted(rcited), prov=prov_stat)
+                 recon_batches=rbatches, recon_docs=rsrc_docs, recon_lines=sorted(rcited), prov=prov_stat)
     # carry evidence
     sighted = [r for r in rows if r['V'][88]]
     evids = collections.OrderedDict()
