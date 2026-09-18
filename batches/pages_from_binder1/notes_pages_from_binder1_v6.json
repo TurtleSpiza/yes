@@ -1,0 +1,93 @@
+{
+ "_readme": [
+  "Authored content for Batch pages_from_binder1 (rule 18: content as data, never ad-hoc writes). One entry per matched invoice.",
+  "Every figure and every reference quoted in a coding note is printed on the invoice and retained in the corpus line records;",
+  "nothing here states an amount the document does not print. The verdict compares the PK printed on the face with the PK charged",
+  "on the register line the invoice matches, which is the rule 17 check the register runs live."
+ ],
+ "INV-8062": {
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice INV-8062 dated 2026-07-01, work order 3911659, contract LB304, order 717528. 3 priced line(s) as printed: 1.00 SW182 Strap Seat 69.38 69.38; 2.00 CD189 30mm Black Conduit 22.50 45.00; 1.75 L1 Maintenance Labour 105.41 184.47. Printed subtotal $298.85 ex GST, GST $29.89, total $328.74. Printed PK000023 matches the PK charged (PK000023).",
+  "follow_up": null
+ },
+ "INV-8298": {
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice INV-8298 dated 2026-07-24, work order 3920087, contract LB304, order 717528. 3 priced line(s) as printed: 1.00 CH186 6mm Stainless Chain 18.00 18.00; 2.00 FX187 8mm S Hook 6.80 13.60; 2.00 L1 Maintenance Labour 110.26 220.52. Printed subtotal $252.12 ex GST, GST $25.21, total $277.33. Printed PK000022 matches the PK charged (PK000022).",
+  "follow_up": null
+ },
+ "INV-8318": {
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice INV-8318 dated 2026-07-28, work order 3923154, contract LB304, order 717528. 3 priced line(s) as printed: 2.00 FX863 8mm D Shackle 7.10 14.20; 1.00 SW184 Infant Seat (short hinge) 81.20 81.20; 1.50 L1 Maintenance Labour 110.26 165.39. Printed subtotal $260.79 ex GST, GST $26.08, total $286.87. Printed PK000023 matches the PK charged (PK000023).",
+  "follow_up": null
+ },
+ "INV-8335": {
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice INV-8335 dated 2026-07-29, work order 3923324, contract LB304, order 717528. 4 priced line(s) as printed: 4.00 FX187 8mm S Hook 6.80 27.20; 1.00 SW184 Infant Seat (short hinge) 81.20 81.20; 1.00 SW182 Strap Seat 69.38 69.38; 1.00 L1 Maintenance Labour 110.26 110.26. Printed subtotal $288.04 ex GST, GST $28.80, total $316.84. Printed PK000023 matches the PK charged (PK000023).",
+  "follow_up": null
+ },
+ "INV-8386": {
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice INV-8386 dated 2026-07-30, work order 3917249, contract LB304, order 717528. 2 priced line(s) as printed: 1.00 MISC1 tape 26.00 26.00; 2.00 L1 Maintenance Labour 110.26 220.52. Printed subtotal $246.52 ex GST, GST $24.65, total $271.17. Printed PK000023 matches the PK charged (PK000023).",
+  "follow_up": null
+ },
+ "INV-8438": {
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice INV-8438 dated 2026-08-03, work order 3825496, contract LB304, order 717528. 1 priced line(s) as printed: 21.60 TF749 Temporary Fence Hire 15.00 324.00. Printed subtotal $324.00 ex GST, GST $32.40, total $356.40. Printed PK000023 matches the PK charged (PK000023).",
+  "follow_up": null
+ },
+ "INV-8458": {
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice INV-8458 dated 2026-08-05, work order 3922703, contract LB304, order 717528. 3 priced line(s) as printed: 1.00 MISC1 cloth tape 15.00 15.00; 3.00 CD189 30mm Black Conduit 22.50 67.50; 2.00 L1 Maintenance Labour 110.26 220.52. Printed subtotal $303.02 ex GST, GST $30.30, total $333.32. Printed PK000023 matches the PK charged (PK000023).",
+  "follow_up": null
+ },
+ "INV-8511": {
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice INV-8511 dated 2026-08-12, work order 3923317, contract LB304, order 717528. 2 priced line(s) as printed: 1.00 SW182 Strap Seat 69.38 69.38; 2.00 L1 Maintenance Labour 110.26 220.52. Printed subtotal $289.90 ex GST, GST $28.99, total $318.89. Printed PK000023 matches the PK charged (PK000023).",
+  "follow_up": null
+ },
+ "INV-8599": {
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice INV-8599 dated 2026-08-20, work order 3936765, contract LB304, order 717528. 2 priced line(s) as printed: 1.00 MISC1 tape 35.00 35.00; 2.50 L1 Maintenance Labour 110.26 275.65. Printed subtotal $310.65 ex GST, GST $31.07, total $341.72. Printed PK000023 matches the PK charged (PK000023).",
+  "follow_up": null
+ },
+ "INV-8670": {
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice INV-8670 dated 2026-08-26, work order 3825496, contract LB304, order 717528. 1 priced line(s) as printed: 21.60 TF749 Temporary Fence Hire monthly 21.6Lm 15.00 324.00. Printed subtotal $324.00 ex GST, GST $32.40, total $356.40. Printed PK000023 matches the PK charged (PK000023).",
+  "follow_up": null
+ },
+ "INV-8732": {
+  "coding_verdict": "Review",
+  "coding_note": "Invoice INV-8732 dated 2026-08-28, work order 3925918, contract LB304, order 717528. 3 priced line(s) as printed: 2.00 FX863 8mm D Shackle 7.10 14.20; 1.00 SW184 Infant Seat (short hinge) 81.20 81.20; 1.50 L1 Maintenance Labour 110.26 165.39. Printed subtotal $260.79 ex GST, GST $26.08, total $286.87. Face prints PK000023 and the charge sits on PK000022.",
+  "follow_up": "Face prints PK000023, charged PK000022: confirm with Park Services which PK the work belongs to."
+ },
+ "INV-8825": {
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice INV-8825 dated 2026-09-02, work order 3931827, contract LB304, order 717528. 1 priced line(s) as printed: 2.50 L1 Maintenance Labour 110.26 275.65. Printed subtotal $275.65 ex GST, GST $27.57, total $303.22. Printed PK000023 matches the PK charged (PK000023).",
+  "follow_up": null
+ },
+ "INV-8849": {
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice INV-8849 dated 2026-09-07, work order 3935248, contract LB304, order 717528. 2 priced line(s) as printed: 1.00 MISC1 Strap seat and shackles 88.50 88.50; 1.50 L1 Maintenance Labour 110.26 165.39. Printed subtotal $253.89 ex GST, GST $25.39, total $279.28. Printed PK000023 matches the PK charged (PK000023).",
+  "follow_up": null
+ },
+ "INV-8862": {
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice INV-8862 dated 2026-09-07, work order 3937160, contract LB304, order 717528. 2 priced line(s) as printed: 1.00 MISC1 fixings/caps and covers 45.00 45.00; 2.00 L1 Maintenance Labour 110.26 220.52. Printed subtotal $265.52 ex GST, GST $26.55, total $292.07. Printed PK000022 matches the PK charged (PK000022).",
+  "follow_up": null
+ },
+ "INV-8922": {
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice INV-8922 dated 2026-09-10, work order 3923611, contract LB304, order 717528. 1 priced line(s) as printed: 2.50 L1 Maintenance Labour 110.26 275.65. Printed subtotal $275.65 ex GST, GST $27.57, total $303.22. Printed PK000023 matches the PK charged (PK000023).",
+  "follow_up": null
+ },
+ "INV-8929": {
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice INV-8929 dated 2026-09-10, work order 3923315, contract LB304, order 717528. 3 priced line(s) as printed: 1.00 MISC1 Paint 12.00 12.00; 2.00 CD189 30mm Black Conduit 22.50 45.00; 2.00 L1 Maintenance Labour 110.26 220.52. Printed subtotal $277.52 ex GST, GST $27.75, total $305.27. Printed PK000023 matches the PK charged (PK000023).",
+  "follow_up": null
+ },
+ "INV-8947": {
+  "coding_verdict": "Correct",
+  "coding_note": "Invoice INV-8947 dated 2026-09-11, work order 3924291, contract LB304, order 717528. 3 priced line(s) as printed: 2.00 FX1160 M8 Shackle SS 9.25 18.50; 1.00 SW184 Infant Seat (short hinge) 81.20 81.20; 1.50 L1 Maintenance Labour 110.26 165.39. Printed subtotal $265.09 ex GST, GST $26.51, total $291.60. Printed PK000023 matches the PK charged (PK000023).",
+  "follow_up": null
+ }
+}

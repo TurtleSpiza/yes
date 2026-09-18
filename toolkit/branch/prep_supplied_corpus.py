@@ -85,6 +85,14 @@ BATCHES = {
                        vendors={'R. S. T. Systems Pty. Limited Trading as Vinton Tree Services': 'VINTON'}),
     'playforce_new': dict(src='corpus_playforce_new_as_supplied.json', vendors={'Play Force Australia Pty Ltd': 'PLAYFORCE'},
                           layouts=[('PLAYFORCE_XERO', re.compile(r'^Description\s{2,}Quantity\s{2,}Unit Price\s{2,}GST\s{2,}Amount AUD', re.M))]),
+    # pages_from_binder1 (branch v24): 96 Play Force documents over 97 pages, runtime A, gate GREEN as received
+    # under prompt v7.3. Same vendor and the same two layouts as playforce_new, so it takes that configuration
+    # unchanged. Unlike playforce_new the binder WAS supplied here, so page_text is replaced after prep with the
+    # text parsed from the PDF: the shingle check then runs against an independent haystack rather than against
+    # the corpus's own rows, which is the difference between PASS and UNVERIFIABLE.
+    'pages_from_binder1': dict(src='corpus_pages_from_binder1_as_received.json',
+                               vendors={'Play Force Australia Pty Ltd': 'PLAYFORCE'},
+                               layouts=[('PLAYFORCE_XERO', re.compile(r'^Description\s{2,}Quantity\s{2,}Unit Price\s{2,}GST\s{2,}Amount AUD', re.M))]),
     # trees_new (branch v16): 45 documents over 51 pages, runtime A, gate GREEN as supplied. Three vendors, and
     # Treescape prints TWO layouts in this binder, so it carries two templates for the reason playforce_new already
     # met: the fidelity check works on the rows CONSTANT across a vendor's documents, and mixing two layouts makes
@@ -474,6 +482,10 @@ def prepare(corpus):
         for l in d['lines']:
             pages[l['page']].append((l['line_no'], l['line_text']))
         d['page_text'] = {str(p): '\n'.join(t for _, t in sorted(rows)) for p, rows in sorted(pages.items())}
+        # Said plainly, because it decides whether the verbatim check means anything: this page text is the
+        # corpus's own line_text rows put back together, NOT an independent parse of the page. The shingle
+        # check will run against it and cannot fail. Where the binder is held, replace it and say so.
+        rebuilt_text = True
         d['findings'] = [f'[{f["code"]}] {f["detail"]} Amount ${f["amount"]:,.2f}.' if isinstance(f, dict) else str(f) for f in d['findings']]
         fixed = collections.Counter()
         for l in d['lines']:
@@ -555,6 +567,21 @@ def prepare(corpus):
 
 
 # ------------------------------------------------------------------------------------------------ rule 19.2 fidelity
+
+
+PAGES = os.environ.get('PBR_PAGES')          # {page: text} parsed from the binder, when the binder was supplied
+PAGES_BY_DOC = {}                            # doc_ref -> the text of the pages that document covers
+
+
+def load_pages(corpus):
+    """Where the binder is held, the independent haystack is the page itself rather than another batch."""
+    if not PAGES or not os.path.exists(PAGES):
+        return
+    pages = json.load(open(PAGES, encoding='utf-8'))
+    for d in corpus['documents']:
+        pr = d.get('page_range') or []
+        if len(pr) == 2 and all(isinstance(x, int) for x in pr):
+            PAGES_BY_DOC[d['doc_ref']] = '\n'.join(pages.get(str(p), '') for p in range(pr[0], pr[1] + 1))
 
 
 def references():
@@ -656,6 +683,14 @@ def fidelity(corpus, refs):
                     (near_ok.__setitem__(g, near[0]) if near else truly.append(g))
                 if near_ok:
                     variants_2w[ref] = near_ok
+                if truly and PAGES:
+                    # The binder was supplied for this batch, so the reference is no longer the best evidence
+                    # available: read the page itself. A reference row absent from BOTH the corpus and the real
+                    # page is not a miss, it is a row that document does not print. Play Force INV-8599 is one
+                    # page of a form whose reference document runs to several, so every terms-and-conditions
+                    # row of the reference read as a miss against a page that carries none of them.
+                    pg = PAGES_BY_DOC.get(ref) or ''
+                    truly = [g for g in truly if fmask(g) in {fmask(x) for x in pg.splitlines() if x.strip()}]
                 if truly:
                     missing[ref] = truly
             two_way = dict(reference_template_rows=len(ref_rows),
@@ -707,6 +742,17 @@ def main():
     res = R.repair_and_gate(corpus)
     # The verbatim check is a gate on what gets BUILT, so it runs after the corpus has passed its own gates. A held
     # corpus is not built from, and running it there would only report a second failure on a batch already stopped.
+    # The registry in pbr_capture keys on the batch FOLDER name, and an extraction is free to declare its
+    # batch_id any way it likes ("Pages_from_Binder1" against the folder pages_from_binder1). Normalise it here,
+    # where the batch is already named on the command line, rather than letting the build fail on a KeyError.
+    if corpus['manifest'].get('batch_id') != BATCH:
+        corpus['manifest']['batch_id_as_received'] = corpus['manifest'].get('batch_id')
+        corpus['manifest']['batch_id'] = BATCH
+    corpus['manifest']['page_text_independent'] = False
+    corpus['manifest']['page_text_basis'] = (
+        'rebuilt from the corpus\'s own line_text rows by prep_supplied_corpus.py; NOT an independent parse, so '
+        'the shingle check run against it cannot fail (CLAUDE.md: UNVERIFIABLE is not a pass)')
+    load_pages(corpus)
     rep = fidelity(corpus, references()) if res.gate == 'GREEN' else None
     corpus['manifest'].setdefault('repair_log', []).insert(0, {'tool': os.path.basename(__file__), 'repairs': log})
     corpus['manifest']['fidelity_check'] = rep or {
