@@ -1,4 +1,4 @@
-# PSWP Invoice Extraction Prompt v7.5 (18-Sep-2026; the mixed-supply exemption on P16)
+# PSWP Invoice Extraction Prompt v7.6 (18-Sep-2026; the duplicate_of standing rule and the description layer as a separate axis)
 
 Supersedes v6 (11-Sep-2026), which superseded v5, v4 and v3.1. For extraction of supplier-invoice binders to a structured JSON corpus for the PS/WP and Parks Branch Transaction Registers, Logan City Council, Parks Branch.
 
@@ -564,6 +564,14 @@ builds, with the limitation on the record rather than inside a helper script.
 
 ---
 
+**NEW v7.6, a standing rule: every uniqueness and completeness check exempts `duplicate_of`.** A repeated copy
+of an invoice inside a binder is the same document, so it shares its original's identifiers by construction. It
+has no priced lines because its arithmetic is null (4.0 rung 2), and it shares the original's `evidence_stem`
+because it is the same evidence. Four checks have now needed this exemption one at a time, P1 and P15 among
+them, each discovered by a correct corpus being failed. State it once: a check that asks "is this unique" or
+"did this parse" does not ask it of a row or a document carrying `duplicate_of`. P7 is the exception and is
+meant to be, because it exists to find a duplicate that was NOT marked.
+
 ## 12. Evidence stem rule
 
 `Business Name, What it was For, Date, Amount`, 40 characters maximum, no extension. Amount is the invoice incl-GST total, two decimals, no dollar sign, **negative for a credit note**. Degrade in this order and never trim the amount: full date `D-Mon-YYYY`, then `Mon-YYYY`, then a shorter purpose, then a shorter business name.
@@ -945,7 +953,7 @@ out of a corpus failing.
 
 | Area | Amendment | Why |
 |---|---|---|
-| 13.2, the computed gate | **The gate applies the check set of the prompt version the corpus records**, and the report names the set it applied. `manifest.prompt_version` is therefore mandatory, not decorative. | A RED verdict stops carrying information the moment it fires on a field that did not exist when the corpus was extracted. Run unscoped over the 34 corpora held in the branch repository, 31 read RED and almost all of them on P11 and P12 alone, because no corpus predating v7 carries `bands_calibrated_on` or `residue_rows`: neither field is in the v5 or the v6 prompt. Scoped, 8 read RED and every one is a real failure under the rules that applied to it. |
+| 13.2, the computed gate | **The gate applies the checks the corpus could have satisfied, scoped on the FIELD or CONVENTION each check reads** (13.2). Scoping on the declared VERSION alone was the first cut and was a loophole: it let a corpus escape P14, P15 and P16 by declaring v6, none of which needs anything v6 lacks, and the report names the set it applied. `manifest.prompt_version` is therefore mandatory, not decorative. | A RED verdict stops carrying information the moment it fires on a field that did not exist when the corpus was extracted. Run unscoped over the 34 corpora held in the branch repository, 31 read RED and almost all of them on P11 and P12 alone, because no corpus predating v7 carries `bands_calibrated_on` or `residue_rows`: neither field is in the v5 or the v6 prompt. Scoped on the evidence, and after the later amendments, 11 read RED of 37 corpora. The figure of 8 quoted when this annexe was written came from the looser version-only scope and from a smaller denominator; it is superseded. |
 | 10, verbatim fidelity | **The manifest carries `page_text_independent`, a boolean, and `page_text_basis`, the sentence explaining it.** A corpus whose page text was rebuilt from its own `line_text` rows is reported as an UNVERIFIED description layer and cannot be GREEN. | The shingle check is the only test in this standard that reads a word rather than an amount, and it needs a haystack the capture did not write. Rebuilding page text from the corpus's own rows makes the check runnable and **unfailable**, because the haystack becomes the captured text. A corpus can tie to the cent on every invoice and carry a description the page never printed. Of the 34 corpora held, exactly one has an independently parsed page text, and it is the one batch where the binder was supplied. |
 
 **What the second amendment costs, stated plainly.** It takes GREEN off almost every corpus in the repository,

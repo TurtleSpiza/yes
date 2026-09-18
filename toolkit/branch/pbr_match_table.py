@@ -59,7 +59,17 @@ def variant_of(amounts, sub, incl):
 
 def main():
     corpus = json.load(open(os.path.join(BDIR, f'corpus_{BATCH}_v6.json')))
-    assert corpus['manifest']['gate'] == 'GREEN', corpus['manifest']['gate']
+    # The COMPUTED gate decides, not the word the extraction declared (prompt 13.2), and AMBER builds what is
+    # complete while holding the named documents (13.0). Asserting on a declared GREEN enforced a rule the
+    # standard does not state, and once the description layer could demote a corpus it would have blocked every
+    # capture. A pathology is the thing that stops a build.
+    sys.path.insert(0, os.path.join(ROOT, 'toolkit', 'pswp'))
+    from pswp_corpus_gate import check as _gate
+    _r = _gate(os.path.join(BDIR, f'corpus_{BATCH}_v6.json'))
+    assert not _r['pathologies'], (_r['gate'], _r['pathologies'][:4])
+    if _r['gate'] != corpus['manifest'].get('gate'):
+        print(f"  gate: declared {corpus['manifest'].get('gate')}, computed {_r['gate']}, the computed gate stands"
+              f" (description layer {_r['description_layer']})")
     npath = os.path.join(BDIR, f'notes_{BATCH}_v6.json')
     notes = json.load(open(npath)) if os.path.exists(npath) else {}
 
