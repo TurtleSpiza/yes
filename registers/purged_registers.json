@@ -1,0 +1,412 @@
+{
+ "_readme": [
+  "Parks Branch registers removed from git history on 18-Sep-2026, under the retention rule that this",
+  "repository keeps the two most recent registers per family and no older ones.",
+  "A register is an output and these are superseded outputs, but this project does not delete without",
+  "retaining the fact. Each version is named below with the md5 and size of every blob it ever had.",
+  "The workbook itself is gone and is NOT rebuildable: pbr_build.py builds the current version only, so",
+  "today's toolkit would produce today's logic, not the logic of the version named here.",
+  "What survives instead: reports/ retains Contractor_Pull, Journal_Pull and Unidentified_Contractors at",
+  "every version from v12, and the Handover change log in the shipped register narrates every version.",
+  "Versions v3 to v11 have no reports/ counterpart and are recoverable from nothing. That was the accepted",
+  "cost of the decision, taken deliberately on 18-Sep-2026."
+ ],
+ "purged_utc": "2026-09-18T05:09:32Z",
+ "rule": "toolkit/branch/pbr_retention_v1.json keep_newest=2",
+ "kept_in_history": [
+  "registers/PS_WP_Transaction_Register_3FY_v127_CANDIDATE.xlsx",
+  "registers/PS_WP_Transaction_Register_3FY_v128.xlsx",
+  "registers/PS_WP_Transaction_Register_3FY_v129.xlsx",
+  "registers/Parks_Branch_Transaction_Register_FY2627_v25.xlsx",
+  "registers/rewrite_audit_v128.json",
+  "registers/rewrite_audit_v129.json"
+ ],
+ "purged_versions": 22,
+ "purged_total_mb": 288.5,
+ "purged": [
+  {
+   "path": "registers/Parks_Branch_Transaction_Register_FY2627_v3.xlsx",
+   "version": "v3",
+   "blob_count": 1,
+   "total_mb": 3.09,
+   "shipped": "2026-09-11",
+   "blobs": [
+    {
+     "blob": "4716a2b7996a6654b6193b61e87be01a89356912",
+     "bytes": 3237005,
+     "mb": 3.09,
+     "md5": "97afa77c95377ed65b7c6d13749392e9"
+    }
+   ]
+  },
+  {
+   "path": "registers/Parks_Branch_Transaction_Register_FY2627_v4.xlsx",
+   "version": "v4",
+   "blob_count": 1,
+   "total_mb": 4.91,
+   "shipped": "2026-09-11",
+   "blobs": [
+    {
+     "blob": "4ba225e9a799809aae7430c6c6502f7a1d58dd0b",
+     "bytes": 5148047,
+     "mb": 4.91,
+     "md5": "3e657b8259f34d41dea53de1154ac013"
+    }
+   ]
+  },
+  {
+   "path": "registers/Parks_Branch_Transaction_Register_FY2627_v5.xlsx",
+   "version": "v5",
+   "blob_count": 2,
+   "total_mb": 10.08,
+   "shipped": "2026-09-11",
+   "blobs": [
+    {
+     "blob": "07e68532e1d2ab14234beb18f7f9373dd97b662b",
+     "bytes": 5289638,
+     "mb": 5.04,
+     "md5": "e43433502ef8f5bc251cda2b65a77173"
+    },
+    {
+     "blob": "df6ed490b98eff93adf44510236f37c39a3ec793",
+     "bytes": 5276403,
+     "mb": 5.03,
+     "md5": "069b92f45eb138317ddab29ce95a67b9"
+    }
+   ]
+  },
+  {
+   "path": "registers/Parks_Branch_Transaction_Register_FY2627_v6.xlsx",
+   "version": "v6",
+   "blob_count": 3,
+   "total_mb": 19.7,
+   "shipped": "2026-09-11",
+   "blobs": [
+    {
+     "blob": "3635f2f98fc5de3c3ec975a5232638e23efda22f",
+     "bytes": 7559815,
+     "mb": 7.21,
+     "md5": "4a896aa899f72ceb10a29a81d6e37073"
+    },
+    {
+     "blob": "48a33afdc7c4086b240b3ea78b8689283d720ee0",
+     "bytes": 5410983,
+     "mb": 5.16,
+     "md5": "80e92816acb52a2e265d1b3b5d74caaf"
+    },
+    {
+     "blob": "784570b63b660ead1a4499fdf8650f911d65ccc7",
+     "bytes": 7685499,
+     "mb": 7.33,
+     "md5": "a743a8b83343895fe6a68a88d0c17632"
+    }
+   ]
+  },
+  {
+   "path": "registers/Parks_Branch_Transaction_Register_FY2627_v7.xlsx",
+   "version": "v7",
+   "blob_count": 1,
+   "total_mb": 7.35,
+   "shipped": "2026-09-11",
+   "blobs": [
+    {
+     "blob": "705bbb97faebf7075ae0766c909f0a5d0af7fcb9",
+     "bytes": 7705383,
+     "mb": 7.35,
+     "md5": "f7b134dd07a2785f5fad062af9227508"
+    }
+   ]
+  },
+  {
+   "path": "registers/Parks_Branch_Transaction_Register_FY2627_v8.xlsx",
+   "version": "v8",
+   "blob_count": 1,
+   "total_mb": 9.72,
+   "shipped": null,
+   "blobs": [
+    {
+     "blob": "47f7c347ff593c0783f02d3972bfb2776534a570",
+     "bytes": 10187904,
+     "mb": 9.72,
+     "md5": "1446cffbd45edf7f259cb0e7ad86efc4"
+    }
+   ]
+  },
+  {
+   "path": "registers/Parks_Branch_Transaction_Register_FY2627_v9.xlsx",
+   "version": "v9",
+   "blob_count": 1,
+   "total_mb": 9.97,
+   "shipped": null,
+   "blobs": [
+    {
+     "blob": "b9e1820985a6dc5453727223e6eefb1582233464",
+     "bytes": 10456328,
+     "mb": 9.97,
+     "md5": "e1c159e099e4b5d93a812925f34d6b2c"
+    }
+   ]
+  },
+  {
+   "path": "registers/Parks_Branch_Transaction_Register_FY2627_v10.xlsx",
+   "version": "v10",
+   "blob_count": 1,
+   "total_mb": 10.17,
+   "shipped": "2026-09-14",
+   "blobs": [
+    {
+     "blob": "f0dc559a3cd21e53708575eb0c9fd18a734387df",
+     "bytes": 10660724,
+     "mb": 10.17,
+     "md5": "2f39d2cea0150715b25b78eab7bbe5d8"
+    }
+   ]
+  },
+  {
+   "path": "registers/Parks_Branch_Transaction_Register_FY2627_v11.xlsx",
+   "version": "v11",
+   "blob_count": 1,
+   "total_mb": 10.23,
+   "shipped": "2026-09-14",
+   "blobs": [
+    {
+     "blob": "c8e2ac0f5a96c9f5c5b026402d50d2c13de17f74",
+     "bytes": 10728770,
+     "mb": 10.23,
+     "md5": "c07e9606e4a215f44bc71943bd39f377"
+    }
+   ]
+  },
+  {
+   "path": "registers/Parks_Branch_Transaction_Register_FY2627_v12.xlsx",
+   "version": "v12",
+   "blob_count": 3,
+   "total_mb": 31.02,
+   "shipped": "2026-09-14",
+   "blobs": [
+    {
+     "blob": "04fdc78b5c3850a85bfa0f0b826f7000d216cd28",
+     "bytes": 10842324,
+     "mb": 10.34,
+     "md5": "d5fb890830a49939096bb748876ac459"
+    },
+    {
+     "blob": "4f995ae3ca1d4ef78913efdeb4d3f6a0669f3833",
+     "bytes": 10840290,
+     "mb": 10.34,
+     "md5": "5019aad2bf0af75e5738f20052bd0767"
+    },
+    {
+     "blob": "eea7e4600191ba7db9e9a63d4bc67c8953ab5895",
+     "bytes": 10840324,
+     "mb": 10.34,
+     "md5": "e1a20d794440cfa066ae04a367a6a839"
+    }
+   ]
+  },
+  {
+   "path": "registers/Parks_Branch_Transaction_Register_FY2627_v13.xlsx",
+   "version": "v13",
+   "blob_count": 2,
+   "total_mb": 20.69,
+   "shipped": "2026-09-15",
+   "blobs": [
+    {
+     "blob": "628592c074557816d2545a203cd0526e8f66f7f0",
+     "bytes": 10848236,
+     "mb": 10.35,
+     "md5": "2735e4cae23d0070a92ae15e551bce0e"
+    },
+    {
+     "blob": "73b7e8a8b3f0f154f5068c80fa8e1f62d8b5c04c",
+     "bytes": 10848232,
+     "mb": 10.35,
+     "md5": "5c6ec68d7626cbfbf4f9868f9b9b4406"
+    }
+   ]
+  },
+  {
+   "path": "registers/Parks_Branch_Transaction_Register_FY2627_v14.xlsx",
+   "version": "v14",
+   "blob_count": 2,
+   "total_mb": 20.79,
+   "shipped": "2026-09-15",
+   "blobs": [
+    {
+     "blob": "12bf2eb57b829dadcd8317a3b3167765915cec53",
+     "bytes": 10900390,
+     "mb": 10.4,
+     "md5": "adec2a7652c0531371d2c31e4b925104"
+    },
+    {
+     "blob": "8f325d58409f0024ba9405559229675c71863f7a",
+     "bytes": 10900392,
+     "mb": 10.4,
+     "md5": "cac24b29a90d732e78f11b4d7eb7f2db"
+    }
+   ]
+  },
+  {
+   "path": "registers/Parks_Branch_Transaction_Register_FY2627_v15.xlsx",
+   "version": "v15",
+   "blob_count": 3,
+   "total_mb": 31.2,
+   "shipped": "2026-09-15",
+   "blobs": [
+    {
+     "blob": "06c7424fdf168657578b2083574ecf9a2e4a3e89",
+     "bytes": 10904473,
+     "mb": 10.4,
+     "md5": "dc43f8f4bcdeb86c31310a2e1839fc62"
+    },
+    {
+     "blob": "bf194525b47f5869dbc7e80b2b9cbf2ab4a8b267",
+     "bytes": 10903225,
+     "mb": 10.4,
+     "md5": "e5fda551669a79630094003be64a0806"
+    },
+    {
+     "blob": "f9c2203222c941b50af8fc3219950e3467def024",
+     "bytes": 10903224,
+     "mb": 10.4,
+     "md5": "9b47c797abdb432d49fe9597946ac624"
+    }
+   ]
+  },
+  {
+   "path": "registers/Parks_Branch_Transaction_Register_FY2627_v16.xlsx",
+   "version": "v16",
+   "blob_count": 1,
+   "total_mb": 10.42,
+   "shipped": "2026-09-15",
+   "blobs": [
+    {
+     "blob": "09d6c52cbb73cc86f2cdf8732298e1103de906c4",
+     "bytes": 10925112,
+     "mb": 10.42,
+     "md5": "d2755a88269335eaa992011f8e7a39d2"
+    }
+   ]
+  },
+  {
+   "path": "registers/Parks_Branch_Transaction_Register_FY2627_v17.xlsx",
+   "version": "v17",
+   "blob_count": 1,
+   "total_mb": 10.51,
+   "shipped": "2026-09-15",
+   "blobs": [
+    {
+     "blob": "6a983440a1ef36b41c5eed06af6c56fadafcf6f6",
+     "bytes": 11023784,
+     "mb": 10.51,
+     "md5": "08ca5bc128b1dbe379e84b0dc7966972"
+    }
+   ]
+  },
+  {
+   "path": "registers/Parks_Branch_Transaction_Register_FY2627_v18.xlsx",
+   "version": "v18",
+   "blob_count": 1,
+   "total_mb": 10.5,
+   "shipped": null,
+   "blobs": [
+    {
+     "blob": "485c533ffe8dd46d8dfd5f0446ebca0c86589582",
+     "bytes": 11006694,
+     "mb": 10.5,
+     "md5": "f694453d1ab66afa132f314ff4ef6f26"
+    }
+   ]
+  },
+  {
+   "path": "registers/Parks_Branch_Transaction_Register_FY2627_v19.xlsx",
+   "version": "v19",
+   "blob_count": 1,
+   "total_mb": 11.33,
+   "shipped": null,
+   "blobs": [
+    {
+     "blob": "88fc8c4ea4ee57e71ab9389e0b46a1bc338e8ba4",
+     "bytes": 11882125,
+     "mb": 11.33,
+     "md5": "802f9547d006b18e3f2e1b9584ae334c"
+    }
+   ]
+  },
+  {
+   "path": "registers/Parks_Branch_Transaction_Register_FY2627_v20.xlsx",
+   "version": "v20",
+   "blob_count": 1,
+   "total_mb": 11.35,
+   "shipped": "2026-09-16",
+   "blobs": [
+    {
+     "blob": "827ff4045fde64251f622619b36333b4f5c2502f",
+     "bytes": 11898185,
+     "mb": 11.35,
+     "md5": "4e454cc664f5d9e8dcab9b2a4b2730d9"
+    }
+   ]
+  },
+  {
+   "path": "registers/Parks_Branch_Transaction_Register_FY2627_v21.xlsx",
+   "version": "v21",
+   "blob_count": 1,
+   "total_mb": 11.35,
+   "shipped": "2026-09-16",
+   "blobs": [
+    {
+     "blob": "e67315a08d4acc84917f885acc98a85cad29ce9f",
+     "bytes": 11898275,
+     "mb": 11.35,
+     "md5": "02e17a5d4eea5450d046c19776b8df75"
+    }
+   ]
+  },
+  {
+   "path": "registers/Parks_Branch_Transaction_Register_FY2627_v22.xlsx",
+   "version": "v22",
+   "blob_count": 1,
+   "total_mb": 11.36,
+   "shipped": "2026-09-16",
+   "blobs": [
+    {
+     "blob": "19149689543877248f068b87eccf88fcb70b1100",
+     "bytes": 11916777,
+     "mb": 11.36,
+     "md5": "a76d8a16e6ebbd416cd52ea6887be304"
+    }
+   ]
+  },
+  {
+   "path": "registers/Parks_Branch_Transaction_Register_FY2627_v23.xlsx",
+   "version": "v23",
+   "blob_count": 1,
+   "total_mb": 11.38,
+   "shipped": null,
+   "blobs": [
+    {
+     "blob": "8ca1dfe0ac6f01b8139e9fdde3801a10165c98d9",
+     "bytes": 11933490,
+     "mb": 11.38,
+     "md5": "1f075dbe3f8faa924ad900fc03909a65"
+    }
+   ]
+  },
+  {
+   "path": "registers/Parks_Branch_Transaction_Register_FY2627_v24.xlsx",
+   "version": "v24",
+   "blob_count": 1,
+   "total_mb": 11.4,
+   "shipped": "2026-09-18",
+   "blobs": [
+    {
+     "blob": "c955a9ff4644fa0d015708fc9d9e86ffe637a50f",
+     "bytes": 11950111,
+     "mb": 11.4,
+     "md5": "c461ad13ed15b1c8fe90ef79669673f7"
+    }
+   ]
+  }
+ ]
+}
