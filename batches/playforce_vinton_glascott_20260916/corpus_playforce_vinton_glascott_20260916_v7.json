@@ -4,11 +4,22 @@
   "source_files": [
    {
     "name": "play force and vinton.pdf",
-    "pages": 124
+    "pages": 124,
+    "md5": "db27c53bee4e62455a041d6dfa7e767a",
+    "sighted_utc": "2026-09-18",
+    "pages_supplied": 42,
+    "pages_supplied_range": [
+     82,
+     123
+    ],
+    "sighting": "PARTIAL: 42 of 124 pages"
    },
    {
     "name": "97 001 281 572.pdf",
-    "pages": 16
+    "pages": 16,
+    "md5": "007e24fb685834aa109a08eebcc9f1cd",
+    "sighted_utc": "2026-09-18",
+    "pages_supplied": 16
    }
   ],
   "runtime": "A",
@@ -97,7 +108,7 @@
   "ocr_pages_not_available": 0,
   "ocr_pages_outstanding": 0,
   "text_layer_diffs": [],
-  "shingle_checks_run": 0,
+  "shingle_checks_run": 840,
   "shingle_failures": 0,
   "resume_point": null,
   "repair_log": [
@@ -241,6 +252,44 @@
       "1237.66"
      ]
     ]
+   }
+  ],
+  "shingle_unverifiable_documents": 28,
+  "page_text_basis": "pdftotext -layout over the supplied binders, 18-Sep-2026: all 16 Glascott pages and Play Force binder pages 82 to 123. 33 of 61 documents verified, 840 shingles, 0 failing. The other 28 retain no page text.",
+  "sightings": [
+   {
+    "utc": "2026-09-18",
+    "rule": "rule 12, a re-sighting is audited not re-captured",
+    "fully_sighted": [
+     "19675",
+     "19830",
+     "19873",
+     "19884",
+     "19896",
+     "19902",
+     "19917",
+     "19922",
+     "19927",
+     "19938",
+     "19939",
+     "19943",
+     "19944",
+     "19952",
+     "19961",
+     "19971",
+     "19979",
+     "19980",
+     "19985",
+     "19988"
+    ],
+    "partly_sighted": {
+     "INV-8009": "page 82 of [80, 82]",
+     "19996": "page 123 of [123, 124]"
+    },
+    "unsighted": 28,
+    "mask_screen": "0 pages mask rows over the 42-page slice; the Glascott binder was already clean",
+    "shingles": "840 tested, 0 failing, 28 unverifiable",
+    "gate_effect": "NONE. The batch stays RED on P11, P12 and P17, which need a re-extraction, not a sighting."
    }
   ]
  },

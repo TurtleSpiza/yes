@@ -85,8 +85,15 @@
   },
   {
    "name": "play force and vinton.pdf",
-   "md5": null,
-   "note": "NOT SUPPLIED to this session, so its 124 pages are unscreened. The 50 Play Force and Vinton documents carry no M1 verdict either way."
+   "md5": "db27c53bee4e62455a041d6dfa7e767a",
+   "note": "PARTIAL. 42 pages supplied against 124 declared, mapped to binder pages 82 to 123 by a constant +81 offset over every invoice number in the slice. 0 pages mask rows, so the 20 documents wholly inside the slice carry a clean M1 verdict. Binder pages 1 to 81 and page 124, and the 28 documents in them, remain unscreened.",
+   "pages_supplied": 42,
+   "pages_declared": 124,
+   "slice": [
+    82,
+    123
+   ],
+   "pages_masking_rows": []
   }
  ],
  "documents": [

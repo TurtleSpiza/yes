@@ -1,5 +1,6 @@
 {
   "manifest": {
+    "archival": true,
     "batch_id": "mixed_new_26_27",
     "runtime": "B",
     "prompt_version": "PSWP Extraction Prompt v5",

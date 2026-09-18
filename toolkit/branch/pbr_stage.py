@@ -416,6 +416,10 @@ def main(dry=False):
         from pswp_corpus_gate import check as _corpus_gate
         _g = _corpus_gate(os.path.join(ROOT, 'batches', batch, f'corpus_{batch}_v6.json'))
         assert not _g['pathologies'], (batch, _g['gate'], _g['pathologies'][:3])
+        # prompt v7.7 rule 11.12. An archival snapshot is the record of what was received, never a build
+        # input. The chain already reads only corpus_<batch>_v6.json, so this has never fired; it is here so
+        # the rule is enforced rather than true by accident, which is how a snapshot would get built from.
+        assert not _g.get('archival'), ('rule 11.12: archival corpus is never a build input', batch)
         if _g['gate'] != cj['manifest'].get('gate'):
             say(f"  {batch}: declared {cj['manifest'].get('gate')}, computed {_g['gate']}, the computed gate "
                 f"stands (description layer {_g['description_layer']})")

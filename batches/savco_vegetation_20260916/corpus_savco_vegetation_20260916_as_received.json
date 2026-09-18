@@ -1,5 +1,6 @@
 {
   "manifest": {
+    "archival": true,
     "batch_id": "savco_vegetation_20260916",
     "source_files": [
       {
