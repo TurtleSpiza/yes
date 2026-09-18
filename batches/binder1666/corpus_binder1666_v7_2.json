@@ -10,7 +10,7 @@
   "runtime": "A",
   "extraction_tool": "pdftotext -layout, Python Decimal classifier, M365 Copilot",
   "extracted_utc": "2026-09-17T23:29:40.857801+00:00",
-  "prompt_version": "v7.2",
+  "prompt_version": "v7.2 (restated from retained text by pswp_header_restate.py)",
   "gate": "AMBER",
   "pathologies": [],
   "coverage": {
@@ -391,27 +391,7 @@
   ],
   "shingle_checks_run": 0,
   "shingle_failures": 0,
-  "resume_point": null,
-  "restatements": [
-   {
-    "rule": "R1666-1",
-    "doc_ref": "60203",
-    "before": {
-     "subtotal": 28.6,
-     "gst": 286.0,
-     "captured": 28.6,
-     "line": 28.6
-    },
-    "after": {
-     "subtotal": 286.0,
-     "gst": 28.6,
-     "captured": 286.0,
-     "line": 286.0
-    },
-    "understated_by": 257.4,
-    "basis": "source page C00309400_2.pdf, bands recorded and calibrated on row 13"
-   }
-  ]
+  "resume_point": null
  },
  "documents": [
   {
@@ -41332,8 +41312,8 @@
    "invoice_date": "23/06/2026",
    "printed_subtotal_ex_gst": 1893.75,
    "subtotal_basis": "printed",
-   "printed_gst": -1887.75,
-   "printed_total_incl_gst": 6.0,
+   "printed_gst": 189.38,
+   "printed_total_incl_gst": 2083.13,
    "header_sources": {
     "printed_subtotal_ex_gst": {
      "page": 40,
@@ -41341,14 +41321,14 @@
     },
     "printed_gst": {
      "page": 40,
-     "row": 26
+     "row": 46
     },
     "printed_total_incl_gst": {
      "page": 40,
-     "row": 26
+     "row": 46
     }
    },
-   "header_adds_up": true,
+   "header_adds_up": "derived",
    "captured_ex_gst": 1893.75,
    "line_amount_basis": "ex_gst",
    "tie_basis": "ex_gst",
@@ -42305,7 +42285,7 @@
      "page": 40,
      "line_no": 46,
      "line_text": "admin@vintontreeservices.com.au                                                       Total (inc-GST):                $2,083.13",
-     "line_type": "NARRATIVE",
+     "line_type": "TOTALS",
      "ocr_only": false,
      "ocr_status": "not_required",
      "ocr_reason": "clean text layer",
@@ -42460,7 +42440,8 @@
      "work_order": null,
      "note": "wrapped description"
     }
-   ]
+   ],
+   "gst_basis": "derived from printed total less printed subtotal; the GST label prints with no value in its band on this layout"
   },
   {
    "doc_ref": "SV007809",
@@ -43616,7 +43597,7 @@
     },
     "printed_gst": {
      "page": 43,
-     "row": 48
+     "row": 46
     },
     "printed_total_incl_gst": {
      "page": 43,
@@ -45175,8 +45156,8 @@
    "invoice_date": "1/07/2026",
    "printed_subtotal_ex_gst": 1520.0,
    "subtotal_basis": "printed",
-   "printed_gst": -1514.0,
-   "printed_total_incl_gst": 6.0,
+   "printed_gst": 152.0,
+   "printed_total_incl_gst": 1672.0,
    "header_sources": {
     "printed_subtotal_ex_gst": {
      "page": 45,
@@ -45184,14 +45165,14 @@
     },
     "printed_gst": {
      "page": 45,
-     "row": 26
+     "row": 43
     },
     "printed_total_incl_gst": {
      "page": 45,
-     "row": 26
+     "row": 43
     }
    },
-   "header_adds_up": true,
+   "header_adds_up": "derived",
    "captured_ex_gst": 1520.0,
    "line_amount_basis": "ex_gst",
    "tie_basis": "ex_gst",
@@ -46087,7 +46068,7 @@
      "page": 45,
      "line_no": 43,
      "line_text": "admin@vintontreeservices.com.au                                                              Total (inc-GST):               $1,672.00",
-     "line_type": "NARRATIVE",
+     "line_type": "TOTALS",
      "ocr_only": false,
      "ocr_status": "not_required",
      "ocr_reason": "clean text layer",
@@ -46242,7 +46223,8 @@
      "work_order": null,
      "note": "wrapped description"
     }
-   ]
+   ],
+   "gst_basis": "derived from printed total less printed subtotal; the GST label prints with no value in its band on this layout"
   },
   {
    "doc_ref": "INV-39247",
@@ -48436,8 +48418,8 @@
    "invoice_date": "2/07/2026",
    "printed_subtotal_ex_gst": 1442.5,
    "subtotal_basis": "printed",
-   "printed_gst": -1435.5,
-   "printed_total_incl_gst": 7.0,
+   "printed_gst": 144.25,
+   "printed_total_incl_gst": 1586.75,
    "header_sources": {
     "printed_subtotal_ex_gst": {
      "page": 49,
@@ -48445,14 +48427,14 @@
     },
     "printed_gst": {
      "page": 49,
-     "row": 26
+     "row": 49
     },
     "printed_total_incl_gst": {
      "page": 49,
-     "row": 26
+     "row": 49
     }
    },
-   "header_adds_up": true,
+   "header_adds_up": "derived",
    "captured_ex_gst": 1442.5,
    "line_amount_basis": "ex_gst",
    "tie_basis": "ex_gst",
@@ -49471,7 +49453,7 @@
      "page": 49,
      "line_no": 49,
      "line_text": "admin@vintontreeservices.com.au                                                              Total (inc-GST):             $1,586.75",
-     "line_type": "NARRATIVE",
+     "line_type": "TOTALS",
      "ocr_only": false,
      "ocr_status": "not_required",
      "ocr_reason": "clean text layer",
@@ -49626,7 +49608,8 @@
      "work_order": null,
      "note": "wrapped description"
     }
-   ]
+   ],
+   "gst_basis": "derived from printed total less printed subtotal; the GST label prints with no value in its band on this layout"
   },
   {
    "doc_ref": "19675",
@@ -49644,8 +49627,8 @@
    "invoice_date": "3/07/2026",
    "printed_subtotal_ex_gst": 1515.0,
    "subtotal_basis": "printed",
-   "printed_gst": -1508.0,
-   "printed_total_incl_gst": 7.0,
+   "printed_gst": 151.5,
+   "printed_total_incl_gst": 1666.5,
    "header_sources": {
     "printed_subtotal_ex_gst": {
      "page": 51,
@@ -49653,14 +49636,14 @@
     },
     "printed_gst": {
      "page": 51,
-     "row": 26
+     "row": 45
     },
     "printed_total_incl_gst": {
      "page": 51,
-     "row": 26
+     "row": 45
     }
    },
-   "header_adds_up": true,
+   "header_adds_up": "derived",
    "captured_ex_gst": 1515.0,
    "line_amount_basis": "ex_gst",
    "tie_basis": "ex_gst",
@@ -50596,7 +50579,7 @@
      "page": 51,
      "line_no": 45,
      "line_text": "admin@vintontreeservices.com.au                                                        Total (inc-GST):             $1,666.50",
-     "line_type": "NARRATIVE",
+     "line_type": "TOTALS",
      "ocr_only": false,
      "ocr_status": "not_required",
      "ocr_reason": "clean text layer",
@@ -50751,7 +50734,8 @@
      "work_order": null,
      "note": "wrapped description"
     }
-   ]
+   ],
+   "gst_basis": "derived from printed total less printed subtotal; the GST label prints with no value in its band on this layout"
   },
   {
    "doc_ref": "SV007832",
@@ -51887,7 +51871,7 @@
     },
     "printed_gst": {
      "page": 54,
-     "row": 39
+     "row": 37
     },
     "printed_total_incl_gst": {
      "page": 54,
@@ -53272,8 +53256,8 @@
      "row": 57
     },
     "printed_gst": {
-     "page": 57,
-     "row": 1
+     "page": 56,
+     "row": 59
     },
     "printed_total_incl_gst": {
      "page": 57,
@@ -55159,7 +55143,7 @@
     },
     "printed_gst": {
      "page": 58,
-     "row": 37
+     "row": 35
     },
     "printed_total_incl_gst": {
      "page": 58,
@@ -56494,8 +56478,8 @@
    "invoice_date": "13/07/2026",
    "printed_subtotal_ex_gst": 1515.0,
    "subtotal_basis": "printed",
-   "printed_gst": -1508.0,
-   "printed_total_incl_gst": 7.0,
+   "printed_gst": 151.5,
+   "printed_total_incl_gst": 1666.5,
    "header_sources": {
     "printed_subtotal_ex_gst": {
      "page": 60,
@@ -56503,14 +56487,14 @@
     },
     "printed_gst": {
      "page": 60,
-     "row": 26
+     "row": 45
     },
     "printed_total_incl_gst": {
      "page": 60,
-     "row": 26
+     "row": 45
     }
    },
-   "header_adds_up": true,
+   "header_adds_up": "derived",
    "captured_ex_gst": 1515.0,
    "line_amount_basis": "ex_gst",
    "tie_basis": "ex_gst",
@@ -57446,7 +57430,7 @@
      "page": 60,
      "line_no": 45,
      "line_text": "admin@vintontreeservices.com.au                                                      Total (inc-GST):              $1,666.50",
-     "line_type": "NARRATIVE",
+     "line_type": "TOTALS",
      "ocr_only": false,
      "ocr_status": "not_required",
      "ocr_reason": "clean text layer",
@@ -57601,7 +57585,8 @@
      "work_order": null,
      "note": "wrapped description"
     }
-   ]
+   ],
+   "gst_basis": "derived from printed total less printed subtotal; the GST label prints with no value in its band on this layout"
   },
   {
    "doc_ref": "INV-47225",
@@ -57628,7 +57613,7 @@
     },
     "printed_gst": {
      "page": 62,
-     "row": 38
+     "row": 36
     },
     "printed_total_incl_gst": {
      "page": 62,
@@ -58987,8 +58972,8 @@
    "invoice_date": "14/07/2026",
    "printed_subtotal_ex_gst": 1515.0,
    "subtotal_basis": "printed",
-   "printed_gst": -1508.0,
-   "printed_total_incl_gst": 7.0,
+   "printed_gst": 151.5,
+   "printed_total_incl_gst": 1666.5,
    "header_sources": {
     "printed_subtotal_ex_gst": {
      "page": 64,
@@ -58996,14 +58981,14 @@
     },
     "printed_gst": {
      "page": 64,
-     "row": 26
+     "row": 44
     },
     "printed_total_incl_gst": {
      "page": 64,
-     "row": 26
+     "row": 44
     }
    },
-   "header_adds_up": true,
+   "header_adds_up": "derived",
    "captured_ex_gst": 1515.0,
    "line_amount_basis": "ex_gst",
    "tie_basis": "ex_gst",
@@ -59919,7 +59904,7 @@
      "page": 64,
      "line_no": 44,
      "line_text": "admin@vintontreeservices.com.au                                                         Total (inc-GST):              $1,666.50",
-     "line_type": "NARRATIVE",
+     "line_type": "TOTALS",
      "ocr_only": false,
      "ocr_status": "not_required",
      "ocr_reason": "clean text layer",
@@ -60074,7 +60059,8 @@
      "work_order": null,
      "note": "wrapped description"
     }
-   ]
+   ],
+   "gst_basis": "derived from printed total less printed subtotal; the GST label prints with no value in its band on this layout"
   },
   {
    "doc_ref": "SV007864",
@@ -62004,8 +61990,8 @@
    "invoice_date": "20/07/2026",
    "printed_subtotal_ex_gst": 1529.92,
    "subtotal_basis": "printed",
-   "printed_gst": -1522.92,
-   "printed_total_incl_gst": 7.0,
+   "printed_gst": 152.99,
+   "printed_total_incl_gst": 1682.91,
    "header_sources": {
     "printed_subtotal_ex_gst": {
      "page": 68,
@@ -62013,14 +61999,14 @@
     },
     "printed_gst": {
      "page": 68,
-     "row": 26
+     "row": 48
     },
     "printed_total_incl_gst": {
      "page": 68,
-     "row": 26
+     "row": 48
     }
    },
-   "header_adds_up": true,
+   "header_adds_up": "derived",
    "captured_ex_gst": 1529.92,
    "line_amount_basis": "ex_gst",
    "tie_basis": "ex_gst",
@@ -63024,7 +63010,7 @@
      "page": 68,
      "line_no": 48,
      "line_text": "admin@vintontreeservices.com.au                                                           Total (inc-GST):              $1,682.91",
-     "line_type": "NARRATIVE",
+     "line_type": "TOTALS",
      "ocr_only": false,
      "ocr_status": "not_required",
      "ocr_reason": "clean text layer",
@@ -63179,7 +63165,8 @@
      "work_order": null,
      "note": "wrapped description"
     }
-   ]
+   ],
+   "gst_basis": "derived from printed total less printed subtotal; the GST label prints with no value in its band on this layout"
   },
   {
    "doc_ref": "INV-47353",
@@ -63206,7 +63193,7 @@
     },
     "printed_gst": {
      "page": 70,
-     "row": 43
+     "row": 41
     },
     "printed_total_incl_gst": {
      "page": 70,
@@ -66047,8 +66034,8 @@
    "invoice_date": "21/07/2026",
    "printed_subtotal_ex_gst": 1544.85,
    "subtotal_basis": "printed",
-   "printed_gst": -1537.85,
-   "printed_total_incl_gst": 7.0,
+   "printed_gst": 154.49,
+   "printed_total_incl_gst": 1699.34,
    "header_sources": {
     "printed_subtotal_ex_gst": {
      "page": 74,
@@ -66056,14 +66043,14 @@
     },
     "printed_gst": {
      "page": 74,
-     "row": 26
+     "row": 46
     },
     "printed_total_incl_gst": {
      "page": 74,
-     "row": 26
+     "row": 46
     }
    },
-   "header_adds_up": true,
+   "header_adds_up": "derived",
    "captured_ex_gst": 1544.85,
    "line_amount_basis": "ex_gst",
    "tie_basis": "ex_gst",
@@ -67028,7 +67015,7 @@
      "page": 74,
      "line_no": 46,
      "line_text": "admin@vintontreeservices.com.au                                                           Total (inc-GST):              $1,699.34",
-     "line_type": "NARRATIVE",
+     "line_type": "TOTALS",
      "ocr_only": false,
      "ocr_status": "not_required",
      "ocr_reason": "clean text layer",
@@ -67183,7 +67170,8 @@
      "work_order": null,
      "note": "wrapped description"
     }
-   ]
+   ],
+   "gst_basis": "derived from printed total less printed subtotal; the GST label prints with no value in its band on this layout"
   },
   {
    "doc_ref": "19905",
@@ -67201,8 +67189,8 @@
    "invoice_date": "30/06/2026",
    "printed_subtotal_ex_gst": 1760.26,
    "subtotal_basis": "printed",
-   "printed_gst": -1753.26,
-   "printed_total_incl_gst": 7.0,
+   "printed_gst": 176.03,
+   "printed_total_incl_gst": 1936.29,
    "header_sources": {
     "printed_subtotal_ex_gst": {
      "page": 76,
@@ -67210,14 +67198,14 @@
     },
     "printed_gst": {
      "page": 76,
-     "row": 26
+     "row": 50
     },
     "printed_total_incl_gst": {
      "page": 76,
-     "row": 26
+     "row": 50
     }
    },
-   "header_adds_up": true,
+   "header_adds_up": "derived",
    "captured_ex_gst": 1760.26,
    "line_amount_basis": "ex_gst",
    "tie_basis": "ex_gst",
@@ -68264,7 +68252,7 @@
      "page": 76,
      "line_no": 50,
      "line_text": "admin@vintontreeservices.com.au                                                             Total (inc-GST):                $1,936.29",
-     "line_type": "NARRATIVE",
+     "line_type": "TOTALS",
      "ocr_only": false,
      "ocr_status": "not_required",
      "ocr_reason": "clean text layer",
@@ -68419,7 +68407,8 @@
      "work_order": null,
      "note": "wrapped description"
     }
-   ]
+   ],
+   "gst_basis": "derived from printed total less printed subtotal; the GST label prints with no value in its band on this layout"
   },
   {
    "doc_ref": "19917",
@@ -68437,8 +68426,8 @@
    "invoice_date": "24/07/2026",
    "printed_subtotal_ex_gst": 1795.95,
    "subtotal_basis": "printed",
-   "printed_gst": -1788.95,
-   "printed_total_incl_gst": 7.0,
+   "printed_gst": 179.6,
+   "printed_total_incl_gst": 1975.55,
    "header_sources": {
     "printed_subtotal_ex_gst": {
      "page": 78,
@@ -68446,14 +68435,14 @@
     },
     "printed_gst": {
      "page": 78,
-     "row": 26
+     "row": 53
     },
     "printed_total_incl_gst": {
      "page": 78,
-     "row": 26
+     "row": 53
     }
    },
-   "header_adds_up": true,
+   "header_adds_up": "derived",
    "captured_ex_gst": 1795.95,
    "line_amount_basis": "ex_gst",
    "tie_basis": "ex_gst",
@@ -69562,7 +69551,7 @@
      "page": 78,
      "line_no": 53,
      "line_text": "admin@vintontreeservices.com.au                                                             Total (inc-GST):              $1,975.55",
-     "line_type": "NARRATIVE",
+     "line_type": "TOTALS",
      "ocr_only": false,
      "ocr_status": "not_required",
      "ocr_reason": "clean text layer",
@@ -69717,7 +69706,8 @@
      "work_order": null,
      "note": "wrapped description"
     }
-   ]
+   ],
+   "gst_basis": "derived from printed total less printed subtotal; the GST label prints with no value in its band on this layout"
   },
   {
    "doc_ref": "60203",
@@ -69765,14 +69755,6 @@
      "row": 11,
      "text": "    Job        Quantity                Description                                       Net Price    GST",
      "bands": {
-      "job": [
-       3,
-       7
-      ],
-      "quantity": [
-       15,
-       24
-      ],
       "description": [
        39,
        49
@@ -69783,7 +69765,7 @@
       ],
       "gst": [
        102,
-       111
+       104
       ]
      },
      "bands_calibrated_on": {
@@ -69812,7 +69794,7 @@
      "amount": 314.6
     }
    ],
-   "notes": "Page footer and page range checked. Source pages [80]. R1666-1: restated from the retained line_text against the bands the source page prints; the subtotal and the GST had been read off each other's rows and the line amount taken from the GST band, understating the document by $257.40.",
+   "notes": "Page footer and page range checked. Source pages [80].",
    "lines": [
     {
      "source": "TEXT",
@@ -70071,11 +70053,10 @@
      "gst_rate_printed": null,
      "stated_amt": null,
      "band_hits": [
-      "amount",
-      "gst"
+      "net_price"
      ],
      "work_order": null,
-     "note": "R1666-1: the amount was read from the GST band. 286.00 spans [93,98] and overlaps the amount band [89,98]; 28.60 spans [107,111] and does not."
+     "note": null
     },
     {
      "source": "TEXT",
@@ -70322,7 +70303,7 @@
      "page": 80,
      "line_no": 26,
      "line_text": "Delivery Note No.      25,177                                          Net   $                            286.00",
-     "line_type": "NARRATIVE",
+     "line_type": "TOTALS",
      "ocr_only": false,
      "ocr_status": "not_required",
      "ocr_reason": "clean text layer",
@@ -70362,7 +70343,7 @@
      "page": 80,
      "line_no": 28,
      "line_text": "                                                                       GST $                               28.60",
-     "line_type": "NARRATIVE",
+     "line_type": "TOTALS",
      "ocr_only": false,
      "ocr_status": "not_required",
      "ocr_reason": "clean text layer",
@@ -70402,7 +70383,7 @@
      "page": 80,
      "line_no": 30,
      "line_text": "                                                                       Total $                            314.60",
-     "line_type": "NARRATIVE",
+     "line_type": "TOTALS",
      "ocr_only": false,
      "ocr_status": "not_required",
      "ocr_reason": "clean text layer",
@@ -71664,8 +71645,8 @@
    "invoice_date": "28/07/2026",
    "printed_subtotal_ex_gst": 2223.83,
    "subtotal_basis": "printed",
-   "printed_gst": -2216.83,
-   "printed_total_incl_gst": 7.0,
+   "printed_gst": 222.38,
+   "printed_total_incl_gst": 2446.21,
    "header_sources": {
     "printed_subtotal_ex_gst": {
      "page": 82,
@@ -71673,14 +71654,14 @@
     },
     "printed_gst": {
      "page": 82,
-     "row": 26
+     "row": 50
     },
     "printed_total_incl_gst": {
      "page": 82,
-     "row": 26
+     "row": 50
     }
    },
-   "header_adds_up": true,
+   "header_adds_up": "derived",
    "captured_ex_gst": 2223.83,
    "line_amount_basis": "ex_gst",
    "tie_basis": "ex_gst",
@@ -72728,7 +72709,7 @@
      "page": 82,
      "line_no": 50,
      "line_text": "admin@vintontreeservices.com.au                                                         Total (inc-GST):                $2,446.21",
-     "line_type": "NARRATIVE",
+     "line_type": "TOTALS",
      "ocr_only": false,
      "ocr_status": "not_required",
      "ocr_reason": "clean text layer",
@@ -72783,7 +72764,8 @@
      "work_order": null,
      "note": null
     }
-   ]
+   ],
+   "gst_basis": "derived from printed total less printed subtotal; the GST label prints with no value in its band on this layout"
   },
   {
    "doc_ref": "19927",
@@ -72801,8 +72783,8 @@
    "invoice_date": "28/07/2026",
    "printed_subtotal_ex_gst": 3428.74,
    "subtotal_basis": "printed",
-   "printed_gst": -3421.74,
-   "printed_total_incl_gst": 7.0,
+   "printed_gst": 342.87,
+   "printed_total_incl_gst": 3771.61,
    "header_sources": {
     "printed_subtotal_ex_gst": {
      "page": 84,
@@ -72810,14 +72792,14 @@
     },
     "printed_gst": {
      "page": 84,
-     "row": 26
+     "row": 54
     },
     "printed_total_incl_gst": {
      "page": 84,
-     "row": 26
+     "row": 54
     }
    },
-   "header_adds_up": true,
+   "header_adds_up": "derived",
    "captured_ex_gst": 3428.74,
    "line_amount_basis": "ex_gst",
    "tie_basis": "ex_gst",
@@ -73950,7 +73932,7 @@
      "page": 84,
      "line_no": 54,
      "line_text": "admin@vintontreeservices.com.au                                                       Total (inc-GST):                $3,771.61",
-     "line_type": "NARRATIVE",
+     "line_type": "TOTALS",
      "ocr_only": false,
      "ocr_status": "not_required",
      "ocr_reason": "clean text layer",
@@ -74005,7 +73987,8 @@
      "work_order": null,
      "note": null
     }
-   ]
+   ],
+   "gst_basis": "derived from printed total less printed subtotal; the GST label prints with no value in its band on this layout"
   },
   {
    "doc_ref": "SV007935",
@@ -75119,7 +75102,7 @@
     },
     "printed_gst": {
      "page": 87,
-     "row": 44
+     "row": 42
     },
     "printed_total_incl_gst": {
      "page": 87,
@@ -76609,7 +76592,7 @@
     },
     "printed_gst": {
      "page": 89,
-     "row": 40
+     "row": 38
     },
     "printed_total_incl_gst": {
      "page": 89,
@@ -79932,8 +79915,8 @@
    "invoice_date": "3/08/2026",
    "printed_subtotal_ex_gst": 1559.77,
    "subtotal_basis": "printed",
-   "printed_gst": -1552.77,
-   "printed_total_incl_gst": 7.0,
+   "printed_gst": 155.98,
+   "printed_total_incl_gst": 1715.75,
    "header_sources": {
     "printed_subtotal_ex_gst": {
      "page": 93,
@@ -79941,14 +79924,14 @@
     },
     "printed_gst": {
      "page": 93,
-     "row": 26
+     "row": 47
     },
     "printed_total_incl_gst": {
      "page": 93,
-     "row": 26
+     "row": 47
     }
    },
-   "header_adds_up": true,
+   "header_adds_up": "derived",
    "captured_ex_gst": 1559.77,
    "line_amount_basis": "ex_gst",
    "tie_basis": "ex_gst",
@@ -80933,7 +80916,7 @@
      "page": 93,
      "line_no": 47,
      "line_text": "admin@vintontreeservices.com.au                                                          Total (inc-GST):             $1,715.75",
-     "line_type": "NARRATIVE",
+     "line_type": "TOTALS",
      "ocr_only": false,
      "ocr_status": "not_required",
      "ocr_reason": "clean text layer",
@@ -81088,7 +81071,8 @@
      "work_order": null,
      "note": "wrapped description"
     }
-   ]
+   ],
+   "gst_basis": "derived from printed total less printed subtotal; the GST label prints with no value in its band on this layout"
   },
   {
    "doc_ref": "19939",
@@ -81106,8 +81090,8 @@
    "invoice_date": "3/08/2026",
    "printed_subtotal_ex_gst": 1580.36,
    "subtotal_basis": "printed",
-   "printed_gst": -1573.36,
-   "printed_total_incl_gst": 7.0,
+   "printed_gst": 158.04,
+   "printed_total_incl_gst": 1738.4,
    "header_sources": {
     "printed_subtotal_ex_gst": {
      "page": 95,
@@ -81115,14 +81099,14 @@
     },
     "printed_gst": {
      "page": 95,
-     "row": 26
+     "row": 46
     },
     "printed_total_incl_gst": {
      "page": 95,
-     "row": 26
+     "row": 46
     }
    },
-   "header_adds_up": true,
+   "header_adds_up": "derived",
    "captured_ex_gst": 1580.36,
    "line_amount_basis": "ex_gst",
    "tie_basis": "ex_gst",
@@ -82086,7 +82070,7 @@
      "page": 95,
      "line_no": 46,
      "line_text": "admin@vintontreeservices.com.au                                                             Total (inc-GST):               $1,738.40",
-     "line_type": "NARRATIVE",
+     "line_type": "TOTALS",
      "ocr_only": false,
      "ocr_status": "not_required",
      "ocr_reason": "clean text layer",
@@ -82241,7 +82225,8 @@
      "work_order": null,
      "note": "wrapped description"
     }
-   ]
+   ],
+   "gst_basis": "derived from printed total less printed subtotal; the GST label prints with no value in its band on this layout"
   },
   {
    "doc_ref": "19943",
@@ -82259,8 +82244,8 @@
    "invoice_date": "3/08/2026",
    "printed_subtotal_ex_gst": 1522.45,
    "subtotal_basis": "printed",
-   "printed_gst": -1515.45,
-   "printed_total_incl_gst": 7.0,
+   "printed_gst": 152.25,
+   "printed_total_incl_gst": 1674.7,
    "header_sources": {
     "printed_subtotal_ex_gst": {
      "page": 97,
@@ -82268,14 +82253,14 @@
     },
     "printed_gst": {
      "page": 97,
-     "row": 26
+     "row": 56
     },
     "printed_total_incl_gst": {
      "page": 97,
-     "row": 26
+     "row": 56
     }
    },
-   "header_adds_up": true,
+   "header_adds_up": "derived",
    "captured_ex_gst": 1522.45,
    "line_amount_basis": "ex_gst",
    "tie_basis": "ex_gst",
@@ -83443,7 +83428,7 @@
      "page": 97,
      "line_no": 56,
      "line_text": "admin@vintontreeservices.com.au                                                              Total (inc-GST):             $1,674.70",
-     "line_type": "NARRATIVE",
+     "line_type": "TOTALS",
      "ocr_only": false,
      "ocr_status": "not_required",
      "ocr_reason": "clean text layer",
@@ -83598,7 +83583,8 @@
      "work_order": null,
      "note": "wrapped description"
     }
-   ]
+   ],
+   "gst_basis": "derived from printed total less printed subtotal; the GST label prints with no value in its band on this layout"
   },
   {
    "doc_ref": "SV007956",
@@ -84703,8 +84689,8 @@
    "invoice_date": "3/08/2026",
    "printed_subtotal_ex_gst": 1941.99,
    "subtotal_basis": "printed",
-   "printed_gst": -1934.99,
-   "printed_total_incl_gst": 7.0,
+   "printed_gst": 194.2,
+   "printed_total_incl_gst": 2136.19,
    "header_sources": {
     "printed_subtotal_ex_gst": {
      "page": 100,
@@ -84712,14 +84698,14 @@
     },
     "printed_gst": {
      "page": 100,
-     "row": 26
+     "row": 49
     },
     "printed_total_incl_gst": {
      "page": 100,
-     "row": 26
+     "row": 49
     }
    },
-   "header_adds_up": true,
+   "header_adds_up": "derived",
    "captured_ex_gst": 1941.99,
    "line_amount_basis": "ex_gst",
    "tie_basis": "ex_gst",
@@ -85746,7 +85732,7 @@
      "page": 100,
      "line_no": 49,
      "line_text": "admin@vintontreeservices.com.au                                                       Total (inc-GST):               $2,136.19",
-     "line_type": "NARRATIVE",
+     "line_type": "TOTALS",
      "ocr_only": false,
      "ocr_status": "not_required",
      "ocr_reason": "clean text layer",
@@ -85901,7 +85887,8 @@
      "work_order": null,
      "note": "wrapped description"
     }
-   ]
+   ],
+   "gst_basis": "derived from printed total less printed subtotal; the GST label prints with no value in its band on this layout"
   },
   {
    "doc_ref": "SV007959",
@@ -86965,8 +86952,8 @@
    "invoice_date": "5/08/2026",
    "printed_subtotal_ex_gst": 1574.69,
    "subtotal_basis": "printed",
-   "printed_gst": -1566.69,
-   "printed_total_incl_gst": 8.0,
+   "printed_gst": 157.47,
+   "printed_total_incl_gst": 1732.16,
    "header_sources": {
     "printed_subtotal_ex_gst": {
      "page": 103,
@@ -86974,14 +86961,14 @@
     },
     "printed_gst": {
      "page": 103,
-     "row": 26
+     "row": 47
     },
     "printed_total_incl_gst": {
      "page": 103,
-     "row": 26
+     "row": 47
     }
    },
-   "header_adds_up": true,
+   "header_adds_up": "derived",
    "captured_ex_gst": 1574.69,
    "line_amount_basis": "ex_gst",
    "tie_basis": "ex_gst",
@@ -87966,7 +87953,7 @@
      "page": 103,
      "line_no": 47,
      "line_text": "admin@vintontreeservices.com.au                                                       Total (inc-GST):             $1,732.16",
-     "line_type": "NARRATIVE",
+     "line_type": "TOTALS",
      "ocr_only": false,
      "ocr_status": "not_required",
      "ocr_reason": "clean text layer",
@@ -88121,7 +88108,8 @@
      "work_order": null,
      "note": "wrapped description"
     }
-   ]
+   ],
+   "gst_basis": "derived from printed total less printed subtotal; the GST label prints with no value in its band on this layout"
   },
   {
    "doc_ref": "INV-47683",
@@ -88148,7 +88136,7 @@
     },
     "printed_gst": {
      "page": 105,
-     "row": 36
+     "row": 34
     },
     "printed_total_incl_gst": {
      "page": 105,
@@ -89465,8 +89453,8 @@
    "invoice_date": "7/08/2026",
    "printed_subtotal_ex_gst": 1443.47,
    "subtotal_basis": "printed",
-   "printed_gst": -1435.47,
-   "printed_total_incl_gst": 8.0,
+   "printed_gst": 144.35,
+   "printed_total_incl_gst": 1587.82,
    "header_sources": {
     "printed_subtotal_ex_gst": {
      "page": 107,
@@ -89474,14 +89462,14 @@
     },
     "printed_gst": {
      "page": 107,
-     "row": 26
+     "row": 47
     },
     "printed_total_incl_gst": {
      "page": 107,
-     "row": 26
+     "row": 47
     }
    },
-   "header_adds_up": true,
+   "header_adds_up": "derived",
    "captured_ex_gst": 1443.47,
    "line_amount_basis": "ex_gst",
    "tie_basis": "ex_gst",
@@ -90466,7 +90454,7 @@
      "page": 107,
      "line_no": 47,
      "line_text": "admin@vintontreeservices.com.au                                                             Total (inc-GST):             $1,587.82",
-     "line_type": "NARRATIVE",
+     "line_type": "TOTALS",
      "ocr_only": false,
      "ocr_status": "not_required",
      "ocr_reason": "clean text layer",
@@ -90621,7 +90609,8 @@
      "work_order": null,
      "note": "wrapped description"
     }
-   ]
+   ],
+   "gst_basis": "derived from printed total less printed subtotal; the GST label prints with no value in its band on this layout"
   },
   {
    "doc_ref": "19961",
@@ -90639,8 +90628,8 @@
    "invoice_date": "7/08/2026",
    "printed_subtotal_ex_gst": 1746.19,
    "subtotal_basis": "printed",
-   "printed_gst": -1738.19,
-   "printed_total_incl_gst": 8.0,
+   "printed_gst": 174.62,
+   "printed_total_incl_gst": 1920.81,
    "header_sources": {
     "printed_subtotal_ex_gst": {
      "page": 109,
@@ -90648,14 +90637,14 @@
     },
     "printed_gst": {
      "page": 109,
-     "row": 26
+     "row": 48
     },
     "printed_total_incl_gst": {
      "page": 109,
-     "row": 26
+     "row": 48
     }
    },
-   "header_adds_up": true,
+   "header_adds_up": "derived",
    "captured_ex_gst": 1746.19,
    "line_amount_basis": "ex_gst",
    "tie_basis": "ex_gst",
@@ -91662,7 +91651,7 @@
      "page": 109,
      "line_no": 48,
      "line_text": "admin@vintontreeservices.com.au                                                  Total (inc-GST):             $1,920.81",
-     "line_type": "NARRATIVE",
+     "line_type": "TOTALS",
      "ocr_only": false,
      "ocr_status": "not_required",
      "ocr_reason": "clean text layer",
@@ -91817,7 +91806,8 @@
      "work_order": null,
      "note": "wrapped description"
     }
-   ]
+   ],
+   "gst_basis": "derived from printed total less printed subtotal; the GST label prints with no value in its band on this layout"
   },
   {
    "doc_ref": "19971",
@@ -91835,8 +91825,8 @@
    "invoice_date": "14/08/2026",
    "printed_subtotal_ex_gst": 1884.08,
    "subtotal_basis": "printed",
-   "printed_gst": -1876.08,
-   "printed_total_incl_gst": 8.0,
+   "printed_gst": 188.41,
+   "printed_total_incl_gst": 2072.49,
    "header_sources": {
     "printed_subtotal_ex_gst": {
      "page": 111,
@@ -91844,14 +91834,14 @@
     },
     "printed_gst": {
      "page": 111,
-     "row": 26
+     "row": 50
     },
     "printed_total_incl_gst": {
      "page": 111,
-     "row": 26
+     "row": 50
     }
    },
-   "header_adds_up": true,
+   "header_adds_up": "derived",
    "captured_ex_gst": 1884.08,
    "line_amount_basis": "ex_gst",
    "tie_basis": "ex_gst",
@@ -92897,7 +92887,7 @@
      "page": 111,
      "line_no": 50,
      "line_text": "admin@vintontreeservices.com.au                                                              Total (inc-GST):              $2,072.49",
-     "line_type": "NARRATIVE",
+     "line_type": "TOTALS",
      "ocr_only": false,
      "ocr_status": "not_required",
      "ocr_reason": "clean text layer",
@@ -93052,7 +93042,8 @@
      "work_order": null,
      "note": "wrapped description"
     }
-   ]
+   ],
+   "gst_basis": "derived from printed total less printed subtotal; the GST label prints with no value in its band on this layout"
   },
   {
    "doc_ref": "SV008005",
@@ -94202,8 +94193,8 @@
    "invoice_date": "14/08/2026",
    "printed_subtotal_ex_gst": -68.92,
    "subtotal_basis": "printed",
-   "printed_gst": -75.92,
-   "printed_total_incl_gst": -7.0,
+   "printed_gst": -6.89,
+   "printed_total_incl_gst": -75.81,
    "header_sources": {
     "printed_subtotal_ex_gst": {
      "page": 114,
@@ -94211,14 +94202,14 @@
     },
     "printed_gst": {
      "page": 114,
-     "row": 26
+     "row": 43
     },
     "printed_total_incl_gst": {
      "page": 114,
-     "row": 26
+     "row": 43
     }
    },
-   "header_adds_up": false,
+   "header_adds_up": "derived",
    "captured_ex_gst": -68.92,
    "line_amount_basis": "ex_gst",
    "tie_basis": "ex_gst",
@@ -95136,7 +95127,7 @@
      "page": 114,
      "line_no": 43,
      "line_text": "admin@vintontreeservices.com.au                                                            Total (inc-GST):                 -$75.81",
-     "line_type": "NARRATIVE",
+     "line_type": "TOTALS",
      "ocr_only": false,
      "ocr_status": "run",
      "ocr_reason": "5% binder control sample or image-only page check",
@@ -95171,7 +95162,8 @@
      "work_order": null,
      "note": null
     }
-   ]
+   ],
+   "gst_basis": "derived from printed total less printed subtotal; the GST label prints with no value in its band on this layout"
   },
   {
    "doc_ref": "INV-48359",
@@ -95198,7 +95190,7 @@
     },
     "printed_gst": {
      "page": 115,
-     "row": 37
+     "row": 35
     },
     "printed_total_incl_gst": {
      "page": 115,
@@ -96535,8 +96527,8 @@
    "invoice_date": "19/08/2026",
    "printed_subtotal_ex_gst": 1443.47,
    "subtotal_basis": "printed",
-   "printed_gst": -1435.47,
-   "printed_total_incl_gst": 8.0,
+   "printed_gst": 144.35,
+   "printed_total_incl_gst": 1587.82,
    "header_sources": {
     "printed_subtotal_ex_gst": {
      "page": 117,
@@ -96544,14 +96536,14 @@
     },
     "printed_gst": {
      "page": 117,
-     "row": 26
+     "row": 48
     },
     "printed_total_incl_gst": {
      "page": 117,
-     "row": 26
+     "row": 48
     }
    },
-   "header_adds_up": true,
+   "header_adds_up": "derived",
    "captured_ex_gst": 1443.47,
    "line_amount_basis": "ex_gst",
    "tie_basis": "ex_gst",
@@ -97555,7 +97547,7 @@
      "page": 117,
      "line_no": 48,
      "line_text": "admin@vintontreeservices.com.au                                                             Total (inc-GST):              $1,587.82",
-     "line_type": "NARRATIVE",
+     "line_type": "TOTALS",
      "ocr_only": false,
      "ocr_status": "not_required",
      "ocr_reason": "clean text layer",
@@ -97710,7 +97702,8 @@
      "work_order": null,
      "note": "wrapped description"
     }
-   ]
+   ],
+   "gst_basis": "derived from printed total less printed subtotal; the GST label prints with no value in its band on this layout"
   },
   {
    "doc_ref": "19980",
@@ -97728,8 +97721,8 @@
    "invoice_date": "19/08/2026",
    "printed_subtotal_ex_gst": 2117.78,
    "subtotal_basis": "printed",
-   "printed_gst": -2109.78,
-   "printed_total_incl_gst": 8.0,
+   "printed_gst": 211.78,
+   "printed_total_incl_gst": 2329.56,
    "header_sources": {
     "printed_subtotal_ex_gst": {
      "page": 119,
@@ -97737,14 +97730,14 @@
     },
     "printed_gst": {
      "page": 119,
-     "row": 26
+     "row": 50
     },
     "printed_total_incl_gst": {
      "page": 119,
-     "row": 26
+     "row": 50
     }
    },
-   "header_adds_up": true,
+   "header_adds_up": "derived",
    "captured_ex_gst": 2117.78,
    "line_amount_basis": "ex_gst",
    "tie_basis": "ex_gst",
@@ -98791,7 +98784,7 @@
      "page": 119,
      "line_no": 50,
      "line_text": "admin@vintontreeservices.com.au                                                        Total (inc-GST):                $2,329.56",
-     "line_type": "NARRATIVE",
+     "line_type": "TOTALS",
      "ocr_only": false,
      "ocr_status": "not_required",
      "ocr_reason": "clean text layer",
@@ -100086,7 +100079,8 @@
      "work_order": null,
      "note": "wrapped description"
     }
-   ]
+   ],
+   "gst_basis": "derived from printed total less printed subtotal; the GST label prints with no value in its band on this layout"
   },
   {
    "doc_ref": "SV008033",
@@ -101109,8 +101103,8 @@
    "invoice_date": "24/08/2026",
    "printed_subtotal_ex_gst": 1578.59,
    "subtotal_basis": "printed",
-   "printed_gst": -1570.59,
-   "printed_total_incl_gst": 8.0,
+   "printed_gst": 157.86,
+   "printed_total_incl_gst": 1736.45,
    "header_sources": {
     "printed_subtotal_ex_gst": {
      "page": 124,
@@ -101118,14 +101112,14 @@
     },
     "printed_gst": {
      "page": 124,
-     "row": 26
+     "row": 45
     },
     "printed_total_incl_gst": {
      "page": 124,
-     "row": 26
+     "row": 45
     }
    },
-   "header_adds_up": true,
+   "header_adds_up": "derived",
    "captured_ex_gst": 1578.59,
    "line_amount_basis": "ex_gst",
    "tie_basis": "ex_gst",
@@ -102069,7 +102063,7 @@
      "page": 124,
      "line_no": 45,
      "line_text": "admin@vintontreeservices.com.au                                                        Total (inc-GST):              $1,736.45",
-     "line_type": "NARRATIVE",
+     "line_type": "TOTALS",
      "ocr_only": false,
      "ocr_status": "not_required",
      "ocr_reason": "clean text layer",
@@ -102224,7 +102218,8 @@
      "work_order": null,
      "note": "wrapped description"
     }
-   ]
+   ],
+   "gst_basis": "derived from printed total less printed subtotal; the GST label prints with no value in its band on this layout"
   },
   {
    "doc_ref": "19988",
@@ -102242,8 +102237,8 @@
    "invoice_date": "24/08/2026",
    "printed_subtotal_ex_gst": 1574.69,
    "subtotal_basis": "printed",
-   "printed_gst": -1566.69,
-   "printed_total_incl_gst": 8.0,
+   "printed_gst": 157.47,
+   "printed_total_incl_gst": 1732.16,
    "header_sources": {
     "printed_subtotal_ex_gst": {
      "page": 126,
@@ -102251,14 +102246,14 @@
     },
     "printed_gst": {
      "page": 126,
-     "row": 26
+     "row": 47
     },
     "printed_total_incl_gst": {
      "page": 126,
-     "row": 26
+     "row": 47
     }
    },
-   "header_adds_up": true,
+   "header_adds_up": "derived",
    "captured_ex_gst": 1574.69,
    "line_amount_basis": "ex_gst",
    "tie_basis": "ex_gst",
@@ -103242,7 +103237,7 @@
      "page": 126,
      "line_no": 47,
      "line_text": "admin@vintontreeservices.com.au                                                           Total (inc-GST):              $1,732.16",
-     "line_type": "NARRATIVE",
+     "line_type": "TOTALS",
      "ocr_only": false,
      "ocr_status": "not_required",
      "ocr_reason": "clean text layer",
@@ -103397,7 +103392,8 @@
      "work_order": null,
      "note": "wrapped description"
     }
-   ]
+   ],
+   "gst_basis": "derived from printed total less printed subtotal; the GST label prints with no value in its band on this layout"
   },
   {
    "doc_ref": "INV-48619",
@@ -103415,8 +103411,8 @@
    "invoice_date": "(not printed)",
    "printed_subtotal_ex_gst": 1539.09,
    "subtotal_basis": "printed",
-   "printed_gst": -1385.18,
-   "printed_total_incl_gst": 153.91,
+   "printed_gst": 153.91,
+   "printed_total_incl_gst": 1693.0,
    "header_sources": {
     "printed_subtotal_ex_gst": {
      "page": 128,
@@ -103428,7 +103424,7 @@
     },
     "printed_total_incl_gst": {
      "page": 128,
-     "row": 39
+     "row": 41
     }
    },
    "header_adds_up": true,
@@ -104288,7 +104284,7 @@
      "page": 128,
      "line_no": 41,
      "line_text": "                  View and pay online                                                  Total                       1,693.00",
-     "line_type": "PAYMENT_ADVICE",
+     "line_type": "TOTALS",
      "ocr_only": false,
      "ocr_status": "not_required",
      "ocr_reason": "clean text layer",
@@ -104481,8 +104477,8 @@
    "invoice_date": "27/08/2026",
    "printed_subtotal_ex_gst": 1517.46,
    "subtotal_basis": "printed",
-   "printed_gst": -1509.46,
-   "printed_total_incl_gst": 8.0,
+   "printed_gst": 151.75,
+   "printed_total_incl_gst": 1669.21,
    "header_sources": {
     "printed_subtotal_ex_gst": {
      "page": 129,
@@ -104490,14 +104486,14 @@
     },
     "printed_gst": {
      "page": 129,
-     "row": 26
+     "row": 53
     },
     "printed_total_incl_gst": {
      "page": 129,
-     "row": 26
+     "row": 53
     }
    },
-   "header_adds_up": true,
+   "header_adds_up": "derived",
    "captured_ex_gst": 1517.46,
    "line_amount_basis": "ex_gst",
    "tie_basis": "ex_gst",
@@ -105605,7 +105601,7 @@
      "page": 129,
      "line_no": 53,
      "line_text": "admin@vintontreeservices.com.au                                                             Total (inc-GST):              $1,669.21",
-     "line_type": "NARRATIVE",
+     "line_type": "TOTALS",
      "ocr_only": false,
      "ocr_status": "not_required",
      "ocr_reason": "clean text layer",
@@ -105660,7 +105656,8 @@
      "work_order": null,
      "note": null
     }
-   ]
+   ],
+   "gst_basis": "derived from printed total less printed subtotal; the GST label prints with no value in its band on this layout"
   },
   {
    "doc_ref": "INV-39461",
@@ -109453,8 +109450,8 @@
    "invoice_date": "2/09/2026",
    "printed_subtotal_ex_gst": 1704.62,
    "subtotal_basis": "printed",
-   "printed_gst": -1696.62,
-   "printed_total_incl_gst": 8.0,
+   "printed_gst": 170.46,
+   "printed_total_incl_gst": 1875.08,
    "header_sources": {
     "printed_subtotal_ex_gst": {
      "page": 135,
@@ -109462,14 +109459,14 @@
     },
     "printed_gst": {
      "page": 135,
-     "row": 26
+     "row": 50
     },
     "printed_total_incl_gst": {
      "page": 135,
-     "row": 26
+     "row": 50
     }
    },
-   "header_adds_up": true,
+   "header_adds_up": "derived",
    "captured_ex_gst": 1704.62,
    "line_amount_basis": "ex_gst",
    "tie_basis": "ex_gst",
@@ -110515,7 +110512,7 @@
      "page": 135,
      "line_no": 50,
      "line_text": "admin@vintontreeservices.com.au                                                       Total (inc-GST):             $1,875.08",
-     "line_type": "NARRATIVE",
+     "line_type": "TOTALS",
      "ocr_only": false,
      "ocr_status": "not_required",
      "ocr_reason": "clean text layer",
@@ -110670,7 +110667,8 @@
      "work_order": null,
      "note": "wrapped description"
     }
-   ]
+   ],
+   "gst_basis": "derived from printed total less printed subtotal; the GST label prints with no value in its band on this layout"
   },
   {
    "doc_ref": "INV-39538",
@@ -113661,8 +113659,8 @@
    "invoice_date": "(not printed)",
    "printed_subtotal_ex_gst": 1748.49,
    "subtotal_basis": "printed",
-   "printed_gst": -1573.64,
-   "printed_total_incl_gst": 174.85,
+   "printed_gst": 174.85,
+   "printed_total_incl_gst": 1923.34,
    "header_sources": {
     "printed_subtotal_ex_gst": {
      "page": 140,
@@ -113674,7 +113672,7 @@
     },
     "printed_total_incl_gst": {
      "page": 140,
-     "row": 40
+     "row": 42
     }
    },
    "header_adds_up": true,
@@ -114556,7 +114554,7 @@
      "page": 140,
      "line_no": 42,
      "line_text": "                  View and pay online                                               Total                       1,923.34",
-     "line_type": "PAYMENT_ADVICE",
+     "line_type": "TOTALS",
      "ocr_only": false,
      "ocr_status": "not_required",
      "ocr_reason": "clean text layer",

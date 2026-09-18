@@ -1,4 +1,131 @@
-Gate: AMBER
+Gate: RED
+  declared AMBER, computed RED, the computed gate stands
   100 documents, 5276 line records
-  AMBER  19975: header block out by 137.84, recorded as F1
+  P1  6431345  p48  zero PRICED lines (recorded subtotal 0.00)
+  P17  6431345  pNone  printed_subtotal_ex_gst cites row None on page None, which carries no line record
+  P17  6431345  pNone  printed_gst cites row None on page None, which carries no line record
+  AMBER  186132430: F8, a header figure cites a row typed NARRATIVE, not TOTALS
+  AMBER  186133049: F8, a header figure cites a row typed NARRATIVE, not TOTALS
+  AMBER  186133050: F8, a header figure cites a row typed NARRATIVE, not TOTALS
+  AMBER  186133719: F8, a header figure cites a row typed NARRATIVE, not TOTALS
+  AMBER  186134961: F8, a header figure cites a row typed NARRATIVE, not TOTALS
+  AMBER  186136327: F8, a header figure cites a row typed NARRATIVE, not TOTALS
+  AMBER  186136328: F8, a header figure cites a row typed NARRATIVE, not TOTALS
+  AMBER  186136809: F8, a header figure cites a row typed NARRATIVE, not TOTALS
+  AMBER  186136811: F8, a header figure cites a row typed NARRATIVE, not TOTALS
+  AMBER  186136814: F8, a header figure cites a row typed NARRATIVE, not TOTALS
+  AMBER  186136816: F8, a header figure cites a row typed NARRATIVE, not TOTALS
+  AMBER  186136820: F8, a header figure cites a row typed NARRATIVE, not TOTALS
+  AMBER  186136823: F8, a header figure cites a row typed NARRATIVE, not TOTALS
+  AMBER  186137404: F8, a header figure cites a row typed NARRATIVE, not TOTALS
+  AMBER  19646: F8, two header figures cite one row
+  AMBER  19646: printed_gst derived, not read off a GST label
+  AMBER  19675: F8, two header figures cite one row
+  AMBER  19675: printed_gst derived, not read off a GST label
+  AMBER  19795: F8, two header figures cite one row
+  AMBER  19795: printed_gst derived, not read off a GST label
+  AMBER  19830: F8, two header figures cite one row
+  AMBER  19830: printed_gst derived, not read off a GST label
+  AMBER  19873: F8, two header figures cite one row
+  AMBER  19873: printed_gst derived, not read off a GST label
+  AMBER  19884: F8, two header figures cite one row
+  AMBER  19884: printed_gst derived, not read off a GST label
+  AMBER  19896: F8, two header figures cite one row
+  AMBER  19896: printed_gst derived, not read off a GST label
+  AMBER  19902: F8, two header figures cite one row
+  AMBER  19902: printed_gst derived, not read off a GST label
+  AMBER  19905: F8, two header figures cite one row
+  AMBER  19905: printed_gst derived, not read off a GST label
+  AMBER  19917: F8, two header figures cite one row
+  AMBER  19917: printed_gst derived, not read off a GST label
+  AMBER  19922: F8, two header figures cite one row
+  AMBER  19922: printed_gst derived, not read off a GST label
+  AMBER  19927: F8, two header figures cite one row
+  AMBER  19927: printed_gst derived, not read off a GST label
+  AMBER  19938: F8, two header figures cite one row
+  AMBER  19938: printed_gst derived, not read off a GST label
+  AMBER  19939: F8, two header figures cite one row
+  AMBER  19939: printed_gst derived, not read off a GST label
+  AMBER  19943: F8, two header figures cite one row
+  AMBER  19943: printed_gst derived, not read off a GST label
+  AMBER  19944: F8, two header figures cite one row
+  AMBER  19944: printed_gst derived, not read off a GST label
+  AMBER  19952: F8, two header figures cite one row
+  AMBER  19952: printed_gst derived, not read off a GST label
+  AMBER  19958: F8, two header figures cite one row
+  AMBER  19958: printed_gst derived, not read off a GST label
+  AMBER  19961: F8, two header figures cite one row
+  AMBER  19961: printed_gst derived, not read off a GST label
+  AMBER  19971: F8, two header figures cite one row
+  AMBER  19971: printed_gst derived, not read off a GST label
+  AMBER  19975: F8, two header figures cite one row
+  AMBER  19975: printed_gst derived, not read off a GST label
+  AMBER  19979: F8, two header figures cite one row
+  AMBER  19979: printed_gst derived, not read off a GST label
+  AMBER  19980: F8, two header figures cite one row
+  AMBER  19980: printed_gst derived, not read off a GST label
+  AMBER  19985: F8, two header figures cite one row
+  AMBER  19985: printed_gst derived, not read off a GST label
+  AMBER  19988: F8, two header figures cite one row
+  AMBER  19988: printed_gst derived, not read off a GST label
+  AMBER  19996: F8, two header figures cite one row
+  AMBER  19996: printed_gst derived, not read off a GST label
+  AMBER  20009: F8, two header figures cite one row
+  AMBER  20009: printed_gst derived, not read off a GST label
+  AMBER  6431345: F8, a header figure cites a row typed NARRATIVE, not TOTALS; two header figures cite one row
   AMBER  6431345: header block out by 39.99, recorded as F1
+  AMBER  INV-37170: F8, a header figure cites a row typed PAYMENT_ADVICE, not TOTALS
+  AMBER  INV-37556: F8, a header figure cites a row typed PAYMENT_ADVICE, not TOTALS
+  AMBER  INV-37608: F8, a header figure cites a row typed PAYMENT_ADVICE, not TOTALS
+  AMBER  INV-37623: F8, a header figure cites a row typed PAYMENT_ADVICE, not TOTALS
+  AMBER  INV-37624: F8, a header figure cites a row typed PAYMENT_ADVICE, not TOTALS
+  AMBER  INV-37763: F8, a header figure cites a row typed PAYMENT_ADVICE, not TOTALS
+  AMBER  INV-37848: F8, a header figure cites a row typed PAYMENT_ADVICE, not TOTALS
+  AMBER  INV-37923: F8, a header figure cites a row typed PAYMENT_ADVICE, not TOTALS
+  AMBER  INV-38055: F8, a header figure cites a row typed PAYMENT_ADVICE, not TOTALS
+  AMBER  INV-38190: F8, a header figure cites a row typed PAYMENT_ADVICE, not TOTALS
+  AMBER  INV-38245: F8, a header figure cites a row typed PAYMENT_ADVICE, not TOTALS
+  AMBER  INV-38326: F8, a header figure cites a row typed PAYMENT_ADVICE, not TOTALS
+  AMBER  INV-38333: F8, a header figure cites a row typed PAYMENT_ADVICE, not TOTALS
+  AMBER  INV-38558: F8, a header figure cites a row typed PAYMENT_ADVICE, not TOTALS
+  AMBER  INV-38559: F8, a header figure cites a row typed PAYMENT_ADVICE, not TOTALS
+  AMBER  INV-38642: F8, a header figure cites a row typed PAYMENT_ADVICE, not TOTALS
+  AMBER  INV-38650: F8, a header figure cites a row typed PAYMENT_ADVICE, not TOTALS
+  AMBER  INV-38694: F8, a header figure cites a row typed PAYMENT_ADVICE, not TOTALS
+  AMBER  INV-38703: F8, a header figure cites a row typed PAYMENT_ADVICE, not TOTALS
+  AMBER  INV-38856: F8, a header figure cites a row typed PAYMENT_ADVICE, not TOTALS
+  AMBER  INV-38936: F8, a header figure cites a row typed PAYMENT_ADVICE, not TOTALS
+  AMBER  INV-38953: F8, a header figure cites a row typed PAYMENT_ADVICE, not TOTALS
+  AMBER  INV-38967: F8, a header figure cites a row typed PAYMENT_ADVICE, not TOTALS
+  AMBER  INV-39063: F8, a header figure cites a row typed PAYMENT_ADVICE, not TOTALS
+  AMBER  INV-39102: F8, a header figure cites a row typed PAYMENT_ADVICE, not TOTALS
+  AMBER  INV-39247: F8, a header figure cites a row typed PAYMENT_ADVICE, not TOTALS
+  AMBER  INV-39316: F8, a header figure cites a row typed PAYMENT_ADVICE, not TOTALS
+  AMBER  INV-39377: F8, a header figure cites a row typed PAYMENT_ADVICE, not TOTALS
+  AMBER  INV-39457: F8, a header figure cites a row typed PAYMENT_ADVICE, not TOTALS
+  AMBER  INV-39461: F8, a header figure cites a row typed PAYMENT_ADVICE, not TOTALS
+  AMBER  INV-39502: F8, a header figure cites a row typed PAYMENT_ADVICE, not TOTALS
+  AMBER  INV-39507: F8, a header figure cites a row typed PAYMENT_ADVICE, not TOTALS
+  AMBER  INV-39538: F8, a header figure cites a row typed PAYMENT_ADVICE, not TOTALS
+  AMBER  INV-39548: F8, a header figure cites a row typed PAYMENT_ADVICE, not TOTALS
+  AMBER  INV-46964: F8, a header figure cites a row typed NARRATIVE, not TOTALS
+  AMBER  INV-47139: F8, a header figure cites a row typed NARRATIVE, not TOTALS
+  AMBER  INV-47142: F8, a header figure cites a row typed NARRATIVE, not TOTALS
+  AMBER  INV-47143: F8, a header figure cites a row typed NARRATIVE, not TOTALS
+  AMBER  INV-47225: F8, a header figure cites a row typed NARRATIVE, not TOTALS
+  AMBER  INV-47353: F8, a header figure cites a row typed NARRATIVE, not TOTALS
+  AMBER  INV-47683: F8, a header figure cites a row typed NARRATIVE, not TOTALS
+  AMBER  INV-47765: F8, a header figure cites a row typed NARRATIVE, not TOTALS
+  AMBER  INV-47811: F8, a header figure cites a row typed NARRATIVE, not TOTALS
+  AMBER  INV-48359: F8, a header figure cites a row typed NARRATIVE, not TOTALS
+  AMBER  SV007809: F8, a header figure cites a row typed NARRATIVE, not TOTALS
+  AMBER  SV007832: F8, a header figure cites a row typed NARRATIVE, not TOTALS
+  AMBER  SV007864: F8, a header figure cites a row typed NARRATIVE, not TOTALS
+  AMBER  SV007928: F8, a header figure cites a row typed NARRATIVE, not TOTALS
+  AMBER  SV007935: F8, a header figure cites a row typed NARRATIVE, not TOTALS
+  AMBER  SV007946: F8, a header figure cites a row typed NARRATIVE, not TOTALS
+  AMBER  SV007956: F8, a header figure cites a row typed NARRATIVE, not TOTALS
+  AMBER  SV007959: F8, a header figure cites a row typed NARRATIVE, not TOTALS
+  AMBER  SV008005: F8, a header figure cites a row typed NARRATIVE, not TOTALS
+  AMBER  SV008033: F8, a header figure cites a row typed NARRATIVE, not TOTALS
+  AMBER  SV008092: F8, a header figure cites a row typed NARRATIVE, not TOTALS

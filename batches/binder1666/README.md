@@ -1,61 +1,61 @@
-# Batch binder1666 — RED on arrival, restated to AMBER
+# Batch binder1666 — RED, HELD on one document. Not captured.
 
-141 pages, 100 documents, 7 suppliers. Declared AMBER by the extraction; the gate computed **RED** on arrival,
-and under prompt v7 section 13.2 the computed gate stands. One document was at fault. The source page was
-supplied, the document is restated from its own retained text against the bands that page prints, and the
-corpus now computes **AMBER**, which under 13.0 builds while holding the named documents.
+141 pages, 100 documents, 7 suppliers. Declared AMBER; the gate computes **RED**, and under 13.2 the computed
+gate stands. **Nothing is built from this corpus** (CLAUDE.md: never build from a RED corpus).
 
-| | as received | restated |
-|---|---|---|
-| gate computed | RED | AMBER |
-| captured ex GST | $599,063.81 | $599,321.21 |
+    python3 toolkit/pswp/pswp_corpus_gate.py batches/binder1666/corpus_binder1666_v7_2.json
 
-    python3 batches/binder1666/restate_binder1666.py                                  # R1666-1
-    python3 toolkit/pswp/pswp_corpus_gate.py batches/binder1666/corpus_binder1666_v7.json
+## Correction to the first reading of this batch
 
-## The one document that fails, and it fails twice
+The first pass here reported 60203 as the only failure and said "the other 99 need nothing". **That was wrong.**
+41 of the 100 documents carried a pathology and 30 understated their incl-GST value by **$52,390.66**.
 
-**Tennyson Group 60203, page 80, printed $314.60.** It is the only document of the hundred that records no
-`table_headers` and therefore no bands, which is P11. With the amount column never anchored, two things went
-wrong on the same page and both are in the capture:
+The cause was a defect in the P16 this repository shipped: it guarded on `gst > 0` to skip GST-free supplies,
+which silently excluded every **negative** GST. That is the precise shape of the defect it was written for.
+Twenty-nine documents recorded `printed_gst` as total less subtotal, twenty-eight of them negative (19795
+recorded -$1,887.75), and the guard let all twenty-eight through. The check was reported as mutation tested; the
+swap case was tested and the negative case never was.
 
-- The item row prints `30212  4  Parks Corflute Signs  286.00  28.60`. The GST column was taken as the line
-  amount, so `line_ex_gst` is **28.60** where the row prints **286.00**.
-- The header figures were taken off the wrong labelled rows: captured subtotal 28.60, GST 286.00, total 314.60,
-  where the face prints Net $286.00, GST $28.60, Total $314.60.
+| | reported here first | actually true |
+|---|---:|---:|
+| documents failing | 1 | 41 |
+| understated incl-GST | $257.40 | $52,390.66 |
 
-The document therefore understates by **$257.40** and still declared `"self_tie": "TIE"`, because the mis-read
-line matches the mis-read subtotal exactly. `header_adds_up` also read true, because 28.60 + 286.00 = 314.60
-whichever way round the two are.
+## The systemic defect: a derived GST hides a wrong total
 
-That is what P16 was added for (prompt v7.2): the header block adding up does not prove the figures sit on the
-right labels, and a swap is invisible to P10. On this corpus P16 fires on exactly this document, and on the
-twenty-nine corpora already held it fires on none.
+29 documents recorded `printed_gst` as total less subtotal, which makes the 5.4 addition check pass by
+construction whatever the total is, so **P10 was blind by design**.
 
-## Everything else is sound
+- **Vinton (B), 26 documents.** The `GST:` label prints with no value in its band and the total was taken from a
+  fuel levy line: totals of $6.00, $7.00 and $8.00 against real totals of $1,586.75 to $3,771.61.
+- **Heritage, 2 documents.** `Total GST 10%` read as `Total`, the 5.1 trap v6 was written for. INV-48619
+  recorded $153.91 against a printed $1,693.00.
+- **Tennyson 60203.** Subtotal and GST swapped and the line amount taken from the GST band, $257.40 understated,
+  confirmed against the source page `C00309400_2.pdf` retained here.
 
-100 of 100 documents at TIE, 141 of 141 pages covered, `residue_rows` present and empty on every document, all
-four corpus checks true, doc refs and evidence stems unique, and the captured total reconciles to the manifest
-to the cent. 98 of the 100 documents carry bands AND `bands_calibrated_on`. Findings raised: 21 F3 fuel levy,
-10 F5 referenced but absent, 7 F4 coding candidates, 2 F1, 1 F7.
+`pswp_header_restate.py` restated 30 documents and repointed 10 drifted citations from each document's own
+retained text, validated twice before writing: subtotal plus GST equals the printed total to the cent, and GST
+is a tenth of the subtotal within tolerance. Verified independently here: 30 documents changed, the incl-GST
+delta is $52,390.66 exactly, and no restated document fails either test.
 
-Two documents sit at AMBER on a header block that does not add up and is recorded as F1, which is correct
-behaviour under 13.0: 19975 out by $137.84 and 6431345 out by $39.99.
+## Why it is still RED: Woodmans 6431345, page 48
 
-## How it was cleared
+Zero priced lines, no table header, no bands, subtotal recorded $0.00 and total $39.99, which is the first line
+item's unit price. The face prints GST Ex Total $268.00 and GST Inc Total $290.80 over seven rows. Nothing fired
+on it before v7.2 because P1 required a non-zero recorded subtotal, so recording zero disarmed it, and P11 only
+fires where priced lines exist.
 
-`C00309400_2.pdf`, the source page, is retained here. It prints the bands that settle the document:
+**It cannot be restated from retained text.** The retained `line_text` is truncated at the right edge: the Total
+Inc column is cut from every item row and the totals read `$268.0` and `$290.8`. The seven Price-column values
+sum to $267.98 against a printed $268.0x, and two rows carry percentage discounts (2.50% and 5.00%) whose
+treatment the truncated text does not settle. Reconstructing it would be guessing, which rule 19.2 forbids.
 
-    header row 11   Net Price label [89,97], its value 286.00 at [93,98]   -> amount band [89,98]
-                    GST       label [102,104], its value 28.60 at [107,111] -> gst band [102,111]
-    priced row 13   '   30212    4   Parks Corflute Signs        286.00        28.60'
-    totals          row 26 Net $ 286.00, row 28 GST $ 28.60, row 30 Total $ 314.60
+**To clear the batch: supply page 48 of Binder1666**, as page 80 was supplied for Tennyson. Re-extract that one
+document under v7.3 with the WOODMANS Annexe A row in hand, re-gate, and the corpus computes AMBER on the 27
+derived-GST documents, which builds while holding them.
 
-**28.60 spans [107,111] and does not overlap the amount band at all.** A band recorded and calibrated as 4.1
-requires would have made the mis-read impossible, which is the whole of P11's case.
+## Findings that stay open
 
-`restate_binder1666.py` applies R1666-1 to that one document and nothing else: the line amount and the three
-header figures are taken from those bands, the item table's header row is typed TABLE_HEADER, and the bands are
-recorded with the priced row they were calibrated against. Every figure is asserted against the retained text
-before it is written, so the script fails rather than guesses if the row is not what it expects. The corpus
-total rises by exactly $257.40, which is the understatement.
+97 documents hit **F8** (citation drift), because the bank block interleaves with the totals block on Levai,
+Savco and Higgins and the extractor typed the shared rows by their left-hand label. F8 is AMBER, not a
+pathology: either re-run the ladder typing or carry the 97 as Open Items at the build.
