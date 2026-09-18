@@ -1,0 +1,41 @@
+{
+ "_readme": [
+  "Product names confirmed by the register owner, 18-Sep-2026. This file OUTRANKS both the TechOne requisition",
+  "export and the Marsden Stores inventory: where a code appears here, this is the name of the goods.",
+  "It exists because neither machine source is reliable on its own. 196303 is the proof: the requisition export",
+  "describes it as a hard hat browguard with earmuff attachment and the item is a face shield with a clear visor,",
+  "which is a different piece of PPE on the same account.",
+  "Resolution order for an LCC Stores line: this file, then stores_requisition_products.json, then",
+  "marsden_stores_inventory.json."
+ ],
+ "confirmed": {
+  "152952": {"description": "LITTER PICKER 32\" EASY REACH",
+             "export_said": "E-Z PICK UP TOOL 32\" EASY REACH",
+             "inventory_said": "LITTER PICKER 32\" EASY REACH",
+             "agrees_with": "inventory"},
+  "196303": {"description": "FACE SHIELD WITH CLEAR VISOR",
+             "export_said": "HARD HAT BROWGUARD WITH EARMUFF ATTACHEM",
+             "inventory_said": "FACE SHIELD WITH CLEAR VISOR",
+             "agrees_with": "inventory",
+             "note": "The requisition export names a different item. Goods confirmed as a face shield."},
+  "207087": {"description": "WATER BOTTLE / JUG 5LT",
+             "export_said": "DRINK CONTAINER THORZT 5L BLUE",
+             "inventory_said": "5 LITRE WATER BOTTLE",
+             "agrees_with": "neither exactly"},
+  "128455": {"description": "WYPALL HAND TOWEL WIPES",
+             "export_said": "WYPALL 4204 POP UP WIPES 160 WIPES",
+             "inventory_said": "WYPALL HAND TOWEL",
+             "agrees_with": "neither exactly"},
+  "207353": {"description": "BABY SOAP WET WIPES PKT 80",
+             "export_said": "ISO PROPYL WIPES - CANNISTER OF 75",
+             "inventory_said": "WET WIPES PKT 80",
+             "agrees_with": "neither exactly",
+             "note": "The export names isopropyl wipes in a canister of 75; the goods are baby soap wipes, packet of 80."},
+  "207619": {"description": "SHIRT POLO XS 2T YEL/NAV LONG/SLEEVE",
+             "export_said": null, "inventory_said": null,
+             "agrees_with": "in neither source"},
+  "208686": {"description": "SHIRT BONZA REFLECTIVE 2XL",
+             "export_said": null, "inventory_said": null,
+             "agrees_with": "in neither source"}
+ }
+}

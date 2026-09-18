@@ -1,9 +1,5 @@
-Gate: RED
-  declared AMBER, computed RED, the computed gate stands
-  100 documents, 5276 line records
-  P1  6431345  p48  zero PRICED lines (recorded subtotal 0.00)
-  P17  6431345  pNone  printed_subtotal_ex_gst cites row None on page None, which carries no line record
-  P17  6431345  pNone  printed_gst cites row None on page None, which carries no line record
+Gate: AMBER
+  100 documents, 5276 line records, checks applied for prompt v7.5
   AMBER  186132430: F8, a header figure cites a row typed NARRATIVE, not TOTALS
   AMBER  186133049: F8, a header figure cites a row typed NARRATIVE, not TOTALS
   AMBER  186133050: F8, a header figure cites a row typed NARRATIVE, not TOTALS
@@ -72,8 +68,8 @@ Gate: RED
   AMBER  19996: printed_gst derived, not read off a GST label
   AMBER  20009: F8, two header figures cite one row
   AMBER  20009: printed_gst derived, not read off a GST label
-  AMBER  6431345: F8, a header figure cites a row typed NARRATIVE, not TOTALS; two header figures cite one row
-  AMBER  6431345: header block out by 39.99, recorded as F1
+  AMBER  60203: GST is not a tenth of the subtotal and the priced lines explain it (mixed supply, 5.6); the line GSTs sum to the printed GST
+  AMBER  6431345: GST is not a tenth of the subtotal and the priced lines explain it (mixed supply, 5.6); the line GSTs sum to the printed GST
   AMBER  INV-37170: F8, a header figure cites a row typed PAYMENT_ADVICE, not TOTALS
   AMBER  INV-37556: F8, a header figure cites a row typed PAYMENT_ADVICE, not TOTALS
   AMBER  INV-37608: F8, a header figure cites a row typed PAYMENT_ADVICE, not TOTALS
@@ -129,3 +125,4 @@ Gate: RED
   AMBER  SV008005: F8, a header figure cites a row typed NARRATIVE, not TOTALS
   AMBER  SV008033: F8, a header figure cites a row typed NARRATIVE, not TOTALS
   AMBER  SV008092: F8, a header figure cites a row typed NARRATIVE, not TOTALS
+  AMBER  description layer UNVERIFIED: no page text retained, so the verbatim check returns UNVERIFIABLE and no captured description has been read against a page

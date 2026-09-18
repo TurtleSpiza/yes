@@ -6,9 +6,14 @@ corpora in `batches/` and the gate in `toolkit/pswp/pswp_corpus_gate.py`.
 
 **Verdict.** The prompt is now a genuinely checkable standard: seventeen pathologies, eight findings, and a gate
 that computes the verdict from the corpus rather than trusting the one declared. Three of the last four
-amendments were forced by a corpus that had declared itself clean, which is the pattern worth noting: **every
-check in this prompt was written after a defect shipped, and none was predicted.** The two structural weaknesses
-below are what I would want a reviewer to attack first.
+amendments were forced by a corpus that had declared itself clean, and the pattern is worth scoping precisely:
+**every pathology in this prompt, P1 to P17, was written after a defect shipped.** The amendments since are a
+different pattern and the more important one: **the standard has begun predicting its own defects, and the first
+two predictions were both right.** v7.4's two structural amendments came out of assessing the standard with no
+corpus behind them. v7.5 is stronger still: the conflict between P16 and 5.6 was named in review BEFORE Woodmans
+page 48 arrived, and the page then produced exactly that failure, one GST-free line and P16 failing a correct
+invoice. The claim to make is not that nothing was predicted; it is that prediction started at v7.4 and has not
+yet been wrong.
 
 ---
 
@@ -23,6 +28,9 @@ below are what I would want a reviewer to attack first.
 | **v7** | 18-Sep-2026 | Bands become **spans tested by overlap**, not single offsets. The 4.0 **classification ladder** in one fixed order. **13.0** defines GREEN, AMBER and RED in a truth table. Tie moves to **1c** to match register rule 17. P14 credit-note sign, P15 evidence-stem collision. A conformance corpus, Levai INV-38967. | v6 made the rules checkable and left the test imprecise. On the conformance invoice the `AMOUNT` label ends at column 116 and its values at 118 to 120, so a left-edge test with drift rejects the rows it exists to catch. |
 | **v7.1** | 17-Sep-2026 | **`ATTACHMENT`** added to the closed list (rule 16d), a ladder rung for it, and the 4.4 invariant scoped to PRICED **or** ATTACHMENT. | Running the gate over the 29 corpora already held. `ATTACHMENT` was in use on 77 rows and the branch build depends on it, but no prompt version had ever written it down, so every one of those rows read P13. Separately, 103 Glascott schedule rows in `playforce_vinton_glascott_20260916` read P2 although they are correctly outside the tie: all five documents tie exactly on their PRICED rows alone and adding the schedule rows would break every tie by $124,347.79. |
 | **v7.2** | 18-Sep-2026 | **P16** GST must be a tenth of the subtotal and must not oppose its sign. **P17** a header figure must be printed on the row its `header_sources` entry cites. **F8** citation drift. The `gst_basis` rule: GST may not be derived silently. **P1 amended**: zero priced lines is P1 whatever subtotal is recorded. | `Binder1666`, declared AMBER. 29 documents recorded `printed_gst` as total less subtotal, which makes the 5.4 addition check pass **by construction whatever the total is**, so P10 was blind by design. Vinton totals of $6.00 to $8.00 against real totals of $1,586.75 to $3,771.61. 30 documents understated their incl-GST value by **$52,390.66**. Woodmans 6431345 parsed nothing at all and recorded subtotal $0.00, which disarmed P1. |
+| **v7.6** | 18-Sep-2026 | **A standing rule: every uniqueness and completeness check exempts `duplicate_of`** (11.4). **The description layer becomes a separate axis**: it qualifies the gate line rather than demoting it, so GREEN is reachable again. | Four checks had needed that exemption one at a time, P1 and P15 among them, each found by a correct corpus being failed. And demoting on the description layer took GREEN off all 37 corpora at once, including the conformance fixture, which left the 16.4 self-test with no passing reference and gave a clean corpus and a half-built one the same word. |
+| **v7.5** | 18-Sep-2026 | **P16 exempts a mixed supply** where the priced lines each print a GST amount summing to the printed GST. | Woodmans 6431345, page 48 of `Binder1666`: $268.00 ex, $22.80 GST, $290.80 inc over seven rows, one GST-free, so a tenth of the subtotal is $26.80 and P16 failed a correct invoice. 5.6 covered it in prose and nothing enforced it. **Predicted in review before the page arrived.** |
+| **v7.4** | 18-Sep-2026 | **13.2** the gate applies the checks the corpus could have satisfied, scoped on the FIELD or CONVENTION each check reads, and `prompt_version` becomes mandatory. **10.1 and section 9** `page_text_independent` and `page_text_basis`. **13.0** GREEN now requires a verified description layer, and the RED range is corrected from P1 to P15 to P1 to P17. | Not a corpus. Assessing the standard: an unscoped gate read 31 of 34 corpora RED on fields that did not exist when they were extracted, and the only check that reads a word was unfailable wherever page text had been rebuilt from the capture. |
 | **v7.3** | 18-Sep-2026 | **P1 exempted** where the document carries `duplicate_of`. | `Pages_from_Binder1`, 96 Play Force documents declared GREEN, computed RED on five. All five were repeated copies inside the binder, every row typed `DUPLICATE_COPY` with null arithmetic, exactly as 4.0 rung 2 requires. The amendment was right about Woodmans and over-broad. |
 
 ---
@@ -59,9 +67,9 @@ AMBER and computed RED again on a different document.
 
 ---
 
-## 4. Assessment: two structural weaknesses
+## 4. Assessment: two structural weaknesses, both closed at v7.4
 
-**4.1 The gate cannot tell "extracted before the rule existed" from "failed the rule".** Run today over the 34
+**4.1 The gate cannot tell "extracted before the rule existed" from "failed the rule". FIXED.** Run today over the 34
 corpora in `batches/`, 31 read RED, and almost all of them on P11 and P12 alone. No corpus predating v7 carries
 `bands_calibrated_on` or `residue_rows`, because neither field existed when it was extracted. Those 1,116 P11s
 and 1,188 P12s are a schema gap and say nothing about capture quality, yet they are indistinguishable at the
@@ -69,7 +77,7 @@ gate from a genuine failure. **A corpus should record the prompt version it was 
 should apply the check set of that version**, or the RED verdict stops carrying information. This is the single
 change I would make next.
 
-**4.2 Every check tests arithmetic or structure. Only one tests words, and it is optional in practice.** P1 to
+**4.2 Every check tests arithmetic or structure. Only one tests words, and it is optional in practice. FIXED.** P1 to
 P17 prove amounts, coverage and citation. The shingle check is the only verbatim test, and it returns
 UNVERIFIABLE where the corpus retains no `page_text`. `prep_supplied_corpus.py` rebuilds `page_text` from the
 corpus's own `line_text` rows, which makes the check runnable but **unfailable**, because the haystack becomes
@@ -78,6 +86,12 @@ On `pages_from_binder1` the binder was supplied, the page text was parsed from t
 real PASS on 583 shingles with 0 unverifiable. That is the only Play Force batch where that is true. **The
 standard should say plainly that a corpus captured without the binder has an unverified description layer**,
 rather than leaving the distinction inside a helper script.
+
+**Closed at v7.4, in 10.1, section 9 and 13.0.** The manifest carries `page_text_independent`, a boolean, and
+`page_text_basis`, the sentence. A corpus whose page text was rebuilt from its own rows reads UNVERIFIED and
+**13.0 no longer permits it to be GREEN**. It costs GREEN on almost every corpus here, which is the finding
+rather than a side effect. A boolean and not a phrase, because the first implementation sniffed the prose for
+"rebuilt" and read a basis line saying "not rebuilt from the corpus rows" as a rebuild.
 
 ---
 
@@ -93,7 +107,11 @@ rather than leaving the distinction inside a helper script.
    second opinion.
 3. **`HEADER` is still P13 in `mixed_1`**, 8 rows, a mis-typing of `TABLE_HEADER`. Not fixed, because the fix
    belongs in that corpus.
-4. **P2 and 4.4 versus 4.2, 4.5 and 13.2.** The invariant reads globally in 4.4 and P2, and the equivalent test
+4. **13.0 authorised RED only for P1 to P15 while the gate failed corpora on P16 and P17.** Raised in review
+   and corrected at v7.4: the range now reads P1 to P17. Worth recording because the gate was enforcing a
+   condition the standard did not authorise, which is the same class of defect as a corpus declaring a gate it
+   did not compute.
+5. **P2 and 4.4 versus 4.2, 4.5 and 13.2.** The invariant reads globally in 4.4 and P2, and the equivalent test
    is scoped to the residue window in 4.2, 4.5 and 13.2. v7.1 resolved the case in front of it by adding a type
    rather than by settling which reading governs. That ambiguity is still in the document.
 
@@ -117,8 +135,19 @@ that class before it is trusted, and a claim of testing should name the cases te
 
 ## 7. State at this assessment
 
-- Prompt at **v7.3**, 859 lines, 25 pathology and finding rows, Annexes A to D1.
-- Gate at v5 of `pswp_corpus_gate.py`, P1 to P17 plus the F7, F8 and `gst_basis` AMBER limbs.
+- Prompt at **v7.6**, and the corpus count is **37**, not the 34 quoted in earlier drafts: three restated
+  corpora were added since (`binder1666` v7.5, the Glascott v7 restatement and `pages_from_binder1` v6), so the
+  RED trend is only comparable within a stated denominator.
+- Prompt at **v7.6**, 946 lines, Annexes A, B, C, C1, D, D1, D2 in that order, and 13.0 to 13.2 in that order.
+- Gate at v7 of `pswp_corpus_gate.py`, P1 to P17 plus the F7, F8, `gst_basis` and description-layer AMBER limbs.
 - 34 corpora, 1,581 documents. Conformance corpus GREEN. `pages_from_binder1` captured into register **v24**.
   `binder1666` RED and held on Woodmans 6431345, which needs page 48 of the binder.
-- Every ABN across every captured corpus passes the ATO checksum; none equals the LCC bill-to ABN.
+- Every ABN across every captured corpus passes the ATO checksum; none equals the LCC bill-to ABN. Verified
+  further against the Australian Business Register on 18-Sep-2026 with `abn_bulk_verify.py`: 32 distinct ABNs,
+  **every one Active and GST registered as at 18-Sep-2026**, and every supplier name matched to an ABR entity,
+  business or trading name. Verdict VALID on all 32. `reports/ABN_Verification_v24.xlsx`.
+  **Two qualifications, both material.** The run passed no transaction-date column, so the as-at tests
+  `ABN_NOT_ACTIVE_AT_DATE` and `GST_NOT_REGISTERED_AT_DATE` did not run: these are FY2023/24 to FY2025/26
+  invoices and the claim supported is current status, not status on the invoice date, which is what an auditor
+  asks for. And the name match is a similarity test at a 0.86 threshold, a review standard rather than an exact
+  match.

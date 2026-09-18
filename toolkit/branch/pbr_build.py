@@ -15,8 +15,9 @@ sys.path.insert(0, HERE)
 import pbr_stage
 import pbr_retention
 
-VER = 'v24'
+VER = 'v25'
 OUTNAME = f'Parks_Branch_Transaction_Register_FY2627_{VER}.xlsx'
+# binder1666 is NOT here: its BINDER was supplied, so it is a parsed batch and not a supplied-corpus one.
 SUPPLIED_GREEN = ('pla073_1', 'ksadasd', 'playforce_new', 'harp_new', 'vinton_new', 'trees_new', 'pages_from_binder1')  # supplied corpora that arrived GREEN under prompt v6 runtime A; prep does housekeeping only
 CLTOK = re.compile(r'\{CL:(\d+):(\d+)\}')
 SCRATCH = os.path.join(pbr_stage.ROOT, 'cache', 'scratch')

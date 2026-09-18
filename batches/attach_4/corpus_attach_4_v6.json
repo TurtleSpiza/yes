@@ -118,7 +118,18 @@
   "lines_captured": 1002,
   "captured_ex_gst_total": 212690.46,
   "pathologies": [],
-  "gate": "GREEN"
+  "gate": "GREEN",
+  "restatements": [
+   {
+    "rule": "R-A4-1",
+    "doc_ref": "012195/C00318419.pdf",
+    "band": [
+     141,
+     149
+    ],
+    "basis": "the page 1 totals column, read off the retained line_text"
+   }
+  ]
  },
  "documents": [
   {
@@ -18135,7 +18146,24 @@
    "tie_basis": "ex_gst",
    "self_tie": "TIE",
    "retry_log": [],
-   "table_headers": [],
+   "table_headers": [
+    {
+     "page": 1,
+     "row": 34,
+     "text": null,
+     "bands": {
+      "amount": [
+       141,
+       149
+      ]
+     },
+     "bands_calibrated_on": {
+      "page": 1,
+      "row": 34
+     },
+     "is_item_table": true
+    }
+   ],
    "work_orders": [
     "PK000378",
     "PK000382"
@@ -18158,7 +18186,7 @@
    "findings": [
     "Attached schedule totals $36,339.53 ex GST against the invoice face $35,866.01; difference $473.52. The face is what was billed and what the ledger carries. The schedule carries rows on 2 cost account(s) PK000378 $35,866.01, PK000382 $473.52; the difference is exactly the PK000382 row(s), which the face does not charge."
    ],
-   "notes": "GLASCOTT template, raw-text route (pdftotext -layout), page text retained; TechOne attachment C00318419.pdf (EzeScan export).",
+   "notes": "GLASCOTT template, raw-text route (pdftotext -layout), page text retained; TechOne attachment C00318419.pdf (EzeScan export). R-A4-1: no item-table header prints on this document. The single priced row refers to the schedule on page 2 and carries its amount in the totals column, so the amount band is taken from that column, [141,149], and calibrated on the priced row itself (4.1, the Kachel case).",
    "lines": [
     {
      "source": "TEXT",

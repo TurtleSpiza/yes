@@ -1,6 +1,11 @@
-# PSWP Invoice Extraction Prompt v7.4 (18-Sep-2026; version-scoped checks and the declared description layer)
+# PSWP Invoice Extraction Prompt v7.6 (18-Sep-2026; the duplicate_of standing rule and the description layer as a separate axis)
 
 Supersedes v6 (11-Sep-2026), which superseded v5, v4 and v3.1. For extraction of supplier-invoice binders to a structured JSON corpus for the PS/WP and Parks Branch Transaction Registers, Logan City Council, Parks Branch.
+
+**Version sequence.** v7 as supplied is dated 18-Sep-2026 and the v7.1 amendments were applied on 17-Sep-2026,
+which reads as a point release predating its parent. It is a timezone artefact and not a reordering: the
+sequence is v7, v7.1, v7.2, v7.3, v7.4, and Annexes D, D1 and D2 record them in that order. Where two versions
+share a date, the annexe order governs.
 
 **v6 is kept here in full and amended, not rewritten, and every v6 section number, pathology code and cross-reference still means what it meant.** v4 broke things by rewriting v3.1; v5 said so; v6 said so again. New material lands as new sub-sections inside the existing numbering (4.0, 4.6, 5.5, 5.6, 6.0, 9.1, 13.0, 14.7, 15.1, Annexe C). Nothing in the capture or verification standard is relaxed.
 
@@ -407,7 +412,9 @@ Numbers are JSON numbers: unquoted, no `$`, no thousands separators, two decimal
     "runtime": "A | B",
     "extraction_tool": "<product and model version>",
     "extracted_utc": "<ISO 8601>",
-    "prompt_version": "v7.2",
+    "prompt_version": "v7.4",                       // MANDATORY: the gate scopes its checks on this (13.2)
+    "page_text_independent": true,                  // MANDATORY: see 10.1
+    "page_text_basis": "<where page_text came from>",
     "gate": "GREEN | AMBER | RED",
     "pathologies": [{"code": "P1", "doc_ref": "...", "page": 0, "detail": "..."}],
     "coverage": {"documents_complete": 0, "documents_total": 0,
@@ -520,6 +527,27 @@ Numbers are JSON numbers: unquoted, no `$`, no thousands separators, two decimal
 
 ---
 
+### 10.1 NEW v7.4. Declare where the page text came from, because it decides whether this section means anything
+
+The shingle check is the only test in this standard that reads a WORD rather than an amount, and it needs a
+haystack the capture did not write. Where page text is rebuilt from the corpus's own `line_text` rows, the check
+still runs and **cannot fail**, because the haystack has become the captured text. A corpus can then tie to the
+cent on every invoice and carry a description the page never printed.
+
+So the manifest carries two fields and both are mandatory:
+
+- **`page_text_independent`**, a boolean. True only where `page_text` is a parse of the source PDF. False where
+  it was rebuilt from the corpus's own rows, or where no page text is retained at all.
+- **`page_text_basis`**, one sentence saying where it came from. Prose only; nothing reads it to decide.
+
+A boolean, not a phrase, because a gate that sniffed the prose for "rebuilt" read a basis line saying "**not**
+rebuilt from the corpus rows" as a rebuild.
+
+**A corpus whose description layer is unverified cannot be GREEN** (13.0). It can still be AMBER and still
+builds, with the limitation on the record rather than inside a helper script.
+
+---
+
 ## 11. Standing rules
 
 1. **Verbatim only.** A summary row in place of line capture is a critical failure.
@@ -535,6 +563,14 @@ Numbers are JSON numbers: unquoted, no `$`, no thousands separators, two decimal
 11. **A printed per-line GST of $0.00 alongside a non-zero amount is a GST-free supply, not an error.** Accredited training and some trust-structure suppliers are the standing cases. Do not compute a GST-inclusive figure or a check result into the corpus; those are live formulas in the destination workbook.
 
 ---
+
+**NEW v7.6, a standing rule: every uniqueness and completeness check exempts `duplicate_of`.** A repeated copy
+of an invoice inside a binder is the same document, so it shares its original's identifiers by construction. It
+has no priced lines because its arithmetic is null (4.0 rung 2), and it shares the original's `evidence_stem`
+because it is the same evidence. Four checks have now needed this exemption one at a time, P1 and P15 among
+them, each discovered by a correct corpus being failed. State it once: a check that asks "is this unique" or
+"did this parse" does not ask it of a row or a document carrying `duplicate_of`. P7 is the exception and is
+meant to be, because it exists to find a duplicate that was NOT marked.
 
 ## 12. Evidence stem rule
 
@@ -552,19 +588,12 @@ v6 used these three words on every page and defined none of them. The build sess
 
 | Gate | Condition | What the build does |
 |---|---|---|
-| **GREEN** | Every document complete; no pathology; every document at TIE at 1c; every corpus check true | Builds |
-| **AMBER** | No pathology, and one or more of: the run stopped at a document boundary with `resume_point` set; a document at OUT after all four rungs; a tie in the 1c to 2c band (F7); a header block that fails 5.4 and is recorded as F1 | Builds what is complete, HOLDs the named documents |
-| **RED** | Any unresolved pathology P1 to P15 | Does not build. The corpus is returned for re-extraction |
+| **GREEN** | Every document complete; no pathology; every document at TIE at 1c; every corpus check true; **and the description layer is verified (`manifest.page_text_independent` is true, 10.1)** | Builds |
+| **AMBER** | No pathology, and one or more of: the run stopped at a document boundary with `resume_point` set; a document at OUT after all four rungs; a tie in the 1c to 2c band (F7); a header block that fails 5.4 and is recorded as F1; **the description layer is unverified or unstated (10.1)** | Builds what is complete, HOLDs the named documents |
+| **RED** | Any unresolved pathology **P1 to P17** | Does not build. The corpus is returned for re-extraction |
 
 AMBER is a normal, useful outcome and is not a failure. RED is also a useful, honest output. **A GREEN corpus containing a P1 is a fabrication.**
 
-### 13.2 NEW v7. The gate is computed, not declared
-
-`pswp_corpus_gate.py` (session zip) reads a corpus and computes the gate from the corpus itself: every pathology above that is computable without the PDF, plus the 13.0 table. Where your declared gate and the computed gate differ, **the computed gate stands**, and the difference is itself the finding.
-
-Run it before you write the report if your runtime can (runtime A, one command, `python3 pswp_corpus_gate.py corpus_<batch_id>.json`). In runtime B you cannot, so write the corpus as though it will be run, because it will be: the build session runs it on arrival and returns anything RED unbuilt.
-
-What it cannot see, and what therefore stays yours: verbatim fidelity against the page, whether a band matches the printed column, and a money row typed NARRATIVE **outside** the residue window. Those three are why sections 4, 5 and 10 are written the way they are.
 
 ### 13.1 Pathologies that force a gate
 
@@ -587,12 +616,41 @@ These are not tie failures. They are parse failures, and a corpus containing an 
 | **P13** | A `line_type` outside the closed list in section 9 | Every downstream screen for that type silently misses the rows |
 | **P14 (NEW v7)** | `doc_kind == "CREDIT_NOTE"` with a positive `printed_total_incl_gst`, or a sign that contradicts the printed face | A credit posted as a debit ties nothing and reverses the register total |
 | **P15 (NEW v7)** | Two documents sharing an `evidence_stem` | Evidence files collide on save and one overwrites the other |
-| **P16 (NEW v7.2)** | Where a GST amount is recorded and is not zero, `printed_gst` is not a tenth of `printed_subtotal_ex_gst` within **max(1% of the GST, 2c)**, or its sign opposes the subtotal's | P10 cannot see a swap or a derived GST, because addition survives both. This is the only check that reads the two figures against each other rather than against their sum. On `Binder1666` it flagged 30 of 100 documents and every one was a true positive: 27 Vinton, 2 Heritage, 1 Tennyson. The tolerance is relative because a supplier computing GST per line rather than on the subtotal lands cents off a tenth on a large invoice, and that is rule 11.10, not an error |
+| **P16 (NEW v7.2, mixed supply exempted v7.5)** | Where a GST amount is recorded and is not zero, `printed_gst` is not a tenth of `printed_subtotal_ex_gst` within **max(1% of the GST, 2c)**, or its sign opposes the subtotal's, **unless the priced lines print a GST amount each and those sum to the printed GST**, which is a mixed supply (5.6) and not a defect | P10 cannot see a swap or a derived GST, because addition survives both. This is the only check that reads the two figures against each other rather than against their sum. On `Binder1666` it flagged 30 of 100 documents and every one was a true positive: 27 Vinton, 2 Heritage, 1 Tennyson. The tolerance is relative because a supplier computing GST per line rather than on the subtotal lands cents off a tenth on a large invoice, and that is rule 11.10, not an error |
 | **P17 (NEW v7.2)** | A header figure is not printed on the row its `header_sources` entry cites, or cites a row that carries no line record | `header_sources` was added in v6 so a wrong read would be auditable. Nothing audited it, so on `Binder1666` a GST of -$1,887.75 cited a row reading `Completed 22/06/2026`. The figure and the row are both in your own output, so this costs one string search. A derived figure (`gst_basis` or `subtotal_basis` saying so) is exempt from the value test |
 
 Set `"gate": "RED"`, list every pathology in `manifest.pathologies` with the affected `doc_ref` and page, and say plainly in the report that the corpus must not be built from.
 
 ---
+
+
+### 13.2 NEW v7. The gate is computed, not declared
+
+**NEW v7.4. The gate applies the checks the corpus could have satisfied, and says which.** A RED verdict stops
+carrying information the moment it fires on a field that did not exist when the corpus was extracted. So the
+gate reads `manifest.prompt_version`, which is **mandatory** for this reason, and skips a check only where the
+corpus predates the FIELD or CONVENTION that check reads. The scope is on the evidence, never on the version
+alone: scoping by version would let a corpus declaring v6 escape P14, P15 and P16, none of which needs anything
+v6 lacks, so an extraction could dodge three checks by understating itself.
+
+| Evidence a check reads | From | Checks scoped to it |
+|---|---|---|
+| `bands_calibrated_on` | v7 | the P11 calibration limb only |
+| `residue_rows` as a KEY | v7 | the P12 "absent" limb only; a non-empty residue is v6 |
+| `bands` | v6 | P11 proper |
+| `header_sources` citing a 9.1 `line_no` | v7 | P17. The field is v6 but every v6 corpus writes `"row": 0` as a placeholder, so the convention and not the field is what P17 needs |
+| `doc_kind`, `evidence_stem`, `printed_gst` | v5 | P14, P15, P16 apply to **every** corpus |
+
+P1's v7.2 amendment is not scoped either: a document that parsed nothing was a parse failure under v5 too,
+whatever the prompt said at the time.
+
+
+
+`pswp_corpus_gate.py` (session zip) reads a corpus and computes the gate from the corpus itself: every pathology above that is computable without the PDF, plus the 13.0 table. Where your declared gate and the computed gate differ, **the computed gate stands**, and the difference is itself the finding.
+
+Run it before you write the report if your runtime can (runtime A, one command, `python3 pswp_corpus_gate.py corpus_<batch_id>.json`). In runtime B you cannot, so write the corpus as though it will be run, because it will be: the build session runs it on arrival and returns anything RED unbuilt.
+
+What it cannot see, and what therefore stays yours: verbatim fidelity against the page, whether a band matches the printed column, and a money row typed NARRATIVE **outside** the residue window. Those three are why sections 4, 5 and 10 are written the way they are.
 
 ## 14. Findings to raise, not bury
 
@@ -775,6 +833,9 @@ Every layout this project has met, with the item table's header signature as pri
 
 ---
 
+---
+
+
 ## Annexe B. The two v5 runs that produced v6
 
 | | `mix22` | `Binder11111` |
@@ -796,18 +857,8 @@ The difference between those last two rows is the whole argument for the v6 and 
 
 ---
 
-## Annexe C1. What changed from v7 (v7.1, 17-Sep-2026)
-
-Two amendments, both found by running `pswp_corpus_gate.py` over the twenty-nine corpora already held in the branch repository. Neither relaxes a capture or verification standard.
-
-| v7 section | Amendment | Why |
-|---|---|---|
-| 9, closed list | `ATTACHMENT` added, thirteen values | The type is already in use (77 rows over `attach_4` and `mixed_1`) and the branch build depends on it: register rule 16d excludes attachment rows from rule 17 check 1. v7's list dropped it, so every one of those rows read P13. |
-| 4.0 ladder, 4.4, P2 | The amount-bearing test runs over PRICED and ATTACHMENT | `playforce_vinton_glascott_20260916` typed 103 Glascott schedule rows NARRATIVE and kept their amounts. They are correctly outside the tie, proven: all five documents tie their printed subtotal exactly on their PRICED rows alone, and adding the schedule rows would break every tie, $124,347.79 in all. Under v7 as written the corpus was RED on rows that were right to exclude; under v7.1 the type says so. |
-
-**Not amended, and why.** `HEADER`, 8 rows in `mixed_1`, stays P13. It is a mis-typing of `TABLE_HEADER` and nothing downstream reads it, so the fix belongs in that corpus, not in the list.
-
 ---
+
 
 ## Annexe C. What changed from v6
 
@@ -835,30 +886,24 @@ Everything below is an amendment inside v6's numbering. No v6 rule was deleted a
 
 ---
 
-## Annexe D2. What changed from v7.3 (v7.4, 18-Sep-2026)
-
-Two structural amendments, neither of them a new pathology. Both came out of assessing the standard rather than
-out of a corpus failing.
-
-| Area | Amendment | Why |
-|---|---|---|
-| 13.2, the computed gate | **The gate applies the check set of the prompt version the corpus records**, and the report names the set it applied. `manifest.prompt_version` is therefore mandatory, not decorative. | A RED verdict stops carrying information the moment it fires on a field that did not exist when the corpus was extracted. Run unscoped over the 34 corpora held in the branch repository, 31 read RED and almost all of them on P11 and P12 alone, because no corpus predating v7 carries `bands_calibrated_on` or `residue_rows`: neither field is in the v5 or the v6 prompt. Scoped, 8 read RED and every one is a real failure under the rules that applied to it. |
-| 10, verbatim fidelity | **The manifest carries `page_text_independent`, a boolean, and `page_text_basis`, the sentence explaining it.** A corpus whose page text was rebuilt from its own `line_text` rows is reported as an UNVERIFIED description layer and cannot be GREEN. | The shingle check is the only test in this standard that reads a word rather than an amount, and it needs a haystack the capture did not write. Rebuilding page text from the corpus's own rows makes the check runnable and **unfailable**, because the haystack becomes the captured text. A corpus can tie to the cent on every invoice and carry a description the page never printed. Of the 34 corpora held, exactly one has an independently parsed page text, and it is the one batch where the binder was supplied. |
-
-**What the second amendment costs, stated plainly.** It takes GREEN off almost every corpus in the repository,
-because almost none has a verified description layer. That is the finding, not a side effect: AMBER already
-means "builds what is complete, HOLDs the named documents" (13.0), so the work still builds, with the
-limitation on the record instead of inside a helper script.
-
 ---
 
-## Annexe D1. What changed from v7.2 (v7.3, 18-Sep-2026)
+
+## Annexe C1. What changed from v7 (v7.1, 17-Sep-2026)
+
+Two amendments, both found by running `pswp_corpus_gate.py` over the twenty-nine corpora already held in the branch repository. Neither relaxes a capture or verification standard.
 
 | v7 section | Amendment | Why |
 |---|---|---|
-| 13.1, P1 | The v7.2 amendment is exempted where the document carries `duplicate_of` | Found on arrival of `Pages_from_Binder1`, 96 Play Force documents declared GREEN. The amended P1 computed RED on five of them; every one was a repeated copy inside the binder, every row typed `DUPLICATE_COPY`, arithmetic null exactly as 4.0 rung 2 requires. With the exemption that corpus computes GREEN and Woodmans 6431345, which is not a duplicate, still fails. A check that returns sound work is a defect in the check. |
+| 9, closed list | `ATTACHMENT` added, thirteen values | The type is already in use (77 rows over `attach_4` and `mixed_1`) and the branch build depends on it: register rule 16d excludes attachment rows from rule 17 check 1. v7's list dropped it, so every one of those rows read P13. |
+| 4.0 ladder, 4.4, P2 | The amount-bearing test runs over PRICED and ATTACHMENT | `playforce_vinton_glascott_20260916` typed 103 Glascott schedule rows NARRATIVE and kept their amounts. They are correctly outside the tie, proven: all five documents tie their printed subtotal exactly on their PRICED rows alone, and adding the schedule rows would break every tie, $124,347.79 in all. Under v7 as written the corpus was RED on rows that were right to exclude; under v7.1 the type says so. |
+
+**Not amended, and why.** `HEADER`, 8 rows in `mixed_1`, stays P13. It is a mis-typing of `TABLE_HEADER` and nothing downstream reads it, so the fix belongs in that corpus, not in the list.
 
 ---
+
+---
+
 
 ## Annexe D. What changed from v7, and the run that produced it
 
@@ -874,3 +919,44 @@ limitation on the record instead of inside a helper script.
 | `GST Ex Total` and `GST Inc Total` named as totals labels | 5.1 | The substring trap in reverse, on the Woodmans layout |
 | The report may not contradict its own gate line, and a finding may not contradict its own figures | 15 | A RED corpus arriving at a build session under a sentence saying it is GREEN |
 | TENNYSON and WOODMANS added; VINTON (B) and HERITAGE traps restated from this run | Annexe A | The three layouts that failed here |
+
+---
+
+
+## Annexe D1. What changed from v7.2 (v7.3, 18-Sep-2026)
+
+| v7 section | Amendment | Why |
+|---|---|---|
+| 13.1, P1 | The v7.2 amendment is exempted where the document carries `duplicate_of` | Found on arrival of `Pages_from_Binder1`, 96 Play Force documents declared GREEN. The amended P1 computed RED on five of them; every one was a repeated copy inside the binder, every row typed `DUPLICATE_COPY`, arithmetic null exactly as 4.0 rung 2 requires. With the exemption that corpus computes GREEN and Woodmans 6431345, which is not a duplicate, still fails. A check that returns sound work is a defect in the check. |
+
+---
+
+---
+
+
+## Annexe D3. What changed from v7.4 (v7.5, 18-Sep-2026)
+
+| v7 section | Amendment | Why |
+|---|---|---|
+| 13.1, P16 | **A mixed supply is exempt.** Where the priced lines each print a GST amount and those sum to the printed GST, the header is proved by the lines and the document-level ratio is explained by the mix. | Woodmans 6431345, page 48 of `Binder1666`, supplied 18-Sep-2026. It prints $268.00 ex GST, $22.80 GST and $290.80 inc over seven rows, one of them GST-free, so a tenth of the subtotal is $26.80 and P16 as written failed a correct invoice. 5.6 already covered the case in prose; nothing enforced it. |
+
+Third amendment in three days forced by a document rather than by reasoning, and the second to remove a false
+positive rather than catch a defect. Both false positives, P1 on duplicate copies and P16 on a mixed supply,
+were introduced by an amendment written to catch a real defect in the same week.
+
+---
+
+## Annexe D2. What changed from v7.3 (v7.4, 18-Sep-2026)
+
+Two structural amendments, neither of them a new pathology. Both came out of assessing the standard rather than
+out of a corpus failing.
+
+| Area | Amendment | Why |
+|---|---|---|
+| 13.2, the computed gate | **The gate applies the checks the corpus could have satisfied, scoped on the FIELD or CONVENTION each check reads** (13.2). Scoping on the declared VERSION alone was the first cut and was a loophole: it let a corpus escape P14, P15 and P16 by declaring v6, none of which needs anything v6 lacks, and the report names the set it applied. `manifest.prompt_version` is therefore mandatory, not decorative. | A RED verdict stops carrying information the moment it fires on a field that did not exist when the corpus was extracted. Run unscoped over the 34 corpora held in the branch repository, 31 read RED and almost all of them on P11 and P12 alone, because no corpus predating v7 carries `bands_calibrated_on` or `residue_rows`: neither field is in the v5 or the v6 prompt. Scoped on the evidence, and after the later amendments, 11 read RED of 37 corpora. The figure of 8 quoted when this annexe was written came from the looser version-only scope and from a smaller denominator; it is superseded. |
+| 10, verbatim fidelity | **The manifest carries `page_text_independent`, a boolean, and `page_text_basis`, the sentence explaining it.** A corpus whose page text was rebuilt from its own `line_text` rows is reported as an UNVERIFIED description layer and cannot be GREEN. | The shingle check is the only test in this standard that reads a word rather than an amount, and it needs a haystack the capture did not write. Rebuilding page text from the corpus's own rows makes the check runnable and **unfailable**, because the haystack becomes the captured text. A corpus can tie to the cent on every invoice and carry a description the page never printed. Of the 34 corpora held, exactly one has an independently parsed page text, and it is the one batch where the binder was supplied. |
+
+**What the second amendment costs, stated plainly.** It takes GREEN off almost every corpus in the repository,
+because almost none has a verified description layer. That is the finding, not a side effect: AMBER already
+means "builds what is complete, HOLDs the named documents" (13.0), so the work still builds, with the
+limitation on the record instead of inside a helper script.
