@@ -59,14 +59,25 @@ def _tokens(text: str) -> list[tuple[int, Decimal]]:
     return out
 
 
+def _band_start(v):
+    """A band is a single offset under extraction prompt v6 and a [start, end] SPAN under v7 (4.1). The test
+    downstream is `token start >= band - 6`, so the scalar wanted is the span's left edge. Reading a v7 corpus
+    without this raises `unsupported operand type(s) for -: 'list' and 'int'` inside the F9 rebuild."""
+    if isinstance(v, (list, tuple)):
+        return v[0] if v else None
+    return v
+
+
 def _amount_band(doc: dict) -> int | None:
     for h in doc.get("table_headers") or []:
         bands = (h or {}).get("bands") or {}
         for key in ("amount", "total_price", "amount_aud", "total"):
             if key in bands:
-                return bands[key]
+                return _band_start(bands[key])
         if bands:
-            return max(bands.values())
+            starts = [b for b in (_band_start(v) for v in bands.values()) if isinstance(b, (int, float))]
+            if starts:
+                return max(starts)
     return None
 
 
