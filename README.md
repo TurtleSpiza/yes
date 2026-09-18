@@ -62,12 +62,28 @@ python3 toolkit/branch/pbr_build.py
 
 One script runs the whole chain: stage, write, LibreOffice convert-route recalc (isolated profile, `OOXMLRecalcMode=0`), calamine verify of the recalculated file, ship to `registers/`. It ships only on a clean verify (93 controls, every sighted line's three checks, the register total and a whole-workbook error sweep). A partial run is discarded, never resumed. About 35 to 40 seconds from a warm cache. Set `PBR_OUTDIR` to ship elsewhere; `PBR_INPUTS` and `PBR_V127` override the input locations. After the ship, and only after a clean verify, the driver runs retention and prunes the branch registers the new one supersedes (`PBR_RETAIN=all` keeps them).
 
+## The commit budget
+
+Retention caps the working tree, and that was never what made the repository big. **A workbook committed once stays in history at its full size forever**, because xlsx is a zip git cannot delta-compress, so committing a 12 to 24 MB register on every build grows every clone by that much on every build no matter what the tree holds. Between 11-Sep-2026 and 18-Sep-2026 that came to 23 registers and 288 MB, and the only way out was rewriting history. A policy document does not prevent a recurrence. Refusing the commit does.
+
+```
+toolkit/git-hooks/pre-commit          # the guard, installed by .claude/hooks/session-start.sh
+toolkit/git-hooks/commit_budget_v1.json   # what may be committed, and why: content is data
+PBR_ALLOW_BIG=1 git commit ...        # override for one commit, when you mean it
+```
+
+**The test is reproducibility, not size.** A file a script here can rebuild is an output and does not belong in history; a file nothing here can rebuild is an input and has to be kept. That is why `PS_WP_Transaction_Register_3FY_v127_CANDIDATE.xlsx` is allowed at 24 MB while a 12 MB register this repository builds is not: the candidate is the root input every build inherits from and no script here produces it, whereas `pbr_build.py` rebuilds the branch register and `pswp_build_batch.py` rebuilds the PS & WP registers from it.
+
+So `registers/*.xlsx` and `reports/*.xlsx` are ignored, with the candidate negated. Everything needed to rebuild them is tracked: the TechOne exports in `data/inputs_*`, the corpora in `batches/`, the briefs and match tables, and the candidate. The reports' `.md` **is** committed, because it is small, diffable and the readable record; only the workbook is regenerated.
+
+`core.hooksPath` is per-clone local config and cannot be carried by a repository, which is why the session-start hook sets it. In a clone where it was never set, the guard sits in the tree and never runs.
+
 ## Register retention
 
-A register is a build output, not a source. Each one is 8 to 24 MB of zip-compressed xlsx, and git cannot delta-compress a zip, so every version committed adds its full size to the clone permanently and no later deletion takes it back out. The repository therefore keeps the newest shipped register of each family and nothing else, except where an older version is still an INPUT:
+A register is a build output, not a source. Each one is 8 to 24 MB of zip-compressed xlsx, and git cannot delta-compress a zip, so every version committed adds its full size to the clone permanently and no later deletion takes it back out. The repository therefore keeps the two most recent shipped registers of each family and nothing else (`keep_newest`, currently 2). The predecessor earns its place by being the register the newest was built FROM: checking that a build did what its change log claims is a diff, and a diff needs both sides. Below that line a version is kept only where it is still an INPUT:
 
 - **Pinned.** `pbr_retention_v1.json` names it. `PS_WP_Transaction_Register_3FY_v127_CANDIDATE.xlsx` is the inheritance source every branch build reads (`pbr_stage.V127`) and md5-stamps into the shipped workbook, so it is a build input and stays, despite sorting below v128 and v129.
-- **Referenced.** A toolkit script or rule file still names the file literally. `pbr_retention.py` scans `toolkit/` for register filenames and refuses to prune over a citation, so a hard-coded default cannot be silently orphaned; the held file is reported with the line that cites it. `PS_WP_Transaction_Register_3FY_v128.xlsx` is held on this ground (`toolkit/pswp/pswp_v128_brief.py`).
+- **Referenced.** A toolkit script or rule file still names the file literally. `pbr_retention.py` scans `toolkit/` for register filenames and refuses to prune over a citation, so a hard-coded default cannot be silently orphaned; the held file is reported with the line that cites it. This is a backstop, not the main rule: `PS_WP_Transaction_Register_3FY_v128.xlsx` was surviving on this ground alone (`toolkit/pswp/pswp_v128_brief.py` names it in a default string), which was fragile in the wrong direction, and it is now held by `keep_newest` as the predecessor of v129.
 
 ```
 python3 toolkit/branch/pbr_retention.py               # dry run: what is kept, held and superseded
@@ -76,7 +92,9 @@ python3 toolkit/branch/pbr_retention.py --apply --git # prune the superseded fil
 
 The ship leg calls the same mechanic, narrowed so it can only touch branch registers strictly below the version it just shipped: never the file that run produced, never the PS & WP side, and never on a failed or partial run. This restores a practice the repository already had (each build to v8 dropped the prior version in the same commit) and that lapsed after v11, which is how v12 to v17 came to sit in the tree together.
 
-Pruning caps future growth; it does not reclaim the past. The superseded workbooks stay reachable from the commits that shipped them, so `.git` does not shrink and every report that cites an older register by name can still be resolved against history. Reclaiming that space would mean rewriting history, which changes every commit SHA and invalidates the merged PR record; it is not done here.
+**Pruning caps future growth; it does not reclaim the past.** Retention governs the working tree. A register already committed stays in history at its full size, so pruning caps what a fresh clone checks out, never what it downloads.
+
+That past was reclaimed once, on 18-Sep-2026: 22 superseded Parks Branch registers (v3 to v24, 288.5 MB uncompressed) were removed from all history with `git filter-repo`, taking `.git` from 311 MB to 123 MB. Every commit SHA changed. The cost is recorded rather than glossed: **those workbooks are not rebuildable**, because `pbr_build.py` builds the current version only and today's toolkit would produce today's logic, not the logic of the version purged. For v12 onward the reported outputs survive in `reports/`, which retains Contractor_Pull, Journal_Pull and Unidentified_Contractors at every version; for v3 to v11 there is no counterpart and nothing to recover from. `registers/purged_registers.json` names all 22 with the md5 and size of every blob each one had.
 
 ## Rows a binder masks
 
@@ -94,6 +112,39 @@ python3 toolkit/branch/pbr_mask_screen.py --corpus c.json --restate out.json <bi
 - **Rows, not cells.** `pdftotext -bbox-layout` emits one box per table cell, so the screen reassembles printed rows by vertical band and joins them left to right. `-layout` truncates the trailing columns of a wide table, so a line record is matched by containment in the reassembled row, never by equality.
 - **A masked row is dropped from capture, never deleted.** It is retyped, flagged `masked_on_page`, and an M1 finding is written on the document. The restatement stays auditable and nothing is lost.
 - **Why it matters more than the arithmetic.** On the Glascott binder the masked rows are the rows other invoices in the same binder bill: 012193's one masked row is the row 012194 bills on its own face. A masked row captured is the same work counted twice, not just one document overstated.
+
+## Binders are not kept
+
+A binder PDF is evidence that is sighted, parsed and screened. It is not a repository artefact: `*.pdf` is ignored by git, so the copy on disk is the only copy and deleting it is permanent. That is the point, and it is why the decision is a rule rather than a judgement made per file.
+
+Almost everything a corpus is checked on survives the binder, because the capture retains `page_text`. One thing does not. Fill colour is not in the text layer, so a masked row reads back from `pdftotext` exactly like a printed one and no retained text can tell them apart. **The masked-row verdict is the only finding that dies with the page**, so it is taken and written down while the binder is in hand:
+
+```
+python3 toolkit/branch/pbr_mask_screen.py --corpus <corpus.json> --record batches/<id>/mask_screen_<id>.json <binder.pdf>
+python3 toolkit/branch/pbr_binder_retention.py            # dry run: what would be deleted, and what is kept and why
+python3 toolkit/branch/pbr_binder_retention.py --apply    # delete the binders that qualify
+```
+
+A binder is deleted only where **all five** conditions in `pbr_binder_retention_v1.json` hold, each of them a question that needs the page, asked and answered first: the batch has a corpus, every document in it retains page text, the gate computes non-RED, the batch carries no hold record, and an M1 record names that exact file **by md5**. Anything else is kept and the reason is printed. The record refuses to be written for a partial screen, because a record covering half a batch reads as a clean screen of all of it.
+
+The ship leg calls it after a clean verify, for the same reason the register leg is there: a rule the driver applies cannot lapse, and a rule a session has to remember will. Unlike a register, a deleted binder cannot be rebuilt and has to be re-supplied, so `PBR_KEEP_BINDERS=1` disables the leg.
+
+## The three pull reports
+
+`reports/` carries three cuts of the same queue, each from the shipped registers and each answering a different question: **Contractor_Pull** (by supplier: what is unevidenced and what one pull would close it), **Journal_Pull** (by TechOne document file, rule 21) and **Unidentified_Contractors** (Tier 3 lines grouped into series). Every register version from v12 carries a full set.
+
+```
+python3 toolkit/branch/pbr_reports.py --check v25   # do all three exist at this version?
+python3 toolkit/branch/pbr_reports.py --build       # regenerate all three from the newest shipped registers
+```
+
+**Both registers, every time.** The contractor pull and the journal pull are each cut from BOTH registers, and only the branch version appears in the filename, so a PS & WP register that moves while the branch stands still leaves them stale under a filename that still looks right. Regenerating the contractor pull against PS & WP v128 rather than v129 changes 16 lines of the same `Contractor_Pull_v25.md`, so this is a real hole rather than a theoretical one. Two things close it: `--build` records the md5 of both source registers in `reports/pull_reports_manifest.json` and `--check` compares both against the registers on disk; and `assert_sources` names and checks both on every pull created or requested, whoever runs it, warning by name when either is superseded. A deliberate pull against an older register still runs, because reproducing a figure someone is querying is legitimate, and the run says which registers it used either way.
+
+With no manifest the answer is **UNVERIFIED, which is not a pass**: nothing records what the reports were cut from, so nothing can say.
+
+The ship leg runs the **check**, not the build, because regenerating all three takes longer than the build itself while the check reads six filenames and two md5s. It warns rather than failing, since by then the register is verified and shipped and is not made wrong by a late report.
+
+One trap the code holds: the three generators do **not** share an argv shape. `pbr_unidentified_queue.py` takes `(branch register, outdir)` and reads the branch register only, so passing it the PS & WP register as a third argument silently makes that the output directory.
 
 ## Capturing a new invoice batch
 

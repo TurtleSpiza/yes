@@ -1,0 +1,48 @@
+{
+  "_readme": [
+    "What may be committed to this repository. Content is data; the mechanic is the pre-commit hook beside",
+    "this file, installed by .claude/hooks/session-start.sh (git config core.hooksPath toolkit/git-hooks).",
+    "",
+    "WHY A HOOK AND NOT A RULE. Retention already caps the WORKING TREE, and that was never the problem. A",
+    "register committed once stays in history at full size forever, because xlsx is a zip git cannot",
+    "delta-compress, so a repository that commits a 12 to 24 MB workbook on every build grows by that much on",
+    "every build no matter what the tree holds. Between 11-Sep-2026 and 18-Sep-2026 that came to 23 registers",
+    "and 288 MB, cleared only by rewriting history. No policy document prevents a recurrence; refusing the",
+    "commit does.",
+    "",
+    "THE TEST IS REPRODUCIBILITY, NOT SIZE. A file that a script in this repository can rebuild is an output",
+    "and does not belong in history; a file nothing here can rebuild is an input and must be kept. That is why",
+    "PS_WP_Transaction_Register_3FY_v127_CANDIDATE.xlsx is allowed at 24 MB while a 12 MB register this",
+    "repository builds is not: the candidate is the root input every build inherits from and no script here",
+    "produces it, whereas pbr_build.py rebuilds the branch register and pswp_build_batch.py rebuilds the",
+    "PS & WP registers from it.",
+    "",
+    "Override for a single commit with PBR_ALLOW_BIG=1 when you genuinely mean it. The hook says so when it",
+    "refuses, and names the file and the reason."
+  ],
+  "max_mb": 5,
+  "deny_globs": [
+    {
+      "glob": "*.pdf",
+      "why": "Binder and invoice attachments are evidence, not repository artefacts. The corpus retains page_text and the M1 verdict is retained in the batch's mask_screen record; the binder itself is deleted once parsed (pbr_binder_retention.py)."
+    },
+    {
+      "glob": "reports/*.xlsx",
+      "why": "The three pull reports are outputs, rebuilt by pbr_reports.py --build from the shipped registers, and each set costs about 1.9 MB of history per version. The .md of each report IS committed: it is small, diffable, and the readable record."
+    }
+  ],
+  "allow_paths": [
+    {
+      "path": "registers/PS_WP_Transaction_Register_3FY_v127_CANDIDATE.xlsx",
+      "why": "Root build INPUT, not an output. Read by every branch build (pbr_stage.V127), its md5 stamped into the shipped workbook, and no script in this repository can produce it. 24 MB, committed once, never reissued."
+    },
+    {
+      "path": "data/reference/*.pdf",
+      "why": "The two standing Council reference documents the JSON captures in data/reference/ were made from, and the authority those captures are verified against. Not attachments."
+    },
+    {
+      "path": "data/inputs_*/**",
+      "why": "TechOne exports: SE2, ledger transactions, creditor histories, journal pulls and reconstructions. Build inputs, embedded verbatim and md5-screened, and nothing here can regenerate them."
+    }
+  ]
+}

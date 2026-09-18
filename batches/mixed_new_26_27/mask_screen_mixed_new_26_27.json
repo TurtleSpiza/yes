@@ -3,7 +3,8 @@
   "Masked-row screen (M1) over this batch's binder. A row filled black on the printed page is not",
   "a row the document prints, so it is never captured. The text sits under the fill and pdftotext",
   "returns it, so no text-layer gate can see it: the screen renders the page instead.",
-  "The binder is an attachment and is not retained; this record is the screen's standing result."
+  "The binder is an attachment and is not retained; this record is the screen's standing result, and",
+  "pbr_binder_retention.py will not delete a binder whose md5 this record does not match."
  ],
  "tool": "toolkit/branch/pbr_mask_screen.py",
  "policy": {
@@ -20,15 +21,19 @@
   "min_scanlines": 4,
   "overlap_fraction": 0.5
  },
- "screened_utc": "2026-09-18T04:55:17Z",
- "binder": {
-  "name": "Mixed_new_26-27.pdf",
-  "md5": "813f23077d1d5e77fb1e7150ad08b3cc",
-  "pages_masking_rows": [],
-  "bands": {},
-  "retained": false,
-  "retained_why": "Attachment. Not kept in the repository; this record is the standing M1 result."
- },
+ "screened_utc": "2026-09-18T05:23:15Z",
+ "batch_id": "mixed_new_26_27",
+ "binders": [
+  {
+   "name": "Mixed_new_26-27.pdf",
+   "md5": "813f23077d1d5e77fb1e7150ad08b3cc",
+   "bytes": 3551823,
+   "pages_masking_rows": [],
+   "bands": {},
+   "retained": false,
+   "retained_why": "Attachment. Not kept in the repository; this record is the standing M1 result."
+  }
+ ],
  "masked_rows": [],
  "documents": [],
  "verdict": "CLEAN: no page masks rows, so no line record reads one"

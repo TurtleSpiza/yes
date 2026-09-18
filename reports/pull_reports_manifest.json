@@ -1,0 +1,24 @@
+{
+ "_readme": [
+  "What the three pull reports in this directory were last cut from. Written by pbr_reports.py --build.",
+  "Both registers are recorded because every one of these reports reads BOTH, while only the branch",
+  "version appears in the filename. A PS & WP register that moves while the branch stands still leaves",
+  "the reports stale under a filename that still looks right, and only the md5 below catches it."
+ ],
+ "built_utc": "2026-09-18T05:53:18Z",
+ "families": [
+  "Contractor_Pull",
+  "Journal_Pull",
+  "Unidentified_Contractors"
+ ],
+ "sources": {
+  "branch": {
+   "file": "Parks_Branch_Transaction_Register_FY2627_v25.xlsx",
+   "md5": "06aafdf0ea2732f4b5054a580d8dd081"
+  },
+  "pswp": {
+   "file": "PS_WP_Transaction_Register_3FY_v129.xlsx",
+   "md5": "d652d54e80ca7f56ccaca59e862f5c3f"
+  }
+ }
+}

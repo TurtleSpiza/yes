@@ -1,0 +1,40 @@
+{
+ "_readme": [
+  "Masked-row screen (M1) over this batch's binder. A row filled black on the printed page is not",
+  "a row the document prints, so it is never captured. The text sits under the fill and pdftotext",
+  "returns it, so no text-layer gate can see it: the screen renders the page instead.",
+  "The binder is an attachment and is not retained; this record is the screen's standing result, and",
+  "pbr_binder_retention.py will not delete a binder whose md5 this record does not match."
+ ],
+ "tool": "toolkit/branch/pbr_mask_screen.py",
+ "policy": {
+  "_readme": [
+   "Thresholds for the masked-row screen. Content is data; the mechanic is pbr_mask_screen.py.",
+   "A masked row is a filled rectangle: a long contiguous near-black run repeated over several scanlines.",
+   "min_scanlines is what separates a filled row from a table rule, which is the same width and one or two",
+   "scanlines tall. Tuned against the Glascott binder (97 001 281 572.pdf, md5 007e24fb685834aa109a08eebcc9f1cd),",
+   "where it flags pages 5, 7, 9, 13 and 15 and nothing else, and against trees new.pdf (51 pages, 0 flagged)."
+  ],
+  "dpi": 50,
+  "dark_below": 40,
+  "min_run_fraction": 0.3,
+  "min_scanlines": 4,
+  "overlap_fraction": 0.5
+ },
+ "screened_utc": "2026-09-18T05:23:00Z",
+ "batch_id": "pages_from_binder1",
+ "binders": [
+  {
+   "name": "Pages from Binder1.pdf",
+   "md5": "28ac2f52da8d5e518181dd378f325c66",
+   "bytes": 2552050,
+   "pages_masking_rows": [],
+   "bands": {},
+   "retained": false,
+   "retained_why": "Attachment. Not kept in the repository; this record is the standing M1 result."
+  }
+ ],
+ "masked_rows": [],
+ "documents": [],
+ "verdict": "CLEAN: no page masks rows, so no line record reads one"
+}

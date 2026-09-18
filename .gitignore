@@ -17,3 +17,12 @@ build.log
 # Not attachments: the two standing Council reference documents the JSON captures in
 # data/reference/ were made from, and the authority those captures are verified against.
 !data/reference/*.pdf
+
+# Build OUTPUTS. The test is reproducibility, not size: a file a script here rebuilds is an output and does
+# not belong in history, because an xlsx is a zip git cannot delta-compress and a version committed once costs
+# its full size in every clone forever. 23 registers in one week came to 288 MB, cleared only by rewriting
+# history. Everything needed to rebuild these IS tracked: the TechOne inputs, the corpora, the briefs and
+# match tables, and the one register no script here can produce.
+registers/*.xlsx
+!registers/PS_WP_Transaction_Register_3FY_v127_CANDIDATE.xlsx
+reports/*.xlsx
