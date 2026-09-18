@@ -7,9 +7,13 @@ corpora in `batches/` and the gate in `toolkit/pswp/pswp_corpus_gate.py`.
 **Verdict.** The prompt is now a genuinely checkable standard: seventeen pathologies, eight findings, and a gate
 that computes the verdict from the corpus rather than trusting the one declared. Three of the last four
 amendments were forced by a corpus that had declared itself clean, and the pattern is worth scoping precisely:
-**every pathology in this prompt, P1 to P17, was written after a defect shipped. Not one was predicted.** The
-two structural amendments at v7.4 are the first that were not: they came out of assessing the standard rather
-than out of a corpus failing, which is the only place in this history where the document got ahead of the work.
+**every pathology in this prompt, P1 to P17, was written after a defect shipped.** The amendments since are a
+different pattern and the more important one: **the standard has begun predicting its own defects, and the first
+two predictions were both right.** v7.4's two structural amendments came out of assessing the standard with no
+corpus behind them. v7.5 is stronger still: the conflict between P16 and 5.6 was named in review BEFORE Woodmans
+page 48 arrived, and the page then produced exactly that failure, one GST-free line and P16 failing a correct
+invoice. The claim to make is not that nothing was predicted; it is that prediction started at v7.4 and has not
+yet been wrong.
 
 ---
 
@@ -24,6 +28,8 @@ than out of a corpus failing, which is the only place in this history where the 
 | **v7** | 18-Sep-2026 | Bands become **spans tested by overlap**, not single offsets. The 4.0 **classification ladder** in one fixed order. **13.0** defines GREEN, AMBER and RED in a truth table. Tie moves to **1c** to match register rule 17. P14 credit-note sign, P15 evidence-stem collision. A conformance corpus, Levai INV-38967. | v6 made the rules checkable and left the test imprecise. On the conformance invoice the `AMOUNT` label ends at column 116 and its values at 118 to 120, so a left-edge test with drift rejects the rows it exists to catch. |
 | **v7.1** | 17-Sep-2026 | **`ATTACHMENT`** added to the closed list (rule 16d), a ladder rung for it, and the 4.4 invariant scoped to PRICED **or** ATTACHMENT. | Running the gate over the 29 corpora already held. `ATTACHMENT` was in use on 77 rows and the branch build depends on it, but no prompt version had ever written it down, so every one of those rows read P13. Separately, 103 Glascott schedule rows in `playforce_vinton_glascott_20260916` read P2 although they are correctly outside the tie: all five documents tie exactly on their PRICED rows alone and adding the schedule rows would break every tie by $124,347.79. |
 | **v7.2** | 18-Sep-2026 | **P16** GST must be a tenth of the subtotal and must not oppose its sign. **P17** a header figure must be printed on the row its `header_sources` entry cites. **F8** citation drift. The `gst_basis` rule: GST may not be derived silently. **P1 amended**: zero priced lines is P1 whatever subtotal is recorded. | `Binder1666`, declared AMBER. 29 documents recorded `printed_gst` as total less subtotal, which makes the 5.4 addition check pass **by construction whatever the total is**, so P10 was blind by design. Vinton totals of $6.00 to $8.00 against real totals of $1,586.75 to $3,771.61. 30 documents understated their incl-GST value by **$52,390.66**. Woodmans 6431345 parsed nothing at all and recorded subtotal $0.00, which disarmed P1. |
+| **v7.6** | 18-Sep-2026 | **A standing rule: every uniqueness and completeness check exempts `duplicate_of`** (11.4). **The description layer becomes a separate axis**: it qualifies the gate line rather than demoting it, so GREEN is reachable again. | Four checks had needed that exemption one at a time, P1 and P15 among them, each found by a correct corpus being failed. And demoting on the description layer took GREEN off all 37 corpora at once, including the conformance fixture, which left the 16.4 self-test with no passing reference and gave a clean corpus and a half-built one the same word. |
+| **v7.5** | 18-Sep-2026 | **P16 exempts a mixed supply** where the priced lines each print a GST amount summing to the printed GST. | Woodmans 6431345, page 48 of `Binder1666`: $268.00 ex, $22.80 GST, $290.80 inc over seven rows, one GST-free, so a tenth of the subtotal is $26.80 and P16 failed a correct invoice. 5.6 covered it in prose and nothing enforced it. **Predicted in review before the page arrived.** |
 | **v7.4** | 18-Sep-2026 | **13.2** the gate applies the checks the corpus could have satisfied, scoped on the FIELD or CONVENTION each check reads, and `prompt_version` becomes mandatory. **10.1 and section 9** `page_text_independent` and `page_text_basis`. **13.0** GREEN now requires a verified description layer, and the RED range is corrected from P1 to P15 to P1 to P17. | Not a corpus. Assessing the standard: an unscoped gate read 31 of 34 corpora RED on fields that did not exist when they were extracted, and the only check that reads a word was unfailable wherever page text had been rebuilt from the capture. |
 | **v7.3** | 18-Sep-2026 | **P1 exempted** where the document carries `duplicate_of`. | `Pages_from_Binder1`, 96 Play Force documents declared GREEN, computed RED on five. All five were repeated copies inside the binder, every row typed `DUPLICATE_COPY` with null arithmetic, exactly as 4.0 rung 2 requires. The amendment was right about Woodmans and over-broad. |
 
@@ -129,7 +135,10 @@ that class before it is trusted, and a claim of testing should name the cases te
 
 ## 7. State at this assessment
 
-- Prompt at **v7.4**, 942 lines, Annexes A, B, C, C1, D, D1, D2 in that order, and 13.0 to 13.2 in that order.
+- Prompt at **v7.6**, and the corpus count is **37**, not the 34 quoted in earlier drafts: three restated
+  corpora were added since (`binder1666` v7.5, the Glascott v7 restatement and `pages_from_binder1` v6), so the
+  RED trend is only comparable within a stated denominator.
+- Prompt at **v7.6**, 946 lines, Annexes A, B, C, C1, D, D1, D2 in that order, and 13.0 to 13.2 in that order.
 - Gate at v7 of `pswp_corpus_gate.py`, P1 to P17 plus the F7, F8, `gst_basis` and description-layer AMBER limbs.
 - 34 corpora, 1,581 documents. Conformance corpus GREEN. `pages_from_binder1` captured into register **v24**.
   `binder1666` RED and held on Woodmans 6431345, which needs page 48 of the binder.

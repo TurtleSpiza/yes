@@ -46,7 +46,7 @@ HIST = json.load(open(os.path.join(HERE, 'pbr_histories_v4.json')))  # APLEDGER 
 HIST_COLS = ['Reference', 'GST Date', 'Discount Date', 'On Hold', 'Has Note', 'Date', 'Description (Document Type)', 'Details', 'Outstanding', 'Applied',
              'Transaction Amount', 'Due Date', 'Ageing Date', 'Period', 'Ageing', 'Source', 'Units', 'Discount', 'Has Attachment', 'Payment Details', 'ABN',
              'Billing System', 'Work Order', 'Work Order Transaction Number', 'Work System']
-BATCHES = ('mixed_1', 'mixed_new_26_27', 'attach_1', 'attach_2', 'code', 'mix22', 'attach_3', 'mix222', 'binder11111', 'pla073_1', 'ksadasd', 'playforce_new', 'harp_new', 'vinton_new', 'savco_new', 'trees_new', 'attach_4', 'heritage_tree_services_20260916', 'pages_from_binder1')
+BATCHES = ('mixed_1', 'mixed_new_26_27', 'attach_1', 'attach_2', 'code', 'mix22', 'attach_3', 'mix222', 'binder11111', 'pla073_1', 'ksadasd', 'playforce_new', 'harp_new', 'vinton_new', 'savco_new', 'trees_new', 'attach_4', 'heritage_tree_services_20260916', 'pages_from_binder1', 'binder1666')
 JOURNAL_BATCH = 'journal_1'  # TechOne Document Line Table pulls (rule 21, pipeline "per journal batch")
 # TechOne Document Reconstruction pulls (rule 21, the counterparty route), oldest first. One entry per pull,
 # because the batch driver's md5 screen rejects an export the register has already received: a later pull
@@ -407,7 +407,18 @@ def main(dry=False):
         known.add(h['md5'])
     for batch in BATCHES:
         cj = json.load(open(os.path.join(ROOT, 'batches', batch, f'corpus_{batch}_v6.json')))
-        assert cj['manifest'].get('gate') == 'GREEN', (batch, cj['manifest'].get('gate'))
+        # The COMPUTED gate decides, not the word the extraction declared (prompt 13.2), and AMBER builds what
+        # is complete while holding the named documents (13.0). A pathology is what stops a build. Asserting on
+        # a declared GREEN enforced a rule the standard does not state and would block every corpus whose only
+        # mark is an unverified description layer.
+        import sys as _sys
+        _sys.path.insert(0, os.path.join(ROOT, 'toolkit', 'pswp'))
+        from pswp_corpus_gate import check as _corpus_gate
+        _g = _corpus_gate(os.path.join(ROOT, 'batches', batch, f'corpus_{batch}_v6.json'))
+        assert not _g['pathologies'], (batch, _g['gate'], _g['pathologies'][:3])
+        if _g['gate'] != cj['manifest'].get('gate'):
+            say(f"  {batch}: declared {cj['manifest'].get('gate')}, computed {_g['gate']}, the computed gate "
+                f"stands (description layer {_g['description_layer']})")
         for sf in cj['manifest']['source_files']:
             # a supplied corpus may name a binder that was not itself supplied; then the corpus md5 is what is screened
             h_ = sf.get('md5') or cj['manifest'].get('supplied_corpus_md5')

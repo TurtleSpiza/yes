@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""pswp_corpus_gate.py, v8 (18-Sep-2026)
+"""pswp_corpus_gate.py, v10 (18-Sep-2026)
 
 Machine gate for a PSWP extraction corpus produced under PSWP_Extraction_Prompt_v7.md (v7.1).
 Runs every pathology in section 13.1 that is computable from the corpus alone (P1 to P17), applies
@@ -136,7 +136,7 @@ def check(path):
             for v in node:
                 scan_numeric(v, ref, keys)
 
-    stems, refs, covered = {}, {}, {}
+    stems, refs, covered, dup_of = {}, {}, {}, {}
     for doc in docs:
         ref = doc.get("doc_ref")
         scan_numeric(doc, ref)
@@ -306,6 +306,7 @@ def check(path):
 
         # P7 doc_ref uniqueness, P15 stem uniqueness.
         refs.setdefault(ref, []).append(doc)
+        dup_of[ref] = bool(doc.get("duplicate_of"))
         stem = doc.get("evidence_stem")
         if stem:
             stems.setdefault(stem, []).append(ref)
@@ -316,8 +317,13 @@ def check(path):
         if len(group) > 1 and not any(g.get("duplicate_of") for g in group):
             flag("P7", ref, None, f"{len(group)} documents share this doc_ref, none marked duplicate_of")
     for stem, owners in stems.items():
-        if len(owners) > 1:
-            flag("P15", owners[0], None, f"evidence_stem {stem!r} shared by {owners}")
+        # A repeated copy IS the same document, so it shares its original's stem by construction and nothing
+        # collides on save. P15 is for two DIFFERENT documents landing on one filename. This is the fourth
+        # check to need the same exemption after P1, so 11.4 now states it as a standing rule rather than
+        # leaving each check to rediscover it.
+        real = [o for o in owners if not dup_of.get(o)]
+        if len(real) > 1:
+            flag("P15", real[0], None, f"evidence_stem {stem!r} shared by {real}")
 
     # P9 page coverage, per source file. Summing every source file's page count and then
     # expecting pages 1..total to be covered assumes the whole binder shares one page space.
@@ -353,23 +359,29 @@ def check(path):
     # page_text_independent is the machine field and is a boolean; page_text_basis is the sentence that
     # explains it. Sniffing the prose for "rebuilt" read this repository's own honest basis line, which says
     # "not rebuilt from the corpus rows", as a rebuild.
+    # The description layer is a SEPARATE AXIS and is reported as a qualifier on the gate line, not as an AMBER
+    # trigger. Demoting on it took GREEN off all 36 corpora at once, including the conformance fixture, and a
+    # GREEN that nothing can reach carries no more information than a RED that fires on a non-failure: the build
+    # acts on the word, and every corpus arrived looking like a partial build with documents held. A corpus that
+    # ties to the cent with no pathology and an unverified description layer is a different object from one that
+    # stopped mid-binder, and 13.0 must not give them the same word.
     with_text = sum(1 for x in docs if x.get("page_text"))
     indep = man.get("page_text_independent")
     if not with_text:
-        amber.append("description layer UNVERIFIED: no page text retained, so the verbatim check returns "
-                     "UNVERIFIABLE and no captured description has been read against a page")
+        desc = ("UNVERIFIED", "no page text retained, so the verbatim check returns UNVERIFIABLE")
     elif indep is False:
-        amber.append("description layer UNVERIFIED: page text was rebuilt from the corpus's own rows, so the "
-                     "verbatim check cannot fail; supply the binder for an independent haystack")
-    elif indep is not True:
-        amber.append(f"description layer UNSTATED: {with_text} document(s) retain page text but the manifest "
-                     "does not set page_text_independent")
+        desc = ("UNVERIFIED", "page text was rebuilt from the corpus's own rows, so the verbatim check cannot fail")
+    elif indep is True:
+        desc = ("VERIFIED", "page text is an independent parse of the source PDF")
+    else:
+        desc = ("UNSTATED", f"{with_text} document(s) retain page text but page_text_independent is not set")
 
     if man.get("resume_point"):
         amber.append(f"partial run, resume at {man['resume_point']}")
 
     gate = "RED" if P else ("AMBER" if amber else "GREEN")
-    return {"gate": gate, "declared_gate": man.get("gate"), "prompt_version": ver, "pathologies": P,
+    return {"gate": gate, "description_layer": desc[0], "description_detail": desc[1],
+            "declared_gate": man.get("gate"), "prompt_version": ver, "pathologies": P,
             "amber_reasons": sorted(set(amber)), "documents": len(docs),
             "lines": sum(len(x.get("lines", [])) for x in docs)}
 
@@ -384,7 +396,8 @@ if __name__ == "__main__":
     if "--json" in sys.argv:
         print(json.dumps(r, indent=1))
     else:
-        print(f"Gate: {r['gate']}")
+        q = "" if r["description_layer"] == "VERIFIED" else f"  (description layer {r['description_layer']})"
+        print(f"Gate: {r['gate']}{q}")
         if r["declared_gate"] and r["declared_gate"] != r["gate"]:
             print(f"  declared {r['declared_gate']}, computed {r['gate']}, the computed gate stands")
         print(f"  {r['documents']} documents, {r['lines']} line records, checks applied for prompt {r['prompt_version']}")
@@ -392,4 +405,6 @@ if __name__ == "__main__":
             print(f"  {p['code']}  {p['doc_ref']}  p{p['page']}  {p['detail']}")
         for a in r["amber_reasons"]:
             print(f"  AMBER  {a}")
+        if r["description_layer"] != "VERIFIED":
+            print(f"  DESCRIPTION LAYER {r['description_layer']}: {r['description_detail']}")
     sys.exit({"GREEN": 0, "AMBER": 1, "RED": 2}[r["gate"]])
