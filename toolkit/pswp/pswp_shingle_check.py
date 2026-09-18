@@ -78,9 +78,27 @@ def page_text(doc: dict, pages: dict | None) -> tuple[str, str]:
     """
     if pages:
         a, b = doc.get("page_range", [0, 0])
+        sf = doc.get("source_file")
         joined = []
         for p in range(a, b + 1):
-            v = pages.get(str(p)) or pages.get(p)
+            # NEW 18-Sep-2026. A multi-source corpus numbers each binder from 1 independently,
+            # so a pages file keyed on the bare page number COLLIDES: page 5 of one binder and
+            # page 5 of another are the same key. Found on
+            # playforce_vinton_glascott_20260916, where five Play Force documents at binder
+            # pages 1 to 16 were tested against the Glascott binder's pages 1 to 16 and the
+            # check reported five FAILs that were artefacts of the key. A false FAIL is the
+            # better half of that defect: two binders sharing boilerplate would have produced
+            # a false PASS, which is the failure mode this check exists to catch.
+            #
+            # A qualified key "<source_file>|<page>" is read first and is what a multi-source
+            # corpus must use. The bare key stays for the single-source case, which is every
+            # other corpus here, and check_corpus refuses a bare-keyed file on a multi-source
+            # corpus rather than letting it collide quietly.
+            v = None
+            if sf:
+                v = pages.get(f"{sf}|{p}") or pages.get(f"{sf}|{p:d}")
+            if v is None:
+                v = pages.get(str(p)) or pages.get(p)
             if v:
                 joined.append(v if isinstance(v, str) else "\n".join(v))
         if joined:
@@ -98,6 +116,38 @@ def page_text(doc: dict, pages: dict | None) -> tuple[str, str]:
         if joined.strip():
             return norm(joined), "page_text"
     return norm(" ".join(l.get("line_text") or "" for l in doc.get("lines", []))), "line_text"
+
+
+def assert_pages_keying(corpus: dict, pages: dict | None) -> None:
+    """Refuse a bare-keyed pages file on a multi-source corpus.
+
+    Silently colliding is worse than refusing: the caller gets a verdict that looks like a
+    result. If a corpus names more than one source file, every page key must be qualified
+    "<source_file>|<page>", except where the pages supplied cover only ONE of those files and
+    are keyed in that file's own numbering, which cannot collide with pages that were not
+    supplied.
+    """
+    if not pages:
+        return
+    srcs = {d.get("source_file") for d in corpus.get("documents", []) if d.get("source_file")}
+    if len(srcs) < 2:
+        return
+    qualified = {k for k in pages if isinstance(k, str) and "|" in k}
+    if qualified and len(qualified) == len(pages):
+        return
+    bare = {str(k) for k in pages if not (isinstance(k, str) and "|" in k)}
+    reachable = {}
+    for d in corpus.get("documents", []):
+        a, b = d.get("page_range", [0, 0])
+        for p in range(a, b + 1):
+            reachable.setdefault(str(p), set()).add(d.get("source_file"))
+    clashing = sorted(k for k in bare if len(reachable.get(k, ())) > 1)
+    if clashing:
+        raise SystemExit(
+            f"pages file is keyed on bare page numbers, but this corpus has {len(srcs)} source "
+            f"files and {len(clashing)} of those keys are reachable from more than one of them "
+            f"(first: {clashing[:5]}). Key every page \"<source_file>|<page>\" or supply one "
+            f"binder at a time. Colliding keys test a document against another binder's page.")
 
 
 def check_corpus(corpus: dict, pages: dict | None = None, per_vendor_only: bool = False) -> dict:
@@ -200,6 +250,7 @@ def main(argv: list[str] | None = None) -> int:
     pages = json.load(open(a.pages, encoding="utf-8")) if a.pages else None
     prefixes = json.load(open(a.prefixes, encoding="utf-8")) if a.prefixes else None
 
+    assert_pages_keying(corpus, pages)
     out = {"corpus": check_corpus(corpus, pages, a.per_vendor)}
     if a.workbook:
         out["workbook"] = check_workbook(corpus, a.workbook, prefixes)

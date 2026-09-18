@@ -1,5 +1,6 @@
 {
   "manifest": {
+    "archival": true,
     "batch_id": "Binder1666",
     "source_files": [
       {

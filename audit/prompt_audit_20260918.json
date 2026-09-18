@@ -1,0 +1,57 @@
+{
+ "amber_findings": [
+  "F1",
+  "F7",
+  "F8"
+ ],
+ "counts": {},
+ "findings": [],
+ "findings_codes": [
+  "F1",
+  "F2",
+  "F3",
+  "F4",
+  "F5",
+  "F6",
+  "F7",
+  "F8"
+ ],
+ "ledger": [
+  {
+   "archival": {
+    "AMBER": 2,
+    "GREEN": 4,
+    "RED": 5
+   },
+   "computed": 35,
+   "figure": "corpora",
+   "live": {
+    "AMBER": 19,
+    "GREEN": 3,
+    "RED": 2
+   }
+  }
+ ],
+ "pathologies": [
+  "P1",
+  "P2",
+  "P3",
+  "P4",
+  "P5",
+  "P6",
+  "P7",
+  "P8",
+  "P9",
+  "P10",
+  "P11",
+  "P12",
+  "P13",
+  "P14",
+  "P15",
+  "P16",
+  "P17"
+ ],
+ "prompt": "PSWP_Extraction_Prompt_v7.md",
+ "prompt_lines": 1199,
+ "version": "v7.8"
+}
