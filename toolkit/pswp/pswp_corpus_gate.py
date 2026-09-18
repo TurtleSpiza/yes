@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""pswp_corpus_gate.py, v6 (18-Sep-2026)
+"""pswp_corpus_gate.py, v8 (18-Sep-2026)
 
 Machine gate for a PSWP extraction corpus produced under PSWP_Extraction_Prompt_v7.md (v7.1).
 Runs every pathology in section 13.1 that is computable from the corpus alone (P1 to P17), applies
@@ -40,10 +40,23 @@ LCC_ABN_DIGITS = "21627796435"
 #   v7   P11 gains the calibration limb, P12 gains "residue_rows absent", P14 and P15 arrive.
 #   v7.2 P16, P17, and P1 amended to fire whatever subtotal is recorded.
 #   v7.3 P1 exempted where the document carries duplicate_of. A relaxation, so it applies to every version.
-VERSIONS = ('v5', 'v6', 'v7', 'v7.1', 'v7.2', 'v7.3')
-INTRODUCED = {'P11_calibrated': 'v7', 'P12_absent': 'v7', 'P14': 'v7', 'P15': 'v7',
-              'P16': 'v7.2', 'P17': 'v7.2', 'P1_any_subtotal': 'v7.2',
-              'P11': 'v6', 'P12': 'v6'}
+# Scoped on the FIELD a check needs, not on the version that introduced the check. Scoping by version alone is
+# a loophole: a corpus declaring v6 would escape P14, P15, P16 and P17, none of which needs a field that v6
+# lacks, so an extraction could dodge four checks by understating its own version. A check is skipped only
+# where the corpus could not have carried the evidence it reads.
+#
+#   bands_calibrated_on   v7   -> the P11 calibration limb only
+#   residue_rows (key)    v7   -> the P12 "absent" limb only; a NON-EMPTY residue is v6
+#   bands                 v6   -> P11 proper
+#   header_sources        v6   but the ROW CONVENTION it cites is v7 (9.1: line_no, 1-based within its page),
+#                              and every v6 corpus here writes "row": 0 as a placeholder, so P17 is v7
+#   doc_kind              v5   -> P14, and the P1 doc-kind guard
+#   evidence_stem         v5   -> P15
+#   printed_gst/subtotal  v5   -> P16
+#
+# P1's v7.2 amendment and P16's sign test read fields every version has, so they apply to every corpus: a
+# document that parsed nothing was a parse failure under v5 too, whatever the prompt then said.
+NEEDS_FIELD_FROM = {'P11_calibrated': 'v7', 'P12_absent': 'v7', 'P11': 'v6', 'P12': 'v6', 'P17': 'v7'}
 
 
 def corpus_version(man):
@@ -60,7 +73,8 @@ def _vkey(v):
 
 
 def applies(check, version):
-    need = INTRODUCED.get(check)
+    """True unless the corpus predates the FIELD this check reads."""
+    need = NEEDS_FIELD_FROM.get(check)
     return True if need is None else _vkey(version) >= _vkey(need)
 
 
@@ -150,8 +164,7 @@ def check(path):
         # for it and not a parse failure. Without this the amended P1 returns a sound corpus: on
         # Pages_from_Binder1 it fired on five documents, all five of them duplicate copies.
         if not priced and doc.get("doc_kind") in (None, "TAX_INVOICE", "CREDIT_NOTE") and not doc.get("duplicate_of"):
-            if applies("P1_any_subtotal", ver) or d(doc.get("printed_subtotal_ex_gst")) != 0:
-                flag("P1", ref, pr[0], f"zero PRICED lines (recorded subtotal {d(doc.get('printed_subtotal_ex_gst'))})")
+            flag("P1", ref, pr[0], f"zero PRICED lines (recorded subtotal {d(doc.get('printed_subtotal_ex_gst'))})")
 
         # P3 every page in range carries a record. Page numbers are scoped to the document's own
         # source file: a binder that arrives as twenty-five one-page PDFs has twenty-five page 1s.
@@ -190,7 +203,17 @@ def check(path):
         # document short. Tolerance is relative, 1% of the GST or 2c whichever is larger, so a supplier
         # computing GST per line rather than on the subtotal is not flagged.
         gst_basis = str(doc.get("gst_basis") or "")
-        if applies("P16", ver) and hs is not None and hg not in (None, "") and d(hg) != 0 and doc.get("doc_kind") in (None, "TAX_INVOICE", "CREDIT_NOTE"):
+        # A MIXED SUPPLY is not a defect (5.6). Where the document prints a GST amount per line and those line
+        # GSTs sum to the printed GST, the header is proved by the lines themselves and the document-level
+        # ratio is explained by the mix. Woodmans 6431345 prints $268.00 ex, $22.80 GST and $290.80 inc over
+        # seven rows, one of them GST-free, so a tenth of the subtotal is $26.80 and the invoice is correct.
+        line_gst = [l.get("gst") for l in lines if l.get("line_type") == "PRICED" and l.get("gst") is not None]
+        mixed_ok = bool(line_gst) and hg is not None and \
+            abs(sum((d(x) for x in line_gst), Decimal("0.00")) - d(hg)) <= Decimal("0.02")
+        if mixed_ok:
+            amber.append(f"{ref}: GST is not a tenth of the subtotal and the priced lines explain it "
+                         f"(mixed supply, 5.6); the line GSTs sum to the printed GST")
+        if not mixed_ok and hs is not None and hg not in (None, "") and d(hg) != 0 and doc.get("doc_kind") in (None, "TAX_INVOICE", "CREDIT_NOTE"):
             expected = (d(hs) / 10).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
             g16 = abs(d(hg) - expected)
             tol16 = max(Decimal("0.02"), (abs(d(hg)) * Decimal("0.01")).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP))
@@ -252,9 +275,9 @@ def check(path):
             amber.append(f"{ref}: at OUT after the ladder")
 
         # P14 credit-note sign.
-        if applies("P14", ver) and doc.get("doc_kind") == "CREDIT_NOTE" and d(ht) > 0:
+        if doc.get("doc_kind") == "CREDIT_NOTE" and d(ht) > 0:
             flag("P14", ref, pr[0], "CREDIT_NOTE with a positive printed total")
-        if applies("P14", ver) and doc.get("doc_kind") == "TAX_INVOICE" and ht is not None and d(ht) < 0:
+        if doc.get("doc_kind") == "TAX_INVOICE" and ht is not None and d(ht) < 0:
             flag("P14", ref, pr[0], "TAX_INVOICE with a negative printed total")
 
         # Tie, at 1c, with the 2c band going AMBER (6.0).
@@ -293,7 +316,7 @@ def check(path):
         if len(group) > 1 and not any(g.get("duplicate_of") for g in group):
             flag("P7", ref, None, f"{len(group)} documents share this doc_ref, none marked duplicate_of")
     for stem, owners in stems.items():
-        if len(owners) > 1 and applies("P15", ver):
+        if len(owners) > 1:
             flag("P15", owners[0], None, f"evidence_stem {stem!r} shared by {owners}")
 
     # P9 page coverage, per source file. Summing every source file's page count and then
