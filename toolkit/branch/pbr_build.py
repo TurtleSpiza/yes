@@ -15,9 +15,9 @@ sys.path.insert(0, HERE)
 import pbr_stage
 import pbr_retention
 
-VER = 'v23'
+VER = 'v24'
 OUTNAME = f'Parks_Branch_Transaction_Register_FY2627_{VER}.xlsx'
-SUPPLIED_GREEN = ('pla073_1', 'ksadasd', 'playforce_new', 'harp_new', 'vinton_new', 'trees_new')  # supplied corpora that arrived GREEN under prompt v6 runtime A; prep does housekeeping only
+SUPPLIED_GREEN = ('pla073_1', 'ksadasd', 'playforce_new', 'harp_new', 'vinton_new', 'trees_new', 'pages_from_binder1')  # supplied corpora that arrived GREEN under prompt v6 runtime A; prep does housekeeping only
 CLTOK = re.compile(r'\{CL:(\d+):(\d+)\}')
 SCRATCH = os.path.join(pbr_stage.ROOT, 'cache', 'scratch')
 OUTDIR = os.environ.get('PBR_OUTDIR', os.path.join(pbr_stage.ROOT, 'registers'))

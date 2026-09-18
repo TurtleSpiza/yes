@@ -1,9 +1,9 @@
 [
  {
   "invoice": "INV-7977",
-  "invoice_date": "25-Jun-2026",
+  "invoice_date": "2026-06-25",
   "subtotal": 2958.02,
-  "in_register_year": true,
+  "in_register_year": false,
   "pages": [
    1,
    1
@@ -11,9 +11,9 @@
  },
  {
   "invoice": "INV-7978",
-  "invoice_date": "25-Jun-2026",
+  "invoice_date": "2026-06-25",
   "subtotal": 3435.12,
-  "in_register_year": true,
+  "in_register_year": false,
   "pages": [
    2,
    2
@@ -21,9 +21,9 @@
  },
  {
   "invoice": "INV-7982",
-  "invoice_date": "25-Jun-2026",
+  "invoice_date": "2026-06-25",
   "subtotal": 2958.02,
-  "in_register_year": true,
+  "in_register_year": false,
   "pages": [
    3,
    3
@@ -31,9 +31,9 @@
  },
  {
   "invoice": "INV-7983",
-  "invoice_date": "25-Jun-2026",
+  "invoice_date": "2026-06-25",
   "subtotal": 2862.6,
-  "in_register_year": true,
+  "in_register_year": false,
   "pages": [
    4,
    4
@@ -41,9 +41,9 @@
  },
  {
   "invoice": "INV-7984",
-  "invoice_date": "25-Jun-2026",
+  "invoice_date": "2026-06-25",
   "subtotal": 3339.7,
-  "in_register_year": true,
+  "in_register_year": false,
   "pages": [
    5,
    5
@@ -51,9 +51,9 @@
  },
  {
   "invoice": "INV-7985",
-  "invoice_date": "25-Jun-2026",
+  "invoice_date": "2026-06-25",
   "subtotal": 3435.12,
-  "in_register_year": true,
+  "in_register_year": false,
   "pages": [
    6,
    6
@@ -61,9 +61,9 @@
  },
  {
   "invoice": "INV-8009",
-  "invoice_date": "26-Jun-2026",
+  "invoice_date": "2026-06-26",
   "subtotal": 20700.0,
-  "in_register_year": true,
+  "in_register_year": false,
   "pages": [
    10,
    10
@@ -71,7 +71,7 @@
  },
  {
   "invoice": "INV-3917",
-  "invoice_date": "10 Jul 2025",
+  "invoice_date": "2025-06-26",
   "subtotal": 2866.5,
   "in_register_year": false,
   "pages": [
@@ -81,9 +81,9 @@
  },
  {
   "invoice": "INV-3856",
-  "invoice_date": "9 Jul 2025",
+  "invoice_date": "2025-06-25",
   "subtotal": 2314.8,
-  "in_register_year": true,
+  "in_register_year": false,
   "pages": [
    29,
    29
@@ -91,9 +91,9 @@
  },
  {
   "invoice": "INV-3858",
-  "invoice_date": "9 Jul 2025",
+  "invoice_date": "2025-06-25",
   "subtotal": 1355.0,
-  "in_register_year": true,
+  "in_register_year": false,
   "pages": [
    31,
    31
@@ -101,9 +101,9 @@
  },
  {
   "invoice": "INV-3857",
-  "invoice_date": "9 Jul 2025",
+  "invoice_date": "2025-06-25",
   "subtotal": 1355.0,
-  "in_register_year": true,
+  "in_register_year": false,
   "pages": [
    32,
    32
@@ -111,9 +111,9 @@
  },
  {
   "invoice": "INV-3905",
-  "invoice_date": "9 Jul 2025",
+  "invoice_date": "2025-06-25",
   "subtotal": 2821.8,
-  "in_register_year": true,
+  "in_register_year": false,
   "pages": [
    33,
    33
@@ -121,9 +121,9 @@
  },
  {
   "invoice": "INV-3898",
-  "invoice_date": "9 Jul 2025",
+  "invoice_date": "2025-06-25",
   "subtotal": 2821.8,
-  "in_register_year": true,
+  "in_register_year": false,
   "pages": [
    34,
    34
@@ -131,7 +131,7 @@
  },
  {
   "invoice": "INV-3909",
-  "invoice_date": "10 Jul 2025",
+  "invoice_date": "2025-06-26",
   "subtotal": 1355.0,
   "in_register_year": false,
   "pages": [
@@ -141,7 +141,7 @@
  },
  {
   "invoice": "INV-3915",
-  "invoice_date": "10 Jul 2025",
+  "invoice_date": "2025-06-26",
   "subtotal": 2925.7,
   "in_register_year": false,
   "pages": [
@@ -151,7 +151,7 @@
  },
  {
   "invoice": "INV-4026",
-  "invoice_date": "14-Jul-2025",
+  "invoice_date": "2025-07-14",
   "subtotal": 2215.5,
   "in_register_year": false,
   "pages": [
@@ -161,9 +161,9 @@
  },
  {
   "invoice": "INV-4198",
-  "invoice_date": "29-Jul-2025",
+  "invoice_date": "2025-07-29",
   "subtotal": 2283.5,
-  "in_register_year": true,
+  "in_register_year": false,
   "pages": [
    39,
    39
@@ -171,7 +171,7 @@
  },
  {
   "invoice": "INV-4277",
-  "invoice_date": "04-Aug-2025",
+  "invoice_date": "2025-08-04",
   "subtotal": 2452.5,
   "in_register_year": false,
   "pages": [
@@ -181,7 +181,7 @@
  },
  {
   "invoice": "INV-4410",
-  "invoice_date": "18-Aug-2025",
+  "invoice_date": "2025-08-18",
   "subtotal": 2365.64,
   "in_register_year": false,
   "pages": [
@@ -191,7 +191,7 @@
  },
  {
   "invoice": "INV-4596",
-  "invoice_date": "08-Sep-2025",
+  "invoice_date": "2025-09-08",
   "subtotal": 2452.5,
   "in_register_year": false,
   "pages": [
@@ -201,7 +201,7 @@
  },
  {
   "invoice": "INV-4631",
-  "invoice_date": "11-Sep-2025",
+  "invoice_date": "2025-09-11",
   "subtotal": 1355.0,
   "in_register_year": false,
   "pages": [
@@ -211,7 +211,7 @@
  },
  {
   "invoice": "INV-4632",
-  "invoice_date": "11-Sep-2025",
+  "invoice_date": "2025-09-11",
   "subtotal": 1355.0,
   "in_register_year": false,
   "pages": [
@@ -221,7 +221,7 @@
  },
  {
   "invoice": "INV-4642",
-  "invoice_date": "12-Sep-2025",
+  "invoice_date": "2025-09-12",
   "subtotal": 1355.0,
   "in_register_year": false,
   "pages": [
@@ -231,9 +231,9 @@
  },
  {
   "invoice": "INV-4739",
-  "invoice_date": "24-Sep-2025",
+  "invoice_date": "2025-09-24",
   "subtotal": 1355.0,
-  "in_register_year": true,
+  "in_register_year": false,
   "pages": [
    46,
    46
@@ -241,9 +241,9 @@
  },
  {
   "invoice": "INV-4815",
-  "invoice_date": "26-Sep-2025",
+  "invoice_date": "2025-09-26",
   "subtotal": 1355.0,
-  "in_register_year": true,
+  "in_register_year": false,
   "pages": [
    47,
    47
@@ -251,9 +251,9 @@
  },
  {
   "invoice": "INV-4845",
-  "invoice_date": "30-Sep-2025",
+  "invoice_date": "2025-09-30",
   "subtotal": 2523.62,
-  "in_register_year": true,
+  "in_register_year": false,
   "pages": [
    48,
    48
@@ -261,7 +261,7 @@
  },
  {
   "invoice": "INV-4877",
-  "invoice_date": "03-Oct-2025",
+  "invoice_date": "2025-10-03",
   "subtotal": 1355.0,
   "in_register_year": false,
   "pages": [
@@ -271,7 +271,7 @@
  },
  {
   "invoice": "INV-4933",
-  "invoice_date": "13-Oct-2025",
+  "invoice_date": "2025-10-13",
   "subtotal": 3278.0,
   "in_register_year": false,
   "pages": [
@@ -281,7 +281,7 @@
  },
  {
   "invoice": "INV-4949",
-  "invoice_date": "14-Oct-2025",
+  "invoice_date": "2025-10-14",
   "subtotal": 3073.87,
   "in_register_year": false,
   "pages": [
@@ -291,7 +291,7 @@
  },
  {
   "invoice": "INV-4958",
-  "invoice_date": "15-Oct-2025",
+  "invoice_date": "2025-10-15",
   "subtotal": 1355.0,
   "in_register_year": false,
   "pages": [
@@ -301,7 +301,7 @@
  },
  {
   "invoice": "INV-4987",
-  "invoice_date": "20-Oct-2025",
+  "invoice_date": "2025-10-20",
   "subtotal": 2452.5,
   "in_register_year": false,
   "pages": [
@@ -311,9 +311,9 @@
  },
  {
   "invoice": "INV-5083",
-  "invoice_date": "27-Oct-2025",
+  "invoice_date": "2025-10-27",
   "subtotal": 1355.0,
-  "in_register_year": true,
+  "in_register_year": false,
   "pages": [
    54,
    54
@@ -321,9 +321,9 @@
  },
  {
   "invoice": "INV-5331",
-  "invoice_date": "24-Nov-2025",
+  "invoice_date": "2025-11-24",
   "subtotal": 2550.6,
-  "in_register_year": true,
+  "in_register_year": false,
   "pages": [
    55,
    55
@@ -331,9 +331,9 @@
  },
  {
   "invoice": "INV-5347",
-  "invoice_date": "25-Nov-2025",
+  "invoice_date": "2025-11-25",
   "subtotal": 2226.82,
-  "in_register_year": true,
+  "in_register_year": false,
   "pages": [
    56,
    56
@@ -341,7 +341,7 @@
  },
  {
   "invoice": "INV-5479",
-  "invoice_date": "01-Dec-2025",
+  "invoice_date": "2025-12-01",
   "subtotal": 2452.5,
   "in_register_year": false,
   "pages": [
@@ -351,7 +351,7 @@
  },
  {
   "invoice": "INV-5483",
-  "invoice_date": "01-Dec-2025",
+  "invoice_date": "2025-12-01",
   "subtotal": 2900.25,
   "in_register_year": false,
   "pages": [
@@ -361,7 +361,7 @@
  },
  {
   "invoice": "INV-5721",
-  "invoice_date": "18-Dec-2025",
+  "invoice_date": "2025-12-18",
   "subtotal": 3456.44,
   "in_register_year": false,
   "pages": [
@@ -371,7 +371,7 @@
  },
  {
   "invoice": "INV-5759",
-  "invoice_date": "05-Jan-2026",
+  "invoice_date": "2026-01-05",
   "subtotal": 2452.5,
   "in_register_year": false,
   "pages": [
@@ -381,7 +381,7 @@
  },
  {
   "invoice": "INV-5824",
-  "invoice_date": "13-Jan-2026",
+  "invoice_date": "2026-01-13",
   "subtotal": 2464.6,
   "in_register_year": false,
   "pages": [
@@ -391,9 +391,9 @@
  },
  {
   "invoice": "INV-6029",
-  "invoice_date": "30-Jan-2026",
+  "invoice_date": "2026-01-30",
   "subtotal": 2452.5,
-  "in_register_year": true,
+  "in_register_year": false,
   "pages": [
    62,
    62
@@ -401,9 +401,9 @@
  },
  {
   "invoice": "INV-6047",
-  "invoice_date": "30-Jan-2026",
+  "invoice_date": "2026-01-30",
   "subtotal": 2932.46,
-  "in_register_year": true,
+  "in_register_year": false,
   "pages": [
    63,
    63
@@ -411,7 +411,7 @@
  },
  {
   "invoice": "INV-6145",
-  "invoice_date": "09-Feb-2026",
+  "invoice_date": "2026-02-09",
   "subtotal": 3368.69,
   "in_register_year": false,
   "pages": [
@@ -421,9 +421,9 @@
  },
  {
   "invoice": "INV-6284",
-  "invoice_date": "24-Feb-2026",
+  "invoice_date": "2026-02-24",
   "subtotal": 3317.87,
-  "in_register_year": true,
+  "in_register_year": false,
   "pages": [
    65,
    65
@@ -431,9 +431,9 @@
  },
  {
   "invoice": "INV-6404",
-  "invoice_date": "27-Feb-2026",
+  "invoice_date": "2026-02-27",
   "subtotal": 2550.6,
-  "in_register_year": true,
+  "in_register_year": false,
   "pages": [
    66,
    66
@@ -441,7 +441,7 @@
  },
  {
   "invoice": "INV-6659",
-  "invoice_date": "17-Mar-2026",
+  "invoice_date": "2026-03-17",
   "subtotal": 2420.33,
   "in_register_year": false,
   "pages": [
@@ -451,9 +451,9 @@
  },
  {
   "invoice": "INV-6763",
-  "invoice_date": "26-Mar-2026",
+  "invoice_date": "2026-03-26",
   "subtotal": 3204.1,
-  "in_register_year": true,
+  "in_register_year": false,
   "pages": [
    68,
    68
@@ -461,9 +461,9 @@
  },
  {
   "invoice": "INV-6772",
-  "invoice_date": "26-Mar-2026",
+  "invoice_date": "2026-03-26",
   "subtotal": 1355.0,
-  "in_register_year": true,
+  "in_register_year": false,
   "pages": [
    69,
    69
@@ -471,9 +471,9 @@
  },
  {
   "invoice": "INV-6854",
-  "invoice_date": "31-Mar-2026",
+  "invoice_date": "2026-03-31",
   "subtotal": 2550.6,
-  "in_register_year": true,
+  "in_register_year": false,
   "pages": [
    70,
    70
@@ -481,7 +481,7 @@
  },
  {
   "invoice": "INV-6880",
-  "invoice_date": "01-Apr-2026",
+  "invoice_date": "2026-04-01",
   "subtotal": 2638.39,
   "in_register_year": false,
   "pages": [
@@ -491,7 +491,7 @@
  },
  {
   "invoice": "INV-6927",
-  "invoice_date": "08-Apr-2026",
+  "invoice_date": "2026-04-08",
   "subtotal": 1355.0,
   "in_register_year": false,
   "pages": [
@@ -501,7 +501,7 @@
  },
  {
   "invoice": "INV-7003",
-  "invoice_date": "14-Apr-2026",
+  "invoice_date": "2026-04-14",
   "subtotal": 1355.0,
   "in_register_year": false,
   "pages": [
@@ -511,9 +511,9 @@
  },
  {
   "invoice": "INV-7108",
-  "invoice_date": "21-Apr-2026",
+  "invoice_date": "2026-04-21",
   "subtotal": 2263.31,
-  "in_register_year": true,
+  "in_register_year": false,
   "pages": [
    74,
    74
@@ -521,9 +521,9 @@
  },
  {
   "invoice": "INV-7118",
-  "invoice_date": "22-Apr-2026",
+  "invoice_date": "2026-04-22",
   "subtotal": 2424.2,
-  "in_register_year": true,
+  "in_register_year": false,
   "pages": [
    75,
    76
@@ -531,9 +531,9 @@
  },
  {
   "invoice": "INV-7144",
-  "invoice_date": "22-Apr-2026",
+  "invoice_date": "2026-04-22",
   "subtotal": 1355.0,
-  "in_register_year": true,
+  "in_register_year": false,
   "pages": [
    77,
    77
@@ -541,9 +541,9 @@
  },
  {
   "invoice": "INV-7169",
-  "invoice_date": "23-Apr-2026",
+  "invoice_date": "2026-04-23",
   "subtotal": 2524.44,
-  "in_register_year": true,
+  "in_register_year": false,
   "pages": [
    78,
    78
@@ -551,9 +551,9 @@
  },
  {
   "invoice": "INV-7170",
-  "invoice_date": "23-Apr-2026",
+  "invoice_date": "2026-04-23",
   "subtotal": 2456.14,
-  "in_register_year": true,
+  "in_register_year": false,
   "pages": [
    79,
    79
@@ -561,9 +561,9 @@
  },
  {
   "invoice": "INV-7279",
-  "invoice_date": "30-Apr-2026",
+  "invoice_date": "2026-04-30",
   "subtotal": 3324.03,
-  "in_register_year": true,
+  "in_register_year": false,
   "pages": [
    80,
    80
@@ -571,9 +571,9 @@
  },
  {
   "invoice": "INV-7293",
-  "invoice_date": "30-Apr-2026",
+  "invoice_date": "2026-04-30",
   "subtotal": 2550.6,
-  "in_register_year": true,
+  "in_register_year": false,
   "pages": [
    81,
    81
@@ -581,9 +581,9 @@
  },
  {
   "invoice": "INV-7299",
-  "invoice_date": "30-Apr-2026",
+  "invoice_date": "2026-04-30",
   "subtotal": 1355.0,
-  "in_register_year": true,
+  "in_register_year": false,
   "pages": [
    82,
    82
@@ -591,7 +591,7 @@
  },
  {
   "invoice": "INV-7329",
-  "invoice_date": "05-May-2026",
+  "invoice_date": "2026-05-05",
   "subtotal": 3200.0,
   "in_register_year": false,
   "pages": [
@@ -601,7 +601,7 @@
  },
  {
   "invoice": "INV-7350",
-  "invoice_date": "07-May-2026",
+  "invoice_date": "2026-05-07",
   "subtotal": 2281.33,
   "in_register_year": false,
   "pages": [
@@ -611,7 +611,7 @@
  },
  {
   "invoice": "INV-7364",
-  "invoice_date": "07-May-2026",
+  "invoice_date": "2026-05-07",
   "subtotal": 1355.0,
   "in_register_year": false,
   "pages": [
@@ -621,7 +621,7 @@
  },
  {
   "invoice": "INV-7443",
-  "invoice_date": "18-May-2026",
+  "invoice_date": "2026-05-18",
   "subtotal": 1355.0,
   "in_register_year": false,
   "pages": [
@@ -631,7 +631,7 @@
  },
  {
   "invoice": "INV-7452",
-  "invoice_date": "18-May-2026",
+  "invoice_date": "2026-05-18",
   "subtotal": 3137.38,
   "in_register_year": false,
   "pages": [
@@ -641,9 +641,9 @@
  },
  {
   "invoice": "INV-7489",
-  "invoice_date": "22-May-2026",
+  "invoice_date": "2026-05-22",
   "subtotal": 3055.2,
-  "in_register_year": true,
+  "in_register_year": false,
   "pages": [
    88,
    88
@@ -651,9 +651,9 @@
  },
  {
   "invoice": "INV-7604",
-  "invoice_date": "29-May-2026",
+  "invoice_date": "2026-05-29",
   "subtotal": 2862.6,
-  "in_register_year": true,
+  "in_register_year": false,
   "pages": [
    89,
    89
@@ -661,9 +661,9 @@
  },
  {
   "invoice": "INV-7605",
-  "invoice_date": "29-May-2026",
+  "invoice_date": "2026-05-29",
   "subtotal": 2862.6,
-  "in_register_year": true,
+  "in_register_year": false,
   "pages": [
    90,
    90
@@ -671,9 +671,9 @@
  },
  {
   "invoice": "INV-7613",
-  "invoice_date": "29-May-2026",
+  "invoice_date": "2026-05-29",
   "subtotal": 23718.0,
-  "in_register_year": true,
+  "in_register_year": false,
   "pages": [
    91,
    91
@@ -681,7 +681,7 @@
  },
  {
   "invoice": "INV-7788",
-  "invoice_date": "12-Jun-2026",
+  "invoice_date": "2026-06-12",
   "subtotal": 2648.7,
   "in_register_year": false,
   "pages": [
@@ -691,7 +691,7 @@
  },
  {
   "invoice": "INV-7816",
-  "invoice_date": "16-Jun-2026",
+  "invoice_date": "2026-06-16",
   "subtotal": 3293.87,
   "in_register_year": false,
   "pages": [
@@ -701,7 +701,7 @@
  },
  {
   "invoice": "INV-7818",
-  "invoice_date": "16-Jun-2026",
+  "invoice_date": "2026-06-16",
   "subtotal": 2379.26,
   "in_register_year": false,
   "pages": [
@@ -711,7 +711,7 @@
  },
  {
   "invoice": "INV-7845",
-  "invoice_date": "17-Jun-2026",
+  "invoice_date": "2026-06-17",
   "subtotal": 2781.14,
   "in_register_year": false,
   "pages": [
@@ -721,7 +721,7 @@
  },
  {
   "invoice": "INV-7886",
-  "invoice_date": "19-Jun-2026",
+  "invoice_date": "2026-06-19",
   "subtotal": 2908.1,
   "in_register_year": false,
   "pages": [
@@ -731,7 +731,7 @@
  },
  {
   "invoice": "INV-7889",
-  "invoice_date": "19-Jun-2026",
+  "invoice_date": "2026-06-19",
   "subtotal": 2648.7,
   "in_register_year": false,
   "pages": [
