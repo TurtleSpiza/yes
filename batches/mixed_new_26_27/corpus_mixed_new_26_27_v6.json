@@ -58,6 +58,14 @@
      "F13 1026231/pages11-15: stem collided with 1026231/pages6-10; broken by invoice-number suffix"
     ]
    }
+  ],
+  "restatements": [
+   {
+    "rule": "R-MN-1/R-MN-2",
+    "rows": 10,
+    "findings": 2,
+    "detail": "Origin Energy summary: detached figures retyped NARRATIVE -> TOTALS and paired with their labels, pairing proved against the printed subtotal; Total Amount Due recorded as F1. No amount, tie or printed text changed."
+   }
   ]
  },
  "documents": [
@@ -95,7 +103,8 @@
    "evidence_stem": "Origin, electric, Aug-2026, 621879.10",
    "duplicate_of": null,
    "findings": [
-    "Printed GST $56534.10 differs from 10% of the subtotal $56534.50 by 0.40."
+    "Printed GST $56534.10 differs from 10% of the subtotal $56534.50 by 0.40.",
+    "F1 Total Amount Due $1,236,014.57 is the account balance and differs from the invoice total $621,879.10 by $614,135.47, because a balance is carried forward. printed_total_incl_gst is the CURRENT CHARGES and is the right figure for the register; the payable amount is the balance. R-MN-2."
    ],
    "notes": "ORIGIN template, raw-text route (pdftotext -layout), page text retained.",
    "lines": [
@@ -517,7 +526,7 @@
      "stated_amt": null,
      "band_hits": [],
      "work_order": null,
-     "note": null
+     "note": "R-MN-1: its figure $195,004.73 prints on row 32."
     },
     {
      "source": "TEXT",
@@ -537,7 +546,7 @@
      "stated_amt": null,
      "band_hits": [],
      "work_order": null,
-     "note": null
+     "note": "R-MN-1: its figure $2,325.14 prints on row 33."
     },
     {
      "source": "TEXT",
@@ -557,14 +566,14 @@
      "stated_amt": null,
      "band_hits": [],
      "work_order": null,
-     "note": null
+     "note": "R-MN-1: its figure $31,516.40 prints on row 34."
     },
     {
      "source": "TEXT",
      "page": 1,
      "line_no": 32,
      "line_text": "                                                               $195,004.73",
-     "line_type": "NARRATIVE",
+     "line_type": "TOTALS",
      "ocr_only": false,
      "ocr_status": "not_required",
      "ocr_reason": "text layer present",
@@ -577,14 +586,14 @@
      "stated_amt": null,
      "band_hits": [],
      "work_order": null,
-     "note": null
+     "note": "R-MN-1: the figure for 'Network Charges' (row 29). pdftotext -layout split the label and its figure onto separate rows, so this row reached ladder rung 9 and was typed NARRATIVE. The pairing is proved by the components summing to the printed subtotal."
     },
     {
      "source": "TEXT",
      "page": 1,
      "line_no": 33,
      "line_text": "                                                                 $2,325.14",
-     "line_type": "NARRATIVE",
+     "line_type": "TOTALS",
      "ocr_only": false,
      "ocr_status": "not_required",
      "ocr_reason": "text layer present",
@@ -597,14 +606,14 @@
      "stated_amt": null,
      "band_hits": [],
      "work_order": null,
-     "note": null
+     "note": "R-MN-1: the figure for 'Regulated Charges' (row 30). pdftotext -layout split the label and its figure onto separate rows, so this row reached ladder rung 9 and was typed NARRATIVE. The pairing is proved by the components summing to the printed subtotal."
     },
     {
      "source": "TEXT",
      "page": 1,
      "line_no": 34,
      "line_text": "                                                                $31,516.40",
-     "line_type": "NARRATIVE",
+     "line_type": "TOTALS",
      "ocr_only": false,
      "ocr_status": "not_required",
      "ocr_reason": "text layer present",
@@ -617,7 +626,7 @@
      "stated_amt": null,
      "band_hits": [],
      "work_order": null,
-     "note": null
+     "note": "R-MN-1: the figure for 'Environmental Charges' (row 31). pdftotext -layout split the label and its figure onto separate rows, so this row reached ladder rung 9 and was typed NARRATIVE. The pairing is proved by the components summing to the printed subtotal."
     },
     {
      "source": "TEXT",
@@ -717,7 +726,7 @@
      "stated_amt": null,
      "band_hits": [],
      "work_order": null,
-     "note": null
+     "note": "R-MN-1: its figure $565,345.00 prints on row 41."
     },
     {
      "source": "TEXT",
@@ -737,14 +746,14 @@
      "stated_amt": null,
      "band_hits": [],
      "work_order": null,
-     "note": null
+     "note": "R-MN-1: its figure $56,534.10 prints on row 42."
     },
     {
      "source": "TEXT",
      "page": 1,
      "line_no": 41,
      "line_text": "                                                               $565,345.00",
-     "line_type": "NARRATIVE",
+     "line_type": "TOTALS",
      "ocr_only": false,
      "ocr_status": "not_required",
      "ocr_reason": "text layer present",
@@ -757,14 +766,14 @@
      "stated_amt": null,
      "band_hits": [],
      "work_order": null,
-     "note": null
+     "note": "R-MN-1: the figure for 'Sub-Total' (row 39). pdftotext -layout split the label and its figure onto separate rows, so this row reached ladder rung 9 and was typed NARRATIVE. The pairing is proved by the components summing to the printed subtotal."
     },
     {
      "source": "TEXT",
      "page": 1,
      "line_no": 42,
      "line_text": "                                                                $56,534.10                       0                      47                               48",
-     "line_type": "NARRATIVE",
+     "line_type": "TOTALS",
      "ocr_only": false,
      "ocr_status": "not_required",
      "ocr_reason": "text layer present",
@@ -777,7 +786,7 @@
      "stated_amt": null,
      "band_hits": [],
      "work_order": null,
-     "note": null
+     "note": "R-MN-1: the figure for 'GST' (row 40). pdftotext -layout split the label and its figure onto separate rows, so this row reached ladder rung 9 and was typed NARRATIVE. The pairing is proved by the components summing to the printed subtotal."
     },
     {
      "source": "TEXT",
@@ -2299,7 +2308,7 @@
      "stated_amt": null,
      "band_hits": [],
      "work_order": null,
-     "note": null
+     "note": "R-MN-2: the Total Amount Due (row 148), which is the ACCOUNT BALANCE and not this invoice's total."
     },
     {
      "source": "TEXT",
@@ -5503,7 +5512,8 @@
     "4": "                                                                                                                                       Page 4 of 5\n\n\n\n   NMI: QB06500161 6 | Account no: 50002817857 | Period: 01 Jul 26 - 31 Jul 26 | Tax Invoice No: 7035395894\n   Site Address: Aka Wineglass Dr, 3495-3499 Mt Lindesay Highway, Hillcrest QLD 4118 | ABN: 21627796435\n                                                                                                  GST: $1,226.26\n   $12,227.45                                             $12,262.69                              Total: $13,488.95              $25,716.40\n\n   NMI: QB06527841 7 | Account no: 50002817858 | Period: 01 Jul 26 - 31 Jul 26 | Tax Invoice No: 7035395895\n   Site Address: Sewerage Pump Station Sps106, 194 Main Street, Mount Warren Park QLD 4207 | ABN: 21627796435\n                                                                                                  GST: $330.71\n   $3,884.61                                              $3,307.09                               Total: $3,637.80               $7,522.41\n\n   NMI: QB07218559 7 | Account no: 50002817859 | Period: 01 Jul 26 - 31 Jul 26 | Tax Invoice No: 7035395896\n   Site Address: Pump Station No5, Browns Plains Road, Heritage Park QLD 4118 | ABN: 21627796435\n                                                                                                  GST: $265.88\n   $3,203.63                                              $2,658.80                               Total: $2,924.68               $6,128.31\n\n   NMI: QB08280045 9 | Account no: 50002817860 | Period: 01 Jul 26 - 31 Jul 26 | Tax Invoice No: 7035395897\n   Site Address: 1-17, Main Centre, 1-17 Wineglass Drive, Hillcrest QLD 4118 | ABN: 21627796435\n                                                                                                  GST: $185.77\n   $1,853.32                                              $1,857.89                               Total: $2,043.66               $3,896.98\n\n   NMI: QB08840300 1 | Account no: 50002817861 | Period: 01 Jul 26 - 31 Jul 26 | Tax Invoice No: 7035395898\n   Site Address: 4-6 CNR SPRINGWOOD RD, Springwood Aquatic Centre, 4-6 Sports Drive, Underwood QLD 4119 | ABN: 21627796435\n                                                                                                  GST: $3,121.38\n   $31,828.59                                             $31,213.70                              Total: $34,335.08              $66,163.67\n\n   NMI: QB08841519 4 | Account no: 50002817862 | Period: 01 Jul 26 - 31 Jul 26 | Tax Invoice No: 7035395899\n   Site Address: 18-20, Beenleigh Civic Centre Library, 18-20 James Street, Beenleigh QLD 4207 | ABN: 21627796435\n                                                                                                  GST: $310.40\n   $2,987.35                                              $3,104.13                               Total: $3,414.53               $6,401.88\n\n   NMI: QB09356711 3 | Account no: 50002817863 | Period: 01 Jul 26 - 31 Jul 26 | Tax Invoice No: 7035395900\n   Site Address: Jimboomba Treatment Plant, 35 Matt Court, Jimboomba QLD 4280 | ABN: 21627796435\n                                                                                                  GST: $107.61\n   $1,103.62                                              $1,076.01                               Total: $1,183.62               $2,287.24\n\n   NMI: QB09711139 8 | Account no: 50002817865 | Period: 01 Jul 26 - 31 Jul 26 | Tax Invoice No: 7035395902\n   Site Address: 20-34, Logan Central Library, 20-34 Wilbur Street, Logan Central QLD 4114 | ABN: 21627796435\n                                                                                                  GST: $576.15\n   $6,383.27                                              $5,761.57                               Total: $6,337.72               $12,720.99\n\n   NMI: QB09928413 2 | Account no: 50002817866 | Period: 01 Jul 26 - 31 Jul 26 | Tax Invoice No: 7035395903\n   Site Address: 5176-5204, Sth Maclean Wtp, 5176-5194 Mt Lindesay Highway, Jimboomba QLD 4280 | ABN: 21627796435\n                                                                                                  GST: $472.81\n   $4,306.39                                              $4,728.32                               Total: $5,201.13               $9,507.52\n\n   NMI: QB10158162 9 | Account no: 50002817867 | Period: 01 Jul 26 - 31 Jul 26 | Tax Invoice No: 7035395904\n   Site Address: 339-355, Browns Plains Refuse-w/bridge, 339-355 Browns Plains Road, Heritage Park QLD 4118 | ABN: 21627796435\n                                                                                                  GST: $336.77\n   $3,454.74                                              $3,367.81                               Total: $3,704.58               $7,159.32\n\n   NMI: QB10621474 4 | Account no: 50002817868 | Period: 01 Jul 26 - 31 Jul 26 | Tax Invoice No: 7035395905\n   Site Address: 18-20, Beenleigh Civic Cntr Cmty, 18-20 James Street, Beenleigh QLD 4207 | ABN: 21627796435\n                                                                                                  GST: $240.87\n   $2,245.60                                              $2,408.88                               Total: $2,649.75               $4,895.35\n\n   NMI: QB11440112 0 | Account no: 50002817869 | Period: 01 Jul 26 - 31 Jul 26 | Tax Invoice No: 7035395906\n   Site Address: Logan Village Wpcp, Anzac Avenue, Logan Village QLD 4207 | ABN: 21627796435\n                                                                                                  GST: $1,029.81\n   $11,475.26                                             $10,298.28                              Total: $11,328.09              $22,803.35\n\n   NMI: QB12245399 2 | Account no: 50002817870 | Period: 01 Jul 26 - 31 Jul 26 | Tax Invoice No: 7035395907\n   Site Address: 88-118 NOFFKE PARK, 88-118 Station Road, Bethania QLD 4205 | ABN: 21627796435\n                                                                                                  GST: $126.64\n   $940.19                                                $1,266.35                               Total: $1,392.99               $2,333.18\n\n   NMI: QB12455083 0 | Account no: 50002817871 | Period: 01 Jul 26 - 31 Jul 26 | Tax Invoice No: 7035395908\n   Site Address: 66-70, Locan Hyperdome Library, 66-70 Mandew Street, Shailer Park QLD 4128 | ABN: 21627796435\n                                                                                                  GST: $250.26\n   $2,477.77                                              $2,502.64                               Total: $2,752.90               $5,230.67\n\n   NMI: QB13343521 3 | Account no: 50002817873 | Period: 01 Jul 26 - 31 Jul 26 | Tax Invoice No: 7035395910\n   Site Address: 2-36, Beenleigh Indoor Sporting Comp, 2-36 Milne Street, Mount Warren Park QLD 4207 | ABN: 21627796435\n                                                                                                  GST: $443.88\n   $4,487.00                                              $4,438.78                               Total: $4,882.66               $9,369.66\n\nOrigin Energy Electricity Limited A.B.N. 33 071 052 287\n\f",
     "5": "                                                                                                                         Page 5 of 5\n\n\n\n   NMI: 3120781918 7 | Account no: 50002906578 | Period: 01 Jul 26 - 31 Jul 26 | Tax Invoice No: 7035395911\n   Site Address: Sewerage Plant 2, Chetwynd Street, Loganholme QLD 4129 | ABN: 21627796435\n                                                                                               GST: $7,748.81\n   $82,144.77                                             $77,487.99                           Total: $85,236.80   $167,381.57\n\n   NMI: 3120675057 3 | Account no: 50002937814 | Period: 01 Jul 26 - 31 Jul 26 | Tax Invoice No: 7035395912\n   Site Address: Car Park, 96 York Street, Beenleigh QLD 4207 | ABN: 21627796435\n                                                                                               GST: $432.11\n   $4,689.82                                              $4,321.08                            Total: $4,753.19    $9,443.01\n\n   NMI: QB10790446 8 | Account no: 50002940795 | Period: 01 Jul 26 - 31 Jul 26 | Tax Invoice No: 7035395913\n   Site Address: Logan Garden Park, Civic Parade, Logan Central QLD 4114 | ABN: 21627796435\n                                                                                               GST: $275.22\n   $2,570.35                                              $2,752.17                            Total: $3,027.39    $5,597.74\n\n   NMI: 3120198775 8 | Account no: 50002951679 | Period: 01 Jul 26 - 31 Jul 26 | Tax Invoice No: 7035395914\n   Site Address: Pump Station, Waterford Tamborine Road, Yarrabilba QLD 4207 | ABN: 21627796435\n                                                                                               GST: $415.82\n   $4,482.21                                              $4,158.15                            Total: $4,573.97    $9,056.18\n\n   NMI: 3120126889 3 | Account no: 50002951680 | Period: 01 Jul 26 - 31 Jul 26 | Tax Invoice No: 7035395915\n   Site Address: Allconnex Water, 531 Chambers Flat Road, Park Ridge QLD 4125 | ABN: 21627796435\n                                                                                               GST: $530.06\n   $3,896.23                                              $5,300.65                            Total: $5,830.71    $9,726.94\n\n   NMI: QB07550537 9 | Account no: 50002952392 | Period: 01 Jul 26 - 31 Jul 26 | Tax Invoice No: 7035395916\n   Site Address: Sewerage Pump Station, 210 River Hills Road, Eagleby QLD 4207 | ABN: 21627796435\n                                                                                               GST: $223.28\n   $3,279.56                                              $2,232.88                            Total: $2,456.16    $5,735.72\n\n   NMI: 3120930222 3 | Account no: 50002955892 | Period: 01 Jul 26 - 31 Jul 26 | Tax Invoice No: 7035395917\n   Site Address: Primary Load Control, 319 Logan Street, Eagleby QLD 4207 | ABN: 21627796435\n                                                                                               GST: $1,331.12\n   $17,618.97                                             $13,311.31                           Total: $14,642.43   $32,261.40\n\n\n\n\nOrigin Energy Electricity Limited A.B.N. 33 071 052 287\n\f"
    },
-   "vendor_template": "ORIGIN"
+   "vendor_template": "ORIGIN",
+   "amount_due_printed": 1236014.57
   },
   {
    "doc_ref": "1026231/pages6-10",
@@ -5539,7 +5549,8 @@
    "evidence_stem": "Origin, electric, Sep-2026, 634612.71",
    "duplicate_of": null,
    "findings": [
-    "Printed GST $57691.63 differs from 10% of the subtotal $57692.11 by 0.48."
+    "Printed GST $57691.63 differs from 10% of the subtotal $57692.11 by 0.48.",
+    "F1 Total Amount Due $1,255,428.76 is the account balance and differs from the invoice total $634,612.71 by $620,816.05, because a balance is carried forward. printed_total_incl_gst is the CURRENT CHARGES and is the right figure for the register; the payable amount is the balance. R-MN-2."
    ],
    "notes": "ORIGIN template, raw-text route (pdftotext -layout), page text retained.",
    "lines": [
@@ -5961,7 +5972,7 @@
      "stated_amt": null,
      "band_hits": [],
      "work_order": null,
-     "note": null
+     "note": "R-MN-1: its figure $198,280.39 prints on row 32."
     },
     {
      "source": "TEXT",
@@ -5981,7 +5992,7 @@
      "stated_amt": null,
      "band_hits": [],
      "work_order": null,
-     "note": null
+     "note": "R-MN-1: its figure $2,657.26 prints on row 33."
     },
     {
      "source": "TEXT",
@@ -6001,14 +6012,14 @@
      "stated_amt": null,
      "band_hits": [],
      "work_order": null,
-     "note": null
+     "note": "R-MN-1: its figure $32,121.51 prints on row 34."
     },
     {
      "source": "TEXT",
      "page": 6,
      "line_no": 32,
      "line_text": "                                                               $198,280.39",
-     "line_type": "NARRATIVE",
+     "line_type": "TOTALS",
      "ocr_only": false,
      "ocr_status": "not_required",
      "ocr_reason": "text layer present",
@@ -6021,14 +6032,14 @@
      "stated_amt": null,
      "band_hits": [],
      "work_order": null,
-     "note": null
+     "note": "R-MN-1: the figure for 'Network Charges' (row 29). pdftotext -layout split the label and its figure onto separate rows, so this row reached ladder rung 9 and was typed NARRATIVE. The pairing is proved by the components summing to the printed subtotal."
     },
     {
      "source": "TEXT",
      "page": 6,
      "line_no": 33,
      "line_text": "                                                                 $2,657.26",
-     "line_type": "NARRATIVE",
+     "line_type": "TOTALS",
      "ocr_only": false,
      "ocr_status": "not_required",
      "ocr_reason": "text layer present",
@@ -6041,14 +6052,14 @@
      "stated_amt": null,
      "band_hits": [],
      "work_order": null,
-     "note": null
+     "note": "R-MN-1: the figure for 'Regulated Charges' (row 30). pdftotext -layout split the label and its figure onto separate rows, so this row reached ladder rung 9 and was typed NARRATIVE. The pairing is proved by the components summing to the printed subtotal."
     },
     {
      "source": "TEXT",
      "page": 6,
      "line_no": 34,
      "line_text": "                                                                $32,121.51",
-     "line_type": "NARRATIVE",
+     "line_type": "TOTALS",
      "ocr_only": false,
      "ocr_status": "not_required",
      "ocr_reason": "text layer present",
@@ -6061,7 +6072,7 @@
      "stated_amt": null,
      "band_hits": [],
      "work_order": null,
-     "note": null
+     "note": "R-MN-1: the figure for 'Environmental Charges' (row 31). pdftotext -layout split the label and its figure onto separate rows, so this row reached ladder rung 9 and was typed NARRATIVE. The pairing is proved by the components summing to the printed subtotal."
     },
     {
      "source": "TEXT",
@@ -6161,7 +6172,7 @@
      "stated_amt": null,
      "band_hits": [],
      "work_order": null,
-     "note": null
+     "note": "R-MN-1: its figure $576,921.08 prints on row 41."
     },
     {
      "source": "TEXT",
@@ -6181,14 +6192,14 @@
      "stated_amt": null,
      "band_hits": [],
      "work_order": null,
-     "note": null
+     "note": "R-MN-1: its figure $57,691.63 prints on row 42."
     },
     {
      "source": "TEXT",
      "page": 6,
      "line_no": 41,
      "line_text": "                                                               $576,921.08",
-     "line_type": "NARRATIVE",
+     "line_type": "TOTALS",
      "ocr_only": false,
      "ocr_status": "not_required",
      "ocr_reason": "text layer present",
@@ -6201,14 +6212,14 @@
      "stated_amt": null,
      "band_hits": [],
      "work_order": null,
-     "note": null
+     "note": "R-MN-1: the figure for 'Sub-Total' (row 39). pdftotext -layout split the label and its figure onto separate rows, so this row reached ladder rung 9 and was typed NARRATIVE. The pairing is proved by the components summing to the printed subtotal."
     },
     {
      "source": "TEXT",
      "page": 6,
      "line_no": 42,
      "line_text": "                                                                $57,691.63                       0                      46                               46",
-     "line_type": "NARRATIVE",
+     "line_type": "TOTALS",
      "ocr_only": false,
      "ocr_status": "not_required",
      "ocr_reason": "text layer present",
@@ -6221,7 +6232,7 @@
      "stated_amt": null,
      "band_hits": [],
      "work_order": null,
-     "note": null
+     "note": "R-MN-1: the figure for 'GST' (row 40). pdftotext -layout split the label and its figure onto separate rows, so this row reached ladder rung 9 and was typed NARRATIVE. The pairing is proved by the components summing to the printed subtotal."
     },
     {
      "source": "TEXT",
@@ -7809,7 +7820,7 @@
      "stated_amt": null,
      "band_hits": [],
      "work_order": null,
-     "note": null
+     "note": "R-MN-2: the Total Amount Due (row 148), which is the ACCOUNT BALANCE and not this invoice's total."
     },
     {
      "source": "TEXT",
@@ -10931,7 +10942,8 @@
     "9": "                                                                                                                                       Page 4 of 5\n\n\n   NMI: QB06527841 7 | Account no: 50002817858 | Period: 01 Aug 26 - 31 Aug 26 | Tax Invoice No: 7036042277\n   Site Address: Sewerage Pump Station Sps106, 194 Main Street, Mount Warren Park QLD 4207 | ABN: 21627796435\n                                                                                                  GST: $403.58\n   $3,637.80                                              $4,035.76                               Total: $4,439.34               $8,077.14\n\n   NMI: QB07218559 7 | Account no: 50002817859 | Period: 01 Aug 26 - 31 Aug 26 | Tax Invoice No: 7036042278\n   Site Address: Pump Station No5, Browns Plains Road, Heritage Park QLD 4118 | ABN: 21627796435\n                                                                                                  GST: $276.02\n   $2,924.68                                              $2,760.34                               Total: $3,036.36               $5,961.04\n\n   NMI: QB08280045 9 | Account no: 50002817860 | Period: 01 Aug 26 - 31 Aug 26 | Tax Invoice No: 7036042279\n   Site Address: 1-17, Main Centre, 1-17 Wineglass Drive, Hillcrest QLD 4118 | ABN: 21627796435\n                                                                                                  GST: $174.77\n   $2,043.66                                              $1,747.90                               Total: $1,922.67               $3,966.33\n\n   NMI: QB08840300 1 | Account no: 50002817861 | Period: 01 Aug 26 - 31 Aug 26 | Tax Invoice No: 7036042280\n   Site Address: 4-6 CNR SPRINGWOOD RD, Springwood Aquatic Centre, 4-6 Sports Drive, Underwood QLD 4119 | ABN: 21627796435\n                                                                                                  GST: $2,807.75\n   $34,335.08                                             $28,077.73                              Total: $30,885.48              $65,220.56\n\n   NMI: QB08841519 4 | Account no: 50002817862 | Period: 01 Aug 26 - 31 Aug 26 | Tax Invoice No: 7036042281\n   Site Address: 18-20, Beenleigh Civic Centre Library, 18-20 James Street, Beenleigh QLD 4207 | ABN: 21627796435\n                                                                                                  GST: $289.86\n   $3,414.53                                              $2,898.94                               Total: $3,188.80               $6,603.33\n\n   NMI: QB09356711 3 | Account no: 50002817863 | Period: 01 Aug 26 - 31 Aug 26 | Tax Invoice No: 7036042282\n   Site Address: Jimboomba Treatment Plant, 35 Matt Court, Jimboomba QLD 4280 | ABN: 21627796435\n                                                                                                  GST: $109.87\n   $1,183.62                                              $1,098.75                               Total: $1,208.62               $2,392.24\n\n   NMI: QB09711139 8 | Account no: 50002817865 | Period: 01 Aug 26 - 31 Aug 26 | Tax Invoice No: 7036042284\n   Site Address: 20-34, Logan Central Library, 20-34 Wilbur Street, Logan Central QLD 4114 | ABN: 21627796435\n                                                                                                  GST: $626.88\n   $6,337.72                                              $6,269.02                               Total: $6,895.90               $13,233.62\n\n   NMI: QB09928413 2 | Account no: 50002817866 | Period: 01 Aug 26 - 31 Aug 26 | Tax Invoice No: 7036042285\n   Site Address: 5176-5204, Sth Maclean Wtp, 5176-5194 Mt Lindesay Highway, Jimboomba QLD 4280 | ABN: 21627796435\n                                                                                                  GST: $530.21\n   $5,201.13                                              $5,302.09                               Total: $5,832.30               $11,033.43\n\n   NMI: QB10158162 9 | Account no: 50002817867 | Period: 01 Aug 26 - 31 Aug 26 | Tax Invoice No: 7036042286\n   Site Address: 339-355, Browns Plains Refuse-w/bridge, 339-355 Browns Plains Road, Heritage Park QLD 4118 | ABN: 21627796435\n                                                                                                  GST: $303.80\n   $3,704.58                                              $3,038.10                               Total: $3,341.90               $7,046.48\n\n   NMI: QB10621474 4 | Account no: 50002817868 | Period: 01 Aug 26 - 31 Aug 26 | Tax Invoice No: 7036042287\n   Site Address: 18-20, Beenleigh Civic Cntr Cmty, 18-20 James Street, Beenleigh QLD 4207 | ABN: 21627796435\n                                                                                                  GST: $262.77\n   $2,649.75                                              $2,627.77                               Total: $2,890.54               $5,540.29\n\n   NMI: QB11440112 0 | Account no: 50002817869 | Period: 01 Aug 26 - 31 Aug 26 | Tax Invoice No: 7036042288\n   Site Address: Logan Village Wpcp, Anzac Avenue, Logan Village QLD 4207 | ABN: 21627796435\n                                                                                                  GST: $1,047.95\n   $11,328.09                                             $10,479.59                              Total: $11,527.54              $22,855.63\n\n   NMI: QB12245399 2 | Account no: 50002817870 | Period: 01 Aug 26 - 31 Aug 26 | Tax Invoice No: 7036042289\n   Site Address: 88-118 NOFFKE PARK, 88-118 Station Road, Bethania QLD 4205 | ABN: 21627796435\n                                                                                                  GST: $158.04\n   $1,392.99                                              $1,580.51                               Total: $1,738.55               $3,131.54\n\n   NMI: QB12455083 0 | Account no: 50002817871 | Period: 01 Aug 26 - 31 Aug 26 | Tax Invoice No: 7036042290\n   Site Address: 66-70, Locan Hyperdome Library, 66-70 Mandew Street, Shailer Park QLD 4128 | ABN: 21627796435\n                                                                                                  GST: $234.97\n   $2,752.90                                              $2,349.85                               Total: $2,584.82               $5,337.72\n\n   NMI: QB13343521 3 | Account no: 50002817873 | Period: 01 Aug 26 - 31 Aug 26 | Tax Invoice No: 7036042292\n   Site Address: 2-36, Beenleigh Indoor Sporting Comp, 2-36 Milne Street, Mount Warren Park QLD 4207 | ABN: 21627796435\n                                                                                                  GST: $389.39\n   $4,882.66                                              $3,894.08                               Total: $4,283.47               $9,166.13\n\n   NMI: 3120781918 7 | Account no: 50002906578 | Period: 01 Aug 26 - 31 Aug 26 | Tax Invoice No: 7036042293\n   Site Address: Sewerage Plant 2, Chetwynd Street, Loganholme QLD 4129 | ABN: 21627796435\n                                                                                                  GST: $7,972.62\n   $85,236.80                                             $79,726.30                              Total: $87,698.92              $172,935.72\n\n\n\nOrigin Energy Electricity Limited A.B.N. 33 071 052 287\n\f",
     "10": "                                                                                                                         Page 5 of 5\n\n\n   NMI: 3120675057 3 | Account no: 50002937814 | Period: 01 Aug 26 - 31 Aug 26 | Tax Invoice No: 7036042294\n   Site Address: Car Park, 96 York Street, Beenleigh QLD 4207 | ABN: 21627796435\n                                                                                               GST: $442.26\n   $4,753.19                                              $4,422.83                            Total: $4,865.09    $9,618.28\n\n   NMI: QB10790446 8 | Account no: 50002940795 | Period: 01 Aug 26 - 31 Aug 26 | Tax Invoice No: 7036042295\n   Site Address: Logan Garden Park, Civic Parade, Logan Central QLD 4114 | ABN: 21627796435\n                                                                                               GST: $282.24\n   $3,027.39                                              $2,822.57                            Total: $3,104.81    $6,132.20\n\n   NMI: 3120198775 8 | Account no: 50002951679 | Period: 01 Aug 26 - 31 Aug 26 | Tax Invoice No: 7036042296\n   Site Address: Pump Station, Waterford Tamborine Road, Yarrabilba QLD 4207 | ABN: 21627796435\n                                                                                               GST: $407.48\n   $4,573.97                                              $4,074.93                            Total: $4,482.41    $9,056.38\n\n   NMI: 3120126889 3 | Account no: 50002951680 | Period: 01 Aug 26 - 31 Aug 26 | Tax Invoice No: 7036042297\n   Site Address: Allconnex Water, 531 Chambers Flat Road, Park Ridge QLD 4125 | ABN: 21627796435\n                                                                                               GST: $519.91\n   $5,830.71                                              $5,199.34                            Total: $5,719.25    $11,549.96\n\n   NMI: QB07550537 9 | Account no: 50002952392 | Period: 01 Aug 26 - 31 Aug 26 | Tax Invoice No: 7036042298\n   Site Address: Sewerage Pump Station, 210 River Hills Road, Eagleby QLD 4207 | ABN: 21627796435\n                                                                                               GST: $230.31\n   $2,456.16                                              $2,303.28                            Total: $2,533.59    $4,989.75\n\n   NMI: 3120930222 3 | Account no: 50002955892 | Period: 01 Aug 26 - 31 Aug 26 | Tax Invoice No: 7036042299\n   Site Address: Primary Load Control, 319 Logan Street, Eagleby QLD 4207 | ABN: 21627796435\n                                                                                               GST: $1,269.86\n   $14,642.43                                             $12,698.67                           Total: $13,968.53   $28,610.96\n\n\n\n\nOrigin Energy Electricity Limited A.B.N. 33 071 052 287\n\f"
    },
-   "vendor_template": "ORIGIN"
+   "vendor_template": "ORIGIN",
+   "amount_due_printed": 1255428.76
   },
   {
    "doc_ref": "1026231/pages11-15",
