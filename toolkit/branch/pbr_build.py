@@ -14,6 +14,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import pbr_stage
 import pbr_binder_retention
+import pbr_reports
 import pbr_retention
 
 VER = 'v25'
@@ -1888,3 +1889,12 @@ if __name__ == '__main__':
         n = pbr_binder_retention.apply(bpl, log=say)
         say(f'binder retention: {n} binder(s) deleted, {bpl["delete_mb"]} MB; '
             f'{len(bpl["keep"])} kept, each with its reason (--json for the plan)')
+    # The three pull reports are read by Finance and are cut from the register this leg just shipped, so a
+    # version that ships without them leaves the last set quoting figures the register has moved past. Only
+    # the cheap half runs here: regenerating all three takes longer than the whole build, so this asserts
+    # they EXIST at the shipped version, which is the lapse worth catching. It warns rather than failing,
+    # because the register is already verified and shipped by this point and is not made wrong by a late report.
+    _missing = pbr_reports.check(VER)
+    say(f'reports: all three pull reports present at {VER}' if not _missing else
+        f'reports: STALE, {len(_missing)} file(s) missing at {VER} ({", ".join(_missing[:3])}...). '
+        f'Run python3 toolkit/branch/pbr_reports.py --build')

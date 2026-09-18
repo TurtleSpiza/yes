@@ -113,6 +113,17 @@ A binder is deleted only where **all five** conditions in `pbr_binder_retention_
 
 The ship leg calls it after a clean verify, for the same reason the register leg is there: a rule the driver applies cannot lapse, and a rule a session has to remember will. Unlike a register, a deleted binder cannot be rebuilt and has to be re-supplied, so `PBR_KEEP_BINDERS=1` disables the leg.
 
+## The three pull reports
+
+`reports/` carries three cuts of the same queue, each from the shipped registers and each answering a different question: **Contractor_Pull** (by supplier: what is unevidenced and what one pull would close it), **Journal_Pull** (by TechOne document file, rule 21) and **Unidentified_Contractors** (Tier 3 lines grouped into series). Every register version from v12 carries a full set.
+
+```
+python3 toolkit/branch/pbr_reports.py --check v25   # do all three exist at this version?
+python3 toolkit/branch/pbr_reports.py --build       # regenerate all three from the newest shipped registers
+```
+
+The ship leg runs the **check**, not the build. Regenerating all three takes longer than the build itself, so the leg asserts only that a report of the shipped version exists for each family, which is the lapse actually worth catching: a version shipping with the previous version's reports still in place, quoting figures the register has moved past. It warns rather than failing, because by then the register is verified and shipped and is not made wrong by a late report. Proving the contents are current is `--build` to a scratch directory and a diff.
+
 ## Capturing a new invoice batch
 
 1. Copilot chat produces headers only for tabular invoices (see `batches/*/capture_report_*_v5.md`). Run the raw-text route instead: `PDF=path/to/binder.pdf OUT=batches/<batch>/corpus_<batch>_v6.json python3 toolkit/branch/parse_mixed_new.py` (add a vendor template if the binder carries a new layout). A corpus supplied under extraction prompt v6 runtime A (binder not supplied) goes through `python3 toolkit/branch/prep_supplied_corpus.py <batch> batches/<batch>/corpus_<batch>_as_supplied.json batches/<batch>` instead: register the batch and its vendor templates there, and it stamps the md5, restates only what the retained rows decide (R1 to R4, each logged per document), gates, and runs the per-vendor fidelity check.
